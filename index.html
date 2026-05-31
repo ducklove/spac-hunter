@@ -1265,6 +1265,7 @@ tbody tr.active {
       ['네이버', item.naverUrl],
       ['DART 공시검색', item.disclosureUrl],
       ['KIND 상장법인목록', data.sourceLinks && data.sourceLinks.kindCorpList],
+      ['KOFR', data.sourceLinks && data.sourceLinks.kofr],
       ['OpenDART API', data.sourceLinks && data.sourceLinks.openDartGuide]
     ].filter(link => link[1]);
     document.getElementById('sourceLinks').innerHTML = links.map(([label, url]) => `

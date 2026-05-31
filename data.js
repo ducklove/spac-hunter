@@ -1,7 +1,7 @@
 window.SPAC_DATA = {
   "source": "KRX/KIND/Naver",
-  "lastUpdated": "2026-06-01 08:49:00 KST",
-  "generatedAt": "2026-06-01T08:49:00.388380+09:00",
+  "lastUpdated": "2026-06-01 08:53:40 KST",
+  "generatedAt": "2026-06-01T08:53:40.253359+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -9,7 +9,25 @@ window.SPAC_DATA = {
     "ipoPrice": "기본 2,000원, overrides.json으로 보정",
     "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
     "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
+    "trustRate": "KOFR 최신 공시금리 2.560%(2026.06.01)",
     "expectedReturn": "추정 청산분배금/현재가 - 1"
+  },
+  "rateAssumption": {
+    "annualRate": 0.0256,
+    "annualRatePct": 2.56,
+    "source": "KOFR 최신 공시금리 2.560%(2026.06.01)",
+    "kofr": {
+      "source": "KOFR",
+      "sourceUrl": "https://www.kofr.kr/main.jsp",
+      "publishedDate": "2026.06.01",
+      "standardDate": "2026.05.29",
+      "latestRatePct": 2.56,
+      "rate": 0.0256,
+      "d30AvgPct": 2.53667,
+      "d90AvgPct": 2.53322,
+      "d180AvgPct": 2.55493,
+      "lastModified": "2026.06.01 08:00:36"
+    }
   },
   "summary": {
     "totalCount": 73,
@@ -19,7 +37,7 @@ window.SPAC_DATA = {
     "mergerCount": 0,
     "recentListingCount": 5,
     "averageRatio": 1.0376,
-    "averageAnnualizedReturn": -0.34,
+    "averageAnnualizedReturn": 1.43,
     "cheapest": {
       "code": "0131D0",
       "name": "키움히어로제2호스팩",
@@ -27,10 +45,10 @@ window.SPAC_DATA = {
       "currentPrice": 1981
     },
     "bestYield": {
-      "code": "477340",
-      "name": "에이치엠씨제7호스팩",
-      "annualizedReturn": 3.7,
-      "currentPrice": 2030
+      "code": "469900",
+      "name": "하나31호스팩",
+      "annualizedReturn": 5.95,
+      "currentPrice": 2065
     }
   },
   "spacs": [
@@ -55,11 +73,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2029-04-23",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 1057,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 6.51,
-      "annualizedReturn": 2.2,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.92,
+      "annualizedReturn": 2.99,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -87,7 +105,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.724527+09:00",
+        "tradedAt": "2026-06-01T08:53:47.938212+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -280,11 +298,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2029-04-01",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 1035,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 6.03,
-      "annualizedReturn": 2.09,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.43,
+      "annualizedReturn": 2.89,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -312,7 +330,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.456835+09:00",
+        "tradedAt": "2026-06-01T08:53:47.010204+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -535,11 +553,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2029-04-30",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 1064,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.93,
-      "annualizedReturn": 1.99,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.32,
+      "annualizedReturn": 2.78,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -567,7 +585,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.474401+09:00",
+        "tradedAt": "2026-06-01T08:53:47.011355+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -730,11 +748,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2029-04-02",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 1036,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.61,
-      "annualizedReturn": 1.94,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.99,
+      "annualizedReturn": 2.75,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -762,7 +780,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.137916+09:00",
+        "tradedAt": "2026-06-01T08:53:45.957438+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -985,11 +1003,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-01",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 914,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.61,
-      "annualizedReturn": 2.2,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.99,
+      "annualizedReturn": 3.12,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -1017,7 +1035,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.327806+09:00",
+        "tradedAt": "2026-06-01T08:53:46.473796+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -1240,11 +1258,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 924,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.61,
-      "annualizedReturn": 2.18,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.99,
+      "annualizedReturn": 3.08,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -1272,7 +1290,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.67295+09:00",
+        "tradedAt": "2026-06-01T08:53:47.883519+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -1495,11 +1513,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 852,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.56,
-      "annualizedReturn": 2.34,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.94,
+      "annualizedReturn": 3.33,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -1527,7 +1545,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.140354+09:00",
+        "tradedAt": "2026-06-01T08:53:45.897891+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -1750,11 +1768,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2029-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 1030,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.56,
-      "annualizedReturn": 1.93,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.94,
+      "annualizedReturn": 2.74,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -1782,7 +1800,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.550603+09:00",
+        "tradedAt": "2026-06-01T08:53:48.045371+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -2005,11 +2023,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 936,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.11,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.0,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -2037,7 +2055,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.228482+09:00",
+        "tradedAt": "2026-06-01T08:53:46.125694+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -2260,11 +2278,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-11-27",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 910,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.17,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.09,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -2292,7 +2310,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.296358+09:00",
+        "tradedAt": "2026-06-01T08:53:46.469716+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -2515,11 +2533,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-08-21",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 812,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.44,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.47,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -2547,7 +2565,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.327258+09:00",
+        "tradedAt": "2026-06-01T08:53:46.573271+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -2770,11 +2788,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 911,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.17,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.09,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -2802,7 +2820,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.377921+09:00",
+        "tradedAt": "2026-06-01T08:53:46.763801+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -3025,11 +3043,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2029-01-21",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 965,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.05,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 2.91,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -3057,7 +3075,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.379514+09:00",
+        "tradedAt": "2026-06-01T08:53:46.776374+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -3280,11 +3298,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 728,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.72,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.88,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -3312,7 +3330,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.473279+09:00",
+        "tradedAt": "2026-06-01T08:53:47.008267+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -3535,11 +3553,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 925,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.14,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.04,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -3567,7 +3585,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.727185+09:00",
+        "tradedAt": "2026-06-01T08:53:47.937926+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -3790,11 +3808,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 935,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.5,
-      "annualizedReturn": 2.11,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.01,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -3822,7 +3840,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.79442+09:00",
+        "tradedAt": "2026-06-01T08:53:48.45489+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -4045,11 +4063,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 782,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.24,
-      "annualizedReturn": 2.41,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.62,
+      "annualizedReturn": 3.49,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -4077,7 +4095,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.230481+09:00",
+        "tradedAt": "2026-06-01T08:53:46.101197+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -4300,11 +4318,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 935,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.24,
-      "annualizedReturn": 2.01,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.62,
+      "annualizedReturn": 2.91,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -4332,7 +4350,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.230104+09:00",
+        "tradedAt": "2026-06-01T08:53:46.760409+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -4555,11 +4573,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 904,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.24,
-      "annualizedReturn": 2.08,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.62,
+      "annualizedReturn": 3.01,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -4587,7 +4605,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.327191+09:00",
+        "tradedAt": "2026-06-01T08:53:46.453757+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -4810,11 +4828,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-08-06",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 797,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 5.24,
-      "annualizedReturn": 2.37,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.62,
+      "annualizedReturn": 3.42,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -4842,7 +4860,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.786111+09:00",
+        "tradedAt": "2026-06-01T08:53:48.631736+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -5065,11 +5083,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-07-04",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 764,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.98,
-      "annualizedReturn": 2.35,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.35,
+      "annualizedReturn": 3.45,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -5097,7 +5115,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.139841+09:00",
+        "tradedAt": "2026-06-01T08:53:45.895898+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -5320,11 +5338,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 852,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.72,
-      "annualizedReturn": 1.99,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.08,
+      "annualizedReturn": 2.97,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -5352,7 +5370,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.350441+09:00",
+        "tradedAt": "2026-06-01T08:53:46.694411+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -5575,11 +5593,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 782,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.46,
-      "annualizedReturn": 2.06,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.82,
+      "annualizedReturn": 3.13,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -5607,7 +5625,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.584951+09:00",
+        "tradedAt": "2026-06-01T08:53:47.740221+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -5830,11 +5848,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 558,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.45,
-      "annualizedReturn": 2.89,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.81,
+      "annualizedReturn": 4.4,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -5862,7 +5880,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.727558+09:00",
+        "tradedAt": "2026-06-01T08:53:48.150808+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -6085,11 +6103,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-08-14",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 805,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 1.88,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 2.92,
       "status": "일반",
       "badges": [
         "일반"
@@ -6117,7 +6135,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.141731+09:00",
+        "tradedAt": "2026-06-01T08:53:45.956215+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -6340,11 +6358,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 545,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 2.79,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 4.34,
       "status": "일반",
       "badges": [
         "일반"
@@ -6372,7 +6390,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.20614+09:00",
+        "tradedAt": "2026-06-01T08:53:46.163065+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -6595,11 +6613,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-11-15",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 532,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 2.86,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 4.45,
       "status": "일반",
       "badges": [
         "일반"
@@ -6627,7 +6645,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.443851+09:00",
+        "tradedAt": "2026-06-01T08:53:47.009163+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -6850,11 +6868,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 918,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 1.65,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 2.56,
       "status": "일반",
       "badges": [
         "일반"
@@ -6882,7 +6900,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.561628+09:00",
+        "tradedAt": "2026-06-01T08:53:47.60179+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -7105,11 +7123,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-01-23",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 601,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 2.53,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 3.93,
       "status": "일반",
       "badges": [
         "일반"
@@ -7137,7 +7155,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.655934+09:00",
+        "tradedAt": "2026-06-01T08:53:47.817936+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -7360,11 +7378,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-12-20",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 567,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 2.68,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 4.17,
       "status": "일반",
       "badges": [
         "일반"
@@ -7392,7 +7410,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.706252+09:00",
+        "tradedAt": "2026-06-01T08:53:48.14927+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -7615,11 +7633,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-11-19",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 536,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 4.2,
-      "annualizedReturn": 2.84,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.55,
+      "annualizedReturn": 4.41,
       "status": "일반",
       "badges": [
         "일반"
@@ -7647,7 +7665,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.787852+09:00",
+        "tradedAt": "2026-06-01T08:53:48.242622+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -7870,11 +7888,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 570,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 3.94,
-      "annualizedReturn": 2.5,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.28,
+      "annualizedReturn": 3.98,
       "status": "일반",
       "badges": [
         "일반"
@@ -7902,7 +7920,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.398895+09:00",
+        "tradedAt": "2026-06-01T08:53:47.000688+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -8125,11 +8143,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 388,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 3.94,
-      "annualizedReturn": 3.7,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.28,
+      "annualizedReturn": 5.9,
       "status": "일반",
       "badges": [
         "일반"
@@ -8157,7 +8175,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.568154+09:00",
+        "tradedAt": "2026-06-01T08:53:47.601433+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -8380,11 +8398,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 559,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 3.43,
-      "annualizedReturn": 2.23,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.76,
+      "annualizedReturn": 3.73,
       "status": "일반",
       "badges": [
         "일반"
@@ -8412,7 +8430,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.025868+09:00",
+        "tradedAt": "2026-06-01T08:53:45.648195+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -8635,11 +8653,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-08-13",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 438,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 3.43,
-      "annualizedReturn": 2.85,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.76,
+      "annualizedReturn": 4.78,
       "status": "일반",
       "badges": [
         "일반"
@@ -8667,7 +8685,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.101766+09:00",
+        "tradedAt": "2026-06-01T08:53:45.982089+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -8890,11 +8908,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 925,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 3.43,
-      "annualizedReturn": 1.34,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.77,
+      "annualizedReturn": 2.24,
       "status": "일반",
       "badges": [
         "일반"
@@ -8922,7 +8940,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.139307+09:00",
+        "tradedAt": "2026-06-01T08:53:45.94868+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -9147,7 +9165,7 @@ window.SPAC_DATA = {
       "daysToLiquidation": null,
       "trustValuePerShare": 2000.0,
       "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": -2.2,
       "annualizedReturn": null,
       "status": "일반",
@@ -9166,7 +9184,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.495903+09:00",
+        "tradedAt": "2026-06-01T08:53:48.045739+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -9378,7 +9396,7 @@ window.SPAC_DATA = {
       "daysToLiquidation": null,
       "trustValuePerShare": 2000.0,
       "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": -2.44,
       "annualizedReturn": null,
       "status": "일반",
@@ -9397,7 +9415,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.018698+09:00",
+        "tradedAt": "2026-06-01T08:53:45.650455+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -9607,11 +9625,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-05-02",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 335,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.92,
-      "annualizedReturn": 3.19,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.25,
+      "annualizedReturn": 5.73,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -9639,7 +9657,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.597904+09:00",
+        "tradedAt": "2026-06-01T08:53:47.800913+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -9862,11 +9880,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-07-12",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 406,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.92,
-      "annualizedReturn": 2.63,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.25,
+      "annualizedReturn": 4.7,
       "status": "일반",
       "badges": [
         "일반"
@@ -9894,7 +9912,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.672251+09:00",
+        "tradedAt": "2026-06-01T08:53:47.884398+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -10117,11 +10135,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-03-20",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 658,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.93,
-      "annualizedReturn": 1.61,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.25,
+      "annualizedReturn": 2.88,
       "status": "일반",
       "badges": [
         "일반"
@@ -10149,7 +10167,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.808463+09:00",
+        "tradedAt": "2026-06-01T08:53:48.472048+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -10372,11 +10390,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-09-25",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 481,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 2.02,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 3.77,
       "status": "일반",
       "badges": [
         "일반"
@@ -10404,7 +10422,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.026208+09:00",
+        "tradedAt": "2026-06-01T08:53:45.653131+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -10627,11 +10645,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 362,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 2.7,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 5.03,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -10659,7 +10677,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.230622+09:00",
+        "tradedAt": "2026-06-01T08:53:46.269691+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -10882,11 +10900,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 388,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 2.51,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 4.69,
       "status": "일반",
       "badges": [
         "일반"
@@ -10914,7 +10932,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.293464+09:00",
+        "tradedAt": "2026-06-01T08:53:46.431992+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -11137,11 +11155,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-09-11",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 467,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 2.08,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 3.88,
       "status": "거래정지",
       "badges": [
         "거래정지"
@@ -11169,7 +11187,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": true,
         "tradeStopText": "정지.Halted",
-        "tradedAt": "2026-06-01T08:49:04.296366+09:00",
+        "tradedAt": "2026-06-01T08:53:46.43001+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -11392,11 +11410,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-04-15",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 318,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 3.08,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 5.75,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -11424,7 +11442,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.53467+09:00",
+        "tradedAt": "2026-06-01T08:53:46.777668+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -11649,7 +11667,7 @@ window.SPAC_DATA = {
       "daysToLiquidation": null,
       "trustValuePerShare": 2000.0,
       "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": -2.68,
       "annualizedReturn": null,
       "status": "일반",
@@ -11668,7 +11686,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.492697+09:00",
+        "tradedAt": "2026-06-01T08:53:47.509435+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -11878,11 +11896,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-10-31",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 517,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 1.88,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 3.5,
       "status": "일반",
       "badges": [
         "일반"
@@ -11910,7 +11928,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.655697+09:00",
+        "tradedAt": "2026-06-01T08:53:47.819876+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -12133,11 +12151,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-06-26",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 390,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 2.5,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.99,
+      "annualizedReturn": 4.66,
       "status": "일반",
       "badges": [
         "일반"
@@ -12165,7 +12183,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.80739+09:00",
+        "tradedAt": "2026-06-01T08:53:48.47165+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -12388,11 +12406,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-11-24",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 907,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.43,
-      "annualizedReturn": 0.97,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.74,
+      "annualizedReturn": 1.88,
       "status": "일반",
       "badges": [
         "일반"
@@ -12420,7 +12438,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.376603+09:00",
+        "tradedAt": "2026-06-01T08:53:46.761736+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -12643,11 +12661,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-06-21",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 385,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.18,
-      "annualizedReturn": 2.06,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.48,
+      "annualizedReturn": 4.24,
       "status": "일반",
       "badges": [
         "일반"
@@ -12675,7 +12693,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.023305+09:00",
+        "tradedAt": "2026-06-01T08:53:45.646094+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -12898,11 +12916,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 383,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.18,
-      "annualizedReturn": 2.07,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.48,
+      "annualizedReturn": 4.27,
       "status": "일반",
       "badges": [
         "일반"
@@ -12930,7 +12948,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.291577+09:00",
+        "tradedAt": "2026-06-01T08:53:46.431047+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13153,11 +13171,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-03-05",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 277,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 2.18,
-      "annualizedReturn": 2.88,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.48,
+      "annualizedReturn": 5.95,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -13185,7 +13203,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.742416+09:00",
+        "tradedAt": "2026-06-01T08:53:47.975924+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13410,7 +13428,7 @@ window.SPAC_DATA = {
       "daysToLiquidation": null,
       "trustValuePerShare": 2000.0,
       "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": -3.38,
       "annualizedReturn": null,
       "status": "일반",
@@ -13429,7 +13447,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.44104+09:00",
+        "tradedAt": "2026-06-01T08:53:47.010807+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13639,11 +13657,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 272,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 1.68,
-      "annualizedReturn": 2.27,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 3.98,
+      "annualizedReturn": 5.38,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -13671,7 +13689,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.584831+09:00",
+        "tradedAt": "2026-06-01T08:53:47.775123+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13894,11 +13912,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 272,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 1.44,
-      "annualizedReturn": 1.94,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 3.73,
+      "annualizedReturn": 5.04,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -13926,7 +13944,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.656639+09:00",
+        "tradedAt": "2026-06-01T08:53:47.819812+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -14149,11 +14167,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 299,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 1.44,
-      "annualizedReturn": 1.76,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 3.73,
+      "annualizedReturn": 4.57,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -14181,7 +14199,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.773141+09:00",
+        "tradedAt": "2026-06-01T08:53:48.164979+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -14404,11 +14422,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-04-24",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 327,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 1.44,
-      "annualizedReturn": 1.61,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 3.73,
+      "annualizedReturn": 4.17,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -14436,7 +14454,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.751326+09:00",
+        "tradedAt": "2026-06-01T08:53:48.242998+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -14659,11 +14677,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-04-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 325,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 0.71,
-      "annualizedReturn": 0.8,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.99,
+      "annualizedReturn": 3.36,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -14691,7 +14709,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.397405+09:00",
+        "tradedAt": "2026-06-01T08:53:47.474942+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -14914,11 +14932,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 204,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 0.48,
-      "annualizedReturn": 0.86,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.75,
+      "annualizedReturn": 4.97,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -14946,7 +14964,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.743401+09:00",
+        "tradedAt": "2026-06-01T08:53:48.202178+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15169,11 +15187,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 204,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 0.24,
-      "annualizedReturn": 0.43,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.5,
+      "annualizedReturn": 4.52,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -15201,7 +15219,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.003222+09:00",
+        "tradedAt": "2026-06-01T08:53:45.652109+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15424,11 +15442,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2026-11-03",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 155,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 0.0,
-      "annualizedReturn": 0.01,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.26,
+      "annualizedReturn": 5.41,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -15456,7 +15474,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.002468+09:00",
+        "tradedAt": "2026-06-01T08:53:45.589295+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15679,11 +15697,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-01-24",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 237,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 0.0,
-      "annualizedReturn": 0.0,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.26,
+      "annualizedReturn": 3.5,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -15711,7 +15729,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.205552+09:00",
+        "tradedAt": "2026-06-01T08:53:46.147951+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15934,11 +15952,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-07-26",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 420,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -0.0,
-      "annualizedReturn": -0.0,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.25,
+      "annualizedReturn": 1.96,
       "status": "일반",
       "badges": [
         "일반"
@@ -15966,7 +15984,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.560084+09:00",
+        "tradedAt": "2026-06-01T08:53:47.65397+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -16189,11 +16207,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2026-11-13",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 165,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": 0.0,
-      "annualizedReturn": 0.01,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.26,
+      "annualizedReturn": 5.07,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -16221,7 +16239,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.808289+09:00",
+        "tradedAt": "2026-06-01T08:53:48.470176+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -16444,11 +16462,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 538,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -0.24,
-      "annualizedReturn": -0.16,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.01,
+      "annualizedReturn": 1.36,
       "status": "일반",
       "badges": [
         "일반"
@@ -16476,7 +16494,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.103294+09:00",
+        "tradedAt": "2026-06-01T08:53:45.956032+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -16699,11 +16717,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-19",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 932,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -1.63,
-      "annualizedReturn": -0.64,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 0.59,
+      "annualizedReturn": 0.23,
       "status": "일반",
       "badges": [
         "일반"
@@ -16731,7 +16749,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.021321+09:00",
+        "tradedAt": "2026-06-01T08:53:45.585965+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -16954,11 +16972,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2028-12-15",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 928,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -2.31,
-      "annualizedReturn": -0.92,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -0.11,
+      "annualizedReturn": -0.04,
       "status": "일반",
       "badges": [
         "일반"
@@ -16986,7 +17004,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.225695+09:00",
+        "tradedAt": "2026-06-01T08:53:46.14986+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17209,11 +17227,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-11-20",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 537,
-      "trustValuePerShare": 2109.96,
-      "liquidationValuePerShare": 2109.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -2.77,
-      "annualizedReturn": -1.89,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -0.57,
+      "annualizedReturn": -0.39,
       "status": "일반",
       "badges": [
         "일반"
@@ -17241,7 +17259,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.20422+09:00",
+        "tradedAt": "2026-06-01T08:53:46.124918+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17464,11 +17482,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-02-06",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 250,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -3.87,
-      "annualizedReturn": -5.6,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -1.7,
+      "annualizedReturn": -2.47,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -17496,7 +17514,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.37811+09:00",
+        "tradedAt": "2026-06-01T08:53:46.756256+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17719,11 +17737,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2026-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 187,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -9.63,
-      "annualizedReturn": -17.94,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -7.59,
+      "annualizedReturn": -14.28,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내",
@@ -17752,7 +17770,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": true,
         "tradeStopText": "정지.Halted",
-        "tradedAt": "2026-06-01T08:49:04.101467+09:00",
+        "tradedAt": "2026-06-01T08:53:45.865969+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17975,11 +17993,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2027-02-01",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 245,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -14.4,
-      "annualizedReturn": -20.68,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -12.47,
+      "annualizedReturn": -17.99,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -18007,7 +18025,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:49:04.020223+09:00",
+        "tradedAt": "2026-06-01T08:53:45.650146+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -18230,11 +18248,11 @@ window.SPAC_DATA = {
       "liquidationDate": "2026-06-23",
       "liquidationDateSource": "상장일+36개월 추정",
       "daysToLiquidation": 22,
-      "trustValuePerShare": 2110.06,
-      "liquidationValuePerShare": 2110.06,
-      "liquidationValueSource": "공모예치금+예상 예치이자",
-      "expectedReturn": -38.66,
-      "annualizedReturn": -99.97,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -37.28,
+      "annualizedReturn": -99.96,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내",
@@ -18263,7 +18281,7 @@ window.SPAC_DATA = {
         "marketStatus": "PREOPEN",
         "tradeStop": true,
         "tradeStopText": "정지.Halted",
-        "tradedAt": "2026-06-01T08:49:04.768252+09:00",
+        "tradedAt": "2026-06-01T08:53:47.651761+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -18473,6 +18491,7 @@ window.SPAC_DATA = {
     "kindCorpList": "https://kind.krx.co.kr/corpgeneral/corpList.do?method=loadInitPage",
     "krxData": "https://data.krx.co.kr/",
     "naverFinance": "https://finance.naver.com/",
-    "openDartGuide": "https://opendart.fss.or.kr/guide/main.do"
+    "openDartGuide": "https://opendart.fss.or.kr/guide/main.do",
+    "kofr": "https://www.kofr.kr/main.jsp"
   }
 };

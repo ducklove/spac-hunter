@@ -3,6 +3,7 @@ import json
 import math
 import re
 import time
+import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta, timezone
 from io import StringIO
@@ -27,9 +28,11 @@ USER_AGENT = (
 )
 
 DEFAULT_IPO_PRICE = 2000
-DEFAULT_TRUST_RATE = 0.018
+DEFAULT_TRUST_RATE = 0.0
 DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE = 0
 
+KOFR_API_URL = "https://www.kofr.kr/websquare/engine/proworks/callServletService.jsp"
+KOFR_MAIN_URL = "https://www.kofr.kr/main.jsp"
 KIND_CORP_LIST_URL = "https://kind.krx.co.kr/corpgeneral/corpList.do"
 KIND_CORP_LIST_PAGE_URL = f"{KIND_CORP_LIST_URL}?method=loadInitPage"
 NAVER_STOCK_API_URL = "https://polling.finance.naver.com/api/realtime/domestic/stock/{code}"
@@ -289,6 +292,49 @@ def fetch_histories(codes, pages=3, max_workers=6):
     return histories
 
 
+def fetch_kofr_rate():
+    body = (
+        '<reqParam action="getLastRateList1" '
+        'task="ksd.rfr.user.rate.process.RatePTask"><LANG>kor</LANG></reqParam>'
+    )
+    response = requests.post(
+        KOFR_API_URL,
+        data=body.encode("utf-8"),
+        headers={
+            "User-Agent": USER_AGENT,
+            "Referer": KOFR_MAIN_URL,
+            "Content-Type": "application/xml; charset=UTF-8",
+        },
+        timeout=20,
+    )
+    response.raise_for_status()
+    root = ET.fromstring(response.text)
+    result = root.find(".//result")
+    if result is None:
+        raise RuntimeError("KOFR response did not include a result node")
+
+    def attr(name):
+        node = result.find(name)
+        return node.get("value").strip() if node is not None and node.get("value") else None
+
+    latest_rate_pct = parse_float(attr("RFR_PUBN_MR"))
+    if latest_rate_pct is None:
+        raise RuntimeError("KOFR latest rate was unavailable")
+
+    return {
+        "source": "KOFR",
+        "sourceUrl": KOFR_MAIN_URL,
+        "publishedDate": attr("RFR_PUBN_DT"),
+        "standardDate": attr("PUBN_MR_STD_DT"),
+        "latestRatePct": latest_rate_pct,
+        "rate": latest_rate_pct / 100,
+        "d30AvgPct": parse_float(attr("D30_AVG_MR")),
+        "d90AvgPct": parse_float(attr("D90_AVG_MR")),
+        "d180AvgPct": parse_float(attr("D180_AVG_MR")),
+        "lastModified": attr("LAST_MODF_DTTM"),
+    }
+
+
 def derive_sponsor(name):
     patterns = [
         r"^(.*?)제?\d+호스팩$",
@@ -371,7 +417,12 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
         ipo_price, listing_date, liquidation_date, args.trust_rate, today
     )
     trust_value = override_trust_value or estimated_trust_value
-    liquidation_value_source = "공모예치금+예상 예치이자"
+    rate_label = getattr(args, "trust_rate_label", "")
+    liquidation_value_source = (
+        f"공모예치금+예상 예치이자({rate_label})"
+        if rate_label
+        else "공모예치금+예상 예치이자"
+    )
     if override_liquidation_value:
         liquidation_value = override_liquidation_value
         liquidation_value_source = "overrides.json 청산분배금"
@@ -571,6 +622,7 @@ def build_sample_data():
                 {},
                 argparse.Namespace(
                     trust_rate=DEFAULT_TRUST_RATE,
+                    trust_rate_label="샘플 0.000%",
                     liquidation_haircut=DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE,
                 ),
                 generated.date(),
@@ -579,7 +631,7 @@ def build_sample_data():
     return generated, sample, {"sample": "network collection failed"}
 
 
-def write_outputs(generated_at, spacs, errors):
+def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, trust_rate_source=None):
     spacs = sorted(
         spacs,
         key=lambda item: (
@@ -598,7 +650,14 @@ def write_outputs(generated_at, spacs, errors):
             "ipoPrice": "기본 2,000원, overrides.json으로 보정",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
             "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
+            "trustRate": trust_rate_source or "공시/수동 보정값이 없으면 KOFR 최신 공시금리 사용",
             "expectedReturn": "추정 청산분배금/현재가 - 1",
+        },
+        "rateAssumption": {
+            "annualRate": round(trust_rate, 6) if trust_rate is not None else None,
+            "annualRatePct": round(trust_rate * 100, 5) if trust_rate is not None else None,
+            "source": trust_rate_source,
+            "kofr": rate_info,
         },
         "summary": build_summary(spacs, generated_at),
         "spacs": spacs,
@@ -608,6 +667,7 @@ def write_outputs(generated_at, spacs, errors):
             "krxData": "https://data.krx.co.kr/",
             "naverFinance": "https://finance.naver.com/",
             "openDartGuide": "https://opendart.fss.or.kr/guide/main.do",
+            "kofr": KOFR_MAIN_URL,
         },
     }
     DATA_JS_PATH.write_text(
@@ -621,6 +681,7 @@ def write_outputs(generated_at, spacs, errors):
             {
                 "source": payload["source"],
                 "lastUpdated": payload["lastUpdated"],
+                "rateAssumption": payload["rateAssumption"],
                 "summary": payload["summary"],
                 "prices": {
                     spac["code"]: {
@@ -647,7 +708,12 @@ def main():
     parser.add_argument("--history-pages", type=int, default=3, help="Naver daily-history pages per SPAC")
     parser.add_argument("--max-workers", type=int, default=8, help="Quote fetch concurrency")
     parser.add_argument("--limit", type=int, default=0, help="Limit SPAC count for quick testing")
-    parser.add_argument("--trust-rate", type=float, default=DEFAULT_TRUST_RATE, help="Fallback annual trust yield")
+    parser.add_argument(
+        "--trust-rate",
+        type=float,
+        default=None,
+        help="Manual annual trust yield as a decimal. If omitted, latest KOFR is used.",
+    )
     parser.add_argument(
         "--liquidation-haircut",
         "--liquidation-cost",
@@ -663,13 +729,44 @@ def main():
     args = parser.parse_args()
 
     if args.sample:
+        args.trust_rate = DEFAULT_TRUST_RATE
+        args.trust_rate_label = "샘플 0.000%"
         generated_at, spacs, errors = build_sample_data()
-        write_outputs(generated_at, spacs, errors)
+        write_outputs(
+            generated_at,
+            spacs,
+            errors,
+            trust_rate=args.trust_rate,
+            trust_rate_source="샘플 데이터 0.000%",
+        )
         print(f"sample data written: {len(spacs)} SPACs")
         return
 
     generated_at = datetime.now(KST)
     try:
+        errors = {}
+        if args.trust_rate is None:
+            try:
+                rate_info = fetch_kofr_rate()
+                args.trust_rate = rate_info["rate"]
+                args.trust_rate_label = f"KOFR {rate_info['latestRatePct']:.3f}%"
+                trust_rate_source = (
+                    f"KOFR 최신 공시금리 {rate_info['latestRatePct']:.3f}%"
+                    f"({rate_info.get('publishedDate') or '공시일 미확인'})"
+                )
+                print(f"KOFR trust-rate fallback: {rate_info['latestRatePct']:.3f}%")
+            except Exception as exc:  # noqa: BLE001
+                rate_info = None
+                args.trust_rate = DEFAULT_TRUST_RATE
+                args.trust_rate_label = f"fallback {args.trust_rate * 100:.3f}%"
+                trust_rate_source = "KOFR 조회 실패로 0.000% 보수적 fallback"
+                errors["kofr"] = str(exc)
+                print(f"WARNING: KOFR collection failed, using 0.000% fallback: {exc}")
+        else:
+            rate_info = None
+            args.trust_rate_label = f"수동 {args.trust_rate * 100:.3f}%"
+            trust_rate_source = f"수동 입력 {args.trust_rate * 100:.3f}%"
+
         overrides = load_overrides()
         krx_spacs = fetch_krx_spac_universe()
         if args.limit > 0:
@@ -700,12 +797,21 @@ def main():
                     generated_at.date(),
                 )
             )
-        errors = {"quote": quote_errors}
+        errors["quote"] = quote_errors
     except Exception as exc:  # noqa: BLE001
         print(f"WARNING: live collection failed, writing sample data: {exc}")
+        rate_info = None
+        trust_rate_source = "샘플 데이터 0.000%"
         generated_at, spacs, errors = build_sample_data()
 
-    write_outputs(generated_at, spacs, errors)
+    write_outputs(
+        generated_at,
+        spacs,
+        errors,
+        rate_info=rate_info,
+        trust_rate=args.trust_rate,
+        trust_rate_source=trust_rate_source,
+    )
     print(f"written {DATA_JS_PATH.name}, {CURRENT_JSON_PATH.name}: {len(spacs)} SPACs")
 
 
