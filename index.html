@@ -1225,7 +1225,7 @@ tbody tr.active {
     `).join('');
 
     document.getElementById('analysisStrip').innerHTML = [
-      ['추정 청산분배금', money(Math.round(item.liquidationValuePerShare || 0)), item.liquidationDateSource || '공시 기반 보정 가능'],
+      ['추정 청산분배금', money(Math.round(item.liquidationValuePerShare || 0)), item.liquidationValueSource || '공모예치금 + 예상 예치이자'],
       ['단순 기대수익률', pct(item.expectedReturn), '청산분배금 / 현재가 - 1'],
       ['연환산 기대수익률', pct(item.annualizedReturn), '청산 예정일까지 보유 가정']
     ].map(([label, value, note], idx) => `

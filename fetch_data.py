@@ -28,7 +28,7 @@ USER_AGENT = (
 
 DEFAULT_IPO_PRICE = 2000
 DEFAULT_TRUST_RATE = 0.018
-DEFAULT_LIQUIDATION_COST_PER_SHARE = 15
+DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE = 0
 
 KIND_CORP_LIST_URL = "https://kind.krx.co.kr/corpgeneral/corpList.do"
 KIND_CORP_LIST_PAGE_URL = f"{KIND_CORP_LIST_URL}?method=loadInitPage"
@@ -335,6 +335,18 @@ def calculate_annualized_return(target_value, current_price, days):
         return None
 
 
+def estimate_trust_value_per_share(ipo_price, listing_date, liquidation_date, trust_rate, today):
+    if not ipo_price:
+        return None
+    if listing_date and liquidation_date:
+        trust_days = max(0, (liquidation_date - listing_date).days)
+    elif listing_date:
+        trust_days = max(0, min((today - listing_date).days, 365 * 3))
+    else:
+        trust_days = 0
+    return ipo_price * ((1 + trust_rate) ** (trust_days / 365))
+
+
 def enrich_spac(item, kind_info, quote, history, overrides, args, today):
     code = item["code"]
     override = overrides.get(code, {})
@@ -353,16 +365,23 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
         (liquidation_date - today).days if liquidation_date else None
     )
 
-    elapsed_days = (today - listing_date).days if listing_date else 0
-    elapsed_days = max(0, min(elapsed_days, 365 * 3))
-    trust_value = (
-        parse_float(override.get("trustValuePerShare"))
-        or ipo_price * (1 + args.trust_rate * elapsed_days / 365)
+    override_trust_value = parse_float(override.get("trustValuePerShare"))
+    override_liquidation_value = parse_float(override.get("liquidationValuePerShare"))
+    estimated_trust_value = estimate_trust_value_per_share(
+        ipo_price, listing_date, liquidation_date, args.trust_rate, today
     )
-    liquidation_value = (
-        parse_float(override.get("liquidationValuePerShare"))
-        or trust_value - args.liquidation_cost
-    )
+    trust_value = override_trust_value or estimated_trust_value
+    liquidation_value_source = "공모예치금+예상 예치이자"
+    if override_liquidation_value:
+        liquidation_value = override_liquidation_value
+        liquidation_value_source = "overrides.json 청산분배금"
+    else:
+        liquidation_value = trust_value
+        if override_trust_value:
+            liquidation_value_source = "overrides.json 예치금"
+        if args.liquidation_haircut:
+            liquidation_value = liquidation_value - args.liquidation_haircut
+            liquidation_value_source += f" - 수동 조정 {args.liquidation_haircut:g}원"
     expected_return = (
         liquidation_value / current_price - 1
         if current_price and current_price > 0 and liquidation_value
@@ -449,6 +468,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
         "daysToLiquidation": days_to_liquidation,
         "trustValuePerShare": round(trust_value, 2) if trust_value else None,
         "liquidationValuePerShare": round(liquidation_value, 2) if liquidation_value else None,
+        "liquidationValueSource": liquidation_value_source if liquidation_value else None,
         "expectedReturn": round(expected_return * 100, 2) if expected_return is not None else None,
         "annualizedReturn": round(annualized_return * 100, 2) if annualized_return is not None else None,
         "status": badges[0],
@@ -549,7 +569,10 @@ def build_sample_data():
                 },
                 history,
                 {},
-                argparse.Namespace(trust_rate=DEFAULT_TRUST_RATE, liquidation_cost=DEFAULT_LIQUIDATION_COST_PER_SHARE),
+                argparse.Namespace(
+                    trust_rate=DEFAULT_TRUST_RATE,
+                    liquidation_haircut=DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE,
+                ),
                 generated.date(),
             )
         )
@@ -574,6 +597,7 @@ def write_outputs(generated_at, spacs, errors):
             "price": "네이버 증권 실시간/최근가",
             "ipoPrice": "기본 2,000원, overrides.json으로 보정",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
+            "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
             "expectedReturn": "추정 청산분배금/현재가 - 1",
         },
         "summary": build_summary(spacs, generated_at),
@@ -625,10 +649,15 @@ def main():
     parser.add_argument("--limit", type=int, default=0, help="Limit SPAC count for quick testing")
     parser.add_argument("--trust-rate", type=float, default=DEFAULT_TRUST_RATE, help="Fallback annual trust yield")
     parser.add_argument(
+        "--liquidation-haircut",
         "--liquidation-cost",
+        dest="liquidation_haircut",
         type=float,
-        default=DEFAULT_LIQUIDATION_COST_PER_SHARE,
-        help="Fallback liquidation cost per share",
+        default=DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE,
+        help=(
+            "Manual per-share haircut for stress testing only. Default is 0 because "
+            "general operating/merger expenses are not deducted from public escrow."
+        ),
     )
     parser.add_argument("--sample", action="store_true", help="Write bundled sample data without network")
     args = parser.parse_args()
