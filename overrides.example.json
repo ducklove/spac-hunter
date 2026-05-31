@@ -1,0 +1,12 @@
+{
+  "0072Z0": {
+    "ipoPrice": 2000,
+    "listingDate": "2025-09-30",
+    "liquidationDate": "2028-09-30",
+    "trustValuePerShare": 2100,
+    "liquidationValuePerShare": 2085,
+    "merger": "",
+    "mergerDisclosureDate": "",
+    "sponsor": "KB증권"
+  }
+}

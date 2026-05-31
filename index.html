@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스팩 헌터</title>
+<script>
+(function() {
+  try {
+    var theme = localStorage.getItem('spac-hunter-theme') || 'light';
+    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+  } catch (error) {
+    document.documentElement.dataset.theme = 'light';
+  }
+})();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface2: #eef3f8;
+  --surface3: #e6edf5;
+  --border: #d6dfeb;
+  --soft-border: rgba(24, 38, 58, 0.1);
+  --text: #172033;
+  --muted: #667085;
+  --faint: #8a94a6;
+  --accent: #0b7285;
+  --accent2: #315bdb;
+  --green: #18864f;
+  --red: #c4483e;
+  --amber: #ad7200;
+  --blue: #2563eb;
+  --shadow: 0 18px 40px rgba(30, 44, 66, 0.08);
+  --card-shadow: 0 8px 20px rgba(30, 44, 66, 0.06);
+  --chart-grid: rgba(23, 32, 51, 0.08);
+  --ipo-line: rgba(196, 72, 62, 0.72);
+  --ratio-line: #0b7285;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #10141c;
+  --surface: #171d28;
+  --surface2: #202836;
+  --surface3: #293244;
+  --border: #303b50;
+  --soft-border: rgba(255, 255, 255, 0.08);
+  --text: #e8edf7;
+  --muted: #9aa5b7;
+  --faint: #7c879b;
+  --accent: #3aa7b8;
+  --accent2: #83a1ff;
+  --green: #4fca83;
+  --red: #f06f67;
+  --amber: #e0a83c;
+  --blue: #7aa7ff;
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+  --card-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  --chart-grid: rgba(255, 255, 255, 0.08);
+  --ipo-line: rgba(240, 111, 103, 0.74);
+  --ratio-line: #59c2cf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  line-height: 1.45;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.app-header {
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+}
+
+.header-inner {
+  width: min(1500px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 18px 0 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand-block h1 {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.updated {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 8px;
+  min-height: 38px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.button:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.container {
+  width: min(1500px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 22px 0 40px;
+}
+
+.snapshot {
+  display: grid;
+  grid-template-columns: 1.35fr repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric-card {
+  min-height: 116px;
+  border: 1px solid var(--soft-border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.metric-card.primary {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%),
+    var(--surface);
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
+}
+
+.metric-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.metric-value {
+  margin-top: 8px;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-detail {
+  color: var(--faint);
+  font-size: 12px;
+  margin-top: 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metric-value.small {
+  font-size: 24px;
+}
+
+.toolbar {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.segments {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.segment {
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-height: 36px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.segment.active {
+  color: #fff;
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.control {
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  border-radius: 8px;
+  min-height: 38px;
+  padding: 8px 10px;
+  font-size: 13px;
+  outline: none;
+}
+
+.control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.search-control {
+  width: 220px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.78fr) minmax(460px, 1.35fr) minmax(280px, 0.82fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 14px 15px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 760;
+}
+
+.panel-sub {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.spac-list {
+  max-height: 560px;
+  overflow: auto;
+}
+
+.spac-card {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--soft-border);
+  background: transparent;
+  text-align: left;
+  padding: 13px 14px;
+  cursor: pointer;
+  display: block;
+}
+
+.spac-card:hover {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.spac-card.active {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.spac-card-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.spac-name {
+  font-size: 13px;
+  font-weight: 760;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code {
+  color: var(--faint);
+  font-size: 11px;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.price {
+  text-align: right;
+  font-size: 15px;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+}
+
+.ratio {
+  text-align: right;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 680;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 7px;
+  min-height: 21px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--surface2);
+}
+
+.badge.red {
+  color: var(--red);
+  border-color: color-mix(in srgb, var(--red) 32%, var(--border));
+  background: color-mix(in srgb, var(--red) 8%, transparent);
+}
+
+.badge.green {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 32%, var(--border));
+  background: color-mix(in srgb, var(--green) 8%, transparent);
+}
+
+.badge.amber {
+  color: var(--amber);
+  border-color: color-mix(in srgb, var(--amber) 36%, var(--border));
+  background: color-mix(in srgb, var(--amber) 10%, transparent);
+}
+
+.badge.blue {
+  color: var(--blue);
+  border-color: color-mix(in srgb, var(--blue) 32%, var(--border));
+  background: color-mix(in srgb, var(--blue) 8%, transparent);
+}
+
+.detail-panel {
+  min-height: 560px;
+}
+
+.selected-summary {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+}
+
+.selected-name {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 780;
+}
+
+.selected-meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.selected-price {
+  text-align: right;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.selected-change {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.mini-stat {
+  border: 1px solid var(--soft-border);
+  background: var(--surface2);
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 74px;
+}
+
+.mini-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mini-value {
+  margin-top: 7px;
+  font-size: 18px;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-toolbar {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.periods {
+  display: flex;
+  gap: 6px;
+}
+
+.period-btn {
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  border-radius: 7px;
+  min-width: 44px;
+  min-height: 30px;
+  font-size: 12px;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.period-btn.active {
+  color: #fff;
+  background: var(--accent2);
+  border-color: var(--accent2);
+}
+
+.chart-wrap {
+  height: 226px;
+  padding: 14px 16px 12px;
+}
+
+#ratioChart {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-line {
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--ratio-line);
+}
+
+.legend-line.ipo {
+  background: var(--ipo-line);
+}
+
+.analysis-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+}
+
+.analysis-box {
+  padding: 13px 16px;
+  min-height: 86px;
+  border-right: 1px solid var(--border);
+}
+
+.analysis-box:last-child {
+  border-right: 0;
+}
+
+.analysis-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.analysis-value {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+}
+
+.analysis-note {
+  margin-top: 4px;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.timeline-list {
+  padding: 8px 14px 14px;
+  max-height: 308px;
+  overflow: auto;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--soft-border);
+}
+
+.timeline-date {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-title {
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.timeline-detail {
+  margin-top: 3px;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+.link-list {
+  padding: 0 14px 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.source-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  min-height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--text);
+  background: var(--surface2);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.source-link span:last-child {
+  color: var(--muted);
+  font-weight: 680;
+}
+
+.table-section {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.table-head {
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--soft-border);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+th {
+  color: var(--muted);
+  text-align: left;
+  background: var(--surface2);
+  font-size: 11px;
+  font-weight: 780;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th.sortable {
+  cursor: pointer;
+}
+
+th.sortable::after {
+  content: " ↕";
+  color: var(--faint);
+  font-weight: 500;
+}
+
+th.sorted-asc::after {
+  content: " ↑";
+  color: var(--accent);
+}
+
+th.sorted-desc::after {
+  content: " ↓";
+  color: var(--accent);
+}
+
+td.numeric,
+th.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+tbody tr.active {
+  background: color-mix(in srgb, var(--accent) 11%, transparent);
+}
+
+.positive {
+  color: var(--red);
+}
+
+.negative {
+  color: var(--blue);
+}
+
+.good {
+  color: var(--green);
+}
+
+.warn {
+  color: var(--amber);
+}
+
+.danger {
+  color: var(--red);
+}
+
+.empty {
+  padding: 24px 16px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 1180px) {
+  .snapshot {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spac-list {
+    max-height: 430px;
+  }
+
+  .detail-panel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-inner,
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions {
+    justify-content: flex-start;
+  }
+
+  .snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .segments {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .segment {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .search-control {
+    width: 100%;
+  }
+
+  .selected-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-price,
+  .selected-change {
+    text-align: left;
+  }
+
+  .stat-grid,
+  .analysis-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .analysis-box {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .analysis-box:last-child {
+    border-bottom: 0;
+  }
+
+  .chart-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .chart-wrap {
+    height: 250px;
+  }
+}
+
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand-block">
+      <h1>스팩 헌터</h1>
+      <div class="updated" id="updated">데이터를 불러오는 중입니다</div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="button" id="refreshViewBtn">화면 갱신</button>
+      <button type="button" class="button" id="themeBtn" aria-label="테마 전환">테마 전환</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="snapshot" id="snapshot"></section>
+
+  <section class="toolbar" aria-label="스팩 필터">
+    <div class="segments" id="filterSegments"></div>
+    <input type="search" class="control search-control" id="searchInput" placeholder="종목명 또는 코드 검색">
+    <select class="control" id="sortSelect" aria-label="정렬">
+      <option value="cheap">현재가 낮은순</option>
+      <option value="ratio">현재가 / 공모가 낮은순</option>
+      <option value="yield">연환산 기대수익률 높은순</option>
+      <option value="liquidation">청산 예정 가까운순</option>
+      <option value="volume">거래대금 높은순</option>
+    </select>
+  </section>
+
+  <section class="dashboard-grid">
+    <aside class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">공모가 대비 후보</h2>
+        <div class="panel-sub" id="listCount"></div>
+      </div>
+      <div class="spac-list" id="spacList"></div>
+    </aside>
+
+    <section class="panel detail-panel">
+      <div class="selected-summary">
+        <div>
+          <h2 class="selected-name" id="selectedName">-</h2>
+          <div class="selected-meta" id="selectedMeta">-</div>
+          <div class="badge-row" id="selectedBadges"></div>
+        </div>
+        <div>
+          <div class="selected-price" id="selectedPrice">-</div>
+          <div class="selected-change" id="selectedChange">-</div>
+        </div>
+      </div>
+
+      <div class="stat-grid" id="statGrid"></div>
+
+      <div class="chart-toolbar">
+        <div>
+          <h2 class="panel-title">현재가 / 공모가</h2>
+          <div class="panel-sub">1.00x 아래는 공모가 이하 구간입니다</div>
+        </div>
+        <div class="periods" id="periodButtons">
+          <button type="button" class="period-btn" data-days="30">1M</button>
+          <button type="button" class="period-btn active" data-days="90">3M</button>
+          <button type="button" class="period-btn" data-days="180">6M</button>
+          <button type="button" class="period-btn" data-days="0">전체</button>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="ratioChart"></canvas>
+      </div>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-line"></span>가격 비율</span>
+        <span class="legend-item"><span class="legend-line ipo"></span>공모가 1.00x</span>
+      </div>
+
+      <div class="analysis-strip" id="analysisStrip"></div>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">합병·청산 타임라인</h2>
+        <div class="panel-sub" id="timelineHint"></div>
+      </div>
+      <div class="timeline-list" id="timelineList"></div>
+      <div class="panel-header">
+        <h2 class="panel-title">공시·원천 링크</h2>
+      </div>
+      <div class="link-list" id="sourceLinks"></div>
+    </aside>
+  </section>
+
+  <section class="table-section">
+    <div class="table-head">
+      <h2 class="panel-title">종목 비교</h2>
+      <div class="panel-sub" id="tableCount"></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="sortable" data-key="name">종목</th>
+            <th class="numeric sortable" data-key="currentPrice">현재가</th>
+            <th class="numeric sortable" data-key="ratio">현재가 / 공모가</th>
+            <th class="numeric sortable" data-key="premiumPct">공모가 괴리</th>
+            <th class="numeric sortable" data-key="annualizedReturn">연환산</th>
+            <th class="numeric sortable" data-key="daysToLiquidation">청산까지</th>
+            <th class="numeric sortable" data-key="tradingValue">거래대금</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="data.js"></script>
+<script>
+(function() {
+  const fallbackData = {
+    lastUpdated: '샘플 데이터',
+    summary: {},
+    spacs: [],
+    methodology: {},
+    sourceLinks: {}
+  };
+  const data = window.SPAC_DATA || fallbackData;
+  let selectedCode = null;
+  let filterMode = 'all';
+  let sortMode = 'cheap';
+  let chartDays = 90;
+  let tableSort = { key: 'ratio', direction: 'asc' };
+
+  const filters = [
+    { id: 'all', label: '전체' },
+    { id: 'below', label: '공모가 이하' },
+    { id: 'near', label: '1.01x 이하' },
+    { id: 'due', label: '청산 6개월 이내' },
+    { id: 'merger', label: '합병 진행' },
+    { id: 'recent', label: '신규 상장' }
+  ];
+
+  function money(value) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    return `${Number(value).toLocaleString('ko-KR')}원`;
+  }
+
+  function number(value) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    return Number(value).toLocaleString('ko-KR');
+  }
+
+  function ratio(value) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    return `${Number(value).toFixed(3)}x`;
+  }
+
+  function pct(value, digits = 2) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    return `${Number(value).toFixed(digits)}%`;
+  }
+
+  function signedPct(value, digits = 2) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    const sign = Number(value) > 0 ? '+' : '';
+    return `${sign}${Number(value).toFixed(digits)}%`;
+  }
+
+  function daysText(value) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    if (value < 0) return `${Math.abs(value)}일 경과`;
+    return `${value}일`;
+  }
+
+  function dateText(value) {
+    if (!value) return '-';
+    return String(value).slice(0, 10);
+  }
+
+  function directionClass(value, lowerIsGood = false) {
+    if (value == null || Number.isNaN(Number(value))) return '';
+    const numeric = Number(value);
+    if (numeric === 0) return '';
+    if (lowerIsGood) return numeric < 0 ? 'good' : 'danger';
+    return numeric > 0 ? 'positive' : 'negative';
+  }
+
+  function badgeClass(label) {
+    if (label.includes('공모가 이하') || label.includes('청산')) return 'red';
+    if (label.includes('근접')) return 'amber';
+    if (label.includes('합병')) return 'blue';
+    if (label.includes('일반')) return 'green';
+    return '';
+  }
+
+  function getSpacs() {
+    return Array.isArray(data.spacs) ? data.spacs : [];
+  }
+
+  function filterSpacs(items) {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    return items.filter(item => {
+      if (query) {
+        const haystack = `${item.name || ''} ${item.code || ''} ${item.sponsor || ''}`.toLowerCase();
+        if (!haystack.includes(query)) return false;
+      }
+      if (filterMode === 'below') return item.ratio != null && item.ratio < 1;
+      if (filterMode === 'near') return item.ratio != null && item.ratio <= 1.01;
+      if (filterMode === 'due') return item.daysToLiquidation != null && item.daysToLiquidation <= 180;
+      if (filterMode === 'merger') return (item.badges || []).includes('합병 진행');
+      if (filterMode === 'recent') {
+        if (!item.listingDate) return false;
+        const listing = new Date(item.listingDate);
+        const now = new Date(data.generatedAt || Date.now());
+        return (now - listing) / 86400000 <= 120;
+      }
+      return true;
+    });
+  }
+
+  function compareNullable(a, b, direction = 'asc') {
+    const emptyA = a == null || Number.isNaN(Number(a));
+    const emptyB = b == null || Number.isNaN(Number(b));
+    if (emptyA && emptyB) return 0;
+    if (emptyA) return 1;
+    if (emptyB) return -1;
+    return direction === 'asc' ? Number(a) - Number(b) : Number(b) - Number(a);
+  }
+
+  function sortSpacs(items) {
+    const sorted = items.slice();
+    const mode = sortMode;
+    sorted.sort((a, b) => {
+      if (mode === 'cheap') return compareNullable(a.currentPrice, b.currentPrice, 'asc');
+      if (mode === 'ratio') return compareNullable(a.ratio, b.ratio, 'asc');
+      if (mode === 'yield') return compareNullable(a.annualizedReturn, b.annualizedReturn, 'desc');
+      if (mode === 'liquidation') return compareNullable(a.daysToLiquidation, b.daysToLiquidation, 'asc');
+      if (mode === 'volume') return compareNullable(a.tradingValue, b.tradingValue, 'desc');
+      return 0;
+    });
+    return sorted;
+  }
+
+  function visibleSpacs() {
+    return sortSpacs(filterSpacs(getSpacs()));
+  }
+
+  function selectSpac(code) {
+    const all = getSpacs();
+    const next = all.find(item => item.code === code) || visibleSpacs()[0] || all[0] || null;
+    selectedCode = next ? next.code : null;
+    renderCards();
+    renderSelected();
+    renderTable();
+  }
+
+  function selectedSpac() {
+    return getSpacs().find(item => item.code === selectedCode) || visibleSpacs()[0] || getSpacs()[0] || null;
+  }
+
+  function renderSnapshot() {
+    const summary = data.summary || {};
+    const cards = [
+      {
+        label: '공모가 이하',
+        value: `${summary.belowIpoCount ?? 0}개`,
+        detail: summary.cheapest
+          ? `${summary.cheapest.name} ${ratio(summary.cheapest.ratio)}`
+          : '현재가 / 공모가 1.00x 미만',
+        primary: true
+      },
+      {
+        label: '청산 6개월 이내',
+        value: `${summary.dueSoonCount ?? 0}개`,
+        detail: '상장일+36개월 기준 추정'
+      },
+      {
+        label: '합병 진행',
+        value: `${summary.mergerCount ?? 0}개`,
+        detail: 'overrides 또는 DART 연동 대상'
+      },
+      {
+        label: '신규 상장',
+        value: `${summary.recentListingCount ?? 0}개`,
+        detail: '최근 120일 이내 상장'
+      },
+      {
+        label: '평균 현재가 / 공모가',
+        value: ratio(summary.averageRatio),
+        detail: `평균 연환산 ${pct(summary.averageAnnualizedReturn)}`
+      }
+    ];
+    document.getElementById('snapshot').innerHTML = cards.map(card => `
+      <article class="metric-card ${card.primary ? 'primary' : ''}">
+        <div>
+          <div class="metric-label">${escapeHtml(card.label)}</div>
+          <div class="metric-value ${String(card.value).length > 8 ? 'small' : ''}">${escapeHtml(card.value)}</div>
+        </div>
+        <div class="metric-detail">${escapeHtml(card.detail)}</div>
+      </article>
+    `).join('');
+  }
+
+  function renderFilters() {
+    document.getElementById('filterSegments').innerHTML = filters.map(item => `
+      <button type="button" class="segment ${filterMode === item.id ? 'active' : ''}" data-filter="${item.id}">
+        ${escapeHtml(item.label)}
+      </button>
+    `).join('');
+    document.querySelectorAll('[data-filter]').forEach(button => {
+      button.addEventListener('click', () => {
+        filterMode = button.dataset.filter;
+        renderFilters();
+        selectSpac(selectedCode);
+      });
+    });
+  }
+
+  function renderCards() {
+    const items = visibleSpacs();
+    document.getElementById('listCount').textContent = `${items.length}개`;
+    const target = document.getElementById('spacList');
+    if (!items.length) {
+      target.innerHTML = '<div class="empty">조건에 맞는 스팩이 없습니다.</div>';
+      return;
+    }
+    target.innerHTML = items.map(item => `
+      <button type="button" class="spac-card ${item.code === selectedCode ? 'active' : ''}" data-code="${escapeHtml(item.code)}">
+        <div class="spac-card-top">
+          <div>
+            <div class="spac-name">${escapeHtml(item.name)}</div>
+            <div class="code">${escapeHtml(item.code)} · ${escapeHtml(item.sponsor || '주관사 미확인')}</div>
+          </div>
+          <div>
+            <div class="price">${money(item.currentPrice)}</div>
+            <div class="ratio">${ratio(item.ratio)}</div>
+          </div>
+        </div>
+        <div class="badge-row">
+          ${(item.badges || []).slice(0, 3).map(label => `<span class="badge ${badgeClass(label)}">${escapeHtml(label)}</span>`).join('')}
+        </div>
+      </button>
+    `).join('');
+    target.querySelectorAll('[data-code]').forEach(button => {
+      button.addEventListener('click', () => selectSpac(button.dataset.code));
+    });
+  }
+
+  function renderSelected() {
+    const item = selectedSpac();
+    if (!item) {
+      document.getElementById('selectedName').textContent = '-';
+      return;
+    }
+    selectedCode = item.code;
+    document.getElementById('selectedName').textContent = item.name;
+    document.getElementById('selectedMeta').textContent =
+      `${item.code} · ${item.market || 'KOSDAQ'} · 상장일 ${dateText(item.listingDate)}`;
+    document.getElementById('selectedPrice').textContent = money(item.currentPrice);
+    document.getElementById('selectedChange').className = `selected-change ${directionClass(item.changePct)}`;
+    document.getElementById('selectedChange').textContent =
+      `${signedPct(item.changePct)} · 전일비 ${number(item.change)}`;
+    document.getElementById('selectedBadges').innerHTML = (item.badges || []).map(label =>
+      `<span class="badge ${badgeClass(label)}">${escapeHtml(label)}</span>`
+    ).join('');
+
+    document.getElementById('statGrid').innerHTML = [
+      ['공모가', money(item.ipoPrice)],
+      ['현재가 / 공모가', ratio(item.ratio)],
+      ['청산 예정', dateText(item.liquidationDate)],
+      ['청산까지', daysText(item.daysToLiquidation)]
+    ].map(([label, value]) => `
+      <div class="mini-stat">
+        <div class="mini-label">${label}</div>
+        <div class="mini-value">${value}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('analysisStrip').innerHTML = [
+      ['추정 청산분배금', money(Math.round(item.liquidationValuePerShare || 0)), item.liquidationDateSource || '공시 기반 보정 가능'],
+      ['단순 기대수익률', pct(item.expectedReturn), '청산분배금 / 현재가 - 1'],
+      ['연환산 기대수익률', pct(item.annualizedReturn), '청산 예정일까지 보유 가정']
+    ].map(([label, value, note], idx) => `
+      <div class="analysis-box">
+        <div class="analysis-label">${label}</div>
+        <div class="analysis-value ${idx === 2 ? (Number(item.annualizedReturn) > 0 ? 'good' : 'danger') : ''}">${value}</div>
+        <div class="analysis-note">${escapeHtml(note)}</div>
+      </div>
+    `).join('');
+
+    renderTimeline(item);
+    renderLinks(item);
+    drawChart(item);
+  }
+
+  function renderTimeline(item) {
+    const events = (item.events || []).slice().sort((a, b) => String(a.date).localeCompare(String(b.date)));
+    document.getElementById('timelineHint').textContent = `${events.length}건`;
+    const list = document.getElementById('timelineList');
+    if (!events.length) {
+      list.innerHTML = '<div class="empty">타임라인 이벤트가 없습니다.</div>';
+      return;
+    }
+    list.innerHTML = events.map(event => `
+      <div class="timeline-item">
+        <div class="timeline-date">${dateText(event.date)}</div>
+        <div>
+          <div class="timeline-title">${escapeHtml(event.label || event.type)}</div>
+          <div class="timeline-detail">${escapeHtml(event.detail || '')}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderLinks(item) {
+    const links = [
+      ['네이버', item.naverUrl],
+      ['DART 공시검색', item.disclosureUrl],
+      ['KIND 상장법인목록', data.sourceLinks && data.sourceLinks.kindCorpList],
+      ['OpenDART API', data.sourceLinks && data.sourceLinks.openDartGuide]
+    ].filter(link => link[1]);
+    document.getElementById('sourceLinks').innerHTML = links.map(([label, url]) => `
+      <a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">
+        <span>${escapeHtml(label)}</span><span>열기</span>
+      </a>
+    `).join('');
+  }
+
+  function drawChart(item) {
+    const canvas = document.getElementById('ratioChart');
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+    canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, rect.width, rect.height);
+
+    let points = (item.history || []).filter(point => point.date && point.ratio != null);
+    if (chartDays > 0 && points.length) {
+      const latest = new Date(points[points.length - 1].date).getTime();
+      const cutoff = latest - chartDays * 86400000;
+      points = points.filter(point => new Date(point.date).getTime() >= cutoff);
+    }
+
+    if (points.length < 2) {
+      ctx.fillStyle = getCss('--muted');
+      ctx.font = '13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
+      ctx.fillText('차트를 그릴 히스토리가 부족합니다.', 18, 36);
+      return;
+    }
+
+    const pad = { left: 48, right: 18, top: 18, bottom: 30 };
+    const w = rect.width - pad.left - pad.right;
+    const h = rect.height - pad.top - pad.bottom;
+    const values = points.map(point => Number(point.ratio));
+    const min = Math.min(0.985, ...values, 1) - 0.004;
+    const max = Math.max(1.035, ...values, 1) + 0.004;
+    const yFor = value => pad.top + (max - value) / (max - min) * h;
+    const xFor = index => pad.left + index / (points.length - 1) * w;
+
+    ctx.strokeStyle = getCss('--chart-grid');
+    ctx.lineWidth = 1;
+    ctx.fillStyle = getCss('--muted');
+    ctx.font = '11px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
+    [min, 1, max].forEach(value => {
+      const y = yFor(value);
+      ctx.beginPath();
+      ctx.moveTo(pad.left, y);
+      ctx.lineTo(pad.left + w, y);
+      ctx.stroke();
+      ctx.fillText(value.toFixed(3), 4, y + 4);
+    });
+
+    ctx.strokeStyle = getCss('--ipo-line');
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+    ctx.moveTo(pad.left, yFor(1));
+    ctx.lineTo(pad.left + w, yFor(1));
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + h);
+    gradient.addColorStop(0, colorWithAlpha(getCss('--ratio-line'), 0.22));
+    gradient.addColorStop(1, colorWithAlpha(getCss('--ratio-line'), 0.02));
+    ctx.beginPath();
+    points.forEach((point, index) => {
+      const x = xFor(index);
+      const y = yFor(Number(point.ratio));
+      if (index === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.lineTo(xFor(points.length - 1), pad.top + h);
+    ctx.lineTo(xFor(0), pad.top + h);
+    ctx.closePath();
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    ctx.beginPath();
+    points.forEach((point, index) => {
+      const x = xFor(index);
+      const y = yFor(Number(point.ratio));
+      if (index === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.strokeStyle = getCss('--ratio-line');
+    ctx.lineWidth = 2.4;
+    ctx.stroke();
+
+    const last = points[points.length - 1];
+    const lastX = xFor(points.length - 1);
+    const lastY = yFor(Number(last.ratio));
+    ctx.fillStyle = getCss('--ratio-line');
+    ctx.beginPath();
+    ctx.arc(lastX, lastY, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = getCss('--muted');
+    ctx.fillText(points[0].date.slice(5), pad.left, rect.height - 8);
+    const endLabel = last.date.slice(5);
+    ctx.fillText(endLabel, rect.width - pad.right - ctx.measureText(endLabel).width, rect.height - 8);
+  }
+
+  function renderTable() {
+    const items = visibleSpacs().slice().sort((a, b) => {
+      if (tableSort.key === 'name') {
+        const result = String(a.name || '').localeCompare(String(b.name || ''), 'ko');
+        return tableSort.direction === 'asc' ? result : -result;
+      }
+      const direction = tableSort.direction;
+      return compareNullable(a[tableSort.key], b[tableSort.key], direction);
+    });
+    document.getElementById('tableCount').textContent = `${items.length}개`;
+    const body = document.getElementById('tableBody');
+    body.innerHTML = items.map(item => `
+      <tr data-row-code="${escapeHtml(item.code)}" class="${item.code === selectedCode ? 'active' : ''}">
+        <td>
+          <strong>${escapeHtml(item.name)}</strong>
+          <div class="code">${escapeHtml(item.code)}</div>
+        </td>
+        <td class="numeric">${money(item.currentPrice)}</td>
+        <td class="numeric ${Number(item.ratio) < 1 ? 'good' : ''}">${ratio(item.ratio)}</td>
+        <td class="numeric ${directionClass(item.premiumPct, true)}">${signedPct(item.premiumPct)}</td>
+        <td class="numeric ${Number(item.annualizedReturn) > 0 ? 'good' : 'danger'}">${pct(item.annualizedReturn)}</td>
+        <td class="numeric">${daysText(item.daysToLiquidation)}</td>
+        <td class="numeric">${formatTradingValue(item.tradingValue)}</td>
+        <td>${(item.badges || []).slice(0, 2).map(label => `<span class="badge ${badgeClass(label)}">${escapeHtml(label)}</span>`).join(' ')}</td>
+      </tr>
+    `).join('');
+    body.querySelectorAll('[data-row-code]').forEach(row => {
+      row.addEventListener('click', () => selectSpac(row.dataset.rowCode));
+    });
+    document.querySelectorAll('th.sortable').forEach(th => {
+      th.classList.toggle('sorted-asc', tableSort.key === th.dataset.key && tableSort.direction === 'asc');
+      th.classList.toggle('sorted-desc', tableSort.key === th.dataset.key && tableSort.direction === 'desc');
+    });
+  }
+
+  function formatTradingValue(value) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    const numeric = Number(value);
+    if (numeric >= 100000000) return `${(numeric / 100000000).toFixed(1)}억`;
+    if (numeric >= 10000) return `${Math.round(numeric / 10000).toLocaleString('ko-KR')}만`;
+    return number(numeric);
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char]));
+  }
+
+  function getCss(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function colorWithAlpha(color, alpha) {
+    if (color.startsWith('#')) {
+      const hex = color.slice(1);
+      const size = hex.length === 3 ? 1 : 2;
+      const parts = size === 1
+        ? hex.split('').map(char => parseInt(char + char, 16))
+        : [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(part => parseInt(part, 16));
+      return `rgba(${parts[0]}, ${parts[1]}, ${parts[2]}, ${alpha})`;
+    }
+    return color;
+  }
+
+  function bindEvents() {
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('spac-hunter-theme', next);
+      drawChart(selectedSpac());
+    });
+    document.getElementById('refreshViewBtn').addEventListener('click', () => {
+      renderAll();
+    });
+    document.getElementById('searchInput').addEventListener('input', () => {
+      selectSpac(selectedCode);
+    });
+    document.getElementById('sortSelect').addEventListener('change', event => {
+      sortMode = event.target.value;
+      selectSpac(selectedCode);
+    });
+    document.querySelectorAll('.period-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        chartDays = Number(button.dataset.days);
+        document.querySelectorAll('.period-btn').forEach(btn => btn.classList.toggle('active', btn === button));
+        drawChart(selectedSpac());
+      });
+    });
+    document.querySelectorAll('th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const key = th.dataset.key;
+        if (tableSort.key === key) {
+          tableSort.direction = tableSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+          tableSort.key = key;
+          tableSort.direction = ['annualizedReturn', 'tradingValue', 'currentPrice'].includes(key) ? 'desc' : 'asc';
+        }
+        renderTable();
+      });
+    });
+    window.addEventListener('resize', () => {
+      window.clearTimeout(window.__spacChartTimer);
+      window.__spacChartTimer = window.setTimeout(() => drawChart(selectedSpac()), 80);
+    });
+  }
+
+  function renderAll() {
+    document.getElementById('updated').textContent = `마지막 업데이트 ${data.lastUpdated || '-'}`;
+    renderSnapshot();
+    renderFilters();
+    if (!selectedCode && getSpacs().length) {
+      selectedCode = visibleSpacs()[0]?.code || getSpacs()[0].code;
+    }
+    renderCards();
+    renderSelected();
+    renderTable();
+  }
+
+  bindEvents();
+  renderAll();
+})();
+</script>
+</body>
+</html>
