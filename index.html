@@ -1359,6 +1359,34 @@ tbody tr.active {
     return Array.isArray(data.spacs) ? data.spacs : [];
   }
 
+  function normalizeCode(value) {
+    return String(value || '').trim().toUpperCase();
+  }
+
+  function findSpacByCode(code, items = getSpacs()) {
+    const target = normalizeCode(code);
+    if (!target) return null;
+    return items.find(item => normalizeCode(item.code) === target) || null;
+  }
+
+  function codeFromUrl() {
+    try {
+      return normalizeCode(new URLSearchParams(window.location.search).get('code'));
+    } catch (error) {
+      return '';
+    }
+  }
+
+  function syncUrlCode(code, replace = true) {
+    const normalized = normalizeCode(code);
+    if (!normalized || !window.history || !window.history.replaceState) return;
+    const url = new URL(window.location.href);
+    if ((url.searchParams.get('code') || '') === normalized) return;
+    url.searchParams.set('code', normalized);
+    const method = replace ? 'replaceState' : 'pushState';
+    window.history[method]({}, '', url);
+  }
+
   function getMergerCases() {
     if (Array.isArray(data.mergerCases)) return data.mergerCases;
     return getSpacs().flatMap(item => (item.mergerPriceRecords || []).map(record => ({
@@ -1594,11 +1622,18 @@ tbody tr.active {
     return sortSpacs(filterSpacs(getSpacs()));
   }
 
-  function selectSpac(code) {
+  function selectSpac(code, options = {}) {
     const all = getSpacs();
     const visible = visibleSpacs();
-    const next = visible.find(item => item.code === code) || visible[0] || all.find(item => item.code === code) || all[0] || null;
+    const exactVisible = findSpacByCode(code, visible);
+    const exactAll = findSpacByCode(code, all);
+    const next = options.preferVisible && !exactVisible
+      ? (visible[0] || exactAll || all[0] || null)
+      : (exactVisible || exactAll || visible[0] || all[0] || null);
     selectedCode = next ? next.code : null;
+    if (selectedCode && options.syncUrl !== false) {
+      syncUrlCode(selectedCode);
+    }
     renderCards();
     renderSelected();
     renderTable();
@@ -1662,7 +1697,7 @@ tbody tr.active {
       button.addEventListener('click', () => {
         filterMode = button.dataset.filter;
         renderFilters();
-        selectSpac(selectedCode);
+        selectSpac(selectedCode, { preferVisible: true });
       });
     });
   }
@@ -2045,11 +2080,11 @@ tbody tr.active {
       renderAll();
     });
     document.getElementById('searchInput').addEventListener('input', () => {
-      selectSpac(selectedCode);
+      selectSpac(selectedCode, { preferVisible: true });
     });
     document.getElementById('sortSelect').addEventListener('change', event => {
       sortMode = event.target.value;
-      selectSpac(selectedCode);
+      selectSpac(selectedCode, { preferVisible: true });
     });
     document.querySelectorAll('.period-btn').forEach(button => {
       button.addEventListener('click', () => {
@@ -2077,6 +2112,12 @@ tbody tr.active {
         drawBelowTrendChart((data.statistics || {}).belowIpoTrend || []);
       }, 80);
     });
+    window.addEventListener('popstate', () => {
+      const linked = findSpacByCode(codeFromUrl());
+      if (linked) {
+        selectSpac(linked.code, { syncUrl: false });
+      }
+    });
   }
 
   function renderAll() {
@@ -2085,7 +2126,11 @@ tbody tr.active {
     renderMarketStats();
     renderFilters();
     if (!selectedCode && getSpacs().length) {
-      selectedCode = visibleSpacs()[0]?.code || getSpacs()[0].code;
+      const linked = findSpacByCode(codeFromUrl());
+      selectedCode = linked?.code || visibleSpacs()[0]?.code || getSpacs()[0].code;
+      if (linked) {
+        syncUrlCode(linked.code);
+      }
     }
     renderCards();
     renderSelected();
