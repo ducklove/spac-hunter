@@ -984,7 +984,7 @@ tbody tr.active {
     { id: 'below', label: '공모가 이하' },
     { id: 'near', label: '1.01x 이하' },
     { id: 'due', label: '청산 6개월 이내' },
-    { id: 'merger', label: '합병 진행' },
+    { id: 'merger', label: '합병' },
     { id: 'recent', label: '신규 상장' }
   ];
 
@@ -1055,7 +1055,7 @@ tbody tr.active {
       if (filterMode === 'below') return item.ratio != null && item.ratio < 1;
       if (filterMode === 'near') return item.ratio != null && item.ratio <= 1.01;
       if (filterMode === 'due') return item.daysToLiquidation != null && item.daysToLiquidation <= 180;
-      if (filterMode === 'merger') return (item.badges || []).includes('합병 진행');
+      if (filterMode === 'merger') return (item.badges || []).some(label => String(label).includes('합병'));
       if (filterMode === 'recent') {
         if (!item.listingDate) return false;
         const listing = new Date(item.listingDate);
@@ -1123,9 +1123,9 @@ tbody tr.active {
         detail: '상장일+36개월 기준 추정'
       },
       {
-        label: '합병 진행',
+        label: '합병',
         value: `${summary.mergerCount ?? 0}개`,
-        detail: 'overrides 또는 DART 연동 대상'
+        detail: `신청 ${summary.mergerAppliedCount ?? 0} · 확정 ${summary.mergerConfirmedCount ?? 0}`
       },
       {
         label: '신규 상장',

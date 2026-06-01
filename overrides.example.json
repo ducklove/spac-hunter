@@ -5,8 +5,11 @@
     "liquidationDate": "2028-09-30",
     "trustValuePerShare": 2100,
     "liquidationValuePerShare": 2100,
-    "merger": "",
-    "mergerDisclosureDate": "",
+    "mergerStatus": "",
+    "mergerApplicationDisclosureDate": "",
+    "mergerApplicationDisclosureTitle": "",
+    "mergerConfirmationDisclosureDate": "",
+    "mergerConfirmationDisclosureTitle": "",
     "sponsor": "KB증권"
   }
 }

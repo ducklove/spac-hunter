@@ -33,10 +33,35 @@ DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE = 0
 
 KOFR_API_URL = "https://www.kofr.kr/websquare/engine/proworks/callServletService.jsp"
 KOFR_MAIN_URL = "https://www.kofr.kr/main.jsp"
+DART_MAIN_URL = "https://dart.fss.or.kr/dsab007/main.do"
+DART_DETAIL_SEARCH_URL = "https://dart.fss.or.kr/dsab007/detailSearch.ax"
+DART_CORP_SEARCH_URL = "https://dart.fss.or.kr/corp/searchCorp.ax"
 KIND_CORP_LIST_URL = "https://kind.krx.co.kr/corpgeneral/corpList.do"
 KIND_CORP_LIST_PAGE_URL = f"{KIND_CORP_LIST_URL}?method=loadInitPage"
+KIND_DISCLOSURE_URL = "https://kind.krx.co.kr/disclosure/searchdisclosurebycorp.do"
+KIND_DISCLOSURE_PAGE_URL = f"{KIND_DISCLOSURE_URL}?method=searchDisclosureByCorpMain"
 NAVER_STOCK_API_URL = "https://polling.finance.naver.com/api/realtime/domestic/stock/{code}"
 NAVER_HISTORY_URL = "https://finance.naver.com/item/sise_day.naver?code={code}&page={page}"
+
+MERGER_APPLICATION_TOKENS = (
+    "SPAC합병(예비심사청구대상)",
+    "회사합병결정",
+)
+MERGER_CONFIRMATION_TOKENS = (
+    "상장예비심사결과통지(승인)",
+    "SPAC소멸합병상장",
+    "합병등종료보고서",
+)
+MERGER_CANCEL_TOKENS = (
+    "합병취소",
+    "부인사실발생",
+    "합병결정철회",
+    "철회",
+    "미승인",
+)
+MERGER_IGNORE_TOKENS = (
+    "상장예비심사청구서미제출",
+)
 
 
 def today_kst() -> date:
@@ -127,6 +152,37 @@ def load_overrides():
         return json.load(handle)
 
 
+def load_existing_spacs():
+    if not DATA_JS_PATH.exists():
+        return {}
+    text = DATA_JS_PATH.read_text(encoding="utf-8")
+    prefix = "window.SPAC_DATA = "
+    if not text.startswith(prefix):
+        return {}
+    text = text[len(prefix) :].strip()
+    if text.endswith(";"):
+        text = text[:-1]
+    try:
+        payload = json.loads(text)
+    except json.JSONDecodeError:
+        return {}
+    return {spac.get("code"): spac for spac in payload.get("spacs", []) if spac.get("code")}
+
+
+def existing_kind_companies(existing_spacs):
+    companies = {}
+    for spac in existing_spacs.values():
+        name = spac.get("name")
+        if not name:
+            continue
+        kind_info = dict(spac.get("kind") or {})
+        if spac.get("listingDate") and not kind_info.get("listingDate"):
+            kind_info["listingDate"] = spac["listingDate"]
+        if kind_info:
+            companies[normalize_name(name)] = kind_info
+    return companies
+
+
 def fetch_krx_spac_universe():
     try:
         from pykrx.website.krx.market import core
@@ -202,6 +258,276 @@ def fetch_kind_listed_companies():
         }
         companies[normalize_name(name)] = item
     return companies
+
+
+def normalize_disclosure_title(value):
+    return re.sub(r"\s+", "", str(value or ""))
+
+
+def normalize_merger_status(value):
+    text = str(value or "").strip().lower()
+    if not text:
+        return None
+    if text in ("합병 확정", "확정", "confirmed", "approval", "approved"):
+        return "합병 확정"
+    if text in ("합병 신청", "신청", "합병 진행", "진행", "application", "applied"):
+        return "합병 신청"
+    if "확정" in text or "승인" in text:
+        return "합병 확정"
+    if "합병" in text:
+        return "합병 신청"
+    return None
+
+
+def kind_post(session, url, payload, timeout=20):
+    for attempt in range(4):
+        response = session.post(url, data=payload, timeout=timeout)
+        if response.status_code in (403, 429, 503) and attempt < 3:
+            time.sleep(0.5 + attempt * 0.8)
+            continue
+        response.raise_for_status()
+        return response
+    raise RuntimeError("KIND request retry exhausted")
+
+
+def fetch_kind_disclosures(code, name, listing_date=None, today=None):
+    today = today or today_kst()
+    from_date = listing_date or (today - timedelta(days=365 * 4))
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT, "Referer": KIND_DISCLOSURE_PAGE_URL})
+    session.get(KIND_DISCLOSURE_PAGE_URL, timeout=15)
+    rep_code = f"A{code}"
+    report_terms = ("합병", "상장예비심사")
+    disclosures = []
+    seen = set()
+
+    for term in report_terms:
+        payload = {
+            "method": "searchDisclosureByCorpSub",
+            "currentPageSize": "30",
+            "pageIndex": "1",
+            "orderIndex": "1",
+            "searchCodeType": "number",
+            "repIsuSrtCd": rep_code,
+            "allRepIsuSrtCd": rep_code,
+            "forward": "searchdisclosurebycorp_sub",
+            "searchMode": "",
+            "kosdaq": "on",
+            "kosreq": "on",
+            "outsvcno": "",
+            "searchCorpName": name,
+            "fromDate": from_date.isoformat(),
+            "toDate": today.isoformat(),
+            "reportNmTemp": term,
+            "reportNm": term,
+            "reportCd": "",
+            "lastReport": "recent",
+        }
+        response = kind_post(session, KIND_DISCLOSURE_URL, payload, timeout=20)
+        soup = BeautifulSoup(response.text, "html.parser")
+        for row in soup.find_all("tr"):
+            cells = row.find_all("td")
+            if len(cells) < 4:
+                continue
+            link = cells[3].find("a")
+            title = (link.get("title") if link else "") or cells[3].get_text(" ", strip=True)
+            title = re.sub(r"\s+", " ", title).strip()
+            if not title:
+                continue
+            date_text = cells[1].get_text(" ", strip=True)
+            onclick = link.get("onclick", "") if link else ""
+            receipt_match = re.search(r"openDisclsViewer\('([^']+)'", onclick)
+            receipt_no = receipt_match.group(1) if receipt_match else None
+            key = receipt_no or f"{date_text}|{title}"
+            if key in seen:
+                continue
+            seen.add(key)
+            disclosure = {
+                "date": date_text,
+                "title": title,
+                "company": cells[2].get_text(" ", strip=True) if len(cells) > 2 else name,
+                "submitter": cells[4].get_text(" ", strip=True) if len(cells) > 4 else None,
+                "receiptNo": receipt_no,
+                "source": "KIND 공시검색",
+            }
+            if receipt_no:
+                disclosure["url"] = (
+                    "https://kind.krx.co.kr/common/disclsviewer.do"
+                    f"?method=search&acptno={receipt_no}"
+                )
+            disclosures.append(disclosure)
+        time.sleep(0.05)
+    return disclosures
+
+
+def fetch_dart_corp_code(session, code):
+    response = session.post(DART_CORP_SEARCH_URL, data={"textCrpNm": code}, timeout=15)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content.decode("utf-8", errors="ignore"), "html.parser")
+    corp_code = soup.find("input", {"name": "hiddenCikCD1"})
+    corp_name = soup.find("input", {"name": "hiddenCikNM1"})
+    if not corp_code or not corp_code.get("value"):
+        return None, None
+    return corp_code.get("value"), corp_name.get("value")
+
+
+def fetch_dart_disclosures(code, name, listing_date=None, today=None):
+    today = today or today_kst()
+    from_date = listing_date or (today - timedelta(days=365 * 4))
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT, "Referer": DART_MAIN_URL})
+    session.get(DART_MAIN_URL, timeout=15)
+    corp_code, corp_name = fetch_dart_corp_code(session, code)
+    if not corp_code:
+        return []
+
+    payload = {
+        "currentPage": "1",
+        "maxResults": "100",
+        "maxLinks": "10",
+        "sort": "date",
+        "series": "desc",
+        "textCrpCik": corp_code,
+        "lateKeyword": "",
+        "keyword": "",
+        "reportNamePopYn": "N",
+        "textkeyword": "",
+        "businessCode": "all",
+        "autoSearch": "N",
+        "autoSearchCorp": "Y",
+        "option": "corp",
+        "textCrpNm": corp_name or name,
+        "reportName": "",
+        "tocSrch": "",
+        "textCrpNm2": "",
+        "textPresenterNm": "",
+        "startDate": from_date.strftime("%Y%m%d"),
+        "endDate": today.strftime("%Y%m%d"),
+        "decadeType": "",
+        "finalReport": "recent",
+        "businessNm": "전체",
+        "corporationType": "",
+        "closingAccountsMonth": "",
+        "reportName2": "",
+        "tocSrch2": "",
+    }
+    response = session.post(DART_DETAIL_SEARCH_URL, data=payload, timeout=25)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content.decode("utf-8", errors="ignore"), "html.parser")
+    disclosures = []
+    seen = set()
+    token_pool = (
+        MERGER_APPLICATION_TOKENS
+        + MERGER_CONFIRMATION_TOKENS
+        + MERGER_CANCEL_TOKENS
+        + ("주권매매거래정지", "주권매매거래정지해제")
+    )
+    for row in soup.select("tbody tr"):
+        cells = row.find_all("td")
+        if len(cells) < 5:
+            continue
+        title_cell = cells[2]
+        title = re.sub(r"\s+", " ", title_cell.get_text(" ", strip=True)).strip()
+        normalized = normalize_disclosure_title(title)
+        if not any(token in normalized for token in token_pool):
+            continue
+        link = title_cell.find("a")
+        onclick = link.get("onclick", "") if link else ""
+        receipt_match = re.search(r"openReportViewer\('([^']+)'", onclick)
+        receipt_no = receipt_match.group(1) if receipt_match else None
+        date_text = cells[4].get_text(" ", strip=True).replace(".", "-")
+        key = receipt_no or f"{date_text}|{title}"
+        if key in seen:
+            continue
+        seen.add(key)
+        disclosure = {
+            "date": date_text,
+            "title": title,
+            "company": cells[1].get_text(" ", strip=True),
+            "submitter": cells[3].get_text(" ", strip=True),
+            "receiptNo": receipt_no,
+            "source": "DART 공시통합검색",
+        }
+        if receipt_no:
+            disclosure["url"] = f"https://dart.fss.or.kr/dsaf001/main.do?rcpNo={receipt_no}"
+        disclosures.append(disclosure)
+    return disclosures
+
+
+def fetch_kind_merger_disclosures(items, kind_companies, max_workers=6, today=None, prefer_dart=False):
+    disclosures = {}
+    errors = {}
+    if not items:
+        return disclosures, errors
+    today = today or today_kst()
+    max_workers = max(1, min(max_workers, 4))
+
+    def fetch_item(item):
+        kind_info = kind_companies.get(normalize_name(item["name"]), {})
+        listing_date = parse_date(kind_info.get("listingDate"))
+        if prefer_dart:
+            return fetch_dart_disclosures(item["code"], item["name"], listing_date, today), None
+        try:
+            return fetch_kind_disclosures(item["code"], item["name"], listing_date, today), None
+        except Exception as kind_exc:  # noqa: BLE001
+            dart_rows = fetch_dart_disclosures(item["code"], item["name"], listing_date, today)
+            return dart_rows, f"KIND 실패, DART fallback 사용: {kind_exc}"
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        tasks = {executor.submit(fetch_item, item): item for item in items}
+        for future in as_completed(tasks):
+            item = tasks[future]
+            try:
+                rows, warning = future.result()
+                disclosures[item["code"]] = rows
+                if warning:
+                    errors[item["code"]] = warning
+            except Exception as exc:  # noqa: BLE001
+                errors[item["code"]] = str(exc)
+                disclosures[item["code"]] = []
+    return disclosures, errors
+
+
+def classify_merger_disclosures(disclosures):
+    status = None
+    application = None
+    confirmation = None
+    cancellation = None
+    matched = []
+
+    def sort_key(item):
+        date_text = str(item.get("date") or "")
+        title = normalize_disclosure_title(item.get("title"))
+        is_date_only = len(date_text) <= 10
+        cancel_order = 2 if is_date_only and any(token in title for token in MERGER_CANCEL_TOKENS) else 0
+        return (date_text[:10], "" if is_date_only else date_text, cancel_order)
+
+    for disclosure in sorted(disclosures or [], key=sort_key):
+        title = normalize_disclosure_title(disclosure.get("title"))
+        if not title or any(token in title for token in MERGER_IGNORE_TOKENS):
+            continue
+        if any(token in title for token in MERGER_CANCEL_TOKENS):
+            status = None
+            cancellation = disclosure
+            matched.append({**disclosure, "mergerSignal": "canceled"})
+            continue
+        if any(token in title for token in MERGER_CONFIRMATION_TOKENS):
+            status = "합병 확정"
+            confirmation = disclosure
+            matched.append({**disclosure, "mergerSignal": "confirmed"})
+            continue
+        if any(token in title for token in MERGER_APPLICATION_TOKENS):
+            if status != "합병 확정":
+                status = "합병 신청"
+            application = disclosure
+            matched.append({**disclosure, "mergerSignal": "applied"})
+    return {
+        "status": status,
+        "application": application,
+        "confirmation": confirmation,
+        "cancellation": cancellation,
+        "matched": matched,
+    }
 
 
 def fetch_naver_quote(code):
@@ -349,19 +675,19 @@ def derive_sponsor(name):
     return None
 
 
-def build_status_badges(ratio, days_to_liquidation, trade_stop=False, merger=False):
+def build_status_badges(ratio, days_to_liquidation, trade_stop=False, merger_status=None):
     badges = []
     if ratio is not None and ratio < 1:
         badges.append("공모가 이하")
     elif ratio is not None and ratio <= 1.01:
         badges.append("공모가 근접")
+    if merger_status:
+        badges.append(merger_status)
     if days_to_liquidation is not None:
         if days_to_liquidation <= 180:
             badges.append("청산 6개월 이내")
         elif days_to_liquidation <= 365:
             badges.append("청산 1년 이내")
-    if merger:
-        badges.append("합병 진행")
     if trade_stop:
         badges.append("거래정지")
     if not badges:
@@ -393,7 +719,7 @@ def estimate_trust_value_per_share(ipo_price, listing_date, liquidation_date, tr
     return ipo_price * ((1 + trust_rate) ** (trust_days / 365))
 
 
-def enrich_spac(item, kind_info, quote, history, overrides, args, today):
+def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclosures=None):
     code = item["code"]
     override = overrides.get(code, {})
     ipo_price = parse_int(override.get("ipoPrice")) or DEFAULT_IPO_PRICE
@@ -442,6 +768,45 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
         liquidation_value, current_price, days_to_liquidation
     )
 
+    merger_state = classify_merger_disclosures(disclosures or [])
+    merger_status = merger_state["status"]
+    application_disclosure = merger_state["application"]
+    confirmation_disclosure = merger_state["confirmation"]
+    cancellation_disclosure = merger_state["cancellation"]
+
+    manual_application_date = override.get("mergerApplicationDisclosureDate") or override.get(
+        "mergerDisclosureDate"
+    )
+    manual_confirmation_date = override.get("mergerConfirmationDisclosureDate")
+    if manual_application_date:
+        application_disclosure = {
+            "date": manual_application_date,
+            "title": str(
+                override.get("mergerApplicationDisclosureTitle")
+                or override.get("merger")
+                or "합병 대상 공시"
+            ),
+            "source": "overrides.json",
+        }
+        if not merger_status:
+            merger_status = "합병 신청"
+    if manual_confirmation_date:
+        confirmation_disclosure = {
+            "date": manual_confirmation_date,
+            "title": str(override.get("mergerConfirmationDisclosureTitle") or "합병 확정 공시"),
+            "source": "overrides.json",
+        }
+        merger_status = "합병 확정"
+
+    override_merger_status = normalize_merger_status(override.get("mergerStatus"))
+    legacy_merger_status = normalize_merger_status(override.get("merger"))
+    if override_merger_status:
+        merger_status = override_merger_status
+    elif legacy_merger_status and not merger_status:
+        merger_status = legacy_merger_status
+    elif override.get("merger") and not merger_status:
+        merger_status = "합병 신청"
+
     history_points = []
     for point in history:
         close = point.get("close")
@@ -459,7 +824,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
         ratio,
         days_to_liquidation,
         quote.get("tradeStop"),
-        bool(override.get("merger")),
+        merger_status,
     )
     estimated_shares = (
         int(quote["marketCap"] / current_price)
@@ -477,13 +842,37 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
                 "detail": f"KIND 상장일 {listing_date.isoformat()}",
             }
         )
-    if override.get("mergerDisclosureDate"):
+    if application_disclosure:
         events.append(
             {
-                "date": override.get("mergerDisclosureDate"),
-                "type": "merger",
-                "label": "합병공시",
-                "detail": str(override.get("merger") or "합병 진행"),
+                "date": application_disclosure.get("date"),
+                "type": "merger_application",
+                "label": "합병 신청",
+                "detail": application_disclosure.get("title") or "합병 대상 공시",
+                "source": application_disclosure.get("source"),
+                "url": application_disclosure.get("url"),
+            }
+        )
+    if confirmation_disclosure:
+        events.append(
+            {
+                "date": confirmation_disclosure.get("date"),
+                "type": "merger_confirmation",
+                "label": "합병 확정",
+                "detail": confirmation_disclosure.get("title") or "합병 확정 공시",
+                "source": confirmation_disclosure.get("source"),
+                "url": confirmation_disclosure.get("url"),
+            }
+        )
+    if cancellation_disclosure:
+        events.append(
+            {
+                "date": cancellation_disclosure.get("date"),
+                "type": "merger_canceled",
+                "label": "합병 철회",
+                "detail": cancellation_disclosure.get("title") or "합병 철회/취소 공시",
+                "source": cancellation_disclosure.get("source"),
+                "url": cancellation_disclosure.get("url"),
             }
         )
     if liquidation_date:
@@ -524,6 +913,11 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today):
         "annualizedReturn": round(annualized_return * 100, 2) if annualized_return is not None else None,
         "status": badges[0],
         "badges": badges,
+        "mergerStatus": merger_status,
+        "mergerApplicationDisclosure": application_disclosure,
+        "mergerConfirmationDisclosure": confirmation_disclosure,
+        "mergerCancellationDisclosure": cancellation_disclosure,
+        "mergerDisclosures": merger_state["matched"],
         "kind": kind_info,
         "quote": quote,
         "history": history_points,
@@ -542,7 +936,9 @@ def build_summary(spacs, generated_at):
         for spac in active
         if spac.get("daysToLiquidation") is not None and spac["daysToLiquidation"] <= 180
     ]
-    merger = [spac for spac in active if "합병 진행" in spac.get("badges", [])]
+    merger = [spac for spac in active if spac.get("mergerStatus")]
+    merger_applied = [spac for spac in merger if spac.get("mergerStatus") == "합병 신청"]
+    merger_confirmed = [spac for spac in merger if spac.get("mergerStatus") == "합병 확정"]
     recent = [
         spac
         for spac in active
@@ -564,6 +960,8 @@ def build_summary(spacs, generated_at):
         "nearIpoCount": len(near_ipo),
         "dueSoonCount": len(due_soon),
         "mergerCount": len(merger),
+        "mergerAppliedCount": len(merger_applied),
+        "mergerConfirmedCount": len(merger_confirmed),
         "recentListingCount": len(recent),
         "averageRatio": round(sum(ratios) / len(ratios), 4) if ratios else None,
         "averageAnnualizedReturn": round(sum(annualized) / len(annualized), 2) if annualized else None,
@@ -640,12 +1038,13 @@ def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, 
         ),
     )
     payload = {
-        "source": "KRX/KIND/Naver",
+        "source": "KRX/KIND/DART/Naver",
         "lastUpdated": generated_at.strftime("%Y-%m-%d %H:%M:%S KST"),
         "generatedAt": generated_at.isoformat(),
         "methodology": {
             "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
             "listingInfo": "KIND 상장법인목록 이름 매칭",
+            "mergerStatus": "KIND 공시검색과 DART fallback에서 회사합병 결정/SPAC 합병 예비심사청구대상은 합병 신청, 상장예비심사결과 통지(승인) 등은 합병 확정으로 분류",
             "price": "네이버 증권 실시간/최근가",
             "ipoPrice": "기본 2,000원, overrides.json으로 보정",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
@@ -664,6 +1063,8 @@ def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, 
         "errors": errors,
         "sourceLinks": {
             "kindCorpList": KIND_CORP_LIST_PAGE_URL,
+            "kindDisclosure": KIND_DISCLOSURE_PAGE_URL,
+            "dartDisclosure": DART_MAIN_URL,
             "krxData": "https://data.krx.co.kr/",
             "naverFinance": "https://finance.naver.com/",
             "openDartGuide": "https://opendart.fss.or.kr/guide/main.do",
@@ -692,6 +1093,8 @@ def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, 
                         "premiumPct": spac["premiumPct"],
                         "annualizedReturn": spac["annualizedReturn"],
                         "status": spac["status"],
+                        "badges": spac["badges"],
+                        "mergerStatus": spac["mergerStatus"],
                     }
                     for spac in spacs
                 },
@@ -724,6 +1127,17 @@ def main():
             "Manual per-share haircut for stress testing only. Default is 0 because "
             "general operating/merger expenses are not deducted from public escrow."
         ),
+    )
+    parser.add_argument(
+        "--skip-disclosures",
+        action="store_true",
+        help="Skip KIND merger-disclosure lookup and use overrides only.",
+    )
+    parser.add_argument(
+        "--disclosure-workers",
+        type=int,
+        default=2,
+        help="KIND merger-disclosure fetch concurrency",
     )
     parser.add_argument("--sample", action="store_true", help="Write bundled sample data without network")
     args = parser.parse_args()
@@ -768,12 +1182,39 @@ def main():
             trust_rate_source = f"수동 입력 {args.trust_rate * 100:.3f}%"
 
         overrides = load_overrides()
+        existing_spacs = load_existing_spacs()
         krx_spacs = fetch_krx_spac_universe()
         if args.limit > 0:
             krx_spacs = krx_spacs[: args.limit]
         print(f"KRX SPAC universe: {len(krx_spacs)}")
-        kind_companies = fetch_kind_listed_companies()
-        print(f"KIND listed companies: {len(kind_companies)}")
+        try:
+            kind_companies = fetch_kind_listed_companies()
+            print(f"KIND listed companies: {len(kind_companies)}")
+        except Exception as exc:  # noqa: BLE001
+            kind_companies = existing_kind_companies(existing_spacs)
+            errors["kindCorpList"] = str(exc)
+            print(
+                "WARNING: KIND listed-company collection failed; "
+                f"using {len(kind_companies)} existing listing records: {exc}"
+            )
+
+        if args.skip_disclosures:
+            merger_disclosures = {}
+            disclosure_errors = {}
+            print("KIND merger disclosures: skipped")
+        else:
+            merger_disclosures, disclosure_errors = fetch_kind_merger_disclosures(
+                krx_spacs,
+                kind_companies,
+                max_workers=args.disclosure_workers,
+                today=generated_at.date(),
+                prefer_dart="kindCorpList" in errors,
+            )
+            found_disclosures = sum(1 for rows in merger_disclosures.values() if rows)
+            print(
+                "KIND merger disclosures: "
+                f"{found_disclosures} codes with rows, {len(disclosure_errors)} errors"
+            )
 
         codes = [item["code"] for item in krx_spacs]
         quotes, quote_errors = fetch_quotes(codes, args.max_workers)
@@ -795,9 +1236,11 @@ def main():
                     overrides,
                     args,
                     generated_at.date(),
+                    merger_disclosures.get(code, []),
                 )
             )
         errors["quote"] = quote_errors
+        errors["disclosure"] = disclosure_errors
     except Exception as exc:  # noqa: BLE001
         print(f"WARNING: live collection failed, writing sample data: {exc}")
         rate_info = None

@@ -1,10 +1,11 @@
 window.SPAC_DATA = {
-  "source": "KRX/KIND/Naver",
-  "lastUpdated": "2026-06-01 08:53:40 KST",
-  "generatedAt": "2026-06-01T08:53:40.253359+09:00",
+  "source": "KRX/KIND/DART/Naver",
+  "lastUpdated": "2026-06-01 09:29:15 KST",
+  "generatedAt": "2026-06-01T09:29:15.664143+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
+    "mergerStatus": "KIND 공시검색과 DART fallback에서 회사합병 결정/SPAC 합병 예비심사청구대상은 합병 신청, 상장예비심사결과 통지(승인) 등은 합병 확정으로 분류",
     "price": "네이버 증권 실시간/최근가",
     "ipoPrice": "기본 2,000원, overrides.json으로 보정",
     "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
@@ -31,24 +32,26 @@ window.SPAC_DATA = {
   },
   "summary": {
     "totalCount": 73,
-    "belowIpoCount": 8,
-    "nearIpoCount": 24,
+    "belowIpoCount": 14,
+    "nearIpoCount": 30,
     "dueSoonCount": 3,
-    "mergerCount": 0,
+    "mergerCount": 4,
+    "mergerAppliedCount": 3,
+    "mergerConfirmedCount": 1,
     "recentListingCount": 5,
-    "averageRatio": 1.0376,
-    "averageAnnualizedReturn": 1.43,
+    "averageRatio": 1.0345,
+    "averageAnnualizedReturn": 1.65,
     "cheapest": {
       "code": "0131D0",
       "name": "키움히어로제2호스팩",
-      "ratio": 0.9905,
-      "currentPrice": 1981
+      "ratio": 0.9885,
+      "currentPrice": 1977
     },
     "bestYield": {
-      "code": "469900",
-      "name": "하나31호스팩",
-      "annualizedReturn": 5.95,
-      "currentPrice": 2065
+      "code": "474660",
+      "name": "신한제12호스팩",
+      "annualizedReturn": 6.05,
+      "currentPrice": 2050
     }
   },
   "spacs": [
@@ -60,14 +63,14 @@ window.SPAC_DATA = {
       "isin": "KR70131D0001",
       "sponsor": "키움히어로",
       "ipoPrice": 2000,
-      "currentPrice": 1981,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.9905,
-      "premiumPct": -0.95,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12500110000,
+      "currentPrice": 1977,
+      "change": -4,
+      "changePct": -0.2,
+      "ratio": 0.9885,
+      "premiumPct": -1.15,
+      "volume": 78783,
+      "tradingValue": 156000000,
+      "marketCap": 12474870000,
       "estimatedShares": 6310000,
       "listingDate": "2026-04-23",
       "liquidationDate": "2029-04-23",
@@ -76,12 +79,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 8.92,
-      "annualizedReturn": 2.99,
+      "expectedReturn": 9.14,
+      "annualizedReturn": 3.07,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "키움히어로제2호스팩",
         "fullName": "키움히어로제2호기업인수목적 주식회사",
@@ -96,16 +104,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "0131D0",
-        "price": 1981,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12500110000,
-        "marketStatus": "PREOPEN",
+        "price": 1977,
+        "change": -4,
+        "changePct": -0.2,
+        "volume": 78783,
+        "tradingValue": 156000000,
+        "marketCap": 12474870000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.938212+09:00",
+        "tradedAt": "2026-06-01T09:29:43.846412+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -255,9 +263,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 1981,
-          "ratio": 0.9905,
-          "volume": 0
+          "close": 1977,
+          "ratio": 0.9885,
+          "volume": 76490
         }
       ],
       "events": [
@@ -278,6 +286,206 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0131D0"
     },
     {
+      "id": "0129K0",
+      "code": "0129K0",
+      "name": "신한제18호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR70129K0006",
+      "sponsor": "신한",
+      "ipoPrice": 2000,
+      "currentPrice": 1986,
+      "change": -6,
+      "changePct": -0.3,
+      "ratio": 0.993,
+      "premiumPct": -0.7,
+      "volume": 5999,
+      "tradingValue": 12000000,
+      "marketCap": 11161320000,
+      "estimatedShares": 5620000,
+      "listingDate": "2026-04-30",
+      "liquidationDate": "2029-04-30",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 1064,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.65,
+      "annualizedReturn": 2.89,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "신한제18호스팩",
+        "fullName": "신한제18호기업인수목적주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "금융 지원 서비스업",
+        "listingDate": "2026-04-30",
+        "fiscalMonth": "12월",
+        "ceo": "변창섭",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0129K0",
+        "price": 1986,
+        "change": -6,
+        "changePct": -0.3,
+        "volume": 5999,
+        "tradingValue": 12000000,
+        "marketCap": 11161320000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.537687+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-30",
+          "close": 2355,
+          "ratio": 1.1775,
+          "volume": 130479859
+        },
+        {
+          "date": "2026-05-04",
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 5615751
+        },
+        {
+          "date": "2026-05-06",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 1211819
+        },
+        {
+          "date": "2026-05-07",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 348899
+        },
+        {
+          "date": "2026-05-08",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 280706
+        },
+        {
+          "date": "2026-05-11",
+          "close": 1992,
+          "ratio": 0.996,
+          "volume": 321719
+        },
+        {
+          "date": "2026-05-12",
+          "close": 1986,
+          "ratio": 0.993,
+          "volume": 206696
+        },
+        {
+          "date": "2026-05-13",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 217397
+        },
+        {
+          "date": "2026-05-14",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 220561
+        },
+        {
+          "date": "2026-05-15",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 138160
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1990,
+          "ratio": 0.995,
+          "volume": 150195
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 198918
+        },
+        {
+          "date": "2026-05-20",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 71806
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 51084
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1991,
+          "ratio": 0.9955,
+          "volume": 44821
+        },
+        {
+          "date": "2026-05-26",
+          "close": 1992,
+          "ratio": 0.996,
+          "volume": 99978
+        },
+        {
+          "date": "2026-05-27",
+          "close": 1993,
+          "ratio": 0.9965,
+          "volume": 109854
+        },
+        {
+          "date": "2026-05-28",
+          "close": 1991,
+          "ratio": 0.9955,
+          "volume": 50484
+        },
+        {
+          "date": "2026-05-29",
+          "close": 1992,
+          "ratio": 0.996,
+          "volume": 73887
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1987,
+          "ratio": 0.9935,
+          "volume": 5580
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-04-30",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2026-04-30"
+        },
+        {
+          "date": "2029-04-30",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제18호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0129K0"
+    },
+    {
       "id": "0130D0",
       "code": "0130D0",
       "name": "신한제17호스팩",
@@ -285,14 +493,14 @@ window.SPAC_DATA = {
       "isin": "KR70130D0002",
       "sponsor": "신한",
       "ipoPrice": 2000,
-      "currentPrice": 1990,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.995,
-      "premiumPct": -0.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10626600000,
+      "currentPrice": 1987,
+      "change": -3,
+      "changePct": -0.15,
+      "ratio": 0.9935,
+      "premiumPct": -0.65,
+      "volume": 3967,
+      "tradingValue": 8000000,
+      "marketCap": 10610580000,
       "estimatedShares": 5340000,
       "listingDate": "2026-04-01",
       "liquidationDate": "2029-04-01",
@@ -301,12 +509,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 8.43,
-      "annualizedReturn": 2.89,
+      "expectedReturn": 8.59,
+      "annualizedReturn": 2.95,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "신한제17호스팩",
         "fullName": "신한제17호기업인수목적 주식회사",
@@ -321,16 +534,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "0130D0",
-        "price": 1990,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10626600000,
-        "marketStatus": "PREOPEN",
+        "price": 1987,
+        "change": -3,
+        "changePct": -0.15,
+        "volume": 3967,
+        "tradingValue": 8000000,
+        "marketCap": 10610580000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.010204+09:00",
+        "tradedAt": "2026-06-01T09:29:43.536812+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -510,9 +723,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 1990,
-          "ratio": 0.995,
-          "volume": 0
+          "close": 1987,
+          "ratio": 0.9935,
+          "volume": 3956
         }
       ],
       "events": [
@@ -533,201 +746,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0130D0"
     },
     {
-      "id": "0129K0",
-      "code": "0129K0",
-      "name": "신한제18호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR70129K0006",
-      "sponsor": "신한",
-      "ipoPrice": 2000,
-      "currentPrice": 1992,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.996,
-      "premiumPct": -0.4,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11195040000,
-      "estimatedShares": 5620000,
-      "listingDate": "2026-04-30",
-      "liquidationDate": "2029-04-30",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1064,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 8.32,
-      "annualizedReturn": 2.78,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "kind": {
-        "name": "신한제18호스팩",
-        "fullName": "신한제18호기업인수목적주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융 지원 서비스업",
-        "listingDate": "2026-04-30",
-        "fiscalMonth": "12월",
-        "ceo": "변창섭",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0129K0",
-        "price": 1992,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11195040000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.011355+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-30",
-          "close": 2355,
-          "ratio": 1.1775,
-          "volume": 130479859
-        },
-        {
-          "date": "2026-05-04",
-          "close": 1995,
-          "ratio": 0.9975,
-          "volume": 5615751
-        },
-        {
-          "date": "2026-05-06",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 1211819
-        },
-        {
-          "date": "2026-05-07",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 348899
-        },
-        {
-          "date": "2026-05-08",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 280706
-        },
-        {
-          "date": "2026-05-11",
-          "close": 1992,
-          "ratio": 0.996,
-          "volume": 321719
-        },
-        {
-          "date": "2026-05-12",
-          "close": 1986,
-          "ratio": 0.993,
-          "volume": 206696
-        },
-        {
-          "date": "2026-05-13",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 217397
-        },
-        {
-          "date": "2026-05-14",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 220561
-        },
-        {
-          "date": "2026-05-15",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 138160
-        },
-        {
-          "date": "2026-05-18",
-          "close": 1990,
-          "ratio": 0.995,
-          "volume": 150195
-        },
-        {
-          "date": "2026-05-19",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 198918
-        },
-        {
-          "date": "2026-05-20",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 71806
-        },
-        {
-          "date": "2026-05-21",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 51084
-        },
-        {
-          "date": "2026-05-22",
-          "close": 1991,
-          "ratio": 0.9955,
-          "volume": 44821
-        },
-        {
-          "date": "2026-05-26",
-          "close": 1992,
-          "ratio": 0.996,
-          "volume": 99978
-        },
-        {
-          "date": "2026-05-27",
-          "close": 1993,
-          "ratio": 0.9965,
-          "volume": 109854
-        },
-        {
-          "date": "2026-05-28",
-          "close": 1991,
-          "ratio": 0.9955,
-          "volume": 50484
-        },
-        {
-          "date": "2026-05-29",
-          "close": 1992,
-          "ratio": 0.996,
-          "volume": 73887
-        },
-        {
-          "date": "2026-06-01",
-          "close": 1992,
-          "ratio": 0.996,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2026-04-30",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2026-04-30"
-        },
-        {
-          "date": "2029-04-30",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제18호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0129K0"
-    },
-    {
       "id": "0132G0",
       "code": "0132G0",
       "name": "교보20호스팩",
@@ -735,14 +753,14 @@ window.SPAC_DATA = {
       "isin": "KR70132G0007",
       "sponsor": "교보",
       "ipoPrice": 2000,
-      "currentPrice": 1998,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.999,
-      "premiumPct": -0.1,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11928060000,
+      "currentPrice": 1990,
+      "change": -8,
+      "changePct": -0.4,
+      "ratio": 0.995,
+      "premiumPct": -0.5,
+      "volume": 1497,
+      "tradingValue": 3000000,
+      "marketCap": 11880300000,
       "estimatedShares": 5970000,
       "listingDate": "2026-04-02",
       "liquidationDate": "2029-04-02",
@@ -751,12 +769,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.99,
-      "annualizedReturn": 2.75,
+      "expectedReturn": 8.43,
+      "annualizedReturn": 2.89,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "교보20호스팩",
         "fullName": "교보20호기업인수목적 주식회사",
@@ -771,16 +794,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "0132G0",
-        "price": 1998,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11928060000,
-        "marketStatus": "PREOPEN",
+        "price": 1990,
+        "change": -8,
+        "changePct": -0.4,
+        "volume": 1497,
+        "tradingValue": 3000000,
+        "marketCap": 11880300000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.957438+09:00",
+        "tradedAt": "2026-06-01T09:29:43.102535+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -960,9 +983,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 0
+          "close": 1990,
+          "ratio": 0.995,
+          "volume": 1497
         }
       ],
       "events": [
@@ -983,6 +1006,526 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0132G0"
     },
     {
+      "id": "0093G0",
+      "code": "0093G0",
+      "name": "미래에셋비전스팩8호",
+      "market": "KOSDAQ",
+      "isin": "KR70093G0004",
+      "sponsor": "미래에셋비전",
+      "ipoPrice": 2000,
+      "currentPrice": 1990,
+      "change": -10,
+      "changePct": -0.5,
+      "ratio": 0.995,
+      "premiumPct": -0.5,
+      "volume": 1004,
+      "tradingValue": 2000000,
+      "marketCap": 12736000000,
+      "estimatedShares": 6400000,
+      "listingDate": "2025-11-27",
+      "liquidationDate": "2028-11-27",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 910,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.43,
+      "annualizedReturn": 3.3,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "미래에셋비전스팩8호",
+        "fullName": "미래에셋비전기업인수목적8호 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-11-27",
+        "fiscalMonth": "12월",
+        "ceo": "김병철",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0093G0",
+        "price": 1990,
+        "change": -10,
+        "changePct": -0.5,
+        "volume": 1004,
+        "tradingValue": 2000000,
+        "marketCap": 12736000000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.344496+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 4719
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 9831
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 4383
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 11673
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 2422
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 5876
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 20247
+        },
+        {
+          "date": "2026-04-27",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 30308
+        },
+        {
+          "date": "2026-04-28",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 19456
+        },
+        {
+          "date": "2026-04-29",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 3050
+        },
+        {
+          "date": "2026-04-30",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 3873
+        },
+        {
+          "date": "2026-05-04",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 10969
+        },
+        {
+          "date": "2026-05-06",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 4105
+        },
+        {
+          "date": "2026-05-07",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 4850
+        },
+        {
+          "date": "2026-05-08",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 9633
+        },
+        {
+          "date": "2026-05-11",
+          "close": 1993,
+          "ratio": 0.9965,
+          "volume": 25784
+        },
+        {
+          "date": "2026-05-12",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 2703
+        },
+        {
+          "date": "2026-05-13",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 8883
+        },
+        {
+          "date": "2026-05-14",
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 13500
+        },
+        {
+          "date": "2026-05-15",
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 14457
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 18034
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 80081
+        },
+        {
+          "date": "2026-05-20",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 20434
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 4778
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 1534
+        },
+        {
+          "date": "2026-05-26",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 5711
+        },
+        {
+          "date": "2026-05-27",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 10493
+        },
+        {
+          "date": "2026-05-28",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 12794
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 9310
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1990,
+          "ratio": 0.995,
+          "volume": 1004
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-11-27",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-11-27"
+        },
+        {
+          "date": "2028-11-27",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩8호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0093G0"
+    },
+    {
+      "id": "0072Z0",
+      "code": "0072Z0",
+      "name": "KB제33호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR70072Z0006",
+      "sponsor": "KB",
+      "ipoPrice": 2000,
+      "currentPrice": 1992,
+      "change": -7,
+      "changePct": -0.35,
+      "ratio": 0.996,
+      "premiumPct": -0.4,
+      "volume": 276,
+      "tradingValue": 1000000,
+      "marketCap": 15706920000,
+      "estimatedShares": 7885000,
+      "listingDate": "2025-09-30",
+      "liquidationDate": "2028-09-30",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 852,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.32,
+      "annualizedReturn": 3.48,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "KB제33호스팩",
+        "fullName": "케이비제33호기업인수목적(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-09-30",
+        "fiscalMonth": "12월",
+        "ceo": "박성원",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0072Z0",
+        "price": 1992,
+        "change": -7,
+        "changePct": -0.35,
+        "volume": 276,
+        "tradingValue": 1000000,
+        "marketCap": 15706920000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.321421+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 10683
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 29226
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 6778
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 19098
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 6988
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 116606
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 9463
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 35586
+        },
+        {
+          "date": "2026-04-28",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 15419
+        },
+        {
+          "date": "2026-04-29",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 10648
+        },
+        {
+          "date": "2026-04-30",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 2609
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 2660
+        },
+        {
+          "date": "2026-05-06",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 26355
+        },
+        {
+          "date": "2026-05-07",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 4345
+        },
+        {
+          "date": "2026-05-08",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 12511
+        },
+        {
+          "date": "2026-05-11",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 30935
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 3864
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 90845
+        },
+        {
+          "date": "2026-05-14",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 26949
+        },
+        {
+          "date": "2026-05-15",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 7333
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 21282
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 6283
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 77839
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 2361
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 2010
+        },
+        {
+          "date": "2026-05-26",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 2450
+        },
+        {
+          "date": "2026-05-27",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 6840
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 10593
+        },
+        {
+          "date": "2026-05-29",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 10091
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1992,
+          "ratio": 0.996,
+          "volume": 276
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-09-30",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-09-30"
+        },
+        {
+          "date": "2028-09-30",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제33호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0072Z0"
+    },
+    {
       "id": "0096D0",
       "code": "0096D0",
       "name": "미래에셋비전스팩9호",
@@ -990,14 +1533,14 @@ window.SPAC_DATA = {
       "isin": "KR70096D0004",
       "sponsor": "미래에셋비전",
       "ipoPrice": 2000,
-      "currentPrice": 1998,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.999,
-      "premiumPct": -0.1,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10989000000,
+      "currentPrice": 1993,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 0.9965,
+      "premiumPct": -0.35,
+      "volume": 3779,
+      "tradingValue": 8000000,
+      "marketCap": 10961500000,
       "estimatedShares": 5500000,
       "listingDate": "2025-12-01",
       "liquidationDate": "2028-12-01",
@@ -1006,12 +1549,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.99,
-      "annualizedReturn": 3.12,
+      "expectedReturn": 8.26,
+      "annualizedReturn": 3.22,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "미래에셋비전스팩9호",
         "fullName": "미래에셋비전기업인수목적9호 주식회사",
@@ -1026,16 +1574,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "0096D0",
-        "price": 1998,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10989000000,
-        "marketStatus": "PREOPEN",
+        "price": 1993,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 3779,
+        "tradingValue": 8000000,
+        "marketCap": 10961500000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.473796+09:00",
+        "tradedAt": "2026-06-01T09:29:43.352659+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -1215,9 +1763,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 0
+          "close": 1993,
+          "ratio": 0.9965,
+          "volume": 3779
         }
       ],
       "events": [
@@ -1236,6 +1784,1566 @@ window.SPAC_DATA = {
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩9호",
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0096D0"
+    },
+    {
+      "id": "0115H0",
+      "code": "0115H0",
+      "name": "삼성스팩13호",
+      "market": "KOSDAQ",
+      "isin": "KR70115H0007",
+      "sponsor": "삼성",
+      "ipoPrice": 2000,
+      "currentPrice": 1994,
+      "change": -6,
+      "changePct": -0.3,
+      "ratio": 0.997,
+      "premiumPct": -0.3,
+      "volume": 28749,
+      "tradingValue": 57000000,
+      "marketCap": 14655900000,
+      "estimatedShares": 7350000,
+      "listingDate": "2026-01-21",
+      "liquidationDate": "2029-01-21",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 965,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.21,
+      "annualizedReturn": 3.03,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "삼성스팩13호",
+        "fullName": "삼성기업인수목적13호(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2026-01-21",
+        "fiscalMonth": "12월",
+        "ceo": "성상환",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0115H0",
+        "price": 1994,
+        "change": -6,
+        "changePct": -0.3,
+        "volume": 28749,
+        "tradingValue": 57000000,
+        "marketCap": 14655900000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.457222+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 56280
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 210164
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 37593
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 67638
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 25472
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 59588
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 45601
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 58587
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 37148
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 41303
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 43737
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 46738
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 56676
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 104251
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 32986
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 122287
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 37314
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 51354
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 36377
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 65319
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 51925
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 25170
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 70736
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 28960
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 24599
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 50104
+        },
+        {
+          "date": "2026-05-27",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 27218
+        },
+        {
+          "date": "2026-05-28",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 19558
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 54519
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 28749
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-01-21",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2026-01-21"
+        },
+        {
+          "date": "2029-01-21",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩13호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0115H0"
+    },
+    {
+      "id": "0101C0",
+      "code": "0101C0",
+      "name": "하나36호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR70101C0008",
+      "sponsor": "하나",
+      "ipoPrice": 2000,
+      "currentPrice": 1995,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 0.9975,
+      "premiumPct": -0.25,
+      "volume": 1315,
+      "tradingValue": 3000000,
+      "marketCap": 15441300000,
+      "estimatedShares": 7740000,
+      "listingDate": "2025-12-22",
+      "liquidationDate": "2028-12-22",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 935,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.16,
+      "annualizedReturn": 3.11,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "하나36호스팩",
+        "fullName": "하나36호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-12-22",
+        "fiscalMonth": "12월",
+        "ceo": "박병기",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0101C0",
+        "price": 1995,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 1315,
+        "tradingValue": 3000000,
+        "marketCap": 15441300000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.923726+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 8294
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 60972
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 6326
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 8523
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 5563
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 24249
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 22566
+        },
+        {
+          "date": "2026-04-27",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 25724
+        },
+        {
+          "date": "2026-04-28",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 60357
+        },
+        {
+          "date": "2026-04-29",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 2599
+        },
+        {
+          "date": "2026-04-30",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 2202
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 2824
+        },
+        {
+          "date": "2026-05-06",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 6588
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 17134
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 7520
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 20584
+        },
+        {
+          "date": "2026-05-12",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 22444
+        },
+        {
+          "date": "2026-05-13",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 22214
+        },
+        {
+          "date": "2026-05-14",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 3704
+        },
+        {
+          "date": "2026-05-15",
+          "close": 1991,
+          "ratio": 0.9955,
+          "volume": 21836
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 18563
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 14675
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 18865
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1993,
+          "ratio": 0.9965,
+          "volume": 1686
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 9162
+        },
+        {
+          "date": "2026-05-26",
+          "close": 1992,
+          "ratio": 0.996,
+          "volume": 17601
+        },
+        {
+          "date": "2026-05-27",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 4125
+        },
+        {
+          "date": "2026-05-28",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 9152
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 22069
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 54
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-12-22",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-12-22"
+        },
+        {
+          "date": "2028-12-22",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나36호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0101C0"
+    },
+    {
+      "id": "0068Y0",
+      "code": "0068Y0",
+      "name": "비엔케이제3호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR70068Y0003",
+      "sponsor": "비엔케이",
+      "ipoPrice": 2000,
+      "currentPrice": 1996,
+      "change": -9,
+      "changePct": -0.45,
+      "ratio": 0.998,
+      "premiumPct": -0.2,
+      "volume": 4623,
+      "tradingValue": 9000000,
+      "marketCap": 8602760000,
+      "estimatedShares": 4310000,
+      "listingDate": "2025-11-21",
+      "liquidationDate": "2028-11-21",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 904,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.1,
+      "annualizedReturn": 3.2,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "비엔케이제3호스팩",
+        "fullName": "비엔케이제3호기업인수목적(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-11-21",
+        "fiscalMonth": "12월",
+        "ceo": "서이덕",
+        "homepage": true,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0068Y0",
+        "price": 1996,
+        "change": -9,
+        "changePct": -0.45,
+        "volume": 4623,
+        "tradingValue": 9000000,
+        "marketCap": 8602760000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.352576+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 8868
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 8651
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 9691
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 14059
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 2170
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 3388
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 22927
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 5513
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 3273
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 1029
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 11947
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 4588
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 3264
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 4405
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 1274
+        },
+        {
+          "date": "2026-05-11",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 9553
+        },
+        {
+          "date": "2026-05-12",
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 1173
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 8726
+        },
+        {
+          "date": "2026-05-14",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 3753
+        },
+        {
+          "date": "2026-05-15",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 2286
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 13335
+        },
+        {
+          "date": "2026-05-19",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 5321
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 2132
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 803
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 35014
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 384
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 102
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 447
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 777
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 4623
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-11-21",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-11-21"
+        },
+        {
+          "date": "2028-11-21",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=비엔케이제3호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0068Y0"
+    },
+    {
+      "id": "0130H0",
+      "code": "0130H0",
+      "name": "엔에이치스팩33호",
+      "market": "KOSDAQ",
+      "isin": "KR70130H0008",
+      "sponsor": "엔에이치",
+      "ipoPrice": 2000,
+      "currentPrice": 1996,
+      "change": -3,
+      "changePct": -0.15,
+      "ratio": 0.998,
+      "premiumPct": -0.2,
+      "volume": 4422,
+      "tradingValue": 9000000,
+      "marketCap": 15369200000,
+      "estimatedShares": 7700000,
+      "listingDate": "2026-03-27",
+      "liquidationDate": "2029-03-27",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 1030,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 8.1,
+      "annualizedReturn": 2.8,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "엔에이치스팩33호",
+        "fullName": "엔에이치기업인수목적33호(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수",
+        "listingDate": "2026-03-27",
+        "fiscalMonth": "12월",
+        "ceo": "남강욱",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0130H0",
+        "price": 1996,
+        "change": -3,
+        "changePct": -0.15,
+        "volume": 4422,
+        "tradingValue": 9000000,
+        "marketCap": 15369200000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.674161+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 92920
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 101669
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 94015
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 163998
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 39794
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 38065
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 50343
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 124103
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 80598
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 45350
+        },
+        {
+          "date": "2026-04-30",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 44030
+        },
+        {
+          "date": "2026-05-04",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 36908
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 58384
+        },
+        {
+          "date": "2026-05-07",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 62585
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 21972
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 51286
+        },
+        {
+          "date": "2026-05-12",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 44690
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 50651
+        },
+        {
+          "date": "2026-05-14",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 43959
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 41822
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 17744
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 89518
+        },
+        {
+          "date": "2026-05-20",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 21439
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 39668
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 18438
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 44859
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 22720
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 12049
+        },
+        {
+          "date": "2026-05-29",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 35059
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 3622
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-03-27",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2026-03-27"
+        },
+        {
+          "date": "2029-03-27",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엔에이치스팩33호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0130H0"
+    },
+    {
+      "id": "0096B0",
+      "code": "0096B0",
+      "name": "삼성스팩12호",
+      "market": "KOSDAQ",
+      "isin": "KR70096B0006",
+      "sponsor": "삼성",
+      "ipoPrice": 2000,
+      "currentPrice": 1998,
+      "change": -2,
+      "changePct": -0.1,
+      "ratio": 0.999,
+      "premiumPct": -0.1,
+      "volume": 386,
+      "tradingValue": 1000000,
+      "marketCap": 13146840000,
+      "estimatedShares": 6580000,
+      "listingDate": "2025-11-28",
+      "liquidationDate": "2028-11-28",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 911,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.99,
+      "annualizedReturn": 3.13,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "삼성스팩12호",
+        "fullName": "삼성기업인수목적12호(주)",
+        "industry": "기타 금융업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-11-28",
+        "fiscalMonth": "12월",
+        "ceo": "김영제",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0096B0",
+        "price": 1998,
+        "change": -2,
+        "changePct": -0.1,
+        "volume": 386,
+        "tradingValue": 1000000,
+        "marketCap": 13146840000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.430055+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 36834
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 131472
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 7993
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 18229
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 12017
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 11995
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 40018
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 9189
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 34700
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 50480
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 29801
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 28331
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 40059
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 22333
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 21318
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 57352
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 51268
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 16935
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 20431
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 42165
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 46712
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 32528
+        },
+        {
+          "date": "2026-05-20",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 41187
+        },
+        {
+          "date": "2026-05-21",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 17255
+        },
+        {
+          "date": "2026-05-22",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 8172
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 25319
+        },
+        {
+          "date": "2026-05-27",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 15110
+        },
+        {
+          "date": "2026-05-28",
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 23090
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 40320
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 386
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-11-28",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-11-28"
+        },
+        {
+          "date": "2028-11-28",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩12호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0096B0"
+    },
+    {
+      "id": "0041J0",
+      "code": "0041J0",
+      "name": "엘에스스팩1호",
+      "market": "KOSDAQ",
+      "isin": "KR70041J0004",
+      "sponsor": "엘에스",
+      "ipoPrice": 2000,
+      "currentPrice": 1998,
+      "change": -22,
+      "changePct": -1.09,
+      "ratio": 0.999,
+      "premiumPct": -0.1,
+      "volume": 1777,
+      "tradingValue": 4000000,
+      "marketCap": 8211780000,
+      "estimatedShares": 4110000,
+      "listingDate": "2025-07-22",
+      "liquidationDate": "2028-07-22",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 782,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.99,
+      "annualizedReturn": 3.65,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "엘에스스팩1호",
+        "fullName": "엘에스기업인수목적1호 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-07-22",
+        "fiscalMonth": "12월",
+        "ceo": "이정국",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0041J0",
+        "price": 1998,
+        "change": -22,
+        "changePct": -1.09,
+        "volume": 1777,
+        "tradingValue": 4000000,
+        "marketCap": 8211780000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.735599+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 4373
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 5888
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 3750
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 664
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 711
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 2001
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 17124
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 14328
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 3077
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 20695
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 29941
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 805
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 20521
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 1467
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 4600
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 29365
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 1913
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 11709
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 58
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 17829
+        },
+        {
+          "date": "2026-05-18",
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 8341
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 7933
+        },
+        {
+          "date": "2026-05-20",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 22478
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 394
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 730
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 3051
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 5562
+        },
+        {
+          "date": "2026-05-28",
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 864
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 22940
+        },
+        {
+          "date": "2026-06-01",
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 1777
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-07-22",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-07-22"
+        },
+        {
+          "date": "2028-07-22",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엘에스스팩1호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0041J0"
     },
     {
       "id": "0105P0",
@@ -1267,6 +3375,11 @@ window.SPAC_DATA = {
       "badges": [
         "공모가 이하"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "유진스팩12호",
         "fullName": "유진기업인수목적12호 주식회사",
@@ -1287,10 +3400,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 11308680000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.883519+09:00",
+        "tradedAt": "2026-06-01T09:29:43.80646+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -1493,514 +3606,524 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0105P0"
     },
     {
-      "id": "0072Z0",
-      "code": "0072Z0",
-      "name": "KB제33호스팩",
+      "id": "0037T0",
+      "code": "0037T0",
+      "name": "KB제32호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70072Z0006",
+      "isin": "KR70037T0008",
       "sponsor": "KB",
       "ipoPrice": 2000,
-      "currentPrice": 1999,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.9995,
-      "premiumPct": -0.05,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 15762115000,
-      "estimatedShares": 7885000,
-      "listingDate": "2025-09-30",
-      "liquidationDate": "2028-09-30",
+      "currentPrice": 2000,
+      "change": -10,
+      "changePct": -0.5,
+      "ratio": 1.0,
+      "premiumPct": 0.0,
+      "volume": 1103,
+      "tradingValue": 2000000,
+      "marketCap": 12660000000,
+      "estimatedShares": 6330000,
+      "listingDate": "2025-07-04",
+      "liquidationDate": "2028-07-04",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 852,
+      "daysToLiquidation": 764,
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.94,
-      "annualizedReturn": 3.33,
-      "status": "공모가 이하",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.69,
+      "status": "공모가 근접",
       "badges": [
-        "공모가 이하"
+        "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "KB제33호스팩",
-        "fullName": "케이비제33호기업인수목적(주)",
+        "name": "KB제32호스팩",
+        "fullName": "케이비제32호기업인수목적(주)",
         "industry": "금융 지원 서비스업",
         "mainProduct": "기업인수합병",
-        "listingDate": "2025-09-30",
+        "listingDate": "2025-07-04",
         "fiscalMonth": "12월",
-        "ceo": "박성원",
+        "ceo": "김세준",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0072Z0",
-        "price": 1999,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 15762115000,
-        "marketStatus": "PREOPEN",
+        "code": "0037T0",
+        "price": 2000,
+        "change": -10,
+        "changePct": -0.5,
+        "volume": 1103,
+        "tradingValue": 2000000,
+        "marketCap": 12660000000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.897891+09:00",
+        "tradedAt": "2026-06-01T09:29:43.096946+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 10683
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 6241
         },
         {
           "date": "2026-04-17",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 29226
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 7937
         },
         {
           "date": "2026-04-20",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 6778
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 11230
         },
         {
           "date": "2026-04-21",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 19098
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 5155
         },
         {
           "date": "2026-04-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 6988
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 1489
         },
         {
           "date": "2026-04-23",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 116606
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 6454
         },
         {
           "date": "2026-04-24",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 9463
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 7831
         },
         {
           "date": "2026-04-27",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 35586
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 26212
         },
         {
           "date": "2026-04-28",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 15419
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 1252
         },
         {
           "date": "2026-04-29",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 10648
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 842
         },
         {
           "date": "2026-04-30",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 2609
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 585
         },
         {
           "date": "2026-05-04",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 2660
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 2489
         },
         {
           "date": "2026-05-06",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 26355
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 20514
         },
         {
           "date": "2026-05-07",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 4345
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 4547
         },
         {
           "date": "2026-05-08",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 12511
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 2563
         },
         {
           "date": "2026-05-11",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 30935
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 16821
         },
         {
           "date": "2026-05-12",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 3864
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 5830
         },
         {
           "date": "2026-05-13",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 90845
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 7159
         },
         {
           "date": "2026-05-14",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 26949
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 1816
         },
         {
           "date": "2026-05-15",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 7333
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 7815
         },
         {
           "date": "2026-05-18",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 21282
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 6749
         },
         {
           "date": "2026-05-19",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 6283
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 31032
         },
         {
           "date": "2026-05-20",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 77839
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 17087
         },
         {
           "date": "2026-05-21",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 2361
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 7066
         },
         {
           "date": "2026-05-22",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 2010
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 286
         },
         {
           "date": "2026-05-26",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 2450
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 7152
         },
         {
           "date": "2026-05-27",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 6840
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 9751
         },
         {
           "date": "2026-05-28",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 10593
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 3644
         },
         {
           "date": "2026-05-29",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 10091
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 5714
         },
         {
           "date": "2026-06-01",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 0
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 1103
         }
       ],
       "events": [
         {
-          "date": "2025-09-30",
+          "date": "2025-07-04",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2025-09-30"
+          "detail": "KIND 상장일 2025-07-04"
         },
         {
-          "date": "2028-09-30",
+          "date": "2028-07-04",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제33호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0072Z0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제32호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0037T0"
     },
     {
-      "id": "0130H0",
-      "code": "0130H0",
-      "name": "엔에이치스팩33호",
+      "id": "0004Y0",
+      "code": "0004Y0",
+      "name": "디비금융제14호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70130H0008",
-      "sponsor": "엔에이치",
+      "isin": "KR70004Y0000",
+      "sponsor": "디비금융",
       "ipoPrice": 2000,
-      "currentPrice": 1999,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 0.9995,
-      "premiumPct": -0.05,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 15392300000,
-      "estimatedShares": 7700000,
-      "listingDate": "2026-03-27",
-      "liquidationDate": "2029-03-27",
+      "currentPrice": 2000,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 1.0,
+      "premiumPct": 0.0,
+      "volume": 1725,
+      "tradingValue": 3000000,
+      "marketCap": 10630000000,
+      "estimatedShares": 5315000,
+      "listingDate": "2025-07-22",
+      "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1030,
+      "daysToLiquidation": 782,
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.94,
-      "annualizedReturn": 2.74,
-      "status": "공모가 이하",
+      "expectedReturn": 7.89,
+      "annualizedReturn": 3.61,
+      "status": "공모가 근접",
       "badges": [
-        "공모가 이하"
+        "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "엔에이치스팩33호",
-        "fullName": "엔에이치기업인수목적33호(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수",
-        "listingDate": "2026-03-27",
+        "name": "디비금융제14호스팩",
+        "fullName": "디비금융제14호기업인수목적 주식회사",
+        "industry": "기타 금융업",
+        "mainProduct": "기업인수목적회사",
+        "listingDate": "2025-07-22",
         "fiscalMonth": "12월",
-        "ceo": "남강욱",
+        "ceo": "황선국",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0130H0",
-        "price": 1999,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 15392300000,
-        "marketStatus": "PREOPEN",
+        "code": "0004Y0",
+        "price": 2000,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 1725,
+        "tradingValue": 3000000,
+        "marketCap": 10630000000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.045371+09:00",
+        "tradedAt": "2026-06-01T09:29:43.201107+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 92920
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 3163
         },
         {
           "date": "2026-04-17",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 101669
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 2200
         },
         {
           "date": "2026-04-20",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 94015
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 8865
         },
         {
           "date": "2026-04-21",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 163998
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 644
         },
         {
           "date": "2026-04-22",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 39794
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 3697
         },
         {
           "date": "2026-04-23",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 38065
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 7568
         },
         {
           "date": "2026-04-24",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 50343
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 5721
         },
         {
           "date": "2026-04-27",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 124103
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 3202
         },
         {
           "date": "2026-04-28",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 80598
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 5126
         },
         {
           "date": "2026-04-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 45350
+          "close": 2027,
+          "ratio": 1.0135,
+          "volume": 12120
         },
         {
           "date": "2026-04-30",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 44030
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 2029
         },
         {
           "date": "2026-05-04",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 36908
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 24761
         },
         {
           "date": "2026-05-06",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 58384
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 15413
         },
         {
           "date": "2026-05-07",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 62585
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 3046
         },
         {
           "date": "2026-05-08",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 21972
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 615
         },
         {
           "date": "2026-05-11",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 51286
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 11691
         },
         {
           "date": "2026-05-12",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 44690
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 45569
         },
         {
           "date": "2026-05-13",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 50651
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 722
         },
         {
           "date": "2026-05-14",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 43959
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 29153
         },
         {
           "date": "2026-05-15",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 41822
+          "close": 2007,
+          "ratio": 1.0035,
+          "volume": 13247
         },
         {
           "date": "2026-05-18",
           "close": 2005,
           "ratio": 1.0025,
-          "volume": 17744
+          "volume": 10831
         },
         {
           "date": "2026-05-19",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 89518
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 8451
         },
         {
           "date": "2026-05-20",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 21439
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 584
         },
         {
           "date": "2026-05-21",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 39668
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 694
         },
         {
           "date": "2026-05-22",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 18438
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 451
         },
         {
           "date": "2026-05-26",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 44859
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 3618
         },
         {
           "date": "2026-05-27",
           "close": 2005,
           "ratio": 1.0025,
-          "volume": 22720
+          "volume": 9599
         },
         {
           "date": "2026-05-28",
           "close": 2005,
           "ratio": 1.0025,
-          "volume": 12049
+          "volume": 4720
         },
         {
           "date": "2026-05-29",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 35059
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 5867
         },
         {
           "date": "2026-06-01",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 0
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 1725
         }
       ],
       "events": [
         {
-          "date": "2026-03-27",
+          "date": "2025-07-22",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2026-03-27"
+          "detail": "KIND 상장일 2025-07-22"
         },
         {
-          "date": "2029-03-27",
+          "date": "2028-07-22",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엔에이치스팩33호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0130H0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=디비금융제14호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0004Y0"
     },
     {
       "id": "0097F0",
@@ -2015,7 +4138,7 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0,
       "premiumPct": 0.0,
-      "volume": null,
+      "volume": 121,
       "tradingValue": null,
       "marketCap": 13000000000,
       "estimatedShares": 6500000,
@@ -2032,6 +4155,11 @@ window.SPAC_DATA = {
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "미래에셋비전스팩10호",
         "fullName": "미래에셋비전기업인수목적10호 주식회사",
@@ -2049,13 +4177,13 @@ window.SPAC_DATA = {
         "price": 2000,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
+        "volume": 121,
         "tradingValue": null,
         "marketCap": 13000000000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.125694+09:00",
+        "tradedAt": "2026-06-01T09:29:43.225474+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -2237,7 +4365,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2000,
           "ratio": 1.0,
-          "volume": 0
+          "volume": 121
         }
       ],
       "events": [
@@ -2258,259 +4386,264 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0097F0"
     },
     {
-      "id": "0093G0",
-      "code": "0093G0",
-      "name": "미래에셋비전스팩8호",
+      "id": "0099W0",
+      "code": "0099W0",
+      "name": "미래에셋비전스팩11호",
       "market": "KOSDAQ",
-      "isin": "KR70093G0004",
+      "isin": "KR70099W0008",
       "sponsor": "미래에셋비전",
       "ipoPrice": 2000,
       "currentPrice": 2000,
-      "change": 0,
-      "changePct": 0.0,
+      "change": -5,
+      "changePct": -0.25,
       "ratio": 1.0,
       "premiumPct": 0.0,
-      "volume": null,
+      "volume": 131,
       "tradingValue": null,
-      "marketCap": 12800000000,
-      "estimatedShares": 6400000,
-      "listingDate": "2025-11-27",
-      "liquidationDate": "2028-11-27",
+      "marketCap": 14000000000,
+      "estimatedShares": 7000000,
+      "listingDate": "2025-12-22",
+      "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 910,
+      "daysToLiquidation": 935,
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": 7.89,
-      "annualizedReturn": 3.09,
+      "annualizedReturn": 3.01,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "미래에셋비전스팩8호",
-        "fullName": "미래에셋비전기업인수목적8호 주식회사",
+        "name": "미래에셋비전스팩11호",
+        "fullName": "미래에셋비전기업인수목적11호 주식회사",
         "industry": "금융 지원 서비스업",
         "mainProduct": "기업인수합병",
-        "listingDate": "2025-11-27",
+        "listingDate": "2025-12-22",
         "fiscalMonth": "12월",
-        "ceo": "김병철",
+        "ceo": "김양태",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0093G0",
+        "code": "0099W0",
         "price": 2000,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 131,
         "tradingValue": null,
-        "marketCap": 12800000000,
-        "marketStatus": "PREOPEN",
+        "marketCap": 14000000000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.469716+09:00",
+        "tradedAt": "2026-06-01T09:29:43.231847+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 4719
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 9632
         },
         {
           "date": "2026-04-17",
           "close": 2010,
           "ratio": 1.005,
-          "volume": 9831
+          "volume": 120006
         },
         {
           "date": "2026-04-20",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 4383
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 23169
         },
         {
           "date": "2026-04-21",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 11673
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 46624
         },
         {
           "date": "2026-04-22",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 2422
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 3800
         },
         {
           "date": "2026-04-23",
           "close": 2000,
           "ratio": 1.0,
-          "volume": 5876
+          "volume": 15216
         },
         {
           "date": "2026-04-24",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 20247
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 23326
         },
         {
           "date": "2026-04-27",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 30308
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 25575
         },
         {
           "date": "2026-04-28",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 19456
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 26689
         },
         {
           "date": "2026-04-29",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 3050
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 1316
         },
         {
           "date": "2026-04-30",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 3873
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 5856
         },
         {
           "date": "2026-05-04",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 10969
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 13950
         },
         {
           "date": "2026-05-06",
           "close": 1996,
           "ratio": 0.998,
-          "volume": 4105
+          "volume": 19782
         },
         {
           "date": "2026-05-07",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 4850
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 5691
         },
         {
           "date": "2026-05-08",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 9633
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 11676
         },
         {
           "date": "2026-05-11",
-          "close": 1993,
-          "ratio": 0.9965,
-          "volume": 25784
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 40736
         },
         {
           "date": "2026-05-12",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 2703
+          "close": 1997,
+          "ratio": 0.9985,
+          "volume": 12684
         },
         {
           "date": "2026-05-13",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 8883
+          "close": 1993,
+          "ratio": 0.9965,
+          "volume": 40224
         },
         {
           "date": "2026-05-14",
-          "close": 1995,
-          "ratio": 0.9975,
-          "volume": 13500
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 5012
         },
         {
           "date": "2026-05-15",
-          "close": 1995,
-          "ratio": 0.9975,
-          "volume": 14457
+          "close": 1993,
+          "ratio": 0.9965,
+          "volume": 13859
         },
         {
           "date": "2026-05-18",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 18034
+          "close": 1994,
+          "ratio": 0.997,
+          "volume": 22321
         },
         {
           "date": "2026-05-19",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 80081
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 37763
         },
         {
           "date": "2026-05-20",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 20434
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 65670
         },
         {
           "date": "2026-05-21",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 4778
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 19002
         },
         {
           "date": "2026-05-22",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 1534
+          "close": 1998,
+          "ratio": 0.999,
+          "volume": 9970
         },
         {
           "date": "2026-05-26",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 5711
+          "close": 1996,
+          "ratio": 0.998,
+          "volume": 8539
         },
         {
           "date": "2026-05-27",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 10493
+          "close": 1999,
+          "ratio": 0.9995,
+          "volume": 1099
         },
         {
           "date": "2026-05-28",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 12794
+          "close": 1995,
+          "ratio": 0.9975,
+          "volume": 8751
         },
         {
           "date": "2026-05-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 9310
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 21481
         },
         {
           "date": "2026-06-01",
           "close": 2000,
           "ratio": 1.0,
-          "volume": 0
+          "volume": 131
         }
       ],
       "events": [
         {
-          "date": "2025-11-27",
+          "date": "2025-12-22",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2025-11-27"
+          "detail": "KIND 상장일 2025-12-22"
         },
         {
-          "date": "2028-11-27",
+          "date": "2028-12-22",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩8호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0093G0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩11호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0099W0"
     },
     {
       "id": "0044K0",
@@ -2525,8 +4658,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0,
       "premiumPct": 0.0,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 666,
+      "tradingValue": 1000000,
       "marketCap": 15040000000,
       "estimatedShares": 7520000,
       "listingDate": "2025-08-21",
@@ -2542,6 +4675,11 @@ window.SPAC_DATA = {
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "삼성스팩10호",
         "fullName": "삼성기업인수목적10호(주)",
@@ -2559,13 +4697,13 @@ window.SPAC_DATA = {
         "price": 2000,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 666,
+        "tradingValue": 1000000,
         "marketCap": 15040000000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.573271+09:00",
+        "tradedAt": "2026-06-01T09:29:43.72209+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -2747,7 +4885,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2000,
           "ratio": 1.0,
-          "volume": 0
+          "volume": 666
         }
       ],
       "events": [
@@ -2768,771 +4906,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0044K0"
     },
     {
-      "id": "0096B0",
-      "code": "0096B0",
-      "name": "삼성스팩12호",
-      "market": "KOSDAQ",
-      "isin": "KR70096B0006",
-      "sponsor": "삼성",
-      "ipoPrice": 2000,
-      "currentPrice": 2000,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0,
-      "premiumPct": 0.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 13160000000,
-      "estimatedShares": 6580000,
-      "listingDate": "2025-11-28",
-      "liquidationDate": "2028-11-28",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 911,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.89,
-      "annualizedReturn": 3.09,
-      "status": "공모가 근접",
-      "badges": [
-        "공모가 근접"
-      ],
-      "kind": {
-        "name": "삼성스팩12호",
-        "fullName": "삼성기업인수목적12호(주)",
-        "industry": "기타 금융업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-11-28",
-        "fiscalMonth": "12월",
-        "ceo": "김영제",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0096B0",
-        "price": 2000,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 13160000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.763801+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 36834
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 131472
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 7993
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 18229
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 12017
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 11995
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 40018
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 9189
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 34700
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 50480
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 29801
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 28331
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 40059
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 22333
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 21318
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 57352
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 51268
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 16935
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 20431
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 42165
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 46712
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 32528
-        },
-        {
-          "date": "2026-05-20",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 41187
-        },
-        {
-          "date": "2026-05-21",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 17255
-        },
-        {
-          "date": "2026-05-22",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 8172
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 25319
-        },
-        {
-          "date": "2026-05-27",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 15110
-        },
-        {
-          "date": "2026-05-28",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 23090
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 40320
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-11-28",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-11-28"
-        },
-        {
-          "date": "2028-11-28",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩12호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0096B0"
-    },
-    {
-      "id": "0115H0",
-      "code": "0115H0",
-      "name": "삼성스팩13호",
-      "market": "KOSDAQ",
-      "isin": "KR70115H0007",
-      "sponsor": "삼성",
-      "ipoPrice": 2000,
-      "currentPrice": 2000,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0,
-      "premiumPct": 0.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 14700000000,
-      "estimatedShares": 7350000,
-      "listingDate": "2026-01-21",
-      "liquidationDate": "2029-01-21",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 965,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.89,
-      "annualizedReturn": 2.91,
-      "status": "공모가 근접",
-      "badges": [
-        "공모가 근접"
-      ],
-      "kind": {
-        "name": "삼성스팩13호",
-        "fullName": "삼성기업인수목적13호(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2026-01-21",
-        "fiscalMonth": "12월",
-        "ceo": "성상환",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0115H0",
-        "price": 2000,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 14700000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.776374+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 56280
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 210164
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 37593
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 67638
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 25472
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 59588
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 45601
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 58587
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 37148
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 41303
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 43737
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 46738
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 56676
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 104251
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 32986
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 122287
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 37314
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 51354
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 36377
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 65319
-        },
-        {
-          "date": "2026-05-18",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 51925
-        },
-        {
-          "date": "2026-05-19",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 25170
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 70736
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 28960
-        },
-        {
-          "date": "2026-05-22",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 24599
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 50104
-        },
-        {
-          "date": "2026-05-27",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 27218
-        },
-        {
-          "date": "2026-05-28",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 19558
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 54519
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2026-01-21",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2026-01-21"
-        },
-        {
-          "date": "2029-01-21",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩13호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0115H0"
-    },
-    {
-      "id": "496070",
-      "code": "496070",
-      "name": "신한제16호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7496070004",
-      "sponsor": "신한",
-      "ipoPrice": 2000,
-      "currentPrice": 2000,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0,
-      "premiumPct": 0.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11240000000,
-      "estimatedShares": 5620000,
-      "listingDate": "2025-05-29",
-      "liquidationDate": "2028-05-29",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 728,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.89,
-      "annualizedReturn": 3.88,
-      "status": "공모가 근접",
-      "badges": [
-        "공모가 근접"
-      ],
-      "kind": {
-        "name": "신한제16호스팩",
-        "fullName": "신한제16호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기타금융서비스(기업합병)",
-        "listingDate": "2025-05-29",
-        "fiscalMonth": "12월",
-        "ceo": "김종환",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "496070",
-        "price": 2000,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11240000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.008267+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 2007
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 4655
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 3958
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 1606
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 2406
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 3492
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 26599
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 7442
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 9359
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2012,
-          "ratio": 1.006,
-          "volume": 1786
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 2258
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 543
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 3859
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 533
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 1682
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 41681
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 20297
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 6601
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 24
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 12
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 789
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 39326
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 17718
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 5471
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 3091
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 23862
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 9762
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 2730
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 3794
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-05-29",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-05-29"
-        },
-        {
-          "date": "2028-05-29",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제16호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=496070"
-    },
-    {
       "id": "466690",
       "code": "466690",
       "name": "키움히어로제1호스팩",
@@ -3545,7 +4918,7 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0,
       "premiumPct": 0.0,
-      "volume": null,
+      "volume": 15,
       "tradingValue": null,
       "marketCap": 10190000000,
       "estimatedShares": 5095000,
@@ -3562,6 +4935,11 @@ window.SPAC_DATA = {
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "키움히어로제1호스팩",
         "fullName": "키움히어로제1호기업인수목적 주식회사",
@@ -3579,13 +4957,13 @@ window.SPAC_DATA = {
         "price": 2000,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
+        "volume": 15,
         "tradingValue": null,
         "marketCap": 10190000000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.937926+09:00",
+        "tradedAt": "2026-06-01T09:29:43.846698+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -3767,7 +5145,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2000,
           "ratio": 1.0,
-          "volume": 0
+          "volume": 15
         }
       ],
       "events": [
@@ -3788,1024 +5166,784 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=466690"
     },
     {
-      "id": "0101C0",
-      "code": "0101C0",
-      "name": "하나36호스팩",
+      "id": "487360",
+      "code": "487360",
+      "name": "신한제14호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70101C0008",
-      "sponsor": "하나",
+      "isin": "KR7487360000",
+      "sponsor": "신한",
       "ipoPrice": 2000,
-      "currentPrice": 2000,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0,
-      "premiumPct": 0.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 15480000000,
-      "estimatedShares": 7740000,
-      "listingDate": "2025-12-22",
-      "liquidationDate": "2028-12-22",
+      "currentPrice": 2005,
+      "change": -25,
+      "changePct": -1.23,
+      "ratio": 1.0025,
+      "premiumPct": 0.25,
+      "volume": 250,
+      "tradingValue": 1000000,
+      "marketCap": 11308200000,
+      "estimatedShares": 5640000,
+      "listingDate": "2024-12-23",
+      "liquidationDate": "2027-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 935,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
+      "daysToLiquidation": 570,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.89,
-      "annualizedReturn": 3.01,
+      "expectedReturn": 7.61,
+      "annualizedReturn": 4.81,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "하나36호스팩",
-        "fullName": "하나36호기업인수목적 주식회사",
+        "name": "신한제14호스팩",
+        "fullName": "신한제14호기업인수목적 주식회사",
         "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-12-22",
+        "mainProduct": "금융 지원 서비스업",
+        "listingDate": "2024-12-23",
         "fiscalMonth": "12월",
-        "ceo": "박병기",
+        "ceo": "홍승표",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0101C0",
-        "price": 2000,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 15480000000,
-        "marketStatus": "PREOPEN",
+        "code": "487360",
+        "price": 2005,
+        "change": -25,
+        "changePct": -1.23,
+        "volume": 250,
+        "tradingValue": 1000000,
+        "marketCap": 11308200000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.45489+09:00",
+        "tradedAt": "2026-06-01T09:29:43.51191+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 8294
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 1573
         },
         {
           "date": "2026-04-17",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 60972
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 26805
         },
         {
           "date": "2026-04-20",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 6326
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 11275
         },
         {
           "date": "2026-04-21",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 8523
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 38265
         },
         {
           "date": "2026-04-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 5563
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 682
         },
         {
           "date": "2026-04-23",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 24249
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 15741
         },
         {
           "date": "2026-04-24",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 22566
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 12584
         },
         {
           "date": "2026-04-27",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 25724
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 2044
         },
         {
           "date": "2026-04-28",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 60357
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 16108
         },
         {
           "date": "2026-04-29",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 2599
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 6476
         },
         {
           "date": "2026-04-30",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 2202
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 19098
         },
         {
           "date": "2026-05-04",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 2824
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 7466
         },
         {
           "date": "2026-05-06",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 6588
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 4209
         },
         {
           "date": "2026-05-07",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 17134
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 26
         },
         {
           "date": "2026-05-08",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 7520
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 1046
         },
         {
           "date": "2026-05-11",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 20584
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 49333
         },
         {
           "date": "2026-05-12",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 22444
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 17524
         },
         {
           "date": "2026-05-13",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 22214
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 5148
         },
         {
           "date": "2026-05-14",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 3704
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 2949
         },
         {
           "date": "2026-05-15",
-          "close": 1991,
-          "ratio": 0.9955,
-          "volume": 21836
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 18956
         },
         {
           "date": "2026-05-18",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 18563
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 5852
         },
         {
           "date": "2026-05-19",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 14675
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 31871
         },
         {
           "date": "2026-05-20",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 18865
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 23743
         },
         {
           "date": "2026-05-21",
-          "close": 1993,
-          "ratio": 0.9965,
-          "volume": 1686
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 19221
         },
         {
           "date": "2026-05-22",
-          "close": 1995,
-          "ratio": 0.9975,
-          "volume": 9162
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 7198
         },
         {
           "date": "2026-05-26",
-          "close": 1992,
-          "ratio": 0.996,
-          "volume": 17601
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 1616
         },
         {
           "date": "2026-05-27",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 4125
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 25080
         },
         {
           "date": "2026-05-28",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 9152
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 6372
         },
         {
           "date": "2026-05-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 22069
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 41811
         },
         {
           "date": "2026-06-01",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 0
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 250
         }
       ],
       "events": [
         {
-          "date": "2025-12-22",
+          "date": "2024-12-23",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2025-12-22"
+          "detail": "KIND 상장일 2024-12-23"
         },
         {
-          "date": "2028-12-22",
+          "date": "2027-12-23",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나36호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0101C0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제14호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=487360"
     },
     {
-      "id": "0004Y0",
-      "code": "0004Y0",
-      "name": "디비금융제14호스팩",
+      "id": "496070",
+      "code": "496070",
+      "name": "신한제16호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70004Y0000",
-      "sponsor": "디비금융",
+      "isin": "KR7496070004",
+      "sponsor": "신한",
       "ipoPrice": 2000,
       "currentPrice": 2005,
-      "change": 0,
-      "changePct": 0.0,
+      "change": 5,
+      "changePct": 0.25,
       "ratio": 1.0025,
       "premiumPct": 0.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10656575000,
-      "estimatedShares": 5315000,
-      "listingDate": "2025-07-22",
-      "liquidationDate": "2028-07-22",
+      "volume": 1150,
+      "tradingValue": 2000000,
+      "marketCap": 11268100000,
+      "estimatedShares": 5620000,
+      "listingDate": "2025-05-29",
+      "liquidationDate": "2028-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 782,
+      "daysToLiquidation": 728,
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": 7.62,
-      "annualizedReturn": 3.49,
+      "annualizedReturn": 3.75,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "디비금융제14호스팩",
-        "fullName": "디비금융제14호기업인수목적 주식회사",
-        "industry": "기타 금융업",
-        "mainProduct": "기업인수목적회사",
-        "listingDate": "2025-07-22",
+        "name": "신한제16호스팩",
+        "fullName": "신한제16호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기타금융서비스(기업합병)",
+        "listingDate": "2025-05-29",
         "fiscalMonth": "12월",
-        "ceo": "황선국",
+        "ceo": "김종환",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0004Y0",
+        "code": "496070",
         "price": 2005,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10656575000,
-        "marketStatus": "PREOPEN",
+        "change": 5,
+        "changePct": 0.25,
+        "volume": 1150,
+        "tradingValue": 2000000,
+        "marketCap": 11268100000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.101197+09:00",
+        "tradedAt": "2026-06-01T09:29:43.536204+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 3163
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 2007
         },
         {
           "date": "2026-04-17",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 2200
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 4655
         },
         {
           "date": "2026-04-20",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 8865
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 3958
         },
         {
           "date": "2026-04-21",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 644
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 1606
         },
         {
           "date": "2026-04-22",
           "close": 2040,
           "ratio": 1.02,
-          "volume": 3697
+          "volume": 2406
         },
         {
           "date": "2026-04-23",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 7568
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 3492
         },
         {
           "date": "2026-04-24",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 5721
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 26599
         },
         {
           "date": "2026-04-27",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 3202
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 7442
         },
         {
           "date": "2026-04-28",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 5126
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 9359
         },
         {
           "date": "2026-04-29",
-          "close": 2027,
-          "ratio": 1.0135,
-          "volume": 12120
+          "close": 2012,
+          "ratio": 1.006,
+          "volume": 1786
         },
         {
           "date": "2026-04-30",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 2029
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 2258
         },
         {
           "date": "2026-05-04",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 24761
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 543
         },
         {
           "date": "2026-05-06",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 15413
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 3859
         },
         {
           "date": "2026-05-07",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 3046
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 533
         },
         {
           "date": "2026-05-08",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 615
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 1682
         },
         {
           "date": "2026-05-11",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 11691
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 41681
         },
         {
           "date": "2026-05-12",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 45569
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 20297
         },
         {
           "date": "2026-05-13",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 722
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 6601
         },
         {
           "date": "2026-05-14",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 29153
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 24
         },
         {
           "date": "2026-05-15",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 12
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 789
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 39326
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 17718
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 5471
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 3091
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 23862
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 9762
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 2730
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2000,
+          "ratio": 1.0,
+          "volume": 3794
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 1150
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-05-29",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-05-29"
+        },
+        {
+          "date": "2028-05-29",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제16호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=496070"
+    },
+    {
+      "id": "493790",
+      "code": "493790",
+      "name": "유안타제17호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7493790000",
+      "sponsor": "유안타",
+      "ipoPrice": 2000,
+      "currentPrice": 2005,
+      "change": -20,
+      "changePct": -0.99,
+      "ratio": 1.0025,
+      "premiumPct": 0.25,
+      "volume": 336,
+      "tradingValue": 1000000,
+      "marketCap": 10646550000,
+      "estimatedShares": 5310000,
+      "listingDate": "2025-01-23",
+      "liquidationDate": "2028-01-23",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 601,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 7.61,
+      "annualizedReturn": 4.55,
+      "status": "공모가 근접",
+      "badges": [
+        "공모가 근접"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "유안타제17호스팩",
+        "fullName": "유안타제17호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "금융 지원 서비스업",
+        "listingDate": "2025-01-23",
+        "fiscalMonth": "12월",
+        "ceo": "윤원도",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "493790",
+        "price": 2005,
+        "change": -20,
+        "changePct": -0.99,
+        "volume": 336,
+        "tradingValue": 1000000,
+        "marketCap": 10646550000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.784199+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 162
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 650
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 4070
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 1505
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 2194
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 3808
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2012,
+          "ratio": 1.006,
+          "volume": 1351
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 219
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 3237
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 5242
+        },
+        {
+          "date": "2026-04-30",
           "close": 2007,
           "ratio": 1.0035,
-          "volume": 13247
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 10831
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 8451
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 584
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 694
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 451
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 3618
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 9599
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 4720
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 5867
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-07-22",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-07-22"
-        },
-        {
-          "date": "2028-07-22",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=디비금융제14호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0004Y0"
-    },
-    {
-      "id": "0099W0",
-      "code": "0099W0",
-      "name": "미래에셋비전스팩11호",
-      "market": "KOSDAQ",
-      "isin": "KR70099W0008",
-      "sponsor": "미래에셋비전",
-      "ipoPrice": 2000,
-      "currentPrice": 2005,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0025,
-      "premiumPct": 0.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 14035000000,
-      "estimatedShares": 7000000,
-      "listingDate": "2025-12-22",
-      "liquidationDate": "2028-12-22",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 935,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.62,
-      "annualizedReturn": 2.91,
-      "status": "공모가 근접",
-      "badges": [
-        "공모가 근접"
-      ],
-      "kind": {
-        "name": "미래에셋비전스팩11호",
-        "fullName": "미래에셋비전기업인수목적11호 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-12-22",
-        "fiscalMonth": "12월",
-        "ceo": "김양태",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0099W0",
-        "price": 2005,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 14035000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.760409+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 9632
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 120006
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 23169
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 46624
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 3800
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 15216
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 23326
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 25575
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 26689
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 1316
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 5856
+          "volume": 115
         },
         {
           "date": "2026-05-04",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 13950
-        },
-        {
-          "date": "2026-05-06",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 19782
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 5691
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 11676
-        },
-        {
-          "date": "2026-05-11",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 40736
-        },
-        {
-          "date": "2026-05-12",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 12684
-        },
-        {
-          "date": "2026-05-13",
-          "close": 1993,
-          "ratio": 0.9965,
-          "volume": 40224
-        },
-        {
-          "date": "2026-05-14",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 5012
-        },
-        {
-          "date": "2026-05-15",
-          "close": 1993,
-          "ratio": 0.9965,
-          "volume": 13859
-        },
-        {
-          "date": "2026-05-18",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 22321
-        },
-        {
-          "date": "2026-05-19",
-          "close": 1995,
-          "ratio": 0.9975,
-          "volume": 37763
-        },
-        {
-          "date": "2026-05-20",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 65670
-        },
-        {
-          "date": "2026-05-21",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 19002
-        },
-        {
-          "date": "2026-05-22",
-          "close": 1998,
-          "ratio": 0.999,
-          "volume": 9970
-        },
-        {
-          "date": "2026-05-26",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 8539
-        },
-        {
-          "date": "2026-05-27",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 1099
-        },
-        {
-          "date": "2026-05-28",
-          "close": 1995,
-          "ratio": 0.9975,
-          "volume": 8751
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 21481
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-12-22",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-12-22"
-        },
-        {
-          "date": "2028-12-22",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩11호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0099W0"
-    },
-    {
-      "id": "0068Y0",
-      "code": "0068Y0",
-      "name": "비엔케이제3호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR70068Y0003",
-      "sponsor": "비엔케이",
-      "ipoPrice": 2000,
-      "currentPrice": 2005,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0025,
-      "premiumPct": 0.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 8641550000,
-      "estimatedShares": 4310000,
-      "listingDate": "2025-11-21",
-      "liquidationDate": "2028-11-21",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 904,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.62,
-      "annualizedReturn": 3.01,
-      "status": "공모가 근접",
-      "badges": [
-        "공모가 근접"
-      ],
-      "kind": {
-        "name": "비엔케이제3호스팩",
-        "fullName": "비엔케이제3호기업인수목적(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-11-21",
-        "fiscalMonth": "12월",
-        "ceo": "서이덕",
-        "homepage": true,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0068Y0",
-        "price": 2005,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 8641550000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.453757+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 8868
-        },
-        {
-          "date": "2026-04-17",
           "close": 2010,
           "ratio": 1.005,
-          "volume": 8651
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 9691
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 14059
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 2170
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 3388
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 22927
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 5513
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 3273
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 1029
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 11947
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 4588
+          "volume": 1400
         },
         {
           "date": "2026-05-06",
           "close": 2010,
           "ratio": 1.005,
-          "volume": 3264
+          "volume": 31960
         },
         {
           "date": "2026-05-07",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 4405
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 964
         },
         {
           "date": "2026-05-08",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 1274
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 2097
         },
         {
           "date": "2026-05-11",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 9553
+          "close": 2007,
+          "ratio": 1.0035,
+          "volume": 13874
         },
         {
           "date": "2026-05-12",
-          "close": 1994,
-          "ratio": 0.997,
-          "volume": 1173
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 6713
         },
         {
           "date": "2026-05-13",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 8726
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 3011
         },
         {
           "date": "2026-05-14",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 3753
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 11260
         },
         {
           "date": "2026-05-15",
-          "close": 1996,
-          "ratio": 0.998,
-          "volume": 2286
+          "close": 2005,
+          "ratio": 1.0025,
+          "volume": 3955
         },
         {
           "date": "2026-05-18",
-          "close": 1995,
-          "ratio": 0.9975,
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 1153
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 4340
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 12239
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2025,
+          "ratio": 1.0125,
           "volume": 13335
         },
         {
-          "date": "2026-05-19",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 5321
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 2132
-        },
-        {
-          "date": "2026-05-21",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 803
-        },
-        {
           "date": "2026-05-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 35014
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 1346
         },
         {
           "date": "2026-05-26",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 384
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 5048
         },
         {
           "date": "2026-05-27",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 102
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 3180
         },
         {
           "date": "2026-05-28",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 447
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 19861
         },
         {
           "date": "2026-05-29",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 777
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 5633
         },
         {
           "date": "2026-06-01",
           "close": 2005,
           "ratio": 1.0025,
-          "volume": 0
+          "volume": 336
         }
       ],
       "events": [
         {
-          "date": "2025-11-21",
+          "date": "2025-01-23",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2025-11-21"
+          "detail": "KIND 상장일 2025-01-23"
         },
         {
-          "date": "2028-11-21",
+          "date": "2028-01-23",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=비엔케이제3호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0068Y0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유안타제17호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=493790"
     },
     {
       "id": "0041L0",
@@ -4820,7 +5958,7 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0025,
       "premiumPct": 0.25,
-      "volume": null,
+      "volume": 1,
       "tradingValue": null,
       "marketCap": 12090150000,
       "estimatedShares": 6030000,
@@ -4837,6 +5975,11 @@ window.SPAC_DATA = {
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "하나35호스팩",
         "fullName": "하나35호기업인수목적 주식회사",
@@ -4854,13 +5997,13 @@ window.SPAC_DATA = {
         "price": 2005,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
+        "volume": 1,
         "tradingValue": null,
         "marketCap": 12090150000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.631736+09:00",
+        "tradedAt": "2026-06-01T09:29:43.891268+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -5042,7 +6185,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2005,
           "ratio": 1.0025,
-          "volume": 0
+          "volume": 1
         }
       ],
       "events": [
@@ -5063,259 +6206,264 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0041L0"
     },
     {
-      "id": "0037T0",
-      "code": "0037T0",
-      "name": "KB제32호스팩",
+      "id": "489730",
+      "code": "489730",
+      "name": "디비금융제13호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70037T0008",
-      "sponsor": "KB",
+      "isin": "KR7489730002",
+      "sponsor": "디비금융",
       "ipoPrice": 2000,
       "currentPrice": 2010,
-      "change": 0,
-      "changePct": 0.0,
+      "change": -15,
+      "changePct": -0.74,
       "ratio": 1.005,
       "premiumPct": 0.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12723300000,
-      "estimatedShares": 6330000,
-      "listingDate": "2025-07-04",
-      "liquidationDate": "2028-07-04",
+      "volume": 264,
+      "tradingValue": 1000000,
+      "marketCap": 12727320000,
+      "estimatedShares": 6332000,
+      "listingDate": "2024-11-28",
+      "liquidationDate": "2027-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 764,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
+      "daysToLiquidation": 545,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.35,
-      "annualizedReturn": 3.45,
+      "expectedReturn": 7.34,
+      "annualizedReturn": 4.86,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "KB제32호스팩",
-        "fullName": "케이비제32호기업인수목적(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-07-04",
+        "name": "디비금융제13호스팩",
+        "fullName": "디비금융제13호기업인수목적 주식회사",
+        "industry": "기타 금융업",
+        "mainProduct": "기업인수 및 합병",
+        "listingDate": "2024-11-28",
         "fiscalMonth": "12월",
-        "ceo": "김세준",
+        "ceo": "양준석",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0037T0",
+        "code": "489730",
         "price": 2010,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12723300000,
-        "marketStatus": "PREOPEN",
+        "change": -15,
+        "changePct": -0.74,
+        "volume": 264,
+        "tradingValue": 1000000,
+        "marketCap": 12727320000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.895898+09:00",
+        "tradedAt": "2026-06-01T09:29:43.20082+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 6241
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 4012
         },
         {
           "date": "2026-04-17",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 7937
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 11839
         },
         {
           "date": "2026-04-20",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 11230
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 426
         },
         {
           "date": "2026-04-21",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 5155
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 16633
         },
         {
           "date": "2026-04-22",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 1489
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 1266
         },
         {
           "date": "2026-04-23",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 6454
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 641
         },
         {
           "date": "2026-04-24",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 7831
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 28162
         },
         {
           "date": "2026-04-27",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 26212
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 8531
         },
         {
           "date": "2026-04-28",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 1252
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 131
         },
         {
           "date": "2026-04-29",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 842
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1873
         },
         {
           "date": "2026-04-30",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 585
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 3289
         },
         {
           "date": "2026-05-04",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 2489
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 758
         },
         {
           "date": "2026-05-06",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 20514
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 2761
         },
         {
           "date": "2026-05-07",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 4547
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 102
         },
         {
           "date": "2026-05-08",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 2563
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 5265
         },
         {
           "date": "2026-05-11",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 16821
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 21149
         },
         {
           "date": "2026-05-12",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 5830
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 9061
         },
         {
           "date": "2026-05-13",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 7159
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 2865
         },
         {
           "date": "2026-05-14",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 1816
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 28422
         },
         {
           "date": "2026-05-15",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 7815
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 4862
         },
         {
           "date": "2026-05-18",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 6749
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 7028
         },
         {
           "date": "2026-05-19",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 31032
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 113636
         },
         {
           "date": "2026-05-20",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 17087
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 2191
         },
         {
           "date": "2026-05-21",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 7066
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 8450
         },
         {
           "date": "2026-05-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 286
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 90546
         },
         {
           "date": "2026-05-26",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 7152
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 2384
         },
         {
           "date": "2026-05-27",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 9751
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 4041
         },
         {
           "date": "2026-05-28",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 3644
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 3608
         },
         {
           "date": "2026-05-29",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 5714
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 16905
         },
         {
           "date": "2026-06-01",
           "close": 2010,
           "ratio": 1.005,
-          "volume": 0
+          "volume": 264
         }
       ],
       "events": [
         {
-          "date": "2025-07-04",
+          "date": "2024-11-28",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2025-07-04"
+          "detail": "KIND 상장일 2024-11-28"
         },
         {
-          "date": "2028-07-04",
+          "date": "2027-11-28",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제32호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0037T0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=디비금융제13호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=489730"
     },
     {
       "id": "0071M0",
@@ -5325,14 +6473,14 @@ window.SPAC_DATA = {
       "isin": "KR70071M0002",
       "sponsor": "삼성",
       "ipoPrice": 2000,
-      "currentPrice": 2015,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0075,
-      "premiumPct": 0.75,
-      "volume": null,
+      "currentPrice": 2010,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 1.005,
+      "premiumPct": 0.5,
+      "volume": 105,
       "tradingValue": null,
-      "marketCap": 11606400000,
+      "marketCap": 11577600000,
       "estimatedShares": 5760000,
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
@@ -5341,12 +6489,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 7.08,
-      "annualizedReturn": 2.97,
+      "expectedReturn": 7.35,
+      "annualizedReturn": 3.08,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "삼성스팩11호",
         "fullName": "삼성기업인수목적11호(주)",
@@ -5361,16 +6514,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "0071M0",
-        "price": 2015,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
+        "price": 2010,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 105,
         "tradingValue": null,
-        "marketCap": 11606400000,
-        "marketStatus": "PREOPEN",
+        "marketCap": 11577600000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.694411+09:00",
+        "tradedAt": "2026-06-01T09:29:43.428038+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -5550,9 +6703,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 0
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 105
         }
       ],
       "events": [
@@ -5573,259 +6726,524 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0071M0"
     },
     {
-      "id": "0041J0",
-      "code": "0041J0",
-      "name": "엘에스스팩1호",
+      "id": "0041B0",
+      "code": "0041B0",
+      "name": "교보18호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70041J0004",
-      "sponsor": "엘에스",
+      "isin": "KR70041B0002",
+      "sponsor": "교보",
       "ipoPrice": 2000,
       "currentPrice": 2020,
-      "change": 0,
-      "changePct": 0.0,
+      "change": -5,
+      "changePct": -0.25,
       "ratio": 1.01,
       "premiumPct": 1.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 8302200000,
-      "estimatedShares": 4110000,
-      "listingDate": "2025-07-22",
-      "liquidationDate": "2028-07-22",
+      "volume": 954,
+      "tradingValue": 2000000,
+      "marketCap": 10180800000,
+      "estimatedShares": 5040000,
+      "listingDate": "2025-08-14",
+      "liquidationDate": "2028-08-14",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 782,
+      "daysToLiquidation": 805,
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": 6.82,
-      "annualizedReturn": 3.13,
+      "annualizedReturn": 3.04,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "엘에스스팩1호",
-        "fullName": "엘에스기업인수목적1호 주식회사",
+        "name": "교보18호스팩",
+        "fullName": "교보18호기업인수목적 주식회사",
         "industry": "금융 지원 서비스업",
         "mainProduct": "기업인수합병",
-        "listingDate": "2025-07-22",
+        "listingDate": "2025-08-14",
         "fiscalMonth": "12월",
-        "ceo": "이정국",
+        "ceo": "허명현",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "0041J0",
+        "code": "0041B0",
         "price": 2020,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 8302200000,
-        "marketStatus": "PREOPEN",
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 954,
+        "tradingValue": 2000000,
+        "marketCap": 10180800000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.740221+09:00",
+        "tradedAt": "2026-06-01T09:29:43.117996+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 4373
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 7029
         },
         {
           "date": "2026-04-17",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 5888
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 1089
         },
         {
           "date": "2026-04-20",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 3750
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 10108
         },
         {
           "date": "2026-04-21",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 664
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1448
         },
         {
           "date": "2026-04-22",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 711
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 10763
         },
         {
           "date": "2026-04-23",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 2001
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 9253
         },
         {
           "date": "2026-04-24",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 17124
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 118
         },
         {
           "date": "2026-04-27",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 14328
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 4201
         },
         {
           "date": "2026-04-28",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 3077
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 10477
         },
         {
           "date": "2026-04-29",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 20695
+          "close": 2047,
+          "ratio": 1.0235,
+          "volume": 32602
         },
         {
           "date": "2026-04-30",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 29941
+          "close": 2042,
+          "ratio": 1.021,
+          "volume": 8627
         },
         {
           "date": "2026-05-04",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 805
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 19334
         },
         {
           "date": "2026-05-06",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 20521
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 30058
         },
         {
           "date": "2026-05-07",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 1467
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 9251
         },
         {
           "date": "2026-05-08",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 4600
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 1787
         },
         {
           "date": "2026-05-11",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 29365
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 37281
         },
         {
           "date": "2026-05-12",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 1913
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 75196
         },
         {
           "date": "2026-05-13",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 11709
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 40996
         },
         {
           "date": "2026-05-14",
           "close": 2010,
           "ratio": 1.005,
-          "volume": 58
+          "volume": 38750
         },
         {
           "date": "2026-05-15",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 17829
+          "close": 2015,
+          "ratio": 1.0075,
+          "volume": 7577
         },
         {
           "date": "2026-05-18",
-          "close": 1997,
-          "ratio": 0.9985,
-          "volume": 8341
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 23877
         },
         {
           "date": "2026-05-19",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 7933
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 135177
         },
         {
           "date": "2026-05-20",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 22478
+          "close": 2010,
+          "ratio": 1.005,
+          "volume": 4679
         },
         {
           "date": "2026-05-21",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 394
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 9095
         },
         {
           "date": "2026-05-22",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 730
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 8069
         },
         {
           "date": "2026-05-26",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 3051
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 3387
         },
         {
           "date": "2026-05-27",
-          "close": 2000,
-          "ratio": 1.0,
-          "volume": 5562
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 593
         },
         {
           "date": "2026-05-28",
-          "close": 1999,
-          "ratio": 0.9995,
-          "volume": 864
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 2332
         },
         {
           "date": "2026-05-29",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 22940
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 388
         },
         {
           "date": "2026-06-01",
           "close": 2020,
           "ratio": 1.01,
-          "volume": 0
+          "volume": 954
         }
       ],
       "events": [
         {
-          "date": "2025-07-22",
+          "date": "2025-08-14",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2025-07-22"
+          "detail": "KIND 상장일 2025-08-14"
         },
         {
-          "date": "2028-07-22",
+          "date": "2028-08-14",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엘에스스팩1호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0041J0"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=교보18호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0041B0"
+    },
+    {
+      "id": "487830",
+      "code": "487830",
+      "name": "신한제15호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7487830002",
+      "sponsor": "신한",
+      "ipoPrice": 2000,
+      "currentPrice": 2020,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 1.01,
+      "premiumPct": 1.0,
+      "volume": 2229,
+      "tradingValue": 5000000,
+      "marketCap": 8787000000,
+      "estimatedShares": 4350000,
+      "listingDate": "2024-11-15",
+      "liquidationDate": "2027-11-15",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 532,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.81,
+      "annualizedReturn": 4.62,
+      "status": "공모가 근접",
+      "badges": [
+        "공모가 근접"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "신한제15호스팩",
+        "fullName": "신한제15호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "금융 지원 서비스업",
+        "listingDate": "2024-11-15",
+        "fiscalMonth": "12월",
+        "ceo": "연오흠",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "487830",
+        "price": 2020,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 2229,
+        "tradingValue": 5000000,
+        "marketCap": 8787000000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.512519+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 7
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 20578
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 45
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 11225
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 1
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 975
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 5148
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 939
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 705
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 651
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 18274
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 544
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1071
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 75
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 565
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 19523
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 15441
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1001
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 4672
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1567
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 40
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 5594
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 1397
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 4207
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 502
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 552
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 1388
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 9200
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 5375
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 2229
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-11-15",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-11-15"
+        },
+        {
+          "date": "2027-11-15",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제15호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=487830"
     },
     {
       "id": "489480",
@@ -5840,8 +7258,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.01,
       "premiumPct": 1.0,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 6627,
+      "tradingValue": 13000000,
       "marketCap": 13332000000,
       "estimatedShares": 6600000,
       "listingDate": "2024-12-11",
@@ -5857,6 +7275,11 @@ window.SPAC_DATA = {
       "badges": [
         "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "키움제11호스팩",
         "fullName": "키움제11호기업인수목적 주식회사",
@@ -5874,13 +7297,13 @@ window.SPAC_DATA = {
         "price": 2020,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 6627,
+        "tradingValue": 13000000,
         "marketCap": 13332000000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.150808+09:00",
+        "tradedAt": "2026-06-01T09:29:43.828879+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -6062,7 +7485,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2020,
           "ratio": 1.01,
-          "volume": 0
+          "volume": 6627
         }
       ],
       "events": [
@@ -6083,769 +7506,264 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=489480"
     },
     {
-      "id": "0041B0",
-      "code": "0041B0",
-      "name": "교보18호스팩",
+      "id": "484130",
+      "code": "484130",
+      "name": "하나34호스팩",
       "market": "KOSDAQ",
-      "isin": "KR70041B0002",
-      "sponsor": "교보",
+      "isin": "KR7484130000",
+      "sponsor": "하나",
       "ipoPrice": 2000,
-      "currentPrice": 2025,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0125,
-      "premiumPct": 1.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10206000000,
-      "estimatedShares": 5040000,
-      "listingDate": "2025-08-14",
-      "liquidationDate": "2028-08-14",
+      "currentPrice": 2020,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 1.01,
+      "premiumPct": 1.0,
+      "volume": 488,
+      "tradingValue": 1000000,
+      "marketCap": 9130400000,
+      "estimatedShares": 4520000,
+      "listingDate": "2024-11-19",
+      "liquidationDate": "2027-11-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 805,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 6.55,
-      "annualizedReturn": 2.92,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "교보18호스팩",
-        "fullName": "교보18호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-08-14",
-        "fiscalMonth": "12월",
-        "ceo": "허명현",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0041B0",
-        "price": 2025,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10206000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.956215+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 7029
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 1089
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 10108
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1448
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 10763
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 9253
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 118
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 4201
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 10477
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2047,
-          "ratio": 1.0235,
-          "volume": 32602
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2042,
-          "ratio": 1.021,
-          "volume": 8627
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 19334
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 30058
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 9251
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 1787
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 37281
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 75196
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 40996
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 38750
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 7577
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 23877
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 135177
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 4679
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 9095
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 8069
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 3387
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 593
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 2332
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 388
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-08-14",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-08-14"
-        },
-        {
-          "date": "2028-08-14",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=교보18호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0041B0"
-    },
-    {
-      "id": "489730",
-      "code": "489730",
-      "name": "디비금융제13호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7489730002",
-      "sponsor": "디비금융",
-      "ipoPrice": 2000,
-      "currentPrice": 2025,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0125,
-      "premiumPct": 1.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12822300000,
-      "estimatedShares": 6332000,
-      "listingDate": "2024-11-28",
-      "liquidationDate": "2027-11-28",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 545,
+      "daysToLiquidation": 536,
       "trustValuePerShare": 2157.57,
       "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 6.55,
-      "annualizedReturn": 4.34,
-      "status": "일반",
+      "expectedReturn": 6.81,
+      "annualizedReturn": 4.59,
+      "status": "공모가 근접",
       "badges": [
-        "일반"
+        "공모가 근접"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "디비금융제13호스팩",
-        "fullName": "디비금융제13호기업인수목적 주식회사",
-        "industry": "기타 금융업",
-        "mainProduct": "기업인수 및 합병",
-        "listingDate": "2024-11-28",
+        "name": "하나34호스팩",
+        "fullName": "하나34호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수목적",
+        "listingDate": "2024-11-19",
         "fiscalMonth": "12월",
-        "ceo": "양준석",
+        "ceo": "송하용",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "489730",
-        "price": 2025,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12822300000,
-        "marketStatus": "PREOPEN",
+        "code": "484130",
+        "price": 2020,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 488,
+        "tradingValue": 1000000,
+        "marketCap": 9130400000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.163065+09:00",
+        "tradedAt": "2026-06-01T09:29:43.888386+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 4012
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 2326
         },
         {
           "date": "2026-04-17",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 11839
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5705
         },
         {
           "date": "2026-04-20",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 426
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 19278
         },
         {
           "date": "2026-04-21",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 16633
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 5287
         },
         {
           "date": "2026-04-22",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 1266
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 786
         },
         {
           "date": "2026-04-23",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 641
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 26
         },
         {
           "date": "2026-04-24",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 28162
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 6225
         },
         {
           "date": "2026-04-27",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 8531
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 6473
         },
         {
           "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 131
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 1331
         },
         {
           "date": "2026-04-29",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1873
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 4396
         },
         {
           "date": "2026-04-30",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 3289
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 427
         },
         {
           "date": "2026-05-04",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 758
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 979
         },
         {
           "date": "2026-05-06",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 2761
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 4836
         },
         {
           "date": "2026-05-07",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 102
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 15749
         },
         {
           "date": "2026-05-08",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 5265
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 647
         },
         {
           "date": "2026-05-11",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 21149
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 925
         },
         {
           "date": "2026-05-12",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 9061
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 10502
         },
         {
           "date": "2026-05-13",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 2865
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 4019
         },
         {
           "date": "2026-05-14",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 28422
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5539
         },
         {
           "date": "2026-05-15",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 4862
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1502
         },
         {
           "date": "2026-05-18",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 7028
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 7718
         },
         {
           "date": "2026-05-19",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 113636
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 2183
         },
         {
           "date": "2026-05-20",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 2191
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 2116
         },
         {
           "date": "2026-05-21",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 8450
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 3667
         },
         {
           "date": "2026-05-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 90546
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 709
         },
         {
           "date": "2026-05-26",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 2384
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 2635
         },
         {
           "date": "2026-05-27",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 4041
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 4759
         },
         {
           "date": "2026-05-28",
           "close": 2020,
           "ratio": 1.01,
-          "volume": 3608
+          "volume": 303
         },
         {
           "date": "2026-05-29",
           "close": 2025,
           "ratio": 1.0125,
-          "volume": 16905
+          "volume": 1864
         },
         {
           "date": "2026-06-01",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 0
+          "close": 2020,
+          "ratio": 1.01,
+          "volume": 488
         }
       ],
       "events": [
         {
-          "date": "2024-11-28",
+          "date": "2024-11-19",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2024-11-28"
+          "detail": "KIND 상장일 2024-11-19"
         },
         {
-          "date": "2027-11-28",
+          "date": "2027-11-19",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=디비금융제13호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=489730"
-    },
-    {
-      "id": "487830",
-      "code": "487830",
-      "name": "신한제15호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7487830002",
-      "sponsor": "신한",
-      "ipoPrice": 2000,
-      "currentPrice": 2025,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0125,
-      "premiumPct": 1.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 8808750000,
-      "estimatedShares": 4350000,
-      "listingDate": "2024-11-15",
-      "liquidationDate": "2027-11-15",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 532,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 6.55,
-      "annualizedReturn": 4.45,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "신한제15호스팩",
-        "fullName": "신한제15호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융 지원 서비스업",
-        "listingDate": "2024-11-15",
-        "fiscalMonth": "12월",
-        "ceo": "연오흠",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "487830",
-        "price": 2025,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 8808750000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.009163+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 7
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 20578
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 45
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 11225
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 1
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 975
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 5148
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 939
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 705
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 651
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 18274
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 544
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1071
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 75
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 565
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 19523
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 15441
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1001
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 4672
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1567
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 40
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 5594
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 1397
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 4207
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 502
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 552
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 1388
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 9200
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 5375
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-11-15",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-11-15"
-        },
-        {
-          "date": "2027-11-15",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제15호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=487830"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나34호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=484130"
     },
     {
       "id": "0054V0",
@@ -6860,8 +7778,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0125,
       "premiumPct": 1.25,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 994,
+      "tradingValue": 2000000,
       "marketCap": 12588412500,
       "estimatedShares": 6216500,
       "listingDate": "2025-12-05",
@@ -6877,6 +7795,11 @@ window.SPAC_DATA = {
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "엔에이치스팩32호",
         "fullName": "엔에이치기업인수목적32호 주식회사",
@@ -6894,13 +7817,13 @@ window.SPAC_DATA = {
         "price": 2025,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 994,
+        "tradingValue": 2000000,
         "marketCap": 12588412500,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.60179+09:00",
+        "tradedAt": "2026-06-01T09:29:43.705482+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -7082,7 +8005,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2025,
           "ratio": 1.0125,
-          "volume": 0
+          "volume": 994
         }
       ],
       "events": [
@@ -7101,261 +8024,6 @@ window.SPAC_DATA = {
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엔에이치스팩32호",
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0054V0"
-    },
-    {
-      "id": "493790",
-      "code": "493790",
-      "name": "유안타제17호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7493790000",
-      "sponsor": "유안타",
-      "ipoPrice": 2000,
-      "currentPrice": 2025,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0125,
-      "premiumPct": 1.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10752750000,
-      "estimatedShares": 5310000,
-      "listingDate": "2025-01-23",
-      "liquidationDate": "2028-01-23",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 601,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 6.55,
-      "annualizedReturn": 3.93,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "유안타제17호스팩",
-        "fullName": "유안타제17호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융 지원 서비스업",
-        "listingDate": "2025-01-23",
-        "fiscalMonth": "12월",
-        "ceo": "윤원도",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "493790",
-        "price": 2025,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10752750000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.817936+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 162
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 650
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 4070
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 1505
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 2194
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2015,
-          "ratio": 1.0075,
-          "volume": 3808
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2012,
-          "ratio": 1.006,
-          "volume": 1351
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 219
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 3237
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 5242
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2007,
-          "ratio": 1.0035,
-          "volume": 115
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 1400
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 31960
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 964
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 2097
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2007,
-          "ratio": 1.0035,
-          "volume": 13874
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 6713
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 3011
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 11260
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2005,
-          "ratio": 1.0025,
-          "volume": 3955
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 1153
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2010,
-          "ratio": 1.005,
-          "volume": 4340
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 12239
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 13335
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 1346
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 5048
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 3180
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 19861
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 5633
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-01-23",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-01-23"
-        },
-        {
-          "date": "2028-01-23",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유안타제17호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=493790"
     },
     {
       "id": "487720",
@@ -7387,6 +8055,11 @@ window.SPAC_DATA = {
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "키움제10호스팩",
         "fullName": "키움제10호기업인수목적 주식회사",
@@ -7407,10 +8080,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 8565750000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.14927+09:00",
+        "tradedAt": "2026-06-01T09:29:43.830397+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -7613,516 +8286,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=487720"
     },
     {
-      "id": "484130",
-      "code": "484130",
-      "name": "하나34호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7484130000",
-      "sponsor": "하나",
-      "ipoPrice": 2000,
-      "currentPrice": 2025,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0125,
-      "premiumPct": 1.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 9153000000,
-      "estimatedShares": 4520000,
-      "listingDate": "2024-11-19",
-      "liquidationDate": "2027-11-19",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 536,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 6.55,
-      "annualizedReturn": 4.41,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "하나34호스팩",
-        "fullName": "하나34호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수목적",
-        "listingDate": "2024-11-19",
-        "fiscalMonth": "12월",
-        "ceo": "송하용",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "484130",
-        "price": 2025,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 9153000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.242622+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 2326
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5705
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 19278
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 5287
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 786
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 26
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 6225
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 6473
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 1331
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 4396
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 427
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 979
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 4836
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 15749
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 647
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 925
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 10502
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 4019
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5539
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1502
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 7718
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 2183
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 2116
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 3667
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 709
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 2635
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 4759
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 303
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 1864
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-11-19",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-11-19"
-        },
-        {
-          "date": "2027-11-19",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나34호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=484130"
-    },
-    {
-      "id": "487360",
-      "code": "487360",
-      "name": "신한제14호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7487360000",
-      "sponsor": "신한",
-      "ipoPrice": 2000,
-      "currentPrice": 2030,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.015,
-      "premiumPct": 1.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11449200000,
-      "estimatedShares": 5640000,
-      "listingDate": "2024-12-23",
-      "liquidationDate": "2027-12-23",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 570,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 6.28,
-      "annualizedReturn": 3.98,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "신한제14호스팩",
-        "fullName": "신한제14호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융 지원 서비스업",
-        "listingDate": "2024-12-23",
-        "fiscalMonth": "12월",
-        "ceo": "홍승표",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "487360",
-        "price": 2030,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11449200000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.000688+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 1573
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 26805
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 11275
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 38265
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 682
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 15741
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 12584
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 2044
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 16108
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 6476
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 19098
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 7466
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 4209
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 26
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 1046
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 49333
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 17524
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 5148
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 2949
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 18956
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 5852
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2020,
-          "ratio": 1.01,
-          "volume": 31871
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 23743
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 19221
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 7198
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 1616
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 25080
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 6372
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 41811
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-12-23",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-12-23"
-        },
-        {
-          "date": "2027-12-23",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제14호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=487360"
-    },
-    {
       "id": "477340",
       "code": "477340",
       "name": "에이치엠씨제7호스팩",
@@ -8135,7 +8298,7 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.015,
       "premiumPct": 1.5,
-      "volume": null,
+      "volume": 200,
       "tradingValue": null,
       "marketCap": 15245300000,
       "estimatedShares": 7510000,
@@ -8152,6 +8315,11 @@ window.SPAC_DATA = {
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "에이치엠씨제7호스팩",
         "fullName": "에이치엠씨아이비제7호기업인수목적(주)",
@@ -8169,13 +8337,13 @@ window.SPAC_DATA = {
         "price": 2030,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
+        "volume": 200,
         "tradingValue": null,
         "marketCap": 15245300000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.601433+09:00",
+        "tradedAt": "2026-06-01T09:29:43.614285+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -8357,7 +8525,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2030,
           "ratio": 1.015,
-          "volume": 0
+          "volume": 200
         }
       ],
       "events": [
@@ -8378,6 +8546,1459 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=477340"
     },
     {
+      "id": "488060",
+      "code": "488060",
+      "name": "유진스팩11호",
+      "market": "KOSDAQ",
+      "isin": "KR7488060005",
+      "sponsor": "유진",
+      "ipoPrice": 2000,
+      "currentPrice": 2030,
+      "change": -25,
+      "changePct": -1.22,
+      "ratio": 1.015,
+      "premiumPct": 1.5,
+      "volume": 1054,
+      "tradingValue": 2000000,
+      "marketCap": 9581600000,
+      "estimatedShares": 4720000,
+      "listingDate": "2024-10-31",
+      "liquidationDate": "2027-10-31",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 517,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.28,
+      "annualizedReturn": 4.4,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "유진스팩11호",
+        "fullName": "유진기업인수목적11호 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-10-31",
+        "fiscalMonth": "12월",
+        "ceo": "박홍식",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "488060",
+        "price": 2030,
+        "change": -25,
+        "changePct": -1.22,
+        "volume": 1054,
+        "tradingValue": 2000000,
+        "marketCap": 9581600000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.810242+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5304
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 704
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 7097
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 44325
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 27321
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 2366
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 18473
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 22531
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 462
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 22930
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 7862
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 1000
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 525
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5333
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 5296
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 21335
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1617
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 22400
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 18797
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 23522
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 11398
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 3591
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 6443
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 3080
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 62
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1532
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 2750
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 41
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 32638
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 1054
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-10-31",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-10-31"
+        },
+        {
+          "date": "2027-10-31",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유진스팩11호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=488060"
+    },
+    {
+      "id": "486630",
+      "code": "486630",
+      "name": "KB제30호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7486630007",
+      "sponsor": "KB",
+      "ipoPrice": 2000,
+      "currentPrice": 2035,
+      "change": -20,
+      "changePct": -0.97,
+      "ratio": 1.0175,
+      "premiumPct": 1.75,
+      "volume": 2476,
+      "tradingValue": 5000000,
+      "marketCap": 10805850000,
+      "estimatedShares": 5310000,
+      "listingDate": "2024-09-25",
+      "liquidationDate": "2027-09-25",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 481,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.02,
+      "annualizedReturn": 4.54,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "KB제30호스팩",
+        "fullName": "케이비제30호기업인수목적(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-09-25",
+        "fiscalMonth": "12월",
+        "ceo": "박홍진",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "486630",
+        "price": 2035,
+        "change": -20,
+        "changePct": -0.97,
+        "volume": 2476,
+        "tradingValue": 5000000,
+        "marketCap": 10805850000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:42.976753+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 7
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 26204
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 2166
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 18821
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 107
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 2853
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 17964
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 44777
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 13349
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 20998
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 18211
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 38
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1228
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 670
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 342
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 2314
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 578
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 13087
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 5938
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 4525
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 25620
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 4948
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 1394
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 3236
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 4258
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 368
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 4229
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 4205
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 25197
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 2469
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-09-25",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-09-25"
+        },
+        {
+          "date": "2027-09-25",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제30호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=486630"
+    },
+    {
+      "id": "482520",
+      "code": "482520",
+      "name": "교보16호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7482520004",
+      "sponsor": "교보",
+      "ipoPrice": 2000,
+      "currentPrice": 2035,
+      "change": -5,
+      "changePct": -0.25,
+      "ratio": 1.0175,
+      "premiumPct": 1.75,
+      "volume": 2330,
+      "tradingValue": 5000000,
+      "marketCap": 12413500000,
+      "estimatedShares": 6100000,
+      "listingDate": "2024-08-13",
+      "liquidationDate": "2027-08-13",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 438,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.02,
+      "annualizedReturn": 4.99,
+      "status": "합병 신청",
+      "badges": [
+        "합병 신청"
+      ],
+      "mergerStatus": "합병 신청",
+      "mergerApplicationDisclosure": {
+        "date": "2026-05-11 15:04",
+        "title": "회사합병 결정",
+        "company": "교보16호스팩",
+        "submitter": "교보16호기업인수목적",
+        "receiptNo": "20260511000408",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408"
+      },
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": {
+        "date": "2026-04-22 17:34",
+        "title": "주권매매거래정지해제(합병결정 철회)",
+        "company": "교보16호스팩",
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260422000663",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663"
+      },
+      "mergerDisclosures": [
+        {
+          "date": "2025-11-28 16:52",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "교보16호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20251128001153",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251128001153",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-11-28 16:52",
+          "title": "회사합병 결정",
+          "company": "교보16호스팩",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20251128001144",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251128001144",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-04-22 17:33",
+          "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "company": "교보16호스팩",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20260422000708",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000708",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-04-22 17:34",
+          "title": "주권매매거래정지해제(합병결정 철회)",
+          "company": "교보16호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260422000663",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-04-22 18:01",
+          "title": "회사합병 결정",
+          "company": "교보16호스팩",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20260422000787",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000787",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-11 15:04",
+          "title": "회사합병 결정",
+          "company": "교보16호스팩",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20260511000408",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408",
+          "mergerSignal": "applied"
+        }
+      ],
+      "kind": {
+        "name": "교보16호스팩",
+        "fullName": "교보16호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-08-13",
+        "fiscalMonth": "12월",
+        "ceo": "정시화",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "482520",
+        "price": 2035,
+        "change": -5,
+        "changePct": -0.25,
+        "volume": 2330,
+        "tradingValue": 5000000,
+        "marketCap": 12413500000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.100176+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 249565
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 49880
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 48472
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 127481
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 23686
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 2074
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 8969
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 4624
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 951
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1344
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 6902
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 11538
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 2629
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 14231
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 5228
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 13572
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 4450
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 10038
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 14974
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 2426
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 6940
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 27235
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 1518
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 18091
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 2330
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-08-13",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-08-13"
+        },
+        {
+          "date": "2026-04-22 17:34",
+          "type": "merger_canceled",
+          "label": "합병 철회",
+          "detail": "주권매매거래정지해제(합병결정 철회)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663"
+        },
+        {
+          "date": "2026-05-11 15:04",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "회사합병 결정",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408"
+        },
+        {
+          "date": "2027-08-13",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=교보16호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=482520"
+    },
+    {
+      "id": "478110",
+      "code": "478110",
+      "name": "이베스트스팩6호",
+      "market": "KOSDAQ",
+      "isin": "KR7478110000",
+      "sponsor": "이베스트",
+      "ipoPrice": 2000,
+      "currentPrice": 2035,
+      "change": -15,
+      "changePct": -0.73,
+      "ratio": 1.0175,
+      "premiumPct": 1.75,
+      "volume": 1305,
+      "tradingValue": 3000000,
+      "marketCap": 10215700000,
+      "estimatedShares": 5020000,
+      "listingDate": "2024-07-12",
+      "liquidationDate": "2027-07-12",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 406,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 6.02,
+      "annualizedReturn": 5.4,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "이베스트스팩6호",
+        "fullName": "이베스트기업인수목적6호 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수목적 주식회사",
+        "listingDate": "2024-07-12",
+        "fiscalMonth": "12월",
+        "ceo": "박용",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "478110",
+        "price": 2035,
+        "change": -15,
+        "changePct": -0.73,
+        "volume": 1305,
+        "tradingValue": 3000000,
+        "marketCap": 10215700000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.83161+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 339
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 2168
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 4
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 2757
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 344
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 18494
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 8131
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 42794
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 34
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 1490
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 3872
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 522
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 14232
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 4048
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 637
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 25171
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 6414
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 9852
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 14
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2032,
+          "ratio": 1.016,
+          "volume": 8252
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 176
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 17447
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 19641
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 604
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 519
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 315
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 1499
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 226
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 3226
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 1305
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-07-12",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-07-12"
+        },
+        {
+          "date": "2027-07-12",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=이베스트스팩6호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=478110"
+    },
+    {
+      "id": "477760",
+      "code": "477760",
+      "name": "DB금융스팩12호",
+      "market": "KOSDAQ",
+      "isin": "KR7477760003",
+      "sponsor": "DB금융",
+      "ipoPrice": 2000,
+      "currentPrice": 2040,
+      "change": -10,
+      "changePct": -0.49,
+      "ratio": 1.02,
+      "premiumPct": 2.0,
+      "volume": 2678,
+      "tradingValue": 5000000,
+      "marketCap": 11913600000,
+      "estimatedShares": 5840000,
+      "listingDate": null,
+      "liquidationDate": null,
+      "liquidationDateSource": null,
+      "daysToLiquidation": null,
+      "trustValuePerShare": 2000.0,
+      "liquidationValuePerShare": 2000.0,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -1.96,
+      "annualizedReturn": null,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": {
+        "date": "2026-02-12 17:19",
+        "title": "회사합병 결정",
+        "company": "디비금융스팩12호",
+        "submitter": "디비금융제12호기업인수목적",
+        "receiptNo": "20260212001290",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290"
+      },
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": {
+        "date": "2026-05-26 17:11",
+        "title": "주권매매거래정지해제(합병결정 철회)",
+        "company": "디비금융스팩12호",
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260526000733",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733"
+      },
+      "mergerDisclosures": [
+        {
+          "date": "2026-02-12 17:19",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "디비금융스팩12호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260212001316",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001316",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-02-12 17:19",
+          "title": "회사합병 결정",
+          "company": "디비금융스팩12호",
+          "submitter": "디비금융제12호기업인수목적",
+          "receiptNo": "20260212001290",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-26 17:07",
+          "title": "회사합병 결정(SPAC 합병-철회)",
+          "company": "디비금융스팩12호",
+          "submitter": "디비금융제12호기업인수목적",
+          "receiptNo": "20260526000578",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000578",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-05-26 17:08",
+          "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "company": "디비금융스팩12호",
+          "submitter": "디비금융제12호기업인수목적",
+          "receiptNo": "20260526000703",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000703",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-05-26 17:11",
+          "title": "주권매매거래정지해제(합병결정 철회)",
+          "company": "디비금융스팩12호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260526000733",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733",
+          "mergerSignal": "canceled"
+        }
+      ],
+      "kind": {},
+      "quote": {
+        "code": "477760",
+        "price": 2040,
+        "change": -10,
+        "changePct": -0.49,
+        "volume": 2678,
+        "tradingValue": 5000000,
+        "marketCap": 11913600000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:42.999373+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2230,
+          "ratio": 1.115,
+          "volume": 0
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 233878
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 112227
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 94968
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 2678
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-02-12 17:19",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "회사합병 결정",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290"
+        },
+        {
+          "date": "2026-05-26 17:11",
+          "type": "merger_canceled",
+          "label": "합병 철회",
+          "detail": "주권매매거래정지해제(합병결정 철회)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=DB금융스팩12호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=477760"
+    },
+    {
       "id": "492220",
       "code": "492220",
       "name": "KB제31호스팩",
@@ -8390,7 +10011,7 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.02,
       "premiumPct": 2.0,
-      "volume": null,
+      "volume": 2,
       "tradingValue": null,
       "marketCap": 12668400000,
       "estimatedShares": 6210000,
@@ -8406,6 +10027,88 @@ window.SPAC_DATA = {
       "status": "일반",
       "badges": [
         "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": {
+        "date": "2025-04-18 14:04",
+        "title": "회사합병 결정(SPAC 소멸합병)",
+        "company": "KB제31호스팩",
+        "submitter": "케이비제31호기업인수목적",
+        "receiptNo": "20250418000599",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599"
+      },
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": {
+        "date": "2025-07-17 17:01",
+        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+        "company": "KB제31호스팩",
+        "submitter": "케이비제31호기업인수목적",
+        "receiptNo": "20250717000481",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481"
+      },
+      "mergerDisclosures": [
+        {
+          "date": "2025-04-17 16:59",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "KB제31호스팩",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250417000783",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250417000783",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-04-17 16:59",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "KB제31호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20250417000791",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250417000791",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-04-18 14:04",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "KB제31호스팩",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250418000599",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-07-17 17:00",
+          "title": "회사합병 결정(SPAC소멸합병-철회)",
+          "company": "KB제31호스팩",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250717000432",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000432",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2025-07-17 17:01",
+          "title": "주권매매거래정지해제(합병결정 철회)",
+          "company": "KB제31호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20250717000478",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000478",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2025-07-17 17:01",
+          "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "company": "KB제31호스팩",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250717000481",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481",
+          "mergerSignal": "canceled"
+        }
       ],
       "kind": {
         "name": "KB제31호스팩",
@@ -8424,13 +10127,13 @@ window.SPAC_DATA = {
         "price": 2040,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
+        "volume": 2,
         "tradingValue": null,
         "marketCap": 12668400000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.648195+09:00",
+        "tradedAt": "2026-06-01T09:29:42.978314+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -8612,7 +10315,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2040,
           "ratio": 1.02,
-          "volume": 0
+          "volume": 2
         }
       ],
       "events": [
@@ -8623,6 +10326,22 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-12-12"
         },
         {
+          "date": "2025-04-18 14:04",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599"
+        },
+        {
+          "date": "2025-07-17 17:01",
+          "type": "merger_canceled",
+          "label": "합병 철회",
+          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481"
+        },
+        {
           "date": "2027-12-12",
           "type": "liquidation",
           "label": "청산기한",
@@ -8631,261 +10350,6 @@ window.SPAC_DATA = {
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제31호스팩",
       "naverUrl": "https://finance.naver.com/item/main.naver?code=492220"
-    },
-    {
-      "id": "482520",
-      "code": "482520",
-      "name": "교보16호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7482520004",
-      "sponsor": "교보",
-      "ipoPrice": 2000,
-      "currentPrice": 2040,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.02,
-      "premiumPct": 2.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12444000000,
-      "estimatedShares": 6100000,
-      "listingDate": "2024-08-13",
-      "liquidationDate": "2027-08-13",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 438,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 5.76,
-      "annualizedReturn": 4.78,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "교보16호스팩",
-        "fullName": "교보16호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-08-13",
-        "fiscalMonth": "12월",
-        "ceo": "정시화",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "482520",
-        "price": 2040,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12444000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.982089+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 249565
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 49880
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 48472
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 127481
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 23686
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 2074
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 8969
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 4624
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 951
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1344
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 6902
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 11538
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 2629
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 14231
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 5228
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 13572
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 4450
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 10038
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 14974
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 2426
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 6940
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 27235
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 1518
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 18091
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-08-13",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-08-13"
-        },
-        {
-          "date": "2027-08-13",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=교보16호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=482520"
     },
     {
       "id": "0098T0",
@@ -8917,6 +10381,11 @@ window.SPAC_DATA = {
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "교보19호스팩",
         "fullName": "교보19호기업인수목적 주식회사",
@@ -8937,10 +10406,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 11016000000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.94868+09:00",
+        "tradedAt": "2026-06-01T09:29:43.116423+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -9150,14 +10619,14 @@ window.SPAC_DATA = {
       "isin": "KR7473950004",
       "sponsor": "에스케이증권",
       "ipoPrice": 2000,
-      "currentPrice": 2045,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0225,
-      "premiumPct": 2.25,
-      "volume": null,
+      "currentPrice": 2040,
+      "change": -5,
+      "changePct": -0.24,
+      "ratio": 1.02,
+      "premiumPct": 2.0,
+      "volume": 8,
       "tradingValue": null,
-      "marketCap": 9038900000,
+      "marketCap": 9016800000,
       "estimatedShares": 4420000,
       "listingDate": null,
       "liquidationDate": null,
@@ -9166,25 +10635,30 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2000.0,
       "liquidationValuePerShare": 2000.0,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -2.2,
+      "expectedReturn": -1.96,
       "annualizedReturn": null,
       "status": "일반",
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {},
       "quote": {
         "code": "473950",
-        "price": 2045,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
+        "price": 2040,
+        "change": -5,
+        "changePct": -0.24,
+        "volume": 8,
         "tradingValue": null,
-        "marketCap": 9038900000,
-        "marketStatus": "PREOPEN",
+        "marketCap": 9016800000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.045739+09:00",
+        "tradedAt": "2026-06-01T09:29:43.67892+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -9364,9 +10838,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 0
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 8
         }
       ],
       "events": [],
@@ -9374,1255 +10848,264 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=473950"
     },
     {
-      "id": "477760",
-      "code": "477760",
-      "name": "DB금융스팩12호",
+      "id": "478390",
+      "code": "478390",
+      "name": "KB제29호스팩",
       "market": "KOSDAQ",
-      "isin": "KR7477760003",
-      "sponsor": "DB금융",
-      "ipoPrice": 2000,
-      "currentPrice": 2050,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.025,
-      "premiumPct": 2.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11972000000,
-      "estimatedShares": 5840000,
-      "listingDate": null,
-      "liquidationDate": null,
-      "liquidationDateSource": null,
-      "daysToLiquidation": null,
-      "trustValuePerShare": 2000.0,
-      "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -2.44,
-      "annualizedReturn": null,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {},
-      "quote": {
-        "code": "477760",
-        "price": 2050,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11972000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.650455+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2230,
-          "ratio": 1.115,
-          "volume": 0
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 233878
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 112227
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 94968
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 0
-        }
-      ],
-      "events": [],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=DB금융스팩12호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=477760"
-    },
-    {
-      "id": "474490",
-      "code": "474490",
-      "name": "유안타제16호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7474490000",
-      "sponsor": "유안타",
-      "ipoPrice": 2000,
-      "currentPrice": 2050,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.025,
-      "premiumPct": 2.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11295500000,
-      "estimatedShares": 5510000,
-      "listingDate": "2024-05-02",
-      "liquidationDate": "2027-05-02",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 335,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 5.25,
-      "annualizedReturn": 5.73,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "kind": {
-        "name": "유안타제16호스팩",
-        "fullName": "유안타제16호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융 지원 서비스(기업인수목적회사)",
-        "listingDate": "2024-05-02",
-        "fiscalMonth": "12월",
-        "ceo": "박병권",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "474490",
-        "price": 2050,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11295500000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.800913+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 8072
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 5581
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 39
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 373
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 6668
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 37288
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 23017
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 21273
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 8177
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 143969
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 6711
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 6992
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5738
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1020
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2052,
-          "ratio": 1.026,
-          "volume": 249
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 69543
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 24378
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 19551
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 175
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 13309
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 20585
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 17974
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 3925
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 765
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 12009
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 2699
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1608
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 2
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 8172
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-05-02",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-05-02"
-        },
-        {
-          "date": "2027-05-02",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유안타제16호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=474490"
-    },
-    {
-      "id": "478110",
-      "code": "478110",
-      "name": "이베스트스팩6호",
-      "market": "KOSDAQ",
-      "isin": "KR7478110000",
-      "sponsor": "이베스트",
-      "ipoPrice": 2000,
-      "currentPrice": 2050,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.025,
-      "premiumPct": 2.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10291000000,
-      "estimatedShares": 5020000,
-      "listingDate": "2024-07-12",
-      "liquidationDate": "2027-07-12",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 406,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 5.25,
-      "annualizedReturn": 4.7,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "이베스트스팩6호",
-        "fullName": "이베스트기업인수목적6호 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수목적 주식회사",
-        "listingDate": "2024-07-12",
-        "fiscalMonth": "12월",
-        "ceo": "박용",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "478110",
-        "price": 2050,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10291000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.884398+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 339
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 2168
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 4
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 2757
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 344
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 18494
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 8131
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 42794
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 34
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 1490
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 3872
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 522
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 14232
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 4048
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 637
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 25171
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 6414
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 9852
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 14
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2032,
-          "ratio": 1.016,
-          "volume": 8252
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 176
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 17447
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 19641
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 604
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 519
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 315
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 1499
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 226
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 3226
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-07-12",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-07-12"
-        },
-        {
-          "date": "2027-07-12",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=이베스트스팩6호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=478110"
-    },
-    {
-      "id": "498390",
-      "code": "498390",
-      "name": "한화플러스제5호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7498390004",
-      "sponsor": "한화플러스",
-      "ipoPrice": 2000,
-      "currentPrice": 2050,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.025,
-      "premiumPct": 2.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10168000000,
-      "estimatedShares": 4960000,
-      "listingDate": "2025-03-20",
-      "liquidationDate": "2028-03-20",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 658,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 5.25,
-      "annualizedReturn": 2.88,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "한화플러스제5호스팩",
-        "fullName": "한화플러스제5호기업인수목적(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "-",
-        "listingDate": "2025-03-20",
-        "fiscalMonth": "12월",
-        "ceo": "김광후",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "498390",
-        "price": 2050,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10168000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.472048+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 6881
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 1058
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 6312
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 1667
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 7279
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 6709
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 11123
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 11917
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2025,
-          "ratio": 1.0125,
-          "volume": 11048
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 22052
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 37378
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 14717
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 12044
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 13353
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 12852
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 4117
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 6697
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 41075
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 15709
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 51306
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 9324
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 39817
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 1066
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 13283
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 9337
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 5035
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 19070
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 8312
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 6718
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-03-20",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-03-20"
-        },
-        {
-          "date": "2028-03-20",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=한화플러스제5호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=498390"
-    },
-    {
-      "id": "486630",
-      "code": "486630",
-      "name": "KB제30호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7486630007",
+      "isin": "KR7478390008",
       "sponsor": "KB",
       "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10912050000,
-      "estimatedShares": 5310000,
-      "listingDate": "2024-09-25",
-      "liquidationDate": "2027-09-25",
+      "currentPrice": 2045,
+      "change": -20,
+      "changePct": -0.97,
+      "ratio": 1.0225,
+      "premiumPct": 2.25,
+      "volume": 4244,
+      "tradingValue": 9000000,
+      "marketCap": 12719900000,
+      "estimatedShares": 6220000,
+      "listingDate": "2024-06-21",
+      "liquidationDate": "2027-06-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 481,
+      "daysToLiquidation": 385,
       "trustValuePerShare": 2157.57,
       "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.99,
-      "annualizedReturn": 3.77,
+      "expectedReturn": 5.5,
+      "annualizedReturn": 5.21,
       "status": "일반",
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "KB제30호스팩",
-        "fullName": "케이비제30호기업인수목적(주)",
+        "name": "KB제29호스팩",
+        "fullName": "케이비제29호기업인수목적(주)",
         "industry": "금융 지원 서비스업",
         "mainProduct": "기업인수합병",
-        "listingDate": "2024-09-25",
+        "listingDate": "2024-06-21",
         "fiscalMonth": "12월",
-        "ceo": "박홍진",
+        "ceo": "서영화",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "486630",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10912050000,
-        "marketStatus": "PREOPEN",
+        "code": "478390",
+        "price": 2045,
+        "change": -20,
+        "changePct": -0.97,
+        "volume": 4244,
+        "tradingValue": 9000000,
+        "marketCap": 12719900000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.653131+09:00",
+        "tradedAt": "2026-06-01T09:29:42.972724+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 7
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 362
         },
         {
           "date": "2026-04-17",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 26204
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 319
         },
         {
           "date": "2026-04-20",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 2166
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 800
         },
         {
           "date": "2026-04-21",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 18821
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 11318
         },
         {
           "date": "2026-04-22",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 107
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 44
         },
         {
           "date": "2026-04-23",
           "close": 2065,
           "ratio": 1.0325,
-          "volume": 2853
+          "volume": 8764
         },
         {
           "date": "2026-04-24",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 17964
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 11948
         },
         {
           "date": "2026-04-27",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 44777
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 16381
         },
         {
           "date": "2026-04-28",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 13349
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 11843
         },
         {
           "date": "2026-04-29",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 20998
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 30088
         },
         {
           "date": "2026-04-30",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 18211
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 9520
         },
         {
           "date": "2026-05-04",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 38
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 2427
         },
         {
           "date": "2026-05-06",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1228
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 683
         },
         {
           "date": "2026-05-07",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 670
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 23189
         },
         {
           "date": "2026-05-08",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 342
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 4337
         },
         {
           "date": "2026-05-11",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 2314
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 32969
         },
         {
           "date": "2026-05-12",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 578
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 5532
         },
         {
           "date": "2026-05-13",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 13087
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 2040
         },
         {
           "date": "2026-05-14",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 5938
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 159753
         },
         {
           "date": "2026-05-15",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 4525
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 34202
         },
         {
           "date": "2026-05-18",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 25620
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 1101
         },
         {
           "date": "2026-05-19",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 4948
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 3891
         },
         {
           "date": "2026-05-20",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 1394
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 955
         },
         {
           "date": "2026-05-21",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 3236
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 1471
         },
         {
           "date": "2026-05-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 4258
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 2229
         },
         {
           "date": "2026-05-26",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 368
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 2697
         },
         {
           "date": "2026-05-27",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 4229
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 1656
         },
         {
           "date": "2026-05-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 4205
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 8060
         },
         {
           "date": "2026-05-29",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 25197
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 2360
         },
         {
           "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 4244
         }
       ],
       "events": [
         {
-          "date": "2024-09-25",
+          "date": "2024-06-21",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2024-09-25"
+          "detail": "KIND 상장일 2024-06-21"
         },
         {
-          "date": "2027-09-25",
+          "date": "2027-06-21",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제30호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=486630"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제29호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=478390"
     },
     {
       "id": "477380",
@@ -10632,14 +11115,14 @@ window.SPAC_DATA = {
       "isin": "KR7477380000",
       "sponsor": "미래에셋비전",
       "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 16645500000,
+      "currentPrice": 2045,
+      "change": -10,
+      "changePct": -0.49,
+      "ratio": 1.0225,
+      "premiumPct": 2.25,
+      "volume": 6723,
+      "tradingValue": 14000000,
+      "marketCap": 16564500000,
       "estimatedShares": 8100000,
       "listingDate": "2024-05-29",
       "liquidationDate": "2027-05-29",
@@ -10648,12 +11131,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.57,
       "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.99,
-      "annualizedReturn": 5.03,
+      "expectedReturn": 5.5,
+      "annualizedReturn": 5.55,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "미래에셋비전스팩4호",
         "fullName": "미래에셋비전기업인수목적4호 주식회사",
@@ -10668,16 +11156,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "477380",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 16645500000,
-        "marketStatus": "PREOPEN",
+        "price": 2045,
+        "change": -10,
+        "changePct": -0.49,
+        "volume": 6723,
+        "tradingValue": 14000000,
+        "marketCap": 16564500000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.269691+09:00",
+        "tradedAt": "2026-06-01T09:29:43.322432+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -10857,9 +11345,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 6723
         }
       ],
       "events": [
@@ -10880,6 +11368,762 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=477380"
     },
     {
+      "id": "473000",
+      "code": "473000",
+      "name": "에스케이증권제12호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7473000008",
+      "sponsor": "에스케이증권",
+      "ipoPrice": 2000,
+      "currentPrice": 2045,
+      "change": -10,
+      "changePct": -0.49,
+      "ratio": 1.0225,
+      "premiumPct": 2.25,
+      "volume": 284,
+      "tradingValue": 1000000,
+      "marketCap": 6768950000,
+      "estimatedShares": 3310000,
+      "listingDate": null,
+      "liquidationDate": null,
+      "liquidationDateSource": null,
+      "daysToLiquidation": null,
+      "trustValuePerShare": 2000.0,
+      "liquidationValuePerShare": 2000.0,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -2.2,
+      "annualizedReturn": null,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {},
+      "quote": {
+        "code": "473000",
+        "price": 2045,
+        "change": -10,
+        "changePct": -0.49,
+        "volume": 284,
+        "tradingValue": 1000000,
+        "marketCap": 6768950000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.584543+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 32
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 4
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 3399
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 414
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 5
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 87
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 509
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1050
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1569
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 6477
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 25004
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 2176
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 843
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 310
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1529
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 1015
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 6499
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1001
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 12
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 10
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1606
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 9279
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 7467
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 2189
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 10661
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1302
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 672
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5529
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1620
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 284
+        }
+      ],
+      "events": [],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=에스케이증권제12호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=473000"
+    },
+    {
+      "id": "474490",
+      "code": "474490",
+      "name": "유안타제16호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7474490000",
+      "sponsor": "유안타",
+      "ipoPrice": 2000,
+      "currentPrice": 2045,
+      "change": -5,
+      "changePct": -0.24,
+      "ratio": 1.0225,
+      "premiumPct": 2.25,
+      "volume": 286,
+      "tradingValue": 1000000,
+      "marketCap": 11267950000,
+      "estimatedShares": 5510000,
+      "listingDate": "2024-05-02",
+      "liquidationDate": "2027-05-02",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 335,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.5,
+      "annualizedReturn": 6.01,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "유안타제16호스팩",
+        "fullName": "유안타제16호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "금융 지원 서비스(기업인수목적회사)",
+        "listingDate": "2024-05-02",
+        "fiscalMonth": "12월",
+        "ceo": "박병권",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "474490",
+        "price": 2045,
+        "change": -5,
+        "changePct": -0.24,
+        "volume": 286,
+        "tradingValue": 1000000,
+        "marketCap": 11267950000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.788741+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 8072
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 5581
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 39
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 373
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 6668
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 37288
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 23017
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 21273
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 8177
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 143969
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 6711
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 6992
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5738
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1020
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2052,
+          "ratio": 1.026,
+          "volume": 249
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 69543
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 24378
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 19551
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 175
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 13309
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 20585
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 17974
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 3925
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 765
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 12009
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 2699
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1608
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 2
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 8172
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 286
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-05-02",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-05-02"
+        },
+        {
+          "date": "2027-05-02",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유안타제16호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=474490"
+    },
+    {
+      "id": "498390",
+      "code": "498390",
+      "name": "한화플러스제5호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7498390004",
+      "sponsor": "한화플러스",
+      "ipoPrice": 2000,
+      "currentPrice": 2045,
+      "change": -5,
+      "changePct": -0.24,
+      "ratio": 1.0225,
+      "premiumPct": 2.25,
+      "volume": 50,
+      "tradingValue": null,
+      "marketCap": 10143200000,
+      "estimatedShares": 4960000,
+      "listingDate": "2025-03-20",
+      "liquidationDate": "2028-03-20",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 658,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.51,
+      "annualizedReturn": 3.02,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "한화플러스제5호스팩",
+        "fullName": "한화플러스제5호기업인수목적(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "-",
+        "listingDate": "2025-03-20",
+        "fiscalMonth": "12월",
+        "ceo": "김광후",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "498390",
+        "price": 2045,
+        "change": -5,
+        "changePct": -0.24,
+        "volume": 50,
+        "tradingValue": null,
+        "marketCap": 10143200000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.938467+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 6881
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 1058
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 6312
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 1667
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 7279
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 6709
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 11123
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 11917
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2025,
+          "ratio": 1.0125,
+          "volume": 11048
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 22052
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 37378
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 14717
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 12044
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 13353
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 12852
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 4117
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 6697
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 41075
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 15709
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2030,
+          "ratio": 1.015,
+          "volume": 51306
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 9324
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2035,
+          "ratio": 1.0175,
+          "volume": 39817
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 1066
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 13283
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 9337
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 5035
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 19070
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 8312
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 6718
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 50
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-03-20",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-03-20"
+        },
+        {
+          "date": "2028-03-20",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=한화플러스제5호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=498390"
+    },
+    {
       "id": "478440",
       "code": "478440",
       "name": "미래에셋비전스팩6호",
@@ -10887,14 +12131,14 @@ window.SPAC_DATA = {
       "isin": "KR7478440001",
       "sponsor": "미래에셋비전",
       "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 14241150000,
+      "currentPrice": 2050,
+      "change": -5,
+      "changePct": -0.24,
+      "ratio": 1.025,
+      "premiumPct": 2.5,
+      "volume": 253,
+      "tradingValue": 1000000,
+      "marketCap": 14206500000,
       "estimatedShares": 6930000,
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
@@ -10903,12 +12147,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.57,
       "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.99,
-      "annualizedReturn": 4.69,
+      "expectedReturn": 5.25,
+      "annualizedReturn": 4.93,
       "status": "일반",
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "미래에셋비전스팩6호",
         "fullName": "미래에셋비전기업인수목적6호 주식회사",
@@ -10923,16 +12172,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "478440",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 14241150000,
-        "marketStatus": "PREOPEN",
+        "price": 2050,
+        "change": -5,
+        "changePct": -0.24,
+        "volume": 253,
+        "tradingValue": 1000000,
+        "marketCap": 14206500000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.431992+09:00",
+        "tradedAt": "2026-06-01T09:29:43.340538+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -11112,9 +12361,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 253
         }
       ],
       "events": [
@@ -11133,6 +12382,609 @@ window.SPAC_DATA = {
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩6호",
       "naverUrl": "https://finance.naver.com/item/main.naver?code=478440"
+    },
+    {
+      "id": "474660",
+      "code": "474660",
+      "name": "신한제12호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7474660008",
+      "sponsor": "신한",
+      "ipoPrice": 2000,
+      "currentPrice": 2050,
+      "change": -5,
+      "changePct": -0.24,
+      "ratio": 1.025,
+      "premiumPct": 2.5,
+      "volume": 1334,
+      "tradingValue": 3000000,
+      "marketCap": 11316000000,
+      "estimatedShares": 5520000,
+      "listingDate": "2024-04-15",
+      "liquidationDate": "2027-04-15",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 318,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.25,
+      "annualizedReturn": 6.05,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": {
+        "date": "2025-11-26 16:04",
+        "title": "회사합병 결정(SPAC 소멸합병)",
+        "company": "신한제12호스팩",
+        "submitter": "신한제12호기업인수목적",
+        "receiptNo": "20251126000467",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467"
+      },
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": {
+        "date": "2026-03-17 17:58",
+        "title": "주권매매거래정지해제(합병결정 철회)",
+        "company": "신한제12호스팩",
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260317001238",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238"
+      },
+      "mergerDisclosures": [
+        {
+          "date": "2025-11-26 16:04",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "신한제12호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20251126000478",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000478",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-11-26 16:04",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "신한제12호스팩",
+          "submitter": "신한제12호기업인수목적",
+          "receiptNo": "20251126000467",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-03-17 17:56",
+          "title": "회사합병 결정(SPAC소멸합병-철회)",
+          "company": "신한제12호스팩",
+          "submitter": "신한제12호기업인수목적",
+          "receiptNo": "20260317001186",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001186",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-03-17 17:56",
+          "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "company": "신한제12호스팩",
+          "submitter": "신한제12호기업인수목적",
+          "receiptNo": "20260317001192",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001192",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-03-17 17:58",
+          "title": "주권매매거래정지해제(합병결정 철회)",
+          "company": "신한제12호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260317001238",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238",
+          "mergerSignal": "canceled"
+        }
+      ],
+      "kind": {
+        "name": "신한제12호스팩",
+        "fullName": "신한제12호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "금융서비스(기업인수목적회사)",
+        "listingDate": "2024-04-15",
+        "fiscalMonth": "12월",
+        "ceo": "이동호",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "474660",
+        "price": 2050,
+        "change": -5,
+        "changePct": -0.24,
+        "volume": 1334,
+        "tradingValue": 3000000,
+        "marketCap": 11316000000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.455043+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 14757
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 10850
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 959
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 6434
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 127
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 54976
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1059
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 5874
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 9905
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 684
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 7755
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 351
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 11681
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 2467
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 11555
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 23180
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 20604
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 30197
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 247473
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2040,
+          "ratio": 1.02,
+          "volume": 26724
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 10894
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2052,
+          "ratio": 1.026,
+          "volume": 13456
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 19762
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1098
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 924
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2052,
+          "ratio": 1.026,
+          "volume": 466
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 7243
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 123
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 10330
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1334
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-04-15",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-04-15"
+        },
+        {
+          "date": "2025-11-26 16:04",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467"
+        },
+        {
+          "date": "2026-03-17 17:58",
+          "type": "merger_canceled",
+          "label": "합병 철회",
+          "detail": "주권매매거래정지해제(합병결정 철회)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238"
+        },
+        {
+          "date": "2027-04-15",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제12호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=474660"
+    },
+    {
+      "id": "479880",
+      "code": "479880",
+      "name": "한국제15호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7479880007",
+      "sponsor": "한국",
+      "ipoPrice": 2000,
+      "currentPrice": 2050,
+      "change": -5,
+      "changePct": -0.24,
+      "ratio": 1.025,
+      "premiumPct": 2.5,
+      "volume": 546,
+      "tradingValue": 1000000,
+      "marketCap": 14083500000,
+      "estimatedShares": 6870000,
+      "listingDate": "2024-06-26",
+      "liquidationDate": "2027-06-26",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 390,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 5.25,
+      "annualizedReturn": 4.9,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "한국제15호스팩",
+        "fullName": "한국제15호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-06-26",
+        "fiscalMonth": "12월",
+        "ceo": "유한",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "479880",
+        "price": 2050,
+        "change": -5,
+        "changePct": -0.24,
+        "volume": 546,
+        "tradingValue": 1000000,
+        "marketCap": 14083500000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.919747+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 1249
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 5423
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 242
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 7397
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 589
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 611
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 601
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 6715
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 25209
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 7114
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 105
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 693
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 1428
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 4209
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2045,
+          "ratio": 1.0225,
+          "volume": 21074
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 8261
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 31255
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 10962
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 16473
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 7758
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 4614
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 3690
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 12901
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 22780
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2060,
+          "ratio": 1.03,
+          "volume": 105
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 463
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 2247
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 2578
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2055,
+          "ratio": 1.0275,
+          "volume": 2192
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 546
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-06-26",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-06-26"
+        },
+        {
+          "date": "2027-06-26",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=한국제15호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=479880"
     },
     {
       "id": "482680",
@@ -11160,9 +13012,44 @@ window.SPAC_DATA = {
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": 4.99,
       "annualizedReturn": 3.88,
-      "status": "거래정지",
+      "status": "합병 신청",
       "badges": [
+        "합병 신청",
         "거래정지"
+      ],
+      "mergerStatus": "합병 신청",
+      "mergerApplicationDisclosure": {
+        "date": "2026-05-12 17:25",
+        "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+        "company": "미래에셋비전스팩7호",
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260512000907",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907"
+      },
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [
+        {
+          "date": "2026-05-12 17:25",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "미래에셋비전스팩7호",
+          "submitter": "미래에셋비전기업인수목적7호",
+          "receiptNo": "20260512000891",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000891",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-12 17:25",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "미래에셋비전스팩7호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260512000907",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907",
+          "mergerSignal": "applied"
+        }
       ],
       "kind": {
         "name": "미래에셋비전스팩7호",
@@ -11184,10 +13071,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 16881825000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": true,
         "tradeStopText": "정지.Halted",
-        "tradedAt": "2026-06-01T08:53:46.43001+09:00",
+        "tradedAt": "2026-06-01T09:29:43.321033+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -11380,6 +13267,14 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-09-11"
         },
         {
+          "date": "2026-05-12 17:25",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907"
+        },
+        {
           "date": "2027-09-11",
           "type": "liquidation",
           "label": "청산기한",
@@ -11388,1002 +13283,6 @@ window.SPAC_DATA = {
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩7호",
       "naverUrl": "https://finance.naver.com/item/main.naver?code=482680"
-    },
-    {
-      "id": "474660",
-      "code": "474660",
-      "name": "신한제12호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7474660008",
-      "sponsor": "신한",
-      "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11343600000,
-      "estimatedShares": 5520000,
-      "listingDate": "2024-04-15",
-      "liquidationDate": "2027-04-15",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 318,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.99,
-      "annualizedReturn": 5.75,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "kind": {
-        "name": "신한제12호스팩",
-        "fullName": "신한제12호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융서비스(기업인수목적회사)",
-        "listingDate": "2024-04-15",
-        "fiscalMonth": "12월",
-        "ceo": "이동호",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "474660",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11343600000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.777668+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 14757
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 10850
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 959
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 6434
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 127
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 54976
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1059
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5874
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 9905
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 684
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 7755
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 351
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 11681
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 2467
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 11555
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 23180
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 20604
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 30197
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 247473
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 26724
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 10894
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2052,
-          "ratio": 1.026,
-          "volume": 13456
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 19762
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1098
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 924
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2052,
-          "ratio": 1.026,
-          "volume": 466
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 7243
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 123
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 10330
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-04-15",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-04-15"
-        },
-        {
-          "date": "2027-04-15",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제12호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=474660"
-    },
-    {
-      "id": "473000",
-      "code": "473000",
-      "name": "에스케이증권제12호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7473000008",
-      "sponsor": "에스케이증권",
-      "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 6802050000,
-      "estimatedShares": 3310000,
-      "listingDate": null,
-      "liquidationDate": null,
-      "liquidationDateSource": null,
-      "daysToLiquidation": null,
-      "trustValuePerShare": 2000.0,
-      "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -2.68,
-      "annualizedReturn": null,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {},
-      "quote": {
-        "code": "473000",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 6802050000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.509435+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 32
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 4
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 3399
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 414
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 5
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 87
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 509
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1050
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1569
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 6477
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 25004
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 2176
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 843
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 310
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1529
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 1015
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 6499
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1001
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 12
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 10
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1606
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 9279
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 7467
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 2189
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 10661
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1302
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 672
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5529
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1620
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
-        }
-      ],
-      "events": [],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=에스케이증권제12호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=473000"
-    },
-    {
-      "id": "488060",
-      "code": "488060",
-      "name": "유진스팩11호",
-      "market": "KOSDAQ",
-      "isin": "KR7488060005",
-      "sponsor": "유진",
-      "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 9699600000,
-      "estimatedShares": 4720000,
-      "listingDate": "2024-10-31",
-      "liquidationDate": "2027-10-31",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 517,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.99,
-      "annualizedReturn": 3.5,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "유진스팩11호",
-        "fullName": "유진기업인수목적11호 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-10-31",
-        "fiscalMonth": "12월",
-        "ceo": "박홍식",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "488060",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 9699600000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.819876+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5304
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 704
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 7097
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 44325
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 27321
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 2366
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 18473
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 22531
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 462
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 22930
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 7862
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 1000
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 525
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 5333
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 5296
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 21335
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1617
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 22400
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 18797
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 23522
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2030,
-          "ratio": 1.015,
-          "volume": 11398
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2035,
-          "ratio": 1.0175,
-          "volume": 3591
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 6443
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 3080
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 62
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1532
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 2750
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2040,
-          "ratio": 1.02,
-          "volume": 41
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 32638
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-10-31",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-10-31"
-        },
-        {
-          "date": "2027-10-31",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유진스팩11호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=488060"
-    },
-    {
-      "id": "479880",
-      "code": "479880",
-      "name": "한국제15호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7479880007",
-      "sponsor": "한국",
-      "ipoPrice": 2000,
-      "currentPrice": 2055,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 14117850000,
-      "estimatedShares": 6870000,
-      "listingDate": "2024-06-26",
-      "liquidationDate": "2027-06-26",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 390,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.99,
-      "annualizedReturn": 4.66,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "한국제15호스팩",
-        "fullName": "한국제15호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-06-26",
-        "fiscalMonth": "12월",
-        "ceo": "유한",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "479880",
-        "price": 2055,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 14117850000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.47165+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 1249
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 5423
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 242
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 7397
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 589
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 611
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 601
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 6715
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 25209
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 7114
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 105
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 693
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 1428
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 4209
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2045,
-          "ratio": 1.0225,
-          "volume": 21074
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 8261
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 31255
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 10962
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 16473
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 7758
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 4614
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 3690
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 12901
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 22780
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 105
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 463
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 2247
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 2578
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 2192
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-06-26",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-06-26"
-        },
-        {
-          "date": "2027-06-26",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=한국제15호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=479880"
     },
     {
       "id": "0091W0",
@@ -12415,6 +13314,11 @@ window.SPAC_DATA = {
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "신영스팩11호",
         "fullName": "신영해피투모로우제11호기업인수목적(주)",
@@ -12435,10 +13339,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 12500080000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.761736+09:00",
+        "tradedAt": "2026-06-01T09:29:43.435282+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -12641,516 +13545,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0091W0"
     },
     {
-      "id": "478390",
-      "code": "478390",
-      "name": "KB제29호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7478390008",
-      "sponsor": "KB",
-      "ipoPrice": 2000,
-      "currentPrice": 2065,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0325,
-      "premiumPct": 3.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12844300000,
-      "estimatedShares": 6220000,
-      "listingDate": "2024-06-21",
-      "liquidationDate": "2027-06-21",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 385,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.48,
-      "annualizedReturn": 4.24,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "KB제29호스팩",
-        "fullName": "케이비제29호기업인수목적(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-06-21",
-        "fiscalMonth": "12월",
-        "ceo": "서영화",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "478390",
-        "price": 2065,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12844300000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.646094+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 362
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 319
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 800
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 11318
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 44
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 8764
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 11948
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 16381
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 11843
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 30088
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 9520
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 2427
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 683
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 23189
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 4337
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 32969
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2060,
-          "ratio": 1.03,
-          "volume": 5532
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2055,
-          "ratio": 1.0275,
-          "volume": 2040
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 159753
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 34202
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 1101
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 3891
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 955
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 1471
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 2229
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 2697
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 1656
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 8060
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 2360
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-06-21",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-06-21"
-        },
-        {
-          "date": "2027-06-21",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=KB제29호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=478390"
-    },
-    {
-      "id": "477470",
-      "code": "477470",
-      "name": "미래에셋비전스팩5호",
-      "market": "KOSDAQ",
-      "isin": "KR7477470009",
-      "sponsor": "미래에셋비전",
-      "ipoPrice": 2000,
-      "currentPrice": 2065,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0325,
-      "premiumPct": 3.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 11316200000,
-      "estimatedShares": 5480000,
-      "listingDate": "2024-06-19",
-      "liquidationDate": "2027-06-19",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 383,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 4.48,
-      "annualizedReturn": 4.27,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "미래에셋비전스팩5호",
-        "fullName": "미래에셋비전기업인수목적5호 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-06-19",
-        "fiscalMonth": "12월",
-        "ceo": "김대호",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "477470",
-        "price": 2065,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 11316200000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.431047+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 1045
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 274
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 792
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 111
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 113
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 6099
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 12086
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 68406
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 5030
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 55007
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 21556
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 6608
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 742
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 1292
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 45
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 908
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 20507
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 18074
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 46844
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 12813
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 40628
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 21317
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 11739
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 3443
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 2340
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 3249
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 4698
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 8474
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 4564
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-06-19",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-06-19"
-        },
-        {
-          "date": "2027-06-19",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩5호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=477470"
-    },
-    {
       "id": "469900",
       "code": "469900",
       "name": "하나31호스팩",
@@ -13163,8 +13557,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0325,
       "premiumPct": 3.25,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 3276,
+      "tradingValue": 7000000,
       "marketCap": 11574325000,
       "estimatedShares": 5605000,
       "listingDate": "2024-03-05",
@@ -13180,6 +13574,11 @@ window.SPAC_DATA = {
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "하나31호스팩",
         "fullName": "하나31호기업인수목적 주식회사",
@@ -13197,13 +13596,13 @@ window.SPAC_DATA = {
         "price": 2065,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 3276,
+        "tradingValue": 7000000,
         "marketCap": 11574325000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.975924+09:00",
+        "tradedAt": "2026-06-01T09:29:43.905848+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13385,7 +13784,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2065,
           "ratio": 1.0325,
-          "volume": 0
+          "volume": 3276
         }
       ],
       "events": [
@@ -13406,6 +13805,1046 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=469900"
     },
     {
+      "id": "489210",
+      "code": "489210",
+      "name": "교보17호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7489210005",
+      "sponsor": "교보",
+      "ipoPrice": 2000,
+      "currentPrice": 2070,
+      "change": -45,
+      "changePct": -2.13,
+      "ratio": 1.035,
+      "premiumPct": 3.5,
+      "volume": 723,
+      "tradingValue": 2000000,
+      "marketCap": 10722600000,
+      "estimatedShares": 5180000,
+      "listingDate": "2024-11-21",
+      "liquidationDate": "2027-11-21",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 538,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.23,
+      "annualizedReturn": 2.85,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "교보17호스팩",
+        "fullName": "교보17호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-11-21",
+        "fiscalMonth": "12월",
+        "ceo": "장정훈",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "489210",
+        "price": 2070,
+        "change": -45,
+        "changePct": -2.13,
+        "volume": 723,
+        "tradingValue": 2000000,
+        "marketCap": 10722600000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.098608+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2120,
+          "ratio": 1.06,
+          "volume": 103
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 31
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 2064
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 2150
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 11957
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 21998
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 13653
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 28364
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2050,
+          "ratio": 1.025,
+          "volume": 17764
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 25109
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 10640
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 12
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 749
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 2667
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 2391
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 668
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 17529
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 6654
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 6743
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2230
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 1794
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 17846
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 3351
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 655
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 3971
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 445
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 1581
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 1256
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 27486
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 711
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-11-21",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-11-21"
+        },
+        {
+          "date": "2027-11-21",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=교보17호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=489210"
+    },
+    {
+      "id": "477470",
+      "code": "477470",
+      "name": "미래에셋비전스팩5호",
+      "market": "KOSDAQ",
+      "isin": "KR7477470009",
+      "sponsor": "미래에셋비전",
+      "ipoPrice": 2000,
+      "currentPrice": 2070,
+      "change": 5,
+      "changePct": 0.24,
+      "ratio": 1.035,
+      "premiumPct": 3.5,
+      "volume": 324,
+      "tradingValue": 1000000,
+      "marketCap": 11343600000,
+      "estimatedShares": 5480000,
+      "listingDate": "2024-06-19",
+      "liquidationDate": "2027-06-19",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 383,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.23,
+      "annualizedReturn": 4.03,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "미래에셋비전스팩5호",
+        "fullName": "미래에셋비전기업인수목적5호 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-06-19",
+        "fiscalMonth": "12월",
+        "ceo": "김대호",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "477470",
+        "price": 2070,
+        "change": 5,
+        "changePct": 0.24,
+        "volume": 324,
+        "tradingValue": 1000000,
+        "marketCap": 11343600000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.34289+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 1045
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 274
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 792
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 111
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 113
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 6099
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 12086
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 68406
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 5030
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 55007
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 21556
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 6608
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 742
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 1292
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 45
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 908
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 20507
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 18074
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 46844
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 12813
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 40628
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 21317
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 11739
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 3443
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 2340
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 3249
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 4698
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 8474
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2065,
+          "ratio": 1.0325,
+          "volume": 4564
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 324
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-06-19",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-06-19"
+        },
+        {
+          "date": "2027-06-19",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=미래에셋비전스팩5호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=477470"
+    },
+    {
+      "id": "468760",
+      "code": "468760",
+      "name": "유진스팩10호",
+      "market": "KOSDAQ",
+      "isin": "KR7468760004",
+      "sponsor": "유진",
+      "ipoPrice": 2000,
+      "currentPrice": 2070,
+      "change": -10,
+      "changePct": -0.48,
+      "ratio": 1.035,
+      "premiumPct": 3.5,
+      "volume": 487,
+      "tradingValue": 1000000,
+      "marketCap": 8776800000,
+      "estimatedShares": 4240000,
+      "listingDate": "2024-02-29",
+      "liquidationDate": "2027-02-28",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 272,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.23,
+      "annualizedReturn": 5.72,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "유진스팩10호",
+        "fullName": "유진기업인수목적10호 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-02-29",
+        "fiscalMonth": "12월",
+        "ceo": "김동진",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "468760",
+        "price": 2070,
+        "change": -10,
+        "changePct": -0.48,
+        "volume": 487,
+        "tradingValue": 1000000,
+        "marketCap": 8776800000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.783708+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 5523
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 21307
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 2999
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 4861
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 536
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 81
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 18888
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 1793
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 13319
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 22213
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 44
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 1129
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 6987
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 1059
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 4439
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 1328
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 22
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 23823
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 4206
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 51413
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 220
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 54734
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 5693
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 8910
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 5904
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2880
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2808
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 3088
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 10888
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 487
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-02-29",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-02-29"
+        },
+        {
+          "date": "2027-02-28",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유진스팩10호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=468760"
+    },
+    {
+      "id": "475250",
+      "code": "475250",
+      "name": "하나33호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7475250007",
+      "sponsor": "하나",
+      "ipoPrice": 2000,
+      "currentPrice": 2070,
+      "change": -10,
+      "changePct": -0.48,
+      "ratio": 1.035,
+      "premiumPct": 3.5,
+      "volume": 1801,
+      "tradingValue": 4000000,
+      "marketCap": 7659000000,
+      "estimatedShares": 3700000,
+      "listingDate": "2024-04-24",
+      "liquidationDate": "2027-04-24",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 327,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 4.23,
+      "annualizedReturn": 4.73,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "하나33호스팩",
+        "fullName": "하나33호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-04-24",
+        "fiscalMonth": "12월",
+        "ceo": "박태한",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "475250",
+        "price": 2070,
+        "change": -10,
+        "changePct": -0.48,
+        "volume": 1801,
+        "tradingValue": 4000000,
+        "marketCap": 7659000000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.88932+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 15
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 1133
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 63
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 2550
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 146
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2301
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 749
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 6580
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2708
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 5094
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 5962
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 578
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 16581
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 1276
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 2536
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 10517
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 498
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 23105
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 4520
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 6737
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2182
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2807
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 5677
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 1931
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2082,
+          "ratio": 1.041,
+          "volume": 320
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 2795
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 1815
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 5513
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2670
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2070,
+          "ratio": 1.035,
+          "volume": 1801
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-04-24",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-04-24"
+        },
+        {
+          "date": "2027-04-24",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나33호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=475250"
+    },
+    {
       "id": "472230",
       "code": "472230",
       "name": "에스케이증권제11호스팩",
@@ -13413,14 +14852,14 @@ window.SPAC_DATA = {
       "isin": "KR7472230002",
       "sponsor": "에스케이증권",
       "ipoPrice": 2000,
-      "currentPrice": 2070,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.035,
-      "premiumPct": 3.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 8600850000,
+      "currentPrice": 2075,
+      "change": 5,
+      "changePct": 0.24,
+      "ratio": 1.0375,
+      "premiumPct": 3.75,
+      "volume": 969,
+      "tradingValue": 2000000,
+      "marketCap": 8621625000,
       "estimatedShares": 4155000,
       "listingDate": null,
       "liquidationDate": null,
@@ -13429,25 +14868,30 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2000.0,
       "liquidationValuePerShare": 2000.0,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -3.38,
+      "expectedReturn": -3.61,
       "annualizedReturn": null,
       "status": "일반",
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {},
       "quote": {
         "code": "472230",
-        "price": 2070,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 8600850000,
-        "marketStatus": "PREOPEN",
+        "price": 2075,
+        "change": 5,
+        "changePct": 0.24,
+        "volume": 969,
+        "tradingValue": 2000000,
+        "marketCap": 8621625000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.010807+09:00",
+        "tradedAt": "2026-06-01T09:29:43.536583+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13627,9 +15071,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 0
+          "close": 2075,
+          "ratio": 1.0375,
+          "volume": 969
         }
       ],
       "events": [],
@@ -13649,8 +15093,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0375,
       "premiumPct": 3.75,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 951,
+      "tradingValue": 2000000,
       "marketCap": 14545750000,
       "estimatedShares": 7010000,
       "listingDate": "2024-02-29",
@@ -13666,6 +15110,11 @@ window.SPAC_DATA = {
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "유안타제15호스팩",
         "fullName": "유안타제15호기업인수목적 주식회사",
@@ -13683,13 +15132,13 @@ window.SPAC_DATA = {
         "price": 2075,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 951,
+        "tradingValue": 2000000,
         "marketCap": 14545750000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.775123+09:00",
+        "tradedAt": "2026-06-01T09:29:43.752351+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -13871,7 +15320,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2075,
           "ratio": 1.0375,
-          "volume": 0
+          "volume": 951
         }
       ],
       "events": [
@@ -13892,769 +15341,264 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=473050"
     },
     {
-      "id": "468760",
-      "code": "468760",
-      "name": "유진스팩10호",
+      "id": "471050",
+      "code": "471050",
+      "name": "대신밸런스제17호스팩",
       "market": "KOSDAQ",
-      "isin": "KR7468760004",
-      "sponsor": "유진",
+      "isin": "KR7471050005",
+      "sponsor": "대신밸런스",
       "ipoPrice": 2000,
-      "currentPrice": 2080,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.04,
-      "premiumPct": 4.0,
-      "volume": null,
+      "currentPrice": 2090,
+      "change": -20,
+      "changePct": -0.95,
+      "ratio": 1.045,
+      "premiumPct": 4.5,
+      "volume": 162,
       "tradingValue": null,
-      "marketCap": 8819200000,
-      "estimatedShares": 4240000,
-      "listingDate": "2024-02-29",
-      "liquidationDate": "2027-02-28",
+      "marketCap": 12665400000,
+      "estimatedShares": 6060000,
+      "listingDate": "2024-01-24",
+      "liquidationDate": "2027-01-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 272,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
+      "daysToLiquidation": 237,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 3.73,
-      "annualizedReturn": 5.04,
+      "expectedReturn": 3.24,
+      "annualizedReturn": 5.03,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
-        "name": "유진스팩10호",
-        "fullName": "유진기업인수목적10호 주식회사",
+        "name": "대신밸런스제17호스팩",
+        "fullName": "대신밸런스제17호기업인수목적 주식회사",
         "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-02-29",
+        "mainProduct": "금융 지원 서비스업",
+        "listingDate": "2024-01-24",
         "fiscalMonth": "12월",
-        "ceo": "김동진",
+        "ceo": "이문수",
         "homepage": false,
         "location": "서울특별시",
         "source": "KIND 상장법인목록"
       },
       "quote": {
-        "code": "468760",
-        "price": 2080,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
+        "code": "471050",
+        "price": 2090,
+        "change": -20,
+        "changePct": -0.95,
+        "volume": 162,
         "tradingValue": null,
-        "marketCap": 8819200000,
-        "marketStatus": "PREOPEN",
+        "marketCap": 12665400000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.819812+09:00",
+        "tradedAt": "2026-06-01T09:29:43.204851+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
         {
           "date": "2026-04-16",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 5523
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 21307
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2999
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 4861
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 536
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 81
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 18888
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 1793
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 13319
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 22213
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 44
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 1129
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 6987
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 1059
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 4439
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 1328
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 22
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 23823
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 4206
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 51413
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 220
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 54734
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 5693
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 8910
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 5904
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2880
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2808
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 3088
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 10888
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-02-29",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-02-29"
-        },
-        {
-          "date": "2027-02-28",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=유진스팩10호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=468760"
-    },
-    {
-      "id": "475240",
-      "code": "475240",
-      "name": "하나32호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7475240008",
-      "sponsor": "하나",
-      "ipoPrice": 2000,
-      "currentPrice": 2080,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.04,
-      "premiumPct": 4.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 6656000000,
-      "estimatedShares": 3200000,
-      "listingDate": "2024-03-27",
-      "liquidationDate": "2027-03-27",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 299,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 3.73,
-      "annualizedReturn": 4.57,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "kind": {
-        "name": "하나32호스팩",
-        "fullName": "하나32호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-03-27",
-        "fiscalMonth": "12월",
-        "ceo": "박종찬",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "475240",
-        "price": 2080,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 6656000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.164979+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 800
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 703
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 5928
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 4678
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 601
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 12247
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 662
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 7077
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 743
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2612
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2338
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 541
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 805
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 3950
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 315
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 174
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 4498
-        },
-        {
-          "date": "2026-05-13",
           "close": 2115,
           "ratio": 1.0575,
-          "volume": 20334
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 221
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 84
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 2227
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2403
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 101
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 3104
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 543
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 961
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2765
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 10439
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 937
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-03-27",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-03-27"
-        },
-        {
-          "date": "2027-03-27",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나32호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=475240"
-    },
-    {
-      "id": "475250",
-      "code": "475250",
-      "name": "하나33호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7475250007",
-      "sponsor": "하나",
-      "ipoPrice": 2000,
-      "currentPrice": 2080,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.04,
-      "premiumPct": 4.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 7696000000,
-      "estimatedShares": 3700000,
-      "listingDate": "2024-04-24",
-      "liquidationDate": "2027-04-24",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 327,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 3.73,
-      "annualizedReturn": 4.17,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "kind": {
-        "name": "하나33호스팩",
-        "fullName": "하나33호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-04-24",
-        "fiscalMonth": "12월",
-        "ceo": "박태한",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "475250",
-        "price": 2080,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 7696000000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.242998+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 15
+          "volume": 1547
         },
         {
           "date": "2026-04-17",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 1133
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 4262
         },
         {
           "date": "2026-04-20",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 63
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 16379
         },
         {
           "date": "2026-04-21",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 2550
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 7666
         },
         {
           "date": "2026-04-22",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 146
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 4014
         },
         {
           "date": "2026-04-23",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2301
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 4054
         },
         {
           "date": "2026-04-24",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 749
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 4949
         },
         {
           "date": "2026-04-27",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 6580
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 2028
         },
         {
           "date": "2026-04-28",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2708
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 3356
         },
         {
           "date": "2026-04-29",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 5094
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 24824
         },
         {
           "date": "2026-04-30",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 5962
+          "close": 2120,
+          "ratio": 1.06,
+          "volume": 8406
         },
         {
           "date": "2026-05-04",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 578
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 10088
         },
         {
           "date": "2026-05-06",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 16581
+          "close": 2120,
+          "ratio": 1.06,
+          "volume": 538
         },
         {
           "date": "2026-05-07",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 1276
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 25283
         },
         {
           "date": "2026-05-08",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 2536
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 2406
         },
         {
           "date": "2026-05-11",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 10517
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 20860
         },
         {
           "date": "2026-05-12",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 498
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 20293
         },
         {
           "date": "2026-05-13",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 23105
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 17120
         },
         {
           "date": "2026-05-14",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 4520
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 54219
         },
         {
           "date": "2026-05-15",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 6737
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 82485
         },
         {
           "date": "2026-05-18",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2182
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 224991
         },
         {
           "date": "2026-05-19",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2807
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 74682
         },
         {
           "date": "2026-05-20",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 5677
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 4511
         },
         {
           "date": "2026-05-21",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 1931
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 25851
         },
         {
           "date": "2026-05-22",
-          "close": 2082,
-          "ratio": 1.041,
-          "volume": 320
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 20797
         },
         {
           "date": "2026-05-26",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 2795
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 5966
         },
         {
           "date": "2026-05-27",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 1815
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 12196
         },
         {
           "date": "2026-05-28",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 5513
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 19317
         },
         {
           "date": "2026-05-29",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2670
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 28689
         },
         {
           "date": "2026-06-01",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 0
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 162
         }
       ],
       "events": [
         {
-          "date": "2024-04-24",
+          "date": "2024-01-24",
           "type": "listing",
           "label": "상장",
-          "detail": "KIND 상장일 2024-04-24"
+          "detail": "KIND 상장일 2024-01-24"
         },
         {
-          "date": "2027-04-24",
+          "date": "2027-01-24",
           "type": "liquidation",
           "label": "청산기한",
           "detail": "상장일+36개월 추정"
         }
       ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나33호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=475250"
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=대신밸런스제17호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=471050"
     },
     {
       "id": "474930",
@@ -14669,8 +15613,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0475,
       "premiumPct": 4.75,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 1002,
+      "tradingValue": 2000000,
       "marketCap": 7583900000,
       "estimatedShares": 3620000,
       "listingDate": "2024-04-22",
@@ -14686,6 +15630,11 @@ window.SPAC_DATA = {
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "신한제13호스팩",
         "fullName": "신한제13호기업인수목적주식회사",
@@ -14703,13 +15652,13 @@ window.SPAC_DATA = {
         "price": 2095,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 1002,
+        "tradingValue": 2000000,
         "marketCap": 7583900000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.474942+09:00",
+        "tradedAt": "2026-06-01T09:29:43.462062+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -14891,7 +15840,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2095,
           "ratio": 1.0475,
-          "volume": 0
+          "volume": 1002
         }
       ],
       "events": [
@@ -14912,6 +15861,266 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=474930"
     },
     {
+      "id": "481890",
+      "code": "481890",
+      "name": "엔에이치스팩31호",
+      "market": "KOSDAQ",
+      "isin": "KR7481890002",
+      "sponsor": "엔에이치",
+      "ipoPrice": 2000,
+      "currentPrice": 2095,
+      "change": -15,
+      "changePct": -0.71,
+      "ratio": 1.0475,
+      "premiumPct": 4.75,
+      "volume": 396,
+      "tradingValue": 1000000,
+      "marketCap": 13292775000,
+      "estimatedShares": 6345000,
+      "listingDate": "2024-07-26",
+      "liquidationDate": "2027-07-26",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 420,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.99,
+      "annualizedReturn": 2.59,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "엔에이치스팩31호",
+        "fullName": "엔에이치기업인수목적31호(주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "금융지원서비스업",
+        "listingDate": "2024-07-26",
+        "fiscalMonth": "12월",
+        "ceo": "이시형",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "481890",
+        "price": 2095,
+        "change": -15,
+        "changePct": -0.71,
+        "volume": 396,
+        "tradingValue": 1000000,
+        "marketCap": 13292775000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.640626+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2125,
+          "ratio": 1.0625,
+          "volume": 367
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 4276
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 646
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 7223
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 48
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 1888
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 8019
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 11904
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 1459
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 390
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 40
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 7541
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 20170
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 32836
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 29005
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2120,
+          "ratio": 1.06,
+          "volume": 11562
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2120,
+          "ratio": 1.06,
+          "volume": 4470
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2130,
+          "ratio": 1.065,
+          "volume": 29064
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2125,
+          "ratio": 1.0625,
+          "volume": 6363
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 26986
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 4089
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 5351
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 3725
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2125,
+          "ratio": 1.0625,
+          "volume": 12107
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2135,
+          "ratio": 1.0675,
+          "volume": 1628
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 2622
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2120,
+          "ratio": 1.06,
+          "volume": 3755
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 5723
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2110,
+          "ratio": 1.055,
+          "volume": 8680
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 396
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-07-26",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-07-26"
+        },
+        {
+          "date": "2027-07-26",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엔에이치스팩31호",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=481890"
+    },
+    {
       "id": "469880",
       "code": "469880",
       "name": "하나30호스팩",
@@ -14919,14 +16128,14 @@ window.SPAC_DATA = {
       "isin": "KR7469880009",
       "sponsor": "하나",
       "ipoPrice": 2000,
-      "currentPrice": 2100,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.05,
-      "premiumPct": 5.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 15340500000,
+      "currentPrice": 2102,
+      "change": 2,
+      "changePct": 0.1,
+      "ratio": 1.051,
+      "premiumPct": 5.1,
+      "volume": 8579,
+      "tradingValue": 18000000,
+      "marketCap": 15355110000,
       "estimatedShares": 7305000,
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
@@ -14935,12 +16144,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 2.75,
-      "annualizedReturn": 4.97,
+      "expectedReturn": 2.65,
+      "annualizedReturn": 4.79,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "하나30호스팩",
         "fullName": "하나30호기업인수목적 주식회사",
@@ -14955,16 +16169,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "469880",
-        "price": 2100,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 15340500000,
-        "marketStatus": "PREOPEN",
+        "price": 2102,
+        "change": 2,
+        "changePct": 0.1,
+        "volume": 8579,
+        "tradingValue": 18000000,
+        "marketCap": 15355110000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.202178+09:00",
+        "tradedAt": "2026-06-01T09:29:43.868812+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15144,9 +16358,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 0
+          "close": 2102,
+          "ratio": 1.051,
+          "volume": 8579
         }
       ],
       "events": [
@@ -15179,8 +16393,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.0525,
       "premiumPct": 5.25,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 1203,
+      "tradingValue": 3000000,
       "marketCap": 8904150000,
       "estimatedShares": 4230000,
       "listingDate": "2023-12-22",
@@ -15196,6 +16410,11 @@ window.SPAC_DATA = {
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "IBKS제23호스팩",
         "fullName": "아이비케이에스제23호기업인수목적 주식회사",
@@ -15213,13 +16432,13 @@ window.SPAC_DATA = {
         "price": 2105,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 1203,
+        "tradingValue": 3000000,
         "marketCap": 8904150000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.652109+09:00",
+        "tradedAt": "2026-06-01T09:29:42.978255+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15401,7 +16620,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2105,
           "ratio": 1.0525,
-          "volume": 0
+          "volume": 1203
         }
       ],
       "events": [
@@ -15422,6 +16641,266 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=467930"
     },
     {
+      "id": "475240",
+      "code": "475240",
+      "name": "하나32호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR7475240008",
+      "sponsor": "하나",
+      "ipoPrice": 2000,
+      "currentPrice": 2105,
+      "change": 25,
+      "changePct": 1.2,
+      "ratio": 1.0525,
+      "premiumPct": 5.25,
+      "volume": 314,
+      "tradingValue": 1000000,
+      "marketCap": 6736000000,
+      "estimatedShares": 3200000,
+      "listingDate": "2024-03-27",
+      "liquidationDate": "2027-03-27",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 299,
+      "trustValuePerShare": 2157.57,
+      "liquidationValuePerShare": 2157.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": 2.5,
+      "annualizedReturn": 3.06,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "하나32호스팩",
+        "fullName": "하나32호기업인수목적 주식회사",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2024-03-27",
+        "fiscalMonth": "12월",
+        "ceo": "박종찬",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "475240",
+        "price": 2105,
+        "change": 25,
+        "changePct": 1.2,
+        "volume": 314,
+        "tradingValue": 1000000,
+        "marketCap": 6736000000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.904772+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 800
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 703
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 5928
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 4678
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 601
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 12247
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 662
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 7077
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 743
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2612
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 2338
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 541
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 805
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 3950
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 315
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 174
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 4498
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 20334
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 221
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 84
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2090,
+          "ratio": 1.045,
+          "volume": 2227
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 2403
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 101
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 3104
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2095,
+          "ratio": 1.0475,
+          "volume": 543
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 961
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2100,
+          "ratio": 1.05,
+          "volume": 2765
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2085,
+          "ratio": 1.0425,
+          "volume": 10439
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2080,
+          "ratio": 1.04,
+          "volume": 937
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2105,
+          "ratio": 1.0525,
+          "volume": 314
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-03-27",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2024-03-27"
+        },
+        {
+          "date": "2027-03-27",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=하나32호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=475240"
+    },
+    {
       "id": "464680",
       "code": "464680",
       "name": "KB제27호스팩",
@@ -15434,8 +16913,8 @@ window.SPAC_DATA = {
       "changePct": 0.0,
       "ratio": 1.055,
       "premiumPct": 5.5,
-      "volume": null,
-      "tradingValue": null,
+      "volume": 34580,
+      "tradingValue": 73000000,
       "marketCap": 27229550000,
       "estimatedShares": 12905000,
       "listingDate": "2023-11-03",
@@ -15451,6 +16930,11 @@ window.SPAC_DATA = {
       "badges": [
         "청산 6개월 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "KB제27호스팩",
         "fullName": "케이비제27호기업인수목적(주)",
@@ -15468,13 +16952,13 @@ window.SPAC_DATA = {
         "price": 2110,
         "change": 0,
         "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
+        "volume": 34580,
+        "tradingValue": 73000000,
         "marketCap": 27229550000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.589295+09:00",
+        "tradedAt": "2026-06-01T09:29:42.971063+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -15656,7 +17140,7 @@ window.SPAC_DATA = {
           "date": "2026-06-01",
           "close": 2110,
           "ratio": 1.055,
-          "volume": 0
+          "volume": 34580
         }
       ],
       "events": [
@@ -15677,516 +17161,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=464680"
     },
     {
-      "id": "471050",
-      "code": "471050",
-      "name": "대신밸런스제17호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7471050005",
-      "sponsor": "대신밸런스",
-      "ipoPrice": 2000,
-      "currentPrice": 2110,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.055,
-      "premiumPct": 5.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12786600000,
-      "estimatedShares": 6060000,
-      "listingDate": "2024-01-24",
-      "liquidationDate": "2027-01-24",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 237,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 2.26,
-      "annualizedReturn": 3.5,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "kind": {
-        "name": "대신밸런스제17호스팩",
-        "fullName": "대신밸런스제17호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융 지원 서비스업",
-        "listingDate": "2024-01-24",
-        "fiscalMonth": "12월",
-        "ceo": "이문수",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "471050",
-        "price": 2110,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12786600000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.147951+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 1547
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 4262
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 16379
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 7666
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 4014
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 4054
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 4949
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2028
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 3356
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 24824
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 8406
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 10088
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 538
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 25283
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2406
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 20860
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 20293
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 17120
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 54219
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 82485
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 224991
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 74682
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 4511
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 25851
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 20797
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 5966
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 12196
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 19317
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 28689
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-01-24",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-01-24"
-        },
-        {
-          "date": "2027-01-24",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=대신밸런스제17호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=471050"
-    },
-    {
-      "id": "481890",
-      "code": "481890",
-      "name": "엔에이치스팩31호",
-      "market": "KOSDAQ",
-      "isin": "KR7481890002",
-      "sponsor": "엔에이치",
-      "ipoPrice": 2000,
-      "currentPrice": 2110,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.055,
-      "premiumPct": 5.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 13387950000,
-      "estimatedShares": 6345000,
-      "listingDate": "2024-07-26",
-      "liquidationDate": "2027-07-26",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 420,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 2.25,
-      "annualizedReturn": 1.96,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "엔에이치스팩31호",
-        "fullName": "엔에이치기업인수목적31호(주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "금융지원서비스업",
-        "listingDate": "2024-07-26",
-        "fiscalMonth": "12월",
-        "ceo": "이시형",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "481890",
-        "price": 2110,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 13387950000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:47.65397+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 367
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 4276
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 646
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 7223
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 48
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 1888
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 8019
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 11904
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 1459
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 390
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 40
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 7541
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 20170
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 32836
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 29005
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 11562
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 4470
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 29064
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 6363
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 26986
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 4089
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 5351
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 3725
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 12107
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2135,
-          "ratio": 1.0675,
-          "volume": 1628
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 2622
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 3755
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 5723
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 8680
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-07-26",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-07-26"
-        },
-        {
-          "date": "2027-07-26",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=엔에이치스팩31호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=481890"
-    },
-    {
       "id": "464440",
       "code": "464440",
       "name": "한국제13호스팩",
@@ -16194,14 +17168,14 @@ window.SPAC_DATA = {
       "isin": "KR7464440007",
       "sponsor": "한국",
       "ipoPrice": 2000,
-      "currentPrice": 2110,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.055,
-      "premiumPct": 5.5,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 9115200000,
+      "currentPrice": 2115,
+      "change": 5,
+      "changePct": 0.24,
+      "ratio": 1.0575,
+      "premiumPct": 5.75,
+      "volume": 8384,
+      "tradingValue": 18000000,
+      "marketCap": 9136800000,
       "estimatedShares": 4320000,
       "listingDate": "2023-11-13",
       "liquidationDate": "2026-11-13",
@@ -16210,12 +17184,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 2.26,
-      "annualizedReturn": 5.07,
+      "expectedReturn": 2.02,
+      "annualizedReturn": 4.52,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "한국제13호스팩",
         "fullName": "한국제13호기업인수목적 주식회사",
@@ -16230,16 +17209,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "464440",
-        "price": 2110,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 9115200000,
-        "marketStatus": "PREOPEN",
+        "price": 2115,
+        "change": 5,
+        "changePct": 0.24,
+        "volume": 8384,
+        "tradingValue": 18000000,
+        "marketCap": 9136800000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:48.470176+09:00",
+        "tradedAt": "2026-06-01T09:29:43.907243+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -16419,9 +17398,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 0
+          "close": 2115,
+          "ratio": 1.0575,
+          "volume": 8384
         }
       ],
       "events": [
@@ -16442,261 +17421,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=464440"
     },
     {
-      "id": "489210",
-      "code": "489210",
-      "name": "교보17호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7489210005",
-      "sponsor": "교보",
-      "ipoPrice": 2000,
-      "currentPrice": 2115,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0575,
-      "premiumPct": 5.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10955700000,
-      "estimatedShares": 5180000,
-      "listingDate": "2024-11-21",
-      "liquidationDate": "2027-11-21",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 538,
-      "trustValuePerShare": 2157.57,
-      "liquidationValuePerShare": 2157.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 2.01,
-      "annualizedReturn": 1.36,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "교보17호스팩",
-        "fullName": "교보17호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2024-11-21",
-        "fiscalMonth": "12월",
-        "ceo": "장정훈",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "489210",
-        "price": 2115,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10955700000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.956032+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 103
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 31
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 2064
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2150
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 11957
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 21998
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 13653
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2065,
-          "ratio": 1.0325,
-          "volume": 28364
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2050,
-          "ratio": 1.025,
-          "volume": 17764
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 25109
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 10640
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 12
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 749
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 2667
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 2391
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 668
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 17529
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 6654
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 6743
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 2230
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2075,
-          "ratio": 1.0375,
-          "volume": 1794
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2070,
-          "ratio": 1.035,
-          "volume": 17846
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 3351
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 655
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 3971
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 445
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 1581
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 1256
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 27486
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2024-11-21",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2024-11-21"
-        },
-        {
-          "date": "2027-11-21",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=교보17호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=489210"
-    },
-    {
       "id": "0099X0",
       "code": "0099X0",
       "name": "IBKS제25호스팩",
@@ -16704,14 +17428,14 @@ window.SPAC_DATA = {
       "isin": "KR70099X0007",
       "sponsor": "IBKS",
       "ipoPrice": 2000,
-      "currentPrice": 2145,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0725,
-      "premiumPct": 7.25,
-      "volume": null,
+      "currentPrice": 2130,
+      "change": -15,
+      "changePct": -0.7,
+      "ratio": 1.065,
+      "premiumPct": 6.5,
+      "volume": 4,
       "tradingValue": null,
-      "marketCap": 12827100000,
+      "marketCap": 12737400000,
       "estimatedShares": 5980000,
       "listingDate": "2025-12-19",
       "liquidationDate": "2028-12-19",
@@ -16720,12 +17444,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": 0.59,
-      "annualizedReturn": 0.23,
+      "expectedReturn": 1.3,
+      "annualizedReturn": 0.51,
       "status": "일반",
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "IBKS제25호스팩",
         "fullName": "아이비케이에스제25호기업인수목적 주식회사",
@@ -16740,16 +17469,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "0099X0",
-        "price": 2145,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
+        "price": 2130,
+        "change": -15,
+        "changePct": -0.7,
+        "volume": 4,
         "tradingValue": null,
-        "marketCap": 12827100000,
-        "marketStatus": "PREOPEN",
+        "marketCap": 12737400000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.585965+09:00",
+        "tradedAt": "2026-06-01T09:29:42.975315+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -16929,9 +17658,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2145,
-          "ratio": 1.0725,
-          "volume": 0
+          "close": 2130,
+          "ratio": 1.065,
+          "volume": 4
         }
       ],
       "events": [
@@ -16952,261 +17681,6 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=0099X0"
     },
     {
-      "id": "0088D0",
-      "code": "0088D0",
-      "name": "메리츠제1호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR70088D0004",
-      "sponsor": "메리츠",
-      "ipoPrice": 2000,
-      "currentPrice": 2160,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.08,
-      "premiumPct": 8.0,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 12517200000,
-      "estimatedShares": 5795000,
-      "listingDate": "2025-12-15",
-      "liquidationDate": "2028-12-15",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 928,
-      "trustValuePerShare": 2157.72,
-      "liquidationValuePerShare": 2157.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -0.11,
-      "annualizedReturn": -0.04,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "kind": {
-        "name": "메리츠제1호스팩",
-        "fullName": "메리츠제1호기업인수목적 (주)",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2025-12-15",
-        "fiscalMonth": "12월",
-        "ceo": "이경준",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "0088D0",
-        "price": 2160,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 12517200000,
-        "marketStatus": "PREOPEN",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.14986+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2026-04-16",
-          "close": 2195,
-          "ratio": 1.0975,
-          "volume": 27590
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2205,
-          "ratio": 1.1025,
-          "volume": 72266
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2200,
-          "ratio": 1.1,
-          "volume": 85482
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2200,
-          "ratio": 1.1,
-          "volume": 53876
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2195,
-          "ratio": 1.0975,
-          "volume": 21359
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2200,
-          "ratio": 1.1,
-          "volume": 114806
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2195,
-          "ratio": 1.0975,
-          "volume": 25747
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 66895
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 86443
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 40555
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2165,
-          "ratio": 1.0825,
-          "volume": 20215
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2180,
-          "ratio": 1.09,
-          "volume": 18210
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2185,
-          "ratio": 1.0925,
-          "volume": 19750
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2185,
-          "ratio": 1.0925,
-          "volume": 3009
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2195,
-          "ratio": 1.0975,
-          "volume": 3359
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2180,
-          "ratio": 1.09,
-          "volume": 67049
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2180,
-          "ratio": 1.09,
-          "volume": 9858
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2220,
-          "ratio": 1.11,
-          "volume": 29320
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2220,
-          "ratio": 1.11,
-          "volume": 3133
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2185,
-          "ratio": 1.0925,
-          "volume": 7681
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2180,
-          "ratio": 1.09,
-          "volume": 18410
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2170,
-          "ratio": 1.085,
-          "volume": 15629
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2165,
-          "ratio": 1.0825,
-          "volume": 12292
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 8036
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2150,
-          "ratio": 1.075,
-          "volume": 9388
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2145,
-          "ratio": 1.0725,
-          "volume": 5591
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 16586
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2150,
-          "ratio": 1.075,
-          "volume": 13644
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 44430
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 0
-        }
-      ],
-      "events": [
-        {
-          "date": "2025-12-15",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2025-12-15"
-        },
-        {
-          "date": "2028-12-15",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=메리츠제1호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0088D0"
-    },
-    {
       "id": "482690",
       "code": "482690",
       "name": "대신밸런스제19호스팩",
@@ -17214,14 +17688,14 @@ window.SPAC_DATA = {
       "isin": "KR7482690005",
       "sponsor": "대신밸런스",
       "ipoPrice": 2000,
-      "currentPrice": 2170,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.085,
-      "premiumPct": 8.5,
-      "volume": null,
+      "currentPrice": 2155,
+      "change": -15,
+      "changePct": -0.69,
+      "ratio": 1.0775,
+      "premiumPct": 7.75,
+      "volume": 112,
       "tradingValue": null,
-      "marketCap": 12184550000,
+      "marketCap": 12100325000,
       "estimatedShares": 5615000,
       "listingDate": "2024-11-20",
       "liquidationDate": "2027-11-20",
@@ -17230,12 +17704,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.57,
       "liquidationValuePerShare": 2157.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -0.57,
-      "annualizedReturn": -0.39,
+      "expectedReturn": 0.12,
+      "annualizedReturn": 0.08,
       "status": "일반",
       "badges": [
         "일반"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "대신밸런스제19호스팩",
         "fullName": "대신밸런스제19호기업인수목적(주)",
@@ -17250,16 +17729,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "482690",
-        "price": 2170,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
+        "price": 2155,
+        "change": -15,
+        "changePct": -0.69,
+        "volume": 112,
         "tradingValue": null,
-        "marketCap": 12184550000,
-        "marketStatus": "PREOPEN",
+        "marketCap": 12100325000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.124918+09:00",
+        "tradedAt": "2026-06-01T09:29:43.204678+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17439,9 +17918,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2170,
-          "ratio": 1.085,
-          "volume": 0
+          "close": 2155,
+          "ratio": 1.0775,
+          "volume": 112
         }
       ],
       "events": [
@@ -17462,6 +17941,266 @@ window.SPAC_DATA = {
       "naverUrl": "https://finance.naver.com/item/main.naver?code=482690"
     },
     {
+      "id": "0088D0",
+      "code": "0088D0",
+      "name": "메리츠제1호스팩",
+      "market": "KOSDAQ",
+      "isin": "KR70088D0004",
+      "sponsor": "메리츠",
+      "ipoPrice": 2000,
+      "currentPrice": 2170,
+      "change": 10,
+      "changePct": 0.46,
+      "ratio": 1.085,
+      "premiumPct": 8.5,
+      "volume": 163,
+      "tradingValue": null,
+      "marketCap": 12575150000,
+      "estimatedShares": 5795000,
+      "listingDate": "2025-12-15",
+      "liquidationDate": "2028-12-15",
+      "liquidationDateSource": "상장일+36개월 추정",
+      "daysToLiquidation": 928,
+      "trustValuePerShare": 2157.72,
+      "liquidationValuePerShare": 2157.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
+      "expectedReturn": -0.57,
+      "annualizedReturn": -0.22,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
+      "kind": {
+        "name": "메리츠제1호스팩",
+        "fullName": "메리츠제1호기업인수목적 (주)",
+        "industry": "금융 지원 서비스업",
+        "mainProduct": "기업인수합병",
+        "listingDate": "2025-12-15",
+        "fiscalMonth": "12월",
+        "ceo": "이경준",
+        "homepage": false,
+        "location": "서울특별시",
+        "source": "KIND 상장법인목록"
+      },
+      "quote": {
+        "code": "0088D0",
+        "price": 2170,
+        "change": 10,
+        "changePct": 0.46,
+        "volume": 163,
+        "tradingValue": null,
+        "marketCap": 12575150000,
+        "marketStatus": "OPEN",
+        "tradeStop": false,
+        "tradeStopText": "운영.Trading",
+        "tradedAt": "2026-06-01T09:29:43.203547+09:00",
+        "source": "네이버 증권 실시간"
+      },
+      "history": [
+        {
+          "date": "2026-04-16",
+          "close": 2195,
+          "ratio": 1.0975,
+          "volume": 27590
+        },
+        {
+          "date": "2026-04-17",
+          "close": 2205,
+          "ratio": 1.1025,
+          "volume": 72266
+        },
+        {
+          "date": "2026-04-20",
+          "close": 2200,
+          "ratio": 1.1,
+          "volume": 85482
+        },
+        {
+          "date": "2026-04-21",
+          "close": 2200,
+          "ratio": 1.1,
+          "volume": 53876
+        },
+        {
+          "date": "2026-04-22",
+          "close": 2195,
+          "ratio": 1.0975,
+          "volume": 21359
+        },
+        {
+          "date": "2026-04-23",
+          "close": 2200,
+          "ratio": 1.1,
+          "volume": 114806
+        },
+        {
+          "date": "2026-04-24",
+          "close": 2195,
+          "ratio": 1.0975,
+          "volume": 25747
+        },
+        {
+          "date": "2026-04-27",
+          "close": 2160,
+          "ratio": 1.08,
+          "volume": 66895
+        },
+        {
+          "date": "2026-04-28",
+          "close": 2160,
+          "ratio": 1.08,
+          "volume": 86443
+        },
+        {
+          "date": "2026-04-29",
+          "close": 2160,
+          "ratio": 1.08,
+          "volume": 40555
+        },
+        {
+          "date": "2026-04-30",
+          "close": 2165,
+          "ratio": 1.0825,
+          "volume": 20215
+        },
+        {
+          "date": "2026-05-04",
+          "close": 2180,
+          "ratio": 1.09,
+          "volume": 18210
+        },
+        {
+          "date": "2026-05-06",
+          "close": 2185,
+          "ratio": 1.0925,
+          "volume": 19750
+        },
+        {
+          "date": "2026-05-07",
+          "close": 2185,
+          "ratio": 1.0925,
+          "volume": 3009
+        },
+        {
+          "date": "2026-05-08",
+          "close": 2195,
+          "ratio": 1.0975,
+          "volume": 3359
+        },
+        {
+          "date": "2026-05-11",
+          "close": 2180,
+          "ratio": 1.09,
+          "volume": 67049
+        },
+        {
+          "date": "2026-05-12",
+          "close": 2180,
+          "ratio": 1.09,
+          "volume": 9858
+        },
+        {
+          "date": "2026-05-13",
+          "close": 2220,
+          "ratio": 1.11,
+          "volume": 29320
+        },
+        {
+          "date": "2026-05-14",
+          "close": 2220,
+          "ratio": 1.11,
+          "volume": 3133
+        },
+        {
+          "date": "2026-05-15",
+          "close": 2185,
+          "ratio": 1.0925,
+          "volume": 7681
+        },
+        {
+          "date": "2026-05-18",
+          "close": 2180,
+          "ratio": 1.09,
+          "volume": 18410
+        },
+        {
+          "date": "2026-05-19",
+          "close": 2170,
+          "ratio": 1.085,
+          "volume": 15629
+        },
+        {
+          "date": "2026-05-20",
+          "close": 2165,
+          "ratio": 1.0825,
+          "volume": 12292
+        },
+        {
+          "date": "2026-05-21",
+          "close": 2160,
+          "ratio": 1.08,
+          "volume": 8036
+        },
+        {
+          "date": "2026-05-22",
+          "close": 2150,
+          "ratio": 1.075,
+          "volume": 9388
+        },
+        {
+          "date": "2026-05-26",
+          "close": 2145,
+          "ratio": 1.0725,
+          "volume": 5591
+        },
+        {
+          "date": "2026-05-27",
+          "close": 2140,
+          "ratio": 1.07,
+          "volume": 16586
+        },
+        {
+          "date": "2026-05-28",
+          "close": 2150,
+          "ratio": 1.075,
+          "volume": 13644
+        },
+        {
+          "date": "2026-05-29",
+          "close": 2160,
+          "ratio": 1.08,
+          "volume": 44430
+        },
+        {
+          "date": "2026-06-01",
+          "close": 2170,
+          "ratio": 1.085,
+          "volume": 163
+        }
+      ],
+      "events": [
+        {
+          "date": "2025-12-15",
+          "type": "listing",
+          "label": "상장",
+          "detail": "KIND 상장일 2025-12-15"
+        },
+        {
+          "date": "2028-12-15",
+          "type": "liquidation",
+          "label": "청산기한",
+          "detail": "상장일+36개월 추정"
+        }
+      ],
+      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=메리츠제1호스팩",
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0088D0"
+    },
+    {
       "id": "472220",
       "code": "472220",
       "name": "신영스팩10호",
@@ -17469,14 +18208,14 @@ window.SPAC_DATA = {
       "isin": "KR7472220003",
       "sponsor": "신영",
       "ipoPrice": 2000,
-      "currentPrice": 2195,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.0975,
-      "premiumPct": 9.75,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10294550000,
+      "currentPrice": 2185,
+      "change": -10,
+      "changePct": -0.46,
+      "ratio": 1.0925,
+      "premiumPct": 9.25,
+      "volume": 288,
+      "tradingValue": 1000000,
+      "marketCap": 10247650000,
       "estimatedShares": 4690000,
       "listingDate": "2024-02-06",
       "liquidationDate": "2027-02-06",
@@ -17485,12 +18224,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -1.7,
-      "annualizedReturn": -2.47,
+      "expectedReturn": -1.25,
+      "annualizedReturn": -1.82,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "신영스팩10호",
         "fullName": "신영해피투모로우제10호기업인수목적 주식회사",
@@ -17505,16 +18249,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "472220",
-        "price": 2195,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10294550000,
-        "marketStatus": "PREOPEN",
+        "price": 2185,
+        "change": -10,
+        "changePct": -0.46,
+        "volume": 288,
+        "tradingValue": 1000000,
+        "marketCap": 10247650000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:46.756256+09:00",
+        "tradedAt": "2026-06-01T09:29:43.435722+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17694,9 +18438,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2195,
-          "ratio": 1.0975,
-          "volume": 0
+          "close": 2185,
+          "ratio": 1.0925,
+          "volume": 288
         }
       ],
       "events": [
@@ -17742,10 +18486,75 @@ window.SPAC_DATA = {
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": -7.59,
       "annualizedReturn": -14.28,
-      "status": "청산 1년 이내",
+      "status": "합병 신청",
       "badges": [
+        "합병 신청",
         "청산 1년 이내",
         "거래정지"
+      ],
+      "mergerStatus": "합병 신청",
+      "mergerApplicationDisclosure": {
+        "date": "2026-05-11 15:26",
+        "title": "회사합병 결정(SPAC 소멸합병)",
+        "company": "교보15호스팩",
+        "submitter": "교보15호기업인수목적",
+        "receiptNo": "20260511000479",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479"
+      },
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [
+        {
+          "date": "2025-09-11 16:06",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "교보15호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20250911000329",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250911000329",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-09-11 16:06",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "교보15호스팩",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20250911000306",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250911000306",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-02-11 14:17",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "교보15호스팩",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20260211000572",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260211000572",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-03-26 16:19",
+          "title": "회사합병 결정",
+          "company": "교보15호스팩",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20260326001865",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260326001865",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-11 15:26",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "교보15호스팩",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20260511000479",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479",
+          "mergerSignal": "applied"
+        }
       ],
       "kind": {
         "name": "교보15호스팩",
@@ -17767,10 +18576,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 8896350000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": true,
         "tradeStopText": "정지.Halted",
-        "tradedAt": "2026-06-01T08:53:45.865969+09:00",
+        "tradedAt": "2026-06-01T09:29:43.100959+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -17963,6 +18772,14 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2023-12-05"
         },
         {
+          "date": "2026-05-11 15:26",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479"
+        },
+        {
           "date": "2026-12-05",
           "type": "liquidation",
           "label": "청산기한",
@@ -17980,14 +18797,14 @@ window.SPAC_DATA = {
       "isin": "KR7469480008",
       "sponsor": "IBKS",
       "ipoPrice": 2000,
-      "currentPrice": 2465,
-      "change": 0,
-      "changePct": 0.0,
-      "ratio": 1.2325,
-      "premiumPct": 23.25,
-      "volume": null,
-      "tradingValue": null,
-      "marketCap": 10426950000,
+      "currentPrice": 2435,
+      "change": -30,
+      "changePct": -1.22,
+      "ratio": 1.2175,
+      "premiumPct": 21.75,
+      "volume": 1548,
+      "tradingValue": 4000000,
+      "marketCap": 10300050000,
       "estimatedShares": 4230000,
       "listingDate": "2024-02-01",
       "liquidationDate": "2027-02-01",
@@ -17996,12 +18813,17 @@ window.SPAC_DATA = {
       "trustValuePerShare": 2157.72,
       "liquidationValuePerShare": 2157.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
-      "expectedReturn": -12.47,
-      "annualizedReturn": -17.99,
+      "expectedReturn": -11.39,
+      "annualizedReturn": -16.48,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
+      "mergerStatus": null,
+      "mergerApplicationDisclosure": null,
+      "mergerConfirmationDisclosure": null,
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [],
       "kind": {
         "name": "IBKS제24호스팩",
         "fullName": "아이비케이에스제24호기업인수목적 주식회사",
@@ -18016,16 +18838,16 @@ window.SPAC_DATA = {
       },
       "quote": {
         "code": "469480",
-        "price": 2465,
-        "change": 0,
-        "changePct": 0.0,
-        "volume": null,
-        "tradingValue": null,
-        "marketCap": 10426950000,
-        "marketStatus": "PREOPEN",
+        "price": 2435,
+        "change": -30,
+        "changePct": -1.22,
+        "volume": 1548,
+        "tradingValue": 4000000,
+        "marketCap": 10300050000,
+        "marketStatus": "OPEN",
         "tradeStop": false,
         "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-01T08:53:45.650146+09:00",
+        "tradedAt": "2026-06-01T09:29:42.971+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -18205,9 +19027,9 @@ window.SPAC_DATA = {
         },
         {
           "date": "2026-06-01",
-          "close": 2465,
-          "ratio": 1.2325,
-          "volume": 0
+          "close": 2435,
+          "ratio": 1.2175,
+          "volume": 1548
         }
       ],
       "events": [
@@ -18253,10 +19075,93 @@ window.SPAC_DATA = {
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.560%)",
       "expectedReturn": -37.28,
       "annualizedReturn": -99.96,
-      "status": "청산 6개월 이내",
+      "status": "합병 확정",
       "badges": [
+        "합병 확정",
         "청산 6개월 이내",
         "거래정지"
+      ],
+      "mergerStatus": "합병 확정",
+      "mergerApplicationDisclosure": {
+        "date": "2026-05-12 11:25",
+        "title": "회사합병 결정(SPAC 소멸합병)",
+        "company": "엔에이치스팩29호",
+        "submitter": "엔에이치기업인수목적29호",
+        "receiptNo": "20260512000316",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000316"
+      },
+      "mergerConfirmationDisclosure": {
+        "date": "2026-02-05 17:50",
+        "title": "주권매매거래정지해제(상장예비심사결과 통지(승인))",
+        "company": "엔에이치스팩29호",
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260205001170",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260205001170"
+      },
+      "mergerCancellationDisclosure": null,
+      "mergerDisclosures": [
+        {
+          "date": "2025-11-14 16:16",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "엔에이치스팩29호",
+          "submitter": "엔에이치기업인수목적29호",
+          "receiptNo": "20251114002137",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251114002137",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-11-14 16:16",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "company": "엔에이치스팩29호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20251114002286",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251114002286",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-02-05 17:50",
+          "title": "주권매매거래정지해제(상장예비심사결과 통지(승인))",
+          "company": "엔에이치스팩29호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260205001170",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260205001170",
+          "mergerSignal": "confirmed"
+        },
+        {
+          "date": "2026-02-27 15:54",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "엔에이치스팩29호",
+          "submitter": "엔에이치기업인수목적29호",
+          "receiptNo": "20260227001154",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260227001154",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-03-31 13:04",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "엔에이치스팩29호",
+          "submitter": "엔에이치기업인수목적29호",
+          "receiptNo": "20260331000846",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260331000846",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-12 11:25",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "엔에이치스팩29호",
+          "submitter": "엔에이치기업인수목적29호",
+          "receiptNo": "20260512000316",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000316",
+          "mergerSignal": "applied"
+        }
       ],
       "kind": {
         "name": "엔에이치스팩29호",
@@ -18278,10 +19183,10 @@ window.SPAC_DATA = {
         "volume": null,
         "tradingValue": null,
         "marketCap": 49364000000,
-        "marketStatus": "PREOPEN",
+        "marketStatus": "OPEN",
         "tradeStop": true,
         "tradeStopText": "정지.Halted",
-        "tradedAt": "2026-06-01T08:53:47.651761+09:00",
+        "tradedAt": "2026-06-01T09:29:43.69172+09:00",
         "source": "네이버 증권 실시간"
       },
       "history": [
@@ -18474,6 +19379,22 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2023-06-23"
         },
         {
+          "date": "2026-02-05 17:50",
+          "type": "merger_confirmation",
+          "label": "합병 확정",
+          "detail": "주권매매거래정지해제(상장예비심사결과 통지(승인))",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260205001170"
+        },
+        {
+          "date": "2026-05-12 11:25",
+          "type": "merger_application",
+          "label": "합병 신청",
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000316"
+        },
+        {
           "date": "2026-06-23",
           "type": "liquidation",
           "label": "청산기한",
@@ -18485,10 +19406,13 @@ window.SPAC_DATA = {
     }
   ],
   "errors": {
-    "quote": {}
+    "quote": {},
+    "disclosure": {}
   },
   "sourceLinks": {
     "kindCorpList": "https://kind.krx.co.kr/corpgeneral/corpList.do?method=loadInitPage",
+    "kindDisclosure": "https://kind.krx.co.kr/disclosure/searchdisclosurebycorp.do?method=searchDisclosureByCorpMain",
+    "dartDisclosure": "https://dart.fss.or.kr/dsab007/main.do",
     "krxData": "https://data.krx.co.kr/",
     "naverFinance": "https://finance.naver.com/",
     "openDartGuide": "https://opendart.fss.or.kr/guide/main.do",
