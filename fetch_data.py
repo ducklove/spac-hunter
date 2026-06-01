@@ -719,6 +719,81 @@ def estimate_trust_value_per_share(ipo_price, listing_date, liquidation_date, tr
     return ipo_price * ((1 + trust_rate) ** (trust_days / 365))
 
 
+def pct_change(base, value):
+    if base is None or value is None or base <= 0:
+        return None
+    return round((value / base - 1) * 100, 2)
+
+
+def build_merger_price_records(disclosures, history_points):
+    points = [
+        {
+            **point,
+            "parsedDate": parse_date(point.get("date")),
+        }
+        for point in history_points
+        if point.get("date") and point.get("close")
+    ]
+    points = [point for point in points if point["parsedDate"]]
+    points.sort(key=lambda point: point["parsedDate"])
+    if not points:
+        return []
+
+    records = []
+    seen_events = set()
+    signal_labels = {
+        "applied": "합병 신청",
+        "confirmed": "합병 확정",
+        "canceled": "합병 철회",
+    }
+    for disclosure in disclosures or []:
+        signal = disclosure.get("mergerSignal")
+        event_date = parse_date(str(disclosure.get("date") or "")[:10])
+        if signal not in signal_labels or not event_date:
+            continue
+        event_key = (event_date.isoformat(), signal)
+        if event_key in seen_events:
+            continue
+        seen_events.add(event_key)
+
+        before_or_same = [point for point in points if point["parsedDate"] <= event_date]
+        after = [point for point in points if point["parsedDate"] > event_date]
+        base = before_or_same[-1] if before_or_same else None
+        next_point = after[0] if after else None
+        latest = points[-1]
+        high = max(after, key=lambda point: point["close"], default=None)
+        low = min(after, key=lambda point: point["close"], default=None)
+        base_close = base.get("close") if base else None
+
+        records.append(
+            {
+                "date": event_date.isoformat(),
+                "label": signal_labels[signal],
+                "signal": signal,
+                "title": disclosure.get("title"),
+                "source": disclosure.get("source"),
+                "url": disclosure.get("url"),
+                "baseDate": base.get("date") if base else None,
+                "basePrice": base_close,
+                "baseRatio": base.get("ratio") if base else None,
+                "nextDate": next_point.get("date") if next_point else None,
+                "nextPrice": next_point.get("close") if next_point else None,
+                "nextReturnPct": pct_change(base_close, next_point.get("close") if next_point else None),
+                "latestDate": latest.get("date"),
+                "latestPrice": latest.get("close"),
+                "latestReturnPct": pct_change(base_close, latest.get("close")),
+                "highDate": high.get("date") if high else None,
+                "highPrice": high.get("close") if high else None,
+                "highReturnPct": pct_change(base_close, high.get("close") if high else None),
+                "lowDate": low.get("date") if low else None,
+                "lowPrice": low.get("close") if low else None,
+                "lowReturnPct": pct_change(base_close, low.get("close") if low else None),
+                "observedTradingDays": len(after),
+            }
+        )
+    return sorted(records, key=lambda record: record["date"])
+
+
 def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclosures=None):
     code = item["code"]
     override = overrides.get(code, {})
@@ -819,6 +894,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
                 "volume": point.get("volume"),
             }
         )
+    merger_price_records = build_merger_price_records(merger_state["matched"], history_points)
 
     badges = build_status_badges(
         ratio,
@@ -918,6 +994,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
         "mergerConfirmationDisclosure": confirmation_disclosure,
         "mergerCancellationDisclosure": cancellation_disclosure,
         "mergerDisclosures": merger_state["matched"],
+        "mergerPriceRecords": merger_price_records,
         "kind": kind_info,
         "quote": quote,
         "history": history_points,
@@ -939,6 +1016,7 @@ def build_summary(spacs, generated_at):
     merger = [spac for spac in active if spac.get("mergerStatus")]
     merger_applied = [spac for spac in merger if spac.get("mergerStatus") == "합병 신청"]
     merger_confirmed = [spac for spac in merger if spac.get("mergerStatus") == "합병 확정"]
+    merger_event_count = sum(len(spac.get("mergerPriceRecords") or []) for spac in active)
     recent = [
         spac
         for spac in active
@@ -962,6 +1040,7 @@ def build_summary(spacs, generated_at):
         "mergerCount": len(merger),
         "mergerAppliedCount": len(merger_applied),
         "mergerConfirmedCount": len(merger_confirmed),
+        "mergerEventCount": merger_event_count,
         "recentListingCount": len(recent),
         "averageRatio": round(sum(ratios) / len(ratios), 4) if ratios else None,
         "averageAnnualizedReturn": round(sum(annualized) / len(annualized), 2) if annualized else None,
@@ -982,6 +1061,24 @@ def build_summary(spacs, generated_at):
         if best_yield
         else None,
     }
+
+
+def build_merger_cases(spacs, limit=80):
+    cases = []
+    for spac in spacs:
+        for record in spac.get("mergerPriceRecords") or []:
+            cases.append(
+                {
+                    **record,
+                    "code": spac.get("code"),
+                    "name": spac.get("name"),
+                    "status": spac.get("mergerStatus") or "과거 공시",
+                    "currentPrice": spac.get("currentPrice"),
+                    "currentRatio": spac.get("ratio"),
+                }
+            )
+    cases.sort(key=lambda record: record.get("date") or "", reverse=True)
+    return cases[:limit]
 
 
 def build_sample_data():
@@ -1046,6 +1143,7 @@ def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, 
             "listingInfo": "KIND 상장법인목록 이름 매칭",
             "mergerStatus": "KIND 공시검색과 DART fallback에서 회사합병 결정/SPAC 합병 예비심사청구대상은 합병 신청, 상장예비심사결과 통지(승인) 등은 합병 확정으로 분류",
             "price": "네이버 증권 실시간/최근가",
+            "mergerPriceRecords": "합병 공시일 직전/이후 네이버 일별 종가로 이벤트별 가격 반응과 이후 고저점을 계산",
             "ipoPrice": "기본 2,000원, overrides.json으로 보정",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
             "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
@@ -1059,6 +1157,7 @@ def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, 
             "kofr": rate_info,
         },
         "summary": build_summary(spacs, generated_at),
+        "mergerCases": build_merger_cases(spacs),
         "spacs": spacs,
         "errors": errors,
         "sourceLinks": {
@@ -1109,6 +1208,12 @@ def write_outputs(generated_at, spacs, errors, rate_info=None, trust_rate=None, 
 def main():
     parser = argparse.ArgumentParser(description="Build SPAC dashboard data")
     parser.add_argument("--history-pages", type=int, default=3, help="Naver daily-history pages per SPAC")
+    parser.add_argument(
+        "--merger-history-pages",
+        type=int,
+        default=40,
+        help="Naver daily-history pages for SPACs with merger disclosures",
+    )
     parser.add_argument("--max-workers", type=int, default=8, help="Quote fetch concurrency")
     parser.add_argument("--limit", type=int, default=0, help="Limit SPAC count for quick testing")
     parser.add_argument(
@@ -1220,6 +1325,23 @@ def main():
         quotes, quote_errors = fetch_quotes(codes, args.max_workers)
         print(f"Naver quotes: {len(quotes)} ok, {len(quote_errors)} errors")
         histories = fetch_histories(codes, args.history_pages, max_workers=max(2, min(args.max_workers, 8)))
+        merger_codes = [
+            code
+            for code, rows in merger_disclosures.items()
+            if classify_merger_disclosures(rows).get("matched")
+        ]
+        if merger_codes and args.merger_history_pages > args.history_pages:
+            merger_histories = fetch_histories(
+                merger_codes,
+                args.merger_history_pages,
+                max_workers=max(2, min(args.max_workers, 6)),
+            )
+            histories.update(merger_histories)
+            print(
+                "Naver merger histories: "
+                f"{sum(1 for h in merger_histories.values() if h)} ok, "
+                f"{args.merger_history_pages} pages"
+            )
         print(f"Naver histories: {sum(1 for h in histories.values() if h)} ok")
 
         spacs = []

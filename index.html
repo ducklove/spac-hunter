@@ -586,6 +586,75 @@ button {
   font-size: 11px;
 }
 
+.record-block {
+  border-top: 1px solid var(--border);
+  padding: 14px 16px 16px;
+}
+
+.record-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.record-list {
+  display: grid;
+  gap: 9px;
+}
+
+.record-item {
+  border: 1px solid var(--soft-border);
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--surface2);
+}
+
+.record-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.record-title {
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.record-date {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.record-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.record-metric {
+  min-width: 0;
+}
+
+.record-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.record-value {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
 .timeline-list {
   padding: 8px 14px 14px;
   max-height: 308px;
@@ -836,6 +905,10 @@ tbody tr.active {
     border-bottom: 0;
   }
 
+  .record-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .chart-toolbar {
     align-items: flex-start;
     flex-direction: column;
@@ -922,6 +995,14 @@ tbody tr.active {
       </div>
 
       <div class="analysis-strip" id="analysisStrip"></div>
+
+      <div class="record-block">
+        <div class="record-head">
+          <h2 class="panel-title">합병 가격 기록</h2>
+          <div class="panel-sub" id="mergerRecordHint"></div>
+        </div>
+        <div class="record-list" id="mergerRecordList"></div>
+      </div>
     </section>
 
     <aside class="panel">
@@ -960,6 +1041,29 @@ tbody tr.active {
       </table>
     </div>
   </section>
+
+  <section class="table-section">
+    <div class="table-head">
+      <h2 class="panel-title">합병 공시 가격 이벤트</h2>
+      <div class="panel-sub" id="mergerCaseCount"></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>종목</th>
+            <th>이벤트</th>
+            <th class="numeric">기준가</th>
+            <th class="numeric">다음 거래일</th>
+            <th class="numeric">최신/현재</th>
+            <th class="numeric">이후 고점</th>
+            <th class="numeric">이후 저점</th>
+          </tr>
+        </thead>
+        <tbody id="mergerCaseBody"></tbody>
+      </table>
+    </div>
+  </section>
 </main>
 
 <script src="data.js"></script>
@@ -969,6 +1073,7 @@ tbody tr.active {
     lastUpdated: '샘플 데이터',
     summary: {},
     spacs: [],
+    mergerCases: [],
     methodology: {},
     sourceLinks: {}
   };
@@ -1045,6 +1150,16 @@ tbody tr.active {
     return Array.isArray(data.spacs) ? data.spacs : [];
   }
 
+  function getMergerCases() {
+    if (Array.isArray(data.mergerCases)) return data.mergerCases;
+    return getSpacs().flatMap(item => (item.mergerPriceRecords || []).map(record => ({
+      ...record,
+      code: item.code,
+      name: item.name,
+      status: item.mergerStatus || '과거 공시'
+    })));
+  }
+
   function filterSpacs(items) {
     const query = document.getElementById('searchInput').value.trim().toLowerCase();
     return items.filter(item => {
@@ -1095,11 +1210,13 @@ tbody tr.active {
 
   function selectSpac(code) {
     const all = getSpacs();
-    const next = all.find(item => item.code === code) || visibleSpacs()[0] || all[0] || null;
+    const visible = visibleSpacs();
+    const next = visible.find(item => item.code === code) || visible[0] || all.find(item => item.code === code) || all[0] || null;
     selectedCode = next ? next.code : null;
     renderCards();
     renderSelected();
     renderTable();
+    renderMergerCases();
   }
 
   function selectedSpac() {
@@ -1237,8 +1354,54 @@ tbody tr.active {
     `).join('');
 
     renderTimeline(item);
+    renderMergerRecords(item);
     renderLinks(item);
     drawChart(item);
+  }
+
+  function priceWithReturn(priceValue, returnValue) {
+    const priceText = money(priceValue);
+    if (returnValue == null || Number.isNaN(Number(returnValue))) return priceText;
+    return `${priceText} · ${signedPct(returnValue)}`;
+  }
+
+  function renderMergerRecords(item) {
+    const records = (item.mergerPriceRecords || []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    document.getElementById('mergerRecordHint').textContent = `${records.length}건`;
+    const target = document.getElementById('mergerRecordList');
+    if (!records.length) {
+      target.innerHTML = '<div class="empty">합병 공시 기반 가격 기록이 없습니다.</div>';
+      return;
+    }
+    target.innerHTML = records.slice(0, 5).map(record => `
+      <div class="record-item">
+        <div class="record-top">
+          <div>
+            <span class="badge ${badgeClass(record.label || '')}">${escapeHtml(record.label || '-')}</span>
+            <div class="record-title">${escapeHtml(record.title || '')}</div>
+          </div>
+          <div class="record-date">${dateText(record.date)}</div>
+        </div>
+        <div class="record-metrics">
+          <div class="record-metric">
+            <div class="record-label">기준가</div>
+            <div class="record-value">${money(record.basePrice)}</div>
+          </div>
+          <div class="record-metric">
+            <div class="record-label">다음 거래일</div>
+            <div class="record-value ${directionClass(record.nextReturnPct)}">${priceWithReturn(record.nextPrice, record.nextReturnPct)}</div>
+          </div>
+          <div class="record-metric">
+            <div class="record-label">최신/현재</div>
+            <div class="record-value ${directionClass(record.latestReturnPct)}">${priceWithReturn(record.latestPrice, record.latestReturnPct)}</div>
+          </div>
+          <div class="record-metric">
+            <div class="record-label">이후 고점</div>
+            <div class="record-value ${directionClass(record.highReturnPct)}">${priceWithReturn(record.highPrice, record.highReturnPct)}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
   }
 
   function renderTimeline(item) {
@@ -1405,6 +1568,51 @@ tbody tr.active {
     });
   }
 
+  function renderMergerCases() {
+    const cases = getMergerCases();
+    document.getElementById('mergerCaseCount').textContent = `${cases.length}건`;
+    const body = document.getElementById('mergerCaseBody');
+    if (!cases.length) {
+      body.innerHTML = '<tr><td colspan="7"><div class="empty">합병 공시 가격 이벤트가 없습니다.</div></td></tr>';
+      return;
+    }
+    body.innerHTML = cases.map(record => `
+      <tr data-case-code="${escapeHtml(record.code || '')}">
+        <td>
+          <strong>${escapeHtml(record.name || '-')}</strong>
+          <div class="code">${escapeHtml(record.code || '')}</div>
+        </td>
+        <td>
+          <span class="badge ${badgeClass(record.label || '')}">${escapeHtml(record.label || '-')}</span>
+          <div class="code">${dateText(record.date)} · ${escapeHtml(record.status || '')}</div>
+        </td>
+        <td class="numeric">
+          ${money(record.basePrice)}
+          <div class="code">${dateText(record.baseDate)}</div>
+        </td>
+        <td class="numeric ${directionClass(record.nextReturnPct)}">
+          ${priceWithReturn(record.nextPrice, record.nextReturnPct)}
+          <div class="code">${dateText(record.nextDate)}</div>
+        </td>
+        <td class="numeric ${directionClass(record.latestReturnPct)}">
+          ${priceWithReturn(record.latestPrice, record.latestReturnPct)}
+          <div class="code">${dateText(record.latestDate)}</div>
+        </td>
+        <td class="numeric ${directionClass(record.highReturnPct)}">
+          ${priceWithReturn(record.highPrice, record.highReturnPct)}
+          <div class="code">${dateText(record.highDate)}</div>
+        </td>
+        <td class="numeric ${directionClass(record.lowReturnPct)}">
+          ${priceWithReturn(record.lowPrice, record.lowReturnPct)}
+          <div class="code">${dateText(record.lowDate)}</div>
+        </td>
+      </tr>
+    `).join('');
+    body.querySelectorAll('[data-case-code]').forEach(row => {
+      row.addEventListener('click', () => selectSpac(row.dataset.caseCode));
+    });
+  }
+
   function formatTradingValue(value) {
     if (value == null || Number.isNaN(Number(value))) return '-';
     const numeric = Number(value);
@@ -1492,6 +1700,7 @@ tbody tr.active {
     renderCards();
     renderSelected();
     renderTable();
+    renderMergerCases();
   }
 
   bindEvents();
