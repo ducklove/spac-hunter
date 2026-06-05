@@ -1,6 +1,6 @@
 {
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-06-05 20:00:54 KST",
+  "lastUpdated": "2026-06-05 20:05:57 KST",
   "rateAssumption": {
     "annualRate": 0.02519,
     "annualRatePct": 2.519,
@@ -26,7 +26,7 @@
     "mergerCount": 4,
     "mergerAppliedCount": 3,
     "mergerConfirmedCount": 1,
-    "mergerEventCount": 21,
+    "mergerEventCount": 0,
     "recentListingCount": 6,
     "averageRatio": 1.0351,
     "averageAnnualizedReturn": 1.53,
