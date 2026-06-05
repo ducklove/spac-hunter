@@ -603,12 +603,64 @@ def fetch_naver_history(code, pages=3, pause=0.05):
     ]
 
 
+def fetch_pykrx_history(code, pages=3):
+    try:
+        from pykrx import stock
+    except Exception:  # noqa: BLE001
+        return []
+
+    today = today_kst()
+    lookback_days = max(45, int(pages * 18))
+    start = today - timedelta(days=lookback_days)
+    try:
+        frame = stock.get_market_ohlcv_by_date(
+            start.strftime("%Y%m%d"),
+            today.strftime("%Y%m%d"),
+            code,
+        )
+    except Exception:  # noqa: BLE001
+        return []
+    if frame is None or frame.empty:
+        return []
+
+    close_col = "\uc885\uac00"
+    volume_col = "\uac70\ub798\ub7c9"
+    if close_col not in frame.columns and len(frame.columns) >= 4:
+        close_col = frame.columns[3]
+    if volume_col not in frame.columns and len(frame.columns) >= 5:
+        volume_col = frame.columns[4]
+    if close_col not in frame.columns:
+        return []
+
+    history = []
+    for index, row in frame.iterrows():
+        parsed_date = pd.to_datetime(index, errors="coerce")
+        close = parse_int(row.get(close_col))
+        if pd.isna(parsed_date) or close is None:
+            continue
+        history.append(
+            {
+                "date": parsed_date.strftime("%Y-%m-%d"),
+                "close": close,
+                "volume": parse_int(row.get(volume_col)) if volume_col in frame.columns else None,
+            }
+        )
+    return history
+
+
+def fetch_price_history(code, pages=3):
+    history = fetch_naver_history(code, pages)
+    if history:
+        return history
+    return fetch_pykrx_history(code, pages)
+
+
 def fetch_histories(codes, pages=3, max_workers=6):
     histories = {}
     if pages <= 0 or not codes:
         return histories
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        tasks = {executor.submit(fetch_naver_history, code, pages): code for code in codes}
+        tasks = {executor.submit(fetch_price_history, code, pages): code for code in codes}
         for future in as_completed(tasks):
             code = tasks[future]
             try:
@@ -616,6 +668,33 @@ def fetch_histories(codes, pages=3, max_workers=6):
             except Exception:  # noqa: BLE001
                 histories[code] = []
     return histories
+
+
+def merge_history_points(existing, fetched):
+    merged = {}
+    for point in list(existing or []) + list(fetched or []):
+        date_value = point.get("date")
+        close = parse_int(point.get("close"))
+        if not date_value or close is None:
+            continue
+        merged[date_value] = {
+            "date": date_value,
+            "close": close,
+            "volume": parse_int(point.get("volume")),
+        }
+    return [merged[key] for key in sorted(merged)]
+
+
+def merge_merger_price_records(existing, fetched):
+    merged = {}
+    for record in list(existing or []) + list(fetched or []):
+        date_value = record.get("date")
+        signal = record.get("signal")
+        if not date_value or not signal:
+            continue
+        key = (date_value, signal, record.get("title") or record.get("disclosureTitle") or "")
+        merged[key] = record
+    return sorted(merged.values(), key=lambda record: record.get("date") or "")
 
 
 def fetch_kofr_rate():
@@ -794,8 +873,9 @@ def build_merger_price_records(disclosures, history_points):
     return sorted(records, key=lambda record: record["date"])
 
 
-def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclosures=None):
+def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclosures=None, existing=None):
     code = item["code"]
+    existing = existing or {}
     override = overrides.get(code, {})
     ipo_price = parse_int(override.get("ipoPrice")) or DEFAULT_IPO_PRICE
     listing_date = parse_date(override.get("listingDate") or kind_info.get("listingDate"))
@@ -883,7 +963,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
         merger_status = "합병 신청"
 
     history_points = []
-    for point in history:
+    for point in merge_history_points(existing.get("history") or [], history):
         close = point.get("close")
         point_ratio = close / ipo_price if close and ipo_price else None
         history_points.append(
@@ -894,7 +974,10 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
                 "volume": point.get("volume"),
             }
         )
-    merger_price_records = build_merger_price_records(merger_state["matched"], history_points)
+    merger_price_records = merge_merger_price_records(
+        existing.get("mergerPriceRecords") or [],
+        build_merger_price_records(merger_state["matched"], history_points),
+    )
 
     badges = build_status_badges(
         ratio,
@@ -1575,6 +1658,7 @@ def main():
                     args,
                     generated_at.date(),
                     merger_disclosures.get(code, []),
+                    existing_spacs.get(code, {}),
                 )
             )
         errors["quote"] = quote_errors

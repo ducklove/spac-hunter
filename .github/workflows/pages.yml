@@ -51,7 +51,7 @@ jobs:
           pip install -r requirements.txt
       - name: Refresh SPAC data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
-        run: python fetch_data.py --history-pages 3 --merger-history-pages 40
+        run: python fetch_data.py --history-pages 12 --merger-history-pages 60
       - name: Commit refreshed data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
         run: |
