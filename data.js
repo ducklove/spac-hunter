@@ -1,7 +1,7 @@
 window.SPAC_DATA = {
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-06-05 20:05:57 KST",
-  "generatedAt": "2026-06-05T20:05:57.704931+09:00",
+  "lastUpdated": "2026-06-05 20:10:31 KST",
+  "generatedAt": "2026-06-05T20:10:31.964129+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
