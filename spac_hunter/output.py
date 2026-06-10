@@ -143,6 +143,7 @@ def write_outputs(
     data_js_path=None,
     current_json_path=None,
     archive=None,
+    ipo_calendar=None,
 ):
     data_js_path = Path(data_js_path) if data_js_path else DATA_JS_PATH
     current_json_path = Path(current_json_path) if current_json_path else CURRENT_JSON_PATH
@@ -191,6 +192,7 @@ def write_outputs(
         "summary": build_summary(spacs, generated_at),
         "statistics": build_statistics(spacs, generated_at, archive=archive),
         "mergerCases": build_merger_cases(spacs),
+        "ipoCalendar": ipo_calendar,
         "spacs": spacs,
         "errors": errors,
         "collection": collection,

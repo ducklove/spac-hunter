@@ -12,7 +12,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 
-from . import alerts, archive
+from . import alerts, archive, filings
 from .constants import (
     ALERTS_JSON_PATH,
     ALERTS_XML_PATH,
@@ -101,6 +101,62 @@ def fetch_kind_merger_disclosures(items, kind_companies, max_workers=6, today=No
     return disclosures, errors
 
 
+def collect_filings(args, krx_spacs, kind_companies, generated_at, errors):
+    """Load filings.json and, when OpenDART is enabled, backfill + build the calendar.
+
+    Returns ``(filing_entries, ipo_calendar)``; the calendar stays ``None``
+    without an API key. Failures never abort the run — they land in
+    ``errors["filings"]`` and the store is saved with whatever progress exists.
+    """
+    store = filings.load_filings()
+    ipo_calendar = None
+    if opendart.is_enabled():
+        filing_errors = {}
+        try:
+            listing_dates = {
+                item["code"]: parse_date(
+                    kind_companies.get(normalize_name(item["name"]), {}).get("listingDate")
+                )
+                for item in krx_spacs
+            }
+            docs_used, filing_errors = filings.backfill_filings(
+                store,
+                krx_spacs,
+                listing_dates,
+                args.filing_doc_limit,
+                today=generated_at.date(),
+                now=generated_at,
+            )
+            calendar_budget = min(
+                filings.CALENDAR_DOC_BUDGET_MAX, max(0, args.filing_doc_limit - docs_used)
+            )
+            ipo_calendar, calendar_docs_used = filings.build_ipo_calendar(
+                store,
+                [item["name"] for item in krx_spacs],
+                calendar_budget,
+                today=generated_at.date(),
+                now=generated_at,
+            )
+            logger.info(
+                "OpenDART filings: %d entries (%d docs), IPO calendar: %d entries (%d docs)",
+                len(store.get("filings") or {}),
+                docs_used,
+                len(ipo_calendar),
+                calendar_docs_used,
+            )
+        except Exception as exc:  # noqa: BLE001
+            filing_errors = {**filing_errors, "calendar": str(exc)}
+            logger.warning("OpenDART 신고서/청약캘린더 수집 실패: %s", exc)
+        try:
+            filings.save_filings(store, generated_at)
+        except OSError as exc:
+            filing_errors = {**filing_errors, "save": str(exc)}
+            logger.warning("filings.json 저장 실패: %s", exc)
+        if filing_errors:
+            errors["filings"] = filing_errors
+    return store.get("filings") or {}, ipo_calendar
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Build SPAC dashboard data")
     parser.add_argument("--history-pages", type=int, default=10, help="Naver daily-history pages per SPAC")
@@ -139,6 +195,16 @@ def build_arg_parser() -> argparse.ArgumentParser:
         type=int,
         default=2,
         help="KIND merger-disclosure fetch concurrency",
+    )
+    parser.add_argument(
+        "--filing-doc-limit",
+        type=int,
+        default=10,
+        help=(
+            "OpenDART document.xml requests per run (증권신고서 backfill first, IPO calendar "
+            "gets the remainder, capped at 5). 0 disables document downloads; the existing "
+            "filings.json is still read and applied."
+        ),
     )
     parser.add_argument("--sample", action="store_true", help="Write bundled sample data without network")
     parser.add_argument(
@@ -246,6 +312,10 @@ def _run_live(args) -> None:
                 len(disclosure_errors),
             )
 
+        filing_entries, ipo_calendar = collect_filings(
+            args, krx_spacs, kind_companies, generated_at, errors
+        )
+
         codes = [item["code"] for item in krx_spacs]
         quotes, quote_errors = fetch_quotes(codes, args.max_workers)
         logger.info("Naver quotes: %d ok, %d errors", len(quotes), len(quote_errors))
@@ -285,6 +355,7 @@ def _run_live(args) -> None:
                     generated_at.date(),
                     merger_disclosures.get(code, []),
                     existing_spacs.get(code, {}),
+                    filing=filing_entries.get(code),
                 )
             )
         errors["quote"] = quote_errors
@@ -323,6 +394,7 @@ def _run_live(args) -> None:
         collection=collection,
         force=args.force,
         archive=archive_spacs,
+        ipo_calendar=ipo_calendar,
     )
     logger.info("written %s, %s: %d SPACs", DATA_JS_PATH.name, CURRENT_JSON_PATH.name, len(spacs))
 

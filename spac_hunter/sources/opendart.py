@@ -21,6 +21,7 @@ from ..constants import (
     MERGER_CONFIRMATION_TOKENS,
     OPENDART_CORPCODE_CACHE_PATH,
     OPENDART_CORPCODE_URL,
+    OPENDART_DOCUMENT_URL,
     OPENDART_LIST_URL,
     get_opendart_api_key,
 )
@@ -34,6 +35,9 @@ LIST_PAGE_COUNT = 100
 LIST_MAX_PAGES = 3
 OPENDART_STATUS_OK = "000"
 OPENDART_STATUS_NO_DATA = "013"
+
+_HANGUL_RE = re.compile(r"[가-힣]")
+_TAG_RE = re.compile(r"<[^>]+>")
 
 # In-process memo of parsed corp-code mappings, keyed by cache path.
 _corp_map_memo = {}
@@ -186,3 +190,89 @@ def fetch_opendart_disclosures(code, name, listing_date=None, today=None):
             break
         page_no += 1
     return disclosures
+
+
+def fetch_filing_list(bgn_de, end_de, corp_code=None, pblntf_ty=None, max_pages=LIST_MAX_PAGES):
+    """Fetch raw list.json rows for a period, optionally scoped/typed, up to 3 pages.
+
+    ``corp_code=None`` queries across all companies (used by the IPO calendar);
+    ``pblntf_ty`` filters by disclosure type (e.g. ``"C"`` for 발행공시).
+    Status 013 (no data) yields an empty list; other non-000 statuses raise.
+    """
+    api_key = get_opendart_api_key()
+    if not api_key:
+        raise RuntimeError("OPENDART_API_KEY가 설정되지 않았습니다")
+    rows = []
+    page_no = 1
+    while page_no <= max_pages:
+        params = {
+            "crtfc_key": api_key,
+            "bgn_de": bgn_de.strftime("%Y%m%d"),
+            "end_de": end_de.strftime("%Y%m%d"),
+            "page_no": str(page_no),
+            "page_count": str(LIST_PAGE_COUNT),
+        }
+        if corp_code:
+            params["corp_code"] = corp_code
+        if pblntf_ty:
+            params["pblntf_ty"] = pblntf_ty
+        response = shared_session().get(OPENDART_LIST_URL, params=params, timeout=20)
+        response.raise_for_status()
+        payload = response.json()
+        status = str(payload.get("status") or "")
+        if status == OPENDART_STATUS_NO_DATA:
+            break
+        if status != OPENDART_STATUS_OK:
+            raise RuntimeError(f"OpenDART 공시검색 오류 {status}: {payload.get('message')}")
+        rows.extend(payload.get("list") or [])
+        total_page = parse_int(payload.get("total_page")) or 1
+        if page_no >= total_page:
+            break
+        page_no += 1
+    return rows
+
+
+def _decode_korean_bytes(raw: bytes) -> str:
+    """Decode with cp949 and utf-8 (errors ignored), keeping whichever has more Hangul."""
+    cp949_text = raw.decode("cp949", errors="ignore")
+    utf8_text = raw.decode("utf-8", errors="ignore")
+    if len(_HANGUL_RE.findall(utf8_text)) > len(_HANGUL_RE.findall(cp949_text)):
+        return utf8_text
+    return cp949_text
+
+
+def fetch_document_text(receipt_no):
+    """Download one disclosure document (document.xml zip) and return its plain text.
+
+    A healthy response is a zip archive of one or more XML text files; anything
+    not starting with the zip magic (``PK``) is treated as the OpenDART XML
+    error payload and surfaced as a RuntimeError with its status/message.
+    """
+    api_key = get_opendart_api_key()
+    if not api_key:
+        raise RuntimeError("OPENDART_API_KEY가 설정되지 않았습니다")
+    response = shared_session().get(
+        OPENDART_DOCUMENT_URL,
+        params={"crtfc_key": api_key, "rcept_no": str(receipt_no)},
+        timeout=30,
+    )
+    response.raise_for_status()
+    raw = response.content
+    if not raw.startswith(b"PK"):
+        status = message = ""
+        try:
+            root = ET.fromstring(raw)
+            status = (root.findtext(".//status") or "").strip()
+            message = (root.findtext(".//message") or "").strip()
+        except ET.ParseError:
+            pass
+        raise RuntimeError(
+            f"OpenDART 문서 다운로드 오류 {status or '?'}: {message or '비정상(zip 아님) 응답'}"
+        )
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        blobs = [archive.read(name) for name in archive.namelist()]
+    if not blobs:
+        raise RuntimeError(f"OpenDART 문서 zip이 비어 있습니다: {receipt_no}")
+    text = _decode_korean_bytes(b"\n".join(blobs))
+    text = _TAG_RE.sub(" ", text)
+    return re.sub(r"\s+", " ", text).strip()

@@ -10,6 +10,7 @@ internally decomposed into four builders:
 """
 
 from ..constants import DEFAULT_IPO_PRICE
+from ..filings import is_valid_escrow_rate_pct, is_valid_ipo_price
 from ..output import merge_history_points
 from ..parsing import add_months, parse_date, parse_float, parse_int
 from .merger import (
@@ -45,21 +46,35 @@ def _build_price_metrics(quote, ipo_price):
 
 
 def _build_liquidation_metrics(
-    override, args, ipo_price, listing_date, liquidation_date, days_to_liquidation, current_price, today
+    override,
+    args,
+    ipo_price,
+    listing_date,
+    liquidation_date,
+    days_to_liquidation,
+    current_price,
+    today,
+    filing=None,
 ):
     """청산가치: trust/liquidation value per share and expected returns."""
     override_trust_value = parse_float(override.get("trustValuePerShare"))
     override_liquidation_value = parse_float(override.get("liquidationValuePerShare"))
-    estimated_trust_value = estimate_trust_value_per_share(
-        ipo_price, listing_date, liquidation_date, args.trust_rate, today
-    )
-    trust_value = override_trust_value or estimated_trust_value
+    trust_rate = args.trust_rate
     rate_label = getattr(args, "trust_rate_label", "")
     liquidation_value_source = (
         f"공모예치금+예상 예치이자({rate_label})"
         if rate_label
         else "공모예치금+예상 예치이자"
     )
+    # 신고서에서 검증 통과한 예치이율이 있으면 추정 금리로 사용 (overrides가 여전히 우선).
+    filing_rate_pct = parse_float((filing or {}).get("escrowRatePct"))
+    if is_valid_escrow_rate_pct(filing_rate_pct):
+        trust_rate = filing_rate_pct / 100
+        liquidation_value_source = f"공모예치금+예상 예치이자(증권신고서 연 {filing_rate_pct:.2f}%)"
+    estimated_trust_value = estimate_trust_value_per_share(
+        ipo_price, listing_date, liquidation_date, trust_rate, today
+    )
+    trust_value = override_trust_value or estimated_trust_value
     if override_liquidation_value:
         liquidation_value = override_liquidation_value
         liquidation_value_source = "overrides.json 청산분배금"
@@ -206,11 +221,30 @@ def _build_events(listing_date, liquidation_date, liquidation_date_source, merge
     return sorted(events, key=lambda event: event.get("date") or "")
 
 
-def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclosures=None, existing=None):
+def enrich_spac(
+    item,
+    kind_info,
+    quote,
+    history,
+    overrides,
+    args,
+    today,
+    disclosures=None,
+    existing=None,
+    filing=None,
+):
     code = item["code"]
     existing = existing or {}
     override = overrides.get(code, {})
-    ipo_price = parse_int(override.get("ipoPrice")) or DEFAULT_IPO_PRICE
+    # 공모가 우선순위: overrides > 증권신고서(검증 통과 값) > 기본 2,000원.
+    override_ipo_price = parse_int(override.get("ipoPrice"))
+    filing_ipo_price = parse_int((filing or {}).get("ipoPrice"))
+    if not is_valid_ipo_price(filing_ipo_price):
+        filing_ipo_price = None
+    ipo_price = override_ipo_price or filing_ipo_price or DEFAULT_IPO_PRICE
+    ipo_price_source = None
+    if not override_ipo_price and filing_ipo_price:
+        ipo_price_source = f"증권신고서({(filing or {}).get('receiptNo') or '접수번호 미상'})"
     listing_date = parse_date(override.get("listingDate") or kind_info.get("listingDate"))
     liquidation_date = parse_date(override.get("liquidationDate"))
     liquidation_date_source = "overrides.json"
@@ -236,6 +270,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
         days_to_liquidation,
         current_price,
         today,
+        filing=filing,
     )
 
     merger = _build_merger_state(disclosures, override)
@@ -317,4 +352,9 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
     if merger.get("dissolution"):
         # Key is omitted entirely when absent so the existing output stays byte-identical.
         spac["dissolutionDisclosure"] = merger["dissolution"]
+    # 신고서 키들도 동일하게, 없으면 키 자체를 생략해 기존 출력을 보호한다.
+    if filing:
+        spac["filing"] = filing
+    if ipo_price_source:
+        spac["ipoPriceSource"] = ipo_price_source
     return spac
