@@ -112,13 +112,21 @@ def corp_map(monkeypatch):
 class TestIsEnabled:
     def test_false_without_key(self, monkeypatch):
         monkeypatch.delenv("OPENDART_API_KEY", raising=False)
+        monkeypatch.delenv("DART_API_KEY", raising=False)
         assert opendart.is_enabled() is False
 
     def test_false_with_blank_key(self, monkeypatch):
         monkeypatch.setenv("OPENDART_API_KEY", "   ")
+        monkeypatch.delenv("DART_API_KEY", raising=False)
         assert opendart.is_enabled() is False
 
     def test_true_with_key(self, api_key):
+        assert opendart.is_enabled() is True
+
+    def test_true_with_dart_api_key_alias(self, monkeypatch):
+        # GitHub secret registered as DART_API_KEY is accepted as a fallback name.
+        monkeypatch.delenv("OPENDART_API_KEY", raising=False)
+        monkeypatch.setenv("DART_API_KEY", "alias-key")
         assert opendart.is_enabled() is True
 
 

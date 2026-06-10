@@ -73,7 +73,7 @@ pytest -q
 
 ### OpenDART 연동 (선택)
 
-[OpenDART](https://opendart.fss.or.kr/)에서 무료 회원가입 후 인증키를 발급받아 환경변수 `OPENDART_API_KEY`로 설정하면(로컬 실행 시 환경변수, CI는 저장소 Settings → Secrets and variables → Actions에 등록) 공시 수집이 화면 스크래핑 대신 공식 API를 최우선으로 사용해 더 안정적으로 동작합니다. 키가 없으면 자동으로 기존 KIND → DART 체인을 사용하므로 동작 차이가 없습니다. 고유번호 매핑(corpCode.xml)은 `.cache/`에 7일간 캐시됩니다.
+[OpenDART](https://opendart.fss.or.kr/)에서 무료 회원가입 후 인증키를 발급받아 환경변수 `OPENDART_API_KEY`(또는 `DART_API_KEY`)로 설정하면(로컬 실행 시 환경변수, CI는 저장소 Settings → Secrets and variables → Actions에 등록) 공시 수집이 화면 스크래핑 대신 공식 API를 최우선으로 사용해 더 안정적으로 동작합니다. 키가 없으면 자동으로 기존 KIND → DART 체인을 사용하므로 동작 차이가 없습니다. 고유번호 매핑(corpCode.xml)은 `.cache/`에 7일간 캐시됩니다.
 
 키가 설정되면 다음 두 기능이 추가로 활성화됩니다.
 

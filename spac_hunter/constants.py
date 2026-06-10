@@ -71,5 +71,9 @@ ALERTS_FEED_LINK = "https://github.com/ducklove/spac-hunter"
 
 
 def get_opendart_api_key():
-    """Return the OpenDART API key from the OPENDART_API_KEY env var (None when unset)."""
-    return os.environ.get("OPENDART_API_KEY", "").strip() or None
+    """Return the OpenDART API key from OPENDART_API_KEY or DART_API_KEY (None when unset)."""
+    for name in ("OPENDART_API_KEY", "DART_API_KEY"):
+        value = os.environ.get(name, "").strip()
+        if value:
+            return value
+    return None

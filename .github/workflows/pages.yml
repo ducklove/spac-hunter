@@ -54,6 +54,7 @@ jobs:
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
         env:
           OPENDART_API_KEY: ${{ secrets.OPENDART_API_KEY }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python fetch_data.py --history-pages 12 --merger-history-pages 60
