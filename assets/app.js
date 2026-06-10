@@ -1219,10 +1219,19 @@
      불가능하므로 행에 data-code/role/tabindex를 붙이지 않고 신고서 링크만 동작한다.
      ipoCalendar 부재/null/0건이면 컬럼 DOM을 만들지 않아 기존 3컬럼 레이아웃이 그대로 유지된다. */
 
+  /* 파이프라인은 entry 배열을, 구 계약은 {updatedAt, entries}를 내보낼 수 있어 둘 다 수용한다. */
   function ipoCalendarEntries() {
     const calendar = data.ipoCalendar;
-    if (!calendar || typeof calendar !== 'object' || !Array.isArray(calendar.entries)) return [];
-    return calendar.entries.filter(entry => entry && typeof entry === 'object');
+    const list = Array.isArray(calendar)
+      ? calendar
+      : (calendar && typeof calendar === 'object' && Array.isArray(calendar.entries) ? calendar.entries : []);
+    return list.filter(entry => entry && typeof entry === 'object');
+  }
+
+  function ipoCalendarUpdatedAt() {
+    const calendar = data.ipoCalendar;
+    if (calendar && !Array.isArray(calendar) && typeof calendar === 'object') return calendar.updatedAt || null;
+    return null;
   }
 
   /* 청약기간 표기: 시작·종료가 모두 있으면 "MM-DD~MM-DD", 아니면 접수일("신고 YYYY-MM-DD"). */
@@ -1260,7 +1269,8 @@
     const countParts = [
       sorted.length > top.length ? `${sorted.length}건 중 최신 ${top.length}건` : `${sorted.length}건`
     ];
-    const updatedLabel = data.ipoCalendar.updatedAt ? dateText(data.ipoCalendar.updatedAt) : '-';
+    const updatedAt = ipoCalendarUpdatedAt();
+    const updatedLabel = updatedAt ? dateText(updatedAt) : '-';
     if (updatedLabel !== '-') countParts.push(`${updatedLabel} 기준`);
 
     const rowsHtml = top.map(entry => {
