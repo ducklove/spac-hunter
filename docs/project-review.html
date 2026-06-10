@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스팩 헌터 프로젝트 리뷰 — 구조·품질 평가와 리팩토링 로드맵</title>
+<style>
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface2: #eef3f8;
+  --border: #d8e0ea;
+  --text: #1a2334;
+  --muted: #66718a;
+  --accent: #0b7285;
+  --accent2: #315bdb;
+  --red: #c0392b;
+  --amber: #ad7200;
+  --green: #18864f;
+  --blue: #2563eb;
+  --code-bg: #f0f3f8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10141c;
+    --surface: #171d28;
+    --surface2: #202836;
+    --border: #303b50;
+    --text: #e8edf7;
+    --muted: #9aa5b7;
+    --accent: #3aa7b8;
+    --accent2: #83a1ff;
+    --red: #f06f67;
+    --amber: #e0a83c;
+    --green: #4fca83;
+    --blue: #7aa7ff;
+    --code-bg: #1d2430;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  line-height: 1.65;
+  font-size: 15px;
+}
+.wrap { max-width: 1020px; margin: 0 auto; padding: 36px 22px 80px; }
+header.doc-head {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 18px;
+  margin-bottom: 28px;
+}
+h1 { font-size: 28px; margin: 0 0 8px; line-height: 1.3; }
+.doc-meta { color: var(--muted); font-size: 13px; }
+.doc-meta span { margin-right: 14px; }
+h2 {
+  font-size: 21px;
+  margin: 48px 0 14px;
+  padding: 8px 0 8px 14px;
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 60%);
+}
+h3 { font-size: 16.5px; margin: 28px 0 10px; }
+h4 { font-size: 14.5px; margin: 20px 0 8px; color: var(--muted); }
+p { margin: 10px 0; }
+ul, ol { margin: 8px 0 14px; padding-left: 22px; }
+li { margin: 4px 0; }
+code {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.55;
+}
+pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 13.5px; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--surface2); font-size: 12.5px; }
+tr:nth-child(even) td { background: color-mix(in srgb, var(--surface2) 40%, transparent); }
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 22px;
+  margin-bottom: 10px;
+}
+.toc ol { margin: 6px 0 0; columns: 2; column-gap: 30px; }
+.toc a { color: var(--accent2); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 1px 9px;
+  font-size: 11.5px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge.p0 { color: #fff; background: var(--red); }
+.badge.p1 { color: var(--red); background: color-mix(in srgb, var(--red) 12%, transparent); border-color: var(--red); }
+.badge.p2 { color: var(--amber); background: color-mix(in srgb, var(--amber) 12%, transparent); border-color: var(--amber); }
+.badge.p3 { color: var(--muted); background: var(--surface2); border-color: var(--border); }
+.badge.good { color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); border-color: var(--green); }
+.badge.info { color: var(--blue); background: color-mix(in srgb, var(--blue) 12%, transparent); border-color: var(--blue); }
+.callout {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--blue);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.callout.warn { border-left-color: var(--red); }
+.callout.tip { border-left-color: var(--green); }
+.callout strong:first-child { display: block; margin-bottom: 4px; }
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 18px 0;
+}
+.grade-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.grade-card .g-label { font-size: 12px; color: var(--muted); font-weight: 700; }
+.grade-card .g-value { font-size: 26px; font-weight: 800; margin-top: 4px; }
+.grade-card .g-note { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+.g-value.a { color: var(--green); }
+.g-value.b { color: var(--blue); }
+.g-value.c { color: var(--amber); }
+.g-value.f { color: var(--red); }
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 18px 0;
+}
+.flow-row { display: flex; gap: 10px; align-items: stretch; flex-wrap: wrap; }
+.flow-box {
+  flex: 1;
+  min-width: 130px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  text-align: center;
+}
+.flow-box strong { display: block; font-size: 13px; }
+.flow-box .fb-sub { color: var(--muted); font-size: 11px; margin-top: 3px; }
+.flow-box.hub { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+.flow-box.out { border-color: var(--accent2); }
+.flow-arrow { text-align: center; color: var(--muted); font-size: 18px; line-height: 1.6; padding: 2px 0; }
+.kbd-tree { font-size: 13px; }
+.pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+.section-num { color: var(--accent); margin-right: 6px; }
+.small { font-size: 12.5px; color: var(--muted); }
+.matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.matrix-cell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-height: 120px;
+}
+.matrix-cell h4 { margin: 0 0 8px; color: var(--text); }
+.matrix-cell ul { margin: 0; padding-left: 18px; font-size: 13px; }
+.matrix-cell.q1 { border-top: 3px solid var(--green); }
+.matrix-cell.q2 { border-top: 3px solid var(--blue); }
+.matrix-cell.q3 { border-top: 3px solid var(--amber); }
+.matrix-cell.q4 { border-top: 3px solid var(--border); }
+footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; }
+@media (max-width: 760px) {
+  .grade-grid { grid-template-columns: repeat(2, 1fr); }
+  .toc ol { columns: 1; }
+  .matrix { grid-template-columns: 1fr; }
+}
+@media print {
+  body { background: #fff; }
+  .wrap { max-width: none; padding: 0; }
+  h2 { break-after: avoid; }
+  table, pre, .callout { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc-head">
+  <h1>스팩 헌터(spac-hunter) 프로젝트 리뷰</h1>
+  <div style="font-size:15px; color:var(--muted); margin-bottom:8px;">전체 코드 구조 분석 · 품질 평가 · 리팩토링 로드맵 · 추가 기능 제언</div>
+  <div class="doc-meta">
+    <span>작성일: 2026-06-10</span>
+    <span>기준 커밋: <code>6fa91f2</code> (main)</span>
+    <span>분석 범위: 전체 저장소 (fetch_data.py 1,684줄 · index.html 2,161줄 · CI 워크플로)</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <strong>목차</strong>
+  <ol>
+    <li><a href="#summary">요약 및 종합 평가</a></li>
+    <li><a href="#architecture">아키텍처와 데이터 흐름</a></li>
+    <li><a href="#structure">코드 구조 상세 분석</a></li>
+    <li><a href="#quality">품질 평가 — 강점</a></li>
+    <li><a href="#issues">품질 평가 — 이슈 목록</a></li>
+    <li><a href="#refactor">리팩토링 로드맵 (Phase 0~3)</a></li>
+    <li><a href="#features">추가 기능 제언</a></li>
+    <li><a href="#direction">향후 방향 시나리오</a></li>
+    <li><a href="#appendix">부록: 권장 도구 체인</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ -->
+<h2 id="summary"><span class="section-num">1.</span>요약 및 종합 평가</h2>
+
+<p>
+스팩 헌터는 <strong>국내 코스닥 상장 스팩 73종목</strong>을 「현재가/공모가」 중심으로 추적하는 정적 대시보드입니다.
+KRX·KIND·DART·네이버증권·KOFR 5개 소스를 스크래핑하는 파이썬 파이프라인(<code>fetch_data.py</code>)이 매일 GitHub Actions 크론으로 실행되어
+<code>data.js</code>(현재 1.8MB)를 저장소에 커밋하고, 빌드 과정 없는 단일 <code>index.html</code>이 이를 읽어 렌더링합니다.
+</p>
+<p>
+<strong>도메인 설계(청산분배금·연환산 수익률 계산, 합병 공시 분류, 이벤트별 가격 반응 추적)는 수준이 높고 차별화된 가치</strong>가 있습니다.
+반면 엔지니어링 기반은 빈약합니다 — 테스트가 0개이고, 운영 데이터를 샘플 데이터로 덮어쓸 수 있는 폴백 경로와
+운영 환경에서 보정 레이어(<code>overrides.json</code>)가 무력화되는 구성 오류 등 <strong>치명도 높은 이슈 2건(P0)</strong>이 존재합니다.
+리팩토링은 "구조 개선"보다 <strong>"안전망 구축(Phase 0)"을 먼저</strong> 수행해야 합니다.
+</p>
+
+<div class="grade-grid">
+  <div class="grade-card"><div class="g-label">종합</div><div class="g-value b">B−</div><div class="g-note">도메인 가치 높음, 기반 취약</div></div>
+  <div class="grade-card"><div class="g-label">아키텍처 적합성</div><div class="g-value b">B+</div><div class="g-note">정적+데이터 커밋 전략은 목적에 부합</div></div>
+  <div class="grade-card"><div class="g-label">코드 구조·모듈화</div><div class="g-value c">C</div><div class="g-note">1,684줄·2,161줄 모놀리스 2개</div></div>
+  <div class="grade-card"><div class="g-label">데이터 무결성</div><div class="g-value c">C+</div><div class="g-note">P0 2건 (샘플 덮어쓰기, overrides 미적용)</div></div>
+  <div class="grade-card"><div class="g-label">테스트·품질 게이트</div><div class="g-value f">F</div><div class="g-note">테스트 0개, 린트/타입체크 없음</div></div>
+  <div class="grade-card"><div class="g-label">보안</div><div class="g-value b">B</div><div class="g-note">escapeHtml 일관 적용, 공격면 작음</div></div>
+  <div class="grade-card"><div class="g-label">성능·확장성</div><div class="g-value b">B−</div><div class="g-note">현재는 양호, data.js 무한 증가 리스크</div></div>
+  <div class="grade-card"><div class="g-label">문서화·운영</div><div class="g-value b">B</div><div class="g-note">README·방법론 메타데이터 우수, 알림 부재</div></div>
+</div>
+
+<div class="callout warn">
+  <strong>즉시 조치 권고 (P0)</strong>
+  ① 수집 전체 실패 시 5종목 샘플 데이터가 운영 <code>data.js</code>를 덮어쓰고 CI가 이를 그대로 main에 커밋합니다 — 누적된 12,082개 가격 히스토리가 소실될 수 있습니다 (<code>fetch_data.py:1666-1670</code>).
+  ② <code>overrides.json</code>이 <code>.gitignore</code>에 등록되어 있어 GitHub Actions 환경에는 존재하지 않습니다. README가 "공시 기반 기대수익률 정확도의 핵심 레이어"라고 설명하는 기능이 <strong>운영 배포에서는 전혀 적용되지 않습니다</strong>.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="architecture"><span class="section-num">2.</span>아키텍처와 데이터 흐름</h2>
+
+<div class="flow">
+  <div class="flow-row">
+    <div class="flow-box"><strong>KRX 상장종목검색</strong><div class="fb-sub">유니버스 (pykrx 내부 API)</div></div>
+    <div class="flow-box"><strong>KIND</strong><div class="fb-sub">상장법인목록 + 합병 공시</div></div>
+    <div class="flow-box"><strong>DART</strong><div class="fb-sub">공시 fallback (HTML 스크래핑)</div></div>
+    <div class="flow-box"><strong>네이버 증권</strong><div class="fb-sub">실시간 시세 + 일별 히스토리</div></div>
+    <div class="flow-box"><strong>KOFR</strong><div class="fb-sub">예치이자 fallback 금리</div></div>
+  </div>
+  <div class="flow-arrow">▼ ThreadPoolExecutor 병렬 수집 · KIND→DART, 네이버→pykrx 폴백 체인</div>
+  <div class="flow-row">
+    <div class="flow-box hub"><strong>fetch_data.py (1,684줄 단일 파일)</strong>
+      <div class="fb-sub">수집 → 합병 공시 분류 → 청산가치·기대수익률 계산 → 시장 통계 집계 → 기존 히스토리 병합 → 직렬화</div>
+    </div>
+  </div>
+  <div class="flow-arrow">▼ 매일 18:10 KST GitHub Actions 크론 (pages.yml) → 결과를 main에 커밋</div>
+  <div class="flow-row">
+    <div class="flow-box out"><strong>data.js (1.8MB)</strong><div class="fb-sub">window.SPAC_DATA 전역 — 전체 데이터</div></div>
+    <div class="flow-box out"><strong>current.json (24KB)</strong><div class="fb-sub">현재가 스냅샷 (경량 API 성격)</div></div>
+  </div>
+  <div class="flow-arrow">▼ GitHub Pages 배포 (저장소 전체 업로드)</div>
+  <div class="flow-row">
+    <div class="flow-box out"><strong>index.html (2,161줄 단일 파일)</strong>
+      <div class="fb-sub">CSS 1,070줄 + 마크업 190줄 + 바닐라 JS 865줄 · 캔버스 차트 2종 · 필터/정렬/검색/테마/임베드/딥링크</div>
+    </div>
+  </div>
+</div>
+
+<h3>아키텍처 평가</h3>
+<p>
+"스크래핑 결과를 저장소에 커밋하고 정적 페이지로 서빙"하는 구조는 <strong>서버·DB 비용 0원, <code>file://</code>로도 동작, 데이터 변경 이력이 git에 남는</strong>
+합리적인 선택입니다. 특히 <code>data.js</code>를 <code>&lt;script&gt;</code>로 읽는 방식은 CORS 없이 로컬에서 열리는 장점이 있습니다.
+이 기본 구조는 <strong>유지할 가치가 있으며</strong>, 리팩토링은 이 구조를 깨지 않는 방향으로 설계했습니다.
+다만 두 가지 구조적 부채가 있습니다:
+</p>
+<ul>
+  <li><strong>데이터 파일 무한 성장</strong> — 73종목 × 매일 1포인트씩 히스토리가 누적되어(현재 12,082포인트·평균 165개/종목·최대 719개) <code>data.js</code>가 연 1MB 이상씩 커집니다. 단일 블로킹 스크립트(<code>index.html:1292</code>)라 초기 로딩이 선형으로 느려집니다.</li>
+  <li><strong>git 히스토리 오염</strong> — 최근 커밋의 절반이 "Update SPAC data"입니다. 데이터와 코드의 이력이 섞여 코드 리뷰·블레임이 어려워집니다.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="structure"><span class="section-num">3.</span>코드 구조 상세 분석</h2>
+
+<h3>3.1 fetch_data.py — 데이터 파이프라인 (1,684줄)</h3>
+<p>역할이 다른 6개 계층이 한 파일에 평탄하게 존재합니다. 함수 단위는 대체로 작게 유지되어 있으나, 핵심 두 함수가 비대합니다.</p>
+<table>
+  <thead><tr><th style="width:170px">계층</th><th>주요 함수 (위치)</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>유틸리티</td><td><code>parse_int/float/date</code>, <code>add_months</code>, <code>normalize_name</code> (71~133)</td><td>순수 함수 — 테스트 1순위 대상</td></tr>
+    <tr><td>HTTP 클라이언트</td><td><code>http_json/http_text</code>(urllib, 136~145) + 각 fetch 함수 내 <code>requests.Session</code></td><td><strong>urllib와 requests 혼용</strong>, 재시도 정책 비일관(KIND만 재시도)</td></tr>
+    <tr><td>소스별 수집기</td><td><code>fetch_krx_spac_universe</code>(186), <code>fetch_kind_listed_companies</code>(216), <code>fetch_kind_disclosures</code>(293), <code>fetch_dart_disclosures</code>(374), <code>fetch_naver_quote/history</code>(533/569), <code>fetch_pykrx_history</code>(606), <code>fetch_kofr_rate</code>(700)</td><td>HTML 테이블의 <strong>셀 위치 인덱스</strong>(<code>cells[0]..[7]</code>)와 onclick 정규식에 의존 — 소스 측 마크업 변경 시 조용히 깨짐</td></tr>
+    <tr><td>도메인 로직</td><td><code>classify_merger_disclosures</code>(491), <code>build_merger_price_records</code>(807), <code>estimate_trust_value_per_share</code>(789), <code>calculate_annualized_return</code>(777)</td><td>프로젝트의 핵심 가치. 순수 함수에 가까워 분리·테스트 용이</td></tr>
+    <tr><td>통계 집계</td><td><code>build_summary</code>(1090), <code>build_statistics</code>(1320), <code>build_merger_episodes</code>(1255), 추이 빌더들</td><td>합병 에피소드 상태기계(신청→확정/철회)가 잘 설계됨</td></tr>
+    <tr><td>오케스트레이션·출력</td><td><code>enrich_spac</code>(876, <strong>212줄</strong>), <code>write_outputs</code>(1427), <code>main</code>(1507, <strong>174줄</strong>)</td><td>god function 2개. <code>enrich_spac</code>은 9개 인자에 가격·청산·합병·이벤트·배지 계산이 모두 결합</td></tr>
+  </tbody>
+</table>
+
+<h3>3.2 index.html — 프런트엔드 (2,161줄)</h3>
+<table>
+  <thead><tr><th style="width:170px">구간</th><th>내용</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>1~31</td><td>테마/임베드 부트스트랩 (FOUC 방지 인라인 스크립트)</td><td>잘 설계됨 — <code>?theme=</code>·<code>?embed</code> 파라미터, localStorage 폴백</td></tr>
+    <tr><td>32~1103</td><td>CSS (1,070줄) — 라이트/다크 토큰, 반응형 2단계</td><td>CSS 변수 체계 일관적. 단일 파일이라 재사용·캐싱 불가</td></tr>
+    <tr><td>1105~1290</td><td>마크업 — 스냅샷/시장통계/필터/3컬럼 대시보드/테이블 2개</td><td>시맨틱 양호(aria-label 일부 존재)</td></tr>
+    <tr><td>1293~2158</td><td>JS (865줄) IIFE — 상태 5개 변수 + render 함수 10여 개 + 캔버스 차트 2개</td><td>프레임워크 없음. <strong>매 상호작용마다 innerHTML 전체 재생성 + 리스너 재바인딩</strong></td></tr>
+  </tbody>
+</table>
+<p>
+상태(<code>selectedCode, filterMode, sortMode, chartDays, tableSort</code>)와 렌더링이 분리되어 있지 않고,
+<code>selectSpac()</code>이 카드·상세·테이블·합병사례를 모두 다시 그립니다. 73종목 규모에서는 체감 문제가 없지만,
+검색 입력 디바운스가 없어(<code>index.html:2097</code>) 키 입력마다 전체 DOM을 재구성합니다.
+XSS 방어(<code>escapeHtml</code>)는 모든 삽입 지점에 일관 적용되어 있습니다 — 스크래핑 데이터를 다루는 프로젝트에서 중요한 강점입니다.
+</p>
+
+<h3>3.3 CI — .github/workflows/pages.yml</h3>
+<p>
+배포·데이터 갱신·커밋이 <strong>하나의 워크플로</strong>에 결합되어 있습니다. 크론(18:10 KST) 또는 수동 실행 시
+<code>fetch_data.py</code>를 돌려 변경분을 main에 커밋한 뒤 Pages로 배포합니다. 린트·테스트 잡은 없으며,
+수집 실패 시 알림 수단이 없습니다(Actions 실패 메일에만 의존).
+<code>requirements.txt</code>는 pykrx만 버전 고정이고 pandas·requests·beautifulsoup4는 미고정이라
+pandas 메이저 업데이트 시 파이프라인이 깨질 수 있습니다.
+</p>
+
+<!-- ============================================================ -->
+<h2 id="quality"><span class="section-num">4.</span>품질 평가 — 강점</h2>
+<ul>
+  <li><strong>다층 폴백 체인</strong> — KIND 실패→DART, 네이버 히스토리 실패→pykrx, KOFR 실패→0% 보수적 금리, KIND 법인목록 실패→기존 데이터 재사용. 개별 소스 장애에 강합니다.</li>
+  <li><strong>히스토리 보존 병합</strong> — <code>merge_history_points</code>/<code>merge_merger_price_records</code>가 기존 <code>data.js</code>를 읽어 새 수집분과 날짜 키로 병합. 수집 창이 짧아도 과거 데이터가 유지됩니다.</li>
+  <li><strong>방법론의 투명성</strong> — 산출물에 <code>methodology</code>·<code>rateAssumption</code>·<code>sourceLinks</code> 메타데이터를 포함시켜 모든 수치의 가정을 추적할 수 있습니다. 금융 데이터 도구로서 신뢰성의 핵심.</li>
+  <li><strong>합병 에피소드 상태기계</strong> — 신청→확정/철회를 에피소드 단위로 묶어 성사 확률·소요 기간을 산출하는 설계(<code>build_merger_episodes</code>)는 단순 공시 나열보다 한 단계 높은 분석입니다.</li>
+  <li><strong>프런트 보안 습관</strong> — 동적 삽입 전부 <code>escapeHtml</code> 경유, localStorage 접근 try/catch, <code>rel="noopener"</code>.</li>
+  <li><strong>UX 디테일</strong> — 다크 테마, iframe 임베드 모드, <code>?code=</code> 딥링크+popstate 처리, 정렬 가능 테이블, 반응형 레이아웃.</li>
+  <li><strong>무비용 운영</strong> — 서버리스 정적 구조 + 일일 자동 갱신으로 유지비 0원.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="issues"><span class="section-num">5.</span>품질 평가 — 이슈 목록</h2>
+<p class="small">심각도: <span class="badge p0">P0 치명</span> 데이터 소실·정합성 파괴 / <span class="badge p1">P1 높음</span> 신뢰성·확장성 핵심 / <span class="badge p2">P2 중간</span> 유지보수성 / <span class="badge p3">P3 낮음</span> 사소한 버그·관행</p>
+
+<table>
+  <thead><tr><th style="width:54px">심각도</th><th style="width:240px">이슈</th><th>상세</th><th style="width:230px">권고</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><span class="badge p0">P0</span></td>
+      <td>샘플 데이터가 운영 데이터를 덮어쓸 수 있음</td>
+      <td><code>main()</code>의 광역 <code>except</code>가 수집 실패 시 <code>build_sample_data()</code>(5종목 가짜 데이터)를 <code>write_outputs</code>로 보냄(<code>fetch_data.py:1666-1670</code>). CI는 diff만 보고 커밋하므로(<code>pages.yml:55-66</code>) KRX API 일시 장애 한 번으로 1.8MB 누적 히스토리가 main에서 소실. 다음 정상 실행도 샘플 기반 <code>data.js</code>를 병합 원본으로 삼아 <strong>git 복구 외에는 비가역</strong>.</td>
+      <td>샘플 폴백은 <code>--sample</code> 플래그에서만 허용. 라이브 실패 시 비0 종료로 워크플로 중단. 추가로 "신규 종목 수 &lt; 기존의 70%면 커밋 거부" 가드.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p0">P0</span></td>
+      <td>overrides.json이 운영(CI)에서 전혀 적용되지 않음</td>
+      <td><code>.gitignore:4</code>에 등록되어 저장소에 없고 워크플로도 생성하지 않음. 공모가·실제 청산일·확정 분배금 보정이라는 "핵심 수동 레이어"(README)가 로컬 실행에서만 동작. 로컬에서 보정해 커밋해도 <strong>다음날 크론이 보정 없는 데이터로 덮어씀</strong>.</td>
+      <td>민감정보가 아니므로 <code>overrides.json</code>을 저장소에 커밋(gitignore 해제). 또는 Actions secret/variable로 주입.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p1">P1</span></td>
+      <td>테스트 0개 + 품질 게이트 부재</td>
+      <td>5개 외부 소스의 HTML 구조에 의존하는 파서가 회귀 검증 없이 운영 중. 파서가 빈 결과를 내도 "0건 수집 성공"과 구분 불가.</td>
+      <td>순수 함수(파싱·분류·통계)부터 pytest 도입, 파서는 HTML 픽스처 고정. CI에 ruff+pytest 잡 추가. (Phase 1)</td>
+    </tr>
+    <tr>
+      <td><span class="badge p1">P1</span></td>
+      <td>공모가 기본값 2,000원 하드코딩</td>
+      <td><code>DEFAULT_IPO_PRICE = 2000</code>(<code>fetch_data.py:30</code>). 현재 73종목 전부 2,000원이라 표면화되지 않았지만, 공모가 1만원 스팩(과거 대형 스팩 전례 있음) 상장 시 비율·괴리·기대수익률이 <strong>5배 왜곡</strong>. P0-②와 결합되면 보정 수단도 없음.</td>
+      <td>OpenDART 증권신고서에서 공모가 자동 수집(7장 기능 ①), 단기적으로는 overrides 운영 정상화로 커버.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p1">P1</span></td>
+      <td>data.js 무한 성장 + 동기 로딩</td>
+      <td>1.8MB·12,082포인트, 연 1MB+ 증가 추세. <code>&lt;script src="data.js"&gt;</code>가 블로킹이라 파싱 비용이 매일 증가. 모바일 첫 로딩 저하.</td>
+      <td>코어(시세·요약·통계)와 종목별 히스토리 분리, 히스토리는 선택 시 lazy fetch. (Phase 3)</td>
+    </tr>
+    <tr>
+      <td><span class="badge p1">P1</span></td>
+      <td>pykrx 내부(private) API 의존</td>
+      <td><code>from pykrx.website.krx.market import core; getattr(core, "상장종목검색")</code>(<code>fetch_data.py:188-191</code>) — 문서화되지 않은 내부 모듈 경로. <code>pykrx==1.2.4</code> 고정으로 버티는 중이나 유니버스 수집(파이프라인의 시작점)이 단일 장애점이며, 실패 시 P0-① 경로 발동.</td>
+      <td>KRX 정보데이터시스템 공식 OTP API 직접 호출로 교체하거나 pykrx 공개 API(<code>stock.get_market_ticker_list</code>) 사용.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p2">P2</span></td>
+      <td>모놀리스 2개 (1,684줄 / 2,161줄)</td>
+      <td>수집·도메인·통계·출력·CLI가 한 파이썬 파일, CSS·마크업·JS가 한 HTML 파일. 변경 영향 범위 파악과 부분 테스트가 어려움.</td>
+      <td>6장 목표 구조로 점진 분리. 동작 변경 없이 이동만 먼저.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p2">P2</span></td>
+      <td>예외 처리·로깅 비일관</td>
+      <td><code>except Exception</code> 18곳(전부 <code>noqa: BLE001</code>), <code>fetch_naver_history</code>는 페이지 실패를 조용히 skip. 로깅은 print. <code>errors</code> 구조도 dict/str 혼재.</td>
+      <td><code>logging</code> 도입, 소스별 수집 성공률을 구조화해 payload에 포함, 실패 유형별 예외 구분.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p2">P2</span></td>
+      <td>수집 오류·데이터 신선도가 UI에 미노출</td>
+      <td>payload의 <code>errors</code>를 프런트가 전혀 사용하지 않음. 크론이 며칠 멈춰도 사용자는 lastUpdated를 직접 읽어야 인지 가능.</td>
+      <td>lastUpdated가 36시간 초과 시 경고 배너, errors 요약 토글 표시.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p2">P2</span></td>
+      <td>전체 재렌더 + 리스너 재바인딩</td>
+      <td><code>renderCards/renderTable</code>이 호출될 때마다 innerHTML 재생성 후 모든 행에 addEventListener(<code>index.html:1745, 1998</code>). 검색 디바운스 없음.</td>
+      <td>리스트·테이블 컨테이너에 이벤트 위임 1회 바인딩, 검색 input 150ms 디바운스.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p2">P2</span></td>
+      <td>KIND 공시 페이지네이션 없음</td>
+      <td><code>currentPageSize: 30, pageIndex: 1</code> 고정(<code>fetch_data.py:307-308</code>) — 검색어당 30건 초과 공시는 누락. 상장 4년차 스팩이면 도달 가능.</td>
+      <td>totalCount 파싱 후 2페이지까지 순회.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p2">P2</span></td>
+      <td>합병 취소 토큰 "철회"의 과잉 매칭</td>
+      <td><code>MERGER_CANCEL_TOKENS</code>에 단독 "철회" 포함(<code>fetch_data.py:55-61</code>) — 합병과 무관한 "신고 철회"류 공시도 상태를 리셋시킬 수 있음.</td>
+      <td>"합병"과의 결합 조건 또는 제목 컨텍스트 검사 추가. 분류 함수 테스트 케이스에 포함.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p3">P3</span></td>
+      <td>테마 전환 시 시장통계 차트 색상 미갱신 (버그)</td>
+      <td>테마 버튼이 <code>drawChart()</code>만 다시 호출(<code>index.html:2087-2093</code>) — <code>belowTrendChart</code>는 창 리사이즈 전까지 이전 테마 색으로 남음.</td>
+      <td><code>drawBelowTrendChart()</code> 호출 추가 (1줄 수정).</td>
+    </tr>
+    <tr>
+      <td><span class="badge p3">P3</span></td>
+      <td>"화면 갱신" 버튼이 재렌더만 수행</td>
+      <td>data.js를 다시 받지 않으므로 이름과 달리 새 데이터를 가져오지 않음(<code>index.html:2094-2096</code>).</td>
+      <td><code>fetch('current.json?ts=...')</code>로 시세 핫 리로드하거나 버튼 명칭 변경.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p3">P3</span></td>
+      <td>일일 데이터 커밋의 git 오염</td>
+      <td>커밋 이력의 절반이 "Update SPAC data". 코드 diff 추적성 저하.</td>
+      <td>데이터를 <code>data</code> 브랜치로 분리하거나 Pages 아티팩트 단계에서만 생성(단, 히스토리 병합 원본 확보 방법 함께 설계 — Phase 3).</td>
+    </tr>
+    <tr>
+      <td><span class="badge p3">P3</span></td>
+      <td>의존성 미고정 · LICENSE 부재</td>
+      <td>pandas 등 3개 패키지 버전 미지정. 공개 저장소임에도 라이선스 없음(법적으로 all rights reserved).</td>
+      <td><code>requirements.txt</code> 버전 고정(또는 lock 파일), MIT 등 라이선스 추가.</td>
+    </tr>
+    <tr>
+      <td><span class="badge p3">P3</span></td>
+      <td>스크래핑 운영 리스크</td>
+      <td>네이버·KIND·DART 비공식 엔드포인트 사용. 차단·구조 변경은 통제 불가 영역.</td>
+      <td>OpenDART 공식 API(무료 키) 전환으로 의존도 축소, 요청량 보수적 유지(현재도 양호).</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="refactor"><span class="section-num">6.</span>리팩토링 로드맵 (Phase 0~3)</h2>
+
+<p>
+원칙: <strong>① 안전망 먼저, 구조는 나중</strong> ② 무빌드 정적 아키텍처는 유지 ③ 각 Phase는 독립적으로 배포 가능하고 동작 동일성을 보장.
+</p>
+
+<h3>Phase 0 — 안전망 구축 <span class="badge p0">최우선</span> <span class="small">예상 반나절~1일</span></h3>
+<ol>
+  <li><strong>샘플 폴백 차단</strong>: 라이브 수집 실패 시 <code>sys.exit(1)</code>로 종료(데이터 미기록). <code>--sample</code> 명시 시에만 샘플 작성. 워크플로 실패는 그대로 노출.</li>
+  <li><strong>커밋 가드</strong>: <code>write_outputs</code> 전 검증 — 신규 spac 수가 기존의 70% 미만이거나 시세 수집 성공률이 50% 미만이면 중단. (별도 <code>validate_data.py</code>로 CI에서도 재검증)</li>
+  <li><strong>overrides 운영 정상화</strong>: <code>.gitignore</code>에서 제거하고 저장소에 커밋. 예시 파일과 병합 규칙은 README에 명시.</li>
+  <li><strong>의존성 고정</strong>: <code>requirements.txt</code>에 상한 포함 버전 명시.</li>
+  <li><strong>1줄 버그 수정</strong>: 테마 전환 시 <code>drawBelowTrendChart()</code> 재호출.</li>
+</ol>
+
+<h3>Phase 1 — 파이프라인 구조화 + 테스트 <span class="badge p1">높음</span> <span class="small">예상 2~4일</span></h3>
+<pre><code>spac_hunter/
+├── __init__.py
+├── cli.py              # argparse → 오케스트레이션 호출만 (현 main 분해)
+├── models.py           # Spac, Quote, Disclosure, MergerEpisode dataclass
+├── http.py             # 단일 requests.Session + 재시도/타임아웃 정책 (urllib 제거)
+├── sources/
+│   ├── krx.py          # 유니버스 (공식 API로 교체)
+│   ├── kind.py         # 법인목록 + 공시 (+페이지네이션)
+│   ├── dart.py         # fallback 검색
+│   ├── naver.py        # 시세 + 일별 히스토리
+│   └── kofr.py         # 금리
+├── domain/
+│   ├── merger.py       # classify / build_merger_price_records / episodes
+│   ├── valuation.py    # 청산가치·기대수익률·연환산
+│   └── enrich.py       # enrich_spac 분해 (가격/청산/합병/이벤트 빌더로)
+├── stats.py            # build_summary / build_statistics / 추이
+├── output.py           # data.js / current.json 직렬화 + 검증 가드
+tests/
+├── fixtures/           # KIND·DART·네이버 HTML 스냅샷
+├── test_parsers.py     # parse_*, add_months, derive_sponsor
+├── test_merger.py      # 분류 상태기계 (신청→확정/철회, "철회" 오매칭 회귀)
+├── test_valuation.py   # 수익률 수식
+└── test_output.py      # 가드 동작, 히스토리 병합 보존
+</code></pre>
+<ul>
+  <li>이동 우선(behavior-preserving), 시그니처 변경은 최소화. <code>enrich_spac</code>은 ①가격지표 ②청산가치 ③합병상태 ④이벤트 4개 빌더로 분해.</li>
+  <li><code>logging</code> 도입 + 실행 결과 요약(소스별 성공/실패 카운트)을 payload <code>errors</code> → <code>collection</code> 구조로 정규화.</li>
+  <li>CI에 <code>quality.yml</code> 추가: ruff(lint+format) + pytest. 데이터 갱신 워크플로와 분리.</li>
+</ul>
+
+<h3>Phase 2 — 프런트엔드 구조화 <span class="badge p2">중간</span> <span class="small">예상 2~3일</span></h3>
+<pre><code>index.html              # 마크업 골격만 (~200줄)
+assets/
+├── style.css           # 기존 CSS 그대로 이동 (캐싱 가능해짐)
+├── app.js              # 진입점: 상태 + 이벤트 위임 바인딩
+├── render.js           # 렌더 함수들 (snapshot/cards/table/detail)
+├── charts.js           # 공용 캔버스 헬퍼 (축·그리드·라인 중복 제거)
+└── format.js           # money/ratio/pct/escapeHtml
+</code></pre>
+<ul>
+  <li>빌드 도구 없이 <code>&lt;script type="module"&gt;</code> ES 모듈로 분리 — 단순성 유지. (단, <code>file://</code> 직접 열기는 모듈 CORS 제약이 있으므로 README에 <code>python -m http.server</code> 안내 추가. file:// 지원이 꼭 필요하면 단일 JS 파일로만 분리)</li>
+  <li>이벤트 위임: 리스트·테이블 컨테이너에 클릭 핸들러 1회 등록, <code>data-code</code>로 분기. 검색 입력 디바운스 150ms.</li>
+  <li>데이터 신선도 배너(36시간 초과 경고) + 수집 오류 요약 표시.</li>
+  <li>접근성: 정렬 헤더에 <code>aria-sort</code>·키보드 조작, 동적 영역 <code>aria-live="polite"</code>.</li>
+  <li>URL 상태 확장: <code>?filter=&amp;sort=</code>도 동기화 (공유 가능한 화면 상태).</li>
+</ul>
+
+<h3>Phase 3 — 데이터 아키텍처 <span class="badge p2">중간</span> <span class="small">예상 2~3일</span></h3>
+<ul>
+  <li><strong>코어/히스토리 분리</strong>: <code>data.js</code>에는 시세·요약·통계·합병기록만(목표 ~300KB), 종목별 가격 히스토리는 <code>data/history/{code}.json</code>으로 분리해 종목 선택 시 lazy fetch. 차트 영역에 로딩 상태 추가.</li>
+  <li><strong>스키마 버전</strong>: payload에 <code>schemaVersion</code> 필드 추가, 프런트는 미지원 버전 경고.</li>
+  <li><strong>워크플로 분리</strong>: <code>data-refresh.yml</code>(크론·커밋)과 <code>pages.yml</code>(push 시 배포)로 분리. 갱신 실패 시 GitHub Issue 자동 생성(actions 스텝 1개)으로 알림 확보.</li>
+  <li><strong>히스토리 상한</strong>: 종목당 3년(약 740포인트)으로 캡 — 현재 최대치(719)와 정합. 초과분은 <code>data/archive/</code>로 이동.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="features"><span class="section-num">7.</span>추가 기능 제언</h2>
+
+<div class="matrix">
+  <div class="matrix-cell q1">
+    <h4>① 지금 바로 — 가치 높음 · 비용 낮음</h4>
+    <ul>
+      <li><strong>스폰서(주관사)별 합병 성사율 통계</strong> — sponsor와 에피소드 데이터를 이미 보유. 집계 함수 1개 + 통계 패널 1개로 "어느 증권사 스팩이 합병을 잘 시키는가"라는 차별화 지표 제공.</li>
+      <li><strong>테이블 행 스파크라인</strong> — 히스토리 데이터 보유, 30×8px 캔버스로 추세 한눈에.</li>
+      <li><strong>CSV 내보내기</strong> — 현재 필터·정렬 상태의 비교 테이블을 Blob 다운로드.</li>
+      <li><strong>금리 시나리오 슬라이더</strong> — 청산분배금이 (1+r)^t 수식이므로 클라이언트에서 r만 바꿔 재계산 가능. 재수집 불필요.</li>
+    </ul>
+  </div>
+  <div class="matrix-cell q2">
+    <h4>② 다음 분기 핵심 — 가치 높음 · 비용 중간</h4>
+    <ul>
+      <li><strong>OpenDART API 전환·보강</strong> (README 로드맵 ①) — 무료 API 키로 증권신고서에서 <em>실제 공모가·예치금·예치이율·공모주식수</em>를 수집. P1 "공모가 하드코딩"과 기대수익률 정확도를 근본 해결. 해산사유 발생 공시로 청산 진행도 자동 감지.</li>
+      <li><strong>가격 알림 봇</strong> — 크론 후 조건 평가(예: ratio &lt; 0.99 진입, 합병 신청/확정/철회 발생) → Telegram Bot API 또는 RSS 피드 파일 생성. 정적 구조 그대로 유지 가능.</li>
+      <li><strong>청약·상장 캘린더 탭</strong> (README 로드맵 ②) — KIND 공모일정에서 스팩 청약/납입/상장 수집, 월간 캘린더 뷰.</li>
+      <li><strong>워치리스트</strong> — localStorage 기반 별표 + 보유수량 입력 시 포트폴리오 기대 청산수익 합산.</li>
+    </ul>
+  </div>
+  <div class="matrix-cell q3">
+    <h4>③ 차별화 투자 — 가치 높음 · 비용 높음</h4>
+    <ul>
+      <li><strong>합병 대상 기업 패널</strong> — 공시 제목·본문에서 대상기업명, 합병비율, <em>주식매수청구권 행사가</em>를 파싱. 스팩 차익거래에서 매수청구가는 사실상의 하방 보호선이라 실투자 가치가 매우 큼.</li>
+      <li><strong>상폐(합병 완료) 스팩 아카이브</strong> — 현재 통계는 상장 중 종목만 모수(코드 내 note도 한계 명시). 합병 상장으로 사라진 스팩을 보존해 성사율·수익률 통계의 생존 편향 제거.</li>
+      <li><strong>전략 백테스트</strong> — "공모가 이하 매수 → 청산/합병까지 보유" 실현 수익률 분포. 아카이브가 선행 조건.</li>
+    </ul>
+  </div>
+  <div class="matrix-cell q4">
+    <h4>④ 선택 — 가치 보통</h4>
+    <ul>
+      <li>PWA(매니페스트+오프라인 캐시), 다중 종목 비교 차트 오버레이</li>
+      <li><code>current.json</code>을 공개 데이터 API로 문서화 (이미 CORS 가능한 정적 파일)</li>
+      <li>영문 토글(i18n), 공시 원문 뷰어 모달</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout tip">
+  <strong>추천 우선순위</strong>
+  Phase 0(안전망) → ①스폰서 성사율 + 금리 슬라이더(빠른 가치) → Phase 1(테스트 기반 확보) → ②OpenDART 전환(정확도의 근본 개선) → ②가격 알림(사용 빈도를 만드는 기능) 순.
+  OpenDART 전환은 P0-②·P1 공모가 이슈·스크래핑 리스크를 동시에 줄이는 <strong>레버리지가 가장 큰 단일 투자</strong>입니다.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="direction"><span class="section-num">8.</span>향후 방향 시나리오</h2>
+
+<table>
+  <thead><tr><th style="width:150px">시나리오</th><th>내용</th><th>투자</th><th>판단</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>A. 개인 도구 유지</strong></td>
+      <td>Phase 0만 수행하고 현 구조 동결. 본인 투자 판단용으로만 사용.</td>
+      <td>~1일</td>
+      <td>최소한 Phase 0은 필수 — 현재는 데이터 소실 리스크를 안고 운영 중.</td>
+    </tr>
+    <tr>
+      <td><strong>B. 공개 대시보드 강화</strong> <span class="badge good">추천</span></td>
+      <td>Phase 0~3 + 기능 ①·② 수행. "국내 스팩 데이터의 기준점" 포지셔닝. 정적·무비용 구조 유지.</td>
+      <td>2~4주 (파트타임)</td>
+      <td>국내에 스팩 전문 무료 대시보드가 드물어 틈새 가치가 분명. 현 아키텍처 연장선이라 리스크 낮음. 단, 공개 서비스화 시 투자 조언이 아니라는 면책 문구와 데이터 출처·지연 고지 필요.</td>
+    </tr>
+    <tr>
+      <td><strong>C. 서비스화</strong></td>
+      <td>백엔드(DB·계정·실시간 알림·푸시) 도입.</td>
+      <td>수개월+ 운영비</td>
+      <td>현 단계 비추천 — B의 알림 봇·워치리스트로 핵심 수요의 80%를 무비용으로 충족 가능. B에서 사용자 반응 확인 후 재검토.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="appendix"><span class="section-num">9.</span>부록: 권장 도구 체인</h2>
+<table>
+  <thead><tr><th style="width:160px">영역</th><th>도구</th><th>비고</th></tr></thead>
+  <tbody>
+    <tr><td>파이썬 린트·포맷</td><td>ruff (lint + format)</td><td>flake8/black/isort 통합 대체, 설정 최소</td></tr>
+    <tr><td>테스트</td><td>pytest + requests-mock</td><td>파서는 <code>tests/fixtures/*.html</code> 스냅샷으로 오프라인 검증</td></tr>
+    <tr><td>타입</td><td>mypy (점진 적용)</td><td>models.py·domain/부터, strict는 신규 코드만</td></tr>
+    <tr><td>의존성</td><td>requirements.txt 버전 고정 (또는 uv)</td><td>CI 재현성 확보</td></tr>
+    <tr><td>JS 품질</td><td>(선택) eslint + prettier</td><td>무빌드 유지 시에도 CI 검사만 적용 가능</td></tr>
+    <tr><td>CI</td><td>quality.yml / data-refresh.yml / pages.yml 3분리</td><td>데이터 갱신 실패 시 issue 자동 생성으로 알림</td></tr>
+    <tr><td>저장소 위생</td><td>LICENSE(MIT 권장), CONTRIBUTING 또는 CLAUDE.md</td><td>코드 규약·실행법·데이터 갱신 절차 문서화</td></tr>
+  </tbody>
+</table>
+
+<footer>
+  spac-hunter 프로젝트 리뷰 · 2026-06-10 · 기준 커밋 6fa91f2 · 본 문서는 저장소 정적 분석에 기반하며, 줄 번호는 기준 커밋 시점의 위치입니다.
+</footer>
+
+</div>
+</body>
+</html>
