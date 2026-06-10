@@ -95,6 +95,7 @@
     const scrollTop = list ? list.scrollTop : 0;
     renderCards();
     renderTable();
+    renderSchedule();
     if (list) list.scrollTop = scrollTop;
   }
 
@@ -419,6 +420,14 @@
       <dd>${escapeHtml(value)}</dd>
     `).join('');
     document.getElementById('statsNote').textContent = note || '';
+    /* 아카이브 합산 통계(archivedSpacCount)는 다음 데이터 갱신부터 존재 — 부재/0이면 문구를 숨긴다. */
+    const archiveNote = document.getElementById('funnelArchiveNote');
+    if (archiveNote) {
+      const archived = Number(funnel.archivedSpacCount);
+      const showArchived = Number.isFinite(archived) && archived > 0;
+      archiveNote.textContent = showArchived ? `아카이브 ${number(archived)}종목 포함` : '';
+      archiveNote.hidden = !showArchived;
+    }
   }
 
   /* statistics.sponsorStats가 있을 때만 네 번째 패널을 추가한다(없으면 DOM 자체를 만들지 않음). */
@@ -470,6 +479,56 @@
             `).join('')}
           </tbody>
         </table>
+      </div>
+    `;
+    wrap.appendChild(panel);
+  }
+
+  /* ---------- 상폐·아카이브 패널 ----------
+     statistics.archive는 다음 데이터 갱신부터 존재한다.
+     count > 0일 때만 패널을 만들고, 부재/0이면 DOM 자체를 만들지 않는다.
+     아카이브 종목은 이미 data.spacs에 없으므로 행 클릭(종목 선택) 동작을 붙이지 않는다. */
+  function renderArchivePanel() {
+    const wrap = document.getElementById('statsPanels');
+    if (!wrap) return;
+    const existing = document.getElementById('archivePanel');
+    if (existing) existing.remove();
+    const archive = (data.statistics || {}).archive;
+    const count = archive && typeof archive === 'object' ? Number(archive.count) : NaN;
+    const show = Number.isFinite(count) && count > 0;
+    wrap.classList.toggle('has-archive', show);
+    if (!show) return;
+
+    const recent = (Array.isArray(archive.recent) ? archive.recent : [])
+      .filter(row => row && typeof row === 'object')
+      .slice(0, 8);
+    const rowsHtml = recent.map(row => `
+      <div class="archive-row">
+        <div class="archive-main">
+          <div class="archive-name">${escapeHtml(row.name || '-')} <span class="code">${escapeHtml(row.code || '')}</span></div>
+          <div class="archive-reason">${escapeHtml(row.mergerStatus || row.delistReasonGuess || '사유 미상')}</div>
+        </div>
+        <div class="archive-side">
+          <div class="archive-date">${escapeHtml(dateText(row.lastSeen))}</div>
+          <div class="archive-ratio">${escapeHtml(ratio(row.finalRatio))}</div>
+        </div>
+      </div>
+    `).join('');
+
+    const panel = document.createElement('article');
+    panel.className = 'stats-panel';
+    panel.id = 'archivePanel';
+    panel.innerHTML = `
+      <div class="panel-header">
+        <div>
+          <h2 class="panel-title">상폐·아카이브</h2>
+          <div class="panel-sub">누적 ${escapeHtml(number(count))}종목</div>
+        </div>
+      </div>
+      <div class="stats-panel-body">
+        ${rowsHtml
+          ? `<div class="archive-list">${rowsHtml}</div>`
+          : '<div class="empty">최근 아카이브 내역이 없습니다.</div>'}
       </div>
     `;
     wrap.appendChild(panel);
@@ -936,6 +995,139 @@
     `).join('');
   }
 
+  /* ---------- 다가오는 일정 (전부 기존 data.spacs에서 클라이언트 계산) ---------- */
+
+  const DAY_MS = 86400000;
+  const SCHEDULE_DUE_DAYS = 365;      /* 청산기한 임박: 오늘~12개월 */
+  const SCHEDULE_MERGER_DAYS = 45;    /* 최근 합병 이벤트: 최근 45일 */
+  const SCHEDULE_LISTING_DAYS = 60;   /* 최근 상장: 최근 60일 */
+  const SCHEDULE_ROW_LIMIT = 10;
+
+  /* 기준 시각: data.generatedAt, 파싱 불가 시 현재 시각. */
+  function scheduleBase() {
+    const parsed = data.generatedAt ? Date.parse(data.generatedAt) : NaN;
+    if (Number.isFinite(parsed)) {
+      return { time: parsed, label: dateText(data.generatedAt) };
+    }
+    const now = Date.now();
+    return { time: now, label: dateText(new Date(now).toISOString()) };
+  }
+
+  /* 일정 행의 워치리스트 별표는 표시 전용(토글 없음) — data-watch를 붙이지 않는다. */
+  function watchMarkHtml(code) {
+    return isWatched(code)
+      ? '<span class="watch-mark" title="관심 종목" aria-label="관심 종목">★</span>'
+      : '';
+  }
+
+  /* 공통 행 마크업. subHtml/valueHtml은 호출부에서 escape를 마친 HTML 조각을 받는다. */
+  function scheduleRowHtml(code, name, subHtml, valueHtml) {
+    return `
+      <div class="schedule-row" data-code="${escapeHtml(code)}" role="button" tabindex="0">
+        <div class="schedule-row-main">
+          <div class="schedule-row-name">${watchMarkHtml(code)}${escapeHtml(name || '-')} <span class="code">${escapeHtml(code)}</span></div>
+          <div class="schedule-row-sub">${subHtml}</div>
+        </div>
+        <div class="schedule-row-value">${valueHtml}</div>
+      </div>
+    `;
+  }
+
+  /* 컬럼 하나를 채운다. 비어 있으면 "해당 없음", 재렌더 시 스크롤 위치 유지. */
+  function setScheduleColumn(listId, countId, html, shown, total, unit) {
+    const countEl = document.getElementById(countId);
+    if (countEl) {
+      countEl.textContent = total > shown ? `${total}${unit} 중 최신 ${shown}${unit}` : `${total}${unit}`;
+    }
+    const list = document.getElementById(listId);
+    if (!list) return;
+    const scrollTop = list.scrollTop;
+    list.innerHTML = html || '<div class="empty">해당 없음</div>';
+    list.scrollTop = scrollTop;
+  }
+
+  function renderSchedule() {
+    const grid = document.getElementById('scheduleGrid');
+    if (!grid) return;
+    const base = scheduleBase();
+    const hint = document.getElementById('scheduleHint');
+    if (hint) hint.textContent = `기준 ${base.label}`;
+    const spacs = getSpacs();
+
+    /* 1) 청산기한 임박: liquidationDate가 기준일~12개월 이내, 날짜 오름차순 + 월별("YYYY-MM") 헤더 */
+    const dueRows = spacs
+      .map(item => {
+        const time = item.liquidationDate ? Date.parse(String(item.liquidationDate)) : NaN;
+        if (!Number.isFinite(time)) return null;
+        const days = Math.ceil((time - base.time) / DAY_MS);
+        if (days < 0 || days > SCHEDULE_DUE_DAYS) return null;
+        return { item, time, days };
+      })
+      .filter(Boolean)
+      .sort((a, b) => (a.time - b.time) || String(a.item.code || '').localeCompare(String(b.item.code || '')));
+    let dueHtml = '';
+    let dueMonth = '';
+    dueRows.forEach(row => {
+      const month = String(row.item.liquidationDate).slice(0, 7);
+      if (month !== dueMonth) {
+        dueMonth = month;
+        dueHtml += `<div class="schedule-month">${escapeHtml(month)}</div>`;
+      }
+      const status = row.item.mergerStatus;
+      const badge = status
+        ? `<span class="badge ${badgeClass(String(status))}">${escapeHtml(status)}</span>`
+        : '';
+      dueHtml += scheduleRowHtml(
+        row.item.code,
+        row.item.name,
+        `${escapeHtml(ratio(row.item.ratio))}${badge}`,
+        `D-${escapeHtml(String(row.days))}`
+      );
+    });
+    setScheduleColumn('scheduleDueList', 'scheduleDueCount', dueHtml, dueRows.length, dueRows.length, '개');
+
+    /* 2) 최근 합병 이벤트: 최근 45일 내 mergerPriceRecords, 날짜 내림차순 최대 10건 */
+    const signalLabels = { applied: '합병 신청', confirmed: '합병 확정', canceled: '합병 철회' };
+    const mergerRows = spacs
+      .flatMap(item => (Array.isArray(item.mergerPriceRecords) ? item.mergerPriceRecords : [])
+        .map(record => ({
+          item,
+          record,
+          time: record && record.date ? Date.parse(String(record.date)) : NaN
+        })))
+      .filter(entry => Number.isFinite(entry.time)
+        && base.time - entry.time >= -DAY_MS
+        && base.time - entry.time <= SCHEDULE_MERGER_DAYS * DAY_MS)
+      .sort((a, b) => b.time - a.time);
+    const mergerTop = mergerRows.slice(0, SCHEDULE_ROW_LIMIT);
+    const mergerHtml = mergerTop.map(entry => {
+      const label = entry.record.label || signalLabels[entry.record.signal] || '합병 이벤트';
+      return scheduleRowHtml(
+        entry.item.code,
+        entry.item.name,
+        `<span class="badge ${badgeClass(String(label))}">${escapeHtml(label)}</span>`,
+        escapeHtml(dateText(entry.record.date))
+      );
+    }).join('');
+    setScheduleColumn('scheduleMergerList', 'scheduleMergerCount', mergerHtml, mergerTop.length, mergerRows.length, '건');
+
+    /* 3) 최근 상장: listingDate가 최근 60일 이내, 날짜 내림차순 최대 10건 */
+    const listingRows = spacs
+      .map(item => ({ item, time: item.listingDate ? Date.parse(String(item.listingDate)) : NaN }))
+      .filter(entry => Number.isFinite(entry.time)
+        && base.time - entry.time >= -DAY_MS
+        && base.time - entry.time <= SCHEDULE_LISTING_DAYS * DAY_MS)
+      .sort((a, b) => b.time - a.time);
+    const listingTop = listingRows.slice(0, SCHEDULE_ROW_LIMIT);
+    const listingHtml = listingTop.map(entry => scheduleRowHtml(
+      entry.item.code,
+      entry.item.name,
+      escapeHtml(ratio(entry.item.ratio)),
+      escapeHtml(dateText(entry.item.listingDate))
+    )).join('');
+    setScheduleColumn('scheduleListingList', 'scheduleListingCount', listingHtml, listingTop.length, listingRows.length, '개');
+  }
+
   /* ---------- CSV 내보내기 ---------- */
 
   function csvField(value) {
@@ -1071,9 +1263,10 @@
       selectSpac(selectedCode, { preferVisible: true });
     });
 
-    /* 리스트/테이블 행 클릭: 컨테이너 1회 위임. 별표(워치) 버튼이 행 선택보다 우선. */
-    ['spacList', 'tableBody', 'mergerCaseBody'].forEach(id => {
+    /* 리스트/테이블/일정 행 클릭: 컨테이너 1회 위임. 별표(워치) 버튼이 행 선택보다 우선. */
+    ['spacList', 'tableBody', 'mergerCaseBody', 'scheduleGrid'].forEach(id => {
       const container = document.getElementById(id);
+      if (!container) return;
       container.addEventListener('click', event => {
         const watchButton = event.target.closest('[data-watch]');
         if (watchButton && container.contains(watchButton)) {
@@ -1087,14 +1280,18 @@
       });
     });
 
-    /* 카드가 button이 아닌 role="button"이므로 키보드 선택을 직접 처리(별표 버튼은 제외). */
-    document.getElementById('spacList').addEventListener('keydown', event => {
-      if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') return;
-      if (event.target.closest('[data-watch]')) return;
-      const row = event.target.closest('[data-code]');
-      if (!row || !row.dataset.code) return;
-      event.preventDefault();
-      selectSpac(row.dataset.code);
+    /* 카드/일정 행이 button이 아닌 role="button"이므로 키보드 선택을 직접 처리(별표 버튼은 제외). */
+    ['spacList', 'scheduleGrid'].forEach(id => {
+      const container = document.getElementById(id);
+      if (!container) return;
+      container.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') return;
+        if (event.target.closest('[data-watch]')) return;
+        const row = event.target.closest('[data-code]');
+        if (!row || !row.dataset.code) return;
+        event.preventDefault();
+        selectSpac(row.dataset.code);
+      });
     });
 
     document.querySelectorAll('.period-btn').forEach(button => {
@@ -1163,6 +1360,7 @@
     renderSnapshot();
     renderMarketStats();
     renderSponsorPanel();
+    renderArchivePanel();
     renderFilters();
     if (!selectedCode && getSpacs().length) {
       const linked = findSpacByCode(readUrlState().code);
@@ -1175,6 +1373,7 @@
     renderSelected();
     renderTable();
     renderMergerCases();
+    renderSchedule();
   }
 
   applyUrlState(readUrlState());

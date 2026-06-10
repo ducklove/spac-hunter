@@ -1340,3 +1340,202 @@ td.spark-cell {
   font-size: 10px;
   font-weight: 700;
 }
+
+/* ===== 추가 스타일: 다가오는 일정 / 상폐·아카이브 ===== */
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.schedule-col {
+  min-width: 0;
+  border-right: 1px solid var(--border);
+}
+
+.schedule-col:last-child {
+  border-right: 0;
+}
+
+.schedule-col-head {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--soft-border);
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.schedule-col-title {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 780;
+}
+
+.schedule-list {
+  max-height: 420px;
+  overflow: auto;
+}
+
+.schedule-list .empty {
+  padding: 20px 14px;
+}
+
+.schedule-month {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 8px 14px 4px;
+  background: var(--surface);
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--soft-border);
+  cursor: pointer;
+}
+
+.schedule-row:last-child {
+  border-bottom: 0;
+}
+
+.schedule-row:hover {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.schedule-row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.schedule-row-main {
+  min-width: 0;
+}
+
+.schedule-row-name {
+  font-size: 12px;
+  font-weight: 740;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.schedule-row-sub {
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.schedule-row-sub .badge {
+  min-height: 18px;
+  padding: 1px 6px;
+  font-size: 10px;
+}
+
+.schedule-row-value {
+  font-size: 12px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.watch-mark {
+  display: inline-block;
+  margin-right: 4px;
+  color: var(--amber);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.stats-panels.has-archive {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.archive-list {
+  display: grid;
+}
+
+.archive-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--soft-border);
+}
+
+.archive-row:last-child {
+  border-bottom: 0;
+}
+
+.archive-name {
+  font-size: 12px;
+  font-weight: 740;
+  overflow-wrap: anywhere;
+}
+
+.archive-reason {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.archive-side {
+  text-align: right;
+}
+
+.archive-date {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.archive-ratio {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1180px) {
+  .stats-panels.has-archive {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-col {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .schedule-col:last-child {
+    border-bottom: 0;
+  }
+
+  .schedule-list {
+    max-height: 320px;
+  }
+}

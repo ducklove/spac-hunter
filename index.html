@@ -87,6 +87,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         <div class="stats-panel-body">
           <dl class="stats-kv" id="funnelStats"></dl>
           <div class="stats-note" id="statsNote"></div>
+          <div class="stats-note" id="funnelArchiveNote" hidden></div>
         </div>
       </article>
     </div>
@@ -194,6 +195,36 @@ html[data-embed] .container { padding-top: 14px !important; }
       </div>
       <div class="link-list" id="sourceLinks"></div>
     </aside>
+  </section>
+
+  <section class="table-section schedule-section" aria-label="다가오는 일정">
+    <div class="table-head">
+      <h2 class="panel-title">다가오는 일정</h2>
+      <div class="panel-sub" id="scheduleHint"></div>
+    </div>
+    <div class="schedule-grid" id="scheduleGrid">
+      <div class="schedule-col">
+        <div class="schedule-col-head">
+          <h3 class="schedule-col-title">청산기한 임박 · 12개월</h3>
+          <div class="panel-sub" id="scheduleDueCount"></div>
+        </div>
+        <div class="schedule-list" id="scheduleDueList"></div>
+      </div>
+      <div class="schedule-col">
+        <div class="schedule-col-head">
+          <h3 class="schedule-col-title">최근 합병 이벤트 · 45일</h3>
+          <div class="panel-sub" id="scheduleMergerCount"></div>
+        </div>
+        <div class="schedule-list" id="scheduleMergerList"></div>
+      </div>
+      <div class="schedule-col">
+        <div class="schedule-col-head">
+          <h3 class="schedule-col-title">최근 상장 · 60일</h3>
+          <div class="panel-sub" id="scheduleListingCount"></div>
+        </div>
+        <div class="schedule-list" id="scheduleListingList"></div>
+      </div>
+    </div>
   </section>
 
   <section class="table-section">
