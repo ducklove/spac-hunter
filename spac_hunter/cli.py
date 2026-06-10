@@ -12,7 +12,10 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 
+from . import alerts
 from .constants import (
+    ALERTS_JSON_PATH,
+    ALERTS_XML_PATH,
     CURRENT_JSON_PATH,
     DATA_JS_PATH,
     DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE,
@@ -29,6 +32,7 @@ from .output import (
 )
 from .parsing import normalize_name, parse_date, today_kst
 from .sample import build_sample_data
+from .sources import opendart
 from .sources.dart import fetch_dart_disclosures
 from .sources.kind import fetch_kind_disclosures, fetch_kind_listed_companies
 from .sources.kofr import fetch_kofr_rate
@@ -46,16 +50,39 @@ def fetch_kind_merger_disclosures(items, kind_companies, max_workers=6, today=No
     today = today or today_kst()
     max_workers = max(1, min(max_workers, 4))
 
+    # OpenDART comes first whenever the API key is set; the corp-code mapping
+    # is downloaded once here, outside the per-item loop.
+    use_opendart = opendart.is_enabled()
+    if use_opendart:
+        try:
+            corp_map = opendart.load_corp_code_map()
+            logger.info("OpenDART 활성: 고유번호 매핑 %d종목", len(corp_map))
+        except Exception as exc:  # noqa: BLE001
+            use_opendart = False
+            logger.warning("OpenDART corpCode 매핑 실패, OpenDART 없이 진행: %s", exc)
+    else:
+        logger.info("OpenDART 비활성: OPENDART_API_KEY 미설정")
+
     def fetch_item(item):
         kind_info = kind_companies.get(normalize_name(item["name"]), {})
         listing_date = parse_date(kind_info.get("listingDate"))
+        steps = []
+        if use_opendart:
+            try:
+                rows = opendart.fetch_opendart_disclosures(item["code"], item["name"], listing_date, today)
+                return rows, None
+            except Exception as opendart_exc:  # noqa: BLE001
+                steps.append(f"OpenDART 실패: {opendart_exc}")
         if prefer_dart:
-            return fetch_dart_disclosures(item["code"], item["name"], listing_date, today), None
+            rows = fetch_dart_disclosures(item["code"], item["name"], listing_date, today)
+            return rows, "; ".join(steps) or None
         try:
-            return fetch_kind_disclosures(item["code"], item["name"], listing_date, today), None
+            rows = fetch_kind_disclosures(item["code"], item["name"], listing_date, today)
+            return rows, "; ".join(steps) or None
         except Exception as kind_exc:  # noqa: BLE001
+            steps.append(f"KIND 실패, DART fallback 사용: {kind_exc}")
             dart_rows = fetch_dart_disclosures(item["code"], item["name"], listing_date, today)
-            return dart_rows, f"KIND 실패, DART fallback 사용: {kind_exc}"
+            return dart_rows, "; ".join(steps)
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         tasks = {executor.submit(fetch_item, item): item for item in items}
@@ -280,6 +307,17 @@ def _run_live(args) -> None:
         force=args.force,
     )
     logger.info("written %s, %s: %d SPACs", DATA_JS_PATH.name, CURRENT_JSON_PATH.name, len(spacs))
+
+    # Alerts run only after the write guard accepted the new dataset
+    # (a guard rejection exits above, so nothing alert-related is produced).
+    fresh_alerts = alerts.write_alert_outputs(
+        alerts.build_alerts(existing_spacs, spacs, generated_at),
+        generated_at,
+    )
+    logger.info(
+        "written %s, %s: %d new alerts", ALERTS_JSON_PATH.name, ALERTS_XML_PATH.name, len(fresh_alerts)
+    )
+    alerts.send_telegram(fresh_alerts)
 
 
 def main(argv=None) -> None:

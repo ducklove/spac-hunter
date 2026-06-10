@@ -52,6 +52,10 @@ jobs:
           pip install -r requirements.txt
       - name: Refresh SPAC data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
+        env:
+          OPENDART_API_KEY: ${{ secrets.OPENDART_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python fetch_data.py --history-pages 12 --merger-history-pages 60
       - name: Validate refreshed data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
@@ -59,13 +63,18 @@ jobs:
       - name: Commit refreshed data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
         run: |
-          if git diff --quiet -- data.js current.json; then
+          if git diff --quiet -- data.js current.json && [ -z "$(git status --porcelain -- alerts.json alerts.xml)" ]; then
             echo "No data changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.js current.json
+          git add -- data.js current.json
+          for file in alerts.json alerts.xml; do
+            if [ -f "$file" ]; then
+              git add -- "$file"
+            fi
+          done
           git commit -m "Update SPAC data"
           git push origin HEAD:main
       - name: Configure Pages

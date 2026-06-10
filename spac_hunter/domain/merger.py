@@ -1,6 +1,7 @@
 """Merger-disclosure classification and event price records."""
 
 from ..constants import (
+    DISSOLUTION_TOKENS,
     MERGER_APPLICATION_TOKENS,
     MERGER_CANCEL_TOKENS,
     MERGER_CONFIRMATION_TOKENS,
@@ -29,6 +30,7 @@ def classify_merger_disclosures(disclosures):
     application = None
     confirmation = None
     cancellation = None
+    dissolution = None
     matched = []
 
     def sort_key(item):
@@ -42,6 +44,10 @@ def classify_merger_disclosures(disclosures):
         title = normalize_disclosure_title(disclosure.get("title"))
         if not title or any(token in title for token in MERGER_IGNORE_TOKENS):
             continue
+        if any(token in title for token in DISSOLUTION_TOKENS):
+            # Tracked separately; the merger state machine and "matched"
+            # (and therefore the price-record statistics) stay untouched.
+            dissolution = disclosure
         if any(token in title for token in MERGER_CANCEL_TOKENS):
             status = None
             cancellation = disclosure
@@ -62,6 +68,7 @@ def classify_merger_disclosures(disclosures):
         "application": application,
         "confirmation": confirmation,
         "cancellation": cancellation,
+        "dissolution": dissolution,
         "matched": matched,
     }
 

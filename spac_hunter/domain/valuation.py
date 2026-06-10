@@ -17,7 +17,7 @@ def derive_sponsor(name):
     return None
 
 
-def build_status_badges(ratio, days_to_liquidation, trade_stop=False, merger_status=None):
+def build_status_badges(ratio, days_to_liquidation, trade_stop=False, merger_status=None, dissolution=False):
     badges = []
     if ratio is not None and ratio < 1:
         badges.append("공모가 이하")
@@ -25,6 +25,8 @@ def build_status_badges(ratio, days_to_liquidation, trade_stop=False, merger_sta
         badges.append("공모가 근접")
     if merger_status:
         badges.append(merger_status)
+    if dissolution:
+        badges.append("해산사유 발생")
     if days_to_liquidation is not None:
         if days_to_liquidation <= 180:
             badges.append("청산 6개월 이내")
