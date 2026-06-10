@@ -22,6 +22,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: pages
@@ -52,6 +53,9 @@ jobs:
       - name: Refresh SPAC data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
         run: python fetch_data.py --history-pages 12 --merger-history-pages 60
+      - name: Validate refreshed data
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
+        run: python validate_data.py
       - name: Commit refreshed data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
         run: |
@@ -73,3 +77,46 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Report scheduled refresh failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "[data-refresh] 자동 데이터 갱신 실패";
+            const runUrl = "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}";
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              per_page: 100,
+            });
+            const existing = issues.find((issue) => issue.title === title && !issue.pull_request);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: [
+                  "스케줄 데이터 갱신이 다시 실패했습니다.",
+                  "",
+                  `- 실패한 실행: ${runUrl}`,
+                ].join("\n"),
+              });
+              return;
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body: [
+                "매일 18:10 KST 자동 데이터 갱신(pages.yml)이 실패했습니다.",
+                "",
+                `- 실패한 실행: ${runUrl}`,
+                "",
+                "점검 항목:",
+                "- [ ] 실행 로그에서 실패한 스텝 확인 (수집 실패 exit 1 / 안전 가드 거부 exit 2 / validate_data.py 검증 실패)",
+                "- [ ] KRX·KIND·DART·네이버 등 데이터 소스 응답 상태 확인",
+                "- [ ] 종목 수 급감이나 시세 수집률 저하가 실제 시장 변화인지 확인 (의도된 축소라면 `--force` 재실행 검토)",
+                "- [ ] 로컬에서 `python fetch_data.py --history-pages 3` 후 `python validate_data.py`로 재현 여부 확인",
+              ].join("\n"),
+            });

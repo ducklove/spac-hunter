@@ -15,6 +15,47 @@ python fetch_data.py --history-pages 3
 
 그 다음 `index.html`을 브라우저에서 열면 됩니다.
 
+종료 코드는 `0` 정상, `1` 수집 실패, `2` 안전 가드 거부입니다. 직전 데이터 대비 종목 수가 급감하거나 시세 수집률이 50% 미만이면 기존 데이터를 보호하기 위해 쓰기를 거부하고 exit 2로 종료하며, 의도한 축소라면 `--force`로 우회할 수 있습니다. 샘플 데이터 폴백은 `--sample`을 명시했을 때만 동작하고(라이브 수집 실패 시 데이터를 쓰지 않고 exit 1), 샘플 데이터는 가드에 걸릴 수 있어 `--sample --force`를 권장합니다.
+
+생성된 `data.js`의 구조는 다음으로 검증합니다(표준 라이브러리만 사용, 실패 시 exit 1).
+
+```powershell
+python validate_data.py
+```
+
+`--path`로 검증 대상 파일을, `--min-count`로 최소 종목 수 기준을 바꿀 수 있습니다.
+
+## 프로젝트 구조
+
+```text
+fetch_data.py            # 수집 CLI 진입점
+validate_data.py         # data.js 구조 검증 (표준 라이브러리만 사용)
+spac_hunter/             # 수집 파이프라인 패키지
+  cli.py http.py constants.py parsing.py
+  sources/               # krx, kind, dart, naver, kofr
+  domain/                # merger, valuation, enrich
+  stats.py sample.py output.py
+index.html               # 대시보드 진입점 (빌드 없음)
+assets/                  # style.css, format.js, charts.js, app.js
+tests/                   # pytest 테스트
+pyproject.toml           # ruff 설정 (line-length 110, py311)
+requirements.txt         # 런타임 의존성 (버전 고정)
+requirements-dev.txt     # ruff, pytest
+.github/workflows/       # pages.yml (데이터 갱신+배포), quality.yml (lint+test)
+data.js / current.json   # 생성 산출물 (CI가 매일 갱신)
+overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에도 적용)
+```
+
+## 개발
+
+```powershell
+pip install -r requirements.txt -r requirements-dev.txt
+ruff check spac_hunter tests fetch_data.py validate_data.py
+pytest -q
+```
+
+로컬 프리뷰는 `python -m http.server`를 띄워 접속하거나, `index.html`을 브라우저에서 직접 열면 됩니다(별도 빌드 없이 `file://`로도 동작).
+
 ## 데이터 소스
 
 - KRX 상장종목검색: KOSDAQ 종목명에 `스팩` 또는 `SPAC`이 포함된 종목을 universe로 사용
@@ -22,9 +63,9 @@ python fetch_data.py --history-pages 3
 - KIND 공시검색 + DART fallback: `회사합병 결정`/`SPAC 합병(예비심사청구대상)`은 `합병 신청`, `상장예비심사결과 통지(승인)` 등은 `합병 확정` 상태로 분류
 - 네이버 증권: 현재가와 최근 일별 시세
 - 합병 공시가 있는 종목은 더 긴 일별 시세를 가져와 공시 직전가, 다음 거래일, 최신가, 이후 고점·저점 수익률을 계산
-- 시장 통계: 공모가 미만 종목수 추이, 신규등록 월별 추이, 합병 신청/확정/철회 추이, 표본 기준 합병 성사 확률과 성사 기간
+- 시장 통계: 공모가 미만 종목수 추이, 신규등록 월별 추이, 합병 신청/확정/철회 추이, 표본 기준 합병 성사 확률과 성사 기간, 스폰서(증권사)별 통계
 
-`overrides.json`을 만들면 공모가, 실제 납입일/청산일, 합병 신청/확정 공시일, 예치금 기반 청산분배금 등을 보정할 수 있습니다. 이 파일은 공시 기반 기대수익률의 정확도를 높이는 핵심 수동/반자동 레이어입니다.
+`data.js`에는 schemaVersion 2 형식으로 수집 요약(collection)이 함께 기록되어, 대시보드가 수집 상태와 데이터 신선도를 표시하는 데 사용합니다.
 
 ## 주요 계산
 
@@ -44,8 +85,37 @@ python fetch_data.py --history-pages 3
 python fetch_data.py --trust-rate 0.025 --history-pages 3
 ```
 
+## overrides.json 운영
+
+`overrides.json`은 공모가, 실제 납입일/청산일, 합병 신청/확정 공시일, 예치금 기반 청산분배금 등을 보정하는 핵심 수동/반자동 레이어로, 공시 기반 기대수익률의 정확도를 높입니다. 이제 저장소에 커밋되어 매일 CI 데이터 갱신에도 동일하게 적용됩니다. 키 형식과 작성 예시는 `overrides.example.json`을 참고하세요.
+
+## 데이터 안전장치
+
+- 샘플 폴백 차단: `--sample` 없이 라이브 수집이 실패하면 샘플 데이터로 대체하지 않고 exit 1로 종료해 기존 데이터를 보존
+- 쓰기 가드: 종목 수 급감 또는 시세 수집률 50% 미만이면 쓰기를 거부(exit 2), `--force`로만 우회
+- `validate_data.py`: 생성된 `data.js` 구조를 검증하며, CI에서는 갱신 직후 실행되어 실패 시 커밋·배포를 중단
+- 갱신 실패 알림: 스케줄 갱신이 실패하면 `[data-refresh] 자동 데이터 갱신 실패` 이슈를 자동 생성하고, 이미 열려 있으면 실행 링크를 코멘트로 추가
+
+## CI 구성
+
+- `.github/workflows/pages.yml`: 매일 18:10 KST(크론) 또는 수동 실행 시 `python fetch_data.py --history-pages 12 --merger-history-pages 60`로 데이터를 갱신하고, `validate_data.py` 검증을 통과하면 `data.js`/`current.json`을 main에 커밋한 뒤 GitHub Pages로 배포합니다. 스케줄 실행 실패 시 이슈로 알립니다.
+- `.github/workflows/quality.yml`: PR과 push(main, `claude/**`)에서 `ruff check`와 `pytest -q`를 실행합니다. `data.js`/`current.json`/`docs/**`만 바뀐 커밋은 건너뜁니다.
+
+## 대시보드 기능 요약
+
+- 필터 / 정렬 / 검색
+- 다크 테마
+- iframe 임베드: `?embed`, `?theme`
+- 딥링크: `?code`, `?filter`, `?sort`
+- 금리 시나리오 슬라이더: 예치이자 가정을 바꿔 기대수익률 재계산
+- 종목별 스파크라인
+- CSV 내보내기
+- 데이터 신선도 경고: 마지막 수집이 오래되면 화면에 표시
+
 ## 다음 확장
 
 - OpenDART API 키를 사용해 `해산사유 발생`, 증권신고서/투자설명서에서 예치금·공모주식수·이자율을 자동 보강
 - KIND 공모일정의 청약/납입/상장 캘린더를 별도 탭으로 추가
 - 공시 원문 링크와 계산 근거를 개별 종목 상세 패널에 붙이기
+
+전체 구조·품질 평가와 로드맵은 [docs/project-review.html](docs/project-review.html) 참고.
