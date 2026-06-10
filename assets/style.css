@@ -1231,3 +1231,112 @@ td.spark-cell {
     flex-wrap: wrap;
   }
 }
+
+/* ===== 추가 스타일: 워치리스트(별표) / 공시 원문 ===== */
+
+/* 카드가 button -> div[role=button]이 되어 포커스 링을 명시한다 */
+.spac-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.spac-card-id {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  min-width: 0;
+}
+
+.spac-card-id-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.watch-btn {
+  flex: none;
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  padding: 0;
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: -3px;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--faint);
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.watch-btn:hover,
+.watch-btn:focus-visible {
+  color: var(--amber);
+  background: color-mix(in srgb, var(--amber) 14%, transparent);
+}
+
+.watch-btn.active {
+  color: var(--amber);
+}
+
+.table-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.disclosure-list {
+  display: grid;
+}
+
+.disclosure-item {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--soft-border);
+}
+
+.disclosure-item:last-child {
+  border-bottom: 0;
+}
+
+.disclosure-date {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.disclosure-main {
+  min-width: 0;
+}
+
+.disclosure-title {
+  font-size: 12px;
+  font-weight: 740;
+  overflow-wrap: anywhere;
+}
+
+.disclosure-title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.disclosure-title a:hover,
+.disclosure-title a:focus-visible {
+  text-decoration: underline;
+}
+
+.disclosure-source {
+  display: inline-block;
+  margin-top: 4px;
+  border: 1px solid var(--soft-border);
+  border-radius: 999px;
+  padding: 1px 7px;
+  background: var(--surface2);
+  color: var(--faint);
+  font-size: 10px;
+  font-weight: 700;
+}

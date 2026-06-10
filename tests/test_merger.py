@@ -127,3 +127,104 @@ def test_empty_and_none_inputs():
     assert classify_merger_disclosures([])["status"] is None
     assert classify_merger_disclosures(None)["matched"] == []
     assert classify_merger_disclosures([{"date": "2024-01-05", "title": ""}])["matched"] == []
+
+
+# --- dissolution handling (additive; the merger state machine must not change) ---
+
+
+def test_dissolution_is_tracked_without_touching_merger_state():
+    result = classify_merger_disclosures(
+        [
+            {"date": "2024-01-05", "title": "회사합병결정"},
+            {"date": "2024-03-02", "title": "해산사유 발생"},
+        ]
+    )
+    # The merger status/state machine is exactly as without the dissolution row.
+    assert result["status"] == "합병 신청"
+    assert result["application"]["date"] == "2024-01-05"
+    # No dissolution rows leak into matched (keeps price-record stats clean).
+    assert signals(result) == ["applied"]
+    assert result["dissolution"]["date"] == "2024-03-02"
+
+
+def test_dissolution_keeps_latest_disclosure_only():
+    result = classify_merger_disclosures(
+        [
+            {"date": "2024-04-09", "title": "[기재정정] 해산사유 발생"},
+            {"date": "2024-03-02", "title": "해산사유발생"},
+        ]
+    )
+    assert result["dissolution"]["date"] == "2024-04-09"
+    assert result["status"] is None
+    assert result["matched"] == []
+
+
+def test_results_without_dissolution_are_unchanged():
+    # Pre-existing classification results stay identical; only the new
+    # "dissolution" key (None) is added.
+    result = classify_merger_disclosures(
+        [
+            {"date": "2024-03-10", "title": "상장예비심사결과통지(승인)"},
+            {"date": "2024-01-05", "title": "회사합병결정"},
+        ]
+    )
+    assert result["dissolution"] is None
+    assert result["status"] == "합병 확정"
+    assert signals(result) == ["applied", "confirmed"]
+
+
+def _enrich(disclosures):
+    import argparse
+    from datetime import date
+
+    from spac_hunter.domain.enrich import enrich_spac
+
+    args = argparse.Namespace(trust_rate=0.0, trust_rate_label="테스트 0.000%", liquidation_haircut=0)
+    return enrich_spac(
+        {"code": "000001", "name": "테스트1호스팩", "market": "KOSDAQ", "isin": None},
+        {"listingDate": "2024-01-02"},
+        {"price": 2000},
+        [],
+        {},
+        args,
+        date(2026, 6, 10),
+        disclosures,
+        {},
+    )
+
+
+def test_enrich_spac_with_dissolution_adds_field_event_and_badge():
+    spac = _enrich(
+        [
+            {
+                "date": "2026-05-30",
+                "title": "해산사유 발생",
+                "source": "OpenDART 공시검색",
+                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=1",
+            }
+        ]
+    )
+    assert spac["dissolutionDisclosure"]["date"] == "2026-05-30"
+    assert "해산사유 발생" in spac["badges"]
+    assert [event for event in spac["events"] if event["type"] == "dissolution"] == [
+        {
+            "date": "2026-05-30",
+            "type": "dissolution",
+            "label": "해산사유 발생",
+            "detail": "해산사유 발생",
+            "source": "OpenDART 공시검색",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=1",
+        }
+    ]
+    # Merger status and matched disclosures are untouched.
+    assert spac["mergerStatus"] is None
+    assert spac["mergerDisclosures"] == []
+    assert spac["mergerPriceRecords"] == []
+
+
+def test_enrich_spac_without_dissolution_omits_key_and_keeps_output():
+    spac = _enrich([{"date": "2026-05-30", "title": "회사합병결정", "source": "KIND 공시검색"}])
+    assert "dissolutionDisclosure" not in spac
+    assert "해산사유 발생" not in spac["badges"]
+    assert all(event["type"] != "dissolution" for event in spac["events"])
+    assert spac["mergerStatus"] == "합병 신청"

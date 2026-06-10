@@ -31,8 +31,8 @@ python validate_data.py
 fetch_data.py            # 수집 CLI 진입점
 validate_data.py         # data.js 구조 검증 (표준 라이브러리만 사용)
 spac_hunter/             # 수집 파이프라인 패키지
-  cli.py http.py constants.py parsing.py
-  sources/               # krx, kind, dart, naver, kofr
+  cli.py http.py constants.py parsing.py alerts.py
+  sources/               # krx, kind, dart, opendart, naver, kofr
   domain/                # merger, valuation, enrich
   stats.py sample.py output.py
 index.html               # 대시보드 진입점 (빌드 없음)
@@ -43,6 +43,7 @@ requirements.txt         # 런타임 의존성 (버전 고정)
 requirements-dev.txt     # ruff, pytest
 .github/workflows/       # pages.yml (데이터 갱신+배포), quality.yml (lint+test)
 data.js / current.json   # 생성 산출물 (CI가 매일 갱신)
+alerts.json / alerts.xml # 알림 누적 기록과 RSS 피드 (라이브 갱신 시 생성)
 overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에도 적용)
 ```
 
@@ -60,12 +61,26 @@ pytest -q
 
 - KRX 상장종목검색: KOSDAQ 종목명에 `스팩` 또는 `SPAC`이 포함된 종목을 universe로 사용
 - KIND 상장법인목록: 상장일, 업종, 주요제품 보강
-- KIND 공시검색 + DART fallback: `회사합병 결정`/`SPAC 합병(예비심사청구대상)`은 `합병 신청`, `상장예비심사결과 통지(승인)` 등은 `합병 확정` 상태로 분류
+- 합병 공시: OpenDART API(키 설정 시 최우선) → KIND 공시검색 → DART 화면 스크래핑 폴백 체인. `회사합병 결정`/`SPAC 합병(예비심사청구대상)`은 `합병 신청`, `상장예비심사결과 통지(승인)` 등은 `합병 확정` 상태로 분류하고, `해산사유 발생` 공시는 해산 배지·이벤트로 표시
 - 네이버 증권: 현재가와 최근 일별 시세
 - 합병 공시가 있는 종목은 더 긴 일별 시세를 가져와 공시 직전가, 다음 거래일, 최신가, 이후 고점·저점 수익률을 계산
 - 시장 통계: 공모가 미만 종목수 추이, 신규등록 월별 추이, 합병 신청/확정/철회 추이, 표본 기준 합병 성사 확률과 성사 기간, 스폰서(증권사)별 통계
 
 `data.js`에는 schemaVersion 2 형식으로 수집 요약(collection)이 함께 기록되어, 대시보드가 수집 상태와 데이터 신선도를 표시하는 데 사용합니다.
+
+### OpenDART 연동 (선택)
+
+[OpenDART](https://opendart.fss.or.kr/)에서 무료 회원가입 후 인증키를 발급받아 환경변수 `OPENDART_API_KEY`로 설정하면(로컬 실행 시 환경변수, CI는 저장소 Settings → Secrets and variables → Actions에 등록) 공시 수집이 화면 스크래핑 대신 공식 API를 최우선으로 사용해 더 안정적으로 동작합니다. 키가 없으면 자동으로 기존 KIND → DART 체인을 사용하므로 동작 차이가 없습니다. 고유번호 매핑(corpCode.xml)은 `.cache/`에 7일간 캐시됩니다.
+
+## 알림
+
+라이브 갱신(`--sample` 아님)이 성공하면 직전 `data.js`와 비교해 다음 이벤트를 감지합니다.
+
+- 합병 신청 / 확정 / 철회 공시 발생, 해산사유 발생
+- 공모가 이하 진입 / 회복 (현재가/공모가 1.00x 교차)
+- 청산 6개월 이내 진입, 신규 상장
+
+감지된 알림은 `alerts.json`(최신순 누적, 최대 500건)과 `alerts.xml`(RSS 2.0, 최신 50건)로 기록되어 GitHub Pages에서 RSS 리더로 구독할 수 있습니다. 저장소 secrets에 `TELEGRAM_BOT_TOKEN`과 `TELEGRAM_CHAT_ID`를 등록하면 새 알림 요약이 Telegram으로도 발송됩니다(미설정 시 건너뜀, 발송 실패는 파이프라인을 중단시키지 않음).
 
 ## 주요 계산
 
@@ -104,12 +119,15 @@ python fetch_data.py --trust-rate 0.025 --history-pages 3
 ## 대시보드 기능 요약
 
 - 필터 / 정렬 / 검색
+- 워치리스트: 별표(☆)로 관심 종목 등록(localStorage), `관심` 필터와 평균 비율·연환산 요약
 - 다크 테마
 - iframe 임베드: `?embed`, `?theme`
 - 딥링크: `?code`, `?filter`, `?sort`
 - 금리 시나리오 슬라이더: 예치이자 가정을 바꿔 기대수익률 재계산
 - 종목별 스파크라인
 - CSV 내보내기
+- 공시 원문 링크: 선택 종목의 합병·해산 공시 원문 바로가기
+- 알림 RSS 링크(`alerts.xml`)
 - 데이터 신선도 경고: 마지막 수집이 오래되면 화면에 표시
 
 ## 다음 확장

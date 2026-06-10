@@ -49,6 +49,7 @@
 
   function badgeClass(label) {
     if (label.includes('공모가 이하') || label.includes('청산')) return 'red';
+    if (label.includes('해산')) return 'red';
     if (label.includes('근접')) return 'amber';
     if (label.includes('합병')) return 'blue';
     if (label.includes('일반')) return 'green';

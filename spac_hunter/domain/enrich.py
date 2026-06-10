@@ -133,6 +133,7 @@ def _build_merger_state(disclosures, override):
         "application": application_disclosure,
         "confirmation": confirmation_disclosure,
         "cancellation": cancellation_disclosure,
+        "dissolution": merger_state.get("dissolution"),
         "matched": merger_state["matched"],
     }
 
@@ -180,6 +181,17 @@ def _build_events(listing_date, liquidation_date, liquidation_date_source, merge
                 "detail": merger["cancellation"].get("title") or "합병 철회/취소 공시",
                 "source": merger["cancellation"].get("source"),
                 "url": merger["cancellation"].get("url"),
+            }
+        )
+    if merger.get("dissolution"):
+        events.append(
+            {
+                "date": merger["dissolution"].get("date"),
+                "type": "dissolution",
+                "label": "해산사유 발생",
+                "detail": merger["dissolution"].get("title") or "해산사유 발생 공시",
+                "source": merger["dissolution"].get("source"),
+                "url": merger["dissolution"].get("url"),
             }
         )
     if liquidation_date:
@@ -251,6 +263,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
         days_to_liquidation,
         quote.get("tradeStop"),
         merger_status,
+        dissolution=bool(merger.get("dissolution")),
     )
 
     events = _build_events(listing_date, liquidation_date, liquidation_date_source, merger)
@@ -260,7 +273,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
     expected_return = valuation["expectedReturn"]
     annualized_return = valuation["annualizedReturn"]
 
-    return {
+    spac = {
         "id": code,
         "code": code,
         "name": item["name"],
@@ -301,3 +314,7 @@ def enrich_spac(item, kind_info, quote, history, overrides, args, today, disclos
         "disclosureUrl": f"https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm={item['name']}",
         "naverUrl": f"https://finance.naver.com/item/main.naver?code={code}",
     }
+    if merger.get("dissolution"):
+        # Key is omitted entirely when absent so the existing output stays byte-identical.
+        spac["dissolutionDisclosure"] = merger["dissolution"]
+    return spac

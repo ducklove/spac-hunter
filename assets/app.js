@@ -31,7 +31,7 @@
   };
   let data = window.SPAC_DATA || fallbackData;
 
-  const VALID_FILTERS = ['all', 'below', 'near', 'due', 'merger', 'recent'];
+  const VALID_FILTERS = ['all', 'below', 'near', 'due', 'merger', 'recent', 'watch'];
   const VALID_SORTS = ['cheap', 'ratio', 'yield', 'liquidation', 'volume'];
   const STALE_HOURS = 36;
   const SPARK_DAYS = 90;
@@ -49,8 +49,54 @@
     { id: 'near', label: '1.01x 이하' },
     { id: 'due', label: '청산 6개월 이내' },
     { id: 'merger', label: '합병' },
-    { id: 'recent', label: '신규 상장' }
+    { id: 'recent', label: '신규 상장' },
+    { id: 'watch', label: '관심' }
   ];
+
+  /* ---------- 워치리스트 (localStorage 'spac-hunter-watchlist') ---------- */
+
+  const WATCHLIST_KEY = 'spac-hunter-watchlist';
+
+  /* 저장소를 읽을 수 없거나 값이 손상된 경우 빈 목록으로 시작한다(메모리 동작만). */
+  function loadWatchlist() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(WATCHLIST_KEY) || '[]');
+      if (Array.isArray(parsed)) {
+        return new Set(parsed.map(normalizeCode).filter(Boolean));
+      }
+    } catch (error) {
+      /* 저장 불가 환경 무시 */
+    }
+    return new Set();
+  }
+
+  const watchlist = loadWatchlist();
+
+  function saveWatchlist() {
+    try {
+      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(Array.from(watchlist)));
+    } catch (error) {
+      /* 저장 실패 시 메모리 상태로만 동작 */
+    }
+  }
+
+  function isWatched(code) {
+    return watchlist.has(normalizeCode(code));
+  }
+
+  function toggleWatch(code) {
+    const target = normalizeCode(code);
+    if (!target) return;
+    if (watchlist.has(target)) watchlist.delete(target);
+    else watchlist.add(target);
+    saveWatchlist();
+    /* 별표만 바뀐 경우 리스트 스크롤 위치를 유지한 채 다시 그린다. */
+    const list = document.getElementById('spacList');
+    const scrollTop = list ? list.scrollTop : 0;
+    renderCards();
+    renderTable();
+    if (list) list.scrollTop = scrollTop;
+  }
 
   function getSpacs() {
     return Array.isArray(data.spacs) ? data.spacs : [];
@@ -131,6 +177,7 @@
       if (filterMode === 'below') return item.ratio != null && item.ratio < 1;
       if (filterMode === 'near') return item.ratio != null && item.ratio <= 1.01;
       if (filterMode === 'due') return item.daysToLiquidation != null && item.daysToLiquidation <= 180;
+      if (filterMode === 'watch') return isWatched(item.code);
       if (filterMode === 'merger') return (item.badges || []).some(label => String(label).includes('합병'));
       if (filterMode === 'recent') {
         if (!item.listingDate) return false;
@@ -481,20 +528,53 @@
     `).join('');
   }
 
+  /* 워치리스트 별표 토글 버튼. 행 클릭(종목 선택)과는 data-watch로 구분한다. */
+  function watchButtonHtml(item) {
+    const watched = isWatched(item.code);
+    const labelText = watched ? '관심 해제' : '관심 등록';
+    return `<button type="button" class="watch-btn ${watched ? 'active' : ''}" data-watch="${escapeHtml(item.code)}"` +
+      ` aria-pressed="${watched ? 'true' : 'false'}" aria-label="${labelText}" title="${labelText}">${watched ? '★' : '☆'}</button>`;
+  }
+
+  /* 리스트 헤더 카운트: 관심 필터에서는 종목수·평균 비율·평균 연환산 요약으로 대체. */
+  function renderListCount(items) {
+    const target = document.getElementById('listCount');
+    if (!target) return;
+    if (filterMode !== 'watch') {
+      target.textContent = `${items.length}개`;
+      return;
+    }
+    const parts = [`${items.length}종목`];
+    const ratios = items.map(item => Number(item.ratio)).filter(Number.isFinite);
+    if (ratios.length) {
+      parts.push(`평균 ${ratio(ratios.reduce((sum, value) => sum + value, 0) / ratios.length)}`);
+    }
+    const yields = items.map(item => Number(item.annualizedReturn)).filter(Number.isFinite);
+    if (yields.length) {
+      parts.push(`평균 연환산 ${signedPct(yields.reduce((sum, value) => sum + value, 0) / yields.length, 1)}`);
+    }
+    target.textContent = parts.join(' · ');
+  }
+
   function renderCards() {
     const items = visibleSpacs();
-    document.getElementById('listCount').textContent = `${items.length}개`;
+    renderListCount(items);
     const target = document.getElementById('spacList');
     if (!items.length) {
-      target.innerHTML = '<div class="empty">조건에 맞는 스팩이 없습니다.</div>';
+      target.innerHTML = filterMode === 'watch' && !watchlist.size
+        ? '<div class="empty">별표(☆)로 관심 종목을 등록하세요.</div>'
+        : '<div class="empty">조건에 맞는 스팩이 없습니다.</div>';
       return;
     }
     target.innerHTML = items.map(item => `
-      <button type="button" class="spac-card ${item.code === selectedCode ? 'active' : ''}" data-code="${escapeHtml(item.code)}">
+      <div class="spac-card ${item.code === selectedCode ? 'active' : ''}" data-code="${escapeHtml(item.code)}" role="button" tabindex="0">
         <div class="spac-card-top">
-          <div>
-            <div class="spac-name">${escapeHtml(item.name)}</div>
-            <div class="code">${escapeHtml(item.code)} · ${escapeHtml(item.sponsor || '주관사 미확인')}</div>
+          <div class="spac-card-id">
+            ${watchButtonHtml(item)}
+            <div class="spac-card-id-text">
+              <div class="spac-name">${escapeHtml(item.name)}</div>
+              <div class="code">${escapeHtml(item.code)} · ${escapeHtml(item.sponsor || '주관사 미확인')}</div>
+            </div>
           </div>
           <div>
             <div class="price">${money(item.currentPrice)}</div>
@@ -504,7 +584,7 @@
         <div class="badge-row">
           ${(item.badges || []).slice(0, 3).map(label => `<span class="badge ${badgeClass(label)}">${escapeHtml(label)}</span>`).join('')}
         </div>
-      </button>
+      </div>
     `).join('');
   }
 
@@ -513,6 +593,7 @@
   function renderSelected() {
     const item = selectedSpac();
     renderSimulation();
+    renderDisclosures(item);
     if (!item) {
       document.getElementById('selectedName').textContent = '-';
       return;
@@ -604,6 +685,52 @@
     `).join('');
   }
 
+  /* ---------- 공시 원문 링크 ---------- */
+
+  /* mergerDisclosures(+있다면 dissolutionDisclosure)를 날짜 내림차순 최대 8건 표시.
+     0건이면 섹션 자체를 숨긴다(빈 박스 금지). 두 필드 모두 부재해도 안전해야 한다. */
+  function renderDisclosures(item) {
+    const block = document.getElementById('disclosureBlock');
+    const list = document.getElementById('disclosureList');
+    const hint = document.getElementById('disclosureHint');
+    if (!block || !list) return;
+    const rows = [];
+    if (item) {
+      (Array.isArray(item.mergerDisclosures) ? item.mergerDisclosures : []).forEach(entry => {
+        if (entry && typeof entry === 'object') rows.push(entry);
+      });
+      const dissolution = item.dissolutionDisclosure;
+      if (dissolution && typeof dissolution === 'object') rows.push(dissolution);
+    }
+    rows.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    const top = rows.slice(0, 8);
+    if (!top.length) {
+      block.hidden = true;
+      list.innerHTML = '';
+      if (hint) hint.textContent = '';
+      return;
+    }
+    if (hint) {
+      hint.textContent = rows.length > top.length ? `${rows.length}건 중 최신 ${top.length}건` : `${rows.length}건`;
+    }
+    list.innerHTML = top.map(entry => {
+      const titleText = escapeHtml(entry.title || '제목 미확인');
+      const titleHtml = entry.url
+        ? `<a href="${escapeHtml(entry.url)}" target="_blank" rel="noopener">${titleText}</a>`
+        : titleText;
+      return `
+        <div class="disclosure-item">
+          <div class="disclosure-date">${dateText(entry.date)}</div>
+          <div class="disclosure-main">
+            <div class="disclosure-title">${titleHtml}</div>
+            ${entry.source ? `<div class="disclosure-source">${escapeHtml(entry.source)}</div>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+    block.hidden = false;
+  }
+
   function renderTimeline(item) {
     const events = (item.events || []).slice().sort((a, b) => String(a.date).localeCompare(String(b.date)));
     document.getElementById('timelineHint').textContent = `${events.length}건`;
@@ -629,7 +756,9 @@
       ['DART 공시검색', item.disclosureUrl],
       ['KIND 상장법인목록', data.sourceLinks && data.sourceLinks.kindCorpList],
       ['KOFR', data.sourceLinks && data.sourceLinks.kofr],
-      ['OpenDART API', data.sourceLinks && data.sourceLinks.openDartGuide]
+      ['OpenDART API', data.sourceLinks && data.sourceLinks.openDartGuide],
+      /* 파이프라인이 생성하는 RSS(없어도 클릭 시 브라우저 기본 동작이라 무해) — 항상 표시 */
+      ['알림 RSS', 'alerts.xml']
     ].filter(link => link[1]);
     document.getElementById('sourceLinks').innerHTML = links.map(([label, url]) => `
       <a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">
@@ -729,8 +858,13 @@
       return `
       <tr data-code="${escapeHtml(item.code)}" class="${item.code === selectedCode ? 'active' : ''}">
         <td>
-          <strong>${escapeHtml(item.name)}</strong>
-          <div class="code">${escapeHtml(item.code)}</div>
+          <div class="table-name-cell">
+            ${watchButtonHtml(item)}
+            <div>
+              <strong>${escapeHtml(item.name)}</strong>
+              <div class="code">${escapeHtml(item.code)}</div>
+            </div>
+          </div>
         </td>
         <td class="numeric">${money(item.currentPrice)}</td>
         <td class="numeric ${Number(item.ratio) < 1 ? 'good' : ''}">${ratio(item.ratio)}</td>
@@ -937,14 +1071,30 @@
       selectSpac(selectedCode, { preferVisible: true });
     });
 
-    /* 리스트/테이블 행 클릭: 컨테이너 1회 위임 */
+    /* 리스트/테이블 행 클릭: 컨테이너 1회 위임. 별표(워치) 버튼이 행 선택보다 우선. */
     ['spacList', 'tableBody', 'mergerCaseBody'].forEach(id => {
       const container = document.getElementById(id);
       container.addEventListener('click', event => {
+        const watchButton = event.target.closest('[data-watch]');
+        if (watchButton && container.contains(watchButton)) {
+          event.stopPropagation();
+          toggleWatch(watchButton.dataset.watch);
+          return;
+        }
         const row = event.target.closest('[data-code]');
         if (!row || !container.contains(row) || !row.dataset.code) return;
         selectSpac(row.dataset.code);
       });
+    });
+
+    /* 카드가 button이 아닌 role="button"이므로 키보드 선택을 직접 처리(별표 버튼은 제외). */
+    document.getElementById('spacList').addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') return;
+      if (event.target.closest('[data-watch]')) return;
+      const row = event.target.closest('[data-code]');
+      if (!row || !row.dataset.code) return;
+      event.preventDefault();
+      selectSpac(row.dataset.code);
     });
 
     document.querySelectorAll('.period-btn').forEach(button => {
