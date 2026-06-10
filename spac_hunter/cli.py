@@ -12,10 +12,11 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 
-from . import alerts
+from . import alerts, archive
 from .constants import (
     ALERTS_JSON_PATH,
     ALERTS_XML_PATH,
+    ARCHIVE_JSON_PATH,
     CURRENT_JSON_PATH,
     DATA_JS_PATH,
     DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE,
@@ -26,6 +27,7 @@ from .domain.enrich import enrich_spac
 from .domain.merger import classify_merger_disclosures
 from .output import (
     existing_kind_companies,
+    load_existing_last_updated,
     load_existing_spacs,
     load_overrides,
     write_outputs,
@@ -206,6 +208,9 @@ def _run_live(args) -> None:
 
         overrides = load_overrides()
         existing_spacs = load_existing_spacs()
+        # Captured before write_outputs rewrites data.js: archived SPACs carry
+        # the previous payload's lastUpdated as their lastSeen timestamp.
+        existing_last_updated = load_existing_last_updated()
         krx_spacs = fetch_krx_spac_universe(existing_spacs)
         if args.limit > 0:
             krx_spacs = krx_spacs[: args.limit]
@@ -296,6 +301,18 @@ def _run_live(args) -> None:
         logger.error("live collection failed, nothing written: %s", exc)
         sys.exit(1)
 
+    # The archive merge is computed up front so the statistics written into
+    # data.js already include the delisted SPACs, but archive.json itself is
+    # only written after the write guard accepted the new dataset.
+    previous_archive = archive.load_archive()
+    archive_spacs, newly_archived = archive.build_archive_updates(
+        existing_spacs,
+        existing_last_updated,
+        {spac["code"] for spac in spacs},
+        previous_archive,
+        generated_at,
+    )
+
     write_outputs(
         generated_at,
         spacs,
@@ -305,13 +322,23 @@ def _run_live(args) -> None:
         trust_rate_source=trust_rate_source,
         collection=collection,
         force=args.force,
+        archive=archive_spacs,
     )
     logger.info("written %s, %s: %d SPACs", DATA_JS_PATH.name, CURRENT_JSON_PATH.name, len(spacs))
+
+    if newly_archived or len(archive_spacs) != len(previous_archive):
+        archive.write_archive(archive_spacs, generated_at)
+        logger.info(
+            "written %s: %d archived SPACs (%d newly archived)",
+            ARCHIVE_JSON_PATH.name,
+            len(archive_spacs),
+            len(newly_archived),
+        )
 
     # Alerts run only after the write guard accepted the new dataset
     # (a guard rejection exits above, so nothing alert-related is produced).
     fresh_alerts = alerts.write_alert_outputs(
-        alerts.build_alerts(existing_spacs, spacs, generated_at),
+        alerts.build_alerts(existing_spacs, spacs, generated_at, newly_archived=newly_archived),
         generated_at,
     )
     logger.info(

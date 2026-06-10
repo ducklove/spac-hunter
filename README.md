@@ -31,7 +31,7 @@ python validate_data.py
 fetch_data.py            # 수집 CLI 진입점
 validate_data.py         # data.js 구조 검증 (표준 라이브러리만 사용)
 spac_hunter/             # 수집 파이프라인 패키지
-  cli.py http.py constants.py parsing.py alerts.py
+  cli.py http.py constants.py parsing.py alerts.py archive.py
   sources/               # krx, kind, dart, opendart, naver, kofr
   domain/                # merger, valuation, enrich
   stats.py sample.py output.py
@@ -44,6 +44,7 @@ requirements-dev.txt     # ruff, pytest
 .github/workflows/       # pages.yml (데이터 갱신+배포), quality.yml (lint+test)
 data.js / current.json   # 생성 산출물 (CI가 매일 갱신)
 alerts.json / alerts.xml # 알림 누적 기록과 RSS 피드 (라이브 갱신 시 생성)
+archive.json             # 상폐(유니버스 이탈) 스팩 아카이브 (라이브 갱신 시 생성)
 overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에도 적용)
 ```
 
@@ -65,6 +66,7 @@ pytest -q
 - 네이버 증권: 현재가와 최근 일별 시세
 - 합병 공시가 있는 종목은 더 긴 일별 시세를 가져와 공시 직전가, 다음 거래일, 최신가, 이후 고점·저점 수익률을 계산
 - 시장 통계: 공모가 미만 종목수 추이, 신규등록 월별 추이, 합병 신청/확정/철회 추이, 표본 기준 합병 성사 확률과 성사 기간, 스폰서(증권사)별 통계
+- 상폐 아카이브: 유니버스에서 사라진 스팩(합병 신상장·상폐)을 `archive.json`에 마지막 가격·합병 상태와 함께 기록하고, 합병 성사 통계에 아카이브 표본을 합산해 생존편향을 줄입니다 (아카이브 도입 이전에 상폐된 과거 사례는 미포함)
 
 `data.js`에는 schemaVersion 2 형식으로 수집 요약(collection)이 함께 기록되어, 대시보드가 수집 상태와 데이터 신선도를 표시하는 데 사용합니다.
 
@@ -79,6 +81,7 @@ pytest -q
 - 합병 신청 / 확정 / 철회 공시 발생, 해산사유 발생
 - 공모가 이하 진입 / 회복 (현재가/공모가 1.00x 교차)
 - 청산 6개월 이내 진입, 신규 상장
+- 유니버스 제외(상폐 추정) — 아카이브 등록과 동시에 알림
 
 감지된 알림은 `alerts.json`(최신순 누적, 최대 500건)과 `alerts.xml`(RSS 2.0, 최신 50건)로 기록되어 GitHub Pages에서 RSS 리더로 구독할 수 있습니다. 저장소 secrets에 `TELEGRAM_BOT_TOKEN`과 `TELEGRAM_CHAT_ID`를 등록하면 새 알림 요약이 Telegram으로도 발송됩니다(미설정 시 건너뜀, 발송 실패는 파이프라인을 중단시키지 않음).
 
@@ -120,6 +123,8 @@ python fetch_data.py --trust-rate 0.025 --history-pages 3
 
 - 필터 / 정렬 / 검색
 - 워치리스트: 별표(☆)로 관심 종목 등록(localStorage), `관심` 필터와 평균 비율·연환산 요약
+- 다가오는 일정: 청산기한 12개월 월별 그룹, 최근 합병 이벤트, 최근 상장
+- 상폐·아카이브 패널: 누적 아카이브와 최근 이탈 종목 (아카이브 데이터가 있을 때 표시)
 - 다크 테마
 - iframe 임베드: `?embed`, `?theme`
 - 딥링크: `?code`, `?filter`, `?sort`

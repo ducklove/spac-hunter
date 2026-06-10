@@ -11,6 +11,7 @@ CURRENT_JSON_PATH = ROOT / "current.json"
 OVERRIDES_PATH = ROOT / "overrides.json"
 ALERTS_JSON_PATH = ROOT / "alerts.json"
 ALERTS_XML_PATH = ROOT / "alerts.xml"
+ARCHIVE_JSON_PATH = ROOT / "archive.json"
 CACHE_DIR = ROOT / ".cache"
 OPENDART_CORPCODE_CACHE_PATH = CACHE_DIR / "opendart_corpcode.zip"
 

@@ -185,6 +185,67 @@ class TestBuildAlerts:
         ]
 
 
+class TestDelistedAlerts:
+    def archived_entry(self, **kwargs):
+        entry = {
+            "code": "999999",
+            "name": "사라진스팩",
+            "delistReasonGuess": "합병 신상장 추정",
+            "finalRatio": 1.235,
+        }
+        entry.update(kwargs)
+        return entry
+
+    def test_newly_archived_entry_produces_delisted_alert(self):
+        result = alerts.build_alerts({}, [], GENERATED_AT, newly_archived=[self.archived_entry()])
+
+        assert len(result) == 1
+        alert = result[0]
+        assert alert["id"] == "2026-06-10|delisted|999999"
+        assert alert["type"] == "delisted"
+        assert alert["date"] == "2026-06-10"
+        assert alert["code"] == "999999"
+        assert alert["name"] == "사라진스팩"
+        assert alert["title"] == "사라진스팩 유니버스 제외(상폐 추정)"
+        assert alert["detail"] == "합병 신상장 추정, 마지막 공모가 대비 1.2350배"
+        assert "url" not in alert
+
+    def test_detail_without_final_ratio_or_reason(self):
+        entry = self.archived_entry(delistReasonGuess="사유 미확인", finalRatio=None)
+        result = alerts.build_alerts({}, [], GENERATED_AT, newly_archived=[entry])
+        assert result[0]["detail"] == "사유 미확인"
+
+        result = alerts.build_alerts(
+            {}, [], GENERATED_AT, newly_archived=[self.archived_entry(delistReasonGuess=None)]
+        )
+        assert result[0]["detail"] == "사유 미확인, 마지막 공모가 대비 1.2350배"
+
+    def test_entries_without_code_are_skipped(self):
+        assert alerts.build_alerts({}, [], GENERATED_AT, newly_archived=[{"name": "코드없음"}]) == []
+
+    def test_default_signature_produces_no_delisted_alerts(self, spac_factory):
+        prev = {"000001": spac_factory(code="000001")}
+        new = [spac_factory(code="000001")]
+        # Backward-compatible: omitted, None, and [] all behave identically.
+        assert alerts.build_alerts(prev, new, GENERATED_AT) == []
+        assert alerts.build_alerts(prev, new, GENERATED_AT, newly_archived=None) == []
+        assert alerts.build_alerts(prev, new, GENERATED_AT, newly_archived=[]) == []
+
+    def test_delisted_sorts_with_other_alert_types(self, spac_factory):
+        prev = {"000005": spac_factory(code="000005", price=2000)}
+        new = [spac_factory(code="000005", price=1900)]  # below_ipo_enter @ generated date
+
+        result = alerts.build_alerts(
+            prev, new, GENERATED_AT, newly_archived=[self.archived_entry(code="000009")]
+        )
+
+        # Same date: stable type ordering ("below_ipo_enter" < "delisted").
+        assert [(alert["type"], alert["code"]) for alert in result] == [
+            ("below_ipo_enter", "000005"),
+            ("delisted", "000009"),
+        ]
+
+
 class TestWriteAlertOutputs:
     def test_writes_json_and_parseable_escaped_rss(self, tmp_path):
         new = [

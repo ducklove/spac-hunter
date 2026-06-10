@@ -180,6 +180,30 @@ def _new_listing_alert(spac, name, generated_date):
     )
 
 
+def _delisted_alerts(newly_archived, generated_date):
+    """One "delisted" alert per SPAC newly written to archive.json (no url)."""
+    alerts = []
+    for entry in newly_archived or []:
+        code = entry.get("code")
+        if not code:
+            continue
+        name = entry.get("name") or code
+        detail = entry.get("delistReasonGuess") or "사유 미확인"
+        if entry.get("finalRatio") is not None:
+            detail += f", 마지막 공모가 대비 {entry['finalRatio']:.4f}배"
+        alerts.append(
+            _make_alert(
+                generated_date,
+                "delisted",
+                code,
+                name,
+                f"{name} 유니버스 제외(상폐 추정)",
+                detail=detail,
+            )
+        )
+    return alerts
+
+
 def _sort_alerts(alerts):
     """Newest date first; same-date alerts are stably ordered by type, then code."""
     alerts.sort(key=lambda alert: (str(alert.get("type") or ""), str(alert.get("code") or "")))
@@ -187,11 +211,15 @@ def _sort_alerts(alerts):
     return alerts
 
 
-def build_alerts(previous_spacs, new_spacs, generated_at):
-    """Compare the previous data.js spacs (code -> spac) with the new list."""
+def build_alerts(previous_spacs, new_spacs, generated_at, newly_archived=None):
+    """Compare the previous data.js spacs (code -> spac) with the new list.
+
+    ``newly_archived`` carries this run's archive.py additions (universe
+    departures) and emits one "delisted" alert each.
+    """
     previous_spacs = previous_spacs or {}
     generated_date = _generated_date_text(generated_at)
-    alerts = []
+    alerts = _delisted_alerts(newly_archived, generated_date)
     for spac in new_spacs or []:
         code = spac.get("code")
         if not code:

@@ -212,10 +212,16 @@ def build_merger_episodes(spacs):
     return episodes
 
 
-def build_sponsor_stats(spacs, episodes, limit=20):
-    """Aggregate merger episodes by SPAC sponsor (None -> "미확인")."""
+def build_sponsor_stats(spacs, episodes, limit=20, archived_spacs=None):
+    """Aggregate merger episodes by SPAC sponsor (None -> "미확인").
+
+    ``archived_spacs`` only extends the code->sponsor mapping so archived
+    episodes land in the right group; ``spacCount`` stays "active SPACs only".
+    """
     spac_counts = {}
     sponsor_by_code = {}
+    for spac in archived_spacs or []:
+        sponsor_by_code[spac.get("code")] = spac.get("sponsor") or "미확인"
     for spac in spacs:
         sponsor = spac.get("sponsor") or "미확인"
         sponsor_by_code[spac.get("code")] = sponsor
@@ -252,13 +258,39 @@ def build_sponsor_stats(spacs, episodes, limit=20):
     return stats[:limit]
 
 
-def build_statistics(spacs, generated_at):
+def build_archive_overview(archive, limit=12):
+    """Compact archive.json summary for statistics.archive (count + recent entries)."""
+    archive = list(archive or [])
+    archive.sort(key=lambda entry: str(entry.get("archivedAt") or ""), reverse=True)
+    return {
+        "count": len(archive),
+        "recent": [
+            {
+                "code": entry.get("code"),
+                "name": entry.get("name"),
+                "sponsor": entry.get("sponsor"),
+                "mergerStatus": entry.get("mergerStatus"),
+                "lastSeen": entry.get("lastSeen"),
+                "finalRatio": entry.get("finalRatio"),
+                "delistReasonGuess": entry.get("delistReasonGuess"),
+            }
+            for entry in archive[:limit]
+        ],
+    }
+
+
+def build_statistics(spacs, generated_at, archive=None):
+    archive = list(archive or [])
     active = [spac for spac in spacs if spac.get("currentPrice")]
     below_trend = build_below_ipo_trend(active)
     listing_trend = build_listing_trend(active, generated_at)
     merger_trend = build_merger_trend(active, generated_at)
     merger_cases = build_merger_cases(active, limit=500)
-    episodes = build_merger_episodes(active)
+    # Archived SPACs feed the funnel through their preserved mergerPriceRecords,
+    # with the exact same episode logic. Deliberately conservative: an episode
+    # whose last signal is "applied" stays pending even when delistReasonGuess
+    # says "합병 신상장 추정" — never promoted to success.
+    episodes = build_merger_episodes(active) + build_merger_episodes(archive)
     successes = [episode for episode in episodes if episode.get("status") == "success"]
     failures = [episode for episode in episodes if episode.get("status") == "failed"]
     pending = [episode for episode in episodes if episode.get("status") == "pending"]
@@ -281,8 +313,8 @@ def build_statistics(spacs, generated_at):
 
     return {
         "note": (
-            "현재 상장 스팩과 수집된 KIND/DART 합병 공시 이벤트 기준입니다. "
-            "상폐 후 사명이 바뀐 과거 전체 성공 사례는 별도 아카이브 확장이 필요합니다."
+            "현재 상장 스팩과 archive.json에 기록된 상폐 스팩의 합병 공시 이벤트 기준입니다. "
+            "아카이브 도입 이전에 상폐된 과거 사례는 포함되지 않습니다."
         ),
         "belowIpoTrend": below_trend,
         "listingTrend": listing_trend,
@@ -294,6 +326,7 @@ def build_statistics(spacs, generated_at):
         },
         "mergerFunnel": {
             "episodeCount": len(episodes),
+            "archivedSpacCount": len(archive),
             "successCount": len(successes),
             "failureCount": len(failures),
             "pendingCount": len(pending),
@@ -305,6 +338,7 @@ def build_statistics(spacs, generated_at):
             ),
             "avgDaysToCancel": mean([episode.get("daysToCancel") for episode in failures]),
         },
+        "archive": build_archive_overview(archive),
         "mergerPriceStats": {
             "applicationAvgPrice": avg_price(applications),
             "confirmationAvgPrice": avg_price(confirmations),
@@ -316,5 +350,5 @@ def build_statistics(spacs, generated_at):
             "confirmationAvgHighReturnPct": avg_return(confirmations, "highReturnPct"),
             "cancellationAvgLowReturnPct": avg_return(cancellations, "lowReturnPct"),
         },
-        "sponsorStats": build_sponsor_stats(active, episodes),
+        "sponsorStats": build_sponsor_stats(active, episodes, archived_spacs=archive),
     }

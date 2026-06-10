@@ -38,7 +38,8 @@ def load_overrides(path=None):
         return json.load(handle)
 
 
-def load_existing_spacs(path=None):
+def load_existing_payload(path=None):
+    """Parse the previous data.js payload ({} when missing or unparseable)."""
     path = Path(path) if path else DATA_JS_PATH
     if not path.exists():
         return {}
@@ -52,7 +53,17 @@ def load_existing_spacs(path=None):
         payload = json.loads(text)
     except json.JSONDecodeError:
         return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def load_existing_spacs(path=None):
+    payload = load_existing_payload(path)
     return {spac.get("code"): spac for spac in payload.get("spacs", []) if spac.get("code")}
+
+
+def load_existing_last_updated(path=None):
+    """The previous payload's human-readable lastUpdated string (None when absent)."""
+    return load_existing_payload(path).get("lastUpdated") or None
 
 
 def existing_kind_companies(existing_spacs):
@@ -131,6 +142,7 @@ def write_outputs(
     force=False,
     data_js_path=None,
     current_json_path=None,
+    archive=None,
 ):
     data_js_path = Path(data_js_path) if data_js_path else DATA_JS_PATH
     current_json_path = Path(current_json_path) if current_json_path else CURRENT_JSON_PATH
@@ -177,7 +189,7 @@ def write_outputs(
             "kofr": rate_info,
         },
         "summary": build_summary(spacs, generated_at),
-        "statistics": build_statistics(spacs, generated_at),
+        "statistics": build_statistics(spacs, generated_at, archive=archive),
         "mergerCases": build_merger_cases(spacs),
         "spacs": spacs,
         "errors": errors,
