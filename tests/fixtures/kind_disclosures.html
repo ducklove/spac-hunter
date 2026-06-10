@@ -1,0 +1,30 @@
+<!-- synthetic fixture: mimics the KIND searchdisclosurebycorp.do row structure
+     expected by spac_hunter.sources.kind.fetch_kind_disclosures
+     (rows with >= 4 <td>; cells[1]=date, cells[2]=company, cells[3]=title link
+     whose onclick carries openDisclsViewer('<receiptNo>'), cells[4]=submitter).
+     Not real KIND markup. -->
+<html>
+<body>
+<table>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>2024-03-10 17:30</td>
+      <td>테스트제1호스팩</td>
+      <td><a href="#" title="상장예비심사결과통지(승인)" onclick="openDisclsViewer('20240310000002'); return false;">상장예비심사결과통지(승인)</a></td>
+      <td>코스닥시장본부</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2024-01-05 09:00</td>
+      <td>테스트제1호스팩</td>
+      <td><a href="#" title="회사합병결정" onclick="openDisclsViewer('20240105000001'); return false;">회사합병결정</a></td>
+      <td>테스트제1호스팩</td>
+    </tr>
+    <tr>
+      <td colspan="4">공시 목록 하단 안내 (td 4개 미만 행은 무시)</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

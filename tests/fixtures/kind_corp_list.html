@@ -1,0 +1,41 @@
+<!-- synthetic fixture: mimics the KIND corpList.do response table structure
+     expected by spac_hunter.sources.kind.fetch_kind_listed_companies
+     (rows with >= 8 <td> cells; cells[0] holds the short name link and a
+     title attribute with the full corporate name). Not real KIND markup. -->
+<html>
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>회사명</th><th>업종</th><th>주요제품</th><th>상장일</th>
+      <th>결산월</th><th>대표자명</th><th>홈페이지</th><th>지역</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td title="테스트제1호기업인수목적 주식회사"><a href="#" onclick="companysummary_open('000001'); return false;">테스트제1호스팩</a></td>
+      <td>금융 지원 서비스업</td>
+      <td>기업인수합병</td>
+      <td>2024-05-02</td>
+      <td>12월</td>
+      <td>홍길동</td>
+      <td></td>
+      <td>서울특별시</td>
+    </tr>
+    <tr>
+      <td title="가나다스팩2호 주식회사"><a href="#" onclick="companysummary_open('000002'); return false;">가나다스팩2호</a></td>
+      <td>금융 지원 서비스업</td>
+      <td>기업인수합병</td>
+      <td>2023-11-20</td>
+      <td>12월</td>
+      <td>김철수</td>
+      <td>http://example.test</td>
+      <td>부산광역시</td>
+    </tr>
+    <tr>
+      <td colspan="8">조회 결과 안내 행 (td 8개 미만이라 무시되어야 함)</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

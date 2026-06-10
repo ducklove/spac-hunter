@@ -1,0 +1,34 @@
+<!-- synthetic fixture: mimics the DART detailSearch.ax result table structure
+     expected by spac_hunter.sources.dart.fetch_dart_disclosures
+     (tbody rows with >= 5 <td>; cells[1]=company, cells[2]=title link whose
+     onclick carries openReportViewer('<receiptNo>'), cells[3]=submitter,
+     cells[4]=date "YYYY.MM.DD"). Not real DART markup. -->
+<html>
+<body>
+<table>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>테스트제1호기업인수목적</td>
+      <td><a href="#" onclick="openReportViewer('20240310900003'); return false;">[기재정정] 회사합병결정</a></td>
+      <td>테스트제1호기업인수목적</td>
+      <td>2024.03.10</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>테스트제1호기업인수목적</td>
+      <td><a href="#" onclick="openReportViewer('20240201900002'); return false;">주권매매거래정지해제</a></td>
+      <td>코스닥시장본부</td>
+      <td>2024.02.01</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>테스트제1호기업인수목적</td>
+      <td><a href="#" onclick="openReportViewer('20240105900001'); return false;">사업보고서 (2023.12)</a></td>
+      <td>테스트제1호기업인수목적</td>
+      <td>2024.01.05</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
