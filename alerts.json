@@ -1,0 +1,225 @@
+{
+  "generatedAt": "2026-06-11T07:46:48.876662+09:00",
+  "alerts": [
+    {
+      "id": "2026-05-26|merger_applied|477760",
+      "date": "2026-05-26",
+      "type": "merger_applied",
+      "code": "477760",
+      "name": "DB금융스팩12호",
+      "title": "DB금융스팩12호 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,230원, 공모가 대비 1.1150배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375"
+    },
+    {
+      "id": "2026-05-26|merger_canceled|477760",
+      "date": "2026-05-26",
+      "type": "merger_canceled",
+      "code": "477760",
+      "name": "DB금융스팩12호",
+      "title": "DB금융스팩12호 합병 철회 공시",
+      "detail": "주권매매거래정지해제 (합병결정 철회), 공시일 기준가 2,230원, 공모가 대비 1.1150배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900733"
+    },
+    {
+      "id": "2026-05-13|merger_applied|482680",
+      "date": "2026-05-13",
+      "type": "merger_applied",
+      "code": "482680",
+      "name": "미래에셋비전스팩7호",
+      "title": "미래에셋비전스팩7호 합병 신청 공시",
+      "detail": "[첨부정정]주요사항보고서(회사합병결정), 공시일 기준가 2,055원, 공모가 대비 1.0275배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590"
+    },
+    {
+      "id": "2026-05-12|merger_applied|482680",
+      "date": "2026-05-12",
+      "type": "merger_applied",
+      "code": "482680",
+      "name": "미래에셋비전스팩7호",
+      "title": "미래에셋비전스팩7호 합병 신청 공시",
+      "detail": "주권매매거래정지 (SPAC 합병(예비심사청구대상)), 공시일 기준가 2,055원, 공모가 대비 1.0275배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260512900907"
+    },
+    {
+      "id": "2026-05-11|merger_applied|465320",
+      "date": "2026-05-11",
+      "type": "merger_applied",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,335원, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000433"
+    },
+    {
+      "id": "2026-05-11|merger_applied|482520",
+      "date": "2026-05-11",
+      "type": "merger_applied",
+      "code": "482520",
+      "name": "교보16호스팩",
+      "title": "교보16호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,040원, 공모가 대비 1.0200배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351"
+    },
+    {
+      "id": "2026-04-22|merger_applied|482520",
+      "date": "2026-04-22",
+      "type": "merger_applied",
+      "code": "482520",
+      "name": "교보16호스팩",
+      "title": "교보16호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,095원, 공모가 대비 1.0475배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422000676"
+    },
+    {
+      "id": "2026-04-22|merger_canceled|482520",
+      "date": "2026-04-22",
+      "type": "merger_canceled",
+      "code": "482520",
+      "name": "교보16호스팩",
+      "title": "교보16호스팩 합병 철회 공시",
+      "detail": "주권매매거래정지해제 (합병결정 철회), 공시일 기준가 2,095원, 공모가 대비 1.0475배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900663"
+    },
+    {
+      "id": "2026-03-26|merger_applied|465320",
+      "date": "2026-03-26",
+      "type": "merger_applied",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,335원, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326000895"
+    },
+    {
+      "id": "2026-03-17|merger_applied|474660",
+      "date": "2026-03-17",
+      "type": "merger_applied",
+      "code": "474660",
+      "name": "신한제12호스팩",
+      "title": "신한제12호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,100원, 공모가 대비 1.0500배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835"
+    },
+    {
+      "id": "2026-03-17|merger_canceled|474660",
+      "date": "2026-03-17",
+      "type": "merger_canceled",
+      "code": "474660",
+      "name": "신한제12호스팩",
+      "title": "신한제12호스팩 합병 철회 공시",
+      "detail": "주권매매거래정지해제 (합병결정 철회), 공시일 기준가 2,100원, 공모가 대비 1.0500배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901238"
+    },
+    {
+      "id": "2026-02-13|merger_applied|477760",
+      "date": "2026-02-13",
+      "type": "merger_applied",
+      "code": "477760",
+      "name": "DB금융스팩12호",
+      "title": "DB금융스팩12호 합병 신청 공시",
+      "detail": "[첨부정정]주요사항보고서(회사합병결정), 공시일 기준가 2,230원, 공모가 대비 1.1150배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260213001582"
+    },
+    {
+      "id": "2026-02-12|merger_applied|477760",
+      "date": "2026-02-12",
+      "type": "merger_applied",
+      "code": "477760",
+      "name": "DB금융스팩12호",
+      "title": "DB금융스팩12호 합병 신청 공시",
+      "detail": "[첨부정정]주요사항보고서(회사합병결정), 공시일 기준가 2,230원, 공모가 대비 1.1150배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212001736"
+    },
+    {
+      "id": "2026-02-11|merger_applied|465320",
+      "date": "2026-02-11",
+      "type": "merger_applied",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,335원, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000522"
+    },
+    {
+      "id": "2025-11-28|merger_applied|482520",
+      "date": "2025-11-28",
+      "type": "merger_applied",
+      "code": "482520",
+      "name": "교보16호스팩",
+      "title": "교보16호스팩 합병 신청 공시",
+      "detail": "주요사항보고서(회사합병결정), 공시일 기준가 2,095원, 공모가 대비 1.0475배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128001988"
+    },
+    {
+      "id": "2025-11-26|merger_applied|474660",
+      "date": "2025-11-26",
+      "type": "merger_applied",
+      "code": "474660",
+      "name": "신한제12호스팩",
+      "title": "신한제12호스팩 합병 신청 공시",
+      "detail": "주요사항보고서(회사합병결정), 공시일 기준가 2,100원, 공모가 대비 1.0500배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251126000474"
+    },
+    {
+      "id": "2025-10-01|merger_applied|465320",
+      "date": "2025-10-01",
+      "type": "merger_applied",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 신청 공시",
+      "detail": "[첨부정정]주요사항보고서(회사합병결정), 공시일 기준가 2,335원, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251001000577"
+    },
+    {
+      "id": "2025-09-11|merger_applied|465320",
+      "date": "2025-09-11",
+      "type": "merger_applied",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 신청 공시",
+      "detail": "주요사항보고서(회사합병결정), 공시일 기준가 2,335원, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250911000380"
+    },
+    {
+      "id": "2025-07-17|merger_applied|492220",
+      "date": "2025-07-17",
+      "type": "merger_applied",
+      "code": "492220",
+      "name": "KB제31호스팩",
+      "title": "KB제31호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,000원, 공모가 대비 1.0000배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343"
+    },
+    {
+      "id": "2025-07-17|merger_canceled|492220",
+      "date": "2025-07-17",
+      "type": "merger_canceled",
+      "code": "492220",
+      "name": "KB제31호스팩",
+      "title": "KB제31호스팩 합병 철회 공시",
+      "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생, 공시일 기준가 2,000원, 공모가 대비 1.0000배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900481"
+    },
+    {
+      "id": "2025-04-18|merger_applied|492220",
+      "date": "2025-04-18",
+      "type": "merger_applied",
+      "code": "492220",
+      "name": "KB제31호스팩",
+      "title": "KB제31호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,000원, 공모가 대비 1.0000배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250418000255"
+    },
+    {
+      "id": "2025-04-17|merger_applied|492220",
+      "date": "2025-04-17",
+      "type": "merger_applied",
+      "code": "492220",
+      "name": "KB제31호스팩",
+      "title": "KB제31호스팩 합병 신청 공시",
+      "detail": "주권매매거래정지 (SPAC 합병(예비심사청구대상)), 공시일 기준가 2,000원, 공모가 대비 1.0000배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250417900791"
+    }
+  ]
+}
