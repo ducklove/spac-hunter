@@ -653,6 +653,8 @@
     const item = selectedSpac();
     renderSimulation();
     renderDisclosures(item);
+    /* 선택 종목이 없거나 filing이 없으면 기존 블록 제거까지만 수행한다. */
+    renderFilingBlock(item);
     if (!item) {
       document.getElementById('selectedName').textContent = '-';
       return;
@@ -742,6 +744,86 @@
         </div>
       </div>
     `).join('');
+  }
+
+  /* ---------- 공모 정보 (증권신고서 자동 추출) ----------
+     item.filing이 있을 때만 analysis-strip과 금리 시뮬레이션 사이에 블록을 만든다.
+     부재 시 DOM 자체를 만들지 않으며, 값이 null인 필드의 행은 생략한다.
+     parseWarnings는 파이프라인 내부용이라 표시하지 않는다. */
+
+  function filingReportUrl(filing) {
+    if (filing.url) return String(filing.url);
+    if (filing.receiptNo) {
+      return `https://dart.fss.or.kr/dsaf001/main.do?rcpNo=${encodeURIComponent(String(filing.receiptNo))}`;
+    }
+    return '';
+  }
+
+  /* 청약기간: 양쪽이 있으면 "시작 ~ 종료", 한쪽만 있으면 열린 구간으로 표기. 둘 다 없으면 ''. */
+  function filingSubscriptionText(filing) {
+    const start = filing.subscriptionStart ? dateText(filing.subscriptionStart) : '';
+    const end = filing.subscriptionEnd ? dateText(filing.subscriptionEnd) : '';
+    if (start && end) return `${start} ~ ${end}`;
+    if (start) return `${start} ~`;
+    if (end) return `~ ${end}`;
+    return '';
+  }
+
+  function renderFilingBlock(item) {
+    const existing = document.getElementById('filingBlock');
+    if (existing) existing.remove();
+    const strip = document.getElementById('analysisStrip');
+    if (!strip) return;
+    const filing = item && item.filing && typeof item.filing === 'object' && !Array.isArray(item.filing)
+      ? item.filing
+      : null;
+    if (!filing) return;
+
+    /* [라벨, escape를 마친 값 HTML] — 값이 null인 행은 추가하지 않는다. */
+    const rows = [];
+    if (filing.ipoPrice != null && !Number.isNaN(Number(filing.ipoPrice))) {
+      const sourceHtml = item.ipoPriceSource
+        ? `<span class="filing-source">${escapeHtml(item.ipoPriceSource)}</span>`
+        : '';
+      rows.push(['확정공모가', `${escapeHtml(money(filing.ipoPrice))}${sourceHtml}`]);
+    }
+    if (filing.offeringShares != null && !Number.isNaN(Number(filing.offeringShares))) {
+      rows.push(['공모주식수', escapeHtml(`${number(filing.offeringShares)}주`)]);
+    }
+    if (filing.escrowAmount != null && !Number.isNaN(Number(filing.escrowAmount))) {
+      rows.push(['예치금', escapeHtml(money(filing.escrowAmount))]);
+    }
+    if (filing.escrowRatePct != null && !Number.isNaN(Number(filing.escrowRatePct))) {
+      rows.push(['예치이율', escapeHtml(`연 ${Number(filing.escrowRatePct).toFixed(2)}%`)]);
+    }
+    if (filing.escrowAgent) {
+      rows.push(['예치기관', escapeHtml(String(filing.escrowAgent))]);
+    }
+    const subscription = filingSubscriptionText(filing);
+    if (subscription) rows.push(['청약기간', escapeHtml(subscription)]);
+    if (filing.paymentDate) rows.push(['납입일', escapeHtml(dateText(filing.paymentDate))]);
+
+    const reportUrl = filingReportUrl(filing);
+    /* 표시할 행도 원문 링크도 없으면(전 필드 null) 빈 블록을 만들지 않는다. */
+    if (!rows.length && !reportUrl) return;
+
+    const block = document.createElement('div');
+    block.className = 'record-block filing-block';
+    block.id = 'filingBlock';
+    block.innerHTML = `
+      <div class="record-head">
+        <h2 class="panel-title">공모 정보</h2>
+        ${filing.filingDate ? `<div class="panel-sub">${escapeHtml(dateText(filing.filingDate))} 제출</div>` : ''}
+      </div>
+      ${rows.length ? `<dl class="filing-kv">${rows.map(([label, valueHtml]) => `
+        <dt>${escapeHtml(label)}</dt>
+        <dd>${valueHtml}</dd>
+      `).join('')}</dl>` : ''}
+      <div class="filing-caption">증권신고서 자동 추출값${reportUrl
+        ? ` · <a href="${escapeHtml(reportUrl)}" target="_blank" rel="noopener">신고서 원문</a>`
+        : ''}</div>
+    `;
+    strip.insertAdjacentElement('afterend', block);
   }
 
   /* ---------- 공시 원문 링크 ---------- */
@@ -1002,6 +1084,7 @@
   const SCHEDULE_MERGER_DAYS = 45;    /* 최근 합병 이벤트: 최근 45일 */
   const SCHEDULE_LISTING_DAYS = 60;   /* 최근 상장: 최근 60일 */
   const SCHEDULE_ROW_LIMIT = 10;
+  const SCHEDULE_IPO_ROW_LIMIT = 8;   /* 공모 청약(예정): 최대 8행 */
 
   /* 기준 시각: data.generatedAt, 파싱 불가 시 현재 시각. */
   function scheduleBase() {
@@ -1126,6 +1209,86 @@
       escapeHtml(dateText(entry.item.listingDate))
     )).join('');
     setScheduleColumn('scheduleListingList', 'scheduleListingCount', listingHtml, listingTop.length, listingRows.length, '개');
+
+    /* 4) 공모 청약(예정): payload.ipoCalendar 기반 — 엔트리가 없으면 컬럼 자체가 생기지 않는다. */
+    renderIpoCalendarColumn();
+  }
+
+  /* ---------- 공모 청약(예정) 컬럼 (payload.ipoCalendar) ----------
+     상장 전 스팩의 증권신고서 기반 청약 일정. 유니버스(data.spacs) 밖이라 종목 선택이
+     불가능하므로 행에 data-code/role/tabindex를 붙이지 않고 신고서 링크만 동작한다.
+     ipoCalendar 부재/null/0건이면 컬럼 DOM을 만들지 않아 기존 3컬럼 레이아웃이 그대로 유지된다. */
+
+  function ipoCalendarEntries() {
+    const calendar = data.ipoCalendar;
+    if (!calendar || typeof calendar !== 'object' || !Array.isArray(calendar.entries)) return [];
+    return calendar.entries.filter(entry => entry && typeof entry === 'object');
+  }
+
+  /* 청약기간 표기: 시작·종료가 모두 있으면 "MM-DD~MM-DD", 아니면 접수일("신고 YYYY-MM-DD"). */
+  function ipoSubscriptionText(entry) {
+    const start = entry.subscriptionStart ? String(entry.subscriptionStart).slice(5, 10) : '';
+    const end = entry.subscriptionEnd ? String(entry.subscriptionEnd).slice(5, 10) : '';
+    if (start && end) return `${start}~${end}`;
+    if (entry.filingDate) return `신고 ${dateText(entry.filingDate)}`;
+    return '-';
+  }
+
+  function renderIpoCalendarColumn() {
+    const grid = document.getElementById('scheduleGrid');
+    if (!grid) return;
+    const entries = ipoCalendarEntries();
+    let col = document.getElementById('scheduleIpoCol');
+    grid.classList.toggle('has-ipo', entries.length > 0);
+    if (!entries.length) {
+      if (col) col.remove();
+      return;
+    }
+    if (!col) {
+      col = document.createElement('div');
+      col.className = 'schedule-col';
+      col.id = 'scheduleIpoCol';
+      grid.appendChild(col);
+    }
+
+    /* 접수일(없으면 접수번호) 내림차순 = 최신 신고 순으로 최대 8건 */
+    const sorted = entries.slice().sort((a, b) =>
+      String(b.filingDate || '').localeCompare(String(a.filingDate || '')) ||
+      String(b.receiptNo || '').localeCompare(String(a.receiptNo || '')));
+    const top = sorted.slice(0, SCHEDULE_IPO_ROW_LIMIT);
+
+    const countParts = [
+      sorted.length > top.length ? `${sorted.length}건 중 최신 ${top.length}건` : `${sorted.length}건`
+    ];
+    const updatedLabel = data.ipoCalendar.updatedAt ? dateText(data.ipoCalendar.updatedAt) : '-';
+    if (updatedLabel !== '-') countParts.push(`${updatedLabel} 기준`);
+
+    const rowsHtml = top.map(entry => {
+      const linkLabel = escapeHtml(entry.reportName || '증권신고서');
+      const linkHtml = entry.url
+        ? `<a href="${escapeHtml(entry.url)}" target="_blank" rel="noopener">${linkLabel}</a>`
+        : `<span>${linkLabel}</span>`;
+      const priceHtml = entry.ipoPrice != null && !Number.isNaN(Number(entry.ipoPrice))
+        ? `<span>${escapeHtml(money(entry.ipoPrice))}</span>`
+        : '';
+      return `
+        <div class="schedule-row ipo-row">
+          <div class="schedule-row-main">
+            <div class="schedule-row-name">${escapeHtml(entry.corpName || '-')}</div>
+            <div class="schedule-row-sub">${priceHtml}${linkHtml}</div>
+          </div>
+          <div class="schedule-row-value">${escapeHtml(ipoSubscriptionText(entry))}</div>
+        </div>
+      `;
+    }).join('');
+
+    col.innerHTML = `
+      <div class="schedule-col-head">
+        <h3 class="schedule-col-title">공모 청약(예정)</h3>
+        <div class="panel-sub">${escapeHtml(countParts.join(' · '))}</div>
+      </div>
+      <div class="schedule-list">${rowsHtml}</div>
+    `;
   }
 
   /* ---------- CSV 내보내기 ---------- */

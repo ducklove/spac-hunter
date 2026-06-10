@@ -1539,3 +1539,86 @@ td.spark-cell {
     max-height: 320px;
   }
 }
+
+/* ===== 추가 스타일: 공모 청약(예정) 컬럼 / 공모 정보 블록 ===== */
+
+/* ipoCalendar 엔트리가 있을 때만 JS가 has-ipo를 붙인다(4컬럼 자동 배치).
+   엔트리가 없으면 클래스/컬럼이 없으므로 기존 3컬럼 규칙이 그대로 적용된다. */
+.schedule-grid.has-ipo {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* 청약 행은 유니버스 밖(종목 선택 불가) — 신고서 링크 외에는 클릭 대상이 아니다. */
+.schedule-row.ipo-row {
+  cursor: default;
+}
+
+.schedule-row.ipo-row:hover {
+  background: transparent;
+}
+
+.ipo-row .schedule-row-sub a {
+  color: var(--accent);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.ipo-row .schedule-row-sub a:hover,
+.ipo-row .schedule-row-sub a:focus-visible {
+  text-decoration: underline;
+}
+
+.filing-kv {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 9px 14px;
+  align-items: baseline;
+}
+
+.filing-kv dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filing-kv dd {
+  margin: 0;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.filing-source {
+  display: block;
+  margin-top: 2px;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.filing-caption {
+  margin-top: 10px;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.filing-caption a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.filing-caption a:hover,
+.filing-caption a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  /* 4컬럼 모드에서도 모바일은 1열을 유지한다. */
+  .schedule-grid.has-ipo {
+    grid-template-columns: 1fr;
+  }
+}

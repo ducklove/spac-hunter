@@ -31,7 +31,7 @@ python validate_data.py
 fetch_data.py            # 수집 CLI 진입점
 validate_data.py         # data.js 구조 검증 (표준 라이브러리만 사용)
 spac_hunter/             # 수집 파이프라인 패키지
-  cli.py http.py constants.py parsing.py alerts.py archive.py
+  cli.py http.py constants.py parsing.py alerts.py archive.py filings.py
   sources/               # krx, kind, dart, opendart, naver, kofr
   domain/                # merger, valuation, enrich
   stats.py sample.py output.py
@@ -45,6 +45,7 @@ requirements-dev.txt     # ruff, pytest
 data.js / current.json   # 생성 산출물 (CI가 매일 갱신)
 alerts.json / alerts.xml # 알림 누적 기록과 RSS 피드 (라이브 갱신 시 생성)
 archive.json             # 상폐(유니버스 이탈) 스팩 아카이브 (라이브 갱신 시 생성)
+filings.json             # 증권신고서 자동 추출값 캐시 (OpenDART 키 설정 시 점진 축적)
 overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에도 적용)
 ```
 
@@ -74,6 +75,11 @@ pytest -q
 
 [OpenDART](https://opendart.fss.or.kr/)에서 무료 회원가입 후 인증키를 발급받아 환경변수 `OPENDART_API_KEY`로 설정하면(로컬 실행 시 환경변수, CI는 저장소 Settings → Secrets and variables → Actions에 등록) 공시 수집이 화면 스크래핑 대신 공식 API를 최우선으로 사용해 더 안정적으로 동작합니다. 키가 없으면 자동으로 기존 KIND → DART 체인을 사용하므로 동작 차이가 없습니다. 고유번호 매핑(corpCode.xml)은 `.cache/`에 7일간 캐시됩니다.
 
+키가 설정되면 다음 두 기능이 추가로 활성화됩니다.
+
+- **증권신고서 자동 추출**: 종목별 투자설명서/증권신고서 원문에서 확정공모가·공모주식수·예치금·예치이율·예치기관·청약/납입일을 추출해 `filings.json`에 축적합니다. 추출값은 `overrides.json` 다음 순위의 폴백으로 사용됩니다(공모가: overrides > 신고서 > 기본 2,000원 / 예치이율: overrides > 신고서 이율 > KOFR). 실행당 문서 요청 수는 `--filing-doc-limit`(기본 10)로 제한되어 매일 조금씩 채워지며, 특정 종목을 다시 추출하려면 `filings.json`에서 해당 엔트리를 삭제하면 됩니다. 추출은 best-effort라 값 범위 검증을 통과한 필드만 사용됩니다.
+- **청약 캘린더**: 최근 30일 발행공시에서 상장 전 스팩의 증권신고서를 찾아 `data.js`의 `ipoCalendar`로 제공하고, 대시보드 "다가오는 일정"에 공모 청약 컬럼으로 표시합니다.
+
 ## 알림
 
 라이브 갱신(`--sample` 아님)이 성공하면 직전 `data.js`와 비교해 다음 이벤트를 감지합니다.
@@ -95,7 +101,7 @@ pytest -q
 연환산 기대수익률 = (추정 청산분배금 / 현재가)^(365 / 잔여일수) - 1
 ```
 
-공모가는 기본 2,000원입니다. 청산일은 `overrides.json`에 값이 없으면 KIND 상장일 + 36개월로 추정합니다. 일반 운영비, 상장비, 합병 추진비는 기본 계산에서 공모예치금 차감 항목으로 보지 않습니다. 실제 예치기관 수익률, 세금, 확정 분배금은 공시 확인 후 `overrides.json`으로 보정합니다. 별도 공시나 수동 입력이 없으면 예상 예치이자는 KOFR 최신 공시금리를 fallback 금리로 사용합니다.
+공모가는 `overrides.json` > 증권신고서 추출값(OpenDART 키 설정 시) > 기본 2,000원 순서로 결정됩니다. 청산일은 `overrides.json`에 값이 없으면 KIND 상장일 + 36개월로 추정합니다. 일반 운영비, 상장비, 합병 추진비는 기본 계산에서 공모예치금 차감 항목으로 보지 않습니다. 실제 예치기관 수익률, 세금, 확정 분배금은 공시 확인 후 `overrides.json`으로 보정합니다. 별도 공시나 수동 입력이 없으면 예상 예치이자는 KOFR 최신 공시금리를 fallback 금리로 사용합니다.
 
 수동 금리를 쓰려면 다음처럼 실행합니다.
 
@@ -123,7 +129,8 @@ python fetch_data.py --trust-rate 0.025 --history-pages 3
 
 - 필터 / 정렬 / 검색
 - 워치리스트: 별표(☆)로 관심 종목 등록(localStorage), `관심` 필터와 평균 비율·연환산 요약
-- 다가오는 일정: 청산기한 12개월 월별 그룹, 최근 합병 이벤트, 최근 상장
+- 다가오는 일정: 청산기한 12개월 월별 그룹, 최근 합병 이벤트, 최근 상장, 공모 청약 예정(OpenDART 키 설정 시)
+- 공모 정보 블록: 증권신고서 추출값(공모가·예치금·예치이율 등)을 종목 상세에 표시
 - 상폐·아카이브 패널: 누적 아카이브와 최근 이탈 종목 (아카이브 데이터가 있을 때 표시)
 - 다크 테마
 - iframe 임베드: `?embed`, `?theme`
