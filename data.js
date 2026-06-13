@@ -1,8 +1,8 @@
 window.SPAC_DATA = {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-06-12 21:29:19 KST",
-  "generatedAt": "2026-06-12T21:29:19.952774+09:00",
+  "lastUpdated": "2026-06-13 20:24:13 KST",
+  "generatedAt": "2026-06-13T20:24:13.393014+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -43,7 +43,7 @@ window.SPAC_DATA = {
     "mergerEventCount": 38,
     "recentListingCount": 6,
     "averageRatio": 1.0226,
-    "averageAnnualizedReturn": 3.72,
+    "averageAnnualizedReturn": 3.85,
     "cheapest": {
       "code": "0134X0",
       "name": "대신밸런스제20호스팩",
@@ -51,10 +51,10 @@ window.SPAC_DATA = {
       "currentPrice": 1975
     },
     "bestYield": {
-      "code": "482520",
-      "name": "교보16호스팩",
-      "annualizedReturn": 7.98,
-      "currentPrice": 2030
+      "code": "472220",
+      "name": "신영스팩10호",
+      "annualizedReturn": 9.12,
+      "currentPrice": 2095
     }
   },
   "statistics": {
@@ -2679,12 +2679,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-06-05",
       "liquidationDate": "2029-06-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1089,
+      "daysToLiquidation": 1088,
       "trustValuePerShare": 2125.66,
       "liquidationValuePerShare": 2125.66,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
       "expectedReturn": 7.63,
-      "annualizedReturn": 2.49,
+      "annualizedReturn": 2.5,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -2815,7 +2815,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-23",
       "liquidationDate": "2029-04-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1046,
+      "daysToLiquidation": 1045,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -3094,7 +3094,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-30",
       "liquidationDate": "2029-04-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1053,
+      "daysToLiquidation": 1052,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -3343,12 +3343,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-01",
       "liquidationDate": "2029-04-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1024,
+      "daysToLiquidation": 1023,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 8.63,
-      "annualizedReturn": 2.99,
+      "annualizedReturn": 3.0,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3718,12 +3718,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-28",
       "liquidationDate": "2028-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 900,
-      "trustValuePerShare": 2157.4,
-      "liquidationValuePerShare": 2157.4,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 8.25,
-      "annualizedReturn": 3.27,
+      "daysToLiquidation": 899,
+      "trustValuePerShare": 2125.66,
+      "liquidationValuePerShare": 2125.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
+      "expectedReturn": 6.66,
+      "annualizedReturn": 2.65,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -4557,7 +4557,26 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩12호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0096B0"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0096B0",
+      "filing": {
+        "receiptNo": "20251117000034",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2025-11-17",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251117000034",
+        "ipoPrice": 2000,
+        "offeringShares": 6000000,
+        "escrowAmount": null,
+        "escrowRatePct": 2.05,
+        "escrowAgent": "또는",
+        "subscriptionStart": "2025-11-19",
+        "subscriptionEnd": "2025-11-20",
+        "paymentDate": "2025-11-19",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": [
+          "escrowAmount: 패턴 미발견"
+        ]
+      },
+      "ipoPriceSource": "증권신고서(20251117000034)"
     },
     {
       "id": "0096D0",
@@ -4579,12 +4598,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-01",
       "liquidationDate": "2028-12-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 903,
+      "daysToLiquidation": 902,
       "trustValuePerShare": 2138.19,
       "liquidationValuePerShare": 2138.19,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
       "expectedReturn": 7.23,
-      "annualizedReturn": 2.86,
+      "annualizedReturn": 2.87,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -5451,7 +5470,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 841,
+      "daysToLiquidation": 840,
       "trustValuePerShare": 2127.53,
       "liquidationValuePerShare": 2127.53,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.08%)",
@@ -6445,12 +6464,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 771,
+      "daysToLiquidation": 770,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 8.14,
-      "annualizedReturn": 3.77,
+      "annualizedReturn": 3.78,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -7420,7 +7439,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 924,
+      "daysToLiquidation": 923,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -8185,7 +8204,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-02",
       "liquidationDate": "2029-04-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1025,
+      "daysToLiquidation": 1024,
       "trustValuePerShare": 2179.9,
       "liquidationValuePerShare": 2179.9,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.91%)",
@@ -8571,7 +8590,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-23",
       "liquidationDate": "2028-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 925,
+      "daysToLiquidation": 924,
       "trustValuePerShare": 2138.19,
       "liquidationValuePerShare": 2138.19,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
@@ -9347,12 +9366,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 924,
+      "daysToLiquidation": 923,
       "trustValuePerShare": 2138.19,
       "liquidationValuePerShare": 2138.19,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
       "expectedReturn": 7.02,
-      "annualizedReturn": 2.71,
+      "annualizedReturn": 2.72,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -10129,7 +10148,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-11",
       "liquidationDate": "2028-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 913,
+      "daysToLiquidation": 912,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -10936,7 +10955,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-05-29",
       "liquidationDate": "2028-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 717,
+      "daysToLiquidation": 716,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -11911,7 +11930,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-27",
       "liquidationDate": "2028-11-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 899,
+      "daysToLiquidation": 898,
       "trustValuePerShare": 2138.19,
       "liquidationValuePerShare": 2138.19,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
@@ -12795,12 +12814,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-21",
       "liquidationDate": "2028-08-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 801,
-      "trustValuePerShare": 2157.4,
-      "liquidationValuePerShare": 2157.4,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 7.87,
-      "annualizedReturn": 3.51,
+      "daysToLiquidation": 800,
+      "trustValuePerShare": 2152.03,
+      "liquidationValuePerShare": 2152.03,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.47%)",
+      "expectedReturn": 7.6,
+      "annualizedReturn": 3.4,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -13748,7 +13767,27 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩10호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0044K0"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0044K0",
+      "filing": {
+        "receiptNo": "20250807000053",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2025-08-07",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250807000053",
+        "ipoPrice": 2000,
+        "offeringShares": 7000000,
+        "escrowAmount": null,
+        "escrowRatePct": 2.47,
+        "escrowAgent": null,
+        "subscriptionStart": "2025-08-11",
+        "subscriptionEnd": "2025-08-12",
+        "paymentDate": "2025-08-11",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": [
+          "escrowAmount: 패턴 미발견",
+          "escrowAgent: 패턴 미발견"
+        ]
+      },
+      "ipoPriceSource": "증권신고서(20250807000053)"
     },
     {
       "id": "0115H0",
@@ -13770,12 +13809,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-01-21",
       "liquidationDate": "2029-01-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 954,
-      "trustValuePerShare": 2157.4,
-      "liquidationValuePerShare": 2157.4,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 7.87,
-      "annualizedReturn": 2.94,
+      "daysToLiquidation": 953,
+      "trustValuePerShare": 2125.66,
+      "liquidationValuePerShare": 2125.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
+      "expectedReturn": 6.28,
+      "annualizedReturn": 2.36,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -14399,7 +14438,26 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩13호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0115H0"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0115H0",
+      "filing": {
+        "receiptNo": "20260109000087",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2026-01-09",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260109000087",
+        "ipoPrice": 2000,
+        "offeringShares": 6000000,
+        "escrowAmount": null,
+        "escrowRatePct": 2.05,
+        "escrowAgent": "또는",
+        "subscriptionStart": "2026-01-12",
+        "subscriptionEnd": "2026-01-13",
+        "paymentDate": "2026-01-12",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": [
+          "escrowAmount: 패턴 미발견"
+        ]
+      },
+      "ipoPriceSource": "증권신고서(20260109000087)"
     },
     {
       "id": "0130H0",
@@ -14421,7 +14479,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-03-27",
       "liquidationDate": "2029-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1019,
+      "daysToLiquidation": 1018,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -14814,7 +14872,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 914,
+      "daysToLiquidation": 913,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
@@ -15615,7 +15673,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-04",
       "liquidationDate": "2028-07-04",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 753,
+      "daysToLiquidation": 752,
       "trustValuePerShare": 2217.64,
       "liquidationValuePerShare": 2217.64,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
@@ -16607,7 +16665,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 771,
+      "daysToLiquidation": 770,
       "trustValuePerShare": 2185.63,
       "liquidationValuePerShare": 2185.63,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
@@ -17599,7 +17657,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-21",
       "liquidationDate": "2028-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 893,
+      "daysToLiquidation": 892,
       "trustValuePerShare": 2122.53,
       "liquidationValuePerShare": 2122.53,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.00%)",
@@ -18507,12 +18565,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 841,
-      "trustValuePerShare": 2157.4,
-      "liquidationValuePerShare": 2157.4,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 7.6,
-      "annualizedReturn": 3.23,
+      "daysToLiquidation": 840,
+      "trustValuePerShare": 2125.66,
+      "liquidationValuePerShare": 2125.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
+      "expectedReturn": 6.02,
+      "annualizedReturn": 2.57,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -19460,7 +19518,26 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=삼성스팩11호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0071M0"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0071M0",
+      "filing": {
+        "receiptNo": "20250918000264",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2025-09-18",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250918000264",
+        "ipoPrice": 2000,
+        "offeringShares": 5000000,
+        "escrowAmount": null,
+        "escrowRatePct": 2.05,
+        "escrowAgent": "또는",
+        "subscriptionStart": "2025-09-19",
+        "subscriptionEnd": "2025-09-22",
+        "paymentDate": "2025-09-19",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": [
+          "escrowAmount: 패턴 미발견"
+        ]
+      },
+      "ipoPriceSource": "증권신고서(20250918000264)"
     },
     {
       "id": "0041L0",
@@ -19482,12 +19559,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-06",
       "liquidationDate": "2028-08-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 786,
+      "daysToLiquidation": 785,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 7.6,
-      "annualizedReturn": 3.46,
+      "annualizedReturn": 3.47,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -20457,12 +20534,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-14",
       "liquidationDate": "2028-08-14",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 794,
+      "daysToLiquidation": 793,
       "trustValuePerShare": 2152.67,
       "liquidationValuePerShare": 2152.67,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.48%)",
       "expectedReturn": 7.1,
-      "annualizedReturn": 3.2,
+      "annualizedReturn": 3.21,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -21449,12 +21526,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-01-23",
       "liquidationDate": "2028-01-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 590,
+      "daysToLiquidation": 589,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 7.06,
-      "annualizedReturn": 4.31,
+      "annualizedReturn": 4.32,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -22424,12 +22501,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-12",
       "liquidationDate": "2027-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 548,
+      "daysToLiquidation": 547,
       "trustValuePerShare": 2187.36,
       "liquidationValuePerShare": 2187.36,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.03%)",
       "expectedReturn": 8.29,
-      "annualizedReturn": 5.44,
+      "annualizedReturn": 5.46,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -24958,7 +25035,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 914,
+      "daysToLiquidation": 913,
       "trustValuePerShare": 2164.04,
       "liquidationValuePerShare": 2164.04,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.66%)",
@@ -25776,12 +25853,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-24",
       "liquidationDate": "2028-11-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 896,
-      "trustValuePerShare": 2157.4,
-      "liquidationValuePerShare": 2157.4,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 6.8,
-      "annualizedReturn": 2.72,
+      "daysToLiquidation": 895,
+      "trustValuePerShare": 2152.67,
+      "liquidationValuePerShare": 2152.67,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.48%)",
+      "expectedReturn": 6.57,
+      "annualizedReturn": 2.63,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -26639,7 +26716,24 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신영스팩11호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=0091W0"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=0091W0",
+      "filing": {
+        "receiptNo": "20251112000416",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2025-11-12",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112000416",
+        "ipoPrice": 2000,
+        "offeringShares": 5800000,
+        "escrowAmount": 11600000000,
+        "escrowRatePct": 2.48,
+        "escrowAgent": "등에",
+        "subscriptionStart": "2025-11-13",
+        "subscriptionEnd": "2025-11-14",
+        "paymentDate": "2025-11-13",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": []
+      },
+      "ipoPriceSource": "증권신고서(20251112000416)"
     },
     {
       "id": "0054V0",
@@ -26661,12 +26755,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-05",
       "liquidationDate": "2028-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 907,
+      "daysToLiquidation": 906,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 6.8,
-      "annualizedReturn": 2.68,
+      "annualizedReturn": 2.69,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -27492,12 +27586,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-28",
       "liquidationDate": "2027-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 534,
+      "daysToLiquidation": 533,
       "trustValuePerShare": 2218.08,
       "liquidationValuePerShare": 2218.08,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.51%)",
       "expectedReturn": 9.53,
-      "annualizedReturn": 6.42,
+      "annualizedReturn": 6.44,
       "status": "일반",
       "badges": [
         "일반"
@@ -28484,12 +28578,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-23",
       "liquidationDate": "2027-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 559,
-      "trustValuePerShare": 2157.25,
-      "liquidationValuePerShare": 2157.25,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 6.53,
-      "annualizedReturn": 4.22,
+      "daysToLiquidation": 558,
+      "trustValuePerShare": 2201.41,
+      "liquidationValuePerShare": 2201.41,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.25%)",
+      "expectedReturn": 8.71,
+      "annualizedReturn": 5.62,
       "status": "일반",
       "badges": [
         "일반"
@@ -29437,7 +29531,24 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제14호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=487360"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=487360",
+      "filing": {
+        "receiptNo": "20241210000275",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2024-12-10",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241210000275",
+        "ipoPrice": 2000,
+        "offeringShares": 5000000,
+        "escrowAmount": 10000000000,
+        "escrowRatePct": 3.25,
+        "escrowAgent": "공모자금",
+        "subscriptionStart": "2024-12-11",
+        "subscriptionEnd": "2024-12-12",
+        "paymentDate": "2024-12-11",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": []
+      },
+      "ipoPriceSource": "증권신고서(20241210000275)"
     },
     {
       "id": "487830",
@@ -29459,12 +29570,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-15",
       "liquidationDate": "2027-11-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 521,
-      "trustValuePerShare": 2157.25,
-      "liquidationValuePerShare": 2157.25,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 6.53,
-      "annualizedReturn": 4.53,
+      "daysToLiquidation": 520,
+      "trustValuePerShare": 2185.45,
+      "liquidationValuePerShare": 2185.45,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
+      "expectedReturn": 7.92,
+      "annualizedReturn": 5.5,
       "status": "일반",
       "badges": [
         "일반"
@@ -30412,7 +30523,24 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제15호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=487830"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=487830",
+      "filing": {
+        "receiptNo": "20241104000200",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2024-11-04",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241104000200",
+        "ipoPrice": 2000,
+        "offeringShares": 3900000,
+        "escrowAmount": 7800000000,
+        "escrowRatePct": 3.0,
+        "escrowAgent": "당반기말 현금및현금성자산 보통예금 국민은행 450",
+        "subscriptionStart": "2024-11-05",
+        "subscriptionEnd": "2024-11-06",
+        "paymentDate": "2024-11-05",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": []
+      },
+      "ipoPriceSource": "증권신고서(20241104000200)"
     },
     {
       "id": "482520",
@@ -30434,12 +30562,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-08-13",
       "liquidationDate": "2027-08-13",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 427,
+      "daysToLiquidation": 426,
       "trustValuePerShare": 2220.65,
       "liquidationValuePerShare": 2220.65,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.55%)",
       "expectedReturn": 9.39,
-      "annualizedReturn": 7.98,
+      "annualizedReturn": 7.99,
       "status": "합병 신청",
       "badges": [
         "합병 신청"
@@ -33470,12 +33598,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-10-31",
       "liquidationDate": "2027-10-31",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 506,
+      "daysToLiquidation": 505,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 6.27,
-      "annualizedReturn": 4.48,
+      "annualizedReturn": 4.49,
       "status": "일반",
       "badges": [
         "일반"
@@ -34445,12 +34573,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-20",
       "liquidationDate": "2027-12-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 556,
+      "daysToLiquidation": 555,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 6.27,
-      "annualizedReturn": 4.07,
+      "annualizedReturn": 4.08,
       "status": "일반",
       "badges": [
         "일반"
@@ -35420,12 +35548,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-11",
       "liquidationDate": "2027-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 547,
+      "daysToLiquidation": 546,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 6.27,
-      "annualizedReturn": 4.14,
+      "annualizedReturn": 4.15,
       "status": "일반",
       "badges": [
         "일반"
@@ -36395,12 +36523,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-19",
       "liquidationDate": "2027-11-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 525,
+      "daysToLiquidation": 524,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 6.27,
-      "annualizedReturn": 4.32,
+      "annualizedReturn": 4.33,
       "status": "일반",
       "badges": [
         "일반"
@@ -37370,12 +37498,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 377,
+      "daysToLiquidation": 376,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 6.01,
-      "annualizedReturn": 5.81,
+      "annualizedReturn": 5.83,
       "status": "일반",
       "badges": [
         "일반"
@@ -39296,12 +39424,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-07-12",
       "liquidationDate": "2027-07-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 395,
+      "daysToLiquidation": 394,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 5.49,
-      "annualizedReturn": 5.06,
+      "annualizedReturn": 5.07,
       "status": "일반",
       "badges": [
         "일반"
@@ -43486,12 +43614,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-09-25",
       "liquidationDate": "2027-09-25",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 470,
+      "daysToLiquidation": 469,
       "trustValuePerShare": 2187.36,
       "liquidationValuePerShare": 2187.36,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.03%)",
       "expectedReturn": 6.7,
-      "annualizedReturn": 5.17,
+      "annualizedReturn": 5.18,
       "status": "일반",
       "badges": [
         "일반"
@@ -44480,12 +44608,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 377,
+      "daysToLiquidation": 376,
       "trustValuePerShare": 2205.89,
       "liquidationValuePerShare": 2205.89,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
       "expectedReturn": 7.6,
-      "annualizedReturn": 7.35,
+      "annualizedReturn": 7.37,
       "status": "일반",
       "badges": [
         "일반"
@@ -46423,12 +46551,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-03-20",
       "liquidationDate": "2028-03-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 647,
+      "daysToLiquidation": 646,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 5.24,
-      "annualizedReturn": 2.92,
+      "annualizedReturn": 2.93,
       "status": "일반",
       "badges": [
         "일반"
@@ -47398,12 +47526,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-21",
       "liquidationDate": "2027-06-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 374,
+      "daysToLiquidation": 373,
       "trustValuePerShare": 2195.02,
       "liquidationValuePerShare": 2195.02,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.15%)",
       "expectedReturn": 6.81,
-      "annualizedReturn": 6.64,
+      "annualizedReturn": 6.66,
       "status": "일반",
       "badges": [
         "일반"
@@ -48392,12 +48520,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-09-11",
       "liquidationDate": "2027-09-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 456,
+      "daysToLiquidation": 455,
       "trustValuePerShare": 2205.89,
       "liquidationValuePerShare": 2205.89,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
       "expectedReturn": 7.34,
-      "annualizedReturn": 5.84,
+      "annualizedReturn": 5.85,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -51143,12 +51271,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-15",
       "liquidationDate": "2027-04-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 307,
-      "trustValuePerShare": 2157.25,
-      "liquidationValuePerShare": 2157.25,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 4.98,
-      "annualizedReturn": 5.94,
+      "daysToLiquidation": 306,
+      "trustValuePerShare": 2185.45,
+      "liquidationValuePerShare": 2185.45,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
+      "expectedReturn": 6.35,
+      "annualizedReturn": 7.62,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -54550,7 +54678,24 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제12호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=474660"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=474660",
+      "filing": {
+        "receiptNo": "20240401001215",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2024-04-01",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240401001215",
+        "ipoPrice": 2000,
+        "offeringShares": 5000000,
+        "escrowAmount": 10000000000,
+        "escrowRatePct": 3.0,
+        "escrowAgent": "공모자금",
+        "subscriptionStart": "2024-04-02",
+        "subscriptionEnd": "2024-04-03",
+        "paymentDate": "2024-04-02",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": []
+      },
+      "ipoPriceSource": "증권신고서(20240401001215)"
     },
     {
       "id": "479880",
@@ -54572,12 +54717,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-26",
       "liquidationDate": "2027-06-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 379,
+      "daysToLiquidation": 378,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 4.98,
-      "annualizedReturn": 4.79,
+      "annualizedReturn": 4.8,
       "status": "일반",
       "badges": [
         "일반"
@@ -55547,12 +55692,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-21",
       "liquidationDate": "2027-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 527,
+      "daysToLiquidation": 526,
       "trustValuePerShare": 2204.61,
       "liquidationValuePerShare": 2204.61,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.30%)",
       "expectedReturn": 7.02,
-      "annualizedReturn": 4.81,
+      "annualizedReturn": 4.82,
       "status": "일반",
       "badges": [
         "일반"
@@ -56539,12 +56684,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-05-29",
       "liquidationDate": "2027-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 351,
+      "daysToLiquidation": 350,
       "trustValuePerShare": 2205.89,
       "liquidationValuePerShare": 2205.89,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
       "expectedReturn": 7.08,
-      "annualizedReturn": 7.37,
+      "annualizedReturn": 7.4,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -57531,12 +57676,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-19",
       "liquidationDate": "2027-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 372,
+      "daysToLiquidation": 371,
       "trustValuePerShare": 2205.89,
       "liquidationValuePerShare": 2205.89,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
       "expectedReturn": 7.08,
-      "annualizedReturn": 6.94,
+      "annualizedReturn": 6.96,
       "status": "일반",
       "badges": [
         "일반"
@@ -58523,12 +58668,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-05-02",
       "liquidationDate": "2027-05-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 324,
+      "daysToLiquidation": 323,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 4.72,
-      "annualizedReturn": 5.33,
+      "annualizedReturn": 5.35,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -59498,12 +59643,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-07-26",
       "liquidationDate": "2027-07-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 409,
+      "daysToLiquidation": 408,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 4.47,
-      "annualizedReturn": 3.98,
+      "annualizedReturn": 3.99,
       "status": "일반",
       "badges": [
         "일반"
@@ -60473,12 +60618,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-24",
       "liquidationDate": "2027-04-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 316,
+      "daysToLiquidation": 315,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 4.21,
-      "annualizedReturn": 4.88,
+      "annualizedReturn": 4.9,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -61448,12 +61593,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-03-05",
       "liquidationDate": "2027-03-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 266,
+      "daysToLiquidation": 265,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 3.96,
-      "annualizedReturn": 5.48,
+      "annualizedReturn": 5.5,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -63374,12 +63519,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 261,
+      "daysToLiquidation": 260,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 3.71,
-      "annualizedReturn": 5.23,
+      "annualizedReturn": 5.25,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -64349,12 +64494,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-01-24",
       "liquidationDate": "2027-01-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 226,
+      "daysToLiquidation": 225,
       "trustValuePerShare": 2185.63,
       "liquidationValuePerShare": 2185.63,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
       "expectedReturn": 4.83,
-      "annualizedReturn": 7.91,
+      "annualizedReturn": 7.95,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -65343,12 +65488,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-22",
       "liquidationDate": "2027-04-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 314,
-      "trustValuePerShare": 2157.25,
-      "liquidationValuePerShare": 2157.25,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 3.47,
-      "annualizedReturn": 4.04,
+      "daysToLiquidation": 313,
+      "trustValuePerShare": 2185.45,
+      "liquidationValuePerShare": 2185.45,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
+      "expectedReturn": 4.82,
+      "annualizedReturn": 5.64,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -66296,7 +66441,24 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신한제13호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=474930"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=474930",
+      "filing": {
+        "receiptNo": "20240408004008",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2024-04-08",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240408004008",
+        "ipoPrice": 2000,
+        "offeringShares": 3000000,
+        "escrowAmount": 6000000000,
+        "escrowRatePct": 3.0,
+        "escrowAgent": "금 액 현금및현금성자산 기업자유예금 국민은행 620",
+        "subscriptionStart": "2024-04-11",
+        "subscriptionEnd": "2024-04-12",
+        "paymentDate": "2024-04-11",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": []
+      },
+      "ipoPriceSource": "증권신고서(20240408004008)"
     },
     {
       "id": "468760",
@@ -66318,12 +66480,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 261,
+      "daysToLiquidation": 260,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 3.47,
-      "annualizedReturn": 4.88,
+      "annualizedReturn": 4.9,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -67293,12 +67455,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-03-27",
       "liquidationDate": "2027-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 288,
+      "daysToLiquidation": 287,
       "trustValuePerShare": 2157.25,
       "liquidationValuePerShare": 2157.25,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 3.47,
-      "annualizedReturn": 4.41,
+      "annualizedReturn": 4.43,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -68268,12 +68430,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-06",
       "liquidationDate": "2027-02-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 239,
-      "trustValuePerShare": 2157.4,
-      "liquidationValuePerShare": 2157.4,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
-      "expectedReturn": 2.98,
-      "annualizedReturn": 4.58,
+      "daysToLiquidation": 238,
+      "trustValuePerShare": 2217.64,
+      "liquidationValuePerShare": 2217.64,
+      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
+      "expectedReturn": 5.85,
+      "annualizedReturn": 9.12,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -69221,7 +69383,24 @@ window.SPAC_DATA = {
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=신영스팩10호",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=472220"
+      "naverUrl": "https://finance.naver.com/item/main.naver?code=472220",
+      "filing": {
+        "receiptNo": "20240124000304",
+        "reportName": "[기재정정]투자설명서",
+        "filingDate": "2024-01-24",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240124000304",
+        "ipoPrice": 2000,
+        "offeringShares": 4575000,
+        "escrowAmount": 9150000000,
+        "escrowRatePct": 3.5,
+        "escrowAgent": "등에",
+        "subscriptionStart": "2024-01-25",
+        "subscriptionEnd": "2024-01-26",
+        "paymentDate": "2024-01-25",
+        "extractedAt": "2026-06-13T20:24:13.393014+09:00",
+        "parseWarnings": []
+      },
+      "ipoPriceSource": "증권신고서(20240124000304)"
     },
     {
       "id": "469880",
@@ -69243,12 +69422,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 193,
+      "daysToLiquidation": 192,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 2.73,
-      "annualizedReturn": 5.23,
+      "annualizedReturn": 5.26,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -70218,12 +70397,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 193,
+      "daysToLiquidation": 192,
       "trustValuePerShare": 2153.93,
       "liquidationValuePerShare": 2153.93,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.50%)",
       "expectedReturn": 2.32,
-      "annualizedReturn": 4.44,
+      "annualizedReturn": 4.46,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -71210,12 +71389,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-11-13",
       "liquidationDate": "2026-11-13",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 154,
+      "daysToLiquidation": 153,
       "trustValuePerShare": 2157.4,
       "liquidationValuePerShare": 2157.4,
       "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.555%)",
       "expectedReturn": 2.0,
-      "annualizedReturn": 4.82,
+      "annualizedReturn": 4.85,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -72185,7 +72364,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-19",
       "liquidationDate": "2028-12-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 921,
+      "daysToLiquidation": 920,
       "trustValuePerShare": 2125.66,
       "liquidationValuePerShare": 2125.66,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
@@ -72973,7 +73152,7 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-20",
       "liquidationDate": "2027-11-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 526,
+      "daysToLiquidation": 525,
       "trustValuePerShare": 2185.45,
       "liquidationValuePerShare": 2185.45,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
@@ -73967,7 +74146,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-15",
       "liquidationDate": "2028-12-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 917,
+      "daysToLiquidation": 916,
       "trustValuePerShare": 2158.35,
       "liquidationValuePerShare": 2158.35,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.57%)",
@@ -74781,12 +74960,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-01",
       "liquidationDate": "2027-02-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 234,
+      "daysToLiquidation": 233,
       "trustValuePerShare": 2153.93,
       "liquidationValuePerShare": 2153.93,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.50%)",
       "expectedReturn": -6.35,
-      "annualizedReturn": -9.73,
+      "annualizedReturn": -9.77,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -75773,12 +75952,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-05",
       "liquidationDate": "2026-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 176,
+      "daysToLiquidation": 175,
       "trustValuePerShare": 2217.64,
       "liquidationValuePerShare": 2217.64,
       "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
       "expectedReturn": -5.03,
-      "annualizedReturn": -10.14,
+      "annualizedReturn": -10.2,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
