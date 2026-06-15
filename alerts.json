@@ -1,6 +1,56 @@
 {
-  "generatedAt": "2026-06-14T20:36:44.203718+09:00",
+  "generatedAt": "2026-06-15T23:19:15.265855+09:00",
   "alerts": [
+    {
+      "id": "2026-06-15|below_ipo_exit|0096D0",
+      "date": "2026-06-15",
+      "type": "below_ipo_exit",
+      "code": "0096D0",
+      "name": "미래에셋비전스팩9호",
+      "title": "미래에셋비전스팩9호 공모가 회복",
+      "detail": "공모가 대비 0.9970 → 1.0075 (현재가 2,015원)",
+      "url": "https://finance.naver.com/item/main.naver?code=0096D0"
+    },
+    {
+      "id": "2026-06-15|below_ipo_exit|0097F0",
+      "date": "2026-06-15",
+      "type": "below_ipo_exit",
+      "code": "0097F0",
+      "name": "미래에셋비전스팩10호",
+      "title": "미래에셋비전스팩10호 공모가 회복",
+      "detail": "공모가 대비 0.9990 → 1.0025 (현재가 2,005원)",
+      "url": "https://finance.naver.com/item/main.naver?code=0097F0"
+    },
+    {
+      "id": "2026-06-15|below_ipo_exit|0099W0",
+      "date": "2026-06-15",
+      "type": "below_ipo_exit",
+      "code": "0099W0",
+      "name": "미래에셋비전스팩11호",
+      "title": "미래에셋비전스팩11호 공모가 회복",
+      "detail": "공모가 대비 0.9990 → 1.0025 (현재가 2,005원)",
+      "url": "https://finance.naver.com/item/main.naver?code=0099W0"
+    },
+    {
+      "id": "2026-06-15|below_ipo_exit|0105P0",
+      "date": "2026-06-15",
+      "type": "below_ipo_exit",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 회복",
+      "detail": "공모가 대비 0.9990 → 1.0025 (현재가 2,005원)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-06-15|below_ipo_exit|496070",
+      "date": "2026-06-15",
+      "type": "below_ipo_exit",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9995 → 1.0050 (현재가 2,010원)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
     {
       "id": "2026-06-12|below_ipo_enter|496070",
       "date": "2026-06-12",
