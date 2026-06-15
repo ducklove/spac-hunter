@@ -536,16 +536,44 @@
 
   /* ---------- 스냅샷 / 필터 / 카드 ---------- */
 
+  function average(values) {
+    const numbers = values.map(Number).filter(Number.isFinite);
+    if (!numbers.length) return null;
+    return numbers.reduce((sum, value) => sum + value, 0) / numbers.length;
+  }
+
+  function signedWon(value) {
+    if (value == null || Number.isNaN(Number(value))) return '-';
+    const rounded = Math.round(Number(value));
+    const sign = rounded > 0 ? '+' : '';
+    return `${sign}${rounded.toLocaleString('ko-KR')}원`;
+  }
+
+  function marketPriceSnapshot() {
+    const active = getSpacs().filter(item => Number.isFinite(Number(item.currentPrice)) && Number(item.currentPrice) > 0);
+    return {
+      averagePrice: average(active.map(item => item.currentPrice)),
+      averageChange: average(active.map(item => item.change)),
+      averageChangePct: average(active.map(item => item.changePct))
+    };
+  }
+
   function renderSnapshot() {
     const summary = data.summary || {};
+    const marketPrice = marketPriceSnapshot();
     const cards = [
+      {
+        label: '스팩 평균가',
+        value: marketPrice.averagePrice == null ? '-' : money(Math.round(marketPrice.averagePrice)),
+        detail: `일간 ${signedWon(marketPrice.averageChange)} · ${signedPct(marketPrice.averageChangePct)}`,
+        primary: true
+      },
       {
         label: '공모가 이하',
         value: `${summary.belowIpoCount ?? 0}개`,
         detail: summary.cheapest
           ? `${summary.cheapest.name} ${ratio(summary.cheapest.ratio)}`
-          : '현재가 / 공모가 1.00x 미만',
-        primary: true
+          : '현재가 / 공모가 1.00x 미만'
       },
       {
         label: '청산 6개월 이내',
