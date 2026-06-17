@@ -300,7 +300,7 @@ class TestBuildStatisticsWithArchive:
             "sponsor",
             "mergerStatus",
             "lastSeen",
-            "finalRatio",
+            "finalPrice",
             "delistReasonGuess",
         }
 

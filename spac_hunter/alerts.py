@@ -39,6 +39,16 @@ def _strip_price_unit(value):
     return _PRICE_WON_RE.sub("", str(value))
 
 
+def _format_price(value):
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return str(value)
+    if numeric.is_integer():
+        return f"{int(numeric):,}"
+    return f"{numeric:,.2f}"
+
+
 def _sanitize_alert(alert):
     cleaned = dict(alert)
     for key in ("title", "detail"):
@@ -205,8 +215,8 @@ def _delisted_alerts(newly_archived, generated_date):
             continue
         name = entry.get("name") or code
         detail = entry.get("delistReasonGuess") or "사유 미확인"
-        if entry.get("finalRatio") is not None:
-            detail += f", 마지막 공모가 대비 {entry['finalRatio']:.4f}배"
+        if entry.get("finalPrice") is not None:
+            detail += f", 최종 가격 {_format_price(entry['finalPrice'])}"
         alerts.append(
             _make_alert(
                 generated_date,

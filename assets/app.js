@@ -480,7 +480,7 @@
         </div>
         <div class="archive-side">
           <div class="archive-date">${escapeHtml(dateText(row.lastSeen))}</div>
-          <div class="archive-ratio">${escapeHtml(ratio(row.finalRatio))}</div>
+          <div class="archive-price">${escapeHtml(money(row.finalPrice))}</div>
         </div>
       </div>
     `).join('');

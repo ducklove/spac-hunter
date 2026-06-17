@@ -1506,8 +1506,8 @@ window.SPAC_DATA = {
           "sponsor": "한국",
           "mergerStatus": null,
           "lastSeen": "2026-06-17 20:22:13 KST",
-          "finalRatio": 1.0575,
-          "delistReasonGuess": "사유 미확인"
+          "finalPrice": 2115,
+          "delistReasonGuess": "만기청산"
         }
       ]
     },

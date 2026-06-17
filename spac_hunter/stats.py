@@ -277,7 +277,7 @@ def build_archive_overview(archive, limit=12):
                 "sponsor": entry.get("sponsor"),
                 "mergerStatus": entry.get("mergerStatus"),
                 "lastSeen": entry.get("lastSeen"),
-                "finalRatio": entry.get("finalRatio"),
+                "finalPrice": entry.get("finalPrice"),
                 "delistReasonGuess": entry.get("delistReasonGuess"),
             }
             for entry in archive[:limit]
