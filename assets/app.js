@@ -1121,7 +1121,6 @@
           </div>
         </td>
         <td class="numeric">${money(item.currentPrice)}</td>
-        <td class="numeric ${Number(item.ratio) < 1 ? 'good' : ''}">${ratio(item.ratio)}</td>
         <td class="numeric ${directionClass(item.premiumPct, true)}">${signedPct(item.premiumPct)}</td>
         <td class="numeric ${Number(item.annualizedReturn) > 0 ? 'good' : 'danger'}">${pct(item.annualizedReturn)}</td>
         <td class="numeric">${daysText(item.daysToLiquidation)}</td>
@@ -1423,12 +1422,11 @@
 
   function exportCsv() {
     const items = tableItems();
-    const header = ['종목명', '코드', '현재가', '현재가/공모가', '공모가괴리%', '연환산%', '청산까지일', '거래대금', '상태'];
+    const header = ['종목명', '코드', '현재가', '공모가괴리%', '연환산%', '청산까지일', '거래대금', '상태'];
     const rows = items.map(item => [
       item.name ?? '',
       item.code ?? '',
       item.currentPrice ?? '',
-      item.ratio ?? '',
       item.premiumPct ?? '',
       item.annualizedReturn ?? '',
       item.daysToLiquidation ?? '',
