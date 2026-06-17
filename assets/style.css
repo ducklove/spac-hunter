@@ -183,6 +183,14 @@ button {
   font-variant-numeric: tabular-nums;
 }
 
+.metric-subvalue {
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
 .metric-detail {
   color: var(--faint);
   font-size: 12px;

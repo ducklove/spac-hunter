@@ -555,15 +555,19 @@
     const belowPct = totalCount ? (belowCount / totalCount) * 100 : null;
     const cards = [
       {
-        label: '전체 스팩 종목 수',
+        label: '스팩 종목 수',
         value: `${totalCount ?? 0}개`,
-        detail: '현재 상장 기준',
+        subValue: `평균가 ${
+          marketPrice.averagePrice == null ? '-' : money(Math.round(marketPrice.averagePrice))
+        }`,
+        detail: `일간 ${signedWon(marketPrice.averageChange)} · ${signedPct(marketPrice.averageChangePct)}`,
         primary: true
       },
       {
-        label: '스팩 평균가',
-        value: marketPrice.averagePrice == null ? '-' : money(Math.round(marketPrice.averagePrice)),
-        detail: `일간 ${signedWon(marketPrice.averageChange)} · ${signedPct(marketPrice.averageChangePct)}`
+        label: '평균 기대수익률',
+        value: pct(summary.averageAnnualizedReturn),
+        detail: '연환산 기준',
+        tooltip: '만기 청산시 예상되는 연간 수익률'
       },
       {
         label: '공모가 미만 / 비율',
@@ -589,10 +593,13 @@
       }
     ];
     document.getElementById('snapshot').innerHTML = cards.map(card => `
-      <article class="metric-card ${card.primary ? 'primary' : ''}">
+      <article class="metric-card ${card.primary ? 'primary' : ''}"${card.tooltip
+        ? ` title="${escapeHtml(card.tooltip)}" aria-label="${escapeHtml(`${card.label}: ${card.tooltip}`)}"`
+        : ''}>
         <div>
           <div class="metric-label">${escapeHtml(card.label)}</div>
           <div class="metric-value ${String(card.value).length > 8 ? 'small' : ''}">${escapeHtml(card.value)}</div>
+          ${card.subValue ? `<div class="metric-subvalue">${escapeHtml(card.subValue)}</div>` : ''}
         </div>
         <div class="metric-detail">${escapeHtml(card.detail)}</div>
       </article>
