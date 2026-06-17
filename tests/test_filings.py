@@ -18,8 +18,10 @@ from spac_hunter.constants import KST
 from spac_hunter.domain.enrich import enrich_spac
 from spac_hunter.filings import (
     backfill_filings,
+    backfill_trust_rate_changes,
     build_ipo_calendar,
     extract_filing_fields,
+    extract_trust_rate_change_fields,
     load_filings,
     save_filings,
 )
@@ -317,6 +319,27 @@ class TestExtractFilingFields:
         assert len(fields["parseWarnings"]) >= 6
 
 
+class TestExtractTrustRateChangeFields:
+    def test_changed_rate_and_labeled_start_date(self):
+        text = (
+            "주요사항보고서 신탁계약내용변경 "
+            "변경 전 이자율 연 3.50% 변경 후 이자율 연 2.75% "
+            "변경일 2025년 6월 11일"
+        )
+
+        fields = extract_trust_rate_change_fields(text, filing_date="2025-06-10")
+
+        assert fields["ratePct"] == 2.75
+        assert fields["startDate"] == "2025-06-11"
+        assert fields["parseWarnings"] == []
+
+    def test_filing_date_is_used_when_effective_date_is_missing(self):
+        fields = extract_trust_rate_change_fields("변경 후 신탁이자율 연 2.65%", filing_date="2025-06-10")
+
+        assert fields["ratePct"] == 2.65
+        assert fields["startDate"] == "2025-06-10"
+
+
 class TestFilingsStore:
     def test_save_load_round_trip(self, tmp_path):
         path = tmp_path / "filings.json"
@@ -537,6 +560,79 @@ class TestBackfillFilings:
 
         assert backfill_filings(store, [{"code": "000001", "name": "스팩"}], {}, 0) == (0, {})
         assert store["filings"] == {}
+
+
+class TestBackfillTrustRateChanges:
+    def test_extracts_and_stores_unseen_change_disclosure(self, backfill_env):
+        change_text = (
+            "신탁계약내용변경 변경 전 이자율 연 3.50% "
+            "변경 후 이자율 연 2.75% 변경일 2025년 6월 11일"
+        )
+        calls = backfill_env(
+            corp_map={"000001": "00999991"},
+            list_rows=[
+                filing_row("20250610000001", "사업보고서", "20250610"),
+                filing_row("20250611000002", "주요사항보고서(신탁계약내용변경)", "20250611"),
+            ],
+            doc_text=change_text,
+        )
+        store = {"filings": {"000001": {"receiptNo": "20240105000123"}}, "calendarDocs": {}}
+
+        used, errors = backfill_trust_rate_changes(
+            store,
+            [{"code": "000001", "name": "테스트1호스팩"}],
+            {"000001": date(2024, 1, 2)},
+            5,
+            today=TODAY,
+            now=NOW,
+        )
+
+        assert used == 1
+        assert errors == {}
+        assert calls["doc"] == ["20250611000002"]
+        assert store["filings"]["000001"]["escrowRateChanges"] == [
+            {
+                "receiptNo": "20250611000002",
+                "reportName": "주요사항보고서(신탁계약내용변경)",
+                "filingDate": "2025-06-11",
+                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611000002",
+                "startDate": "2025-06-11",
+                "ratePct": 2.75,
+                "parseWarnings": [],
+            }
+        ]
+        assert store["filings"]["000001"]["trustRateChangeScannedAt"] == NOW.isoformat()
+
+    def test_existing_receipt_is_not_redownloaded(self, backfill_env):
+        calls = backfill_env(
+            corp_map={"000001": "00999991"},
+            list_rows=[filing_row("20250611000002", "주요사항보고서(신탁계약내용변경)", "20250611")],
+            doc_text="변경 후 이자율 연 2.75%",
+        )
+        store = {
+            "filings": {
+                "000001": {
+                    "receiptNo": "20240105000123",
+                    "escrowRateChanges": [
+                        {"receiptNo": "20250611000002", "startDate": "2025-06-11", "ratePct": 2.75}
+                    ],
+                }
+            },
+            "calendarDocs": {},
+        }
+
+        used, errors = backfill_trust_rate_changes(
+            store,
+            [{"code": "000001", "name": "테스트1호스팩"}],
+            {"000001": date(2024, 1, 2)},
+            5,
+            today=TODAY,
+            now=NOW,
+        )
+
+        assert used == 0
+        assert errors == {}
+        assert calls["doc"] == []
 
 
 def calendar_row(
@@ -770,10 +866,51 @@ class TestEnrichWithFiling:
         assert spac["ipoPriceSource"] == "증권신고서(20240105000123)"
         assert spac["ratio"] == round(2000 / 2100, 4)
         assert spac["filing"] == FILING_ENTRY
-        assert spac["liquidationValueSource"] == "공모예치금+예상 예치이자(증권신고서 연 2.85%)"
-        # 상장 2024-01-02 + 36개월 = 2027-01-02 → 1096일 예치 가정.
-        expected_trust = round(2100 * (1 + 0.0285) ** (1096 / 365), 2)
+        assert spac["liquidationValueSource"] == "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)"
+        trust_days = (date(2027, 1, 2) - date(2023, 12, 21)).days
+        expected_trust = round(2100 * (1 + 0.0285) ** (trust_days / 365), 2)
         assert spac["trustValuePerShare"] == expected_trust
+        assert spac["escrowRatePeriods"] == [
+            {
+                "startDate": "2023-12-21",
+                "endDate": "2027-01-02",
+                "ratePct": 2.85,
+                "source": "증권신고서",
+                "receiptNo": "20240105000123",
+                "reportName": "투자설명서",
+                "filingDate": "2024-01-05",
+                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240105000123",
+            }
+        ]
+
+    def test_trust_contract_change_periods_drive_returns(self):
+        filing = {
+            **FILING_ENTRY,
+            "escrowRateChanges": [
+                {
+                    "receiptNo": "20250611000002",
+                    "reportName": "주요사항보고서(신탁계약내용변경)",
+                    "filingDate": "2025-06-11",
+                    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611000002",
+                    "startDate": "2025-06-11",
+                    "ratePct": 2.75,
+                    "parseWarnings": [],
+                }
+            ],
+        }
+
+        spac = enrich(filing=filing)
+
+        first_days = (date(2025, 6, 11) - date(2023, 12, 21)).days
+        second_days = (date(2027, 1, 2) - date(2025, 6, 11)).days
+        expected_trust = round(
+            2100 * (1 + 0.0285) ** (first_days / 365) * (1 + 0.0275) ** (second_days / 365),
+            2,
+        )
+        assert spac["trustValuePerShare"] == expected_trust
+        assert [period["ratePct"] for period in spac["escrowRatePeriods"]] == [2.85, 2.75]
+        assert spac["escrowRatePeriods"][0]["endDate"] == "2025-06-10"
+        assert spac["escrowRatePeriods"][1]["endDate"] == "2027-01-02"
 
     def test_override_price_beats_filing_and_omits_source(self):
         spac = enrich(filing=FILING_ENTRY, override={"ipoPrice": 3000})
@@ -791,12 +928,14 @@ class TestEnrichWithFiling:
         filing = {**FILING_ENTRY, "ipoPrice": 60000}  # 상한 초과
         assert enrich(filing=filing)["ipoPrice"] == 2000
 
-    def test_invalid_filing_rate_falls_back_to_args_label(self):
+    def test_invalid_filing_rate_omits_liquidation_estimate(self):
         filing = {**FILING_ENTRY, "escrowRatePct": 9.5}
         spac = enrich(filing=filing)
 
-        assert spac["liquidationValueSource"] == "공모예치금+예상 예치이자(테스트 0.000%)"
-        assert spac["trustValuePerShare"] == 2100  # 0% 금리 → 공모가 그대로
+        assert spac["liquidationValueSource"] is None
+        assert spac["trustValuePerShare"] is None
+        assert spac["expectedReturn"] is None
+        assert spac["annualizedReturn"] is None
 
     def test_override_trust_value_keeps_priority_over_filing_rate(self):
         spac = enrich(filing=FILING_ENTRY, override={"trustValuePerShare": 2080})
@@ -823,7 +962,7 @@ class TestEnrichWithFiling:
         assert spac["filing"] == filing
         assert spac["ipoPrice"] == 2000
         assert "ipoPriceSource" not in spac
-        assert spac["liquidationValueSource"] == "공모예치금+예상 예치이자(테스트 0.000%)"
+        assert spac["liquidationValueSource"] is None
 
     def test_without_filing_output_is_unchanged(self):
         spac = enrich()
@@ -831,7 +970,7 @@ class TestEnrichWithFiling:
         assert "filing" not in spac
         assert "ipoPriceSource" not in spac
         assert spac["ipoPrice"] == 2000
-        assert spac["liquidationValueSource"] == "공모예치금+예상 예치이자(테스트 0.000%)"
+        assert spac["liquidationValueSource"] is None
 
 
 class TestCollectFilings:
@@ -849,6 +988,7 @@ class TestCollectFilings:
         monkeypatch.setattr(
             filings, "save_filings", lambda st, at, path=None: saved.append((st, at))
         )
+        monkeypatch.setattr(filings, "backfill_trust_rate_changes", lambda *a, **k: (0, {}))
         return cli, store, saved
 
     def test_without_key_reads_store_and_skips_collection(self, monkeypatch):

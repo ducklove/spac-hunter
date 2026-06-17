@@ -119,7 +119,7 @@ jobs:
               repo: context.repo.repo,
               title,
               body: [
-                "매일 18:10 KST 자동 데이터 갱신(pages.yml)이 실패했습니다.",
+                "매일 15:30 KST 자동 데이터 갱신(pages.yml)이 실패했습니다.",
                 "",
                 `- 실패한 실행: ${runUrl}`,
                 "",

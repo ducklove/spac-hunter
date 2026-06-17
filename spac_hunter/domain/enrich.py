@@ -9,6 +9,8 @@ internally decomposed into four builders:
 * ``_build_events``              — 이벤트 (listing/merger/liquidation timeline)
 """
 
+from datetime import timedelta
+
 from ..constants import DEFAULT_IPO_PRICE
 from ..filings import is_valid_escrow_rate_pct, is_valid_ipo_price
 from ..output import merge_history_points
@@ -23,7 +25,7 @@ from .valuation import (
     build_status_badges,
     calculate_annualized_return,
     derive_sponsor,
-    estimate_trust_value_per_share,
+    estimate_trust_value_from_periods,
 )
 
 
@@ -45,6 +47,95 @@ def _build_price_metrics(quote, ipo_price):
     }
 
 
+def _source_label_from_report(report_name):
+    report_name = str(report_name or "").strip()
+    if "신탁계약" in report_name and "변경" in report_name:
+        return "신탁계약내용변경"
+    if "투자설명서" in report_name or "증권신고서" in report_name:
+        return "증권신고서"
+    return report_name or "공시"
+
+
+def _normalize_escrow_rate_periods(filing, listing_date, liquidation_date):
+    """Return display periods and calculator periods from filing disclosures."""
+    if not filing:
+        return [], []
+    raw = []
+
+    filing_rate_pct = parse_float(filing.get("escrowRatePct"))
+    initial_start = (
+        parse_date(filing.get("paymentDate"))
+        or listing_date
+        or parse_date(filing.get("filingDate"))
+    )
+    if is_valid_escrow_rate_pct(filing_rate_pct) and initial_start:
+        raw.append(
+            {
+                "startDate": initial_start,
+                "ratePct": filing_rate_pct,
+                "source": _source_label_from_report(filing.get("reportName")),
+                "receiptNo": filing.get("receiptNo"),
+                "reportName": filing.get("reportName"),
+                "filingDate": filing.get("filingDate"),
+                "url": filing.get("url"),
+            }
+        )
+
+    for change in filing.get("escrowRateChanges") or []:
+        if not isinstance(change, dict):
+            continue
+        rate_pct = parse_float(change.get("ratePct") or change.get("escrowRatePct"))
+        start_date = parse_date(change.get("startDate") or change.get("filingDate"))
+        if not is_valid_escrow_rate_pct(rate_pct) or not start_date:
+            continue
+        raw.append(
+            {
+                "startDate": start_date,
+                "ratePct": rate_pct,
+                "source": _source_label_from_report(change.get("reportName")),
+                "receiptNo": change.get("receiptNo"),
+                "reportName": change.get("reportName"),
+                "filingDate": change.get("filingDate"),
+                "url": change.get("url"),
+            }
+        )
+
+    latest_by_key = {}
+    for period in raw:
+        key = period["startDate"]
+        previous = latest_by_key.get(key)
+        if previous is None or str(period.get("receiptNo") or "") >= str(previous.get("receiptNo") or ""):
+            latest_by_key[key] = period
+    raw = sorted(
+        latest_by_key.values(),
+        key=lambda period: (period["startDate"], period.get("receiptNo") or ""),
+    )
+    if not raw:
+        return [], []
+
+    display_periods = []
+    for idx, period in enumerate(raw):
+        next_start = raw[idx + 1]["startDate"] if idx + 1 < len(raw) else None
+        end_date = next_start - timedelta(days=1) if next_start else liquidation_date
+        display_periods.append(
+            {
+                "startDate": period["startDate"].isoformat(),
+                "endDate": end_date.isoformat() if end_date else None,
+                "ratePct": round(period["ratePct"], 4),
+                "source": period.get("source"),
+                "receiptNo": period.get("receiptNo"),
+                "reportName": period.get("reportName"),
+                "filingDate": period.get("filingDate"),
+                "url": period.get("url"),
+            }
+        )
+    calculator_periods = [
+        {"startDate": period["startDate"], "rate": period["ratePct"] / 100}
+        for period in raw
+    ]
+    return display_periods, calculator_periods
+
+
 def _build_liquidation_metrics(
     override,
     args,
@@ -59,20 +150,21 @@ def _build_liquidation_metrics(
     """청산가치: trust/liquidation value per share and expected returns."""
     override_trust_value = parse_float(override.get("trustValuePerShare"))
     override_liquidation_value = parse_float(override.get("liquidationValuePerShare"))
-    trust_rate = args.trust_rate
-    rate_label = getattr(args, "trust_rate_label", "")
-    liquidation_value_source = (
-        f"공모예치금+예상 예치이자({rate_label})"
-        if rate_label
-        else "공모예치금+예상 예치이자"
+    escrow_rate_periods, calculator_periods = _normalize_escrow_rate_periods(
+        filing, listing_date, liquidation_date
     )
-    # 신고서에서 검증 통과한 예치이율이 있으면 추정 금리로 사용 (overrides가 여전히 우선).
-    filing_rate_pct = parse_float((filing or {}).get("escrowRatePct"))
-    if is_valid_escrow_rate_pct(filing_rate_pct):
-        trust_rate = filing_rate_pct / 100
-        liquidation_value_source = f"공모예치금+예상 예치이자(증권신고서 연 {filing_rate_pct:.2f}%)"
-    estimated_trust_value = estimate_trust_value_per_share(
-        ipo_price, listing_date, liquidation_date, trust_rate, today
+    trust_start = (
+        parse_date((filing or {}).get("paymentDate"))
+        or listing_date
+        or (calculator_periods[0]["startDate"] if calculator_periods else None)
+    )
+    estimated_trust_value = estimate_trust_value_from_periods(
+        ipo_price, trust_start, liquidation_date, calculator_periods, today
+    )
+    liquidation_value_source = (
+        "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)"
+        if estimated_trust_value
+        else None
     )
     trust_value = override_trust_value or estimated_trust_value
     if override_liquidation_value:
@@ -83,8 +175,9 @@ def _build_liquidation_metrics(
         if override_trust_value:
             liquidation_value_source = "overrides.json 예치금"
         if args.liquidation_haircut:
-            liquidation_value = liquidation_value - args.liquidation_haircut
-            liquidation_value_source += f" - 수동 조정 {args.liquidation_haircut:g}원"
+            liquidation_value = liquidation_value - args.liquidation_haircut if liquidation_value else None
+            if liquidation_value_source:
+                liquidation_value_source += f" - 수동 조정 {args.liquidation_haircut:g}원"
     expected_return = (
         liquidation_value / current_price - 1
         if current_price and current_price > 0 and liquidation_value
@@ -99,6 +192,7 @@ def _build_liquidation_metrics(
         "liquidationValueSource": liquidation_value_source,
         "expectedReturn": expected_return,
         "annualizedReturn": annualized_return,
+        "escrowRatePeriods": escrow_rate_periods,
     }
 
 
@@ -307,6 +401,7 @@ def enrich_spac(
     liquidation_value = valuation["liquidationValue"]
     expected_return = valuation["expectedReturn"]
     annualized_return = valuation["annualizedReturn"]
+    escrow_rate_periods = valuation["escrowRatePeriods"]
 
     spac = {
         "id": code,
@@ -334,6 +429,7 @@ def enrich_spac(
         "liquidationValueSource": valuation["liquidationValueSource"] if liquidation_value else None,
         "expectedReturn": round(expected_return * 100, 2) if expected_return is not None else None,
         "annualizedReturn": round(annualized_return * 100, 2) if annualized_return is not None else None,
+        "escrowRatePeriods": escrow_rate_periods,
         "status": badges[0],
         "badges": badges,
         "mergerStatus": merger_status,

@@ -202,49 +202,6 @@ button {
   margin-bottom: 16px;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-}
-
-.stat-card {
-  min-height: 94px;
-  border: 1px solid var(--soft-border);
-  background: var(--surface);
-  border-radius: 8px;
-  padding: 13px;
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-}
-
-.stat-card-label {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 750;
-}
-
-.stat-card-value {
-  margin-top: 7px;
-  font-size: 24px;
-  line-height: 1.05;
-  font-weight: 780;
-  font-variant-numeric: tabular-nums;
-}
-
-.stat-card-value.small {
-  font-size: 19px;
-}
-
-.stat-card-detail {
-  color: var(--faint);
-  margin-top: 7px;
-  font-size: 11px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .stats-panels {
   display: grid;
   grid-template-columns: minmax(360px, 1.1fr) minmax(360px, 1.05fr) minmax(300px, 0.85fr);
@@ -503,6 +460,26 @@ button {
   color: var(--muted);
   font-size: 12px;
   font-weight: 680;
+  font-variant-numeric: tabular-nums;
+}
+
+.card-date {
+  text-align: right;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 680;
+  font-variant-numeric: tabular-nums;
+}
+
+.spac-card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 9px;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 720;
   font-variant-numeric: tabular-nums;
 }
 
@@ -968,10 +945,6 @@ tbody tr.active {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .stats-panels {
     grid-template-columns: 1fr;
   }
@@ -1005,10 +978,6 @@ tbody tr.active {
   }
 
   .snapshot {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1598,6 +1567,75 @@ td.spark-cell {
   color: var(--faint);
   font-size: 11px;
   font-weight: 650;
+}
+
+.rate-period-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid var(--soft-border);
+}
+
+.rate-period-head h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 780;
+}
+
+.rate-period-head span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.rate-periods {
+  display: grid;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.rate-period {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--soft-border);
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: var(--surface2);
+}
+
+.rate-period-range {
+  font-size: 12px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+.rate-period-source {
+  margin-top: 3px;
+  color: var(--faint);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.rate-period-source a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.rate-period-source a:hover,
+.rate-period-source a:focus-visible {
+  text-decoration: underline;
+}
+
+.rate-period-value {
+  font-size: 13px;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .filing-caption {

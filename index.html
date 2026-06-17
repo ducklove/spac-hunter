@@ -51,7 +51,6 @@ html[data-embed] .container { padding-top: 14px !important; }
   <section class="snapshot" id="snapshot"></section>
 
   <section class="market-stats" aria-label="스팩 시장 통계">
-    <div class="stats-grid" id="statsCards"></div>
     <div class="stats-panels" id="statsPanels">
       <article class="stats-panel">
         <div class="panel-header">
@@ -97,18 +96,15 @@ html[data-embed] .container { padding-top: 14px !important; }
     <div class="segments" id="filterSegments"></div>
     <input type="search" class="control search-control" id="searchInput" placeholder="종목명 또는 코드 검색">
     <select class="control" id="sortSelect" aria-label="정렬">
-      <option value="cheap">현재가 낮은순</option>
-      <option value="ratio">현재가 / 공모가 낮은순</option>
-      <option value="yield">연환산 기대수익률 높은순</option>
-      <option value="liquidation">청산 예정 가까운순</option>
-      <option value="volume">거래대금 높은순</option>
+      <option value="price">가격 순</option>
+      <option value="listing">상장일자 순</option>
+      <option value="yield">연환산 기대수익률순</option>
     </select>
   </section>
 
   <section class="dashboard-grid">
     <aside class="panel">
       <div class="panel-header">
-        <h2 class="panel-title">공모가 대비 후보</h2>
         <div class="panel-sub" id="listCount" aria-live="polite"></div>
       </div>
       <div class="spac-list" id="spacList"></div>

@@ -1,8 +1,8 @@
 window.SPAC_DATA = {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-06-17 20:22:13 KST",
-  "generatedAt": "2026-06-17T20:22:13.035973+09:00",
+  "lastUpdated": "2026-06-18 05:47:46 KST",
+  "generatedAt": "2026-06-18T05:47:46.702296+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -11,8 +11,8 @@ window.SPAC_DATA = {
     "mergerPriceRecords": "합병 공시일 직전/이후 네이버 일별 종가로 이벤트별 가격 반응과 이후 고저점을 계산",
     "ipoPrice": "기본 2,000원, overrides.json으로 보정",
     "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
-    "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
-    "trustRate": "KOFR 최신 공시금리 2.539%(2026.06.17)",
+    "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자(공시 예치이율 기간별 적용). 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
+    "trustRate": "개별 기대수익률은 증권신고서·신탁계약내용변경 공시의 예치이율 기간으로 계산하며, 공시 금리가 없으면 표시하지 않습니다. KOFR/수동 금리는 시뮬레이션 기본값에만 사용합니다.",
     "expectedReturn": "추정 청산분배금/현재가 - 1"
   },
   "rateAssumption": {
@@ -33,17 +33,17 @@ window.SPAC_DATA = {
     }
   },
   "summary": {
-    "totalCount": 72,
+    "totalCount": 71,
     "belowIpoCount": 15,
     "nearIpoCount": 26,
-    "dueSoonCount": 2,
+    "dueSoonCount": 1,
     "mergerCount": 3,
     "mergerAppliedCount": 3,
     "mergerConfirmedCount": 0,
     "mergerEventCount": 38,
     "recentListingCount": 6,
-    "averageRatio": 1.0231,
-    "averageAnnualizedReturn": 4.52,
+    "averageRatio": 1.0226,
+    "averageAnnualizedReturn": 4.56,
     "cheapest": {
       "code": "0131D0",
       "name": "키움히어로제2호스팩",
@@ -53,7 +53,7 @@ window.SPAC_DATA = {
     "bestYield": {
       "code": "472220",
       "name": "신영스팩10호",
-      "annualizedReturn": 9.69,
+      "annualizedReturn": 9.93,
       "currentPrice": 2090
     }
   },
@@ -62,783 +62,783 @@ window.SPAC_DATA = {
     "belowIpoTrend": [
       {
         "date": "2025-11-03",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 5,
         "nearCount": 15,
-        "belowPct": 9.8,
-        "averageRatio": 1.0344
+        "belowPct": 10.0,
+        "averageRatio": 1.0336
       },
       {
         "date": "2025-11-04",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 4,
         "nearCount": 15,
-        "belowPct": 7.84,
-        "averageRatio": 1.0348
+        "belowPct": 8.0,
+        "averageRatio": 1.0342
       },
       {
         "date": "2025-11-05",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 6,
         "nearCount": 16,
-        "belowPct": 11.76,
-        "averageRatio": 1.0344
+        "belowPct": 12.0,
+        "averageRatio": 1.034
       },
       {
         "date": "2025-11-06",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 7,
         "nearCount": 16,
-        "belowPct": 13.73,
-        "averageRatio": 1.0346
+        "belowPct": 14.0,
+        "averageRatio": 1.0339
       },
       {
         "date": "2025-11-07",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 6,
         "nearCount": 15,
-        "belowPct": 11.76,
-        "averageRatio": 1.0343
+        "belowPct": 12.0,
+        "averageRatio": 1.0336
       },
       {
         "date": "2025-11-10",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 4,
         "nearCount": 15,
-        "belowPct": 7.84,
-        "averageRatio": 1.0351
+        "belowPct": 8.0,
+        "averageRatio": 1.0344
       },
       {
         "date": "2025-11-11",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 5,
         "nearCount": 16,
-        "belowPct": 9.8,
-        "averageRatio": 1.0347
+        "belowPct": 10.0,
+        "averageRatio": 1.0343
       },
       {
         "date": "2025-11-12",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 8,
         "nearCount": 16,
-        "belowPct": 15.69,
-        "averageRatio": 1.0345
+        "belowPct": 16.0,
+        "averageRatio": 1.0339
       },
       {
         "date": "2025-11-13",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 7,
         "nearCount": 15,
-        "belowPct": 13.73,
-        "averageRatio": 1.0329
+        "belowPct": 14.0,
+        "averageRatio": 1.0322
       },
       {
         "date": "2025-11-14",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 9,
         "nearCount": 15,
-        "belowPct": 17.65,
-        "averageRatio": 1.0326
+        "belowPct": 18.0,
+        "averageRatio": 1.032
       },
       {
         "date": "2025-11-17",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 7,
         "nearCount": 15,
-        "belowPct": 13.73,
-        "averageRatio": 1.0329
+        "belowPct": 14.0,
+        "averageRatio": 1.0323
       },
       {
         "date": "2025-11-18",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 8,
         "nearCount": 15,
-        "belowPct": 15.69,
-        "averageRatio": 1.0328
+        "belowPct": 16.0,
+        "averageRatio": 1.0322
       },
       {
         "date": "2025-11-19",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 9,
         "nearCount": 15,
-        "belowPct": 17.65,
-        "averageRatio": 1.0331
+        "belowPct": 18.0,
+        "averageRatio": 1.0325
       },
       {
         "date": "2025-11-20",
-        "totalCount": 51,
+        "totalCount": 50,
         "belowCount": 8,
         "nearCount": 15,
-        "belowPct": 15.69,
-        "averageRatio": 1.033
+        "belowPct": 16.0,
+        "averageRatio": 1.0325
       },
       {
         "date": "2025-11-21",
-        "totalCount": 52,
+        "totalCount": 51,
         "belowCount": 9,
         "nearCount": 16,
-        "belowPct": 17.31,
-        "averageRatio": 1.0331
-      },
-      {
-        "date": "2025-11-24",
-        "totalCount": 53,
-        "belowCount": 10,
-        "nearCount": 18,
-        "belowPct": 18.87,
-        "averageRatio": 1.0315
-      },
-      {
-        "date": "2025-11-25",
-        "totalCount": 53,
-        "belowCount": 10,
-        "nearCount": 18,
-        "belowPct": 18.87,
-        "averageRatio": 1.0311
-      },
-      {
-        "date": "2025-11-26",
-        "totalCount": 53,
-        "belowCount": 8,
-        "nearCount": 17,
-        "belowPct": 15.09,
+        "belowPct": 17.65,
         "averageRatio": 1.0327
       },
       {
+        "date": "2025-11-24",
+        "totalCount": 52,
+        "belowCount": 10,
+        "nearCount": 18,
+        "belowPct": 19.23,
+        "averageRatio": 1.0309
+      },
+      {
+        "date": "2025-11-25",
+        "totalCount": 52,
+        "belowCount": 10,
+        "nearCount": 18,
+        "belowPct": 19.23,
+        "averageRatio": 1.0306
+      },
+      {
+        "date": "2025-11-26",
+        "totalCount": 52,
+        "belowCount": 8,
+        "nearCount": 17,
+        "belowPct": 15.38,
+        "averageRatio": 1.0322
+      },
+      {
         "date": "2025-11-27",
-        "totalCount": 54,
+        "totalCount": 53,
         "belowCount": 9,
         "nearCount": 17,
-        "belowPct": 16.67,
-        "averageRatio": 1.0331
+        "belowPct": 16.98,
+        "averageRatio": 1.0325
       },
       {
         "date": "2025-11-28",
-        "totalCount": 55,
+        "totalCount": 54,
         "belowCount": 6,
         "nearCount": 17,
-        "belowPct": 10.91,
-        "averageRatio": 1.0425
+        "belowPct": 11.11,
+        "averageRatio": 1.0421
       },
       {
         "date": "2025-12-01",
-        "totalCount": 56,
+        "totalCount": 55,
         "belowCount": 4,
         "nearCount": 15,
-        "belowPct": 7.14,
+        "belowPct": 7.27,
         "averageRatio": 1.0631
       },
       {
         "date": "2025-12-02",
-        "totalCount": 56,
+        "totalCount": 55,
         "belowCount": 1,
         "nearCount": 12,
-        "belowPct": 1.79,
-        "averageRatio": 1.0875
+        "belowPct": 1.82,
+        "averageRatio": 1.088
       },
       {
         "date": "2025-12-03",
-        "totalCount": 56,
+        "totalCount": 55,
         "belowCount": 2,
         "nearCount": 12,
-        "belowPct": 3.57,
-        "averageRatio": 1.0833
+        "belowPct": 3.64,
+        "averageRatio": 1.0835
       },
       {
         "date": "2025-12-04",
-        "totalCount": 56,
+        "totalCount": 55,
         "belowCount": 1,
         "nearCount": 8,
-        "belowPct": 1.79,
-        "averageRatio": 1.0754
+        "belowPct": 1.82,
+        "averageRatio": 1.0755
       },
       {
         "date": "2025-12-05",
-        "totalCount": 57,
+        "totalCount": 56,
         "belowCount": 2,
         "nearCount": 11,
-        "belowPct": 3.51,
-        "averageRatio": 1.0796
+        "belowPct": 3.57,
+        "averageRatio": 1.0798
       },
       {
         "date": "2025-12-08",
-        "totalCount": 57,
+        "totalCount": 56,
         "belowCount": 1,
         "nearCount": 13,
-        "belowPct": 1.75,
-        "averageRatio": 1.0664
+        "belowPct": 1.79,
+        "averageRatio": 1.0663
       },
       {
         "date": "2025-12-09",
-        "totalCount": 57,
+        "totalCount": 56,
         "belowCount": 3,
         "nearCount": 14,
-        "belowPct": 5.26,
-        "averageRatio": 1.0526
+        "belowPct": 5.36,
+        "averageRatio": 1.0524
       },
       {
         "date": "2025-12-10",
-        "totalCount": 57,
+        "totalCount": 56,
         "belowCount": 3,
         "nearCount": 17,
-        "belowPct": 5.26,
-        "averageRatio": 1.0504
+        "belowPct": 5.36,
+        "averageRatio": 1.0502
       },
       {
         "date": "2025-12-11",
-        "totalCount": 58,
+        "totalCount": 57,
         "belowCount": 6,
         "nearCount": 17,
-        "belowPct": 10.34,
-        "averageRatio": 1.044
+        "belowPct": 10.53,
+        "averageRatio": 1.0436
       },
       {
         "date": "2025-12-12",
-        "totalCount": 60,
+        "totalCount": 59,
         "belowCount": 10,
         "nearCount": 17,
-        "belowPct": 16.67,
-        "averageRatio": 1.0402
+        "belowPct": 16.95,
+        "averageRatio": 1.0399
       },
       {
         "date": "2025-12-15",
-        "totalCount": 61,
+        "totalCount": 60,
         "belowCount": 7,
         "nearCount": 21,
-        "belowPct": 11.48,
-        "averageRatio": 1.0307
+        "belowPct": 11.67,
+        "averageRatio": 1.0302
       },
       {
         "date": "2025-12-16",
-        "totalCount": 61,
+        "totalCount": 60,
         "belowCount": 16,
         "nearCount": 25,
-        "belowPct": 26.23,
-        "averageRatio": 1.0268
+        "belowPct": 26.67,
+        "averageRatio": 1.0263
       },
       {
         "date": "2025-12-17",
-        "totalCount": 61,
+        "totalCount": 60,
         "belowCount": 11,
         "nearCount": 24,
-        "belowPct": 18.03,
-        "averageRatio": 1.028
-      },
-      {
-        "date": "2025-12-18",
-        "totalCount": 61,
-        "belowCount": 13,
-        "nearCount": 25,
-        "belowPct": 21.31,
-        "averageRatio": 1.0267
-      },
-      {
-        "date": "2025-12-19",
-        "totalCount": 62,
-        "belowCount": 14,
-        "nearCount": 24,
-        "belowPct": 22.58,
-        "averageRatio": 1.0321
-      },
-      {
-        "date": "2025-12-22",
-        "totalCount": 64,
-        "belowCount": 11,
-        "nearCount": 26,
-        "belowPct": 17.19,
-        "averageRatio": 1.0285
-      },
-      {
-        "date": "2025-12-23",
-        "totalCount": 65,
-        "belowCount": 13,
-        "nearCount": 27,
-        "belowPct": 20.0,
-        "averageRatio": 1.0267
-      },
-      {
-        "date": "2025-12-24",
-        "totalCount": 65,
-        "belowCount": 12,
-        "nearCount": 27,
-        "belowPct": 18.46,
-        "averageRatio": 1.0268
-      },
-      {
-        "date": "2025-12-26",
-        "totalCount": 65,
-        "belowCount": 9,
-        "nearCount": 26,
-        "belowPct": 13.85,
-        "averageRatio": 1.0276
-      },
-      {
-        "date": "2025-12-29",
-        "totalCount": 65,
-        "belowCount": 11,
-        "nearCount": 27,
-        "belowPct": 16.92,
+        "belowPct": 18.33,
         "averageRatio": 1.0275
       },
       {
-        "date": "2025-12-30",
-        "totalCount": 65,
+        "date": "2025-12-18",
+        "totalCount": 60,
+        "belowCount": 13,
+        "nearCount": 25,
+        "belowPct": 21.67,
+        "averageRatio": 1.0262
+      },
+      {
+        "date": "2025-12-19",
+        "totalCount": 61,
+        "belowCount": 14,
+        "nearCount": 24,
+        "belowPct": 22.95,
+        "averageRatio": 1.0318
+      },
+      {
+        "date": "2025-12-22",
+        "totalCount": 63,
+        "belowCount": 11,
+        "nearCount": 26,
+        "belowPct": 17.46,
+        "averageRatio": 1.0281
+      },
+      {
+        "date": "2025-12-23",
+        "totalCount": 64,
+        "belowCount": 13,
+        "nearCount": 27,
+        "belowPct": 20.31,
+        "averageRatio": 1.0262
+      },
+      {
+        "date": "2025-12-24",
+        "totalCount": 64,
+        "belowCount": 12,
+        "nearCount": 27,
+        "belowPct": 18.75,
+        "averageRatio": 1.0263
+      },
+      {
+        "date": "2025-12-26",
+        "totalCount": 64,
+        "belowCount": 9,
+        "nearCount": 26,
+        "belowPct": 14.06,
+        "averageRatio": 1.0272
+      },
+      {
+        "date": "2025-12-29",
+        "totalCount": 64,
         "belowCount": 11,
         "nearCount": 27,
-        "belowPct": 16.92,
-        "averageRatio": 1.0285
+        "belowPct": 17.19,
+        "averageRatio": 1.0271
+      },
+      {
+        "date": "2025-12-30",
+        "totalCount": 64,
+        "belowCount": 11,
+        "nearCount": 27,
+        "belowPct": 17.19,
+        "averageRatio": 1.0282
       },
       {
         "date": "2026-01-02",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 10,
         "nearCount": 26,
-        "belowPct": 15.38,
-        "averageRatio": 1.0284
+        "belowPct": 15.62,
+        "averageRatio": 1.028
       },
       {
         "date": "2026-01-05",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 10,
         "nearCount": 26,
-        "belowPct": 15.38,
-        "averageRatio": 1.0292
+        "belowPct": 15.62,
+        "averageRatio": 1.0288
       },
       {
         "date": "2026-01-06",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 8,
         "nearCount": 23,
-        "belowPct": 12.31,
-        "averageRatio": 1.0314
+        "belowPct": 12.5,
+        "averageRatio": 1.031
       },
       {
         "date": "2026-01-07",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 9,
         "nearCount": 21,
-        "belowPct": 13.85,
-        "averageRatio": 1.0322
+        "belowPct": 14.06,
+        "averageRatio": 1.0319
       },
       {
         "date": "2026-01-08",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 10,
         "nearCount": 22,
-        "belowPct": 15.38,
-        "averageRatio": 1.0312
+        "belowPct": 15.62,
+        "averageRatio": 1.0309
       },
       {
         "date": "2026-01-09",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 9,
         "nearCount": 22,
-        "belowPct": 13.85,
-        "averageRatio": 1.0317
+        "belowPct": 14.06,
+        "averageRatio": 1.0314
       },
       {
         "date": "2026-01-12",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 9,
         "nearCount": 21,
-        "belowPct": 13.85,
-        "averageRatio": 1.0336
+        "belowPct": 14.06,
+        "averageRatio": 1.0335
       },
       {
         "date": "2026-01-13",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 10,
         "nearCount": 20,
-        "belowPct": 15.38,
-        "averageRatio": 1.0333
+        "belowPct": 15.62,
+        "averageRatio": 1.0331
       },
       {
         "date": "2026-01-14",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 11,
         "nearCount": 18,
-        "belowPct": 16.92,
-        "averageRatio": 1.0339
+        "belowPct": 17.19,
+        "averageRatio": 1.0337
       },
       {
         "date": "2026-01-15",
-        "totalCount": 65,
+        "totalCount": 64,
         "belowCount": 9,
         "nearCount": 20,
-        "belowPct": 13.85,
-        "averageRatio": 1.0346
+        "belowPct": 14.06,
+        "averageRatio": 1.0344
       },
       {
         "date": "2026-01-16",
+        "totalCount": 64,
+        "belowCount": 9,
+        "nearCount": 21,
+        "belowPct": 14.06,
+        "averageRatio": 1.0343
+      },
+      {
+        "date": "2026-01-19",
+        "totalCount": 64,
+        "belowCount": 10,
+        "nearCount": 18,
+        "belowPct": 15.62,
+        "averageRatio": 1.0339
+      },
+      {
+        "date": "2026-01-20",
+        "totalCount": 64,
+        "belowCount": 10,
+        "nearCount": 19,
+        "belowPct": 15.62,
+        "averageRatio": 1.0349
+      },
+      {
+        "date": "2026-01-21",
+        "totalCount": 65,
+        "belowCount": 10,
+        "nearCount": 21,
+        "belowPct": 15.38,
+        "averageRatio": 1.0709
+      },
+      {
+        "date": "2026-01-22",
+        "totalCount": 65,
+        "belowCount": 10,
+        "nearCount": 23,
+        "belowPct": 15.38,
+        "averageRatio": 1.0537
+      },
+      {
+        "date": "2026-01-23",
         "totalCount": 65,
         "belowCount": 9,
         "nearCount": 21,
         "belowPct": 13.85,
-        "averageRatio": 1.0345
-      },
-      {
-        "date": "2026-01-19",
-        "totalCount": 65,
-        "belowCount": 10,
-        "nearCount": 18,
-        "belowPct": 15.38,
-        "averageRatio": 1.0342
-      },
-      {
-        "date": "2026-01-20",
-        "totalCount": 65,
-        "belowCount": 10,
-        "nearCount": 19,
-        "belowPct": 15.38,
-        "averageRatio": 1.0351
-      },
-      {
-        "date": "2026-01-21",
-        "totalCount": 66,
-        "belowCount": 10,
-        "nearCount": 21,
-        "belowPct": 15.15,
-        "averageRatio": 1.0706
-      },
-      {
-        "date": "2026-01-22",
-        "totalCount": 66,
-        "belowCount": 10,
-        "nearCount": 23,
-        "belowPct": 15.15,
-        "averageRatio": 1.0536
-      },
-      {
-        "date": "2026-01-23",
-        "totalCount": 66,
-        "belowCount": 9,
-        "nearCount": 21,
-        "belowPct": 13.64,
-        "averageRatio": 1.0482
+        "averageRatio": 1.0481
       },
       {
         "date": "2026-01-26",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 8,
         "nearCount": 19,
-        "belowPct": 12.12,
+        "belowPct": 12.31,
         "averageRatio": 1.0496
       },
       {
         "date": "2026-01-27",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 9,
         "nearCount": 19,
-        "belowPct": 13.64,
-        "averageRatio": 1.0489
+        "belowPct": 13.85,
+        "averageRatio": 1.0491
       },
       {
         "date": "2026-01-28",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 8,
         "nearCount": 20,
-        "belowPct": 12.12,
+        "belowPct": 12.31,
         "averageRatio": 1.0466
       },
       {
         "date": "2026-01-29",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 8,
         "nearCount": 20,
-        "belowPct": 12.12,
+        "belowPct": 12.31,
         "averageRatio": 1.0429
       },
       {
         "date": "2026-01-30",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 8,
         "nearCount": 19,
-        "belowPct": 12.12,
+        "belowPct": 12.31,
         "averageRatio": 1.0413
       },
       {
         "date": "2026-02-02",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 8,
         "nearCount": 15,
-        "belowPct": 12.12,
+        "belowPct": 12.31,
         "averageRatio": 1.0423
       },
       {
         "date": "2026-02-03",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 6,
         "nearCount": 13,
-        "belowPct": 9.09,
-        "averageRatio": 1.0468
+        "belowPct": 9.23,
+        "averageRatio": 1.0467
       },
       {
         "date": "2026-02-04",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 6,
         "nearCount": 14,
-        "belowPct": 9.09,
-        "averageRatio": 1.0472
+        "belowPct": 9.23,
+        "averageRatio": 1.0471
       },
       {
         "date": "2026-02-05",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 7,
         "nearCount": 16,
-        "belowPct": 10.61,
-        "averageRatio": 1.0398
+        "belowPct": 10.77,
+        "averageRatio": 1.0396
       },
       {
         "date": "2026-02-06",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 6,
         "nearCount": 13,
-        "belowPct": 9.09,
-        "averageRatio": 1.0382
+        "belowPct": 9.23,
+        "averageRatio": 1.0381
       },
       {
         "date": "2026-02-09",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 3,
         "nearCount": 12,
-        "belowPct": 4.55,
-        "averageRatio": 1.0403
+        "belowPct": 4.62,
+        "averageRatio": 1.0401
       },
       {
         "date": "2026-02-10",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 9,
-        "belowPct": 0.0,
-        "averageRatio": 1.0439
-      },
-      {
-        "date": "2026-02-11",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 7,
-        "belowPct": 0.0,
-        "averageRatio": 1.0453
-      },
-      {
-        "date": "2026-02-12",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 4,
-        "belowPct": 0.0,
-        "averageRatio": 1.0484
-      },
-      {
-        "date": "2026-02-13",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 4,
-        "belowPct": 0.0,
-        "averageRatio": 1.049
-      },
-      {
-        "date": "2026-02-19",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 3,
-        "belowPct": 0.0,
-        "averageRatio": 1.0486
-      },
-      {
-        "date": "2026-02-20",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 5,
-        "belowPct": 0.0,
-        "averageRatio": 1.0495
-      },
-      {
-        "date": "2026-02-23",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 6,
-        "belowPct": 0.0,
-        "averageRatio": 1.0486
-      },
-      {
-        "date": "2026-02-24",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 5,
-        "belowPct": 0.0,
-        "averageRatio": 1.048
-      },
-      {
-        "date": "2026-02-25",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 5,
-        "belowPct": 0.0,
-        "averageRatio": 1.0479
-      },
-      {
-        "date": "2026-02-26",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 5,
-        "belowPct": 0.0,
-        "averageRatio": 1.046
-      },
-      {
-        "date": "2026-02-27",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 5,
-        "belowPct": 0.0,
-        "averageRatio": 1.0469
-      },
-      {
-        "date": "2026-03-03",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 7,
         "belowPct": 0.0,
         "averageRatio": 1.0437
       },
       {
+        "date": "2026-02-11",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 7,
+        "belowPct": 0.0,
+        "averageRatio": 1.0448
+      },
+      {
+        "date": "2026-02-12",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 4,
+        "belowPct": 0.0,
+        "averageRatio": 1.0481
+      },
+      {
+        "date": "2026-02-13",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 4,
+        "belowPct": 0.0,
+        "averageRatio": 1.0486
+      },
+      {
+        "date": "2026-02-19",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 3,
+        "belowPct": 0.0,
+        "averageRatio": 1.0483
+      },
+      {
+        "date": "2026-02-20",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 5,
+        "belowPct": 0.0,
+        "averageRatio": 1.049
+      },
+      {
+        "date": "2026-02-23",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 6,
+        "belowPct": 0.0,
+        "averageRatio": 1.0482
+      },
+      {
+        "date": "2026-02-24",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 5,
+        "belowPct": 0.0,
+        "averageRatio": 1.0477
+      },
+      {
+        "date": "2026-02-25",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 5,
+        "belowPct": 0.0,
+        "averageRatio": 1.0478
+      },
+      {
+        "date": "2026-02-26",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 5,
+        "belowPct": 0.0,
+        "averageRatio": 1.0459
+      },
+      {
+        "date": "2026-02-27",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 5,
+        "belowPct": 0.0,
+        "averageRatio": 1.0468
+      },
+      {
+        "date": "2026-03-03",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 7,
+        "belowPct": 0.0,
+        "averageRatio": 1.0436
+      },
+      {
         "date": "2026-03-04",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 2,
         "nearCount": 13,
-        "belowPct": 3.03,
-        "averageRatio": 1.0385
+        "belowPct": 3.08,
+        "averageRatio": 1.0383
       },
       {
         "date": "2026-03-05",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 10,
         "belowPct": 0.0,
-        "averageRatio": 1.0405
+        "averageRatio": 1.0403
       },
       {
         "date": "2026-03-06",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 9,
         "belowPct": 0.0,
-        "averageRatio": 1.0414
+        "averageRatio": 1.0413
       },
       {
         "date": "2026-03-09",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 3,
         "nearCount": 11,
-        "belowPct": 4.55,
-        "averageRatio": 1.0382
+        "belowPct": 4.62,
+        "averageRatio": 1.0381
       },
       {
         "date": "2026-03-10",
-        "totalCount": 66,
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 10,
+        "belowPct": 0.0,
+        "averageRatio": 1.0409
+      },
+      {
+        "date": "2026-03-11",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 11,
+        "belowPct": 0.0,
+        "averageRatio": 1.0418
+      },
+      {
+        "date": "2026-03-12",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 7,
+        "belowPct": 0.0,
+        "averageRatio": 1.0442
+      },
+      {
+        "date": "2026-03-13",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 8,
+        "belowPct": 0.0,
+        "averageRatio": 1.0437
+      },
+      {
+        "date": "2026-03-16",
+        "totalCount": 65,
+        "belowCount": 0,
+        "nearCount": 7,
+        "belowPct": 0.0,
+        "averageRatio": 1.0419
+      },
+      {
+        "date": "2026-03-17",
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 10,
         "belowPct": 0.0,
         "averageRatio": 1.041
       },
       {
-        "date": "2026-03-11",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 11,
-        "belowPct": 0.0,
-        "averageRatio": 1.0419
-      },
-      {
-        "date": "2026-03-12",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 7,
-        "belowPct": 0.0,
-        "averageRatio": 1.0443
-      },
-      {
-        "date": "2026-03-13",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 8,
-        "belowPct": 0.0,
-        "averageRatio": 1.0439
-      },
-      {
-        "date": "2026-03-16",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 7,
-        "belowPct": 0.0,
-        "averageRatio": 1.0421
-      },
-      {
-        "date": "2026-03-17",
-        "totalCount": 66,
-        "belowCount": 0,
-        "nearCount": 10,
-        "belowPct": 0.0,
-        "averageRatio": 1.0412
-      },
-      {
         "date": "2026-03-18",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 10,
         "belowPct": 0.0,
-        "averageRatio": 1.0398
+        "averageRatio": 1.0397
       },
       {
         "date": "2026-03-19",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 11,
         "belowPct": 0.0,
-        "averageRatio": 1.0382
+        "averageRatio": 1.038
       },
       {
         "date": "2026-03-20",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 10,
         "belowPct": 0.0,
-        "averageRatio": 1.0385
+        "averageRatio": 1.0384
       },
       {
         "date": "2026-03-23",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 11,
         "belowPct": 0.0,
-        "averageRatio": 1.0383
+        "averageRatio": 1.0381
       },
       {
         "date": "2026-03-24",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 1,
         "nearCount": 12,
-        "belowPct": 1.52,
-        "averageRatio": 1.0371
+        "belowPct": 1.54,
+        "averageRatio": 1.0369
       },
       {
         "date": "2026-03-25",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 0,
         "nearCount": 12,
         "belowPct": 0.0,
-        "averageRatio": 1.0358
+        "averageRatio": 1.0356
       },
       {
         "date": "2026-03-26",
-        "totalCount": 66,
+        "totalCount": 65,
         "belowCount": 2,
         "nearCount": 12,
-        "belowPct": 3.03,
-        "averageRatio": 1.0366
+        "belowPct": 3.08,
+        "averageRatio": 1.0364
       },
       {
         "date": "2026-03-27",
-        "totalCount": 67,
+        "totalCount": 66,
         "belowCount": 0,
         "nearCount": 12,
         "belowPct": 0.0,
@@ -846,435 +846,435 @@ window.SPAC_DATA = {
       },
       {
         "date": "2026-03-30",
-        "totalCount": 67,
+        "totalCount": 66,
         "belowCount": 0,
         "nearCount": 14,
-        "belowPct": 0.0,
-        "averageRatio": 1.0351
-      },
-      {
-        "date": "2026-03-31",
-        "totalCount": 67,
-        "belowCount": 2,
-        "nearCount": 17,
-        "belowPct": 2.99,
-        "averageRatio": 1.0353
-      },
-      {
-        "date": "2026-04-01",
-        "totalCount": 68,
-        "belowCount": 0,
-        "nearCount": 17,
-        "belowPct": 0.0,
-        "averageRatio": 1.0358
-      },
-      {
-        "date": "2026-04-02",
-        "totalCount": 69,
-        "belowCount": 2,
-        "nearCount": 20,
-        "belowPct": 2.9,
-        "averageRatio": 1.0304
-      },
-      {
-        "date": "2026-04-03",
-        "totalCount": 69,
-        "belowCount": 1,
-        "nearCount": 17,
-        "belowPct": 1.45,
-        "averageRatio": 1.033
-      },
-      {
-        "date": "2026-04-06",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 15,
-        "belowPct": 0.0,
-        "averageRatio": 1.0341
-      },
-      {
-        "date": "2026-04-07",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 16,
-        "belowPct": 0.0,
-        "averageRatio": 1.0349
-      },
-      {
-        "date": "2026-04-08",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 17,
         "belowPct": 0.0,
         "averageRatio": 1.035
       },
       {
-        "date": "2026-04-09",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 16,
-        "belowPct": 0.0,
-        "averageRatio": 1.0344
+        "date": "2026-03-31",
+        "totalCount": 66,
+        "belowCount": 2,
+        "nearCount": 17,
+        "belowPct": 3.03,
+        "averageRatio": 1.0352
       },
       {
-        "date": "2026-04-10",
-        "totalCount": 69,
+        "date": "2026-04-01",
+        "totalCount": 67,
         "belowCount": 0,
         "nearCount": 17,
         "belowPct": 0.0,
-        "averageRatio": 1.0345
+        "averageRatio": 1.0357
       },
       {
-        "date": "2026-04-13",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 14,
-        "belowPct": 0.0,
-        "averageRatio": 1.0338
+        "date": "2026-04-02",
+        "totalCount": 68,
+        "belowCount": 2,
+        "nearCount": 20,
+        "belowPct": 2.94,
+        "averageRatio": 1.0302
       },
       {
-        "date": "2026-04-14",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 16,
-        "belowPct": 0.0,
-        "averageRatio": 1.0333
-      },
-      {
-        "date": "2026-04-15",
-        "totalCount": 69,
-        "belowCount": 0,
+        "date": "2026-04-03",
+        "totalCount": 68,
+        "belowCount": 1,
         "nearCount": 17,
-        "belowPct": 0.0,
-        "averageRatio": 1.0344
-      },
-      {
-        "date": "2026-04-16",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 17,
-        "belowPct": 0.0,
-        "averageRatio": 1.0334
-      },
-      {
-        "date": "2026-04-17",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 15,
-        "belowPct": 0.0,
-        "averageRatio": 1.0333
-      },
-      {
-        "date": "2026-04-20",
-        "totalCount": 69,
-        "belowCount": 0,
-        "nearCount": 15,
-        "belowPct": 0.0,
+        "belowPct": 1.47,
         "averageRatio": 1.0328
       },
       {
-        "date": "2026-04-21",
-        "totalCount": 69,
+        "date": "2026-04-06",
+        "totalCount": 68,
         "belowCount": 0,
         "nearCount": 15,
         "belowPct": 0.0,
-        "averageRatio": 1.0327
+        "averageRatio": 1.034
       },
       {
-        "date": "2026-04-22",
-        "totalCount": 69,
-        "belowCount": 1,
+        "date": "2026-04-07",
+        "totalCount": 68,
+        "belowCount": 0,
         "nearCount": 16,
-        "belowPct": 1.45,
-        "averageRatio": 1.0322
-      },
-      {
-        "date": "2026-04-23",
-        "totalCount": 70,
-        "belowCount": 0,
-        "nearCount": 18,
         "belowPct": 0.0,
-        "averageRatio": 1.0353
+        "averageRatio": 1.0348
       },
       {
-        "date": "2026-04-24",
-        "totalCount": 70,
+        "date": "2026-04-08",
+        "totalCount": 68,
         "belowCount": 0,
-        "nearCount": 18,
+        "nearCount": 17,
+        "belowPct": 0.0,
+        "averageRatio": 1.0348
+      },
+      {
+        "date": "2026-04-09",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 16,
+        "belowPct": 0.0,
+        "averageRatio": 1.0342
+      },
+      {
+        "date": "2026-04-10",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 17,
+        "belowPct": 0.0,
+        "averageRatio": 1.0344
+      },
+      {
+        "date": "2026-04-13",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 14,
+        "belowPct": 0.0,
+        "averageRatio": 1.0337
+      },
+      {
+        "date": "2026-04-14",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 16,
         "belowPct": 0.0,
         "averageRatio": 1.0332
       },
       {
+        "date": "2026-04-15",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 17,
+        "belowPct": 0.0,
+        "averageRatio": 1.0342
+      },
+      {
+        "date": "2026-04-16",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 17,
+        "belowPct": 0.0,
+        "averageRatio": 1.0332
+      },
+      {
+        "date": "2026-04-17",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 15,
+        "belowPct": 0.0,
+        "averageRatio": 1.0332
+      },
+      {
+        "date": "2026-04-20",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 15,
+        "belowPct": 0.0,
+        "averageRatio": 1.0326
+      },
+      {
+        "date": "2026-04-21",
+        "totalCount": 68,
+        "belowCount": 0,
+        "nearCount": 15,
+        "belowPct": 0.0,
+        "averageRatio": 1.0326
+      },
+      {
+        "date": "2026-04-22",
+        "totalCount": 68,
+        "belowCount": 1,
+        "nearCount": 16,
+        "belowPct": 1.47,
+        "averageRatio": 1.032
+      },
+      {
+        "date": "2026-04-23",
+        "totalCount": 69,
+        "belowCount": 0,
+        "nearCount": 18,
+        "belowPct": 0.0,
+        "averageRatio": 1.0351
+      },
+      {
+        "date": "2026-04-24",
+        "totalCount": 69,
+        "belowCount": 0,
+        "nearCount": 18,
+        "belowPct": 0.0,
+        "averageRatio": 1.0331
+      },
+      {
         "date": "2026-04-27",
-        "totalCount": 70,
+        "totalCount": 69,
         "belowCount": 4,
         "nearCount": 20,
-        "belowPct": 5.71,
-        "averageRatio": 1.0278
+        "belowPct": 5.8,
+        "averageRatio": 1.0276
       },
       {
         "date": "2026-04-28",
-        "totalCount": 70,
+        "totalCount": 69,
         "belowCount": 5,
         "nearCount": 20,
-        "belowPct": 7.14,
-        "averageRatio": 1.0261
+        "belowPct": 7.25,
+        "averageRatio": 1.0258
       },
       {
         "date": "2026-04-29",
-        "totalCount": 70,
+        "totalCount": 69,
         "belowCount": 5,
         "nearCount": 20,
-        "belowPct": 7.14,
-        "averageRatio": 1.0283
+        "belowPct": 7.25,
+        "averageRatio": 1.0281
       },
       {
         "date": "2026-04-30",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 6,
         "nearCount": 22,
-        "belowPct": 8.45,
-        "averageRatio": 1.0306
+        "belowPct": 8.57,
+        "averageRatio": 1.0305
       },
       {
         "date": "2026-05-04",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 8,
         "nearCount": 22,
-        "belowPct": 11.27,
-        "averageRatio": 1.028
+        "belowPct": 11.43,
+        "averageRatio": 1.0278
       },
       {
         "date": "2026-05-06",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 10,
         "nearCount": 24,
-        "belowPct": 14.08,
-        "averageRatio": 1.028
+        "belowPct": 14.29,
+        "averageRatio": 1.0277
       },
       {
         "date": "2026-05-07",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 8,
         "nearCount": 24,
-        "belowPct": 11.27,
-        "averageRatio": 1.027
+        "belowPct": 11.43,
+        "averageRatio": 1.0267
       },
       {
         "date": "2026-05-08",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 6,
         "nearCount": 25,
-        "belowPct": 8.45,
-        "averageRatio": 1.0265
+        "belowPct": 8.57,
+        "averageRatio": 1.0262
       },
       {
         "date": "2026-05-11",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 9,
         "nearCount": 25,
-        "belowPct": 12.68,
-        "averageRatio": 1.026
+        "belowPct": 12.86,
+        "averageRatio": 1.0257
       },
       {
         "date": "2026-05-12",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 12,
         "nearCount": 27,
-        "belowPct": 16.9,
-        "averageRatio": 1.0256
+        "belowPct": 17.14,
+        "averageRatio": 1.0253
       },
       {
         "date": "2026-05-13",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 7,
         "nearCount": 24,
-        "belowPct": 9.86,
-        "averageRatio": 1.0287
-      },
-      {
-        "date": "2026-05-14",
-        "totalCount": 71,
-        "belowCount": 12,
-        "nearCount": 26,
-        "belowPct": 16.9,
-        "averageRatio": 1.0287
-      },
-      {
-        "date": "2026-05-15",
-        "totalCount": 71,
-        "belowCount": 10,
-        "nearCount": 26,
-        "belowPct": 14.08,
-        "averageRatio": 1.0277
-      },
-      {
-        "date": "2026-05-18",
-        "totalCount": 71,
-        "belowCount": 14,
-        "nearCount": 27,
-        "belowPct": 19.72,
-        "averageRatio": 1.0282
-      },
-      {
-        "date": "2026-05-19",
-        "totalCount": 71,
-        "belowCount": 13,
-        "nearCount": 27,
-        "belowPct": 18.31,
-        "averageRatio": 1.027
-      },
-      {
-        "date": "2026-05-20",
-        "totalCount": 71,
-        "belowCount": 11,
-        "nearCount": 26,
-        "belowPct": 15.49,
-        "averageRatio": 1.0279
-      },
-      {
-        "date": "2026-05-21",
-        "totalCount": 71,
-        "belowCount": 11,
-        "nearCount": 25,
-        "belowPct": 15.49,
+        "belowPct": 10.0,
         "averageRatio": 1.0285
       },
       {
+        "date": "2026-05-14",
+        "totalCount": 70,
+        "belowCount": 12,
+        "nearCount": 26,
+        "belowPct": 17.14,
+        "averageRatio": 1.0285
+      },
+      {
+        "date": "2026-05-15",
+        "totalCount": 70,
+        "belowCount": 10,
+        "nearCount": 26,
+        "belowPct": 14.29,
+        "averageRatio": 1.0274
+      },
+      {
+        "date": "2026-05-18",
+        "totalCount": 70,
+        "belowCount": 14,
+        "nearCount": 27,
+        "belowPct": 20.0,
+        "averageRatio": 1.0279
+      },
+      {
+        "date": "2026-05-19",
+        "totalCount": 70,
+        "belowCount": 13,
+        "nearCount": 27,
+        "belowPct": 18.57,
+        "averageRatio": 1.0267
+      },
+      {
+        "date": "2026-05-20",
+        "totalCount": 70,
+        "belowCount": 11,
+        "nearCount": 26,
+        "belowPct": 15.71,
+        "averageRatio": 1.0276
+      },
+      {
+        "date": "2026-05-21",
+        "totalCount": 70,
+        "belowCount": 11,
+        "nearCount": 25,
+        "belowPct": 15.71,
+        "averageRatio": 1.0282
+      },
+      {
         "date": "2026-05-22",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 10,
         "nearCount": 24,
-        "belowPct": 14.08,
-        "averageRatio": 1.0297
+        "belowPct": 14.29,
+        "averageRatio": 1.0293
       },
       {
         "date": "2026-05-26",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 10,
         "nearCount": 25,
-        "belowPct": 14.08,
-        "averageRatio": 1.0286
+        "belowPct": 14.29,
+        "averageRatio": 1.0282
       },
       {
         "date": "2026-05-27",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 13,
         "nearCount": 25,
-        "belowPct": 18.31,
-        "averageRatio": 1.0255
+        "belowPct": 18.57,
+        "averageRatio": 1.0251
       },
       {
         "date": "2026-05-28",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 13,
         "nearCount": 26,
-        "belowPct": 18.31,
-        "averageRatio": 1.0259
+        "belowPct": 18.57,
+        "averageRatio": 1.0255
       },
       {
         "date": "2026-05-29",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 8,
         "nearCount": 24,
-        "belowPct": 11.27,
-        "averageRatio": 1.0277
+        "belowPct": 11.43,
+        "averageRatio": 1.0273
       },
       {
         "date": "2026-06-01",
-        "totalCount": 71,
+        "totalCount": 70,
         "belowCount": 17,
         "nearCount": 30,
-        "belowPct": 23.94,
-        "averageRatio": 1.0244
+        "belowPct": 24.29,
+        "averageRatio": 1.0239
       },
       {
         "date": "2026-06-02",
+        "totalCount": 70,
+        "belowCount": 16,
+        "nearCount": 30,
+        "belowPct": 22.86,
+        "averageRatio": 1.0237
+      },
+      {
+        "date": "2026-06-04",
+        "totalCount": 70,
+        "belowCount": 12,
+        "nearCount": 26,
+        "belowPct": 17.14,
+        "averageRatio": 1.0258
+      },
+      {
+        "date": "2026-06-05",
+        "totalCount": 71,
+        "belowCount": 15,
+        "nearCount": 27,
+        "belowPct": 21.13,
+        "averageRatio": 1.0249
+      },
+      {
+        "date": "2026-06-08",
+        "totalCount": 71,
+        "belowCount": 20,
+        "nearCount": 33,
+        "belowPct": 28.17,
+        "averageRatio": 1.0213
+      },
+      {
+        "date": "2026-06-09",
         "totalCount": 71,
         "belowCount": 16,
         "nearCount": 30,
         "belowPct": 22.54,
-        "averageRatio": 1.0241
-      },
-      {
-        "date": "2026-06-04",
-        "totalCount": 71,
-        "belowCount": 12,
-        "nearCount": 26,
-        "belowPct": 16.9,
-        "averageRatio": 1.0262
-      },
-      {
-        "date": "2026-06-05",
-        "totalCount": 72,
-        "belowCount": 15,
-        "nearCount": 27,
-        "belowPct": 20.83,
-        "averageRatio": 1.0253
-      },
-      {
-        "date": "2026-06-08",
-        "totalCount": 72,
-        "belowCount": 20,
-        "nearCount": 33,
-        "belowPct": 27.78,
-        "averageRatio": 1.0218
-      },
-      {
-        "date": "2026-06-09",
-        "totalCount": 72,
-        "belowCount": 16,
-        "nearCount": 30,
-        "belowPct": 22.22,
-        "averageRatio": 1.0233
+        "averageRatio": 1.0228
       },
       {
         "date": "2026-06-10",
-        "totalCount": 72,
+        "totalCount": 71,
         "belowCount": 18,
         "nearCount": 30,
-        "belowPct": 25.0,
-        "averageRatio": 1.0229
+        "belowPct": 25.35,
+        "averageRatio": 1.0225
       },
       {
         "date": "2026-06-11",
-        "totalCount": 72,
+        "totalCount": 71,
         "belowCount": 17,
         "nearCount": 31,
-        "belowPct": 23.61,
-        "averageRatio": 1.023
+        "belowPct": 23.94,
+        "averageRatio": 1.0225
       },
       {
         "date": "2026-06-12",
-        "totalCount": 72,
+        "totalCount": 71,
         "belowCount": 14,
         "nearCount": 30,
-        "belowPct": 19.44,
-        "averageRatio": 1.0226
+        "belowPct": 19.72,
+        "averageRatio": 1.0221
       },
       {
         "date": "2026-06-15",
-        "totalCount": 72,
+        "totalCount": 71,
         "belowCount": 9,
         "nearCount": 26,
-        "belowPct": 12.5,
-        "averageRatio": 1.0252
+        "belowPct": 12.68,
+        "averageRatio": 1.0247
       },
       {
         "date": "2026-06-16",
-        "totalCount": 72,
+        "totalCount": 71,
         "belowCount": 8,
         "nearCount": 26,
-        "belowPct": 11.11,
-        "averageRatio": 1.0253
+        "belowPct": 11.27,
+        "averageRatio": 1.0249
       },
       {
         "date": "2026-06-17",
-        "totalCount": 72,
+        "totalCount": 71,
         "belowCount": 15,
         "nearCount": 26,
-        "belowPct": 20.83,
-        "averageRatio": 1.0231
+        "belowPct": 21.13,
+        "averageRatio": 1.0226
       }
     ],
     "listingTrend": [
@@ -1486,7 +1486,7 @@ window.SPAC_DATA = {
     },
     "mergerFunnel": {
       "episodeCount": 11,
-      "archivedSpacCount": 0,
+      "archivedSpacCount": 1,
       "successCount": 0,
       "failureCount": 8,
       "pendingCount": 3,
@@ -1497,8 +1497,18 @@ window.SPAC_DATA = {
       "avgDaysToCancel": 56.25
     },
     "archive": {
-      "count": 0,
-      "recent": []
+      "count": 1,
+      "recent": [
+        {
+          "code": "464440",
+          "name": "한국제13호스팩",
+          "sponsor": "한국",
+          "mergerStatus": null,
+          "lastSeen": "2026-06-17 20:22:13 KST",
+          "finalRatio": 1.0575,
+          "delistReasonGuess": "사유 미확인"
+        }
+      ]
     },
     "mergerPriceStats": {
       "applicationAvgPrice": 2162.0,
@@ -1578,16 +1588,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-27",
       "nextPrice": 2030,
       "nextReturnPct": -8.97,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2070,
-      "latestReturnPct": -7.17,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2065,
+      "latestReturnPct": -7.4,
       "highDate": "2026-06-16",
       "highPrice": 2070,
       "highReturnPct": -7.17,
       "lowDate": "2026-05-27",
       "lowPrice": 2030,
       "lowReturnPct": -8.97,
-      "observedTradingDays": 14,
+      "observedTradingDays": 15,
       "code": "477760",
       "name": "DB금융스팩12호",
       "status": "과거 공시",
@@ -1694,7 +1704,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-13",
       "nextPrice": 2055,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2055,
       "latestReturnPct": 0.0,
       "highDate": "2026-05-13",
@@ -1703,7 +1713,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-13",
       "lowPrice": 2055,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 23,
+      "observedTradingDays": 24,
       "code": "482680",
       "name": "미래에셋비전스팩7호",
       "status": "합병 신청",
@@ -1752,16 +1762,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-12",
       "nextPrice": 2040,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2025,
-      "latestReturnPct": -0.74,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2030,
+      "latestReturnPct": -0.49,
       "highDate": "2026-05-13",
       "highPrice": 2045,
       "highReturnPct": 0.25,
       "lowDate": "2026-06-16",
       "lowPrice": 2025,
       "lowReturnPct": -0.74,
-      "observedTradingDays": 24,
+      "observedTradingDays": 25,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -1810,7 +1820,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-12",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2335,
       "latestReturnPct": 0.0,
       "highDate": "2026-05-12",
@@ -1819,7 +1829,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-12",
       "lowPrice": 2335,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 24,
+      "observedTradingDays": 25,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "합병 신청",
@@ -1868,16 +1878,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-04-23",
       "nextPrice": 2050,
       "nextReturnPct": -2.15,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2025,
-      "latestReturnPct": -3.34,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2030,
+      "latestReturnPct": -3.1,
       "highDate": "2026-04-23",
       "highPrice": 2050,
       "highReturnPct": -2.15,
       "lowDate": "2026-06-16",
       "lowPrice": 2025,
       "lowReturnPct": -3.34,
-      "observedTradingDays": 35,
+      "observedTradingDays": 36,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -1897,16 +1907,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-04-23",
       "nextPrice": 2050,
       "nextReturnPct": -2.15,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2025,
-      "latestReturnPct": -3.34,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2030,
+      "latestReturnPct": -3.1,
       "highDate": "2026-04-23",
       "highPrice": 2050,
       "highReturnPct": -2.15,
       "lowDate": "2026-06-16",
       "lowPrice": 2025,
       "lowReturnPct": -3.34,
-      "observedTradingDays": 35,
+      "observedTradingDays": 36,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -1984,7 +1994,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-03-27",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2335,
       "latestReturnPct": 0.0,
       "highDate": "2026-03-27",
@@ -1993,7 +2003,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-03-27",
       "lowPrice": 2335,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 54,
+      "observedTradingDays": 55,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "합병 신청",
@@ -2042,16 +2052,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-03-18",
       "nextPrice": 2065,
       "nextReturnPct": -1.67,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2065,
-      "latestReturnPct": -1.67,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2060,
+      "latestReturnPct": -1.9,
       "highDate": "2026-06-15",
       "highPrice": 2070,
       "highReturnPct": -1.43,
       "lowDate": "2026-05-15",
       "lowPrice": 2040,
       "lowReturnPct": -2.86,
-      "observedTradingDays": 61,
+      "observedTradingDays": 62,
       "code": "474660",
       "name": "신한제12호스팩",
       "status": "과거 공시",
@@ -2158,16 +2168,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-02-13",
       "nextPrice": 2230,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2070,
-      "latestReturnPct": -7.17,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2065,
+      "latestReturnPct": -7.4,
       "highDate": "2026-02-13",
       "highPrice": 2230,
       "highReturnPct": 0.0,
       "lowDate": "2026-05-27",
       "lowPrice": 2030,
       "lowReturnPct": -8.97,
-      "observedTradingDays": 80,
+      "observedTradingDays": 81,
       "code": "477760",
       "name": "DB금융스팩12호",
       "status": "과거 공시",
@@ -2216,7 +2226,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-02-12",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2335,
       "latestReturnPct": 0.0,
       "highDate": "2026-02-12",
@@ -2225,7 +2235,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-02-12",
       "lowPrice": 2335,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 81,
+      "observedTradingDays": 82,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "합병 신청",
@@ -2274,16 +2284,16 @@ window.SPAC_DATA = {
       "nextDate": "2025-12-01",
       "nextPrice": 2095,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2025,
-      "latestReturnPct": -3.34,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2030,
+      "latestReturnPct": -3.1,
       "highDate": "2025-12-01",
       "highPrice": 2095,
       "highReturnPct": 0.0,
       "lowDate": "2026-06-16",
       "lowPrice": 2025,
       "lowReturnPct": -3.34,
-      "observedTradingDays": 131,
+      "observedTradingDays": 132,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -2332,16 +2342,16 @@ window.SPAC_DATA = {
       "nextDate": "2025-11-27",
       "nextPrice": 2100,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
-      "latestPrice": 2065,
-      "latestReturnPct": -1.67,
+      "latestDate": "2026-06-17",
+      "latestPrice": 2060,
+      "latestReturnPct": -1.9,
       "highDate": "2025-11-27",
       "highPrice": 2100,
       "highReturnPct": 0.0,
       "lowDate": "2026-05-15",
       "lowPrice": 2040,
       "lowReturnPct": -2.86,
-      "observedTradingDays": 133,
+      "observedTradingDays": 134,
       "code": "474660",
       "name": "신한제12호스팩",
       "status": "과거 공시",
@@ -2419,7 +2429,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-09-12",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2335,
       "latestReturnPct": 0.0,
       "highDate": "2025-09-12",
@@ -2428,7 +2438,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-09-12",
       "lowPrice": 2335,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 182,
+      "observedTradingDays": 183,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "합병 신청",
@@ -2477,7 +2487,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-07-18",
       "nextPrice": 2015,
       "nextReturnPct": 0.75,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -2486,7 +2496,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 221,
+      "observedTradingDays": 222,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -2564,7 +2574,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-04-21",
       "nextPrice": 2000,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -2573,7 +2583,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 280,
+      "observedTradingDays": 281,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -2622,7 +2632,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-04-18",
       "nextPrice": 2000,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-06-16",
+      "latestDate": "2026-06-17",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -2631,7 +2641,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 281,
+      "observedTradingDays": 282,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -2668,7 +2678,7 @@ window.SPAC_DATA = {
       "currentRatio": 1.01
     }
   ],
-  "ipoCalendar": [],
+  "ipoCalendar": null,
   "spacs": [
     {
       "id": "0131D0",
@@ -2690,12 +2700,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-23",
       "liquidationDate": "2029-04-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1041,
-      "trustValuePerShare": 2135.05,
-      "liquidationValuePerShare": 2135.05,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.20%)",
-      "expectedReturn": 7.99,
-      "annualizedReturn": 2.73,
+      "daysToLiquidation": 1040,
+      "trustValuePerShare": 2136.2,
+      "liquidationValuePerShare": 2136.2,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.05,
+      "annualizedReturn": 2.76,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-04-14",
+          "endDate": "2029-04-23",
+          "ratePct": 2.2,
+          "source": "증권신고서",
+          "receiptNo": "20260413001537",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-04-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260413001537"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3004,12 +3026,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-06-05",
       "liquidationDate": "2029-06-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1084,
-      "trustValuePerShare": 2125.66,
-      "liquidationValuePerShare": 2125.66,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
-      "expectedReturn": 7.25,
-      "annualizedReturn": 2.38,
+      "daysToLiquidation": 1083,
+      "trustValuePerShare": 2127.31,
+      "liquidationValuePerShare": 2127.31,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.33,
+      "annualizedReturn": 2.41,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-05-22",
+          "endDate": "2029-06-05",
+          "ratePct": 2.05,
+          "source": "증권신고서",
+          "receiptNo": "20260521000518",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-05-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260521000518"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3158,12 +3192,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-30",
       "liquidationDate": "2029-04-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1048,
-      "trustValuePerShare": 2153.93,
-      "liquidationValuePerShare": 2153.93,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.50%)",
-      "expectedReturn": 8.4,
-      "annualizedReturn": 2.85,
+      "daysToLiquidation": 1047,
+      "trustValuePerShare": 2155.38,
+      "liquidationValuePerShare": 2155.38,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.47,
+      "annualizedReturn": 2.88,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-04-20",
+          "endDate": "2029-04-30",
+          "ratePct": 2.5,
+          "source": "증권신고서",
+          "receiptNo": "20260417000093",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-04-17",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260417000093"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3442,12 +3488,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-01",
       "liquidationDate": "2029-04-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1019,
-      "trustValuePerShare": 2153.93,
-      "liquidationValuePerShare": 2153.93,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.50%)",
-      "expectedReturn": 8.24,
-      "annualizedReturn": 2.88,
+      "daysToLiquidation": 1018,
+      "trustValuePerShare": 2155.82,
+      "liquidationValuePerShare": 2155.82,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.33,
+      "annualizedReturn": 2.91,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-03-19",
+          "endDate": "2029-04-01",
+          "ratePct": 2.5,
+          "source": "증권신고서",
+          "receiptNo": "20260318000201",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-03-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000201"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3852,12 +3910,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-27",
       "liquidationDate": "2028-11-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 894,
-      "trustValuePerShare": 2138.19,
-      "liquidationValuePerShare": 2138.19,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
-      "expectedReturn": 7.29,
-      "annualizedReturn": 2.91,
+      "daysToLiquidation": 893,
+      "trustValuePerShare": 2139.49,
+      "liquidationValuePerShare": 2139.49,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.35,
+      "annualizedReturn": 2.94,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-11-17",
+          "endDate": "2028-11-27",
+          "ratePct": 2.25,
+          "source": "증권신고서",
+          "receiptNo": "20251114003075",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-14",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251114003075"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -4754,12 +4824,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 836,
-      "trustValuePerShare": 2127.53,
-      "liquidationValuePerShare": 2127.53,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.08%)",
-      "expectedReturn": 6.64,
-      "annualizedReturn": 2.85,
+      "daysToLiquidation": 835,
+      "trustValuePerShare": 2128.49,
+      "liquidationValuePerShare": 2128.49,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.69,
+      "annualizedReturn": 2.87,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-09-22",
+          "endDate": "2028-09-30",
+          "ratePct": 2.08,
+          "source": "증권신고서",
+          "receiptNo": "20250918000310",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-09-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250918000310"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -5766,12 +5848,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-23",
       "liquidationDate": "2028-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 920,
-      "trustValuePerShare": 2138.19,
-      "liquidationValuePerShare": 2138.19,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
-      "expectedReturn": 7.18,
-      "annualizedReturn": 2.79,
+      "daysToLiquidation": 919,
+      "trustValuePerShare": 2139.62,
+      "liquidationValuePerShare": 2139.62,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.25,
+      "annualizedReturn": 2.82,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-12",
+          "endDate": "2028-12-23",
+          "ratePct": 2.25,
+          "source": "증권신고서",
+          "receiptNo": "20251211000330",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251211000330"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -6560,12 +6654,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-02",
       "liquidationDate": "2029-04-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1020,
-      "trustValuePerShare": 2179.9,
-      "liquidationValuePerShare": 2179.9,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.91%)",
-      "expectedReturn": 9.21,
-      "annualizedReturn": 3.2,
+      "daysToLiquidation": 1019,
+      "trustValuePerShare": 2181.62,
+      "liquidationValuePerShare": 2181.62,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.3,
+      "annualizedReturn": 3.24,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-03-23",
+          "endDate": "2029-04-02",
+          "ratePct": 2.91,
+          "source": "증권신고서",
+          "receiptNo": "20260319000821",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-03-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260319000821"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -6964,12 +7070,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 919,
-      "trustValuePerShare": 2138.19,
-      "liquidationValuePerShare": 2138.19,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
-      "expectedReturn": 7.07,
-      "annualizedReturn": 2.75,
+      "daysToLiquidation": 918,
+      "trustValuePerShare": 2139.76,
+      "liquidationValuePerShare": 2139.76,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.15,
+      "annualizedReturn": 2.78,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-10",
+          "endDate": "2028-12-22",
+          "ratePct": 2.25,
+          "source": "증권신고서",
+          "receiptNo": "20251209000372",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251209000372"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -7764,12 +7882,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-21",
       "liquidationDate": "2028-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 888,
-      "trustValuePerShare": 2122.53,
-      "liquidationValuePerShare": 2122.53,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.00%)",
-      "expectedReturn": 6.23,
-      "annualizedReturn": 2.52,
+      "daysToLiquidation": 887,
+      "trustValuePerShare": 2123.68,
+      "liquidationValuePerShare": 2123.68,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.29,
+      "annualizedReturn": 2.54,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-11-11",
+          "endDate": "2028-11-21",
+          "ratePct": 2.0,
+          "source": "증권신고서",
+          "receiptNo": "20251110000259",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251110000259"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -8690,12 +8820,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-28",
       "liquidationDate": "2028-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 895,
-      "trustValuePerShare": 2125.66,
-      "liquidationValuePerShare": 2125.66,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
-      "expectedReturn": 6.39,
-      "annualizedReturn": 2.56,
+      "daysToLiquidation": 894,
+      "trustValuePerShare": 2126.72,
+      "liquidationValuePerShare": 2126.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.44,
+      "annualizedReturn": 2.58,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-11-19",
+          "endDate": "2028-11-28",
+          "ratePct": 2.05,
+          "source": "증권신고서",
+          "receiptNo": "20251117000034",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-17",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251117000034"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -9588,12 +9730,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-01",
       "liquidationDate": "2028-12-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 898,
-      "trustValuePerShare": 2138.19,
-      "liquidationValuePerShare": 2138.19,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.25%)",
-      "expectedReturn": 6.96,
-      "annualizedReturn": 2.77,
+      "daysToLiquidation": 897,
+      "trustValuePerShare": 2139.76,
+      "liquidationValuePerShare": 2139.76,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.04,
+      "annualizedReturn": 2.81,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-11-19",
+          "endDate": "2028-12-01",
+          "ratePct": 2.25,
+          "source": "증권신고서",
+          "receiptNo": "20251118000265",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118000265"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -10478,12 +10632,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-01-21",
       "liquidationDate": "2029-01-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 949,
-      "trustValuePerShare": 2125.66,
-      "liquidationValuePerShare": 2125.66,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
-      "expectedReturn": 6.34,
-      "annualizedReturn": 2.39,
+      "daysToLiquidation": 948,
+      "trustValuePerShare": 2126.72,
+      "liquidationValuePerShare": 2126.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.39,
+      "annualizedReturn": 2.41,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-01-12",
+          "endDate": "2029-01-21",
+          "ratePct": 2.05,
+          "source": "증권신고서",
+          "receiptNo": "20260109000087",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-01-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260109000087"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -11166,12 +11332,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-05-29",
       "liquidationDate": "2028-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 712,
-      "trustValuePerShare": 2201.6,
-      "liquidationValuePerShare": 2201.6,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.25%)",
-      "expectedReturn": 10.14,
-      "annualizedReturn": 5.07,
+      "daysToLiquidation": 711,
+      "trustValuePerShare": 2203.53,
+      "liquidationValuePerShare": 2203.53,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 10.23,
+      "annualizedReturn": 5.13,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-05-19",
+          "endDate": "2028-05-29",
+          "ratePct": 3.25,
+          "source": "증권신고서",
+          "receiptNo": "20250515000864",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-05-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250515000864"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -12176,12 +12354,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 919,
-      "trustValuePerShare": 2147.62,
-      "liquidationValuePerShare": 2147.62,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.40%)",
-      "expectedReturn": 7.43,
-      "annualizedReturn": 2.89,
+      "daysToLiquidation": 918,
+      "trustValuePerShare": 2149.16,
+      "liquidationValuePerShare": 2149.16,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.51,
+      "annualizedReturn": 2.92,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-11",
+          "endDate": "2028-12-22",
+          "ratePct": 2.4,
+          "source": "증권신고서",
+          "receiptNo": "20251209000220",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251209000220"
+        }
+      ],
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -12976,12 +13166,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-04",
       "liquidationDate": "2028-07-04",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 748,
-      "trustValuePerShare": 2217.64,
-      "liquidationValuePerShare": 2217.64,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": 10.88,
-      "annualizedReturn": 5.17,
+      "daysToLiquidation": 747,
+      "trustValuePerShare": 2219.74,
+      "liquidationValuePerShare": 2219.74,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 10.99,
+      "annualizedReturn": 5.23,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-06-24",
+          "endDate": "2028-07-04",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20250623000080",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-06-23",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250623000080"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -13986,12 +14188,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 766,
-      "trustValuePerShare": 2152.03,
-      "liquidationValuePerShare": 2152.03,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.47%)",
-      "expectedReturn": 7.6,
-      "annualizedReturn": 3.55,
+      "daysToLiquidation": 765,
+      "trustValuePerShare": 2154.05,
+      "liquidationValuePerShare": 2154.05,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.7,
+      "annualizedReturn": 3.6,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-07-08",
+          "endDate": "2028-07-22",
+          "ratePct": 2.47,
+          "source": "증권신고서",
+          "receiptNo": "20250707000042",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-07-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250707000042"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -14996,12 +15210,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-11",
       "liquidationDate": "2028-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 908,
-      "trustValuePerShare": 2185.63,
-      "liquidationValuePerShare": 2185.63,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 9.28,
-      "annualizedReturn": 3.63,
+      "daysToLiquidation": 907,
+      "trustValuePerShare": 2187.22,
+      "liquidationValuePerShare": 2187.22,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.36,
+      "annualizedReturn": 3.67,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-02",
+          "endDate": "2028-12-11",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20251201000430",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-01",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251201000430"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -15838,12 +16064,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 766,
-      "trustValuePerShare": 2185.63,
-      "liquidationValuePerShare": 2185.63,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 9.01,
-      "annualizedReturn": 4.2,
+      "daysToLiquidation": 765,
+      "trustValuePerShare": 2187.76,
+      "liquidationValuePerShare": 2187.76,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.12,
+      "annualizedReturn": 4.25,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-07-10",
+          "endDate": "2028-07-22",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20250709000268",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-07-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250709000268"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -16848,12 +17086,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-21",
       "liquidationDate": "2028-08-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 796,
-      "trustValuePerShare": 2152.03,
-      "liquidationValuePerShare": 2152.03,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.47%)",
-      "expectedReturn": 7.33,
-      "annualizedReturn": 3.3,
+      "daysToLiquidation": 795,
+      "trustValuePerShare": 2153.47,
+      "liquidationValuePerShare": 2153.47,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.41,
+      "annualizedReturn": 3.33,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-08-11",
+          "endDate": "2028-08-21",
+          "ratePct": 2.47,
+          "source": "증권신고서",
+          "receiptNo": "20250807000053",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-08-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250807000053"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -17861,12 +18111,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 836,
-      "trustValuePerShare": 2125.66,
-      "liquidationValuePerShare": 2125.66,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
-      "expectedReturn": 5.75,
-      "annualizedReturn": 2.47,
+      "daysToLiquidation": 835,
+      "trustValuePerShare": 2126.96,
+      "liquidationValuePerShare": 2126.96,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.82,
+      "annualizedReturn": 2.5,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-09-19",
+          "endDate": "2028-09-30",
+          "ratePct": 2.05,
+          "source": "증권신고서",
+          "receiptNo": "20250918000264",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-09-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250918000264"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -18873,12 +19135,24 @@ window.SPAC_DATA = {
       "listingDate": "2026-03-27",
       "liquidationDate": "2029-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1014,
-      "trustValuePerShare": 2122.53,
-      "liquidationValuePerShare": 2122.53,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.00%)",
-      "expectedReturn": 5.6,
-      "annualizedReturn": 1.98,
+      "daysToLiquidation": 1013,
+      "trustValuePerShare": 2123.68,
+      "liquidationValuePerShare": 2123.68,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.66,
+      "annualizedReturn": 2.0,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2026-03-17",
+          "endDate": "2029-03-27",
+          "ratePct": 2.0,
+          "source": "증권신고서",
+          "receiptNo": "20260316000201",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2026-03-16",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316000201"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -19301,12 +19575,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-01-23",
       "liquidationDate": "2028-01-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 585,
-      "trustValuePerShare": 2217.44,
-      "liquidationValuePerShare": 2217.44,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": 10.32,
-      "annualizedReturn": 6.32,
+      "daysToLiquidation": 584,
+      "trustValuePerShare": 2219.53,
+      "liquidationValuePerShare": 2219.53,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 10.42,
+      "annualizedReturn": 6.39,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-01-13",
+          "endDate": "2028-01-23",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20250110000560",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-01-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250110000560"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -20311,12 +20597,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 909,
-      "trustValuePerShare": 2141.33,
-      "liquidationValuePerShare": 2141.33,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.30%)",
-      "expectedReturn": 6.53,
-      "annualizedReturn": 2.57,
+      "daysToLiquidation": 908,
+      "trustValuePerShare": 2142.8,
+      "liquidationValuePerShare": 2142.8,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.61,
+      "annualizedReturn": 2.61,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-01",
+          "endDate": "2028-12-12",
+          "ratePct": 2.3,
+          "source": "증권신고서",
+          "receiptNo": "20251128002140",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-28",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128002140"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -21147,12 +21445,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-06",
       "liquidationDate": "2028-08-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 781,
-      "trustValuePerShare": 2147.62,
-      "liquidationValuePerShare": 2147.62,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.40%)",
-      "expectedReturn": 6.85,
-      "annualizedReturn": 3.14,
+      "daysToLiquidation": 780,
+      "trustValuePerShare": 2149.3,
+      "liquidationValuePerShare": 2149.3,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.93,
+      "annualizedReturn": 3.19,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-07-25",
+          "endDate": "2028-08-06",
+          "ratePct": 2.4,
+          "source": "증권신고서",
+          "receiptNo": "20250724000463",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-07-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250724000463"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -22157,95 +22467,107 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-12",
       "liquidationDate": "2027-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 543,
-      "trustValuePerShare": 2187.36,
-      "liquidationValuePerShare": 2187.36,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.03%)",
-      "expectedReturn": 8.29,
-      "annualizedReturn": 5.5,
+      "daysToLiquidation": 542,
+      "trustValuePerShare": 2189.15,
+      "liquidationValuePerShare": 2189.15,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.37,
+      "annualizedReturn": 5.56,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-12-02",
+          "endDate": "2027-12-12",
+          "ratePct": 3.03,
+          "source": "증권신고서",
+          "receiptNo": "20241129000608",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241129000608"
+        }
+      ],
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2025-07-17",
-        "title": "[기재정정]주요사항보고서(회사합병결정)",
+        "date": "2025-04-18 14:04",
+        "title": "회사합병 결정(SPAC 소멸합병)",
         "company": "KB제31호스팩",
-        "submitter": "KB제31호스팩",
-        "receiptNo": "20250717000343",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343"
+        "submitter": "케이비제31호기업인수목적",
+        "receiptNo": "20250418000599",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2025-07-17",
-        "title": "주권매매거래정지해제 (합병결정 철회)",
+        "date": "2025-07-17 17:01",
+        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
         "company": "KB제31호스팩",
-        "submitter": "코스닥시장본부",
-        "receiptNo": "20250717900478",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900478"
+        "submitter": "케이비제31호기업인수목적",
+        "receiptNo": "20250717000481",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-04-17",
-          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "date": "2025-04-17 16:59",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "KB제31호스팩",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250417000783",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250417000783",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-04-17 16:59",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
           "company": "KB제31호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20250417900791",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250417900791",
+          "receiptNo": "20250417000791",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250417000791",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-04-17",
-          "title": "주요사항보고서(회사합병결정)",
+          "date": "2025-04-18 14:04",
+          "title": "회사합병 결정(SPAC 소멸합병)",
           "company": "KB제31호스팩",
-          "submitter": "KB제31호스팩",
-          "receiptNo": "20250417000456",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250417000456",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250418000599",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-04-18",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2025-07-17 17:00",
+          "title": "회사합병 결정(SPAC소멸합병-철회)",
           "company": "KB제31호스팩",
-          "submitter": "KB제31호스팩",
-          "receiptNo": "20250418000255",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250418000255",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2025-07-17",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
-          "company": "KB제31호스팩",
-          "submitter": "KB제31호스팩",
-          "receiptNo": "20250717000343",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2025-07-17",
-          "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
-          "company": "KB제31호스팩",
-          "submitter": "KB제31호스팩",
-          "receiptNo": "20250717900481",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900481",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250717000432",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000432",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2025-07-17",
-          "title": "주권매매거래정지해제 (합병결정 철회)",
+          "date": "2025-07-17 17:01",
+          "title": "주권매매거래정지해제(합병결정 철회)",
           "company": "KB제31호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20250717900478",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900478",
+          "receiptNo": "20250717000478",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000478",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2025-07-17 17:01",
+          "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "company": "KB제31호스팩",
+          "submitter": "케이비제31호기업인수목적",
+          "receiptNo": "20250717000481",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481",
           "mergerSignal": "canceled"
         }
       ],
@@ -22263,7 +22585,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-04-18",
           "nextPrice": 2000,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -22272,7 +22594,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 281
+          "observedTradingDays": 282
         },
         {
           "date": "2025-04-17",
@@ -22311,7 +22633,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-04-21",
           "nextPrice": 2000,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -22320,7 +22642,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 280
+          "observedTradingDays": 281
         },
         {
           "date": "2025-04-18",
@@ -22359,7 +22681,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-07-18",
           "nextPrice": 2015,
           "nextReturnPct": 0.75,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -22368,7 +22690,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 221
+          "observedTradingDays": 222
         },
         {
           "date": "2025-07-17",
@@ -24645,20 +24967,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-12-12"
         },
         {
-          "date": "2025-07-17",
+          "date": "2025-04-18 14:04",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "[기재정정]주요사항보고서(회사합병결정)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343"
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599"
         },
         {
-          "date": "2025-07-17",
+          "date": "2025-07-17 17:01",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "주권매매거래정지해제 (합병결정 철회)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900478"
+          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481"
         },
         {
           "date": "2027-12-12",
@@ -24709,12 +25031,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 909,
-      "trustValuePerShare": 2164.04,
-      "liquidationValuePerShare": 2164.04,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.66%)",
-      "expectedReturn": 6.87,
-      "annualizedReturn": 2.7,
+      "daysToLiquidation": 908,
+      "trustValuePerShare": 2165.6,
+      "liquidationValuePerShare": 2165.6,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.94,
+      "annualizedReturn": 2.74,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-02",
+          "endDate": "2028-12-12",
+          "ratePct": 2.66,
+          "source": "증권신고서",
+          "receiptNo": "20251201000394",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-01",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251201000394"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -25545,12 +25879,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-28",
       "liquidationDate": "2027-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 529,
-      "trustValuePerShare": 2218.08,
-      "liquidationValuePerShare": 2218.08,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.51%)",
-      "expectedReturn": 9.53,
-      "annualizedReturn": 6.49,
+      "daysToLiquidation": 528,
+      "trustValuePerShare": 2220.18,
+      "liquidationValuePerShare": 2220.18,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.64,
+      "annualizedReturn": 6.57,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-11-18",
+          "endDate": "2027-11-28",
+          "ratePct": 3.51,
+          "source": "증권신고서",
+          "receiptNo": "20241115000128",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241115000128"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -26555,12 +26901,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-24",
       "liquidationDate": "2028-11-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 891,
-      "trustValuePerShare": 2152.67,
-      "liquidationValuePerShare": 2152.67,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.48%)",
-      "expectedReturn": 6.3,
-      "annualizedReturn": 2.54,
+      "daysToLiquidation": 890,
+      "trustValuePerShare": 2154.26,
+      "liquidationValuePerShare": 2154.26,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.38,
+      "annualizedReturn": 2.57,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-11-13",
+          "endDate": "2028-11-24",
+          "ratePct": 2.48,
+          "source": "증권신고서",
+          "receiptNo": "20251112000416",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112000416"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -27475,95 +27833,107 @@ window.SPAC_DATA = {
       "listingDate": "2024-08-13",
       "liquidationDate": "2027-08-13",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 422,
-      "trustValuePerShare": 2220.65,
-      "liquidationValuePerShare": 2220.65,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.55%)",
-      "expectedReturn": 9.39,
-      "annualizedReturn": 8.07,
+      "daysToLiquidation": 421,
+      "trustValuePerShare": 2223.2,
+      "liquidationValuePerShare": 2223.2,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.52,
+      "annualizedReturn": 8.2,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-08-01",
+          "endDate": "2027-08-13",
+          "ratePct": 3.55,
+          "source": "증권신고서",
+          "receiptNo": "20240731000498",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-07-31",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240731000498"
+        }
+      ],
       "status": "합병 신청",
       "badges": [
         "합병 신청"
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-05-11",
-        "title": "[기재정정]주요사항보고서(회사합병결정)",
+        "date": "2026-05-11 15:04",
+        "title": "회사합병 결정",
         "company": "교보16호스팩",
-        "submitter": "교보16호스팩",
-        "receiptNo": "20260511000351",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351"
+        "submitter": "교보16호기업인수목적",
+        "receiptNo": "20260511000408",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-04-22",
-        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+        "date": "2026-04-22 17:34",
+        "title": "주권매매거래정지해제(합병결정 철회)",
         "company": "교보16호스팩",
-        "submitter": "교보16호스팩",
-        "receiptNo": "20260422900708",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900708"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260422000663",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-11-28",
-          "title": "주요사항보고서(회사합병결정)",
-          "company": "교보16호스팩",
-          "submitter": "교보16호스팩",
-          "receiptNo": "20251128001988",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128001988",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2025-11-28",
-          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "date": "2025-11-28 16:52",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
           "company": "교보16호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20251128901153",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128901153",
+          "receiptNo": "20251128001153",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251128001153",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-04-22",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2025-11-28 16:52",
+          "title": "회사합병 결정",
           "company": "교보16호스팩",
-          "submitter": "교보16호스팩",
-          "receiptNo": "20260422000676",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422000676",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20251128001144",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251128001144",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-04-22",
-          "title": "주권매매거래정지해제 (합병결정 철회)",
-          "company": "교보16호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260422900663",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900663",
-          "mergerSignal": "canceled"
-        },
-        {
-          "date": "2026-04-22",
+          "date": "2026-04-22 17:33",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "교보16호스팩",
-          "submitter": "교보16호스팩",
-          "receiptNo": "20260422900708",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900708",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20260422000708",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000708",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2026-05-11",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2026-04-22 17:34",
+          "title": "주권매매거래정지해제(합병결정 철회)",
           "company": "교보16호스팩",
-          "submitter": "교보16호스팩",
-          "receiptNo": "20260511000351",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260422000663",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-04-22 18:01",
+          "title": "회사합병 결정",
+          "company": "교보16호스팩",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20260422000787",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000787",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-11 15:04",
+          "title": "회사합병 결정",
+          "company": "교보16호스팩",
+          "submitter": "교보16호기업인수목적",
+          "receiptNo": "20260511000408",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408",
           "mergerSignal": "applied"
         }
       ],
@@ -27581,16 +27951,16 @@ window.SPAC_DATA = {
           "nextDate": "2025-12-01",
           "nextPrice": 2095,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2025,
-          "latestReturnPct": -3.34,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2030,
+          "latestReturnPct": -3.1,
           "highDate": "2025-12-01",
           "highPrice": 2095,
           "highReturnPct": 0.0,
           "lowDate": "2026-06-16",
           "lowPrice": 2025,
           "lowReturnPct": -3.34,
-          "observedTradingDays": 131
+          "observedTradingDays": 132
         },
         {
           "date": "2025-11-28",
@@ -27629,16 +27999,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-04-23",
           "nextPrice": 2050,
           "nextReturnPct": -2.15,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2025,
-          "latestReturnPct": -3.34,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2030,
+          "latestReturnPct": -3.1,
           "highDate": "2026-04-23",
           "highPrice": 2050,
           "highReturnPct": -2.15,
           "lowDate": "2026-06-16",
           "lowPrice": 2025,
           "lowReturnPct": -3.34,
-          "observedTradingDays": 35
+          "observedTradingDays": 36
         },
         {
           "date": "2026-04-22",
@@ -27653,16 +28023,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-04-23",
           "nextPrice": 2050,
           "nextReturnPct": -2.15,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2025,
-          "latestReturnPct": -3.34,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2030,
+          "latestReturnPct": -3.1,
           "highDate": "2026-04-23",
           "highPrice": 2050,
           "highReturnPct": -2.15,
           "lowDate": "2026-06-16",
           "lowPrice": 2025,
           "lowReturnPct": -3.34,
-          "observedTradingDays": 35
+          "observedTradingDays": 36
         },
         {
           "date": "2026-04-22",
@@ -27725,16 +28095,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-12",
           "nextPrice": 2040,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2025,
-          "latestReturnPct": -0.74,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2030,
+          "latestReturnPct": -0.49,
           "highDate": "2026-05-13",
           "highPrice": 2045,
           "highReturnPct": 0.25,
           "lowDate": "2026-06-16",
           "lowPrice": 2025,
           "lowReturnPct": -0.74,
-          "observedTradingDays": 24
+          "observedTradingDays": 25
         },
         {
           "date": "2026-05-11",
@@ -30467,20 +30837,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-08-13"
         },
         {
-          "date": "2026-04-22",
+          "date": "2026-04-22 17:34",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900708"
+          "detail": "주권매매거래정지해제(합병결정 철회)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663"
         },
         {
-          "date": "2026-05-11",
+          "date": "2026-05-11 15:04",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "[기재정정]주요사항보고서(회사합병결정)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351"
+          "detail": "회사합병 결정",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408"
         },
         {
           "date": "2027-08-13",
@@ -30529,12 +30899,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-23",
       "liquidationDate": "2027-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 554,
-      "trustValuePerShare": 2201.41,
-      "liquidationValuePerShare": 2201.41,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.25%)",
-      "expectedReturn": 8.44,
-      "annualizedReturn": 5.49,
+      "daysToLiquidation": 553,
+      "trustValuePerShare": 2203.72,
+      "liquidationValuePerShare": 2203.72,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.56,
+      "annualizedReturn": 5.57,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-12-11",
+          "endDate": "2027-12-23",
+          "ratePct": 3.25,
+          "source": "증권신고서",
+          "receiptNo": "20241210000275",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-12-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241210000275"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -31539,12 +31921,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-20",
       "liquidationDate": "2027-12-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 551,
-      "trustValuePerShare": 2217.44,
-      "liquidationValuePerShare": 2217.44,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": 9.23,
-      "annualizedReturn": 6.02,
+      "daysToLiquidation": 550,
+      "trustValuePerShare": 2218.27,
+      "liquidationValuePerShare": 2218.27,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.27,
+      "annualizedReturn": 6.06,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-12-16",
+          "endDate": "2027-12-20",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20241210000541",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-12-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241210000541"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -32549,12 +32943,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-15",
       "liquidationDate": "2027-11-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 516,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 7.39,
-      "annualizedReturn": 5.17,
+      "daysToLiquidation": 515,
+      "trustValuePerShare": 2187.22,
+      "liquidationValuePerShare": 2187.22,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.48,
+      "annualizedReturn": 5.25,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-11-05",
+          "endDate": "2027-11-15",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20241104000200",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-04",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241104000200"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -33559,12 +33965,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-21",
       "liquidationDate": "2027-06-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 369,
-      "trustValuePerShare": 2195.02,
-      "liquidationValuePerShare": 2195.02,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.15%)",
-      "expectedReturn": 7.6,
-      "annualizedReturn": 7.51,
+      "daysToLiquidation": 368,
+      "trustValuePerShare": 2196.88,
+      "liquidationValuePerShare": 2196.88,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.69,
+      "annualizedReturn": 7.63,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-06-11",
+          "endDate": "2027-06-21",
+          "ratePct": 3.15,
+          "source": "증권신고서",
+          "receiptNo": "20240610000163",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-06-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240610000163"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -34571,12 +34989,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-05",
       "liquidationDate": "2028-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 902,
-      "trustValuePerShare": 2185.63,
-      "liquidationValuePerShare": 2185.63,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 7.14,
-      "annualizedReturn": 2.83,
+      "daysToLiquidation": 901,
+      "trustValuePerShare": 2187.58,
+      "liquidationValuePerShare": 2187.58,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.23,
+      "annualizedReturn": 2.87,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-11-24",
+          "endDate": "2028-12-05",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20251121000115",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-11-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251121000115"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -35437,12 +35867,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-10-31",
       "liquidationDate": "2027-10-31",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 501,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 7.13,
-      "annualizedReturn": 5.15,
+      "daysToLiquidation": 500,
+      "trustValuePerShare": 2187.05,
+      "liquidationValuePerShare": 2187.05,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.21,
+      "annualizedReturn": 5.21,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-10-22",
+          "endDate": "2027-10-31",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20241021000312",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-10-22",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241021000312"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -36447,12 +36889,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-07-12",
       "liquidationDate": "2027-07-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 390,
-      "trustValuePerShare": 2214.22,
-      "liquidationValuePerShare": 2214.22,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.45%)",
-      "expectedReturn": 8.54,
-      "annualizedReturn": 7.97,
+      "daysToLiquidation": 389,
+      "trustValuePerShare": 2215.66,
+      "liquidationValuePerShare": 2215.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.61,
+      "annualizedReturn": 8.06,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-07-05",
+          "endDate": "2027-07-12",
+          "ratePct": 3.45,
+          "source": "증권신고서",
+          "receiptNo": "20240701000551",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-07-01",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240701000551"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -37457,12 +37911,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-11",
       "liquidationDate": "2027-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 542,
-      "trustValuePerShare": 2217.44,
-      "liquidationValuePerShare": 2217.44,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": 8.7,
-      "annualizedReturn": 5.78,
+      "daysToLiquidation": 541,
+      "trustValuePerShare": 2219.32,
+      "liquidationValuePerShare": 2219.32,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 8.79,
+      "annualizedReturn": 5.85,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-12-02",
+          "endDate": "2027-12-11",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20241128000624",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-28",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241128000624"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -38467,12 +38933,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-19",
       "liquidationDate": "2027-11-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 520,
-      "trustValuePerShare": 2187.36,
-      "liquidationValuePerShare": 2187.36,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.03%)",
-      "expectedReturn": 7.22,
-      "annualizedReturn": 5.02,
+      "daysToLiquidation": 519,
+      "trustValuePerShare": 2189.51,
+      "liquidationValuePerShare": 2189.51,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.33,
+      "annualizedReturn": 5.1,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-11-07",
+          "endDate": "2027-11-19",
+          "ratePct": 3.03,
+          "source": "증권신고서",
+          "receiptNo": "20241106000097",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-06",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241106000097"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -39477,12 +39955,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 372,
-      "trustValuePerShare": 2233.54,
-      "liquidationValuePerShare": 2233.54,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.75%)",
-      "expectedReturn": 9.38,
-      "annualizedReturn": 9.2,
+      "daysToLiquidation": 371,
+      "trustValuePerShare": 2235.8,
+      "liquidationValuePerShare": 2235.8,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 9.49,
+      "annualizedReturn": 9.33,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-06-14",
+          "endDate": "2027-06-24",
+          "ratePct": 3.75,
+          "source": "증권신고서",
+          "receiptNo": "20240607000179",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-06-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240607000179"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -40489,12 +40979,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-09-25",
       "liquidationDate": "2027-09-25",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 465,
-      "trustValuePerShare": 2187.36,
-      "liquidationValuePerShare": 2187.36,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.03%)",
-      "expectedReturn": 6.96,
-      "annualizedReturn": 5.42,
+      "daysToLiquidation": 464,
+      "trustValuePerShare": 2190.05,
+      "liquidationValuePerShare": 2190.05,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.09,
+      "annualizedReturn": 5.54,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-09-10",
+          "endDate": "2027-09-25",
+          "ratePct": 3.03,
+          "source": "증권신고서",
+          "receiptNo": "20240909000034",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-09-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240909000034"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -41501,12 +42003,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-14",
       "liquidationDate": "2028-08-14",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 789,
-      "trustValuePerShare": 2152.67,
-      "liquidationValuePerShare": 2152.67,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.48%)",
-      "expectedReturn": 5.01,
-      "annualizedReturn": 2.29,
+      "daysToLiquidation": 788,
+      "trustValuePerShare": 2153.97,
+      "liquidationValuePerShare": 2153.97,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.07,
+      "annualizedReturn": 2.32,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-08-05",
+          "endDate": "2028-08-14",
+          "ratePct": 2.48,
+          "source": "증권신고서",
+          "receiptNo": "20250731000309",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-07-31",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250731000309"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -42512,11 +43026,23 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2000.0,
-      "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": -2.44,
+      "trustValuePerShare": 2117.17,
+      "liquidationValuePerShare": 2117.17,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 3.28,
       "annualizedReturn": null,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-07-15",
+          "endDate": null,
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240712000044",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-07-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240712000044"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -43497,12 +44023,13 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-26",
       "liquidationDate": "2027-06-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 374,
-      "trustValuePerShare": 2156.24,
-      "liquidationValuePerShare": 2156.24,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.539%)",
-      "expectedReturn": 5.18,
-      "annualizedReturn": 5.05,
+      "daysToLiquidation": 373,
+      "trustValuePerShare": null,
+      "liquidationValuePerShare": null,
+      "liquidationValueSource": null,
+      "expectedReturn": null,
+      "annualizedReturn": null,
+      "escrowRatePeriods": [],
       "status": "일반",
       "badges": [
         "일반"
@@ -44490,12 +45017,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-09-11",
       "liquidationDate": "2027-09-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 451,
-      "trustValuePerShare": 2205.89,
-      "liquidationValuePerShare": 2205.89,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
-      "expectedReturn": 7.34,
-      "annualizedReturn": 5.9,
+      "daysToLiquidation": 450,
+      "trustValuePerShare": 2207.66,
+      "liquidationValuePerShare": 2207.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.43,
+      "annualizedReturn": 5.98,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-09-02",
+          "endDate": "2027-09-11",
+          "ratePct": 3.32,
+          "source": "증권신고서",
+          "receiptNo": "20240829001549",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-08-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240829001549"
+        }
+      ],
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -44503,45 +45042,35 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-05-13",
-        "title": "[첨부정정]주요사항보고서(회사합병결정)",
+        "date": "2026-05-12 17:25",
+        "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
         "company": "미래에셋비전스팩7호",
-        "submitter": "미래에셋비전스팩7호",
-        "receiptNo": "20260513000590",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260512000907",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2026-05-12",
-          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "date": "2026-05-12 17:25",
+          "title": "회사합병 결정(SPAC 소멸합병)",
+          "company": "미래에셋비전스팩7호",
+          "submitter": "미래에셋비전기업인수목적7호",
+          "receiptNo": "20260512000891",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000891",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-12 17:25",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
           "company": "미래에셋비전스팩7호",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20260512900907",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260512900907",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2026-05-12",
-          "title": "주요사항보고서(회사합병결정)",
-          "company": "미래에셋비전스팩7호",
-          "submitter": "미래에셋비전스팩7호",
-          "receiptNo": "20260512000669",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260512000669",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2026-05-13",
-          "title": "[첨부정정]주요사항보고서(회사합병결정)",
-          "company": "미래에셋비전스팩7호",
-          "submitter": "미래에셋비전스팩7호",
-          "receiptNo": "20260513000590",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590",
+          "receiptNo": "20260512000907",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907",
           "mergerSignal": "applied"
         }
       ],
@@ -44559,7 +45088,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-13",
           "nextPrice": 2055,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2055,
           "latestReturnPct": 0.0,
           "highDate": "2026-05-13",
@@ -44568,7 +45097,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-13",
           "lowPrice": 2055,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 23
+          "observedTradingDays": 24
         },
         {
           "date": "2026-05-12",
@@ -47205,12 +47734,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-09-11"
         },
         {
-          "date": "2026-05-13",
+          "date": "2026-05-12 17:25",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "[첨부정정]주요사항보고서(회사합병결정)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590"
+          "detail": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907"
         },
         {
           "date": "2027-09-11",
@@ -47259,12 +47788,13 @@ window.SPAC_DATA = {
       "listingDate": "2025-03-20",
       "liquidationDate": "2028-03-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 642,
-      "trustValuePerShare": 2156.39,
-      "liquidationValuePerShare": 2156.39,
-      "liquidationValueSource": "공모예치금+예상 예치이자(KOFR 2.539%)",
-      "expectedReturn": 4.93,
-      "annualizedReturn": 2.78,
+      "daysToLiquidation": 641,
+      "trustValuePerShare": null,
+      "liquidationValuePerShare": null,
+      "liquidationValueSource": null,
+      "expectedReturn": null,
+      "annualizedReturn": null,
+      "escrowRatePeriods": [],
       "status": "일반",
       "badges": [
         "일반"
@@ -48252,12 +48782,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 372,
-      "trustValuePerShare": 2205.89,
-      "liquidationValuePerShare": 2205.89,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
-      "expectedReturn": 7.08,
-      "annualizedReturn": 6.94,
+      "daysToLiquidation": 371,
+      "trustValuePerShare": 2208.06,
+      "liquidationValuePerShare": 2208.06,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.19,
+      "annualizedReturn": 7.07,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-06-13",
+          "endDate": "2027-06-24",
+          "ratePct": 3.32,
+          "source": "증권신고서",
+          "receiptNo": "20240611000366",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-06-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240611000366"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -49262,85 +49804,97 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-15",
       "liquidationDate": "2027-04-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 302,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 6.09,
-      "annualizedReturn": 7.41,
+      "daysToLiquidation": 301,
+      "trustValuePerShare": 2187.76,
+      "liquidationValuePerShare": 2187.76,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.2,
+      "annualizedReturn": 7.57,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-04-02",
+          "endDate": "2027-04-15",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240401001215",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-04-01",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240401001215"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2026-03-17",
-        "title": "[기재정정]주요사항보고서(회사합병결정)",
+        "date": "2025-11-26 16:04",
+        "title": "회사합병 결정(SPAC 소멸합병)",
         "company": "신한제12호스팩",
-        "submitter": "신한제12호스팩",
-        "receiptNo": "20260317000835",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835"
+        "submitter": "신한제12호기업인수목적",
+        "receiptNo": "20251126000467",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-03-17",
-        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+        "date": "2026-03-17 17:58",
+        "title": "주권매매거래정지해제(합병결정 철회)",
         "company": "신한제12호스팩",
-        "submitter": "신한제12호스팩",
-        "receiptNo": "20260317901192",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901192"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260317001238",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-11-26",
-          "title": "주요사항보고서(회사합병결정)",
-          "company": "신한제12호스팩",
-          "submitter": "신한제12호스팩",
-          "receiptNo": "20251126000474",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251126000474",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2025-11-26",
-          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "date": "2025-11-26 16:04",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
           "company": "신한제12호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20251126900478",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251126900478",
+          "receiptNo": "20251126000478",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000478",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-03-17",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2025-11-26 16:04",
+          "title": "회사합병 결정(SPAC 소멸합병)",
           "company": "신한제12호스팩",
-          "submitter": "신한제12호스팩",
-          "receiptNo": "20260317000835",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835",
+          "submitter": "신한제12호기업인수목적",
+          "receiptNo": "20251126000467",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-03-17",
-          "title": "주권매매거래정지해제 (합병결정 철회)",
+          "date": "2026-03-17 17:56",
+          "title": "회사합병 결정(SPAC소멸합병-철회)",
           "company": "신한제12호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260317901238",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901238",
+          "submitter": "신한제12호기업인수목적",
+          "receiptNo": "20260317001186",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001186",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2026-03-17",
+          "date": "2026-03-17 17:56",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "신한제12호스팩",
-          "submitter": "신한제12호스팩",
-          "receiptNo": "20260317901192",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901192",
+          "submitter": "신한제12호기업인수목적",
+          "receiptNo": "20260317001192",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001192",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-03-17 17:58",
+          "title": "주권매매거래정지해제(합병결정 철회)",
+          "company": "신한제12호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260317001238",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238",
           "mergerSignal": "canceled"
         }
       ],
@@ -49358,16 +49912,16 @@ window.SPAC_DATA = {
           "nextDate": "2025-11-27",
           "nextPrice": 2100,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2065,
-          "latestReturnPct": -1.67,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2060,
+          "latestReturnPct": -1.9,
           "highDate": "2025-11-27",
           "highPrice": 2100,
           "highReturnPct": 0.0,
           "lowDate": "2026-05-15",
           "lowPrice": 2040,
           "lowReturnPct": -2.86,
-          "observedTradingDays": 133
+          "observedTradingDays": 134
         },
         {
           "date": "2025-11-26",
@@ -49406,16 +49960,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-03-18",
           "nextPrice": 2065,
           "nextReturnPct": -1.67,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2065,
-          "latestReturnPct": -1.67,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2060,
+          "latestReturnPct": -1.9,
           "highDate": "2026-06-15",
           "highPrice": 2070,
           "highReturnPct": -1.43,
           "lowDate": "2026-05-15",
           "lowPrice": 2040,
           "lowReturnPct": -2.86,
-          "observedTradingDays": 61
+          "observedTradingDays": 62
         },
         {
           "date": "2026-03-17",
@@ -52664,20 +53218,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-04-15"
         },
         {
-          "date": "2026-03-17",
+          "date": "2025-11-26 16:04",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "[기재정정]주요사항보고서(회사합병결정)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835"
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467"
         },
         {
-          "date": "2026-03-17",
+          "date": "2026-03-17 17:58",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901192"
+          "detail": "주권매매거래정지해제(합병결정 철회)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238"
         },
         {
           "date": "2027-04-15",
@@ -52726,12 +53280,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-05-02",
       "liquidationDate": "2027-05-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 319,
-      "trustValuePerShare": 2204.61,
-      "liquidationValuePerShare": 2204.61,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.30%)",
-      "expectedReturn": 7.02,
-      "annualizedReturn": 8.07,
+      "daysToLiquidation": 318,
+      "trustValuePerShare": 2206.57,
+      "liquidationValuePerShare": 2206.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 7.11,
+      "annualizedReturn": 8.21,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-04-22",
+          "endDate": "2027-05-02",
+          "ratePct": 3.3,
+          "source": "증권신고서",
+          "receiptNo": "20240419000364",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-04-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240419000364"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -53737,104 +54303,96 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2000.0,
-      "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.60%)",
-      "expectedReturn": -3.15,
+      "trustValuePerShare": 2149.3,
+      "liquidationValuePerShare": 2149.3,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 4.08,
       "annualizedReturn": null,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-06-05",
+          "endDate": null,
+          "ratePct": 3.6,
+          "source": "증권신고서",
+          "receiptNo": "20240530001411",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-05-30",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240530001411"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2026-05-26",
-        "title": "[기재정정]주요사항보고서(회사합병결정)",
+        "date": "2026-02-12 17:19",
+        "title": "회사합병 결정",
         "company": "디비금융스팩12호",
-        "submitter": "디비금융스팩12호",
-        "receiptNo": "20260526000375",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375"
+        "submitter": "디비금융제12호기업인수목적",
+        "receiptNo": "20260212001290",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-05-26",
-        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+        "date": "2026-05-26 17:11",
+        "title": "주권매매거래정지해제(합병결정 철회)",
         "company": "디비금융스팩12호",
-        "submitter": "디비금융스팩12호",
-        "receiptNo": "20260526900703",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900703"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260526000733",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733"
       },
       "mergerDisclosures": [
         {
-          "date": "2026-02-12",
-          "title": "[첨부정정]주요사항보고서(회사합병결정)",
-          "company": "디비금융스팩12호",
-          "submitter": "디비금융스팩12호",
-          "receiptNo": "20260212001736",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212001736",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2026-02-12",
-          "title": "주요사항보고서(회사합병결정)",
-          "company": "디비금융스팩12호",
-          "submitter": "디비금융스팩12호",
-          "receiptNo": "20260212001579",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212001579",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2026-02-12",
-          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "date": "2026-02-12 17:19",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
           "company": "디비금융스팩12호",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20260212901316",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212901316",
+          "receiptNo": "20260212001316",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001316",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-02-13",
-          "title": "[첨부정정]주요사항보고서(회사합병결정)",
+          "date": "2026-02-12 17:19",
+          "title": "회사합병 결정",
           "company": "디비금융스팩12호",
-          "submitter": "디비금융스팩12호",
-          "receiptNo": "20260213001582",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260213001582",
+          "submitter": "디비금융제12호기업인수목적",
+          "receiptNo": "20260212001290",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-05-26",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2026-05-26 17:07",
+          "title": "회사합병 결정(SPAC 합병-철회)",
           "company": "디비금융스팩12호",
-          "submitter": "디비금융스팩12호",
-          "receiptNo": "20260526000375",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2026-05-26",
-          "title": "주권매매거래정지해제 (합병결정 철회)",
-          "company": "디비금융스팩12호",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260526900733",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900733",
+          "submitter": "디비금융제12호기업인수목적",
+          "receiptNo": "20260526000578",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000578",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2026-05-26",
+          "date": "2026-05-26 17:08",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "디비금융스팩12호",
-          "submitter": "디비금융스팩12호",
-          "receiptNo": "20260526900703",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900703",
+          "submitter": "디비금융제12호기업인수목적",
+          "receiptNo": "20260526000703",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000703",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-05-26 17:11",
+          "title": "주권매매거래정지해제(합병결정 철회)",
+          "company": "디비금융스팩12호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260526000733",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733",
           "mergerSignal": "canceled"
         }
       ],
@@ -53852,16 +54410,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-02-13",
           "nextPrice": 2230,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2070,
-          "latestReturnPct": -7.17,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2065,
+          "latestReturnPct": -7.4,
           "highDate": "2026-02-13",
           "highPrice": 2230,
           "highReturnPct": 0.0,
           "lowDate": "2026-05-27",
           "lowPrice": 2030,
           "lowReturnPct": -8.97,
-          "observedTradingDays": 80
+          "observedTradingDays": 81
         },
         {
           "date": "2026-02-12",
@@ -53924,16 +54482,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-27",
           "nextPrice": 2030,
           "nextReturnPct": -8.97,
-          "latestDate": "2026-06-16",
-          "latestPrice": 2070,
-          "latestReturnPct": -7.17,
+          "latestDate": "2026-06-17",
+          "latestPrice": 2065,
+          "latestReturnPct": -7.4,
           "highDate": "2026-06-16",
           "highPrice": 2070,
           "highReturnPct": -7.17,
           "lowDate": "2026-05-27",
           "lowPrice": 2030,
           "lowReturnPct": -8.97,
-          "observedTradingDays": 14
+          "observedTradingDays": 15
         },
         {
           "date": "2026-05-26",
@@ -56913,20 +57471,20 @@ window.SPAC_DATA = {
       ],
       "events": [
         {
-          "date": "2026-05-26",
+          "date": "2026-02-12 17:19",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "[기재정정]주요사항보고서(회사합병결정)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375"
+          "detail": "회사합병 결정",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290"
         },
         {
-          "date": "2026-05-26",
+          "date": "2026-05-26 17:11",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900703"
+          "detail": "주권매매거래정지해제(합병결정 철회)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733"
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=DB금융스팩12호",
@@ -56969,12 +57527,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-21",
       "liquidationDate": "2027-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 522,
-      "trustValuePerShare": 2204.61,
-      "liquidationValuePerShare": 2204.61,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.30%)",
-      "expectedReturn": 6.76,
-      "annualizedReturn": 4.68,
+      "daysToLiquidation": 521,
+      "trustValuePerShare": 2206.57,
+      "liquidationValuePerShare": 2206.57,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.86,
+      "annualizedReturn": 4.75,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-11-11",
+          "endDate": "2027-11-21",
+          "ratePct": 3.3,
+          "source": "증권신고서",
+          "receiptNo": "20241106000142",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-06",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241106000142"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -57979,12 +58549,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-05-29",
       "liquidationDate": "2027-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 346,
-      "trustValuePerShare": 2205.89,
-      "liquidationValuePerShare": 2205.89,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
-      "expectedReturn": 6.56,
-      "annualizedReturn": 6.94,
+      "daysToLiquidation": 345,
+      "trustValuePerShare": 2207.66,
+      "liquidationValuePerShare": 2207.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.65,
+      "annualizedReturn": 7.05,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-05-20",
+          "endDate": "2027-05-29",
+          "ratePct": 3.32,
+          "source": "증권신고서",
+          "receiptNo": "20240517000260",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-05-17",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240517000260"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -58990,11 +59572,23 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2000.0,
-      "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.15%)",
-      "expectedReturn": -3.38,
+      "trustValuePerShare": 2138.13,
+      "liquidationValuePerShare": 2138.13,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 3.29,
       "annualizedReturn": null,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-04-23",
+          "endDate": null,
+          "ratePct": 3.15,
+          "source": "증권신고서",
+          "receiptNo": "20240422000014",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-04-22",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240422000014"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -59975,12 +60569,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-03-05",
       "liquidationDate": "2027-03-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 261,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 5.58,
-      "annualizedReturn": 7.89,
+      "daysToLiquidation": 260,
+      "trustValuePerShare": 2187.58,
+      "liquidationValuePerShare": 2187.58,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.68,
+      "annualizedReturn": 8.06,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-02-22",
+          "endDate": "2027-03-05",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240221001641",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-02-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240221001641"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -60986,11 +61592,23 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2000.0,
-      "liquidationValuePerShare": 2000.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.15%)",
-      "expectedReturn": -3.61,
+      "trustValuePerShare": 2149.61,
+      "liquidationValuePerShare": 2149.61,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 3.6,
       "annualizedReturn": null,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-02-20",
+          "endDate": null,
+          "ratePct": 3.15,
+          "source": "증권신고서",
+          "receiptNo": "20240219001008",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-02-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240219001008"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -61971,12 +62589,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-24",
       "liquidationDate": "2027-04-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 311,
-      "trustValuePerShare": 2205.89,
-      "liquidationValuePerShare": 2205.89,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
-      "expectedReturn": 6.31,
-      "annualizedReturn": 7.44,
+      "daysToLiquidation": 310,
+      "trustValuePerShare": 2207.66,
+      "liquidationValuePerShare": 2207.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.39,
+      "annualizedReturn": 7.57,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-04-15",
+          "endDate": "2027-04-24",
+          "ratePct": 3.32,
+          "source": "증권신고서",
+          "receiptNo": "20240412003503",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-04-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240412003503"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -62981,12 +63611,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-22",
       "liquidationDate": "2027-04-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 309,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 5.07,
-      "annualizedReturn": 6.02,
+      "daysToLiquidation": 308,
+      "trustValuePerShare": 2187.4,
+      "liquidationValuePerShare": 2187.4,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.16,
+      "annualizedReturn": 6.15,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-04-11",
+          "endDate": "2027-04-22",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240408004008",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-04-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240408004008"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -63991,12 +64633,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-07-26",
       "liquidationDate": "2027-07-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 404,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 5.07,
-      "annualizedReturn": 4.57,
+      "daysToLiquidation": 403,
+      "trustValuePerShare": 2187.22,
+      "liquidationValuePerShare": 2187.22,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.16,
+      "annualizedReturn": 4.66,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-07-16",
+          "endDate": "2027-07-26",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240715000198",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-07-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240715000198"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -65001,12 +65655,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 256,
-      "trustValuePerShare": 2217.44,
-      "liquidationValuePerShare": 2217.44,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": 6.61,
-      "annualizedReturn": 9.55,
+      "daysToLiquidation": 255,
+      "trustValuePerShare": 2219.32,
+      "liquidationValuePerShare": 2219.32,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.7,
+      "annualizedReturn": 9.72,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-02-20",
+          "endDate": "2027-02-28",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20240219000516",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-02-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240219000516"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -66011,12 +66677,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 256,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 5.07,
-      "annualizedReturn": 7.31,
+      "daysToLiquidation": 255,
+      "trustValuePerShare": 2187.22,
+      "liquidationValuePerShare": 2187.22,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.16,
+      "annualizedReturn": 7.46,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-02-19",
+          "endDate": "2027-02-28",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240216000272",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-02-16",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240216000272"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -67021,12 +67699,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-01-24",
       "liquidationDate": "2027-01-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 221,
-      "trustValuePerShare": 2185.63,
-      "liquidationValuePerShare": 2185.63,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 4.83,
-      "annualizedReturn": 8.1,
+      "daysToLiquidation": 220,
+      "trustValuePerShare": 2187.22,
+      "liquidationValuePerShare": 2187.22,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 4.9,
+      "annualizedReturn": 8.26,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-01-15",
+          "endDate": "2027-01-24",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240112000195",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-01-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240112000195"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -68033,12 +68723,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-03-27",
       "liquidationDate": "2027-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 283,
-      "trustValuePerShare": 2205.89,
-      "liquidationValuePerShare": 2205.89,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
-      "expectedReturn": 5.8,
-      "annualizedReturn": 7.54,
+      "daysToLiquidation": 282,
+      "trustValuePerShare": 2207.66,
+      "liquidationValuePerShare": 2207.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 5.88,
+      "annualizedReturn": 7.68,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-03-18",
+          "endDate": "2027-03-27",
+          "ratePct": 3.32,
+          "source": "증권신고서",
+          "receiptNo": "20240315000448",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-03-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240315000448"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -69043,12 +69745,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-06",
       "liquidationDate": "2027-02-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 234,
-      "trustValuePerShare": 2217.64,
-      "liquidationValuePerShare": 2217.64,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": 6.11,
-      "annualizedReturn": 9.69,
+      "daysToLiquidation": 233,
+      "trustValuePerShare": 2220.15,
+      "liquidationValuePerShare": 2220.15,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 6.23,
+      "annualizedReturn": 9.93,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-01-25",
+          "endDate": "2027-02-06",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20240124000304",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-01-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240124000304"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -70053,12 +70767,24 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 188,
-      "trustValuePerShare": 2185.63,
-      "liquidationValuePerShare": 2185.63,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 3.98,
-      "annualizedReturn": 7.87,
+      "daysToLiquidation": 187,
+      "trustValuePerShare": 2187.22,
+      "liquidationValuePerShare": 2187.22,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 4.05,
+      "annualizedReturn": 8.07,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2023-12-13",
+          "endDate": "2026-12-22",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20231212000202",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2023-12-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20231212000202"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -71063,12 +71789,24 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 188,
-      "trustValuePerShare": 2153.93,
-      "liquidationValuePerShare": 2153.93,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.50%)",
-      "expectedReturn": 2.32,
-      "annualizedReturn": 4.56,
+      "daysToLiquidation": 187,
+      "trustValuePerShare": 2155.38,
+      "liquidationValuePerShare": 2155.38,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 2.39,
+      "annualizedReturn": 4.73,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2023-12-12",
+          "endDate": "2026-12-22",
+          "ratePct": 2.5,
+          "source": "증권신고서",
+          "receiptNo": "20231211000138",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2023-12-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20231211000138"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -72073,12 +72811,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-19",
       "liquidationDate": "2027-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 367,
-      "trustValuePerShare": 2205.89,
-      "liquidationValuePerShare": 2205.89,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.32%)",
-      "expectedReturn": 4.79,
-      "annualizedReturn": 4.77,
+      "daysToLiquidation": 366,
+      "trustValuePerShare": 2207.66,
+      "liquidationValuePerShare": 2207.66,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 4.88,
+      "annualizedReturn": 4.86,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-06-10",
+          "endDate": "2027-06-19",
+          "ratePct": 3.32,
+          "source": "증권신고서",
+          "receiptNo": "20240607000402",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-06-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240607000402"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -73064,1016 +73814,6 @@ window.SPAC_DATA = {
       "ipoPriceSource": "증권신고서(20240607000402)"
     },
     {
-      "id": "464440",
-      "code": "464440",
-      "name": "한국제13호스팩",
-      "market": "KOSDAQ",
-      "isin": "KR7464440007",
-      "sponsor": "한국",
-      "ipoPrice": 2000,
-      "currentPrice": 2115,
-      "change": 5,
-      "changePct": 0.24,
-      "ratio": 1.0575,
-      "premiumPct": 5.75,
-      "volume": 56266,
-      "tradingValue": 119000000,
-      "marketCap": 9136800000,
-      "estimatedShares": 4320000,
-      "listingDate": "2023-11-13",
-      "liquidationDate": "2026-11-13",
-      "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 149,
-      "trustValuePerShare": 2185.63,
-      "liquidationValuePerShare": 2185.63,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 3.34,
-      "annualizedReturn": 8.38,
-      "status": "청산 6개월 이내",
-      "badges": [
-        "청산 6개월 이내"
-      ],
-      "mergerStatus": null,
-      "mergerApplicationDisclosure": null,
-      "mergerConfirmationDisclosure": null,
-      "mergerCancellationDisclosure": null,
-      "mergerDisclosures": [],
-      "mergerPriceRecords": [],
-      "kind": {
-        "name": "한국제13호스팩",
-        "fullName": "한국제13호기업인수목적 주식회사",
-        "industry": "금융 지원 서비스업",
-        "mainProduct": "기업인수합병",
-        "listingDate": "2023-11-13",
-        "fiscalMonth": "12월",
-        "ceo": "김장하",
-        "homepage": false,
-        "location": "서울특별시",
-        "source": "KIND 상장법인목록"
-      },
-      "quote": {
-        "code": "464440",
-        "price": 2115,
-        "change": 5,
-        "changePct": 0.24,
-        "volume": 56266,
-        "tradingValue": 119000000,
-        "marketCap": 9136800000,
-        "marketStatus": "CLOSE",
-        "tradeStop": false,
-        "tradeStopText": "운영.Trading",
-        "tradedAt": "2026-06-17T15:30:00+09:00",
-        "source": "네이버 증권 실시간"
-      },
-      "history": [
-        {
-          "date": "2025-11-03",
-          "close": 2145,
-          "ratio": 1.0725,
-          "volume": 3880
-        },
-        {
-          "date": "2025-11-04",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 1125
-        },
-        {
-          "date": "2025-11-05",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 10797
-        },
-        {
-          "date": "2025-11-06",
-          "close": 2135,
-          "ratio": 1.0675,
-          "volume": 111
-        },
-        {
-          "date": "2025-11-07",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 7
-        },
-        {
-          "date": "2025-11-10",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 1805
-        },
-        {
-          "date": "2025-11-11",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 3649
-        },
-        {
-          "date": "2025-11-12",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 1865
-        },
-        {
-          "date": "2025-11-13",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 34
-        },
-        {
-          "date": "2025-11-14",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 1107
-        },
-        {
-          "date": "2025-11-17",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 14
-        },
-        {
-          "date": "2025-11-18",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 959
-        },
-        {
-          "date": "2025-11-19",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 8471
-        },
-        {
-          "date": "2025-11-20",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 698
-        },
-        {
-          "date": "2025-11-21",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 22172
-        },
-        {
-          "date": "2025-11-24",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 1052
-        },
-        {
-          "date": "2025-11-25",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 11995
-        },
-        {
-          "date": "2025-11-26",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 25828
-        },
-        {
-          "date": "2025-11-27",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 1449
-        },
-        {
-          "date": "2025-11-28",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 1456
-        },
-        {
-          "date": "2025-12-01",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 600
-        },
-        {
-          "date": "2025-12-02",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 816
-        },
-        {
-          "date": "2025-12-03",
-          "close": 2145,
-          "ratio": 1.0725,
-          "volume": 10093
-        },
-        {
-          "date": "2025-12-04",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 16
-        },
-        {
-          "date": "2025-12-05",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 31
-        },
-        {
-          "date": "2025-12-08",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 16
-        },
-        {
-          "date": "2025-12-09",
-          "close": 2130,
-          "ratio": 1.065,
-          "volume": 44
-        },
-        {
-          "date": "2025-12-10",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 50184
-        },
-        {
-          "date": "2025-12-11",
-          "close": 2125,
-          "ratio": 1.0625,
-          "volume": 160
-        },
-        {
-          "date": "2025-12-12",
-          "close": 2120,
-          "ratio": 1.06,
-          "volume": 50
-        },
-        {
-          "date": "2025-12-15",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 17
-        },
-        {
-          "date": "2025-12-16",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 11342
-        },
-        {
-          "date": "2025-12-17",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 31197
-        },
-        {
-          "date": "2025-12-18",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 446
-        },
-        {
-          "date": "2025-12-19",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 3742
-        },
-        {
-          "date": "2025-12-22",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 7537
-        },
-        {
-          "date": "2025-12-23",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 936
-        },
-        {
-          "date": "2025-12-24",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 203
-        },
-        {
-          "date": "2025-12-26",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 3221
-        },
-        {
-          "date": "2025-12-29",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 757
-        },
-        {
-          "date": "2025-12-30",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 5020
-        },
-        {
-          "date": "2026-01-02",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 95
-        },
-        {
-          "date": "2026-01-05",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 2642
-        },
-        {
-          "date": "2026-01-06",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 205
-        },
-        {
-          "date": "2026-01-07",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 2406
-        },
-        {
-          "date": "2026-01-08",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 11542
-        },
-        {
-          "date": "2026-01-09",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 42542
-        },
-        {
-          "date": "2026-01-12",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 38819
-        },
-        {
-          "date": "2026-01-13",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 1235
-        },
-        {
-          "date": "2026-01-14",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 2972
-        },
-        {
-          "date": "2026-01-15",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 6215
-        },
-        {
-          "date": "2026-01-16",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 207
-        },
-        {
-          "date": "2026-01-19",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 2907
-        },
-        {
-          "date": "2026-01-20",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 30509
-        },
-        {
-          "date": "2026-01-21",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 95
-        },
-        {
-          "date": "2026-01-22",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 112
-        },
-        {
-          "date": "2026-01-23",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 5826
-        },
-        {
-          "date": "2026-01-26",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 965
-        },
-        {
-          "date": "2026-01-27",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 40262
-        },
-        {
-          "date": "2026-01-28",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 24236
-        },
-        {
-          "date": "2026-01-29",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 7868
-        },
-        {
-          "date": "2026-01-30",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 30634
-        },
-        {
-          "date": "2026-02-02",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 55384
-        },
-        {
-          "date": "2026-02-03",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 16664
-        },
-        {
-          "date": "2026-02-04",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 7300
-        },
-        {
-          "date": "2026-02-05",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 21846
-        },
-        {
-          "date": "2026-02-06",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 3613
-        },
-        {
-          "date": "2026-02-09",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 40457
-        },
-        {
-          "date": "2026-02-10",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 3793
-        },
-        {
-          "date": "2026-02-11",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 5977
-        },
-        {
-          "date": "2026-02-12",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 803
-        },
-        {
-          "date": "2026-02-13",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 5273
-        },
-        {
-          "date": "2026-02-19",
-          "close": 2135,
-          "ratio": 1.0675,
-          "volume": 419
-        },
-        {
-          "date": "2026-02-20",
-          "close": 2160,
-          "ratio": 1.08,
-          "volume": 20228
-        },
-        {
-          "date": "2026-02-23",
-          "close": 2145,
-          "ratio": 1.0725,
-          "volume": 59
-        },
-        {
-          "date": "2026-02-24",
-          "close": 2140,
-          "ratio": 1.07,
-          "volume": 2471
-        },
-        {
-          "date": "2026-02-25",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 5671
-        },
-        {
-          "date": "2026-02-26",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 1454
-        },
-        {
-          "date": "2026-02-27",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 6218
-        },
-        {
-          "date": "2026-03-03",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 1073
-        },
-        {
-          "date": "2026-03-04",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 13798
-        },
-        {
-          "date": "2026-03-05",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 18275
-        },
-        {
-          "date": "2026-03-06",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 907
-        },
-        {
-          "date": "2026-03-09",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 8440
-        },
-        {
-          "date": "2026-03-10",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 7729
-        },
-        {
-          "date": "2026-03-11",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 20706
-        },
-        {
-          "date": "2026-03-12",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 5260
-        },
-        {
-          "date": "2026-03-13",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 10122
-        },
-        {
-          "date": "2026-03-16",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 575
-        },
-        {
-          "date": "2026-03-17",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 21475
-        },
-        {
-          "date": "2026-03-18",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 96895
-        },
-        {
-          "date": "2026-03-19",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 4116
-        },
-        {
-          "date": "2026-03-20",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 49389
-        },
-        {
-          "date": "2026-03-23",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 5048
-        },
-        {
-          "date": "2026-03-24",
-          "close": 2100,
-          "ratio": 1.05,
-          "volume": 19431
-        },
-        {
-          "date": "2026-03-25",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 1614
-        },
-        {
-          "date": "2026-03-26",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 5137
-        },
-        {
-          "date": "2026-03-27",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 2833
-        },
-        {
-          "date": "2026-03-30",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 212
-        },
-        {
-          "date": "2026-03-31",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 21376
-        },
-        {
-          "date": "2026-04-01",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 880
-        },
-        {
-          "date": "2026-04-02",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 4580
-        },
-        {
-          "date": "2026-04-03",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 62094
-        },
-        {
-          "date": "2026-04-06",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 1439
-        },
-        {
-          "date": "2026-04-07",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 538
-        },
-        {
-          "date": "2026-04-08",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 4276
-        },
-        {
-          "date": "2026-04-09",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 410
-        },
-        {
-          "date": "2026-04-10",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 23072
-        },
-        {
-          "date": "2026-04-13",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 42
-        },
-        {
-          "date": "2026-04-14",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 19970
-        },
-        {
-          "date": "2026-04-15",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 37240
-        },
-        {
-          "date": "2026-04-16",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 5357
-        },
-        {
-          "date": "2026-04-17",
-          "close": 2080,
-          "ratio": 1.04,
-          "volume": 8908
-        },
-        {
-          "date": "2026-04-20",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 8066
-        },
-        {
-          "date": "2026-04-21",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 50113
-        },
-        {
-          "date": "2026-04-22",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 12
-        },
-        {
-          "date": "2026-04-23",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 1881
-        },
-        {
-          "date": "2026-04-24",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 3549
-        },
-        {
-          "date": "2026-04-27",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 2409
-        },
-        {
-          "date": "2026-04-28",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 85592
-        },
-        {
-          "date": "2026-04-29",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 30901
-        },
-        {
-          "date": "2026-04-30",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 64951
-        },
-        {
-          "date": "2026-05-04",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 92888
-        },
-        {
-          "date": "2026-05-06",
-          "close": 2087,
-          "ratio": 1.0435,
-          "volume": 46479
-        },
-        {
-          "date": "2026-05-07",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 84325
-        },
-        {
-          "date": "2026-05-08",
-          "close": 2092,
-          "ratio": 1.046,
-          "volume": 34090
-        },
-        {
-          "date": "2026-05-11",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 26382
-        },
-        {
-          "date": "2026-05-12",
-          "close": 2085,
-          "ratio": 1.0425,
-          "volume": 27765
-        },
-        {
-          "date": "2026-05-13",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 80980
-        },
-        {
-          "date": "2026-05-14",
-          "close": 2090,
-          "ratio": 1.045,
-          "volume": 9871
-        },
-        {
-          "date": "2026-05-15",
-          "close": 2095,
-          "ratio": 1.0475,
-          "volume": 57259
-        },
-        {
-          "date": "2026-05-18",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 58809
-        },
-        {
-          "date": "2026-05-19",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 95964
-        },
-        {
-          "date": "2026-05-20",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 26807
-        },
-        {
-          "date": "2026-05-21",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 2076
-        },
-        {
-          "date": "2026-05-22",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 4166
-        },
-        {
-          "date": "2026-05-26",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 7853
-        },
-        {
-          "date": "2026-05-27",
-          "close": 2105,
-          "ratio": 1.0525,
-          "volume": 48297
-        },
-        {
-          "date": "2026-05-28",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 15906
-        },
-        {
-          "date": "2026-05-29",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 37664
-        },
-        {
-          "date": "2026-06-01",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 54794
-        },
-        {
-          "date": "2026-06-02",
-          "close": 2107,
-          "ratio": 1.0535,
-          "volume": 35999
-        },
-        {
-          "date": "2026-06-04",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 70893
-        },
-        {
-          "date": "2026-06-05",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 1284
-        },
-        {
-          "date": "2026-06-08",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 0
-        },
-        {
-          "date": "2026-06-09",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 346856
-        },
-        {
-          "date": "2026-06-10",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 322894
-        },
-        {
-          "date": "2026-06-11",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 58020
-        },
-        {
-          "date": "2026-06-12",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 130209
-        },
-        {
-          "date": "2026-06-15",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 58893
-        },
-        {
-          "date": "2026-06-16",
-          "close": 2110,
-          "ratio": 1.055,
-          "volume": 118759
-        },
-        {
-          "date": "2026-06-17",
-          "close": 2115,
-          "ratio": 1.0575,
-          "volume": 56266
-        }
-      ],
-      "events": [
-        {
-          "date": "2023-11-13",
-          "type": "listing",
-          "label": "상장",
-          "detail": "KIND 상장일 2023-11-13"
-        },
-        {
-          "date": "2026-11-13",
-          "type": "liquidation",
-          "label": "청산기한",
-          "detail": "상장일+36개월 추정"
-        }
-      ],
-      "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=한국제13호스팩",
-      "naverUrl": "https://finance.naver.com/item/main.naver?code=464440",
-      "filing": {
-        "receiptNo": "20231030000103",
-        "reportName": "[기재정정]투자설명서",
-        "filingDate": "2023-10-30",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20231030000103",
-        "ipoPrice": 2000,
-        "offeringShares": 4000000,
-        "escrowAmount": 8000000000,
-        "escrowRatePct": 3.0,
-        "escrowAgent": "금 액 보통예금 국민은행 320",
-        "subscriptionStart": "2023-11-01",
-        "subscriptionEnd": "2023-11-02",
-        "paymentDate": "2023-11-01",
-        "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-        "parseWarnings": []
-      },
-      "ipoPriceSource": "증권신고서(20231030000103)"
-    },
-    {
       "id": "482690",
       "code": "482690",
       "name": "대신밸런스제19호스팩",
@@ -74093,12 +73833,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-20",
       "liquidationDate": "2027-11-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 521,
-      "trustValuePerShare": 2185.45,
-      "liquidationValuePerShare": 2185.45,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.00%)",
-      "expectedReturn": 3.09,
-      "annualizedReturn": 2.15,
+      "daysToLiquidation": 520,
+      "trustValuePerShare": 2187.05,
+      "liquidationValuePerShare": 2187.05,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 3.16,
+      "annualizedReturn": 2.21,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-11-11",
+          "endDate": "2027-11-20",
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20241107000228",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-11-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241107000228"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -75105,12 +74857,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-19",
       "liquidationDate": "2028-12-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 916,
-      "trustValuePerShare": 2125.66,
-      "liquidationValuePerShare": 2125.66,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.05%)",
-      "expectedReturn": 0.03,
-      "annualizedReturn": 0.01,
+      "daysToLiquidation": 915,
+      "trustValuePerShare": 2126.84,
+      "liquidationValuePerShare": 2126.84,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 0.09,
+      "annualizedReturn": 0.03,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-09",
+          "endDate": "2028-12-19",
+          "ratePct": 2.05,
+          "source": "증권신고서",
+          "receiptNo": "20251208000119",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208000119"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -75911,12 +75675,24 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-01",
       "liquidationDate": "2027-02-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 229,
-      "trustValuePerShare": 2153.93,
-      "liquidationValuePerShare": 2153.93,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.50%)",
-      "expectedReturn": 0.65,
-      "annualizedReturn": 1.04,
+      "daysToLiquidation": 228,
+      "trustValuePerShare": 2155.24,
+      "liquidationValuePerShare": 2155.24,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 0.71,
+      "annualizedReturn": 1.14,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2024-01-23",
+          "endDate": "2027-02-01",
+          "ratePct": 2.5,
+          "source": "증권신고서",
+          "receiptNo": "20240119000323",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-01-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240119000323"
+        }
+      ],
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -76921,12 +76697,24 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-15",
       "liquidationDate": "2028-12-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 912,
-      "trustValuePerShare": 2158.35,
-      "liquidationValuePerShare": 2158.35,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 2.57%)",
-      "expectedReturn": 0.16,
-      "annualizedReturn": 0.06,
+      "daysToLiquidation": 911,
+      "trustValuePerShare": 2160.0,
+      "liquidationValuePerShare": 2160.0,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": 0.23,
+      "annualizedReturn": 0.09,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2025-12-04",
+          "endDate": "2028-12-15",
+          "ratePct": 2.57,
+          "source": "증권신고서",
+          "receiptNo": "20251202000413",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2025-12-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251202000413"
+        }
+      ],
       "status": "일반",
       "badges": [
         "일반"
@@ -77753,12 +77541,24 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-05",
       "liquidationDate": "2026-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 171,
-      "trustValuePerShare": 2217.64,
-      "liquidationValuePerShare": 2217.64,
-      "liquidationValueSource": "공모예치금+예상 예치이자(증권신고서 연 3.50%)",
-      "expectedReturn": -5.03,
-      "annualizedReturn": -10.42,
+      "daysToLiquidation": 170,
+      "trustValuePerShare": 2220.15,
+      "liquidationValuePerShare": 2220.15,
+      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
+      "expectedReturn": -4.92,
+      "annualizedReturn": -10.26,
+      "escrowRatePeriods": [
+        {
+          "startDate": "2023-11-23",
+          "endDate": "2026-12-05",
+          "ratePct": 3.5,
+          "source": "증권신고서",
+          "receiptNo": "20231122000325",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2023-11-22",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20231122000325"
+        }
+      ],
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -77767,75 +77567,65 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-05-11",
-        "title": "[기재정정]주요사항보고서(회사합병결정)",
+        "date": "2026-05-11 15:26",
+        "title": "회사합병 결정(SPAC 소멸합병)",
         "company": "교보15호스팩",
-        "submitter": "교보15호스팩",
-        "receiptNo": "20260511000433",
-        "source": "OpenDART 공시검색",
-        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000433"
+        "submitter": "교보15호기업인수목적",
+        "receiptNo": "20260511000479",
+        "source": "KIND 공시검색",
+        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2025-09-11",
-          "title": "주요사항보고서(회사합병결정)",
-          "company": "교보15호스팩",
-          "submitter": "교보15호스팩",
-          "receiptNo": "20250911000380",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250911000380",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2025-09-11",
-          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "date": "2025-09-11 16:06",
+          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
           "company": "교보15호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20250911900329",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250911900329",
+          "receiptNo": "20250911000329",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250911000329",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-10-01",
-          "title": "[첨부정정]주요사항보고서(회사합병결정)",
+          "date": "2025-09-11 16:06",
+          "title": "회사합병 결정(SPAC 소멸합병)",
           "company": "교보15호스팩",
-          "submitter": "교보15호스팩",
-          "receiptNo": "20251001000577",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251001000577",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20250911000306",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250911000306",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-02-11",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2026-02-11 14:17",
+          "title": "회사합병 결정(SPAC 소멸합병)",
           "company": "교보15호스팩",
-          "submitter": "교보15호스팩",
-          "receiptNo": "20260211000522",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000522",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20260211000572",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260211000572",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-03-26",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2026-03-26 16:19",
+          "title": "회사합병 결정",
           "company": "교보15호스팩",
-          "submitter": "교보15호스팩",
-          "receiptNo": "20260326000895",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326000895",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20260326001865",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260326001865",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-05-11",
-          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "date": "2026-05-11 15:26",
+          "title": "회사합병 결정(SPAC 소멸합병)",
           "company": "교보15호스팩",
-          "submitter": "교보15호스팩",
-          "receiptNo": "20260511000433",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000433",
+          "submitter": "교보15호기업인수목적",
+          "receiptNo": "20260511000479",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479",
           "mergerSignal": "applied"
         }
       ],
@@ -77853,7 +77643,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-09-12",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2335,
           "latestReturnPct": 0.0,
           "highDate": "2025-09-12",
@@ -77862,7 +77652,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-09-12",
           "lowPrice": 2335,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 182
+          "observedTradingDays": 183
         },
         {
           "date": "2025-09-11",
@@ -77925,7 +77715,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-02-12",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2335,
           "latestReturnPct": 0.0,
           "highDate": "2026-02-12",
@@ -77934,7 +77724,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-02-12",
           "lowPrice": 2335,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 81
+          "observedTradingDays": 82
         },
         {
           "date": "2026-02-11",
@@ -77973,7 +77763,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-03-27",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2335,
           "latestReturnPct": 0.0,
           "highDate": "2026-03-27",
@@ -77982,7 +77772,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-03-27",
           "lowPrice": 2335,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 54
+          "observedTradingDays": 55
         },
         {
           "date": "2026-03-26",
@@ -78021,7 +77811,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-12",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-06-16",
+          "latestDate": "2026-06-17",
           "latestPrice": 2335,
           "latestReturnPct": 0.0,
           "highDate": "2026-05-12",
@@ -78030,7 +77820,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-12",
           "lowPrice": 2335,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 24
+          "observedTradingDays": 25
         },
         {
           "date": "2026-05-11",
@@ -81777,12 +81567,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2023-12-05"
         },
         {
-          "date": "2026-05-11",
+          "date": "2026-05-11 15:26",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "[기재정정]주요사항보고서(회사합병결정)",
-          "source": "OpenDART 공시검색",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000433"
+          "detail": "회사합병 결정(SPAC 소멸합병)",
+          "source": "KIND 공시검색",
+          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479"
         },
         {
           "date": "2026-12-05",
@@ -81817,12 +81607,12 @@ window.SPAC_DATA = {
     "disclosure": {}
   },
   "collection": {
-    "universe": 72,
-    "quotesOk": 72,
+    "universe": 71,
+    "quotesOk": 71,
     "quotesFailed": 0,
-    "disclosuresOk": 7,
+    "disclosuresOk": 8,
     "disclosuresFailed": 0,
-    "historiesOk": 72
+    "historiesOk": 71
   },
   "sourceLinks": {
     "kindCorpList": "https://kind.krx.co.kr/corpgeneral/corpList.do?method=loadInitPage",

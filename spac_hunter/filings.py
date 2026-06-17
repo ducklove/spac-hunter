@@ -43,6 +43,7 @@ BACKFILL_FALLBACK_YEARS = 4
 CALENDAR_LOOKBACK_DAYS = 30
 CALENDAR_DOC_BUDGET_MAX = 5
 CALENDAR_DOC_MAX_AGE_DAYS = 60
+TRUST_RATE_CHANGE_LOOKBACK_YEARS = 4
 
 FIELD_KEYS = (
     "ipoPrice",
@@ -74,6 +75,17 @@ _PARTIAL_DATE_RE = re.compile(r"(\d{1,2})\s*월\s*(\d{1,2})\s*일")
 _RANGE_SEP_RE = re.compile(r"(?:\s*\([^)]{1,8}\))?\s*[~∼〜]\s*")
 _SUBSCRIPTION_WINDOW = 80
 _PAYMENT_WINDOW = 60
+_TRUST_CHANGE_DATE_LABELS = (
+    "변경일",
+    "변경 예정일",
+    "변경예정일",
+    "계약체결일",
+    "체결일",
+    "시행일",
+    "적용일",
+    "효력발생일",
+)
+_PERCENT_RE = re.compile(r"([0-9]+(?:\.[0-9]+)?)\s*%")
 
 
 def is_valid_ipo_price(value):
@@ -221,6 +233,66 @@ def extract_filing_fields(text):
     return fields
 
 
+def _extract_trust_change_rate(text, warnings):
+    candidates = []
+    markers = (
+        "변경 후",
+        "변경후",
+        "변경내용",
+        "예치이율",
+        "예치 이율",
+        "신탁이자율",
+        "신탁 이자율",
+        "이자율",
+    )
+    for marker in markers:
+        for match in re.finditer(re.escape(marker), text):
+            window = text[match.start() : match.start() + 180]
+            candidates.extend(parse_float(raw) for raw in _PERCENT_RE.findall(window))
+    candidates = [value for value in candidates if value is not None]
+    valid = [value for value in candidates if is_valid_escrow_rate_pct(value)]
+    if valid:
+        return valid[-1]
+
+    all_values = [value for value in map(parse_float, _PERCENT_RE.findall(text)) if value is not None]
+    all_valid = [value for value in all_values if is_valid_escrow_rate_pct(value)]
+    if all_valid:
+        return all_valid[-1]
+    if candidates or all_values:
+        warnings.append(f"trustRateChange.ratePct: 검증 탈락 {(candidates or all_values)[:5]}")
+    else:
+        warnings.append("trustRateChange.ratePct: 패턴 미발견")
+    return None
+
+
+def _extract_trust_change_start_date(text, fallback_date, warnings):
+    for label in _TRUST_CHANGE_DATE_LABELS:
+        for match in re.finditer(re.escape(label), text):
+            window = text[match.end() : match.end() + 100]
+            date_match = _FULL_DATE_RE.search(window)
+            if not date_match:
+                continue
+            parsed = _to_iso_date(*date_match.groups())
+            if parsed:
+                return parsed
+    if fallback_date:
+        return fallback_date
+    warnings.append("trustRateChange.startDate: 날짜 미발견")
+    return None
+
+
+def extract_trust_rate_change_fields(text, filing_date=None):
+    """Extract the changed annual escrow rate and effective date from a trust-contract change."""
+    text = re.sub(r"\s+", " ", str(text or ""))
+    warnings = []
+    fields = {
+        "ratePct": _extract_trust_change_rate(text, warnings),
+        "startDate": _extract_trust_change_start_date(text, filing_date, warnings),
+    }
+    fields["parseWarnings"] = warnings
+    return fields
+
+
 def load_filings(path=None):
     """Read filings.json; missing or corrupt files fall back to an empty store."""
     path = Path(path) if path else FILINGS_JSON_PATH
@@ -277,6 +349,16 @@ def _document_fields(receipt_no):
     return extract_filing_fields(text)
 
 
+def _document_trust_rate_change_fields(receipt_no, filing_date=None):
+    """Fetch + extract one trust-contract change document."""
+    try:
+        text = opendart.fetch_document_text(receipt_no)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("OpenDART 신탁계약 변경 문서 추출 실패 %s: %s", receipt_no, exc)
+        return {"ratePct": None, "startDate": filing_date, "parseWarnings": [f"문서 추출 실패: {exc}"]}
+    return extract_trust_rate_change_fields(text, filing_date=filing_date)
+
+
 def _filing_entry(receipt_no, report_name, filing_date, url, fields, now):
     entry = {
         "receiptNo": receipt_no,
@@ -289,6 +371,45 @@ def _filing_entry(receipt_no, report_name, filing_date, url, fields, now):
     entry["extractedAt"] = now.isoformat()
     entry["parseWarnings"] = list(fields.get("parseWarnings") or [])
     return entry
+
+
+def _is_trust_rate_change_row(row):
+    title = re.sub(r"\s+", "", str(row.get("report_nm") or ""))
+    return "신탁계약" in title and "변경" in title
+
+
+def _trust_rate_change_entry(row, fields):
+    receipt_no = str(row.get("rcept_no") or "").strip()
+    filing_date = _format_rcept_dt(row.get("rcept_dt"))
+    report_name = re.sub(r"\s+", " ", str(row.get("report_nm") or "")).strip() or None
+    return {
+        "receiptNo": receipt_no,
+        "reportName": report_name,
+        "filingDate": filing_date,
+        "url": f"https://dart.fss.or.kr/dsaf001/main.do?rcpNo={receipt_no}" if receipt_no else None,
+        "startDate": fields.get("startDate") or filing_date,
+        "ratePct": fields.get("ratePct"),
+        "parseWarnings": list(fields.get("parseWarnings") or []),
+    }
+
+
+def _merge_trust_rate_changes(existing, additions):
+    merged = {}
+    for entry in list(existing or []) + list(additions or []):
+        if not isinstance(entry, dict):
+            continue
+        receipt_no = str(entry.get("receiptNo") or "").strip()
+        key = receipt_no or f"{entry.get('startDate')}|{entry.get('ratePct')}|{entry.get('reportName')}"
+        if key:
+            merged[key] = entry
+    rows = list(merged.values())
+    rows.sort(
+        key=lambda entry: (
+            str(entry.get("startDate") or entry.get("filingDate") or ""),
+            str(entry.get("receiptNo") or ""),
+        )
+    )
+    return rows
 
 
 def _select_registration_row(rows):
@@ -361,6 +482,83 @@ def backfill_filings(store, items, listing_dates, doc_budget, today=None, now=No
             _document_fields(receipt_no),
             now,
         )
+    return used, errors
+
+
+def backfill_trust_rate_changes(store, items, listing_dates, doc_budget, today=None, now=None):
+    """Backfill 신탁계약내용변경 disclosures and changed escrow rates.
+
+    The search itself is list.json only; document.xml is downloaded only for
+    unseen trust-contract change receipts and is bounded by ``doc_budget``.
+    """
+    errors = {}
+    used = 0
+    if doc_budget <= 0:
+        return used, errors
+    today = today or today_kst()
+    now = now or datetime.now(KST)
+    filings = store.setdefault("filings", {})
+    try:
+        corp_map = opendart.load_corp_code_map()
+    except Exception as exc:  # noqa: BLE001
+        errors["corpCode"] = str(exc)
+        logger.warning("OpenDART corpCode 매핑 실패, 신탁계약 변경 백필 생략: %s", exc)
+        return used, errors
+
+    for item in items:
+        if used >= doc_budget:
+            break
+        code = item["code"]
+        filing_entry = filings.get(code)
+        if not isinstance(filing_entry, dict):
+            continue
+        corp_code = corp_map.get(code)
+        if not corp_code:
+            continue
+        listing_date = listing_dates.get(code)
+        bgn_de = listing_date or (today - timedelta(days=365 * TRUST_RATE_CHANGE_LOOKBACK_YEARS))
+        end_de = today
+        try:
+            rows = opendart.fetch_filing_list(bgn_de, end_de, corp_code=corp_code)
+        except Exception as exc:  # noqa: BLE001
+            errors[code] = f"신탁계약 변경 목록 조회 실패: {exc}"
+            logger.warning("OpenDART 신탁계약 변경 목록 조회 실패 %s(%s): %s", item.get("name"), code, exc)
+            break
+
+        trust_rows = sorted(
+            [row for row in rows if _is_trust_rate_change_row(row)],
+            key=lambda row: str(row.get("rcept_no") or ""),
+        )
+        if not trust_rows:
+            filing_entry["trustRateChangeScannedAt"] = now.isoformat()
+            continue
+
+        existing_changes = filing_entry.get("escrowRateChanges") or []
+        seen_receipts = {
+            str(change.get("receiptNo") or "").strip()
+            for change in existing_changes
+            if isinstance(change, dict)
+        }
+        additions = []
+        for row in trust_rows:
+            if used >= doc_budget:
+                break
+            receipt_no = str(row.get("rcept_no") or "").strip()
+            if not receipt_no or receipt_no in seen_receipts:
+                continue
+            used += 1
+            filing_date = _format_rcept_dt(row.get("rcept_dt"))
+            fields = _document_trust_rate_change_fields(receipt_no, filing_date=filing_date)
+            entry = _trust_rate_change_entry(row, fields)
+            if is_valid_escrow_rate_pct(parse_float(entry.get("ratePct"))) and entry.get("startDate"):
+                additions.append(entry)
+            else:
+                errors[code] = f"신탁계약 변경 금리 추출 실패: {receipt_no}"
+        if additions:
+            filing_entry["escrowRateChanges"] = _merge_trust_rate_changes(existing_changes, additions)
+        elif existing_changes:
+            filing_entry["escrowRateChanges"] = _merge_trust_rate_changes(existing_changes, [])
+        filing_entry["trustRateChangeScannedAt"] = now.isoformat()
     return used, errors
 
 

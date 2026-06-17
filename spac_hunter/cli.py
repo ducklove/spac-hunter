@@ -127,8 +127,20 @@ def collect_filings(args, krx_spacs, kind_companies, generated_at, errors):
                 today=generated_at.date(),
                 now=generated_at,
             )
+            trust_change_budget = max(0, args.filing_doc_limit - docs_used)
+            trust_change_docs_used, trust_change_errors = filings.backfill_trust_rate_changes(
+                store,
+                krx_spacs,
+                listing_dates,
+                trust_change_budget,
+                today=generated_at.date(),
+                now=generated_at,
+            )
+            if trust_change_errors:
+                filing_errors = {**filing_errors, "trustRateChanges": trust_change_errors}
             calendar_budget = min(
-                filings.CALENDAR_DOC_BUDGET_MAX, max(0, args.filing_doc_limit - docs_used)
+                filings.CALENDAR_DOC_BUDGET_MAX,
+                max(0, args.filing_doc_limit - docs_used - trust_change_docs_used),
             )
             ipo_calendar, calendar_docs_used = filings.build_ipo_calendar(
                 store,
@@ -138,9 +150,13 @@ def collect_filings(args, krx_spacs, kind_companies, generated_at, errors):
                 now=generated_at,
             )
             logger.info(
-                "OpenDART filings: %d entries (%d docs), IPO calendar: %d entries (%d docs)",
+                (
+                    "OpenDART filings: %d entries (%d docs), trust changes: %d docs, "
+                    "IPO calendar: %d entries (%d docs)"
+                ),
                 len(store.get("filings") or {}),
                 docs_used,
+                trust_change_docs_used,
                 len(ipo_calendar),
                 calendar_docs_used,
             )
@@ -201,9 +217,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
         type=int,
         default=10,
         help=(
-            "OpenDART document.xml requests per run (증권신고서 backfill first, IPO calendar "
-            "gets the remainder, capped at 5). 0 disables document downloads; the existing "
-            "filings.json is still read and applied."
+            "OpenDART document.xml requests per run (증권신고서 backfill first, then "
+            "신탁계약 변경 공시, IPO calendar gets the remainder capped at 5). "
+            "0 disables document downloads; the existing filings.json is still read and applied."
         ),
     )
     parser.add_argument("--sample", action="store_true", help="Write bundled sample data without network")

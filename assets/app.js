@@ -15,7 +15,6 @@
     badgeClass,
     escapeHtml,
     formatTradingValue,
-    signedCount,
     daysMetric
   } = window.SpacFormat;
   const SpacCharts = window.SpacCharts;
@@ -32,15 +31,21 @@
   let data = window.SPAC_DATA || fallbackData;
 
   const VALID_FILTERS = ['all', 'below', 'near', 'due', 'merger', 'recent', 'watch'];
-  const VALID_SORTS = ['cheap', 'ratio', 'yield', 'liquidation', 'volume'];
+  const VALID_SORTS = ['price', 'listing', 'yield'];
+  const SORT_ALIASES = {
+    cheap: 'price',
+    ratio: 'price',
+    liquidation: 'listing',
+    volume: 'price'
+  };
   const STALE_HOURS = 36;
   const SPARK_DAYS = 90;
 
   let selectedCode = null;
   let filterMode = 'all';
-  let sortMode = 'cheap';
+  let sortMode = 'price';
   let chartDays = 90;
-  let tableSort = { key: 'ratio', direction: 'asc' };
+  let tableSort = { key: 'currentPrice', direction: 'asc' };
   let searchTimer = 0;
 
   const filters = [
@@ -142,8 +147,9 @@
   function applyUrlState(state) {
     if (VALID_FILTERS.includes(state.filter)) filterMode = state.filter;
     else if (state.filter == null) filterMode = 'all';
-    if (VALID_SORTS.includes(state.sort)) sortMode = state.sort;
-    else if (state.sort == null) sortMode = 'cheap';
+    const normalizedSort = SORT_ALIASES[state.sort] || state.sort;
+    if (VALID_SORTS.includes(normalizedSort)) sortMode = normalizedSort;
+    else if (state.sort == null) sortMode = 'price';
     const sortSelect = document.getElementById('sortSelect');
     if (sortSelect) sortSelect.value = sortMode;
   }
@@ -156,7 +162,7 @@
       if (code) url.searchParams.set('code', code);
       if (filterMode && filterMode !== 'all') url.searchParams.set('filter', filterMode);
       else url.searchParams.delete('filter');
-      if (sortMode && sortMode !== 'cheap') url.searchParams.set('sort', sortMode);
+      if (sortMode && sortMode !== 'price') url.searchParams.set('sort', sortMode);
       else url.searchParams.delete('sort');
       if (url.toString() !== window.location.href) {
         window.history.replaceState({}, '', url);
@@ -199,15 +205,24 @@
     return direction === 'asc' ? Number(a) - Number(b) : Number(b) - Number(a);
   }
 
+  function compareDateNullable(a, b, direction = 'asc') {
+    const timeA = a ? Date.parse(String(a)) : NaN;
+    const timeB = b ? Date.parse(String(b)) : NaN;
+    const emptyA = !Number.isFinite(timeA);
+    const emptyB = !Number.isFinite(timeB);
+    if (emptyA && emptyB) return 0;
+    if (emptyA) return 1;
+    if (emptyB) return -1;
+    return direction === 'asc' ? timeA - timeB : timeB - timeA;
+  }
+
   function sortSpacs(items) {
     const sorted = items.slice();
     const mode = sortMode;
     sorted.sort((a, b) => {
-      if (mode === 'cheap') return compareNullable(a.currentPrice, b.currentPrice, 'asc');
-      if (mode === 'ratio') return compareNullable(a.ratio, b.ratio, 'asc');
+      if (mode === 'price') return compareNullable(a.currentPrice, b.currentPrice, 'asc');
+      if (mode === 'listing') return compareDateNullable(a.listingDate, b.listingDate, 'asc');
       if (mode === 'yield') return compareNullable(a.annualizedReturn, b.annualizedReturn, 'desc');
-      if (mode === 'liquidation') return compareNullable(a.daysToLiquidation, b.daysToLiquidation, 'asc');
-      if (mode === 'volume') return compareNullable(a.tradingValue, b.tradingValue, 'desc');
       return 0;
     });
     return sorted;
@@ -312,55 +327,9 @@
 
   function renderMarketStats() {
     const stats = data.statistics || {};
-    const summary = data.summary || {};
     const belowTrend = stats.belowIpoTrend || [];
-    const latestTrend = belowTrend[belowTrend.length - 1] || null;
-    const firstTrend = belowTrend[0] || null;
-    const belowChange = latestTrend && firstTrend ? latestTrend.belowCount - firstTrend.belowCount : null;
     const funnel = stats.mergerFunnel || {};
     const priceStats = stats.mergerPriceStats || {};
-    const newListing = stats.newListing || {};
-
-    const cards = [
-      {
-        label: '공모가 미만',
-        value: `${summary.belowIpoCount ?? latestTrend?.belowCount ?? 0}개`,
-        detail: belowChange == null ? '현재가 기준' : `추이 최신 ${latestTrend?.belowCount ?? '-'} · 기간 변화 ${signedCount(belowChange)}`
-      },
-      {
-        label: '신규등록 90일',
-        value: `${newListing.last90Count ?? summary.recentListingCount ?? 0}개`,
-        detail: `1년 ${newListing.last365Count ?? 0}개`
-      },
-      {
-        label: '합병 이벤트',
-        value: `${summary.mergerEventCount ?? getMergerCases().length}건`,
-        detail: `신청 ${summary.mergerAppliedCount ?? 0} · 확정 ${summary.mergerConfirmedCount ?? 0}`
-      },
-      {
-        label: '합병 성사 확률',
-        value: pct(funnel.successRatePct),
-        detail: `완료 표본 ${funnel.completedCount ?? 0}건`
-      },
-      {
-        label: '평균 성사 기간',
-        value: daysMetric(funnel.avgDaysToConfirmation),
-        detail: `중앙값 ${daysMetric(funnel.medianDaysToConfirmation)}`
-      },
-      {
-        label: '합병 기준가',
-        value: money(priceStats.applicationAvgPrice),
-        detail: `확정 평균 ${money(priceStats.confirmationAvgPrice)}`
-      }
-    ];
-
-    document.getElementById('statsCards').innerHTML = cards.map(card => `
-      <article class="stat-card">
-        <div class="stat-card-label">${escapeHtml(card.label)}</div>
-        <div class="stat-card-value ${String(card.value).length > 9 ? 'small' : ''}">${escapeHtml(card.value)}</div>
-        <div class="stat-card-detail">${escapeHtml(card.detail)}</div>
-      </article>
-    `).join('');
 
     document.getElementById('belowTrendHint').textContent = belowTrend.length
       ? `${dateText(belowTrend[0].date)} - ${dateText(belowTrend[belowTrend.length - 1].date)}`
@@ -558,42 +527,64 @@
     };
   }
 
+  function newListingSnapshot() {
+    const stat = data.statistics && data.statistics.newListing;
+    if (stat && typeof stat === 'object') {
+      return {
+        last30: stat.last30Count ?? 0,
+        last90: stat.last90Count ?? 0
+      };
+    }
+    const base = new Date(data.generatedAt || Date.now());
+    const rows = getSpacs()
+      .map(item => item.listingDate ? Date.parse(String(item.listingDate)) : NaN)
+      .filter(Number.isFinite);
+    return {
+      last30: rows.filter(time => (base - time) / 86400000 <= 30).length,
+      last90: rows.filter(time => (base - time) / 86400000 <= 90).length
+    };
+  }
+
   function renderSnapshot() {
     const summary = data.summary || {};
     const marketPrice = marketPriceSnapshot();
+    const newListing = newListingSnapshot();
+    const totalCount = summary.totalCount ?? getSpacs().length;
+    const belowCount = summary.belowIpoCount ?? 0;
+    const belowPct = totalCount ? (belowCount / totalCount) * 100 : null;
     const cards = [
       {
-        label: '스팩 평균가',
-        value: marketPrice.averagePrice == null ? '-' : money(Math.round(marketPrice.averagePrice)),
-        detail: `일간 ${signedWon(marketPrice.averageChange)} · ${signedPct(marketPrice.averageChangePct)}`,
+        label: '전체 스팩 종목 수',
+        value: `${totalCount ?? 0}개`,
+        detail: '현재 상장 기준',
         primary: true
       },
       {
-        label: '공모가 이하',
-        value: `${summary.belowIpoCount ?? 0}개`,
+        label: '스팩 평균가',
+        value: marketPrice.averagePrice == null ? '-' : money(Math.round(marketPrice.averagePrice)),
+        detail: `일간 ${signedWon(marketPrice.averageChange)} · ${signedPct(marketPrice.averageChangePct)}`
+      },
+      {
+        label: '공모가 미만 / 비율',
+        value: `${belowCount}개 / ${pct(belowPct, 1)}`,
         detail: summary.cheapest
-          ? `${summary.cheapest.name} ${ratio(summary.cheapest.ratio)}`
-          : '현재가 / 공모가 1.00x 미만'
+          ? `최저 ${summary.cheapest.name} ${money(summary.cheapest.currentPrice)}`
+          : '현재가 기준'
+      },
+      {
+        label: '신규 등록 30일 / 90일',
+        value: `${newListing.last30}개 / ${newListing.last90}개`,
+        detail: '상장일 기준'
       },
       {
         label: '청산 6개월 이내',
         value: `${summary.dueSoonCount ?? 0}개`,
-        detail: '상장일+36개월 기준 추정'
+        detail: '상장일+36개월 기준'
       },
       {
-        label: '합병',
-        value: `${summary.mergerCount ?? 0}개`,
-        detail: `신청 ${summary.mergerAppliedCount ?? 0} · 확정 ${summary.mergerConfirmedCount ?? 0}`
-      },
-      {
-        label: '신규 상장',
-        value: `${summary.recentListingCount ?? 0}개`,
-        detail: '최근 120일 이내 상장'
-      },
-      {
-        label: '평균 현재가 / 공모가',
-        value: ratio(summary.averageRatio),
-        detail: `평균 연환산 ${pct(summary.averageAnnualizedReturn)}`
+        label: '합병 진행 중',
+        value: `${summary.mergerAppliedCount ?? 0}개`,
+        detail: `확정 ${summary.mergerConfirmedCount ?? 0} · 전체 ${summary.mergerCount ?? 0}`
       }
     ];
     document.getElementById('snapshot').innerHTML = cards.map(card => `
@@ -623,7 +614,7 @@
       ` aria-pressed="${watched ? 'true' : 'false'}" aria-label="${labelText}" title="${labelText}">${watched ? '★' : '☆'}</button>`;
   }
 
-  /* 리스트 헤더 카운트: 관심 필터에서는 종목수·평균 비율·평균 연환산 요약으로 대체. */
+  /* 리스트 헤더 카운트: 관심 필터에서는 종목수·평균 가격·평균 연환산 요약으로 대체. */
   function renderListCount(items) {
     const target = document.getElementById('listCount');
     if (!target) return;
@@ -632,9 +623,9 @@
       return;
     }
     const parts = [`${items.length}종목`];
-    const ratios = items.map(item => Number(item.ratio)).filter(Number.isFinite);
-    if (ratios.length) {
-      parts.push(`평균 ${ratio(ratios.reduce((sum, value) => sum + value, 0) / ratios.length)}`);
+    const prices = items.map(item => Number(item.currentPrice)).filter(Number.isFinite);
+    if (prices.length) {
+      parts.push(`평균가 ${money(Math.round(prices.reduce((sum, value) => sum + value, 0) / prices.length))}`);
     }
     const yields = items.map(item => Number(item.annualizedReturn)).filter(Number.isFinite);
     if (yields.length) {
@@ -653,7 +644,11 @@
         : '<div class="empty">조건에 맞는 스팩이 없습니다.</div>';
       return;
     }
-    target.innerHTML = items.map(item => `
+    target.innerHTML = items.map(item => {
+      const annualClass = item.annualizedReturn == null || Number.isNaN(Number(item.annualizedReturn))
+        ? ''
+        : (Number(item.annualizedReturn) > 0 ? 'good' : 'danger');
+      return `
       <div class="spac-card ${item.code === selectedCode ? 'active' : ''}" data-code="${escapeHtml(item.code)}" role="button" tabindex="0">
         <div class="spac-card-top">
           <div class="spac-card-id">
@@ -665,14 +660,20 @@
           </div>
           <div>
             <div class="price">${money(item.currentPrice)}</div>
-            <div class="ratio">${ratio(item.ratio)}</div>
+            <div class="card-date">${dateText(item.listingDate)}</div>
           </div>
+        </div>
+        <div class="spac-card-metrics">
+          <span>가격 ${escapeHtml(money(item.currentPrice))}</span>
+          <span>상장 ${escapeHtml(dateText(item.listingDate))}</span>
+          <span class="${annualClass}">연 ${escapeHtml(pct(item.annualizedReturn))}</span>
         </div>
         <div class="badge-row">
           ${(item.badges || []).slice(0, 3).map(label => `<span class="badge ${badgeClass(label)}">${escapeHtml(label)}</span>`).join('')}
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
   }
 
   /* ---------- 선택 종목 상세 ---------- */
@@ -711,14 +712,17 @@
       </div>
     `).join('');
 
+    const liquidationValueText = item.liquidationValuePerShare == null || Number.isNaN(Number(item.liquidationValuePerShare))
+      ? '-'
+      : money(Math.round(item.liquidationValuePerShare));
     document.getElementById('analysisStrip').innerHTML = [
-      ['추정 청산분배금', money(Math.round(item.liquidationValuePerShare || 0)), item.liquidationValueSource || '공모예치금 + 예상 예치이자'],
+      ['추정 청산분배금', liquidationValueText, item.liquidationValueSource || '공시 예치이율 확인 필요'],
       ['단순 기대수익률', pct(item.expectedReturn), '청산분배금 / 현재가 - 1'],
       ['연환산 기대수익률', pct(item.annualizedReturn), '청산 예정일까지 보유 가정']
     ].map(([label, value, note], idx) => `
       <div class="analysis-box">
         <div class="analysis-label">${label}</div>
-        <div class="analysis-value ${idx === 2 ? (Number(item.annualizedReturn) > 0 ? 'good' : 'danger') : ''}">${value}</div>
+        <div class="analysis-value ${idx === 2 && item.annualizedReturn != null ? (Number(item.annualizedReturn) > 0 ? 'good' : 'danger') : ''}">${value}</div>
         <div class="analysis-note">${escapeHtml(note)}</div>
       </div>
     `).join('');
@@ -797,6 +801,53 @@
     return '';
   }
 
+  function fallbackRatePeriods(item, filing) {
+    if (item && Array.isArray(item.escrowRatePeriods) && item.escrowRatePeriods.length) {
+      return item.escrowRatePeriods;
+    }
+    if (!filing || filing.escrowRatePct == null || Number.isNaN(Number(filing.escrowRatePct))) {
+      return [];
+    }
+    return [{
+      startDate: filing.paymentDate || filing.filingDate || item?.listingDate || null,
+      endDate: item?.liquidationDate || null,
+      ratePct: Number(filing.escrowRatePct),
+      source: filing.reportName || '증권신고서',
+      reportName: filing.reportName || '증권신고서',
+      filingDate: filing.filingDate || null,
+      url: filingReportUrl(filing)
+    }];
+  }
+
+  function ratePeriodRangeText(period) {
+    const start = dateText(period.startDate);
+    const end = period.endDate ? dateText(period.endDate) : '이후';
+    return `${start} ~ ${end}`;
+  }
+
+  function ratePeriodListHtml(periods) {
+    if (!periods.length) return '';
+    return `
+      <div class="rate-periods">
+        ${periods.map(period => {
+          const label = period.source || period.reportName || '공시';
+          const sourceText = period.url
+            ? `<a href="${escapeHtml(period.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`
+            : escapeHtml(label);
+          return `
+            <div class="rate-period">
+              <div>
+                <div class="rate-period-range">${escapeHtml(ratePeriodRangeText(period))}</div>
+                <div class="rate-period-source">${sourceText}${period.filingDate ? ` · ${escapeHtml(dateText(period.filingDate))}` : ''}</div>
+              </div>
+              <div class="rate-period-value">연 ${escapeHtml(Number(period.ratePct).toFixed(2))}%</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
   function renderFilingBlock(item) {
     const existing = document.getElementById('filingBlock');
     if (existing) existing.remove();
@@ -805,35 +856,33 @@
     const filing = item && item.filing && typeof item.filing === 'object' && !Array.isArray(item.filing)
       ? item.filing
       : null;
-    if (!filing) return;
+    const ratePeriods = fallbackRatePeriods(item, filing);
+    if (!filing && !ratePeriods.length) return;
 
     /* [라벨, escape를 마친 값 HTML] — 값이 null인 행은 추가하지 않는다. */
     const rows = [];
-    if (filing.ipoPrice != null && !Number.isNaN(Number(filing.ipoPrice))) {
+    if (filing && filing.ipoPrice != null && !Number.isNaN(Number(filing.ipoPrice))) {
       const sourceHtml = item.ipoPriceSource
         ? `<span class="filing-source">${escapeHtml(item.ipoPriceSource)}</span>`
         : '';
       rows.push(['확정공모가', `${escapeHtml(money(filing.ipoPrice))}${sourceHtml}`]);
     }
-    if (filing.offeringShares != null && !Number.isNaN(Number(filing.offeringShares))) {
+    if (filing && filing.offeringShares != null && !Number.isNaN(Number(filing.offeringShares))) {
       rows.push(['공모주식수', escapeHtml(`${number(filing.offeringShares)}주`)]);
     }
-    if (filing.escrowAmount != null && !Number.isNaN(Number(filing.escrowAmount))) {
+    if (filing && filing.escrowAmount != null && !Number.isNaN(Number(filing.escrowAmount))) {
       rows.push(['예치금', escapeHtml(money(filing.escrowAmount))]);
     }
-    if (filing.escrowRatePct != null && !Number.isNaN(Number(filing.escrowRatePct))) {
-      rows.push(['예치이율', escapeHtml(`연 ${Number(filing.escrowRatePct).toFixed(2)}%`)]);
-    }
-    if (filing.escrowAgent) {
+    if (filing && filing.escrowAgent) {
       rows.push(['예치기관', escapeHtml(String(filing.escrowAgent))]);
     }
-    const subscription = filingSubscriptionText(filing);
+    const subscription = filing ? filingSubscriptionText(filing) : '';
     if (subscription) rows.push(['청약기간', escapeHtml(subscription)]);
-    if (filing.paymentDate) rows.push(['납입일', escapeHtml(dateText(filing.paymentDate))]);
+    if (filing && filing.paymentDate) rows.push(['납입일', escapeHtml(dateText(filing.paymentDate))]);
 
-    const reportUrl = filingReportUrl(filing);
+    const reportUrl = filing ? filingReportUrl(filing) : '';
     /* 표시할 행도 원문 링크도 없으면(전 필드 null) 빈 블록을 만들지 않는다. */
-    if (!rows.length && !reportUrl) return;
+    if (!rows.length && !reportUrl && !ratePeriods.length) return;
 
     const block = document.createElement('div');
     block.className = 'record-block filing-block';
@@ -841,13 +890,20 @@
     block.innerHTML = `
       <div class="record-head">
         <h2 class="panel-title">공모 정보</h2>
-        ${filing.filingDate ? `<div class="panel-sub">${escapeHtml(dateText(filing.filingDate))} 제출</div>` : ''}
+        ${filing && filing.filingDate ? `<div class="panel-sub">${escapeHtml(dateText(filing.filingDate))} 제출</div>` : ''}
       </div>
       ${rows.length ? `<dl class="filing-kv">${rows.map(([label, valueHtml]) => `
         <dt>${escapeHtml(label)}</dt>
         <dd>${valueHtml}</dd>
       `).join('')}</dl>` : ''}
-      <div class="filing-caption">증권신고서 자동 추출값${reportUrl
+      ${ratePeriods.length ? `
+        <div class="rate-period-head">
+          <h3>예치이율 기간</h3>
+          <span>${escapeHtml(`${ratePeriods.length}개 구간`)}</span>
+        </div>
+        ${ratePeriodListHtml(ratePeriods)}
+      ` : ''}
+      <div class="filing-caption">증권신고서·신탁계약내용변경 자동 추출값${reportUrl
         ? ` · <a href="${escapeHtml(reportUrl)}" target="_blank" rel="noopener">신고서 원문</a>`
         : ''}</div>
     `;
@@ -1451,7 +1507,7 @@
     });
 
     document.getElementById('sortSelect').addEventListener('change', event => {
-      sortMode = VALID_SORTS.includes(event.target.value) ? event.target.value : 'cheap';
+      sortMode = VALID_SORTS.includes(event.target.value) ? event.target.value : 'price';
       selectSpac(selectedCode, { preferVisible: true });
     });
 

@@ -1,0 +1,22 @@
+{
+  "updatedAt": "2026-06-18T05:47:46.702296+09:00",
+  "count": 1,
+  "spacs": [
+    {
+      "code": "464440",
+      "name": "한국제13호스팩",
+      "sponsor": "한국",
+      "listingDate": "2023-11-13",
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2115,
+      "finalRatio": 1.0575,
+      "badges": [
+        "청산 6개월 이내"
+      ],
+      "lastSeen": "2026-06-17 20:22:13 KST",
+      "archivedAt": "2026-06-18T05:47:46.702296+09:00",
+      "delistReasonGuess": "사유 미확인"
+    }
+  ]
+}

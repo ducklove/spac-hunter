@@ -7,6 +7,7 @@ import pytest
 from spac_hunter.domain.valuation import (
     build_status_badges,
     calculate_annualized_return,
+    estimate_trust_value_from_periods,
     estimate_trust_value_per_share,
     pct_change,
 )
@@ -46,6 +47,34 @@ class TestEstimateTrustValuePerShare:
         assert estimate_trust_value_per_share(2000, listing, liquidation, 0.05, TODAY) == pytest.approx(
             2000.0
         )
+
+
+class TestEstimateTrustValueFromPeriods:
+    def test_no_periods_returns_none(self):
+        assert estimate_trust_value_from_periods(2000, date(2024, 1, 1), date(2027, 1, 1), [], TODAY) is None
+
+    def test_compounds_each_disclosed_period_and_extends_last_rate(self):
+        start = date(2024, 1, 1)
+        liquidation = date(2027, 1, 1)
+        periods = [
+            {"startDate": date(2024, 1, 1), "rate": 0.03},
+            {"startDate": date(2025, 1, 1), "rate": 0.025},
+        ]
+        expected = 2000 * (1.03 ** (366 / 365)) * (1.025 ** (730 / 365))
+
+        assert estimate_trust_value_from_periods(
+            2000, start, liquidation, periods, TODAY
+        ) == pytest.approx(expected)
+
+    def test_missing_initial_period_uses_first_disclosed_rate(self):
+        start = date(2024, 1, 1)
+        liquidation = date(2024, 7, 1)
+        periods = [{"startDate": date(2024, 3, 1), "rate": 0.04}]
+        expected = 2000 * (1.04 ** ((liquidation - start).days / 365))
+
+        assert estimate_trust_value_from_periods(
+            2000, start, liquidation, periods, TODAY
+        ) == pytest.approx(expected)
 
 
 class TestCalculateAnnualizedReturn:

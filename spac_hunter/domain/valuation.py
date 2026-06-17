@@ -1,6 +1,7 @@
 """Valuation helpers: trust value, returns, badges, and sponsor derivation."""
 
 import re
+from datetime import timedelta
 
 
 def derive_sponsor(name):
@@ -61,6 +62,61 @@ def estimate_trust_value_per_share(ipo_price, listing_date, liquidation_date, tr
     else:
         trust_days = 0
     return ipo_price * ((1 + trust_rate) ** (trust_days / 365))
+
+
+def _trust_end_date(start_date, liquidation_date, today):
+    if liquidation_date:
+        return liquidation_date
+    if start_date:
+        elapsed = max(0, min((today - start_date).days, 365 * 3))
+        return start_date + timedelta(days=elapsed)
+    return today
+
+
+def estimate_trust_value_from_periods(ipo_price, start_date, liquidation_date, rate_periods, today):
+    """Compound the public escrow value through dated annual-rate periods.
+
+    ``rate_periods`` are start-date inclusive. The last known rate continues
+    through the liquidation date, matching the disclosure-based estimate shown
+    in the UI.
+    """
+    if not ipo_price:
+        return None
+    periods = [
+        {"startDate": period.get("startDate"), "rate": period.get("rate")}
+        for period in rate_periods or []
+        if period.get("startDate") and period.get("rate") is not None
+    ]
+    periods.sort(key=lambda period: period["startDate"])
+    if not periods:
+        return None
+
+    start = start_date or periods[0]["startDate"]
+    end = _trust_end_date(start, liquidation_date, today)
+    if not start or not end:
+        return None
+    if end <= start:
+        return float(ipo_price)
+
+    boundaries = [start]
+    for period in periods:
+        period_start = period["startDate"]
+        if start < period_start < end:
+            boundaries.append(period_start)
+    boundaries.append(end)
+
+    value = float(ipo_price)
+    active_rate = None
+    idx = 0
+    for segment_start, segment_end in zip(boundaries, boundaries[1:]):
+        while idx < len(periods) and periods[idx]["startDate"] <= segment_start:
+            active_rate = periods[idx]["rate"]
+            idx += 1
+        if active_rate is None:
+            active_rate = periods[0]["rate"]
+        days = max(0, (segment_end - segment_start).days)
+        value *= (1 + active_rate) ** (days / 365)
+    return value
 
 
 def pct_change(base, value):

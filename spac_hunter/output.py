@@ -177,10 +177,13 @@ def write_outputs(
             "ipoPrice": "기본 2,000원, overrides.json으로 보정",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
             "liquidationValue": (
-                "공모예치금 + 청산기한까지의 예상 예치이자. "
+                "공모예치금 + 청산기한까지의 예상 예치이자(공시 예치이율 기간별 적용). "
                 "일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정"
             ),
-            "trustRate": trust_rate_source or "공시/수동 보정값이 없으면 KOFR 최신 공시금리 사용",
+            "trustRate": (
+                "개별 기대수익률은 증권신고서·신탁계약내용변경 공시의 예치이율 기간으로 계산하며, "
+                "공시 금리가 없으면 표시하지 않습니다. KOFR/수동 금리는 시뮬레이션 기본값에만 사용합니다."
+            ),
             "expectedReturn": "추정 청산분배금/현재가 - 1",
         },
         "rateAssumption": {
