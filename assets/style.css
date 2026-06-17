@@ -1175,7 +1175,7 @@ td.spark-cell {
 }
 
 .stats-panels.has-sponsor {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 }
 
 .sponsor-table {
@@ -1444,6 +1444,13 @@ td.spark-cell {
   white-space: nowrap;
 }
 
+.schedule-row-price {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .watch-mark {
   display: inline-block;
   margin-right: 4px;
@@ -1453,7 +1460,7 @@ td.spark-cell {
 }
 
 .stats-panels.has-archive {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 }
 
 .archive-list {
@@ -1531,10 +1538,10 @@ td.spark-cell {
 
 /* ===== 추가 스타일: 공모 청약(예정) 컬럼 / 공모 정보 블록 ===== */
 
-/* ipoCalendar 엔트리가 있을 때만 JS가 has-ipo를 붙인다(4컬럼 자동 배치).
+/* ipoCalendar 엔트리가 있을 때만 JS가 has-ipo를 붙인다(넓은 화면은 3컬럼 자동 배치).
    엔트리가 없으면 클래스/컬럼이 없으므로 기존 3컬럼 규칙이 그대로 적용된다. */
 .schedule-grid.has-ipo {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 }
 
 /* 청약 행은 유니버스 밖(종목 선택 불가) — 신고서 링크 외에는 클릭 대상이 아니다. */

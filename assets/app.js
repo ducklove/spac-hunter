@@ -1215,15 +1215,23 @@
       : '';
   }
 
+  function scheduleCurrentPriceHtml(item) {
+    if (!item || item.currentPrice == null || Number.isNaN(Number(item.currentPrice))) return '';
+    return `현재가 ${escapeHtml(money(item.currentPrice))}`;
+  }
+
   /* 공통 행 마크업. subHtml/valueHtml은 호출부에서 escape를 마친 HTML 조각을 받는다. */
-  function scheduleRowHtml(code, name, subHtml, valueHtml) {
+  function scheduleRowHtml(code, name, subHtml, valueHtml, secondaryValueHtml = '') {
     return `
       <div class="schedule-row" data-code="${escapeHtml(code)}" role="button" tabindex="0">
         <div class="schedule-row-main">
           <div class="schedule-row-name">${watchMarkHtml(code)}${escapeHtml(name || '-')} <span class="code">${escapeHtml(code)}</span></div>
           <div class="schedule-row-sub">${subHtml}</div>
         </div>
-        <div class="schedule-row-value">${valueHtml}</div>
+        <div class="schedule-row-value">
+          <div class="schedule-row-value-main">${valueHtml}</div>
+          ${secondaryValueHtml ? `<div class="schedule-row-price">${secondaryValueHtml}</div>` : ''}
+        </div>
       </div>
     `;
   }
@@ -1276,7 +1284,8 @@
         row.item.code,
         row.item.name,
         `${escapeHtml(ratio(row.item.ratio))}${badge}`,
-        `D-${escapeHtml(String(row.days))}`
+        `D-${escapeHtml(String(row.days))}`,
+        scheduleCurrentPriceHtml(row.item)
       );
     });
     setScheduleColumn('scheduleDueList', 'scheduleDueCount', dueHtml, dueRows.length, dueRows.length, '개');
@@ -1301,7 +1310,8 @@
         entry.item.code,
         entry.item.name,
         `<span class="badge ${badgeClass(String(label))}">${escapeHtml(label)}</span>`,
-        escapeHtml(dateText(entry.record.date))
+        escapeHtml(dateText(entry.record.date)),
+        scheduleCurrentPriceHtml(entry.item)
       );
     }).join('');
     setScheduleColumn('scheduleMergerList', 'scheduleMergerCount', mergerHtml, mergerTop.length, mergerRows.length, '건');
@@ -1318,7 +1328,8 @@
       entry.item.code,
       entry.item.name,
       escapeHtml(ratio(entry.item.ratio)),
-      escapeHtml(dateText(entry.item.listingDate))
+      escapeHtml(dateText(entry.item.listingDate)),
+      scheduleCurrentPriceHtml(entry.item)
     )).join('');
     setScheduleColumn('scheduleListingList', 'scheduleListingCount', listingHtml, listingTop.length, listingRows.length, '개');
 
