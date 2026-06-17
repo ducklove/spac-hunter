@@ -4,7 +4,7 @@
 
   function money(value) {
     if (value == null || Number.isNaN(Number(value))) return '-';
-    return `${Number(value).toLocaleString('ko-KR')}원`;
+    return Number(value).toLocaleString('ko-KR');
   }
 
   function number(value) {

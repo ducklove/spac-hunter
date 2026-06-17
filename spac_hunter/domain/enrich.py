@@ -177,7 +177,7 @@ def _build_liquidation_metrics(
         if args.liquidation_haircut:
             liquidation_value = liquidation_value - args.liquidation_haircut if liquidation_value else None
             if liquidation_value_source:
-                liquidation_value_source += f" - 수동 조정 {args.liquidation_haircut:g}원"
+                liquidation_value_source += f" - 수동 조정 {args.liquidation_haircut:g}"
     expected_return = (
         liquidation_value / current_price - 1
         if current_price and current_price > 0 and liquidation_value

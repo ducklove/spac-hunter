@@ -174,7 +174,7 @@ def write_outputs(
             "mergerPriceRecords": (
                 "합병 공시일 직전/이후 네이버 일별 종가로 이벤트별 가격 반응과 이후 고저점을 계산"
             ),
-            "ipoPrice": "기본 2,000원, overrides.json으로 보정",
+            "ipoPrice": "기본 2,000, overrides.json으로 보정",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
             "liquidationValue": (
                 "공모예치금 + 청산기한까지의 예상 예치이자(공시 예치이율 기간별 적용). "

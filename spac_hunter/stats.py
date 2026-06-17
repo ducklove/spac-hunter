@@ -16,6 +16,11 @@ def build_summary(spacs, generated_at):
         for spac in active
         if spac.get("daysToLiquidation") is not None and spac["daysToLiquidation"] <= 180
     ]
+    due_within_one_year = [
+        spac
+        for spac in active
+        if spac.get("daysToLiquidation") is not None and spac["daysToLiquidation"] <= 365
+    ]
     merger = [spac for spac in active if spac.get("mergerStatus")]
     merger_applied = [spac for spac in merger if spac.get("mergerStatus") == "합병 신청"]
     merger_confirmed = [spac for spac in merger if spac.get("mergerStatus") == "합병 확정"]
@@ -40,6 +45,7 @@ def build_summary(spacs, generated_at):
         "belowIpoCount": len(below_ipo),
         "nearIpoCount": len(near_ipo),
         "dueSoonCount": len(due_soon),
+        "dueWithinOneYearCount": len(due_within_one_year),
         "mergerCount": len(merger),
         "mergerAppliedCount": len(merger_applied),
         "mergerConfirmedCount": len(merger_confirmed),

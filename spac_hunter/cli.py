@@ -102,23 +102,26 @@ def fetch_kind_merger_disclosures(items, kind_companies, max_workers=6, today=No
 
 
 def collect_filings(args, krx_spacs, kind_companies, generated_at, errors):
-    """Load filings.json and, when OpenDART is enabled, backfill + build the calendar.
+    """Load filings.json, backfill available filing metadata, and build the calendar.
 
     Returns ``(filing_entries, ipo_calendar)``; the calendar stays ``None``
-    without an API key. Failures never abort the run — they land in
+    without an API key. Trust-contract change disclosures can be backfilled via
+    DART public search even without an API key. Failures never abort the run — they land in
     ``errors["filings"]`` and the store is saved with whatever progress exists.
     """
     store = filings.load_filings()
     ipo_calendar = None
+    filing_errors = {}
+    listing_dates = {
+        item["code"]: parse_date(
+            kind_companies.get(normalize_name(item["name"]), {}).get("listingDate")
+        )
+        for item in krx_spacs
+    }
+    docs_used = 0
+    trust_change_docs_used = 0
     if opendart.is_enabled():
-        filing_errors = {}
         try:
-            listing_dates = {
-                item["code"]: parse_date(
-                    kind_companies.get(normalize_name(item["name"]), {}).get("listingDate")
-                )
-                for item in krx_spacs
-            }
             docs_used, filing_errors = filings.backfill_filings(
                 store,
                 krx_spacs,
@@ -127,17 +130,28 @@ def collect_filings(args, krx_spacs, kind_companies, generated_at, errors):
                 today=generated_at.date(),
                 now=generated_at,
             )
-            trust_change_budget = max(0, args.filing_doc_limit - docs_used)
-            trust_change_docs_used, trust_change_errors = filings.backfill_trust_rate_changes(
-                store,
-                krx_spacs,
-                listing_dates,
-                trust_change_budget,
-                today=generated_at.date(),
-                now=generated_at,
-            )
-            if trust_change_errors:
-                filing_errors = {**filing_errors, "trustRateChanges": trust_change_errors}
+        except Exception as exc:  # noqa: BLE001
+            filing_errors = {**filing_errors, "backfill": str(exc)}
+            logger.warning("OpenDART 신고서 수집 실패: %s", exc)
+
+    trust_change_budget = max(0, args.filing_doc_limit - docs_used)
+    try:
+        trust_change_docs_used, trust_change_errors = filings.backfill_trust_rate_changes(
+            store,
+            krx_spacs,
+            listing_dates,
+            trust_change_budget,
+            today=generated_at.date(),
+            now=generated_at,
+        )
+        if trust_change_errors:
+            filing_errors = {**filing_errors, "trustRateChanges": trust_change_errors}
+    except Exception as exc:  # noqa: BLE001
+        filing_errors = {**filing_errors, "trustRateChanges": str(exc)}
+        logger.warning("신탁계약 변경 공시 수집 실패: %s", exc)
+
+    if opendart.is_enabled():
+        try:
             calendar_budget = min(
                 filings.CALENDAR_DOC_BUDGET_MAX,
                 max(0, args.filing_doc_limit - docs_used - trust_change_docs_used),
@@ -162,14 +176,15 @@ def collect_filings(args, krx_spacs, kind_companies, generated_at, errors):
             )
         except Exception as exc:  # noqa: BLE001
             filing_errors = {**filing_errors, "calendar": str(exc)}
-            logger.warning("OpenDART 신고서/청약캘린더 수집 실패: %s", exc)
-        try:
-            filings.save_filings(store, generated_at)
-        except OSError as exc:
-            filing_errors = {**filing_errors, "save": str(exc)}
-            logger.warning("filings.json 저장 실패: %s", exc)
-        if filing_errors:
-            errors["filings"] = filing_errors
+            logger.warning("OpenDART 청약캘린더 수집 실패: %s", exc)
+
+    try:
+        filings.save_filings(store, generated_at)
+    except OSError as exc:
+        filing_errors = {**filing_errors, "save": str(exc)}
+        logger.warning("filings.json 저장 실패: %s", exc)
+    if filing_errors:
+        errors["filings"] = filing_errors
     return store.get("filings") or {}, ipo_calendar
 
 
@@ -215,10 +230,10 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--filing-doc-limit",
         type=int,
-        default=10,
+        default=40,
         help=(
-            "OpenDART document.xml requests per run (증권신고서 backfill first, then "
-            "신탁계약 변경 공시, IPO calendar gets the remainder capped at 5). "
+            "Filing document text requests per run (OpenDART 증권신고서 backfill first, then "
+            "DART/OpenDART 신탁계약 변경 공시, IPO calendar gets the remainder capped at 5). "
             "0 disables document downloads; the existing filings.json is still read and applied."
         ),
     )

@@ -275,6 +275,15 @@ class TestExtractFilingFields:
         text = "예치기관 : 한국증권금융 예치(신탁)금액 : 12,000,000,000원"
         assert extract_filing_fields(text)["escrowAgent"] == "한국증권금융"
 
+    def test_escrow_agent_recovers_bank_from_sentence(self):
+        text = "공모자금은 (주)국민은행에 예치하고, 해당 예치금은 합병 완료 전 인출하지 않습니다."
+        assert extract_filing_fields(text)["escrowAgent"] == "국민은행"
+
+    def test_escrow_agent_rejects_generic_fragment(self):
+        fields = extract_filing_fields("예치기관 등에 관한 사항은 본 신고서를 참고하시기 바랍니다.")
+        assert fields["escrowAgent"] is None
+        assert "escrowAgent: 기관명 미확인" in fields["parseWarnings"]
+
     def test_escrow_agent_missing_warns(self):
         fields = extract_filing_fields("기관 정보 없음")
         assert fields["escrowAgent"] is None
@@ -339,6 +348,13 @@ class TestExtractTrustRateChangeFields:
         assert fields["ratePct"] == 2.65
         assert fields["startDate"] == "2025-06-10"
 
+    def test_body_date_beats_filing_date_when_label_is_missing(self):
+        text = "기업인수목적회사의예치ㆍ신탁계약내용변경 (2025.12.18) 변경 후 2.92% 3. 2025-12-17"
+        fields = extract_trust_rate_change_fields(text, filing_date="2025-12-18")
+
+        assert fields["ratePct"] == 2.92
+        assert fields["startDate"] == "2025-12-17"
+
 
 class TestFilingsStore:
     def test_save_load_round_trip(self, tmp_path):
@@ -372,6 +388,27 @@ class TestFilingsStore:
         partial.write_text('{"filings": "oops", "calendarDocs": null}', encoding="utf-8")
         assert load_filings(path=partial) == {"filings": {}, "calendarDocs": {}}
 
+    def test_load_sanitizes_cached_escrow_agent_fragments(self, tmp_path):
+        path = tmp_path / "filings.json"
+        path.write_text(
+            json.dumps(
+                {
+                    "filings": {
+                        "000001": {"escrowAgent": "금 액 보통예금 국민은행 1"},
+                        "000002": {"escrowAgent": "등에"},
+                    },
+                    "calendarDocs": {},
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        loaded = load_filings(path=path)
+
+        assert loaded["filings"]["000001"]["escrowAgent"] == "국민은행"
+        assert loaded["filings"]["000002"]["escrowAgent"] is None
+
 
 def filing_row(rcept_no="20240105000123", report_nm="투자설명서", rcept_dt="20240105"):
     return {"rcept_no": rcept_no, "report_nm": report_nm, "rcept_dt": rcept_dt}
@@ -404,6 +441,12 @@ def backfill_env(monkeypatch):
 
         monkeypatch.setattr(opendart, "fetch_filing_list", fake_list)
         monkeypatch.setattr(opendart, "fetch_document_text", fake_doc)
+        monkeypatch.setattr(filings.dart, "fetch_dart_trust_rate_change_disclosures", lambda *a, **k: [])
+        monkeypatch.setattr(
+            filings.dart,
+            "fetch_dart_document_text",
+            lambda receipt_no: pytest.fail(f"DART document fetch was not expected: {receipt_no}"),
+        )
         return calls
 
     return install
@@ -598,6 +641,7 @@ class TestBackfillTrustRateChanges:
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611000002",
                 "startDate": "2025-06-11",
                 "ratePct": 2.75,
+                "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
                 "parseWarnings": [],
             }
         ]
@@ -608,6 +652,42 @@ class TestBackfillTrustRateChanges:
             corp_map={"000001": "00999991"},
             list_rows=[filing_row("20250611000002", "주요사항보고서(신탁계약내용변경)", "20250611")],
             doc_text="변경 후 이자율 연 2.75%",
+        )
+        store = {
+            "filings": {
+                "000001": {
+                    "receiptNo": "20240105000123",
+                    "escrowRateChanges": [
+                        {
+                            "receiptNo": "20250611000002",
+                            "startDate": "2025-06-11",
+                            "ratePct": 2.75,
+                            "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
+                        }
+                    ],
+                }
+            },
+            "calendarDocs": {},
+        }
+
+        used, errors = backfill_trust_rate_changes(
+            store,
+            [{"code": "000001", "name": "테스트1호스팩"}],
+            {"000001": date(2024, 1, 2)},
+            5,
+            today=TODAY,
+            now=NOW,
+        )
+
+        assert used == 0
+        assert errors == {}
+        assert calls["doc"] == []
+
+    def test_stale_parser_version_receipt_is_redownloaded(self, backfill_env):
+        calls = backfill_env(
+            corp_map={"000001": "00999991"},
+            list_rows=[filing_row("20250611000002", "주요사항보고서(신탁계약내용변경)", "20250611")],
+            doc_text="변경 후 이자율 연 2.75% 변경일 2025년 6월 10일",
         )
         store = {
             "filings": {
@@ -630,9 +710,67 @@ class TestBackfillTrustRateChanges:
             now=NOW,
         )
 
-        assert used == 0
+        assert used == 1
+        assert errors == {}
+        assert calls["doc"] == ["20250611000002"]
+        assert store["filings"]["000001"]["escrowRateChanges"][0]["startDate"] == "2025-06-10"
+        assert (
+            store["filings"]["000001"]["escrowRateChanges"][0]["parserVersion"]
+            == filings.TRUST_RATE_CHANGE_PARSER_VERSION
+        )
+
+    def test_public_dart_contract_change_is_backfilled(self, backfill_env, monkeypatch):
+        calls = backfill_env(corp_map={})
+        dart_docs = []
+
+        monkeypatch.setattr(
+            filings.dart,
+            "fetch_dart_trust_rate_change_disclosures",
+            lambda code, name, listing_date, today: [
+                {
+                    "date": "2025-12-18",
+                    "title": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+                    "receiptNo": "20251218900249",
+                    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249",
+                }
+            ],
+        )
+
+        def fake_dart_doc(receipt_no):
+            dart_docs.append(receipt_no)
+            return (
+                "기업인수목적회사의 예치ㆍ신탁계약 내용 변경 "
+                "변경 전 : 3.20% 변경 후 : 2.92% 3. 변경 일자 2025-12-17"
+            )
+
+        monkeypatch.setattr(filings.dart, "fetch_dart_document_text", fake_dart_doc)
+        store = {"filings": {"487360": {"receiptNo": "20241210000275"}}, "calendarDocs": {}}
+
+        used, errors = backfill_trust_rate_changes(
+            store,
+            [{"code": "487360", "name": "신한제14호스팩"}],
+            {"487360": date(2024, 12, 23)},
+            5,
+            today=TODAY,
+            now=NOW,
+        )
+
+        assert used == 1
         assert errors == {}
         assert calls["doc"] == []
+        assert dart_docs == ["20251218900249"]
+        assert store["filings"]["487360"]["escrowRateChanges"] == [
+            {
+                "receiptNo": "20251218900249",
+                "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+                "filingDate": "2025-12-18",
+                "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249",
+                "startDate": "2025-12-17",
+                "ratePct": 2.92,
+                "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
+                "parseWarnings": [],
+            }
+        ]
 
 
 def calendar_row(
@@ -991,12 +1129,21 @@ class TestCollectFilings:
         monkeypatch.setattr(filings, "backfill_trust_rate_changes", lambda *a, **k: (0, {}))
         return cli, store, saved
 
-    def test_without_key_reads_store_and_skips_collection(self, monkeypatch):
+    def test_without_key_reads_store_and_scans_public_trust_changes(self, monkeypatch):
         monkeypatch.delenv("OPENDART_API_KEY", raising=False)
         store = {"filings": {"000001": {"receiptNo": "1"}}, "calendarDocs": {}}
         cli, _, saved = self._patch_store(monkeypatch, store)
+        captured = {}
         monkeypatch.setattr(
             filings, "backfill_filings", lambda *a, **k: pytest.fail("키 없이 백필 금지")
+        )
+        monkeypatch.setattr(
+            filings,
+            "backfill_trust_rate_changes",
+            lambda st, items, listing_dates, budget, **k: captured.update(
+                {"budget": budget, "listing_dates": listing_dates}
+            )
+            or (0, {}),
         )
         errors = {}
 
@@ -1006,7 +1153,8 @@ class TestCollectFilings:
 
         assert entries == {"000001": {"receiptNo": "1"}}
         assert calendar is None
-        assert saved == []
+        assert captured == {"budget": 10, "listing_dates": {"000001": date(2024, 1, 2)}}
+        assert saved == [(store, GENERATED_AT)]
         assert errors == {}
 
     def test_budget_split_backfill_first_calendar_capped_at_five(self, api_key, monkeypatch):

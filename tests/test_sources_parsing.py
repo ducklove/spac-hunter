@@ -177,3 +177,50 @@ class TestDartDisclosures:
     def test_unknown_corp_returns_empty(self, dart_session):
         dart_session(lambda url, data: FakeResponse("<html><body>no inputs</body></html>"))
         assert dart.fetch_dart_disclosures("999999", "없는스팩", None, TODAY) == []
+
+    def test_trust_rate_change_search_filters_contract_change(self, dart_session):
+        session = self.install(dart_session)
+        rows = dart.fetch_dart_trust_rate_change_disclosures(
+            "000001", "테스트제1호스팩", date(2024, 1, 1), TODAY
+        )
+
+        assert len(rows) == 1
+        assert rows[0]["title"] == "기업인수목적회사의예치ㆍ신탁계약내용변경"
+        assert rows[0]["date"] == "2025-12-18"
+        assert rows[0]["receiptNo"] == "20251218900249"
+        assert rows[0]["url"] == "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249"
+        assert session.post_calls[1]["data"]["textCrpCik"] == "00999999"
+
+    def test_fetch_dart_document_text_reads_viewer_body(self, monkeypatch):
+        class ViewerSession:
+            def __init__(self):
+                self.get_calls = []
+
+            def get(self, url, params=None, **kwargs):
+                self.get_calls.append({"url": url, "params": dict(params or {})})
+                if url == dart.DART_REPORT_URL:
+                    return FakeResponse(
+                        '<script>viewDoc("20251218900249", "10931270", "0", "0", "0", "HTML", "")</script>'
+                    )
+                if url == dart.DART_VIEWER_URL:
+                    return FakeResponse(
+                        "<html><body>기업인수목적회사의 예치ㆍ신탁계약 내용 변경 "
+                        "변경 전 : 3.20% 변경 후 : 2.92% 변경 일자 2025-12-17</body></html>"
+                    )
+                raise AssertionError(f"unexpected GET to {url}")
+
+            def post(self, url, data=None, **kwargs):
+                raise AssertionError("POST must not be called")
+
+        session = ViewerSession()
+        monkeypatch.setattr(dart, "make_session", lambda referer=None: session)
+
+        text = dart.fetch_dart_document_text("20251218900249")
+
+        assert "변경 후 : 2.92%" in text
+        assert session.get_calls[0] == {
+            "url": dart.DART_REPORT_URL,
+            "params": {"rcpNo": "20251218900249"},
+        }
+        assert session.get_calls[1]["url"] == dart.DART_VIEWER_URL
+        assert session.get_calls[1]["params"]["dcmNo"] == "10931270"

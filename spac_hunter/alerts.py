@@ -10,6 +10,7 @@ only — sample mode never calls into this module.
 import json
 import logging
 import os
+import re
 from email.utils import format_datetime
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -29,6 +30,21 @@ _MERGER_ALERT_TYPES = {
     "confirmed": ("merger_confirmed", "합병 확정 공시"),
     "canceled": ("merger_canceled", "합병 철회 공시"),
 }
+_PRICE_WON_RE = re.compile(r"(?<=\d)원")
+
+
+def _strip_price_unit(value):
+    if value is None:
+        return value
+    return _PRICE_WON_RE.sub("", str(value))
+
+
+def _sanitize_alert(alert):
+    cleaned = dict(alert)
+    for key in ("title", "detail"):
+        if key in cleaned:
+            cleaned[key] = _strip_price_unit(cleaned[key])
+    return cleaned
 
 
 def _generated_date_text(generated_at):
@@ -46,8 +62,8 @@ def _make_alert(date_text, alert_type, code, name, title, detail=None, url=None)
         "type": alert_type,
         "code": code,
         "name": name,
-        "title": title,
-        "detail": detail,
+        "title": _strip_price_unit(title),
+        "detail": _strip_price_unit(detail),
     }
     if url:
         alert["url"] = url
@@ -78,7 +94,7 @@ def _merger_record_alerts(prev, spac, name):
         if record.get("title"):
             details.append(str(record["title"]))
         if record.get("basePrice"):
-            details.append(f"공시일 기준가 {record['basePrice']:,}원")
+            details.append(f"공시일 기준가 {record['basePrice']:,}")
         if record.get("baseRatio") is not None:
             details.append(f"공모가 대비 {record['baseRatio']:.4f}배")
         alerts.append(
@@ -126,7 +142,7 @@ def _below_ipo_alerts(prev, spac, name, generated_date):
         return []
     detail = f"공모가 대비 {prev_ratio:.4f} → {ratio:.4f}"
     if spac.get("currentPrice"):
-        detail += f" (현재가 {spac['currentPrice']:,}원)"
+        detail += f" (현재가 {spac['currentPrice']:,})"
     return [
         _make_alert(
             generated_date,
@@ -168,7 +184,7 @@ def _new_listing_alert(spac, name, generated_date):
     if spac.get("listingDate"):
         details.append(f"상장일 {spac['listingDate']}")
     if spac.get("currentPrice"):
-        details.append(f"현재가 {spac['currentPrice']:,}원")
+        details.append(f"현재가 {spac['currentPrice']:,}")
     return _make_alert(
         date_text,
         "new_listing",
@@ -247,7 +263,7 @@ def load_existing_alerts(path=None):
     except (json.JSONDecodeError, OSError):
         return []
     alerts = payload.get("alerts") if isinstance(payload, dict) else None
-    return [alert for alert in alerts or [] if isinstance(alert, dict) and alert.get("id")]
+    return [_sanitize_alert(alert) for alert in alerts or [] if isinstance(alert, dict) and alert.get("id")]
 
 
 def _render_rss(alerts, generated_at, link=ALERTS_FEED_LINK):

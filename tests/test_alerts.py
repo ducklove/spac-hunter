@@ -48,7 +48,7 @@ class TestBuildAlerts:
         assert alert["date"] == "2026-06-10"
         assert alert["title"] == "교보14호스팩 합병 확정 공시"
         assert "상장예비심사결과통지(승인)" in alert["detail"]
-        assert "공시일 기준가 2,050원" in alert["detail"]
+        assert "공시일 기준가 2,050" in alert["detail"]
         assert alert["url"] == "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=1"
 
     def test_unchanged_merger_records_produce_no_alert(self, spac_factory):
@@ -108,7 +108,7 @@ class TestBuildAlerts:
         assert all(alert["date"] == "2026-06-10" for alert in result)
         enter = next(alert for alert in result if alert["type"] == "below_ipo_enter")
         assert "1.0000 → 0.9900" in enter["detail"]
-        assert "현재가 1,980원" in enter["detail"]
+        assert "현재가 1,980" in enter["detail"]
 
     def test_below_ipo_requires_both_ratios(self, spac_factory):
         prev = {"000001": spac_factory(code="000001", price=None)}
@@ -299,6 +299,36 @@ class TestWriteAlertOutputs:
         # detail is None -> description falls back to the title.
         assert item.findtext("description") == "스팩 신규 상장"
 
+    def test_existing_alert_price_units_are_migrated(self, tmp_path):
+        json_path = tmp_path / "alerts.json"
+        xml_path = tmp_path / "alerts.xml"
+        json_path.write_text(
+            json.dumps(
+                {
+                    "alerts": [
+                        {
+                            "id": "2026-06-09|below_ipo_enter|000001",
+                            "date": "2026-06-09",
+                            "type": "below_ipo_enter",
+                            "code": "000001",
+                            "name": "스팩",
+                            "title": "스팩 공모가 이하 진입",
+                            "detail": "공모가 대비 1.0000 → 0.9990 (현재가 1,998원)",
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        alerts.write_alert_outputs([], GENERATED_AT, json_path=json_path, xml_path=xml_path)
+
+        payload = json.loads(json_path.read_text(encoding="utf-8"))
+        assert payload["alerts"][0]["detail"] == "공모가 대비 1.0000 → 0.9990 (현재가 1,998)"
+        root = ET.fromstring(xml_path.read_text(encoding="utf-8"))
+        assert root.find("channel").find("item").findtext("description").endswith("(현재가 1,998)")
+
     def test_merges_dedupes_caps_500_and_rss_caps_50(self, tmp_path):
         json_path = tmp_path / "alerts.json"
         xml_path = tmp_path / "alerts.xml"
@@ -391,7 +421,7 @@ def sample_alerts(count):
             f"{idx:06d}",
             f"스팩{idx}",
             f"스팩{idx} 신규 상장",
-            detail=f"현재가 2,00{idx}원",
+            detail=f"현재가 2,00{idx}",
         )
         for idx in range(count)
     ]

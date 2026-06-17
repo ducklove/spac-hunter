@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-17T20:22:13.035973+09:00",
+  "updatedAt": "2026-06-18T06:26:51.401792+09:00",
   "filings": {
     "477760": {
       "receiptNo": "20240530001411",
@@ -10,12 +10,65 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.6,
-      "escrowAgent": "금 액 보통예금 국민은행 1",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-06-05",
       "subscriptionEnd": "2024-06-07",
       "paymentDate": "2024-06-05",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250613900290",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250613900290",
+          "startDate": "2025-06-12",
+          "ratePct": 2.49,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20250915900125",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-09-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250915900125",
+          "startDate": "2025-09-12",
+          "ratePct": 2.47,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20251215901226",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251215901226",
+          "startDate": "2025-12-12",
+          "ratePct": 2.82,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260313901011",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-03-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313901011",
+          "startDate": "2026-03-12",
+          "ratePct": 2.85,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260615900762",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-15",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260615900762",
+          "startDate": "2026-06-12",
+          "ratePct": 2.83,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "467930": {
       "receiptNo": "20231211000138",
@@ -26,12 +79,35 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 2.5,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2023-12-12",
       "subscriptionEnd": "2023-12-13",
       "paymentDate": "2023-12-12",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20241219900196",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2024-12-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241219900196",
+          "startDate": "2024-12-18",
+          "ratePct": 3.2,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20251219900189",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251219900189",
+          "startDate": "2025-12-18",
+          "ratePct": 2.92,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "469480": {
       "receiptNo": "20240119000323",
@@ -42,12 +118,35 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 2.5,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-01-23",
       "subscriptionEnd": "2024-01-24",
       "paymentDate": "2024-01-23",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250304900884",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-03-04",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250304900884",
+          "startDate": "2025-01-24",
+          "ratePct": 3.0,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260127900232",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-01-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127900232",
+          "startDate": "2026-01-26",
+          "ratePct": 2.85,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0099X0": {
       "receiptNo": "20251208000119",
@@ -58,12 +157,13 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 2.05,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-12-09",
       "subscriptionEnd": "2025-12-10",
       "paymentDate": "2025-12-09",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "478390": {
       "receiptNo": "20240610000163",
@@ -81,7 +181,30 @@
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
-      ]
+      ],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250707900458",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-07-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250707900458",
+          "startDate": "2025-06-17",
+          "ratePct": 2.4,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260617900410",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-17",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260617900410",
+          "startDate": "2026-06-17",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "486630": {
       "receiptNo": "20240909000034",
@@ -99,7 +222,20 @@
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
-      ]
+      ],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250919900627",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-09-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250919900627",
+          "startDate": "2025-09-19",
+          "ratePct": 2.25,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "492220": {
       "receiptNo": "20241129000608",
@@ -117,7 +253,20 @@
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
-      ]
+      ],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251208900186",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186",
+          "startDate": "2025-12-08",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0037T0": {
       "receiptNo": "20250623000080",
@@ -128,12 +277,13 @@
       "offeringShares": 6000000,
       "escrowAmount": 12000000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "당분기말 기업자유예금 국민은행 2",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2025-06-24",
       "subscriptionEnd": "2025-06-25",
       "paymentDate": "2025-06-24",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0072Z0": {
       "receiptNo": "20250918000310",
@@ -151,7 +301,8 @@
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "465320": {
       "receiptNo": "20231122000325",
@@ -162,12 +313,35 @@
       "offeringShares": 3500000,
       "escrowAmount": 7000000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2023-11-23",
       "subscriptionEnd": "2023-11-24",
       "paymentDate": "2023-11-23",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20241202900191",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2024-12-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241202900191",
+          "startDate": "2024-11-29",
+          "ratePct": 3.3,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20251202900057",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251202900057",
+          "startDate": "2025-12-01",
+          "ratePct": 2.88,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "482520": {
       "receiptNo": "20240731000498",
@@ -178,12 +352,25 @@
       "offeringShares": 5800000,
       "escrowAmount": 11600000000,
       "escrowRatePct": 3.55,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-08-01",
       "subscriptionEnd": "2024-08-02",
       "paymentDate": "2024-08-01",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250808900104",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-08-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250808900104",
+          "startDate": "2025-08-07",
+          "ratePct": 2.43,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "489210": {
       "receiptNo": "20241106000142",
@@ -194,12 +381,25 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.3,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-11-11",
       "subscriptionEnd": "2024-11-12",
       "paymentDate": "2024-11-11",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251118900155",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900155",
+          "startDate": "2025-11-17",
+          "ratePct": 2.82,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0041B0": {
       "receiptNo": "20250731000309",
@@ -210,12 +410,13 @@
       "offeringShares": 4500000,
       "escrowAmount": 9000000000,
       "escrowRatePct": 2.48,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-08-05",
       "subscriptionEnd": "2025-08-06",
       "paymentDate": "2025-08-05",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0098T0": {
       "receiptNo": "20251201000394",
@@ -226,12 +427,13 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 2.66,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-12-02",
       "subscriptionEnd": "2025-12-03",
       "paymentDate": "2025-12-02",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0132G0": {
       "receiptNo": "20260319000821",
@@ -242,12 +444,13 @@
       "offeringShares": 5400000,
       "escrowAmount": 10800000000,
       "escrowRatePct": 2.91,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2026-03-23",
       "subscriptionEnd": "2026-03-24",
       "paymentDate": "2026-03-23",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "471050": {
       "receiptNo": "20240112000195",
@@ -258,14 +461,37 @@
       "offeringShares": 5500000,
       "escrowAmount": null,
       "escrowRatePct": 3.0,
-      "escrowAgent": "또는",
+      "escrowAgent": null,
       "subscriptionStart": "2024-01-15",
       "subscriptionEnd": "2024-01-16",
       "paymentDate": "2024-01-15",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250203901257",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-03",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250203901257",
+          "startDate": "2025-01-17",
+          "ratePct": 3.0,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260119900387",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-01-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119900387",
+          "startDate": "2026-01-16",
+          "ratePct": 2.8,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "482690": {
       "receiptNo": "20241107000228",
@@ -276,14 +502,27 @@
       "offeringShares": 5500000,
       "escrowAmount": null,
       "escrowRatePct": 3.0,
-      "escrowAgent": "또는",
+      "escrowAgent": null,
       "subscriptionStart": "2024-11-11",
       "subscriptionEnd": "2024-11-12",
       "paymentDate": "2024-11-11",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251118900050",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050",
+          "startDate": "2025-11-17",
+          "ratePct": 2.82,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0134X0": {
       "receiptNo": "20260521000518",
@@ -294,14 +533,15 @@
       "offeringShares": 6500000,
       "escrowAmount": null,
       "escrowRatePct": 2.05,
-      "escrowAgent": "(이하",
+      "escrowAgent": null,
       "subscriptionStart": "2026-05-22",
       "subscriptionEnd": "2026-05-26",
       "paymentDate": "2026-05-22",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "489730": {
       "receiptNo": "20241115000128",
@@ -312,12 +552,25 @@
       "offeringShares": 6000000,
       "escrowAmount": 12000000000,
       "escrowRatePct": 3.51,
-      "escrowAgent": "KB국민은행",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-11-18",
       "subscriptionEnd": "2024-11-19",
       "paymentDate": "2024-11-18",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251124900682",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682",
+          "startDate": "2025-11-21",
+          "ratePct": 2.82,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0004Y0": {
       "receiptNo": "20250709000268",
@@ -328,12 +581,13 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "KB국민은행",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2025-07-10",
       "subscriptionEnd": "2025-07-11",
       "paymentDate": "2025-07-10",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0088D0": {
       "receiptNo": "20251202000413",
@@ -344,14 +598,15 @@
       "offeringShares": 5500000,
       "escrowAmount": null,
       "escrowRatePct": 2.57,
-      "escrowAgent": "금액 보통예금 국민은행 2",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2025-12-04",
       "subscriptionEnd": "2025-12-05",
       "paymentDate": "2025-12-04",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0097F0": {
       "receiptNo": "20251211000330",
@@ -367,7 +622,8 @@
       "subscriptionEnd": "2025-12-15",
       "paymentDate": "2025-12-12",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0099W0": {
       "receiptNo": "20251209000372",
@@ -383,7 +639,8 @@
       "subscriptionEnd": "2025-12-11",
       "paymentDate": "2025-12-10",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "477380": {
       "receiptNo": "20240517000260",
@@ -399,7 +656,30 @@
       "subscriptionEnd": "2024-05-21",
       "paymentDate": "2024-05-20",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250530900482",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-05-30",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250530900482",
+          "startDate": "2025-05-26",
+          "ratePct": 2.4,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260526900406",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-05-26",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900406",
+          "startDate": "2026-05-26",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "477470": {
       "receiptNo": "20240607000402",
@@ -415,7 +695,30 @@
       "subscriptionEnd": "2024-06-11",
       "paymentDate": "2024-06-10",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250617900111",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-17",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250617900111",
+          "startDate": "2025-06-16",
+          "ratePct": 2.4,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260616900397",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-16",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900397",
+          "startDate": "2026-06-16",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "478440": {
       "receiptNo": "20240611000366",
@@ -431,7 +734,20 @@
       "subscriptionEnd": "2024-06-14",
       "paymentDate": "2024-06-13",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250620900245",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-20",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250620900245",
+          "startDate": "2025-06-19",
+          "ratePct": 2.4,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "482680": {
       "receiptNo": "20240829001549",
@@ -447,7 +763,20 @@
       "subscriptionEnd": "2024-09-03",
       "paymentDate": "2024-09-02",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250909900066",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-09-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250909900066",
+          "startDate": "2025-09-08",
+          "ratePct": 2.25,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0093G0": {
       "receiptNo": "20251114003075",
@@ -463,7 +792,8 @@
       "subscriptionEnd": "2025-11-18",
       "paymentDate": "2025-11-17",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0096D0": {
       "receiptNo": "20251118000265",
@@ -479,7 +809,8 @@
       "subscriptionEnd": "2025-11-20",
       "paymentDate": "2025-11-19",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0068Y0": {
       "receiptNo": "20251110000259",
@@ -490,12 +821,13 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 2.0,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-11-11",
       "subscriptionEnd": "2025-11-12",
       "paymentDate": "2025-11-11",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0044K0": {
       "receiptNo": "20250807000053",
@@ -514,7 +846,8 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견",
         "escrowAgent: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0071M0": {
       "receiptNo": "20250918000264",
@@ -525,14 +858,15 @@
       "offeringShares": 5000000,
       "escrowAmount": null,
       "escrowRatePct": 2.05,
-      "escrowAgent": "또는",
+      "escrowAgent": null,
       "subscriptionStart": "2025-09-19",
       "subscriptionEnd": "2025-09-22",
       "paymentDate": "2025-09-19",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0096B0": {
       "receiptNo": "20251117000034",
@@ -543,14 +877,15 @@
       "offeringShares": 6000000,
       "escrowAmount": null,
       "escrowRatePct": 2.05,
-      "escrowAgent": "또는",
+      "escrowAgent": null,
       "subscriptionStart": "2025-11-19",
       "subscriptionEnd": "2025-11-20",
       "paymentDate": "2025-11-19",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0115H0": {
       "receiptNo": "20260109000087",
@@ -561,14 +896,15 @@
       "offeringShares": 6000000,
       "escrowAmount": null,
       "escrowRatePct": 2.05,
-      "escrowAgent": "또는",
+      "escrowAgent": null,
       "subscriptionStart": "2026-01-12",
       "subscriptionEnd": "2026-01-13",
       "paymentDate": "2026-01-12",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
-      ]
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "472220": {
       "receiptNo": "20240124000304",
@@ -579,12 +915,45 @@
       "offeringShares": 4575000,
       "escrowAmount": 9150000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-01-25",
       "subscriptionEnd": "2024-01-26",
       "paymentDate": "2024-01-25",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250203900785",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-03",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250203900785",
+          "startDate": "2025-01-31",
+          "ratePct": 3.0,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20250801901075",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-08-01",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250801901075",
+          "startDate": "2025-07-31",
+          "ratePct": 2.43,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260202900680",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-02-02",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202900680",
+          "startDate": "2026-01-30",
+          "ratePct": 2.77,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0091W0": {
       "receiptNo": "20251112000416",
@@ -595,12 +964,13 @@
       "offeringShares": 5800000,
       "escrowAmount": 11600000000,
       "escrowRatePct": 2.48,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-11-13",
       "subscriptionEnd": "2025-11-14",
       "paymentDate": "2025-11-13",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "474660": {
       "receiptNo": "20240401001215",
@@ -611,12 +981,35 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "공모자금",
+      "escrowAgent": null,
       "subscriptionStart": "2024-04-02",
       "subscriptionEnd": "2024-04-03",
       "paymentDate": "2024-04-02",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250409900157",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-04-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250409900157",
+          "startDate": "2025-04-08",
+          "ratePct": 2.75,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20251013900260",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-10-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251013900260",
+          "startDate": "2025-10-10",
+          "ratePct": 2.49,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "474930": {
       "receiptNo": "20240408004008",
@@ -627,12 +1020,35 @@
       "offeringShares": 3000000,
       "escrowAmount": 6000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "금 액 현금및현금성자산 기업자유예금 국민은행 620",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-04-11",
       "subscriptionEnd": "2024-04-12",
       "paymentDate": "2024-04-11",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250611900659",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611900659",
+          "startDate": "2025-04-16",
+          "ratePct": 2.65,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260616900447",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-16",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900447",
+          "startDate": "2026-04-16",
+          "ratePct": 3.01,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "487360": {
       "receiptNo": "20241210000275",
@@ -643,12 +1059,25 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.25,
-      "escrowAgent": "공모자금",
+      "escrowAgent": null,
       "subscriptionStart": "2024-12-11",
       "subscriptionEnd": "2024-12-12",
       "paymentDate": "2024-12-11",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251218900249",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249",
+          "startDate": "2025-12-17",
+          "ratePct": 2.92,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "487830": {
       "receiptNo": "20241104000200",
@@ -659,12 +1088,25 @@
       "offeringShares": 3900000,
       "escrowAmount": 7800000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "당반기말 현금및현금성자산 보통예금 국민은행 450",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-11-05",
       "subscriptionEnd": "2024-11-06",
       "paymentDate": "2024-11-05",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251112900534",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534",
+          "startDate": "2025-11-11",
+          "ratePct": 2.72,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "496070": {
       "receiptNo": "20250515000864",
@@ -675,12 +1117,25 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.25,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-05-19",
       "subscriptionEnd": "2025-05-20",
       "paymentDate": "2025-05-19",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20260616900454",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-16",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454",
+          "startDate": "2026-05-26",
+          "ratePct": 3.07,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0130D0": {
       "receiptNo": "20260318000201",
@@ -691,12 +1146,13 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 2.5,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2026-03-19",
       "subscriptionEnd": "2026-03-20",
       "paymentDate": "2026-03-19",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0129K0": {
       "receiptNo": "20260417000093",
@@ -707,12 +1163,13 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 2.5,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2026-04-20",
       "subscriptionEnd": "2026-04-21",
       "paymentDate": "2026-04-20",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "472230": {
       "receiptNo": "20240219001008",
@@ -723,12 +1180,35 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 3.15,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-02-20",
       "subscriptionEnd": "2024-02-21",
       "paymentDate": "2024-02-20",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250227900272",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250227900272",
+          "startDate": "2025-02-26",
+          "ratePct": 2.95,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260227901631",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-02-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901631",
+          "startDate": "2026-02-26",
+          "ratePct": 2.91,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "473000": {
       "receiptNo": "20240422000014",
@@ -739,12 +1219,35 @@
       "offeringShares": 3000000,
       "escrowAmount": 6000000000,
       "escrowRatePct": 3.15,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-04-23",
       "subscriptionEnd": "2024-04-24",
       "paymentDate": "2024-04-23",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250430900860",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-04-30",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430900860",
+          "startDate": "2025-04-29",
+          "ratePct": 2.6,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260430901495",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-04-30",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260430901495",
+          "startDate": "2026-04-29",
+          "ratePct": 2.99,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "473950": {
       "receiptNo": "20240712000044",
@@ -755,12 +1258,25 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-07-15",
       "subscriptionEnd": "2024-07-16",
       "paymentDate": "2024-07-15",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250721900247",
+          "reportName": "[기재정정] 기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-07-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250721900247",
+          "startDate": "2025-07-18",
+          "ratePct": 2.42,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "477340": {
       "receiptNo": "20240607000179",
@@ -778,7 +1294,20 @@
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
-      ]
+      ],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250618900108",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250618900108",
+          "startDate": "2025-06-17",
+          "ratePct": 2.47,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "481890": {
       "receiptNo": "20240715000198",
@@ -789,12 +1318,25 @@
       "offeringShares": 6000000,
       "escrowAmount": 12000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "설립일 보통예금 농협은행 345",
+      "escrowAgent": "농협은행",
       "subscriptionStart": "2024-07-16",
       "subscriptionEnd": "2024-07-17",
       "paymentDate": "2024-07-16",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250723900356",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-07-23",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250723900356",
+          "startDate": "2025-07-22",
+          "ratePct": 2.43,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0054V0": {
       "receiptNo": "20251121000115",
@@ -805,12 +1347,13 @@
       "offeringShares": 5150000,
       "escrowAmount": 10300000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "당분기말 보통예금 농협은행 262",
+      "escrowAgent": "농협은행",
       "subscriptionStart": "2025-11-24",
       "subscriptionEnd": "2025-11-25",
       "paymentDate": "2025-11-24",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0130H0": {
       "receiptNo": "20260316000201",
@@ -821,12 +1364,13 @@
       "offeringShares": 6350000,
       "escrowAmount": 12700000000,
       "escrowRatePct": 2.0,
-      "escrowAgent": "당기말 보통예금 농협은행 78",
+      "escrowAgent": "농협은행",
       "subscriptionStart": "2026-03-17",
       "subscriptionEnd": "2026-03-18",
       "paymentDate": "2026-03-17",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0041J0": {
       "receiptNo": "20250707000042",
@@ -837,12 +1381,13 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 2.47,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-07-08",
       "subscriptionEnd": "2025-07-09",
       "paymentDate": "2025-07-08",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "473050": {
       "receiptNo": "20240219000516",
@@ -853,12 +1398,35 @@
       "offeringShares": 6500000,
       "escrowAmount": 13000000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "금 액 보통예금 (주)국민은행 2",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-02-20",
       "subscriptionEnd": "2024-02-21",
       "paymentDate": "2024-02-20",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250227900333",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250227900333",
+          "startDate": "2025-02-26",
+          "ratePct": 2.95,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260227900560",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-02-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227900560",
+          "startDate": "2026-02-26",
+          "ratePct": 2.91,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "474490": {
       "receiptNo": "20240419000364",
@@ -869,12 +1437,35 @@
       "offeringShares": 5150000,
       "escrowAmount": 10300000000,
       "escrowRatePct": 3.3,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-04-22",
       "subscriptionEnd": "2024-04-23",
       "paymentDate": "2024-04-22",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250429900431",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-04-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250429900431",
+          "startDate": "2025-04-28",
+          "ratePct": 2.6,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260429900289",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-04-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429900289",
+          "startDate": "2026-04-28",
+          "ratePct": 2.93,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "493790": {
       "receiptNo": "20250110000560",
@@ -885,12 +1476,25 @@
       "offeringShares": 50000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "금 액 보통예금 (주)국민은행 2",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2025-01-13",
       "subscriptionEnd": "2025-01-14",
       "paymentDate": "2025-01-13",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20260119900496",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-01-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119900496",
+          "startDate": "2026-01-16",
+          "ratePct": 2.8,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "468760": {
       "receiptNo": "20240216000272",
@@ -901,12 +1505,35 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-02-19",
       "subscriptionEnd": "2024-02-20",
       "paymentDate": "2024-02-19",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250224901032",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250224901032",
+          "startDate": "2025-02-21",
+          "ratePct": 2.95,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260223900383",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-02-23",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260223900383",
+          "startDate": "2026-02-20",
+          "ratePct": 2.91,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "488060": {
       "receiptNo": "20241021000312",
@@ -917,12 +1544,25 @@
       "offeringShares": 4500000,
       "escrowAmount": 9000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "KB국민은행",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-10-22",
       "subscriptionEnd": "2024-10-23",
       "paymentDate": "2024-10-22",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251029900091",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-10-29",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251029900091",
+          "startDate": "2025-10-28",
+          "ratePct": 2.57,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0105P0": {
       "receiptNo": "20251201000430",
@@ -933,12 +1573,13 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "KB국민은행",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2025-12-02",
       "subscriptionEnd": "2025-12-03",
       "paymentDate": "2025-12-02",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "478110": {
       "receiptNo": "20240701000551",
@@ -949,12 +1590,25 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 3.45,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-07-02",
       "subscriptionEnd": "2024-07-03",
       "paymentDate": "2024-07-05",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250721900566",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-07-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250721900566",
+          "startDate": "2025-07-08",
+          "ratePct": 2.42,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "487720": {
       "receiptNo": "20241210000541",
@@ -965,12 +1619,13 @@
       "offeringShares": 3900000,
       "escrowAmount": 7800000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "KB국민은행",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2024-12-11",
       "subscriptionEnd": "2024-12-12",
       "paymentDate": "2024-12-16",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "489480": {
       "receiptNo": "20241128000624",
@@ -981,12 +1636,25 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.5,
-      "escrowAgent": "공모자금",
+      "escrowAgent": null,
       "subscriptionStart": "2024-12-02",
       "subscriptionEnd": "2024-12-03",
       "paymentDate": "2024-12-02",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251208900525",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900525",
+          "startDate": "2025-12-05",
+          "ratePct": 2.88,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "466690": {
       "receiptNo": "20251128002140",
@@ -997,12 +1665,13 @@
       "offeringShares": 4500000,
       "escrowAmount": 9000000000,
       "escrowRatePct": 2.3,
-      "escrowAgent": "KB국민은행",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2025-12-01",
       "subscriptionEnd": "2025-12-02",
       "paymentDate": "2025-12-01",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0131D0": {
       "receiptNo": "20260413001537",
@@ -1013,12 +1682,13 @@
       "offeringShares": 6000000,
       "escrowAmount": 12000000000,
       "escrowRatePct": 2.2,
-      "escrowAgent": "(이하",
+      "escrowAgent": null,
       "subscriptionStart": "2026-04-14",
       "subscriptionEnd": "2026-04-15",
       "paymentDate": "2026-04-14",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "469880": {
       "receiptNo": "20231212000202",
@@ -1029,12 +1699,35 @@
       "offeringShares": 7000000,
       "escrowAmount": 14000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2023-12-13",
       "subscriptionEnd": "2023-12-14",
       "paymentDate": "2023-12-13",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20241219900327",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2024-12-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241219900327",
+          "startDate": "2024-12-19",
+          "ratePct": 3.1,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20251219900434",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251219900434",
+          "startDate": "2025-12-19",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "469900": {
       "receiptNo": "20240221001641",
@@ -1045,12 +1738,35 @@
       "offeringShares": 5000000,
       "escrowAmount": 10000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-02-22",
       "subscriptionEnd": "2024-02-23",
       "paymentDate": "2024-02-22",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250228901608",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-28",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250228901608",
+          "startDate": "2025-02-28",
+          "ratePct": 2.7,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260227901960",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-02-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901960",
+          "startDate": "2026-02-27",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "475240": {
       "receiptNo": "20240315000448",
@@ -1061,12 +1777,35 @@
       "offeringShares": 3000000,
       "escrowAmount": 6000000000,
       "escrowRatePct": 3.32,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-03-18",
       "subscriptionEnd": "2024-03-19",
       "paymentDate": "2024-03-18",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250324900557",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-03-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250324900557",
+          "startDate": "2025-03-24",
+          "ratePct": 2.6,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260324900482",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-03-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324900482",
+          "startDate": "2026-03-24",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "475250": {
       "receiptNo": "20240412003503",
@@ -1077,12 +1816,35 @@
       "offeringShares": 3500000,
       "escrowAmount": 7000000000,
       "escrowRatePct": 3.32,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-04-15",
       "subscriptionEnd": "2024-04-16",
       "paymentDate": "2024-04-15",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250610900499",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-10",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250610900499",
+          "startDate": "2025-04-21",
+          "ratePct": 2.6,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260421900365",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-04-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260421900365",
+          "startDate": "2026-04-21",
+          "ratePct": 2.55,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "484130": {
       "receiptNo": "20241106000097",
@@ -1093,12 +1855,25 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 3.03,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2024-11-07",
       "subscriptionEnd": "2024-11-08",
       "paymentDate": "2024-11-07",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20251113901070",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251113901070",
+          "startDate": "2025-11-13",
+          "ratePct": 2.25,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0041L0": {
       "receiptNo": "20250724000463",
@@ -1109,12 +1884,13 @@
       "offeringShares": 5500000,
       "escrowAmount": 11000000000,
       "escrowRatePct": 2.4,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-07-25",
       "subscriptionEnd": "2025-07-28",
       "paymentDate": "2025-07-25",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "0101C0": {
       "receiptNo": "20251209000220",
@@ -1125,12 +1901,13 @@
       "offeringShares": 7000000,
       "escrowAmount": 14000000000,
       "escrowRatePct": 2.4,
-      "escrowAgent": "등에",
+      "escrowAgent": null,
       "subscriptionStart": "2025-12-11",
       "subscriptionEnd": "2025-12-12",
       "paymentDate": "2025-12-11",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
-      "parseWarnings": []
+      "parseWarnings": [],
+      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
     },
     "464440": {
       "receiptNo": "20231030000103",
@@ -1141,7 +1918,7 @@
       "offeringShares": 4000000,
       "escrowAmount": 8000000000,
       "escrowRatePct": 3.0,
-      "escrowAgent": "금 액 보통예금 국민은행 320",
+      "escrowAgent": "국민은행",
       "subscriptionStart": "2023-11-01",
       "subscriptionEnd": "2023-11-02",
       "paymentDate": "2023-11-01",

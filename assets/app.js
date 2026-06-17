@@ -47,6 +47,7 @@
   let chartDays = 90;
   let tableSort = { key: 'currentPrice', direction: 'asc' };
   let searchTimer = 0;
+  let simulationCode = null;
 
   const filters = [
     { id: 'all', label: '전체' },
@@ -515,7 +516,7 @@
     if (value == null || Number.isNaN(Number(value))) return '-';
     const rounded = Math.round(Number(value));
     const sign = rounded > 0 ? '+' : '';
-    return `${sign}${rounded.toLocaleString('ko-KR')}원`;
+    return `${sign}${rounded.toLocaleString('ko-KR')}`;
   }
 
   function marketPriceSnapshot() {
@@ -577,8 +578,8 @@
         detail: '상장일 기준'
       },
       {
-        label: '청산 6개월 이내',
-        value: `${summary.dueSoonCount ?? 0}개`,
+        label: '청산 6개월/1년 이내',
+        value: `${summary.dueSoonCount ?? 0}개 / ${summary.dueWithinOneYearCount ?? 0}개`,
         detail: '상장일+36개월 기준'
       },
       {
@@ -680,6 +681,7 @@
 
   function renderSelected() {
     const item = selectedSpac();
+    syncSimulationDefault(item);
     renderSimulation();
     renderDisclosures(item);
     /* 선택 종목이 없거나 filing이 없으면 기존 블록 제거까지만 수행한다. */
@@ -998,10 +1000,30 @@
 
   /* ---------- 금리 시나리오 시뮬레이션 ---------- */
 
-  function baseRatePct() {
+  function selectedEscrowRatePct(item = selectedSpac()) {
+    const periods = item && Array.isArray(item.escrowRatePeriods) ? item.escrowRatePeriods : [];
+    for (let idx = periods.length - 1; idx >= 0; idx -= 1) {
+      const rate = Number(periods[idx] && periods[idx].ratePct);
+      if (Number.isFinite(rate)) return rate;
+    }
+    const filingRate = Number(item && item.filing && item.filing.escrowRatePct);
+    if (Number.isFinite(filingRate)) return filingRate;
     const value = Number(data?.rateAssumption?.annualRatePct);
     if (!Number.isFinite(value)) return 2.5;
+    return value;
+  }
+
+  function baseRatePct(item = selectedSpac()) {
+    const value = selectedEscrowRatePct(item);
     return Math.min(6, Math.max(0, value));
+  }
+
+  function syncSimulationDefault(item = selectedSpac()) {
+    const input = document.getElementById('simRateInput');
+    if (!input || !item) return;
+    if (simulationCode === item.code) return;
+    input.value = String(baseRatePct(item));
+    simulationCode = item.code;
   }
 
   function isManualLiquidationValue(item) {
@@ -1468,6 +1490,7 @@
         if (parsed && typeof parsed === 'object' && Array.isArray(parsed.spacs)) {
           data = parsed;
           window.SPAC_DATA = parsed;
+          simulationCode = null;
         }
       })
       .catch(() => { /* 조용한 폴백 */ })
