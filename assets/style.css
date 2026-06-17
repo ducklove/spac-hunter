@@ -376,7 +376,16 @@ button {
   display: grid;
   grid-template-columns: minmax(270px, 0.78fr) minmax(460px, 1.35fr) minmax(280px, 0.82fr);
   gap: 16px;
-  align-items: start;
+  align-items: stretch;
+}
+
+.dashboard-grid > .panel {
+  min-height: 0;
+}
+
+.dashboard-grid > .panel:first-child {
+  display: flex;
+  flex-direction: column;
 }
 
 .panel {
@@ -409,7 +418,9 @@ button {
 }
 
 .spac-list {
-  max-height: 560px;
+  flex: 1 1 0;
+  min-height: 0;
+  max-height: none;
   overflow: auto;
 }
 
@@ -962,6 +973,7 @@ tbody tr.active {
   }
 
   .spac-list {
+    flex: none;
     max-height: 430px;
   }
 
