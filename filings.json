@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T06:26:51.401792+09:00",
+  "updatedAt": "2026-06-18T19:55:47.033197+09:00",
   "filings": {
     "477760": {
       "receiptNo": "20240530001411",
@@ -68,7 +68,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "467930": {
       "receiptNo": "20231211000138",
@@ -107,7 +107,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "469480": {
       "receiptNo": "20240119000323",
@@ -146,7 +146,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0099X0": {
       "receiptNo": "20251208000119",
@@ -163,7 +163,7 @@
       "paymentDate": "2025-12-09",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "478390": {
       "receiptNo": "20240610000163",
@@ -204,7 +204,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "486630": {
       "receiptNo": "20240909000034",
@@ -235,7 +235,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "492220": {
       "receiptNo": "20241129000608",
@@ -266,7 +266,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0037T0": {
       "receiptNo": "20250623000080",
@@ -283,7 +283,7 @@
       "paymentDate": "2025-06-24",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0072Z0": {
       "receiptNo": "20250918000310",
@@ -302,7 +302,7 @@
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "465320": {
       "receiptNo": "20231122000325",
@@ -341,7 +341,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "482520": {
       "receiptNo": "20240731000498",
@@ -370,7 +370,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "489210": {
       "receiptNo": "20241106000142",
@@ -399,7 +399,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0041B0": {
       "receiptNo": "20250731000309",
@@ -416,7 +416,7 @@
       "paymentDate": "2025-08-05",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0098T0": {
       "receiptNo": "20251201000394",
@@ -433,7 +433,7 @@
       "paymentDate": "2025-12-02",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0132G0": {
       "receiptNo": "20260319000821",
@@ -450,7 +450,7 @@
       "paymentDate": "2026-03-23",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "471050": {
       "receiptNo": "20240112000195",
@@ -491,7 +491,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "482690": {
       "receiptNo": "20241107000228",
@@ -522,7 +522,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0134X0": {
       "receiptNo": "20260521000518",
@@ -541,7 +541,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "489730": {
       "receiptNo": "20241115000128",
@@ -570,7 +570,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0004Y0": {
       "receiptNo": "20250709000268",
@@ -587,7 +587,7 @@
       "paymentDate": "2025-07-10",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0088D0": {
       "receiptNo": "20251202000413",
@@ -606,7 +606,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0097F0": {
       "receiptNo": "20251211000330",
@@ -623,7 +623,7 @@
       "paymentDate": "2025-12-12",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0099W0": {
       "receiptNo": "20251209000372",
@@ -640,7 +640,7 @@
       "paymentDate": "2025-12-10",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "477380": {
       "receiptNo": "20240517000260",
@@ -679,7 +679,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "477470": {
       "receiptNo": "20240607000402",
@@ -718,7 +718,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "478440": {
       "receiptNo": "20240611000366",
@@ -747,7 +747,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "482680": {
       "receiptNo": "20240829001549",
@@ -776,7 +776,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0093G0": {
       "receiptNo": "20251114003075",
@@ -793,7 +793,7 @@
       "paymentDate": "2025-11-17",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0096D0": {
       "receiptNo": "20251118000265",
@@ -810,7 +810,7 @@
       "paymentDate": "2025-11-19",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0068Y0": {
       "receiptNo": "20251110000259",
@@ -827,7 +827,7 @@
       "paymentDate": "2025-11-11",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0044K0": {
       "receiptNo": "20250807000053",
@@ -847,7 +847,7 @@
         "escrowAmount: 패턴 미발견",
         "escrowAgent: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0071M0": {
       "receiptNo": "20250918000264",
@@ -866,7 +866,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0096B0": {
       "receiptNo": "20251117000034",
@@ -885,7 +885,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0115H0": {
       "receiptNo": "20260109000087",
@@ -904,7 +904,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "472220": {
       "receiptNo": "20240124000304",
@@ -953,7 +953,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0091W0": {
       "receiptNo": "20251112000416",
@@ -970,7 +970,7 @@
       "paymentDate": "2025-11-13",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "474660": {
       "receiptNo": "20240401001215",
@@ -1009,7 +1009,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "474930": {
       "receiptNo": "20240408004008",
@@ -1048,7 +1048,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "487360": {
       "receiptNo": "20241210000275",
@@ -1077,7 +1077,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "487830": {
       "receiptNo": "20241104000200",
@@ -1106,7 +1106,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "496070": {
       "receiptNo": "20250515000864",
@@ -1135,7 +1135,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0130D0": {
       "receiptNo": "20260318000201",
@@ -1152,7 +1152,7 @@
       "paymentDate": "2026-03-19",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0129K0": {
       "receiptNo": "20260417000093",
@@ -1169,7 +1169,7 @@
       "paymentDate": "2026-04-20",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "472230": {
       "receiptNo": "20240219001008",
@@ -1208,7 +1208,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "473000": {
       "receiptNo": "20240422000014",
@@ -1247,7 +1247,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "473950": {
       "receiptNo": "20240712000044",
@@ -1266,6 +1266,16 @@
       "parseWarnings": [],
       "escrowRateChanges": [
         {
+          "receiptNo": "20250721900213",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-07-21",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250721900213",
+          "startDate": "2025-07-18",
+          "ratePct": 3.35,
+          "parserVersion": 2,
+          "parseWarnings": []
+        },
+        {
           "receiptNo": "20250721900247",
           "reportName": "[기재정정] 기업인수목적회사의예치ㆍ신탁계약내용변경",
           "filingDate": "2025-07-21",
@@ -1276,7 +1286,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "477340": {
       "receiptNo": "20240607000179",
@@ -1305,9 +1315,19 @@
           "ratePct": 2.47,
           "parserVersion": 2,
           "parseWarnings": []
+        },
+        {
+          "receiptNo": "20260618900218",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260618900218",
+          "startDate": "2026-06-17",
+          "ratePct": 3.15,
+          "parserVersion": 2,
+          "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "481890": {
       "receiptNo": "20240715000198",
@@ -1336,7 +1356,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0054V0": {
       "receiptNo": "20251121000115",
@@ -1353,7 +1373,7 @@
       "paymentDate": "2025-11-24",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0130H0": {
       "receiptNo": "20260316000201",
@@ -1370,7 +1390,7 @@
       "paymentDate": "2026-03-17",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0041J0": {
       "receiptNo": "20250707000042",
@@ -1387,7 +1407,7 @@
       "paymentDate": "2025-07-08",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "473050": {
       "receiptNo": "20240219000516",
@@ -1426,7 +1446,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "474490": {
       "receiptNo": "20240419000364",
@@ -1465,7 +1485,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "493790": {
       "receiptNo": "20250110000560",
@@ -1494,7 +1514,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "468760": {
       "receiptNo": "20240216000272",
@@ -1533,7 +1553,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "488060": {
       "receiptNo": "20241021000312",
@@ -1562,7 +1582,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0105P0": {
       "receiptNo": "20251201000430",
@@ -1579,7 +1599,7 @@
       "paymentDate": "2025-12-02",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "478110": {
       "receiptNo": "20240701000551",
@@ -1608,7 +1628,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "487720": {
       "receiptNo": "20241210000541",
@@ -1625,7 +1645,7 @@
       "paymentDate": "2024-12-16",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "489480": {
       "receiptNo": "20241128000624",
@@ -1654,7 +1674,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "466690": {
       "receiptNo": "20251128002140",
@@ -1671,7 +1691,7 @@
       "paymentDate": "2025-12-01",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0131D0": {
       "receiptNo": "20260413001537",
@@ -1688,7 +1708,7 @@
       "paymentDate": "2026-04-14",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "469880": {
       "receiptNo": "20231212000202",
@@ -1727,7 +1747,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "469900": {
       "receiptNo": "20240221001641",
@@ -1766,7 +1786,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "475240": {
       "receiptNo": "20240315000448",
@@ -1805,7 +1825,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "475250": {
       "receiptNo": "20240412003503",
@@ -1844,7 +1864,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "484130": {
       "receiptNo": "20241106000097",
@@ -1873,7 +1893,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0041L0": {
       "receiptNo": "20250724000463",
@@ -1890,7 +1910,7 @@
       "paymentDate": "2025-07-25",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "0101C0": {
       "receiptNo": "20251209000220",
@@ -1907,7 +1927,7 @@
       "paymentDate": "2025-12-11",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-06-18T06:23:47.679728+09:00"
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     },
     "464440": {
       "receiptNo": "20231030000103",
@@ -1924,7 +1944,78 @@
       "paymentDate": "2023-11-01",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": []
+    },
+    "479880": {
+      "receiptNo": "20240613000091",
+      "reportName": "[기재정정]투자설명서",
+      "filingDate": "2024-06-13",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240613000091",
+      "ipoPrice": 2000,
+      "offeringShares": 6250000,
+      "escrowAmount": 12500000000,
+      "escrowRatePct": 3.0,
+      "escrowAgent": "한국증권금융",
+      "subscriptionStart": "2024-06-17",
+      "subscriptionEnd": "2024-06-18",
+      "paymentDate": "2024-06-17",
+      "extractedAt": "2026-06-18T19:55:47.033197+09:00",
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20250623900137",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-23",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250623900137",
+          "startDate": "2025-06-23",
+          "ratePct": 2.4,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
+    },
+    "498390": {
+      "receiptNo": "20250310000156",
+      "reportName": "[기재정정]투자설명서",
+      "filingDate": "2025-03-10",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250310000156",
+      "ipoPrice": 2000,
+      "offeringShares": 4750000,
+      "escrowAmount": 9500000000,
+      "escrowRatePct": 3.5,
+      "escrowAgent": "국민은행",
+      "subscriptionStart": "2025-03-11",
+      "subscriptionEnd": "2025-03-12",
+      "paymentDate": "2025-03-11",
+      "extractedAt": "2026-06-18T19:55:47.033197+09:00",
+      "parseWarnings": [],
+      "escrowRateChanges": [
+        {
+          "receiptNo": "20260318900583",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-03-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318900583",
+          "startDate": "2026-03-17",
+          "ratePct": 2.93,
+          "parserVersion": 2,
+          "parseWarnings": []
+        }
+      ],
+      "trustRateChangeScannedAt": "2026-06-18T19:55:47.033197+09:00"
     }
   },
-  "calendarDocs": {}
+  "calendarDocs": {
+    "20260618000003": {
+      "ipoPrice": 2000,
+      "offeringShares": 5500000,
+      "escrowAmount": 11000000000,
+      "escrowRatePct": 3.0,
+      "escrowAgent": "한국증권금융",
+      "subscriptionStart": "2026-06-22",
+      "subscriptionEnd": "2026-06-23",
+      "paymentDate": "2026-06-25",
+      "parseWarnings": [],
+      "extractedAt": "2026-06-18T19:55:47.033197+09:00"
+    }
+  }
 }
