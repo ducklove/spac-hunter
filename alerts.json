@@ -1,6 +1,76 @@
 {
-  "generatedAt": "2026-06-18T19:55:47.033197+09:00",
+  "generatedAt": "2026-06-19T20:06:04.252161+09:00",
   "alerts": [
+    {
+      "id": "2026-06-19|below_ipo_enter|0096D0",
+      "date": "2026-06-19",
+      "type": "below_ipo_enter",
+      "code": "0096D0",
+      "name": "미래에셋비전스팩9호",
+      "title": "미래에셋비전스팩9호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9955 (현재가 1,991)",
+      "url": "https://finance.naver.com/item/main.naver?code=0096D0"
+    },
+    {
+      "id": "2026-06-19|below_ipo_enter|0105P0",
+      "date": "2026-06-19",
+      "type": "below_ipo_enter",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9995 (현재가 1,999)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-06-19|below_ipo_enter|0130H0",
+      "date": "2026-06-19",
+      "type": "below_ipo_enter",
+      "code": "0130H0",
+      "name": "엔에이치스팩33호",
+      "title": "엔에이치스팩33호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9990 (현재가 1,998)",
+      "url": "https://finance.naver.com/item/main.naver?code=0130H0"
+    },
+    {
+      "id": "2026-06-19|below_ipo_enter|466690",
+      "date": "2026-06-19",
+      "type": "below_ipo_enter",
+      "code": "466690",
+      "name": "키움히어로제1호스팩",
+      "title": "키움히어로제1호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0050 → 0.9970 (현재가 1,994)",
+      "url": "https://finance.naver.com/item/main.naver?code=466690"
+    },
+    {
+      "id": "2026-06-19|below_ipo_exit|0044K0",
+      "date": "2026-06-19",
+      "type": "below_ipo_exit",
+      "code": "0044K0",
+      "name": "삼성스팩10호",
+      "title": "삼성스팩10호 공모가 회복",
+      "detail": "공모가 대비 0.9975 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0044K0"
+    },
+    {
+      "id": "2026-06-19|merger_applied|469480",
+      "date": "2026-06-19",
+      "type": "merger_applied",
+      "code": "469480",
+      "name": "IBKS제24호스팩",
+      "title": "IBKS제24호스팩 합병 신청 공시",
+      "detail": "주요사항보고서(회사합병결정), 공시일 기준가 2,130, 공모가 대비 1.0650배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619000664"
+    },
+    {
+      "id": "2026-06-19|new_listing|0165X0",
+      "date": "2026-06-19",
+      "type": "new_listing",
+      "code": "0165X0",
+      "name": "메리츠제2호스팩",
+      "title": "메리츠제2호스팩 신규 상장",
+      "detail": "상장일 2026-06-19, 현재가 1,970",
+      "url": "https://finance.naver.com/item/main.naver?code=0165X0"
+    },
     {
       "id": "2026-06-18|below_ipo_enter|0044K0",
       "date": "2026-06-18",
