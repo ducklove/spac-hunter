@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-06-23T19:11:51.671972+09:00",
+  "generatedAt": "2026-06-24T18:58:37.450092+09:00",
   "alerts": [
+    {
+      "id": "2026-06-24|below_ipo_enter|0096D0",
+      "date": "2026-06-24",
+      "type": "below_ipo_enter",
+      "code": "0096D0",
+      "name": "미래에셋비전스팩9호",
+      "title": "미래에셋비전스팩9호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9965 (현재가 1,993)",
+      "url": "https://finance.naver.com/item/main.naver?code=0096D0"
+    },
+    {
+      "id": "2026-06-24|below_ipo_enter|0099W0",
+      "date": "2026-06-24",
+      "type": "below_ipo_enter",
+      "code": "0099W0",
+      "name": "미래에셋비전스팩11호",
+      "title": "미래에셋비전스팩11호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9990 (현재가 1,998)",
+      "url": "https://finance.naver.com/item/main.naver?code=0099W0"
+    },
     {
       "id": "2026-06-23|below_ipo_enter|0096B0",
       "date": "2026-06-23",
