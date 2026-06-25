@@ -1,6 +1,56 @@
 {
-  "generatedAt": "2026-06-24T18:58:37.450092+09:00",
+  "generatedAt": "2026-06-25T18:53:22.325907+09:00",
   "alerts": [
+    {
+      "id": "2026-06-25|below_ipo_enter|0041J0",
+      "date": "2026-06-25",
+      "type": "below_ipo_enter",
+      "code": "0041J0",
+      "name": "엘에스스팩1호",
+      "title": "엘에스스팩1호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9980 (현재가 1,996)",
+      "url": "https://finance.naver.com/item/main.naver?code=0041J0"
+    },
+    {
+      "id": "2026-06-25|below_ipo_enter|0105P0",
+      "date": "2026-06-25",
+      "type": "below_ipo_enter",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9960 (현재가 1,992)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-06-25|below_ipo_exit|0101C0",
+      "date": "2026-06-25",
+      "type": "below_ipo_exit",
+      "code": "0101C0",
+      "name": "하나36호스팩",
+      "title": "하나36호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9985 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0101C0"
+    },
+    {
+      "id": "2026-06-25|near_liquidation|467930",
+      "date": "2026-06-25",
+      "type": "near_liquidation",
+      "code": "467930",
+      "name": "IBKS제23호스팩",
+      "title": "IBKS제23호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2026-12-22 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=467930"
+    },
+    {
+      "id": "2026-06-25|near_liquidation|469880",
+      "date": "2026-06-25",
+      "type": "near_liquidation",
+      "code": "469880",
+      "name": "하나30호스팩",
+      "title": "하나30호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2026-12-22 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=469880"
+    },
     {
       "id": "2026-06-24|below_ipo_enter|0096D0",
       "date": "2026-06-24",
