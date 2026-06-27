@@ -1,8 +1,8 @@
 window.SPAC_DATA = {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-06-26 18:59:15 KST",
-  "generatedAt": "2026-06-26T18:59:15.105354+09:00",
+  "lastUpdated": "2026-06-27 18:12:59 KST",
+  "generatedAt": "2026-06-27T18:12:59.911044+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -44,7 +44,7 @@ window.SPAC_DATA = {
     "mergerEventCount": 39,
     "recentListingCount": 7,
     "averageRatio": 1.0181,
-    "averageAnnualizedReturn": 4.38,
+    "averageAnnualizedReturn": 4.39,
     "cheapest": {
       "code": "0165X0",
       "name": "메리츠제2호스팩",
@@ -54,7 +54,7 @@ window.SPAC_DATA = {
     "bestYield": {
       "code": "473050",
       "name": "유안타제15호스팩",
-      "annualizedReturn": 8.65,
+      "annualizedReturn": 8.69,
       "currentPrice": 2075
     }
   },
@@ -2796,7 +2796,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-06-19",
       "liquidationDate": "2029-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1089,
+      "daysToLiquidation": 1088,
       "trustValuePerShare": 2186.23,
       "liquidationValuePerShare": 2186.23,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -2921,7 +2921,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260608000232)"
     },
@@ -2945,7 +2945,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-23",
       "liquidationDate": "2029-04-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1032,
+      "daysToLiquidation": 1031,
       "trustValuePerShare": 2136.2,
       "liquidationValuePerShare": 2136.2,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -3290,7 +3290,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-04-14",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260413001537)"
     },
@@ -3314,7 +3314,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-06-05",
       "liquidationDate": "2029-06-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1075,
+      "daysToLiquidation": 1074,
       "trustValuePerShare": 2127.31,
       "liquidationValuePerShare": 2127.31,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -3499,7 +3499,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260521000518)"
     },
@@ -3523,7 +3523,7 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-30",
       "liquidationDate": "2029-04-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1039,
+      "daysToLiquidation": 1038,
       "trustValuePerShare": 2155.38,
       "liquidationValuePerShare": 2155.38,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -3838,7 +3838,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-04-20",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260417000093)"
     },
@@ -3862,7 +3862,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-28",
       "liquidationDate": "2028-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 886,
+      "daysToLiquidation": 885,
       "trustValuePerShare": 2126.72,
       "liquidationValuePerShare": 2126.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -4791,7 +4791,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251117000034)"
     },
@@ -4815,7 +4815,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-27",
       "liquidationDate": "2028-11-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 885,
+      "daysToLiquidation": 884,
       "trustValuePerShare": 2139.49,
       "liquidationValuePerShare": 2139.49,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -5748,7 +5748,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-17",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251114003075)"
     },
@@ -5772,7 +5772,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 827,
+      "daysToLiquidation": 826,
       "trustValuePerShare": 2128.49,
       "liquidationValuePerShare": 2128.49,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -6815,7 +6815,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000310)"
     },
@@ -6839,12 +6839,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-01",
       "liquidationDate": "2029-04-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1010,
+      "daysToLiquidation": 1009,
       "trustValuePerShare": 2155.82,
       "liquidationValuePerShare": 2155.82,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.39,
-      "annualizedReturn": 2.95,
+      "annualizedReturn": 2.96,
       "escrowRatePeriods": [
         {
           "startDate": "2026-03-19",
@@ -7280,7 +7280,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-03-19",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260318000201)"
     },
@@ -7304,12 +7304,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-04",
       "liquidationDate": "2028-07-04",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 739,
+      "daysToLiquidation": 738,
       "trustValuePerShare": 2219.74,
       "liquidationValuePerShare": 2219.74,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 11.49,
-      "annualizedReturn": 5.52,
+      "annualizedReturn": 5.53,
       "escrowRatePeriods": [
         {
           "startDate": "2025-06-24",
@@ -8345,7 +8345,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-06-24",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250623000080)"
     },
@@ -8369,7 +8369,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-23",
       "liquidationDate": "2028-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 911,
+      "daysToLiquidation": 910,
       "trustValuePerShare": 2139.62,
       "liquidationValuePerShare": 2139.62,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -9194,7 +9194,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-12",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251211000330)"
     },
@@ -9218,12 +9218,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-06",
       "liquidationDate": "2028-08-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 772,
+      "daysToLiquidation": 771,
       "trustValuePerShare": 2149.3,
       "liquidationValuePerShare": 2149.3,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 7.84,
-      "annualizedReturn": 3.63,
+      "annualizedReturn": 3.64,
       "escrowRatePeriods": [
         {
           "startDate": "2025-07-25",
@@ -10259,7 +10259,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-07-25",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250724000463)"
     },
@@ -10283,7 +10283,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 910,
+      "daysToLiquidation": 909,
       "trustValuePerShare": 2139.76,
       "liquidationValuePerShare": 2139.76,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -11114,7 +11114,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-10",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000372)"
     },
@@ -11138,12 +11138,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-21",
       "liquidationDate": "2028-08-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 787,
+      "daysToLiquidation": 786,
       "trustValuePerShare": 2153.47,
       "liquidationValuePerShare": 2153.47,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.0,
-      "annualizedReturn": 3.63,
+      "annualizedReturn": 3.64,
       "escrowRatePeriods": [
         {
           "startDate": "2025-08-11",
@@ -12182,7 +12182,7 @@ window.SPAC_DATA = {
           "escrowAmount: 패턴 미발견",
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250807000053)"
     },
@@ -12206,12 +12206,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-01-21",
       "liquidationDate": "2029-01-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 940,
+      "daysToLiquidation": 939,
       "trustValuePerShare": 2126.72,
       "liquidationValuePerShare": 2126.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.66,
-      "annualizedReturn": 2.53,
+      "annualizedReturn": 2.54,
       "escrowRatePeriods": [
         {
           "startDate": "2026-01-12",
@@ -12925,7 +12925,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260109000087)"
     },
@@ -12949,12 +12949,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 757,
+      "daysToLiquidation": 756,
       "trustValuePerShare": 2154.05,
       "liquidationValuePerShare": 2154.05,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.03,
-      "annualizedReturn": 3.79,
+      "annualizedReturn": 3.8,
       "escrowRatePeriods": [
         {
           "startDate": "2025-07-08",
@@ -13990,7 +13990,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-07-08",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250707000042)"
     },
@@ -14014,7 +14014,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-21",
       "liquidationDate": "2028-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 879,
+      "daysToLiquidation": 878,
       "trustValuePerShare": 2123.68,
       "liquidationValuePerShare": 2123.68,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -14971,7 +14971,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-11",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251110000259)"
     },
@@ -14995,12 +14995,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-04-02",
       "liquidationDate": "2029-04-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1011,
+      "daysToLiquidation": 1010,
       "trustValuePerShare": 2181.62,
       "liquidationValuePerShare": 2181.62,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 9.24,
-      "annualizedReturn": 3.24,
+      "annualizedReturn": 3.25,
       "escrowRatePeriods": [
         {
           "startDate": "2026-03-23",
@@ -15430,7 +15430,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-03-23",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260319000821)"
     },
@@ -15454,7 +15454,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-01",
       "liquidationDate": "2028-12-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 889,
+      "daysToLiquidation": 888,
       "trustValuePerShare": 2139.76,
       "liquidationValuePerShare": 2139.76,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -16375,7 +16375,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-19",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251118000265)"
     },
@@ -16399,7 +16399,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 910,
+      "daysToLiquidation": 909,
       "trustValuePerShare": 2149.16,
       "liquidationValuePerShare": 2149.16,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -17230,7 +17230,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-11",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000220)"
     },
@@ -17254,12 +17254,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 827,
+      "daysToLiquidation": 826,
       "trustValuePerShare": 2126.96,
       "liquidationValuePerShare": 2126.96,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.35,
-      "annualizedReturn": 2.75,
+      "annualizedReturn": 2.76,
       "escrowRatePeriods": [
         {
           "startDate": "2025-09-19",
@@ -18297,7 +18297,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000264)"
     },
@@ -18321,12 +18321,12 @@ window.SPAC_DATA = {
       "listingDate": "2026-03-27",
       "liquidationDate": "2029-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1005,
+      "daysToLiquidation": 1004,
       "trustValuePerShare": 2123.68,
       "liquidationValuePerShare": 2123.68,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.18,
-      "annualizedReturn": 2.2,
+      "annualizedReturn": 2.21,
       "escrowRatePeriods": [
         {
           "startDate": "2026-03-17",
@@ -18780,7 +18780,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-03-17",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20260316000201)"
     },
@@ -18804,7 +18804,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-11",
       "liquidationDate": "2028-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 899,
+      "daysToLiquidation": 898,
       "trustValuePerShare": 2187.22,
       "liquidationValuePerShare": 2187.22,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -19677,7 +19677,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000430)"
     },
@@ -19701,12 +19701,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-05-29",
       "liquidationDate": "2028-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 703,
+      "daysToLiquidation": 702,
       "trustValuePerShare": 2195.81,
       "liquidationValuePerShare": 2195.81,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 9.52,
-      "annualizedReturn": 4.83,
+      "annualizedReturn": 4.84,
       "escrowRatePeriods": [
         {
           "startDate": "2025-05-19",
@@ -20764,7 +20764,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250515000864)"
     },
@@ -20788,12 +20788,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-01-23",
       "liquidationDate": "2028-01-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 576,
+      "daysToLiquidation": 575,
       "trustValuePerShare": 2189.32,
       "liquidationValuePerShare": 2189.32,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 9.19,
-      "annualizedReturn": 5.73,
+      "annualizedReturn": 5.74,
       "escrowRatePeriods": [
         {
           "startDate": "2025-01-13",
@@ -21851,7 +21851,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250110000560)"
     },
@@ -21875,12 +21875,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 900,
+      "daysToLiquidation": 899,
       "trustValuePerShare": 2142.8,
       "liquidationValuePerShare": 2142.8,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.87,
-      "annualizedReturn": 2.73,
+      "annualizedReturn": 2.74,
       "escrowRatePeriods": [
         {
           "startDate": "2025-12-01",
@@ -22742,7 +22742,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-01",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251128002140)"
     },
@@ -22766,7 +22766,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-08-14",
       "liquidationDate": "2028-08-14",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 780,
+      "daysToLiquidation": 779,
       "trustValuePerShare": 2153.97,
       "liquidationValuePerShare": 2153.97,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -23807,7 +23807,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-08-05",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250731000309)"
     },
@@ -23831,12 +23831,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-28",
       "liquidationDate": "2027-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 520,
+      "daysToLiquidation": 519,
       "trustValuePerShare": 2190.39,
       "liquidationValuePerShare": 2190.39,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.97,
-      "annualizedReturn": 6.22,
+      "annualizedReturn": 6.23,
       "escrowRatePeriods": [
         {
           "startDate": "2024-11-18",
@@ -24894,7 +24894,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241115000128)"
     },
@@ -24918,12 +24918,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 757,
+      "daysToLiquidation": 756,
       "trustValuePerShare": 2187.76,
       "liquidationValuePerShare": 2187.76,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.84,
-      "annualizedReturn": 4.17,
+      "annualizedReturn": 4.18,
       "escrowRatePeriods": [
         {
           "startDate": "2025-07-10",
@@ -25959,7 +25959,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-07-10",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250709000268)"
     },
@@ -25983,7 +25983,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-11-24",
       "liquidationDate": "2028-11-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 882,
+      "daysToLiquidation": 881,
       "trustValuePerShare": 2154.26,
       "liquidationValuePerShare": 2154.26,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -26934,7 +26934,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-13",
         "extractedAt": "2026-06-13T20:24:13.393014+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251112000416)"
     },
@@ -26958,12 +26958,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-23",
       "liquidationDate": "2027-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 545,
+      "daysToLiquidation": 544,
       "trustValuePerShare": 2189.54,
       "liquidationValuePerShare": 2189.54,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.82,
-      "annualizedReturn": 5.83,
+      "annualizedReturn": 5.84,
       "escrowRatePeriods": [
         {
           "startDate": "2024-12-11",
@@ -28021,7 +28021,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000275)"
     },
@@ -28045,7 +28045,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 900,
+      "daysToLiquidation": 899,
       "trustValuePerShare": 2165.6,
       "liquidationValuePerShare": 2165.6,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -28912,7 +28912,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000394)"
     },
@@ -28936,12 +28936,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-12",
       "liquidationDate": "2027-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 534,
+      "daysToLiquidation": 533,
       "trustValuePerShare": 2168.69,
       "liquidationValuePerShare": 2168.69,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 7.36,
-      "annualizedReturn": 4.97,
+      "annualizedReturn": 4.98,
       "escrowRatePeriods": [
         {
           "startDate": "2024-12-02",
@@ -31541,7 +31541,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241129000608)"
     },
@@ -31565,12 +31565,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-21",
       "liquidationDate": "2027-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 513,
+      "daysToLiquidation": 512,
       "trustValuePerShare": 2186.0,
       "liquidationValuePerShare": 2186.0,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.22,
-      "annualizedReturn": 5.78,
+      "annualizedReturn": 5.79,
       "escrowRatePeriods": [
         {
           "startDate": "2024-11-11",
@@ -32628,7 +32628,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000142)"
     },
@@ -32652,12 +32652,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-20",
       "liquidationDate": "2027-12-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 542,
+      "daysToLiquidation": 541,
       "trustValuePerShare": 2218.27,
       "liquidationValuePerShare": 2218.27,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 9.82,
-      "annualizedReturn": 6.51,
+      "annualizedReturn": 6.52,
       "escrowRatePeriods": [
         {
           "startDate": "2024-12-16",
@@ -33693,7 +33693,7 @@ window.SPAC_DATA = {
         "paymentDate": "2024-12-16",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000541)"
     },
@@ -33717,12 +33717,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-08-13",
       "liquidationDate": "2027-08-13",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 413,
+      "daysToLiquidation": 412,
       "trustValuePerShare": 2174.98,
       "liquidationValuePerShare": 2174.98,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 7.41,
-      "annualizedReturn": 6.52,
+      "annualizedReturn": 6.53,
       "escrowRatePeriods": [
         {
           "startDate": "2024-08-01",
@@ -36824,7 +36824,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240731000498)"
     },
@@ -36848,7 +36848,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-05",
       "liquidationDate": "2028-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 893,
+      "daysToLiquidation": 892,
       "trustValuePerShare": 2187.58,
       "liquidationValuePerShare": 2187.58,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -37745,7 +37745,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-24",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251121000115)"
     },
@@ -37769,12 +37769,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-21",
       "liquidationDate": "2027-06-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 360,
+      "daysToLiquidation": 359,
       "trustValuePerShare": 2168.08,
       "liquidationValuePerShare": 2168.08,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.8,
-      "annualizedReturn": 6.9,
+      "annualizedReturn": 6.92,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-11",
@@ -38854,7 +38854,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240610000163)"
     },
@@ -38878,12 +38878,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-09-25",
       "liquidationDate": "2027-09-25",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 456,
+      "daysToLiquidation": 455,
       "trustValuePerShare": 2156.75,
       "liquidationValuePerShare": 2156.75,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.24,
-      "annualizedReturn": 4.97,
+      "annualizedReturn": 4.98,
       "escrowRatePeriods": [
         {
           "startDate": "2024-09-10",
@@ -39943,7 +39943,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240909000034)"
     },
@@ -39967,12 +39967,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 363,
+      "daysToLiquidation": 362,
       "trustValuePerShare": 2195.2,
       "liquidationValuePerShare": 2195.2,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.14,
-      "annualizedReturn": 8.18,
+      "annualizedReturn": 8.21,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-14",
@@ -41052,7 +41052,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000179)"
     },
@@ -41076,12 +41076,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-07-12",
       "liquidationDate": "2027-07-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 381,
+      "daysToLiquidation": 380,
       "trustValuePerShare": 2171.53,
       "liquidationValuePerShare": 2171.53,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.97,
-      "annualizedReturn": 6.67,
+      "annualizedReturn": 6.69,
       "escrowRatePeriods": [
         {
           "startDate": "2024-07-05",
@@ -42139,7 +42139,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240701000551)"
     },
@@ -42163,12 +42163,12 @@ window.SPAC_DATA = {
       "listingDate": "2025-03-20",
       "liquidationDate": "2028-03-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 633,
+      "daysToLiquidation": 632,
       "trustValuePerShare": 2195.01,
       "liquidationValuePerShare": 2195.01,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 8.13,
-      "annualizedReturn": 4.61,
+      "annualizedReturn": 4.62,
       "escrowRatePeriods": [
         {
           "startDate": "2025-03-11",
@@ -43226,7 +43226,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20250310000156)"
     },
@@ -43250,12 +43250,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-15",
       "liquidationDate": "2027-11-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 507,
+      "daysToLiquidation": 506,
       "trustValuePerShare": 2175.28,
       "liquidationValuePerShare": 2175.28,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.89,
-      "annualizedReturn": 4.92,
+      "annualizedReturn": 4.93,
       "escrowRatePeriods": [
         {
           "startDate": "2024-11-05",
@@ -44313,7 +44313,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241104000200)"
     },
@@ -44337,12 +44337,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-10-31",
       "liquidationDate": "2027-10-31",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 492,
+      "daysToLiquidation": 491,
       "trustValuePerShare": 2168.75,
       "liquidationValuePerShare": 2168.75,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.57,
-      "annualizedReturn": 4.84,
+      "annualizedReturn": 4.85,
       "escrowRatePeriods": [
         {
           "startDate": "2024-10-22",
@@ -45400,7 +45400,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241021000312)"
     },
@@ -45424,12 +45424,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-12-11",
       "liquidationDate": "2027-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 533,
+      "daysToLiquidation": 532,
       "trustValuePerShare": 2192.59,
       "liquidationValuePerShare": 2192.59,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 7.74,
-      "annualizedReturn": 5.24,
+      "annualizedReturn": 5.25,
       "escrowRatePeriods": [
         {
           "startDate": "2024-12-02",
@@ -46487,7 +46487,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241128000624)"
     },
@@ -46511,12 +46511,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-19",
       "liquidationDate": "2027-11-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 511,
+      "daysToLiquidation": 510,
       "trustValuePerShare": 2156.22,
       "liquidationValuePerShare": 2156.22,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.96,
-      "annualizedReturn": 4.22,
+      "annualizedReturn": 4.23,
       "escrowRatePeriods": [
         {
           "startDate": "2024-11-07",
@@ -47574,7 +47574,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000097)"
     },
@@ -47598,12 +47598,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 363,
+      "daysToLiquidation": 362,
       "trustValuePerShare": 2171.87,
       "liquidationValuePerShare": 2171.87,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.46,
-      "annualizedReturn": 6.5,
+      "annualizedReturn": 6.52,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-13",
@@ -48681,7 +48681,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240611000366)"
     },
@@ -48706,8 +48706,8 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2107.33,
-      "liquidationValuePerShare": 2107.33,
+      "trustValuePerShare": 2107.46,
+      "liquidationValuePerShare": 2107.46,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 3.05,
       "annualizedReturn": null,
@@ -49754,7 +49754,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240712000044)"
     },
@@ -49778,12 +49778,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-26",
       "liquidationDate": "2027-06-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 365,
+      "daysToLiquidation": 364,
       "trustValuePerShare": 2161.54,
       "liquidationValuePerShare": 2161.54,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.7,
-      "annualizedReturn": 5.7,
+      "annualizedReturn": 5.71,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-17",
@@ -50841,7 +50841,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240613000091)"
     },
@@ -50866,10 +50866,10 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2130.78,
-      "liquidationValuePerShare": 2130.78,
+      "trustValuePerShare": 2130.94,
+      "liquidationValuePerShare": 2130.94,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 3.94,
+      "expectedReturn": 3.95,
       "annualizedReturn": null,
       "escrowRatePeriods": [
         {
@@ -54231,7 +54231,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240530001411)"
     },
@@ -54255,12 +54255,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-05-02",
       "liquidationDate": "2027-05-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 310,
+      "daysToLiquidation": 309,
       "trustValuePerShare": 2183.68,
       "liquidationValuePerShare": 2183.68,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 6.52,
-      "annualizedReturn": 7.72,
+      "annualizedReturn": 7.75,
       "escrowRatePeriods": [
         {
           "startDate": "2024-04-22",
@@ -55338,7 +55338,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240419000364)"
     },
@@ -55362,12 +55362,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-05-29",
       "liquidationDate": "2027-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 337,
+      "daysToLiquidation": 336,
       "trustValuePerShare": 2171.57,
       "liquidationValuePerShare": 2171.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.67,
-      "annualizedReturn": 6.16,
+      "annualizedReturn": 6.18,
       "escrowRatePeriods": [
         {
           "startDate": "2024-05-20",
@@ -56445,7 +56445,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240517000260)"
     },
@@ -56469,12 +56469,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-09-11",
       "liquidationDate": "2027-09-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 442,
+      "daysToLiquidation": 441,
       "trustValuePerShare": 2161.99,
       "liquidationValuePerShare": 2161.99,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.21,
-      "annualizedReturn": 4.28,
+      "annualizedReturn": 4.29,
       "escrowRatePeriods": [
         {
           "startDate": "2024-09-02",
@@ -59291,7 +59291,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240829001549)"
     },
@@ -59315,12 +59315,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-11-20",
       "liquidationDate": "2027-11-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 512,
+      "daysToLiquidation": 511,
       "trustValuePerShare": 2179.38,
       "liquidationValuePerShare": 2179.38,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.8,
-      "annualizedReturn": 4.1,
+      "annualizedReturn": 4.11,
       "escrowRatePeriods": [
         {
           "startDate": "2024-11-11",
@@ -60380,7 +60380,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20241107000228)"
     },
@@ -60405,10 +60405,10 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2127.65,
-      "liquidationValuePerShare": 2127.65,
+      "trustValuePerShare": 2127.83,
+      "liquidationValuePerShare": 2127.83,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 3.28,
+      "expectedReturn": 3.29,
       "annualizedReturn": null,
       "escrowRatePeriods": [
         {
@@ -61463,7 +61463,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240422000014)"
     },
@@ -61487,12 +61487,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-24",
       "liquidationDate": "2027-04-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 302,
+      "daysToLiquidation": 301,
       "trustValuePerShare": 2175.81,
       "liquidationValuePerShare": 2175.81,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.62,
-      "annualizedReturn": 6.83,
+      "annualizedReturn": 6.86,
       "escrowRatePeriods": [
         {
           "startDate": "2024-04-15",
@@ -62570,7 +62570,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240412003503)"
     },
@@ -62594,12 +62594,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-15",
       "liquidationDate": "2027-04-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 293,
+      "daysToLiquidation": 292,
       "trustValuePerShare": 2168.72,
       "liquidationValuePerShare": 2168.72,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.02,
-      "annualizedReturn": 6.3,
+      "annualizedReturn": 6.32,
       "escrowRatePeriods": [
         {
           "startDate": "2024-04-02",
@@ -66131,7 +66131,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240401001215)"
     },
@@ -66156,8 +66156,8 @@ window.SPAC_DATA = {
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2145.26,
-      "liquidationValuePerShare": 2145.26,
+      "trustValuePerShare": 2145.43,
+      "liquidationValuePerShare": 2145.43,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 3.64,
       "annualizedReturn": null,
@@ -67214,7 +67214,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219001008)"
     },
@@ -67238,12 +67238,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-03-05",
       "liquidationDate": "2027-03-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 252,
+      "daysToLiquidation": 251,
       "trustValuePerShare": 2171.54,
       "liquidationValuePerShare": 2171.54,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 4.91,
-      "annualizedReturn": 7.18,
+      "annualizedReturn": 7.21,
       "escrowRatePeriods": [
         {
           "startDate": "2024-02-22",
@@ -68321,7 +68321,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240221001641)"
     },
@@ -68345,12 +68345,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 247,
+      "daysToLiquidation": 246,
       "trustValuePerShare": 2194.87,
       "liquidationValuePerShare": 2194.87,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.78,
-      "annualizedReturn": 8.65,
+      "annualizedReturn": 8.69,
       "escrowRatePeriods": [
         {
           "startDate": "2024-02-20",
@@ -69428,7 +69428,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219000516)"
     },
@@ -69452,12 +69452,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-06-19",
       "liquidationDate": "2027-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 358,
+      "daysToLiquidation": 357,
       "trustValuePerShare": 2171.57,
       "liquidationValuePerShare": 2171.57,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 4.4,
-      "annualizedReturn": 4.49,
+      "annualizedReturn": 4.5,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-10",
@@ -70535,7 +70535,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000402)"
     },
@@ -70559,12 +70559,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-07-26",
       "liquidationDate": "2027-07-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 395,
+      "daysToLiquidation": 394,
       "trustValuePerShare": 2162.95,
       "liquidationValuePerShare": 2162.95,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 3.99,
-      "annualizedReturn": 3.68,
+      "annualizedReturn": 3.69,
       "escrowRatePeriods": [
         {
           "startDate": "2024-07-16",
@@ -71622,7 +71622,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240715000198)"
     },
@@ -71646,12 +71646,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 247,
+      "daysToLiquidation": 246,
       "trustValuePerShare": 2184.21,
       "liquidationValuePerShare": 2184.21,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 5.01,
-      "annualizedReturn": 7.49,
+      "annualizedReturn": 7.52,
       "escrowRatePeriods": [
         {
           "startDate": "2024-02-19",
@@ -72729,7 +72729,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240216000272)"
     },
@@ -72753,12 +72753,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-03-27",
       "liquidationDate": "2027-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 274,
+      "daysToLiquidation": 273,
       "trustValuePerShare": 2175.81,
       "liquidationValuePerShare": 2175.81,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 4.61,
-      "annualizedReturn": 6.18,
+      "annualizedReturn": 6.21,
       "escrowRatePeriods": [
         {
           "startDate": "2024-03-18",
@@ -73836,7 +73836,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240315000448)"
     },
@@ -73860,12 +73860,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-04-22",
       "liquidationDate": "2027-04-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 300,
+      "daysToLiquidation": 299,
       "trustValuePerShare": 2180.18,
       "liquidationValuePerShare": 2180.18,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 4.57,
-      "annualizedReturn": 5.58,
+      "annualizedReturn": 5.6,
       "escrowRatePeriods": [
         {
           "startDate": "2024-04-11",
@@ -74943,7 +74943,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240408004008)"
     },
@@ -74967,12 +74967,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-01-24",
       "liquidationDate": "2027-01-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 212,
+      "daysToLiquidation": 211,
       "trustValuePerShare": 2182.88,
       "liquidationValuePerShare": 2182.88,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 4.44,
-      "annualizedReturn": 7.77,
+      "annualizedReturn": 7.81,
       "escrowRatePeriods": [
         {
           "startDate": "2024-01-15",
@@ -76052,7 +76052,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240112000195)"
     },
@@ -76076,12 +76076,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-06",
       "liquidationDate": "2027-02-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 225,
+      "daysToLiquidation": 224,
       "trustValuePerShare": 2187.48,
       "liquidationValuePerShare": 2187.48,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 4.66,
-      "annualizedReturn": 7.68,
+      "annualizedReturn": 7.71,
       "escrowRatePeriods": [
         {
           "startDate": "2024-01-25",
@@ -77179,7 +77179,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240124000304)"
     },
@@ -77203,12 +77203,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 179,
+      "daysToLiquidation": 178,
       "trustValuePerShare": 2179.09,
       "liquidationValuePerShare": 2179.09,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 3.52,
-      "annualizedReturn": 7.31,
+      "annualizedReturn": 7.35,
       "escrowRatePeriods": [
         {
           "startDate": "2023-12-12",
@@ -78286,7 +78286,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20231211000138)"
     },
@@ -78310,12 +78310,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-22",
       "liquidationDate": "2026-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 179,
+      "daysToLiquidation": 178,
       "trustValuePerShare": 2179.7,
       "liquidationValuePerShare": 2179.7,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 3.55,
-      "annualizedReturn": 7.37,
+      "annualizedReturn": 7.41,
       "escrowRatePeriods": [
         {
           "startDate": "2023-12-13",
@@ -79393,7 +79393,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20231212000202)"
     },
@@ -79417,12 +79417,12 @@ window.SPAC_DATA = {
       "listingDate": "2024-02-01",
       "liquidationDate": "2027-02-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 220,
+      "daysToLiquidation": 219,
       "trustValuePerShare": 2173.33,
       "liquidationValuePerShare": 2173.33,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": 2.03,
-      "annualizedReturn": 3.4,
+      "annualizedReturn": 3.41,
       "escrowRatePeriods": [
         {
           "startDate": "2024-01-23",
@@ -83102,7 +83102,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20240119000323)"
     },
@@ -83126,7 +83126,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-15",
       "liquidationDate": "2028-12-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 903,
+      "daysToLiquidation": 902,
       "trustValuePerShare": 2160.0,
       "liquidationValuePerShare": 2160.0,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -83989,7 +83989,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251202000413)"
     },
@@ -84013,7 +84013,7 @@ window.SPAC_DATA = {
       "listingDate": "2025-12-19",
       "liquidationDate": "2028-12-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 907,
+      "daysToLiquidation": 906,
       "trustValuePerShare": 2126.84,
       "liquidationValuePerShare": 2126.84,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
@@ -84850,7 +84850,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-09",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20251208000119)"
     },
@@ -84874,12 +84874,12 @@ window.SPAC_DATA = {
       "listingDate": "2023-12-05",
       "liquidationDate": "2026-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 162,
+      "daysToLiquidation": 161,
       "trustValuePerShare": 2202.42,
       "liquidationValuePerShare": 2202.42,
       "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
       "expectedReturn": -5.68,
-      "annualizedReturn": -12.34,
+      "annualizedReturn": -12.41,
       "escrowRatePeriods": [
         {
           "startDate": "2023-11-23",
@@ -89025,7 +89025,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-06-26T18:59:15.105354+09:00"
+        "trustRateChangeScannedAt": "2026-06-27T18:12:59.911044+09:00"
       },
       "ipoPriceSource": "증권신고서(20231122000325)"
     }
@@ -89033,7 +89033,7 @@ window.SPAC_DATA = {
   "errors": {
     "filings": {
       "trustRateChanges": {
-        "482520": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out."
+        "0072Z0": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out."
       }
     },
     "quote": {},
