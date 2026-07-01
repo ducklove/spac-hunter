@@ -1,6 +1,56 @@
 {
-  "generatedAt": "2026-06-30T19:08:14.318976+09:00",
+  "generatedAt": "2026-07-01T19:30:52.211026+09:00",
   "alerts": [
+    {
+      "id": "2026-07-01|below_ipo_enter|0093G0",
+      "date": "2026-07-01",
+      "type": "below_ipo_enter",
+      "code": "0093G0",
+      "name": "미래에셋비전스팩8호",
+      "title": "미래에셋비전스팩8호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9965 (현재가 1,993)",
+      "url": "https://finance.naver.com/item/main.naver?code=0093G0"
+    },
+    {
+      "id": "2026-07-01|below_ipo_enter|0096B0",
+      "date": "2026-07-01",
+      "type": "below_ipo_enter",
+      "code": "0096B0",
+      "name": "삼성스팩12호",
+      "title": "삼성스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9985 (현재가 1,997)",
+      "url": "https://finance.naver.com/item/main.naver?code=0096B0"
+    },
+    {
+      "id": "2026-07-01|below_ipo_enter|0096D0",
+      "date": "2026-07-01",
+      "type": "below_ipo_enter",
+      "code": "0096D0",
+      "name": "미래에셋비전스팩9호",
+      "title": "미래에셋비전스팩9호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0050 → 0.9995 (현재가 1,999)",
+      "url": "https://finance.naver.com/item/main.naver?code=0096D0"
+    },
+    {
+      "id": "2026-07-01|below_ipo_exit|0068Y0",
+      "date": "2026-07-01",
+      "type": "below_ipo_exit",
+      "code": "0068Y0",
+      "name": "비엔케이제3호스팩",
+      "title": "비엔케이제3호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9950 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0068Y0"
+    },
+    {
+      "id": "2026-07-01|merger_applied|468760",
+      "date": "2026-07-01",
+      "type": "merger_applied",
+      "code": "468760",
+      "name": "유진스팩10호",
+      "title": "유진스팩10호 합병 신청 공시",
+      "detail": "[첨부정정]주요사항보고서(회사합병결정), 공시일 기준가 2,080, 공모가 대비 1.0400배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000046"
+    },
     {
       "id": "2026-06-30|below_ipo_exit|0037T0",
       "date": "2026-06-30",
