@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-07-02T18:44:28.492047+09:00",
+  "generatedAt": "2026-07-03T18:43:06.210453+09:00",
   "alerts": [
+    {
+      "id": "2026-07-03|below_ipo_enter|0115H0",
+      "date": "2026-07-03",
+      "type": "below_ipo_enter",
+      "code": "0115H0",
+      "name": "삼성스팩13호",
+      "title": "삼성스팩13호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9985 (현재가 1,997)",
+      "url": "https://finance.naver.com/item/main.naver?code=0115H0"
+    },
     {
       "id": "2026-07-02|below_ipo_enter|0037T0",
       "date": "2026-07-02",
