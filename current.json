@@ -1,6 +1,6 @@
 {
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-07-03 18:43:06 KST",
+  "lastUpdated": "2026-07-04 18:06:09 KST",
   "rateAssumption": {
     "annualRate": 0.02506,
     "annualRatePct": 2.506,
@@ -30,7 +30,7 @@
     "mergerEventCount": 43,
     "recentListingCount": 8,
     "averageRatio": 1.0187,
-    "averageAnnualizedReturn": 4.33,
+    "averageAnnualizedReturn": 4.34,
     "cheapest": {
       "code": "0164H0",
       "name": "한국제16호스팩",
@@ -40,7 +40,7 @@
     "bestYield": {
       "code": "473050",
       "name": "유안타제15호스팩",
-      "annualizedReturn": 8.52,
+      "annualizedReturn": 8.56,
       "currentPrice": 2080
     }
   },
@@ -51,7 +51,7 @@
       "ipoPrice": 2000,
       "ratio": 0.9725,
       "premiumPct": -2.75,
-      "annualizedReturn": 3.99,
+      "annualizedReturn": 4.0,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -64,7 +64,7 @@
       "ipoPrice": 2000,
       "ratio": 0.973,
       "premiumPct": -2.7,
-      "annualizedReturn": 4.0,
+      "annualizedReturn": 4.01,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -77,7 +77,7 @@
       "ipoPrice": 2000,
       "ratio": 0.9845,
       "premiumPct": -1.55,
-      "annualizedReturn": 2.94,
+      "annualizedReturn": 2.95,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -155,7 +155,7 @@
       "ipoPrice": 2000,
       "ratio": 0.996,
       "premiumPct": -0.4,
-      "annualizedReturn": 2.75,
+      "annualizedReturn": 2.76,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -194,7 +194,7 @@
       "ipoPrice": 2000,
       "ratio": 0.9975,
       "premiumPct": -0.25,
-      "annualizedReturn": 4.9,
+      "annualizedReturn": 4.91,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -246,7 +246,7 @@
       "ipoPrice": 2000,
       "ratio": 0.9985,
       "premiumPct": -0.15,
-      "annualizedReturn": 2.49,
+      "annualizedReturn": 2.5,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -259,7 +259,7 @@
       "ipoPrice": 2000,
       "ratio": 0.9995,
       "premiumPct": -0.05,
-      "annualizedReturn": 3.54,
+      "annualizedReturn": 3.55,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -272,7 +272,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0,
       "premiumPct": 0.0,
-      "annualizedReturn": 4.46,
+      "annualizedReturn": 4.47,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -324,7 +324,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0025,
       "premiumPct": 0.25,
-      "annualizedReturn": 2.66,
+      "annualizedReturn": 2.67,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -337,7 +337,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0025,
       "premiumPct": 0.25,
-      "annualizedReturn": 4.88,
+      "annualizedReturn": 4.89,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -363,7 +363,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0035,
       "premiumPct": 0.35,
-      "annualizedReturn": 3.32,
+      "annualizedReturn": 3.33,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -376,7 +376,7 @@
       "ipoPrice": 2000,
       "ratio": 1.005,
       "premiumPct": 0.5,
-      "annualizedReturn": 6.24,
+      "annualizedReturn": 6.25,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -389,7 +389,7 @@
       "ipoPrice": 2000,
       "ratio": 1.005,
       "premiumPct": 0.5,
-      "annualizedReturn": 3.09,
+      "annualizedReturn": 3.1,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -415,7 +415,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0075,
       "premiumPct": 0.75,
-      "annualizedReturn": 5.22,
+      "annualizedReturn": 5.23,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -428,7 +428,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0075,
       "premiumPct": 0.75,
-      "annualizedReturn": 5.47,
+      "annualizedReturn": 5.48,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -441,7 +441,7 @@
       "ipoPrice": 2000,
       "ratio": 1.01,
       "premiumPct": 1.0,
-      "annualizedReturn": 6.87,
+      "annualizedReturn": 6.89,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접",
@@ -455,7 +455,7 @@
       "ipoPrice": 2000,
       "ratio": 1.01,
       "premiumPct": 1.0,
-      "annualizedReturn": 5.93,
+      "annualizedReturn": 5.94,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -481,7 +481,7 @@
       "ipoPrice": 2000,
       "ratio": 1.01,
       "premiumPct": 1.0,
-      "annualizedReturn": 5.62,
+      "annualizedReturn": 5.63,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -494,7 +494,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0125,
       "premiumPct": 1.25,
-      "annualizedReturn": 5.26,
+      "annualizedReturn": 5.27,
       "status": "일반",
       "badges": [
         "일반"
@@ -507,7 +507,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0125,
       "premiumPct": 1.25,
-      "annualizedReturn": 3.23,
+      "annualizedReturn": 3.24,
       "status": "일반",
       "badges": [
         "일반"
@@ -520,7 +520,7 @@
       "ipoPrice": 2000,
       "ratio": 1.015,
       "premiumPct": 1.5,
-      "annualizedReturn": 6.24,
+      "annualizedReturn": 6.25,
       "status": "일반",
       "badges": [
         "일반"
@@ -533,7 +533,7 @@
       "ipoPrice": 2000,
       "ratio": 1.015,
       "premiumPct": 1.5,
-      "annualizedReturn": 4.66,
+      "annualizedReturn": 4.67,
       "status": "일반",
       "badges": [
         "일반"
@@ -572,7 +572,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0175,
       "premiumPct": 1.75,
-      "annualizedReturn": 8.08,
+      "annualizedReturn": 8.1,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -585,7 +585,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0175,
       "premiumPct": 1.75,
-      "annualizedReturn": 4.91,
+      "annualizedReturn": 4.92,
       "status": "일반",
       "badges": [
         "일반"
@@ -598,7 +598,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0175,
       "premiumPct": 1.75,
-      "annualizedReturn": 6.54,
+      "annualizedReturn": 6.56,
       "status": "일반",
       "badges": [
         "일반"
@@ -611,7 +611,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0175,
       "premiumPct": 1.75,
-      "annualizedReturn": 4.28,
+      "annualizedReturn": 4.29,
       "status": "일반",
       "badges": [
         "일반"
@@ -624,7 +624,7 @@
       "ipoPrice": 2000,
       "ratio": 1.02,
       "premiumPct": 2.0,
-      "annualizedReturn": 6.5,
+      "annualizedReturn": 6.52,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -637,7 +637,7 @@
       "ipoPrice": 2000,
       "ratio": 1.02,
       "premiumPct": 2.0,
-      "annualizedReturn": 6.63,
+      "annualizedReturn": 6.65,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -650,7 +650,7 @@
       "ipoPrice": 2000,
       "ratio": 1.02,
       "premiumPct": 2.0,
-      "annualizedReturn": 4.8,
+      "annualizedReturn": 4.81,
       "status": "일반",
       "badges": [
         "일반"
@@ -663,7 +663,7 @@
       "ipoPrice": 2000,
       "ratio": 1.02,
       "premiumPct": 2.0,
-      "annualizedReturn": 6.08,
+      "annualizedReturn": 6.1,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -676,7 +676,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0225,
       "premiumPct": 2.25,
-      "annualizedReturn": 8.22,
+      "annualizedReturn": 8.25,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -689,7 +689,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0225,
       "premiumPct": 2.25,
-      "annualizedReturn": 4.95,
+      "annualizedReturn": 4.96,
       "status": "일반",
       "badges": [
         "일반"
@@ -702,7 +702,7 @@
       "ipoPrice": 2000,
       "ratio": 1.025,
       "premiumPct": 2.5,
-      "annualizedReturn": 7.45,
+      "annualizedReturn": 7.48,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -715,7 +715,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0275,
       "premiumPct": 2.75,
-      "annualizedReturn": 4.35,
+      "annualizedReturn": 4.36,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -768,7 +768,7 @@
       "ipoPrice": 2000,
       "ratio": 1.03,
       "premiumPct": 3.0,
-      "annualizedReturn": 7.0,
+      "annualizedReturn": 7.03,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -781,7 +781,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0325,
       "premiumPct": 3.25,
-      "annualizedReturn": 7.78,
+      "annualizedReturn": 7.82,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -794,7 +794,7 @@
       "ipoPrice": 2000,
       "ratio": 1.035,
       "premiumPct": 3.5,
-      "annualizedReturn": 5.44,
+      "annualizedReturn": 5.46,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -820,7 +820,7 @@
       "ipoPrice": 2000,
       "ratio": 1.035,
       "premiumPct": 3.5,
-      "annualizedReturn": 4.22,
+      "annualizedReturn": 4.23,
       "status": "일반",
       "badges": [
         "일반"
@@ -833,7 +833,7 @@
       "ipoPrice": 2000,
       "ratio": 1.04,
       "premiumPct": 4.0,
-      "annualizedReturn": 8.52,
+      "annualizedReturn": 8.56,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -846,7 +846,7 @@
       "ipoPrice": 2000,
       "ratio": 1.04,
       "premiumPct": 4.0,
-      "annualizedReturn": 7.72,
+      "annualizedReturn": 7.75,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -861,7 +861,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0425,
       "premiumPct": 4.25,
-      "annualizedReturn": 6.0,
+      "annualizedReturn": 6.02,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -874,7 +874,7 @@
       "ipoPrice": 2000,
       "ratio": 1.045,
       "premiumPct": 4.5,
-      "annualizedReturn": 4.06,
+      "annualizedReturn": 4.07,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -887,7 +887,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0475,
       "premiumPct": 4.75,
-      "annualizedReturn": 5.09,
+      "annualizedReturn": 5.11,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -900,7 +900,7 @@
       "ipoPrice": 2000,
       "ratio": 1.05,
       "premiumPct": 5.0,
-      "annualizedReturn": 7.14,
+      "annualizedReturn": 7.17,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -913,7 +913,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0525,
       "premiumPct": 5.25,
-      "annualizedReturn": 6.65,
+      "annualizedReturn": 6.68,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -926,7 +926,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0525,
       "premiumPct": 5.25,
-      "annualizedReturn": 7.68,
+      "annualizedReturn": 7.73,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -939,7 +939,7 @@
       "ipoPrice": 2000,
       "ratio": 1.055,
       "premiumPct": 5.5,
-      "annualizedReturn": 7.08,
+      "annualizedReturn": 7.12,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -952,7 +952,7 @@
       "ipoPrice": 2000,
       "ratio": 1.065,
       "premiumPct": 6.5,
-      "annualizedReturn": 3.51,
+      "annualizedReturn": 3.53,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -994,7 +994,7 @@
       "ipoPrice": 2000,
       "ratio": 1.1675,
       "premiumPct": 16.75,
-      "annualizedReturn": -12.86,
+      "annualizedReturn": -12.94,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
