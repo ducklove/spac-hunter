@@ -12,7 +12,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 
-from . import alerts, archive, filings
+from . import alerts, archive, filings, postmerger
 from .constants import (
     ALERTS_JSON_PATH,
     ALERTS_XML_PATH,
@@ -415,6 +415,26 @@ def _run_live(args) -> None:
         generated_at,
     )
 
+    # 합병 신상장 이후 주가 추적: write_outputs보다 먼저 실행해 통계
+    # (statistics.postMergerFlow)에 이번 갱신분이 반영되게 한다.
+    # 실패해도 파이프라인은 계속 간다(아카이브는 기존 데이터 그대로).
+    post_merger_changed = False
+    try:
+        post_merger_changed, post_merger_errors = postmerger.track_post_merger(
+            archive_spacs,
+            overrides,
+            generated_at,
+            history_pages=args.history_pages,
+        )
+        if post_merger_errors:
+            errors["postMerger"] = post_merger_errors
+        tracked = sum(1 for entry in archive_spacs if entry.get("postMerger"))
+        if tracked:
+            logger.info("post-merger tracking: %d archived SPACs", tracked)
+    except Exception as exc:  # noqa: BLE001
+        errors["postMerger"] = {"fatal": str(exc)}
+        logger.warning("합병 후 주가 추적 실패: %s", exc)
+
     write_outputs(
         generated_at,
         spacs,
@@ -429,7 +449,7 @@ def _run_live(args) -> None:
     )
     logger.info("written %s, %s: %d SPACs", DATA_JS_PATH.name, CURRENT_JSON_PATH.name, len(spacs))
 
-    if newly_archived or len(archive_spacs) != len(previous_archive):
+    if newly_archived or len(archive_spacs) != len(previous_archive) or post_merger_changed:
         archive.write_archive(archive_spacs, generated_at)
         logger.info(
             "written %s: %d archived SPACs (%d newly archived)",

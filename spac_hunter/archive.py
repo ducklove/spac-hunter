@@ -27,6 +27,7 @@ def _archive_entry(spac, existing_last_updated, archived_at):
         "name": spac.get("name"),
         "sponsor": spac.get("sponsor"),
         "listingDate": spac.get("listingDate"),
+        "ipoPrice": spac.get("ipoPrice"),
         "mergerStatus": merger_status,
         "mergerPriceRecords": spac.get("mergerPriceRecords") or [],
         "finalPrice": spac.get("currentPrice"),

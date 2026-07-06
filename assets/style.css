@@ -1494,6 +1494,13 @@ td.spark-cell {
   font-size: 11px;
 }
 
+.archive-postmerger {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
 .archive-side {
   text-align: right;
 }
@@ -1515,6 +1522,39 @@ td.spark-cell {
 
 @media (max-width: 1180px) {
   .stats-panels.has-archive {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stats-panels.has-postmerger {
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+.postmerger-table td.spark-cell {
+  width: 118px;
+}
+
+.pm-name {
+  font-size: 12px;
+  font-weight: 740;
+  overflow-wrap: anywhere;
+}
+
+.pm-arrow {
+  color: var(--faint);
+  font-weight: 400;
+}
+
+.pm-sub {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) {
+  .stats-panels.has-postmerger {
     grid-template-columns: 1fr;
   }
 }

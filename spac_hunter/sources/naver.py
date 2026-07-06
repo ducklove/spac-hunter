@@ -18,6 +18,7 @@ def fetch_naver_quote(code):
     trade_stop = data.get("tradeStopType") or {}
     return {
         "code": code,
+        "name": data.get("stockName") or None,
         "price": parse_int(data.get("closePriceRaw") or data.get("closePrice")),
         "change": parse_int(
             data.get("compareToPreviousClosePriceRaw") or data.get("compareToPreviousClosePrice")

@@ -472,18 +472,25 @@
     const recent = (Array.isArray(archive.recent) ? archive.recent : [])
       .filter(row => row && typeof row === 'object')
       .slice(0, 8);
-    const rowsHtml = recent.map(row => `
+    const rowsHtml = recent.map(row => {
+      const pm = row.postMerger;
+      const pmLine = pm && pm.price != null
+        ? `<div class="archive-postmerger">합병 후 ${escapeHtml(pm.name || pm.code || '')} ${escapeHtml(money(pm.price))} <span class="${directionClass(pm.returnVsFinalPct)}">${escapeHtml(signedPct(pm.returnVsFinalPct))}</span></div>`
+        : '';
+      return `
       <div class="archive-row">
         <div class="archive-main">
           <div class="archive-name">${escapeHtml(row.name || '-')} <span class="code">${escapeHtml(row.code || '')}</span></div>
           <div class="archive-reason">${escapeHtml(row.mergerStatus || row.delistReasonGuess || '사유 미상')}</div>
+          ${pmLine}
         </div>
         <div class="archive-side">
           <div class="archive-date">${escapeHtml(dateText(row.lastSeen))}</div>
           <div class="archive-price">${escapeHtml(money(row.finalPrice))}</div>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
 
     const panel = document.createElement('article');
     panel.className = 'stats-panel';
@@ -502,6 +509,93 @@
       </div>
     `;
     wrap.appendChild(panel);
+  }
+
+  /* ---------- 합병 후 주가 흐름 패널 ----------
+     statistics.postMergerFlow는 다음 데이터 갱신부터 존재한다.
+     entries가 있을 때만 패널을 만들고, 부재/0이면 DOM 자체를 만들지 않는다.
+     스파크라인은 스팩 최종가를 1.00x 기준선으로 하는 합병 후 가격 비율이다. */
+  function renderPostMergerPanel() {
+    const wrap = document.getElementById('statsPanels');
+    if (!wrap) return;
+    const existing = document.getElementById('postMergerPanel');
+    if (existing) existing.remove();
+    const flow = (data.statistics || {}).postMergerFlow;
+    const entries = flow && Array.isArray(flow.entries)
+      ? flow.entries.filter(row => row && typeof row === 'object' && row.code)
+      : [];
+    wrap.classList.toggle('has-postmerger', entries.length > 0);
+    if (!entries.length) return;
+
+    const statusLabels = {
+      tracking: '추적중',
+      halted: '거래정지',
+      unavailable: '시세 미확인',
+      ended: '추적 종료'
+    };
+    const summaryParts = [];
+    if (Number(flow.trackedCount) > 0) {
+      summaryParts.push(`최종가 대비 평균 ${signedPct(flow.avgReturnVsFinalPct)}`);
+      if (flow.winRatePct != null) summaryParts.push(`상승 ${pct(flow.winRatePct, 0)}`);
+    }
+
+    const rowsHtml = entries.slice(0, 8).map(row => {
+      const converted = row.name && row.name !== row.spacName;
+      const newName = converted ? row.name : '신상장 전환 대기';
+      const sparkCell = Array.isArray(row.spark) && row.spark.length >= 2
+        ? `<canvas class="spark" width="110" height="26" data-pm-spark="${escapeHtml(row.spacCode)}" aria-label="합병 후 가격 흐름(스팩 최종가=1.00x)"></canvas>`
+        : '<span class="pm-sub">-</span>';
+      return `
+        <tr>
+          <td>
+            <div class="pm-name">${escapeHtml(row.spacName || '-')} <span class="pm-arrow">→</span> ${escapeHtml(newName)}</div>
+            <div class="pm-sub">${escapeHtml(row.code || '')} · ${escapeHtml(statusLabels[row.status] || row.status || '-')} · ${escapeHtml(dateText(row.archivedAt))}~</div>
+          </td>
+          <td class="numeric">${escapeHtml(money(row.price))}</td>
+          <td class="numeric ${directionClass(row.returnVsFinalPct)}">${escapeHtml(signedPct(row.returnVsFinalPct))}</td>
+          <td class="numeric ${directionClass(row.returnVsIpoPct)}">${escapeHtml(signedPct(row.returnVsIpoPct))}</td>
+          <td class="spark-cell">${sparkCell}</td>
+        </tr>`;
+    }).join('');
+
+    const panel = document.createElement('article');
+    panel.className = 'stats-panel';
+    panel.id = 'postMergerPanel';
+    panel.innerHTML = `
+      <div class="panel-header">
+        <div>
+          <h2 class="panel-title">합병 후 주가 흐름</h2>
+          <div class="panel-sub">신상장 ${number(entries.length)}종목${summaryParts.length ? ` · ${summaryParts.join(' · ')}` : ''}</div>
+        </div>
+      </div>
+      <div class="stats-panel-body">
+        <table class="sponsor-table postmerger-table">
+          <thead>
+            <tr>
+              <th>스팩 → 신상장</th>
+              <th class="numeric">현재가</th>
+              <th class="numeric">최종가 대비</th>
+              <th class="numeric">공모가 대비</th>
+              <th>흐름</th>
+            </tr>
+          </thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+        <div class="stats-note">최종가 대비 = 스팩 마지막 거래가 기준 · 스파크라인 점선 = 스팩 최종가(1.00x)</div>
+      </div>
+    `;
+    wrap.appendChild(panel);
+
+    const byCode = new Map(entries.map(row => [String(row.spacCode), row]));
+    panel.querySelectorAll('canvas[data-pm-spark]').forEach(canvas => {
+      const row = byCode.get(String(canvas.dataset.pmSpark));
+      if (row && SpacCharts && Array.isArray(row.spark)) {
+        SpacCharts.drawSparkline(
+          canvas,
+          row.spark.filter(point => point && Number.isFinite(Number(point.ratio)))
+        );
+      }
+    });
   }
 
   /* ---------- 스냅샷 / 필터 / 카드 ---------- */
@@ -1654,6 +1748,7 @@
     renderMarketStats();
     renderSponsorPanel();
     renderArchivePanel();
+    renderPostMergerPanel();
     renderFilters();
     if (!selectedCode && getSpacs().length) {
       const linked = findSpacByCode(readUrlState().code);

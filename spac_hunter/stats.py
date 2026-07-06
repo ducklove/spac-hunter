@@ -264,6 +264,78 @@ def build_sponsor_stats(spacs, episodes, limit=20, archived_spacs=None):
     return stats[:limit]
 
 
+def _compact_post_merger(entry):
+    """archive/postMergerFlow용 요약(히스토리 제외). 블록이 없으면 None."""
+    block = entry.get("postMerger")
+    if not isinstance(block, dict) or not block.get("code"):
+        return None
+    return {
+        "code": block.get("code"),
+        "name": block.get("name"),
+        "source": block.get("source"),
+        "status": block.get("status"),
+        "price": block.get("price"),
+        "asOf": block.get("asOf"),
+        "returnVsFinalPct": block.get("returnVsFinalPct"),
+        "returnVsIpoPct": block.get("returnVsIpoPct"),
+        "highPrice": block.get("highPrice"),
+        "highDate": block.get("highDate"),
+        "lowPrice": block.get("lowPrice"),
+        "lowDate": block.get("lowDate"),
+        "trackedTradingDays": block.get("trackedTradingDays"),
+    }
+
+
+def _post_merger_spark(entry, limit=90):
+    """스팩 최종가=1.00x 기준 합병 후 비율 시리즈(스파크라인용)."""
+    block = entry.get("postMerger")
+    final_price = entry.get("finalPrice")
+    if not isinstance(block, dict) or not final_price:
+        return []
+    points = [point for point in block.get("history") or [] if point.get("close")]
+    return [
+        {"date": point.get("date"), "ratio": round(point["close"] / final_price, 4)}
+        for point in points[-limit:]
+    ]
+
+
+def build_post_merger_flow(archive, limit=30):
+    """합병 신상장 후 주가 흐름 요약(statistics.postMergerFlow)."""
+    entries = []
+    for entry in archive or []:
+        compact = _compact_post_merger(entry)
+        if not compact:
+            continue
+        entries.append(
+            {
+                "spacCode": entry.get("code"),
+                "spacName": entry.get("name"),
+                "sponsor": entry.get("sponsor"),
+                "archivedAt": entry.get("archivedAt"),
+                "finalPrice": entry.get("finalPrice"),
+                "spark": _post_merger_spark(entry),
+                **compact,
+            }
+        )
+    entries.sort(key=lambda row: str(row.get("archivedAt") or ""), reverse=True)
+
+    returns = [
+        row["returnVsFinalPct"] for row in entries if row.get("returnVsFinalPct") is not None
+    ]
+    wins = [value for value in returns if value > 0]
+    return {
+        "trackedCount": len(returns),
+        "unavailableCount": len(entries) - len(returns),
+        "avgReturnVsFinalPct": mean(returns),
+        "medianReturnVsFinalPct": median(returns),
+        "avgReturnVsIpoPct": mean(
+            [row["returnVsIpoPct"] for row in entries if row.get("returnVsIpoPct") is not None]
+        ),
+        "winRatePct": round(len(wins) / len(returns) * 100, 2) if returns else None,
+        "entries": entries[:limit],
+    }
+
+
 def build_archive_overview(archive, limit=12):
     """Compact archive.json summary for statistics.archive (count + recent entries)."""
     archive = list(archive or [])
@@ -279,6 +351,7 @@ def build_archive_overview(archive, limit=12):
                 "lastSeen": entry.get("lastSeen"),
                 "finalPrice": entry.get("finalPrice"),
                 "delistReasonGuess": entry.get("delistReasonGuess"),
+                "postMerger": _compact_post_merger(entry),
             }
             for entry in archive[:limit]
         ],
@@ -345,6 +418,7 @@ def build_statistics(spacs, generated_at, archive=None):
             "avgDaysToCancel": mean([episode.get("daysToCancel") for episode in failures]),
         },
         "archive": build_archive_overview(archive),
+        "postMergerFlow": build_post_merger_flow(archive),
         "mergerPriceStats": {
             "applicationAvgPrice": avg_price(applications),
             "confirmationAvgPrice": avg_price(confirmations),

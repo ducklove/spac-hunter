@@ -302,6 +302,7 @@ class TestBuildStatisticsWithArchive:
             "lastSeen",
             "finalPrice",
             "delistReasonGuess",
+            "postMerger",
         }
 
     def test_archive_none_or_empty_keeps_active_only_results(self, spac_factory):

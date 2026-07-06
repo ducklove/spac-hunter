@@ -80,6 +80,7 @@ class TestBuildArchiveUpdates:
                 "name": "떠난스팩",
                 "sponsor": "하나증권",
                 "listingDate": "2023-06-01",
+                "ipoPrice": 2000,
                 "mergerStatus": "합병 확정",
                 "mergerPriceRecords": records,
                 "finalPrice": 2150,
