@@ -3,3 +3,6 @@ requests==2.33.1
 beautifulsoup4==4.15.0
 pykrx==1.2.4
 lxml==6.1.1
+
+# 공통 유틸리티 (알림/KST) — 반드시 버전 태그로 고정
+fin-commons @ git+https://github.com/ducklove/fin-commons.git@v0.2.0

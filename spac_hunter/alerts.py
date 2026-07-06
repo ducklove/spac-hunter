@@ -9,21 +9,20 @@ only — sample mode never calls into this module.
 
 import json
 import logging
-import os
 import re
 from email.utils import format_datetime
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+from fin_commons import notify as fin_notify
+
 from .constants import ALERTS_FEED_LINK, ALERTS_JSON_PATH, ALERTS_XML_PATH
-from .http import shared_session
 
 logger = logging.getLogger(__name__)
 
 MAX_STORED_ALERTS = 500
 RSS_MAX_ITEMS = 50
 TELEGRAM_MAX_ALERTS = 10
-TELEGRAM_API_URL = "https://api.telegram.org/bot{token}/sendMessage"
 
 _MERGER_ALERT_TYPES = {
     "applied": ("merger_applied", "합병 신청 공시"),
@@ -329,12 +328,9 @@ def send_telegram(new_alerts):
     """Send at most one summary message for this run's fresh alerts.
 
     Active only when both TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are set.
-    Never raises: any failure is logged as a warning and swallowed.
+    Never raises: transport failures are logged as a warning and swallowed.
+    메시지 구성은 여기서, 전송은 fin-commons(notify)가 담당한다.
     """
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
-    if not token or not chat_id:
-        return False
     new_alerts = list(new_alerts or [])
     if not new_alerts:
         return False
@@ -346,18 +342,9 @@ def send_telegram(new_alerts):
         lines.append(line)
     if len(new_alerts) > TELEGRAM_MAX_ALERTS:
         lines.append(f"... 외 {len(new_alerts) - TELEGRAM_MAX_ALERTS}건")
-    try:
-        response = shared_session().post(
-            TELEGRAM_API_URL.format(token=token),
-            data={
-                "chat_id": chat_id,
-                "text": "\n".join(lines),
-                "disable_web_page_preview": "true",
-            },
-            timeout=15,
-        )
-        response.raise_for_status()
-        return True
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("Telegram 알림 발송 실패(파이프라인은 계속 진행): %s", exc)
+    result = fin_notify.send_telegram("\n".join(lines))
+    if result is None:  # 시크릿 미설정 — 조용히 건너뜀
         return False
+    if not result:
+        logger.warning("Telegram 알림 발송 실패(파이프라인은 계속 진행)")
+    return result

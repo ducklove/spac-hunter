@@ -1,8 +1,9 @@
 """Shared constants: paths, URLs, tokens, and defaults."""
 
 import os
-from datetime import timedelta, timezone
 from pathlib import Path
+
+from fin_commons.timeutil import KST as KST  # 재수출 — KST는 DST 없음, 고정 오프셋
 
 # Repository root (this file lives in <root>/spac_hunter/constants.py).
 ROOT = Path(__file__).resolve().parent.parent
@@ -16,7 +17,6 @@ FILINGS_JSON_PATH = ROOT / "filings.json"
 CACHE_DIR = ROOT / ".cache"
 OPENDART_CORPCODE_CACHE_PATH = CACHE_DIR / "opendart_corpcode.zip"
 
-KST = timezone(timedelta(hours=9))
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36"

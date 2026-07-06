@@ -396,21 +396,18 @@ class TestSampleModeSkipsAlerts:
         assert not (tmp_path / "alerts.xml").exists()
 
 
-class FakeTelegramSession:
+class TelegramRecorder:
+    """fin-commons 전송 시임(_post_json) 대역 — HTTP 없이 페이로드를 기록한다."""
+
     def __init__(self, fail=False):
         self.fail = fail
         self.posts = []
 
-    def post(self, url, data=None, timeout=None):
+    def __call__(self, url, payload, timeout):
         if self.fail:
             raise RuntimeError("telegram down")
-        self.posts.append({"url": url, "data": dict(data or {})})
-
-        class Response:
-            def raise_for_status(self):
-                return None
-
-        return Response()
+        self.posts.append({"url": url, "payload": dict(payload or {})})
+        return 200
 
 
 def sample_alerts(count):
@@ -437,7 +434,8 @@ class TestSendTelegram:
         monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
         monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
         monkeypatch.setattr(
-            alerts, "shared_session", lambda: pytest.fail("must not touch the session")
+            alerts.fin_notify, "_post_json",
+            lambda *a, **k: pytest.fail("must not perform HTTP"),
         )
         assert alerts.send_telegram(sample_alerts(1)) is False
 
@@ -445,34 +443,36 @@ class TestSendTelegram:
         monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "tok123")
         monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
         monkeypatch.setattr(
-            alerts, "shared_session", lambda: pytest.fail("must not touch the session")
+            alerts.fin_notify, "_post_json",
+            lambda *a, **k: pytest.fail("must not perform HTTP"),
         )
         assert alerts.send_telegram(sample_alerts(1)) is False
 
     def test_skipped_with_zero_new_alerts(self, telegram_env, monkeypatch):
         monkeypatch.setattr(
-            alerts, "shared_session", lambda: pytest.fail("must not touch the session")
+            alerts.fin_notify, "_post_json",
+            lambda *a, **k: pytest.fail("must not perform HTTP"),
         )
         assert alerts.send_telegram([]) is False
 
     def test_sends_single_summary_capped_at_ten(self, telegram_env, monkeypatch):
-        session = FakeTelegramSession()
-        monkeypatch.setattr(alerts, "shared_session", lambda: session)
+        recorder = TelegramRecorder()
+        monkeypatch.setattr(alerts.fin_notify, "_post_json", recorder)
 
         assert alerts.send_telegram(sample_alerts(12)) is True
 
-        assert len(session.posts) == 1
-        post = session.posts[0]
+        assert len(recorder.posts) == 1
+        post = recorder.posts[0]
         assert post["url"] == "https://api.telegram.org/bottok123/sendMessage"
-        assert post["data"]["chat_id"] == "chat456"
-        assert post["data"]["disable_web_page_preview"] == "true"
-        text = post["data"]["text"]
+        assert post["payload"]["chat_id"] == "chat456"
+        assert post["payload"]["disable_web_page_preview"] is True
+        text = post["payload"]["text"]
         assert text.startswith("[스팩 헌터] 새 알림 12건")
         assert sum(1 for line in text.splitlines() if line.startswith("- ")) == 10
         assert "외 2건" in text
 
     def test_exception_never_propagates(self, telegram_env, monkeypatch, caplog):
-        monkeypatch.setattr(alerts, "shared_session", lambda: FakeTelegramSession(fail=True))
+        monkeypatch.setattr(alerts.fin_notify, "_post_json", TelegramRecorder(fail=True))
         with caplog.at_level("WARNING", logger="spac_hunter.alerts"):
             assert alerts.send_telegram(sample_alerts(1)) is False
         assert "Telegram 알림 발송 실패" in caplog.text
