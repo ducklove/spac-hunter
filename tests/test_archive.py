@@ -3,7 +3,7 @@
 import json
 from datetime import datetime
 
-from spac_hunter import alerts, archive, cli, output
+from spac_hunter import alerts, archive, cli, filings, output
 from spac_hunter.constants import KST
 from spac_hunter.output import load_existing_last_updated, write_outputs
 
@@ -231,8 +231,10 @@ class TestCliArchiveWiring:
         monkeypatch.setattr(archive, "ARCHIVE_JSON_PATH", tmp_path / "archive.json")
         monkeypatch.setattr(alerts, "ALERTS_JSON_PATH", tmp_path / "alerts.json")
         monkeypatch.setattr(alerts, "ALERTS_XML_PATH", tmp_path / "alerts.xml")
+        monkeypatch.setattr(filings, "FILINGS_JSON_PATH", tmp_path / "filings.json")
         monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
         monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
+        monkeypatch.delenv("OPENDART_API_KEY", raising=False)
 
     def test_sample_mode_never_touches_the_archive(self, tmp_path, monkeypatch):
         self._patch_paths(tmp_path, monkeypatch)
