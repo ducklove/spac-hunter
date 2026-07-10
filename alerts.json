@@ -1,6 +1,46 @@
 {
-  "generatedAt": "2026-07-09T19:10:05.615319+09:00",
+  "generatedAt": "2026-07-10T19:01:23.626367+09:00",
   "alerts": [
+    {
+      "id": "2026-07-10|below_ipo_enter|0044K0",
+      "date": "2026-07-10",
+      "type": "below_ipo_enter",
+      "code": "0044K0",
+      "name": "삼성스팩10호",
+      "title": "삼성스팩10호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9985 (현재가 1,997)",
+      "url": "https://finance.naver.com/item/main.naver?code=0044K0"
+    },
+    {
+      "id": "2026-07-10|below_ipo_enter|0098T0",
+      "date": "2026-07-10",
+      "type": "below_ipo_enter",
+      "code": "0098T0",
+      "name": "교보19호스팩",
+      "title": "교보19호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9985 (현재가 1,997)",
+      "url": "https://finance.naver.com/item/main.naver?code=0098T0"
+    },
+    {
+      "id": "2026-07-10|below_ipo_enter|0101C0",
+      "date": "2026-07-10",
+      "type": "below_ipo_enter",
+      "code": "0101C0",
+      "name": "하나36호스팩",
+      "title": "하나36호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9995 (현재가 1,999)",
+      "url": "https://finance.naver.com/item/main.naver?code=0101C0"
+    },
+    {
+      "id": "2026-07-10|below_ipo_enter|496070",
+      "date": "2026-07-10",
+      "type": "below_ipo_enter",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9995 (현재가 1,999)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
     {
       "id": "2026-07-09|below_ipo_enter|0037T0",
       "date": "2026-07-09",
