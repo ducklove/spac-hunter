@@ -1257,6 +1257,7 @@ td.spark-cell {
 }
 
 .watch-btn {
+  position: relative;
   flex: none;
   border: 0;
   background: transparent;
@@ -1270,6 +1271,13 @@ td.spark-cell {
   color: var(--faint);
   cursor: pointer;
   transition: color 0.15s, background 0.15s;
+}
+
+/* 시각 크기(24px)는 유지한 채 터치 히트 영역만 40px로 확장 — 레이아웃 불변 */
+.watch-btn::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
 }
 
 .watch-btn:hover,

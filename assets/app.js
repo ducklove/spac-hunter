@@ -542,8 +542,9 @@
     const rowsHtml = entries.slice(0, 8).map(row => {
       const converted = row.name && row.name !== row.spacName;
       const newName = converted ? row.name : '신상장 전환 대기';
+      /* 행 텍스트(현재가·수익률)가 정보를 담고 있어 스파크라인은 장식 취급(aria-hidden) */
       const sparkCell = Array.isArray(row.spark) && row.spark.length >= 2
-        ? `<canvas class="spark" width="110" height="26" data-pm-spark="${escapeHtml(row.spacCode)}" aria-label="합병 후 가격 흐름(스팩 최종가=1.00x)"></canvas>`
+        ? `<canvas class="spark" width="110" height="26" data-pm-spark="${escapeHtml(row.spacCode)}" aria-hidden="true"></canvas>`
         : '<span class="pm-sub">-</span>';
       return `
         <tr>
@@ -1095,7 +1096,15 @@
   }
 
   function drawSelectedChart() {
-    SpacCharts.drawRatioChart(document.getElementById('ratioChart'), selectedSpac(), chartDays);
+    const canvas = document.getElementById('ratioChart');
+    const item = selectedSpac();
+    /* role="img" 캔버스의 요약 라벨을 선택 종목에 맞춰 갱신한다. */
+    if (canvas) {
+      canvas.setAttribute('aria-label', item
+        ? `${item.name} 현재가/공모가 비율 추이 차트`
+        : '현재가/공모가 비율 추이 차트');
+    }
+    SpacCharts.drawRatioChart(canvas, item, chartDays);
   }
 
   /* ---------- 금리 시나리오 시뮬레이션 ---------- */
@@ -1199,8 +1208,9 @@
     const body = document.getElementById('tableBody');
     body.innerHTML = items.map(item => {
       const sparkPoints = SpacCharts.sparklinePoints(item.history, SPARK_DAYS);
+      /* 행의 수치 컬럼이 정보를 담고 있어 스파크라인은 장식 취급(aria-hidden) */
       const sparkCell = sparkPoints.length >= 2
-        ? `<canvas class="spark" width="110" height="26" data-spark="${escapeHtml(item.code)}" aria-label="최근 90일 가격 비율 추이"></canvas>`
+        ? `<canvas class="spark" width="110" height="26" data-spark="${escapeHtml(item.code)}" aria-hidden="true"></canvas>`
         : '<span class="code">-</span>';
       return `
       <tr data-code="${escapeHtml(item.code)}" class="${item.code === selectedCode ? 'active' : ''}">

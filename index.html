@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>스팩 헌터</title>
+<meta name="description" content="국내 스팩(SPAC) 전 종목의 현재가·공모가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
+<meta property="og:title" content="스팩 헌터">
+<meta property="og:description" content="국내 스팩(SPAC) 전 종목의 현재가·공모가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
 <script>
 // iframe embed + theme: ?theme=dark|light overrides stored theme; ?embed hides chrome.
@@ -34,7 +38,7 @@ html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260711-js-tests">
+<link rel="stylesheet" href="assets/style.css?v=20260711-a11y">
 </head>
 <body>
 <header class="app-header">
@@ -67,7 +71,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         </div>
         <div class="stats-panel-body">
           <div class="stats-chart">
-            <canvas id="belowTrendChart"></canvas>
+            <canvas id="belowTrendChart" role="img" aria-label="공모가 미만 종목수 추이 차트"></canvas>
           </div>
         </div>
       </article>
@@ -144,7 +148,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         </div>
       </div>
       <div class="chart-wrap">
-        <canvas id="ratioChart"></canvas>
+        <canvas id="ratioChart" role="img" aria-label="현재가/공모가 비율 추이 차트"></canvas>
       </div>
       <div class="legend">
         <span class="legend-item"><span class="legend-line"></span>가격 비율</span>
@@ -276,9 +280,9 @@ html[data-embed] .container { padding-top: 14px !important; }
   </section>
 </main>
 
-<script src="data.js?v=20260711-js-tests"></script>
-<script src="assets/format.js?v=20260711-js-tests"></script>
-<script src="assets/charts.js?v=20260711-js-tests"></script>
-<script src="assets/app.js?v=20260711-js-tests"></script>
+<script src="data.js?v=20260711-a11y"></script>
+<script src="assets/format.js?v=20260711-a11y"></script>
+<script src="assets/charts.js?v=20260711-a11y"></script>
+<script src="assets/app.js?v=20260711-a11y"></script>
 </body>
 </html>
