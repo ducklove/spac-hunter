@@ -1620,7 +1620,7 @@
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
       try {
-        localStorage.setItem('spac-hunter-theme', next);
+        localStorage.setItem('theme', next);
       } catch (error) {
         /* 저장 불가 환경 무시 */
       }
@@ -1742,7 +1742,7 @@
   /* ---------- 전체 렌더 / 초기화 ---------- */
 
   function renderAll() {
-    document.getElementById('updated').textContent = `마지막 업데이트 ${data.lastUpdated || '-'}`;
+    document.getElementById('updated').textContent = `최종 업데이트: ${data.lastUpdated || '-'}`;
     renderFreshness();
     renderSnapshot();
     renderMarketStats();

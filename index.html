@@ -11,7 +11,12 @@
   try {
     var params = new URLSearchParams(location.search);
     var urlTheme = params.get('theme');
-    var stored = localStorage.getItem('spac-hunter-theme');
+    var stored = localStorage.getItem('theme');
+    if (!stored) {
+      // 구 키('spac-hunter-theme') → 공통 키('theme') 마이그레이션
+      stored = localStorage.getItem('spac-hunter-theme');
+      if (stored) localStorage.setItem('theme', stored);
+    }
     var theme = (urlTheme === 'dark' || urlTheme === 'light') ? urlTheme : (stored || 'light');
     document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
     var embed = params.get('embed');
@@ -29,7 +34,7 @@ html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260618-schedule-columns">
+<link rel="stylesheet" href="assets/style.css?v=20260711-hub-link">
 </head>
 <body>
 <header class="app-header">
@@ -39,6 +44,7 @@ html[data-embed] .container { padding-top: 14px !important; }
       <div class="updated" id="updated">데이터를 불러오는 중입니다</div>
     </div>
     <div class="header-actions">
+      <a class="hub-link" href="https://cantabile.tplinkdns.com:3691" rel="noopener">Value Compass ↗</a>
       <button type="button" class="button" id="refreshViewBtn">화면 갱신</button>
       <button type="button" class="button" id="themeBtn" aria-label="테마 전환">테마 전환</button>
     </div>
@@ -270,9 +276,9 @@ html[data-embed] .container { padding-top: 14px !important; }
   </section>
 </main>
 
-<script src="data.js?v=20260618-schedule-columns"></script>
-<script src="assets/format.js?v=20260618-schedule-columns"></script>
-<script src="assets/charts.js?v=20260618-schedule-columns"></script>
-<script src="assets/app.js?v=20260618-schedule-columns"></script>
+<script src="data.js?v=20260711-hub-link"></script>
+<script src="assets/format.js?v=20260711-hub-link"></script>
+<script src="assets/charts.js?v=20260711-hub-link"></script>
+<script src="assets/app.js?v=20260711-hub-link"></script>
 </body>
 </html>

@@ -114,6 +114,21 @@ button {
   justify-content: flex-end;
 }
 
+.hub-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 6px;
+  color: var(--muted);
+  font-size: 12.5px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.hub-link:hover {
+  color: var(--accent);
+}
+
 .button {
   border: 1px solid var(--border);
   background: var(--surface);
