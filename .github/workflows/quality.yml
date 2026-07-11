@@ -26,3 +26,15 @@ jobs:
         run: ruff check spac_hunter tests fetch_data.py validate_data.py
       - name: Test
         run: python -m pytest -q
+
+  js-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JS tests
+        run: node --test tests/js

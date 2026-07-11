@@ -102,7 +102,7 @@
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   }
 
-  window.SpacFormat = {
+  const SpacFormat = {
     money,
     number,
     ratio,
@@ -119,4 +119,12 @@
     colorWithAlpha,
     getCss
   };
+
+  /* UMD-lite: 브라우저에선 window 전역, Node(node --test)에선 CommonJS export. */
+  if (typeof window !== 'undefined') {
+    window.SpacFormat = SpacFormat;
+  }
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = SpacFormat;
+  }
 })();

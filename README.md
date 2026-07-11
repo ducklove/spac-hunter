@@ -37,7 +37,7 @@ spac_hunter/             # 수집 파이프라인 패키지
   stats.py sample.py output.py
 index.html               # 대시보드 진입점 (빌드 없음)
 assets/                  # style.css, format.js, charts.js, app.js
-tests/                   # pytest 테스트
+tests/                   # pytest 테스트 (tests/js/는 node --test 프론트엔드 테스트)
 pyproject.toml           # ruff 설정 (line-length 110, py311)
 requirements.txt         # 런타임 의존성 (버전 고정)
 requirements-dev.txt     # ruff, pytest
@@ -55,6 +55,7 @@ overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에�
 pip install -r requirements.txt -r requirements-dev.txt
 ruff check spac_hunter tests fetch_data.py validate_data.py
 pytest -q
+node --test tests/js
 ```
 
 로컬 프리뷰는 `python -m http.server`를 띄워 접속하거나, `index.html`을 브라우저에서 직접 열면 됩니다(별도 빌드 없이 `file://`로도 동작).
@@ -126,7 +127,7 @@ python fetch_data.py --trust-rate 0.025 --history-pages 3
 ## CI 구성
 
 - `.github/workflows/pages.yml`: 매일 18:10 KST(크론) 또는 수동 실행 시 `python fetch_data.py --history-pages 12 --merger-history-pages 60`로 데이터를 갱신하고, `validate_data.py` 검증을 통과하면 `data.js`/`current.json`을 main에 커밋한 뒤 GitHub Pages로 배포합니다. 스케줄 실행 실패 시 이슈로 알립니다.
-- `.github/workflows/quality.yml`: PR과 push(main, `claude/**`)에서 `ruff check`와 `pytest -q`를 실행합니다. `data.js`/`current.json`/`docs/**`만 바뀐 커밋은 건너뜁니다.
+- `.github/workflows/quality.yml`: PR과 push(main, `claude/**`)에서 `ruff check`와 `pytest -q`, `node --test tests/js`(프론트엔드 포맷터 테스트)를 실행합니다. `data.js`/`current.json`/`docs/**`만 바뀐 커밋은 건너뜁니다.
 
 ## 대시보드 기능 요약
 
