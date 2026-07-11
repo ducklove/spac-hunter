@@ -1822,3 +1822,36 @@ td.spark-cell {
 .chart-tooltip .tt-row span:last-child {
   font-weight: 700;
 }
+
+/* ===== 초기 로드 스켈레톤 (data.json 비동기 로드 전 첫 페인트) ===== */
+
+.metric-card.skeleton {
+  justify-content: space-between;
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: var(--surface3);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton-line.tall {
+  height: 26px;
+  margin-top: 10px;
+}
+
+.skeleton-line.w40 { width: 40%; }
+.skeleton-line.w55 { width: 55%; }
+.skeleton-line.w70 { width: 70%; }
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+  }
+}

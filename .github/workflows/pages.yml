@@ -64,13 +64,13 @@ jobs:
       - name: Commit refreshed data
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_data)
         run: |
-          if git diff --quiet -- data.js current.json && [ -z "$(git status --porcelain -- alerts.json alerts.xml archive.json filings.json)" ]; then
+          if git diff --quiet -- data.js current.json && [ -z "$(git status --porcelain -- data.json alerts.json alerts.xml archive.json filings.json)" ]; then
             echo "No data changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- data.js current.json
+          git add -- data.js data.json current.json
           for file in alerts.json alerts.xml archive.json filings.json; do
             if [ -f "$file" ]; then
               git add -- "$file"

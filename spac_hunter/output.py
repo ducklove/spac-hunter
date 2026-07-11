@@ -142,11 +142,21 @@ def write_outputs(
     force=False,
     data_js_path=None,
     current_json_path=None,
+    data_json_path=None,
     archive=None,
     ipo_calendar=None,
 ):
+    """Write data.js / data.json / current.json.
+
+    ``data.json`` carries the exact same payload as ``data.js`` (single
+    serialization, no prefix) so the dashboard can fetch it asynchronously;
+    ``data.js`` is kept for the ``file://`` script-tag fallback.
+    When ``data_json_path`` is omitted it is derived from ``data_js_path``
+    (``data.js`` -> ``data.json``) so tests and custom paths stay isolated.
+    """
     data_js_path = Path(data_js_path) if data_js_path else DATA_JS_PATH
     current_json_path = Path(current_json_path) if current_json_path else CURRENT_JSON_PATH
+    data_json_path = Path(data_json_path) if data_json_path else data_js_path.with_suffix(".json")
 
     spacs = sorted(
         spacs,
@@ -209,12 +219,12 @@ def write_outputs(
             "kofr": KOFR_MAIN_URL,
         },
     }
+    payload_json = json.dumps(payload, ensure_ascii=False, indent=2)
     data_js_path.write_text(
-        DATA_JS_PREFIX
-        + json.dumps(payload, ensure_ascii=False, indent=2)
-        + ";\n",
+        DATA_JS_PREFIX + payload_json + ";\n",
         encoding="utf-8",
     )
+    data_json_path.write_text(payload_json + "\n", encoding="utf-8")
     current_json_path.write_text(
         json.dumps(
             {

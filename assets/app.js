@@ -1,5 +1,7 @@
 /* 스팩 헌터 대시보드 앱 (일반 스크립트, file:// 호환).
-   로드 순서: data.js -> format.js -> chart-tooltip.js -> charts.js -> app.js */
+   로드 순서: format.js -> chart-tooltip.js -> charts.js -> data-loader.js -> app.js
+   데이터는 SpacDataLoader가 data.json을 비동기 fetch 한다(실패 시 data.js
+   <script> 주입 폴백 — file:// 호환). 도착 전에는 index.html의 스켈레톤이 보인다. */
 (function() {
   'use strict';
 
@@ -18,6 +20,7 @@
     daysMetric
   } = window.SpacFormat;
   const SpacCharts = window.SpacCharts;
+  const SpacDataLoader = window.SpacDataLoader;
 
   const fallbackData = {
     lastUpdated: '샘플 데이터',
@@ -1563,55 +1566,54 @@
     }
   }
 
-  /* ---------- 화면 갱신(데이터 재요청) ---------- */
+  /* ---------- 데이터 로드 / 화면 갱신 ---------- */
 
-  /* "window.SPAC_DATA = " 프리픽스와 끝의 ";"를 제거한 뒤 JSON.parse. 실패 시 null. */
-  function parseDataJsText(text) {
-    if (typeof text !== 'string') return null;
-    let body = text.trim();
-    const prefix = 'window.SPAC_DATA';
-    if (!body.startsWith(prefix)) return null;
-    body = body.slice(prefix.length).trimStart();
-    if (!body.startsWith('=')) return null;
-    body = body.slice(1).trim();
-    if (body.endsWith(';')) body = body.slice(0, -1).trimEnd();
-    try {
-      return JSON.parse(body);
-    } catch (error) {
-      return null;
-    }
+  function applyPayload(payload) {
+    data = payload;
+    window.SPAC_DATA = payload;
+    simulationCode = null;
   }
 
-  /* fetch 성공 + 파싱 성공 시 데이터 교체, 그 외(file://, 오프라인 등)에는 조용히 재렌더만 수행. */
+  /* 초기 로드 실패 안내: 신선도 배너 자리에 에러 문구 + 재시도 버튼을 띄운다. */
+  function renderLoadError() {
+    const updated = document.getElementById('updated');
+    if (updated) updated.textContent = '데이터를 불러오지 못했습니다';
+    const list = document.getElementById('spacList');
+    if (list) list.innerHTML = '<div class="empty">데이터를 불러오지 못했습니다.</div>';
+    const banner = document.getElementById('freshnessBanner');
+    if (!banner) return;
+    banner.innerHTML = `
+      <div class="alert-line">데이터를 불러오지 못했습니다. 네트워크 상태를 확인한 뒤 다시 시도해 주세요.</div>
+      <button type="button" class="button small" id="retryLoadBtn" style="margin-top:8px">다시 시도</button>
+    `;
+    banner.hidden = false;
+    const retry = document.getElementById('retryLoadBtn');
+    if (retry) retry.addEventListener('click', loadInitialData);
+  }
+
+  /* data.json 비동기 로드(실패 시 data.js 폴백) 후 첫 렌더. 재시도 버튼도 이 함수를 다시 탄다. */
+  function loadInitialData() {
+    const updated = document.getElementById('updated');
+    if (updated) updated.textContent = '데이터를 불러오는 중입니다';
+    const banner = document.getElementById('freshnessBanner');
+    if (banner) {
+      banner.hidden = true;
+      banner.innerHTML = '';
+    }
+    SpacDataLoader.loadPayload()
+      .then(payload => {
+        applyPayload(payload);
+        renderAll();
+      })
+      .catch(renderLoadError);
+  }
+
+  /* fetch 성공 + 검증 성공 시 데이터 교체, 그 외(file://, 오프라인 등)에는 조용히 재렌더만 수행. */
   function refreshData() {
-    const finish = () => renderAll();
-    let request = null;
-    try {
-      if (typeof window.fetch === 'function') {
-        request = window.fetch(`data.js?ts=${Date.now()}`, { cache: 'no-store' });
-      }
-    } catch (error) {
-      request = null;
-    }
-    if (!request || typeof request.then !== 'function') {
-      finish();
-      return;
-    }
-    request
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.text();
-      })
-      .then(text => {
-        const parsed = parseDataJsText(text);
-        if (parsed && typeof parsed === 'object' && Array.isArray(parsed.spacs)) {
-          data = parsed;
-          window.SPAC_DATA = parsed;
-          simulationCode = null;
-        }
-      })
+    SpacDataLoader.fetchPayload(`data.json?ts=${Date.now()}`, { init: { cache: 'no-store' } })
+      .then(payload => applyPayload(payload))
       .catch(() => { /* 조용한 폴백 */ })
-      .then(finish);
+      .then(() => renderAll());
   }
 
   /* ---------- 테마 등 캔버스 일괄 재렌더 ---------- */
@@ -1775,8 +1777,12 @@
   }
 
   applyUrlState(readUrlState());
-  const simInput = document.getElementById('simRateInput');
-  if (simInput) simInput.value = String(baseRatePct());
   bindEvents();
-  renderAll();
+  if (window.SPAC_DATA && Array.isArray(window.SPAC_DATA.spacs)) {
+    /* 임베더 등이 data.js를 직접 로드해 둔 경우(구 계약) — 즉시 렌더. */
+    data = window.SPAC_DATA;
+    renderAll();
+  } else {
+    loadInitialData();
+  }
 })();

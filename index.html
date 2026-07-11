@@ -38,7 +38,7 @@ html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260711-chart-hover">
+<link rel="stylesheet" href="assets/style.css?v=20260711-async-data">
 </head>
 <body>
 <header class="app-header">
@@ -58,7 +58,33 @@ html[data-embed] .container { padding-top: 14px !important; }
 <main class="container">
   <section class="alert-banner" id="freshnessBanner" role="status" hidden></section>
 
-  <section class="snapshot" id="snapshot"></section>
+  <section class="snapshot" id="snapshot">
+    <!-- 데이터(data.json) 도착 전 첫 페인트용 스켈레톤 — renderSnapshot()이 통째로 교체한다. -->
+    <article class="metric-card skeleton" aria-hidden="true">
+      <div><div class="skeleton-line w40"></div><div class="skeleton-line tall w70"></div></div>
+      <div class="skeleton-line w55"></div>
+    </article>
+    <article class="metric-card skeleton" aria-hidden="true">
+      <div><div class="skeleton-line w40"></div><div class="skeleton-line tall w70"></div></div>
+      <div class="skeleton-line w55"></div>
+    </article>
+    <article class="metric-card skeleton" aria-hidden="true">
+      <div><div class="skeleton-line w40"></div><div class="skeleton-line tall w70"></div></div>
+      <div class="skeleton-line w55"></div>
+    </article>
+    <article class="metric-card skeleton" aria-hidden="true">
+      <div><div class="skeleton-line w40"></div><div class="skeleton-line tall w70"></div></div>
+      <div class="skeleton-line w55"></div>
+    </article>
+    <article class="metric-card skeleton" aria-hidden="true">
+      <div><div class="skeleton-line w40"></div><div class="skeleton-line tall w70"></div></div>
+      <div class="skeleton-line w55"></div>
+    </article>
+    <article class="metric-card skeleton" aria-hidden="true">
+      <div><div class="skeleton-line w40"></div><div class="skeleton-line tall w70"></div></div>
+      <div class="skeleton-line w55"></div>
+    </article>
+  </section>
 
   <section class="market-stats" aria-label="스팩 시장 통계">
     <div class="stats-panels" id="statsPanels">
@@ -117,7 +143,7 @@ html[data-embed] .container { padding-top: 14px !important; }
       <div class="panel-header">
         <div class="panel-sub" id="listCount" aria-live="polite"></div>
       </div>
-      <div class="spac-list" id="spacList"></div>
+      <div class="spac-list" id="spacList"><div class="empty">데이터를 불러오는 중입니다</div></div>
     </aside>
 
     <section class="panel detail-panel">
@@ -280,10 +306,12 @@ html[data-embed] .container { padding-top: 14px !important; }
   </section>
 </main>
 
-<script src="data.js?v=20260711-chart-hover"></script>
-<script src="assets/format.js?v=20260711-chart-hover"></script>
-<script src="assets/chart-tooltip.js?v=20260711-chart-hover"></script>
-<script src="assets/charts.js?v=20260711-chart-hover"></script>
-<script src="assets/app.js?v=20260711-chart-hover"></script>
+<!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
+     (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
+<script src="assets/format.js?v=20260711-async-data"></script>
+<script src="assets/chart-tooltip.js?v=20260711-async-data"></script>
+<script src="assets/charts.js?v=20260711-async-data"></script>
+<script src="assets/data-loader.js?v=20260711-async-data"></script>
+<script src="assets/app.js?v=20260711-async-data"></script>
 </body>
 </html>

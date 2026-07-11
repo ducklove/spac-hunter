@@ -10,39 +10,40 @@ python fetch_data.py --history-pages 3
 
 생성되는 파일:
 
-- `data.js`: 대시보드가 읽는 전체 데이터
+- `data.json`: 대시보드가 `fetch()`로 비동기 로드하는 전체 데이터
+- `data.js`: 같은 페이로드의 `window.SPAC_DATA = …;` 래핑본 — `file://` 등 fetch가 막힌 환경용 폴백
 - `current.json`: 현재가 중심의 가벼운 스냅샷
 
 그 다음 `index.html`을 브라우저에서 열면 됩니다.
 
 종료 코드는 `0` 정상, `1` 수집 실패, `2` 안전 가드 거부입니다. 직전 데이터 대비 종목 수가 급감하거나 시세 수집률이 50% 미만이면 기존 데이터를 보호하기 위해 쓰기를 거부하고 exit 2로 종료하며, 의도한 축소라면 `--force`로 우회할 수 있습니다. 샘플 데이터 폴백은 `--sample`을 명시했을 때만 동작하고(라이브 수집 실패 시 데이터를 쓰지 않고 exit 1), 샘플 데이터는 가드에 걸릴 수 있어 `--sample --force`를 권장합니다.
 
-생성된 `data.js`의 구조는 다음으로 검증합니다(표준 라이브러리만 사용, 실패 시 exit 1).
+생성된 `data.js`/`data.json`의 구조와 두 파일의 페이로드 일치 여부는 다음으로 검증합니다(표준 라이브러리만 사용, 실패 시 exit 1).
 
 ```powershell
 python validate_data.py
 ```
 
-`--path`로 검증 대상 파일을, `--min-count`로 최소 종목 수 기준을 바꿀 수 있습니다.
+`--path`/`--json-path`로 검증 대상 파일을, `--min-count`로 최소 종목 수 기준을 바꿀 수 있습니다(`--json-path ""`는 data.json 검증 생략).
 
 ## 프로젝트 구조
 
 ```text
 fetch_data.py            # 수집 CLI 진입점
-validate_data.py         # data.js 구조 검증 (표준 라이브러리만 사용)
+validate_data.py         # data.js/data.json 구조·일치 검증 (표준 라이브러리만 사용)
 spac_hunter/             # 수집 파이프라인 패키지
   cli.py http.py constants.py parsing.py alerts.py archive.py filings.py
   sources/               # krx, kind, dart, opendart, naver, kofr
   domain/                # merger, valuation, enrich
   stats.py sample.py output.py
 index.html               # 대시보드 진입점 (빌드 없음)
-assets/                  # style.css, format.js, chart-tooltip.js, charts.js, app.js
+assets/                  # style.css, format.js, chart-tooltip.js, charts.js, data-loader.js, app.js
 tests/                   # pytest 테스트 (tests/js/는 node --test 프론트엔드 테스트)
 pyproject.toml           # ruff 설정 (line-length 110, py311)
 requirements.txt         # 런타임 의존성 (버전 고정)
 requirements-dev.txt     # ruff, pytest
 .github/workflows/       # pages.yml (데이터 갱신+배포), quality.yml (lint+test)
-data.js / current.json   # 생성 산출물 (CI가 매일 갱신)
+data.js / data.json / current.json  # 생성 산출물 (CI가 매일 갱신)
 alerts.json / alerts.xml # 알림 누적 기록과 RSS 피드 (라이브 갱신 시 생성)
 archive.json             # 상폐(유니버스 이탈) 스팩 아카이브 (라이브 갱신 시 생성)
 filings.json             # 증권신고서 자동 추출값 캐시 (OpenDART 키 설정 시 점진 축적)
@@ -58,7 +59,7 @@ pytest -q
 node --test tests/js
 ```
 
-로컬 프리뷰는 `python -m http.server`를 띄워 접속하거나, `index.html`을 브라우저에서 직접 열면 됩니다(별도 빌드 없이 `file://`로도 동작).
+로컬 프리뷰는 `python -m http.server`를 띄워 접속하거나, `index.html`을 브라우저에서 직접 열면 됩니다(별도 빌드 없음). 대시보드는 `data.json`을 `fetch()`로 비동기 로드하며, fetch가 막히는 `file://` 환경에서는 자동으로 `data.js` `<script>` 폴백을 사용합니다.
 
 ## 데이터 소스
 
@@ -126,8 +127,8 @@ python fetch_data.py --trust-rate 0.025 --history-pages 3
 
 ## CI 구성
 
-- `.github/workflows/pages.yml`: 매일 18:10 KST(크론) 또는 수동 실행 시 `python fetch_data.py --history-pages 12 --merger-history-pages 60`로 데이터를 갱신하고, `validate_data.py` 검증을 통과하면 `data.js`/`current.json`을 main에 커밋한 뒤 GitHub Pages로 배포합니다. 스케줄 실행 실패 시 이슈로 알립니다.
-- `.github/workflows/quality.yml`: PR과 push(main, `claude/**`)에서 `ruff check`와 `pytest -q`, `node --test tests/js`(프론트엔드 포맷터 테스트)를 실행합니다. `data.js`/`current.json`/`docs/**`만 바뀐 커밋은 건너뜁니다.
+- `.github/workflows/pages.yml`: 매일 18:10 KST(크론) 또는 수동 실행 시 `python fetch_data.py --history-pages 12 --merger-history-pages 60`로 데이터를 갱신하고, `validate_data.py` 검증을 통과하면 `data.js`/`data.json`/`current.json`을 main에 커밋한 뒤 GitHub Pages로 배포합니다. 스케줄 실행 실패 시 이슈로 알립니다.
+- `.github/workflows/quality.yml`: PR과 push(main, `claude/**`)에서 `ruff check`와 `pytest -q`, `node --test tests/js`(프론트엔드 포맷터 테스트)를 실행합니다. `data.js`/`data.json`/`current.json`/`docs/**`만 바뀐 커밋은 건너뜁니다.
 
 ## 대시보드 기능 요약
 

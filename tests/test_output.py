@@ -79,6 +79,15 @@ class TestWriteGuard:
             write(tmp_path, [])
         assert excinfo.value.code == 2
 
+    def test_guard_rejection_leaves_data_json_untouched(self, tmp_path, spac_factory):
+        baseline = [spac_factory(code=f"1{idx:05d}") for idx in range(12)]
+        write(tmp_path, baseline, force=True)
+
+        with pytest.raises(SystemExit):
+            write(tmp_path, [spac_factory(code="200000")])
+        preserved = json.loads((tmp_path / "data.json").read_text(encoding="utf-8"))
+        assert len(preserved["spacs"]) == 12
+
 
 class TestWriteOutputs:
     def test_serialization_and_new_fields(self, tmp_path, spac_factory):
@@ -108,6 +117,20 @@ class TestWriteOutputs:
         assert set(current["prices"].keys()) == {"100001", "100002"}
         assert current["prices"]["100002"]["currentPrice"] == 1900
         assert current["summary"]["totalCount"] == 2
+
+    def test_data_json_mirrors_data_js_payload(self, tmp_path, spac_factory):
+        """data.json은 data.js와 동일 페이로드의 순수 JSON — 대시보드 비동기 로드용."""
+        spacs = [
+            spac_factory(code="100001", name="가나스팩1호", price=2100),
+            spac_factory(code="100002", name="다라스팩2호", price=1900),
+        ]
+        write(tmp_path, spacs)
+
+        data_json = tmp_path / "data.json"
+        assert data_json.exists()
+        text = data_json.read_text(encoding="utf-8")
+        assert not text.startswith("window.SPAC_DATA")  # 프리픽스 없는 순수 JSON
+        assert json.loads(text) == read_payload(tmp_path / "data.js")
 
     def test_load_existing_spacs_round_trip(self, tmp_path, spac_factory):
         spacs = [spac_factory(code="100001", name="가나스팩1호"), spac_factory(code="100002")]
