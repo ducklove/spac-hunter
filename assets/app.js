@@ -1,5 +1,5 @@
 /* 스팩 헌터 대시보드 앱 (일반 스크립트, file:// 호환).
-   로드 순서: data.js -> format.js -> charts.js -> app.js */
+   로드 순서: data.js -> format.js -> chart-tooltip.js -> charts.js -> app.js */
 (function() {
   'use strict';
 

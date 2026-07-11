@@ -36,7 +36,7 @@ spac_hunter/             # 수집 파이프라인 패키지
   domain/                # merger, valuation, enrich
   stats.py sample.py output.py
 index.html               # 대시보드 진입점 (빌드 없음)
-assets/                  # style.css, format.js, charts.js, app.js
+assets/                  # style.css, format.js, chart-tooltip.js, charts.js, app.js
 tests/                   # pytest 테스트 (tests/js/는 node --test 프론트엔드 테스트)
 pyproject.toml           # ruff 설정 (line-length 110, py311)
 requirements.txt         # 런타임 의존성 (버전 고정)

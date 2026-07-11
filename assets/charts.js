@@ -1,9 +1,10 @@
 /* SpacCharts: 캔버스 차트 공용 헬퍼 + 차트 렌더러 (일반 스크립트, file:// 호환).
-   format.js(window.SpacFormat) 로드 이후에 로드되어야 한다. */
+   format.js(window.SpacFormat)·chart-tooltip.js(window.SpacChartTooltip) 로드 이후에 로드되어야 한다. */
 (function() {
   'use strict';
 
   const F = window.SpacFormat || {};
+  const T = window.SpacChartTooltip || {};
   const getCss = name => F.getCss(name);
   const colorWithAlpha = (color, alpha) => F.colorWithAlpha(color, alpha);
 
@@ -98,6 +99,120 @@
     ctx.fillText(rightText, rightEdgeX - ctx.measureText(rightText).width, y);
   }
 
+  /* ---------- 호버 크로스헤어 + 값 툴팁 (메인 차트 2종 전용) ---------- */
+
+  /* 캔버스 부모에 크로스헤어/포인트/툴팁 DOM을 1회 생성해 캔버스별로 재사용한다. */
+  function ensureHoverElements(canvas) {
+    const host = canvas.parentElement;
+    if (!host) return null;
+    if (!canvas.__spacHover) {
+      host.classList.add('chart-hover-host');
+      const make = className => {
+        const el = document.createElement('div');
+        el.className = className;
+        host.appendChild(el);
+        return el;
+      };
+      canvas.__spacHover = {
+        crosshair: make('chart-crosshair'),
+        dot: make('chart-hover-dot'),
+        tooltip: make('chart-tooltip')
+      };
+      bindHoverEvents(canvas);
+    }
+    return canvas.__spacHover;
+  }
+
+  function hideHover(canvas) {
+    const hover = canvas.__spacHover;
+    if (!hover) return;
+    hover.crosshair.classList.remove('visible');
+    hover.dot.classList.remove('visible');
+    hover.tooltip.classList.remove('visible');
+  }
+
+  /* clientX/clientY 기준으로 가장 가까운 데이터 포인트를 찾아
+     크로스헤어·포인트·툴팁을 배치한다. 플롯 영역 밖이면 숨긴다. */
+  function moveHover(canvas, clientX, clientY) {
+    const model = canvas.__spacHoverModel;
+    const hover = canvas.__spacHover;
+    if (!model || !hover) return;
+    const rect = canvas.getBoundingClientRect();
+    const mx = clientX - rect.left;
+    const my = clientY - rect.top;
+    const plot = model.plot;
+    if (mx < plot.x0 - 10 || mx > plot.x1 + 10 || my < plot.y0 - 10 || my > plot.y1 + 14) {
+      hideHover(canvas);
+      return;
+    }
+    const index = T.nearestIndex(model.xs, mx);
+    if (index < 0) {
+      hideHover(canvas);
+      return;
+    }
+    const pt = model.pts[index];
+    const content = model.content(index);
+
+    /* 컨테이너 패딩만큼 캔버스가 안쪽에 있을 수 있으므로 부모(호스트) 좌표계로 보정한다. */
+    const hostRect = canvas.parentElement.getBoundingClientRect();
+    const offsetX = rect.left - hostRect.left;
+    const offsetY = rect.top - hostRect.top;
+
+    hover.crosshair.style.left = `${offsetX + pt.x}px`;
+    hover.crosshair.style.top = `${offsetY + plot.y0}px`;
+    hover.crosshair.style.height = `${plot.y1 - plot.y0}px`;
+    hover.crosshair.classList.add('visible');
+
+    hover.dot.style.left = `${offsetX + pt.x}px`;
+    hover.dot.style.top = `${offsetY + pt.y}px`;
+    hover.dot.style.background = model.lineColor;
+    hover.dot.classList.add('visible');
+
+    hover.tooltip.innerHTML = [
+      `<div class="tt-date">${F.escapeHtml(content.date)}</div>`,
+      ...content.rows.map(row =>
+        `<div class="tt-row"><span>${F.escapeHtml(row[0])}</span><span>${F.escapeHtml(row[1])}</span></div>`)
+    ].join('');
+    const pos = T.tooltipPosition(
+      pt.x,
+      pt.y,
+      hover.tooltip.offsetWidth,
+      hover.tooltip.offsetHeight,
+      rect.width,
+      rect.height
+    );
+    hover.tooltip.style.left = `${offsetX + pos.left}px`;
+    hover.tooltip.style.top = `${offsetY + pos.top}px`;
+    hover.tooltip.classList.add('visible');
+  }
+
+  function bindHoverEvents(canvas) {
+    canvas.addEventListener('mousemove', event => moveHover(canvas, event.clientX, event.clientY));
+    canvas.addEventListener('mouseleave', () => hideHover(canvas));
+    const onTouch = event => {
+      const touch = event.touches && event.touches[0];
+      if (touch) moveHover(canvas, touch.clientX, touch.clientY);
+    };
+    canvas.addEventListener('touchstart', onTouch, { passive: true });
+    canvas.addEventListener('touchmove', onTouch, { passive: true });
+    canvas.addEventListener('touchend', () => hideHover(canvas));
+    canvas.addEventListener('touchcancel', () => hideHover(canvas));
+  }
+
+  /* 차트를 그릴 때마다 호버 모델(좌표·내용)을 갱신한다.
+     model: { xs, pts, plot: {x0,x1,y0,y1}, lineColor, content(index) } — null이면 비활성(빈 차트). */
+  function setHoverModel(canvas, model) {
+    if (!canvas) return;
+    canvas.__spacHoverModel = model;
+    if (!model) {
+      hideHover(canvas);
+      return;
+    }
+    ensureHoverElements(canvas);
+    /* 기간 전환·리사이즈 등 재그리기 직후 이전 위치의 잔상을 지운다. */
+    hideHover(canvas);
+  }
+
   /* date/ratio가 있는 포인트만 남긴다. */
   function validRatioPoints(history) {
     return (history || []).filter(point => point && point.date && point.ratio != null);
@@ -124,6 +239,7 @@
     const points = recentPoints(validRatioPoints(item && item.history), chartDays);
 
     if (points.length < 2) {
+      setHoverModel(canvas, null);
       drawEmptyMessage(ctx, '차트를 그릴 히스토리가 부족합니다.', 18, 36);
       return;
     }
@@ -159,6 +275,13 @@
       env.width - pad.right,
       env.height - 8
     );
+    setHoverModel(canvas, {
+      xs: pts.map(pt => pt.x),
+      pts,
+      plot: { x0: pad.left, x1: pad.left + w, y0: pad.top, y1: pad.top + h },
+      lineColor,
+      content: index => T.ratioTooltipContent(points[index])
+    });
   }
 
   /* 시장 통계: 공모가 미만 종목수 추이 라인 차트. */
@@ -168,6 +291,7 @@
     const ctx = env.ctx;
 
     if (!points || points.length < 2) {
+      setHoverModel(canvas, null);
       drawEmptyMessage(ctx, '추이를 그릴 데이터가 부족합니다.', 16, 34);
       return;
     }
@@ -199,6 +323,13 @@
       env.width - pad.right,
       env.height - 7
     );
+    setHoverModel(canvas, {
+      xs: pts.map(pt => pt.x),
+      pts,
+      plot: { x0: pad.left, x1: pad.left + w, y0: pad.top, y1: pad.top + h },
+      lineColor,
+      content: index => T.belowTooltipContent(points[index])
+    });
   }
 
   /* 종목 비교 테이블 스파크라인: 최근 90일 ratio 라인 + 1.00x 기준 점선.

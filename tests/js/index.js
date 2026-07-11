@@ -3,3 +3,4 @@
 // 실행되도록 테스트 파일을 동적 import 한다.
 // 디렉터리 검색이 정상 동작하는 빌드에서는 *.test.mjs 패턴만 수집되므로 이 파일은 무시된다.
 import('./format.test.mjs');
+import('./chart-tooltip.test.mjs');

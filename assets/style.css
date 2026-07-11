@@ -1753,3 +1753,72 @@ td.spark-cell {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== 차트 호버: 크로스헤어 / 포인트 / 값 툴팁 (charts.js가 DOM 생성) ===== */
+
+.chart-hover-host {
+  position: relative;
+}
+
+.chart-crosshair {
+  position: absolute;
+  width: 1px;
+  background: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.chart-hover-dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.chart-tooltip {
+  position: absolute;
+  min-width: 128px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 12px;
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  transition: opacity 0.12s;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.chart-crosshair.visible {
+  opacity: 0.55;
+}
+
+.chart-hover-dot.visible,
+.chart-tooltip.visible {
+  opacity: 1;
+}
+
+.chart-tooltip .tt-date {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.chart-tooltip .tt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-tooltip .tt-row span:last-child {
+  font-weight: 700;
+}
