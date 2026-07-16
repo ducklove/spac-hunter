@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-07-15T17:55:57.274666+09:00",
+  "generatedAt": "2026-07-16T17:41:46.223981+09:00",
   "alerts": [
+    {
+      "id": "2026-07-16|below_ipo_enter|0004Y0",
+      "date": "2026-07-16",
+      "type": "below_ipo_enter",
+      "code": "0004Y0",
+      "name": "디비금융제14호스팩",
+      "title": "디비금융제14호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9995 (현재가 1,999)",
+      "url": "https://finance.naver.com/item/main.naver?code=0004Y0"
+    },
+    {
+      "id": "2026-07-16|below_ipo_enter|0105P0",
+      "date": "2026-07-16",
+      "type": "below_ipo_enter",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9975 (현재가 1,995)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
     {
       "id": "2026-07-15|below_ipo_enter|0071M0",
       "date": "2026-07-15",
