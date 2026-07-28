@@ -1,6 +1,45 @@
 {
-  "generatedAt": "2026-07-27T19:27:04.250216+09:00",
+  "generatedAt": "2026-07-28T18:18:36.845606+09:00",
   "alerts": [
+    {
+      "id": "2026-07-28|below_ipo_enter|0105P0",
+      "date": "2026-07-28",
+      "type": "below_ipo_enter",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9955 (현재가 1,991)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-07-28|below_ipo_enter|0130H0",
+      "date": "2026-07-28",
+      "type": "below_ipo_enter",
+      "code": "0130H0",
+      "name": "엔에이치스팩33호",
+      "title": "엔에이치스팩33호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9985 (현재가 1,997)",
+      "url": "https://finance.naver.com/item/main.naver?code=0130H0"
+    },
+    {
+      "id": "2026-07-28|delisted|467930",
+      "date": "2026-07-28",
+      "type": "delisted",
+      "code": "467930",
+      "name": "IBKS제23호스팩",
+      "title": "IBKS제23호스팩 유니버스 제외(상폐 추정)",
+      "detail": "사유 미확인, 최종 가격 2,110"
+    },
+    {
+      "id": "2026-07-28|near_liquidation|471050",
+      "date": "2026-07-28",
+      "type": "near_liquidation",
+      "code": "471050",
+      "name": "대신밸런스제17호스팩",
+      "title": "대신밸런스제17호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2027-01-24 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=471050"
+    },
     {
       "id": "2026-07-27|below_ipo_exit|0091W0",
       "date": "2026-07-27",

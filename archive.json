@@ -1,7 +1,24 @@
 {
-  "updatedAt": "2026-06-18T05:47:46.702296+09:00",
-  "count": 1,
+  "updatedAt": "2026-07-28T18:18:36.845606+09:00",
+  "count": 2,
   "spacs": [
+    {
+      "code": "467930",
+      "name": "IBKS제23호스팩",
+      "sponsor": "IBKS",
+      "listingDate": "2023-12-22",
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2110,
+      "finalRatio": 1.055,
+      "badges": [
+        "청산 6개월 이내"
+      ],
+      "lastSeen": "2026-07-27 19:27:04 KST",
+      "archivedAt": "2026-07-28T18:18:36.845606+09:00",
+      "delistReasonGuess": "사유 미확인"
+    },
     {
       "code": "464440",
       "name": "한국제13호스팩",
