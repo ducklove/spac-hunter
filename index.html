@@ -38,7 +38,7 @@ html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260711-async-data">
+<link rel="stylesheet" href="assets/style.css?v=20260729-chart-axis">
 </head>
 <body>
 <header class="app-header">
@@ -130,7 +130,7 @@ html[data-embed] .container { padding-top: 14px !important; }
 
   <section class="toolbar" aria-label="스팩 필터">
     <div class="segments" id="filterSegments"></div>
-    <input type="search" class="control search-control" id="searchInput" placeholder="종목명 또는 코드 검색">
+    <input type="search" class="control search-control" id="searchInput" placeholder="종목명 또는 코드 검색" aria-label="스팩 종목 검색">
     <select class="control" id="sortSelect" aria-label="정렬">
       <option value="price">가격 순</option>
       <option value="listing">상장일자 순</option>
@@ -167,10 +167,10 @@ html[data-embed] .container { padding-top: 14px !important; }
           <div class="panel-sub">1.00x 아래는 공모가 이하 구간입니다</div>
         </div>
         <div class="periods" id="periodButtons">
-          <button type="button" class="period-btn" data-days="30">1M</button>
-          <button type="button" class="period-btn active" data-days="90">3M</button>
-          <button type="button" class="period-btn" data-days="180">6M</button>
-          <button type="button" class="period-btn" data-days="0">전체</button>
+          <button type="button" class="period-btn" data-days="30" aria-pressed="false">1M</button>
+          <button type="button" class="period-btn active" data-days="90" aria-pressed="true">3M</button>
+          <button type="button" class="period-btn" data-days="180" aria-pressed="false">6M</button>
+          <button type="button" class="period-btn" data-days="0" aria-pressed="false">전체</button>
         </div>
       </div>
       <div class="chart-wrap">
@@ -308,10 +308,10 @@ html[data-embed] .container { padding-top: 14px !important; }
 
 <!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
      (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
-<script src="assets/format.js?v=20260711-async-data"></script>
-<script src="assets/chart-tooltip.js?v=20260711-async-data"></script>
-<script src="assets/charts.js?v=20260711-async-data"></script>
-<script src="assets/data-loader.js?v=20260711-async-data"></script>
-<script src="assets/app.js?v=20260711-async-data"></script>
+<script src="assets/format.js?v=20260729-chart-axis"></script>
+<script src="assets/chart-tooltip.js?v=20260729-chart-axis"></script>
+<script src="assets/charts.js?v=20260729-chart-axis"></script>
+<script src="assets/data-loader.js?v=20260729-chart-axis"></script>
+<script src="assets/app.js?v=20260729-chart-axis"></script>
 </body>
 </html>

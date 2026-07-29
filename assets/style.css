@@ -1851,7 +1851,21 @@ td.spark-cell {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skeleton-line {
-    animation: none;
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 모바일 터치 타겟. 워치 버튼은 제외 — 24px 아이콘이라 세로만 늘리면
+   카드 안에서 삐져나가고, 히트 영역은 이미 ::after(inset -8px)가 담당한다. */
+@media (max-width: 760px) {
+  .segment,
+  .period-btn,
+  .button,
+  .control {
+    min-height: 44px;
   }
 }

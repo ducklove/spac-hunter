@@ -706,7 +706,8 @@
 
   function renderFilters() {
     document.getElementById('filterSegments').innerHTML = filters.map(item => `
-      <button type="button" class="segment ${filterMode === item.id ? 'active' : ''}" data-filter="${item.id}">
+      <button type="button" class="segment ${filterMode === item.id ? 'active' : ''}" data-filter="${item.id}"
+        aria-pressed="${filterMode === item.id ? 'true' : 'false'}">
         ${escapeHtml(item.label)}
       </button>
     `).join('');
@@ -1696,7 +1697,11 @@
     document.querySelectorAll('.period-btn').forEach(button => {
       button.addEventListener('click', () => {
         chartDays = Number(button.dataset.days);
-        document.querySelectorAll('.period-btn').forEach(btn => btn.classList.toggle('active', btn === button));
+        document.querySelectorAll('.period-btn').forEach(btn => {
+          const active = btn === button;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
         drawSelectedChart();
       });
     });
