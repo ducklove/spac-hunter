@@ -24,6 +24,26 @@
     return Math.abs(xs[low] - targetX) < Math.abs(xs[prev] - targetX) ? low : prev;
   }
 
+  /* 하단 날짜 축에 찍을 눈금 인덱스 배열. 플롯 폭을 minGap 이상으로 나눠
+     2~7개를 균등하게 고르고 첫/마지막 인덱스는 항상 포함한다.
+     (양 끝 날짜만 있으면 중간이 언제인지 알 수 없어 시간 흐름을 오해하게 된다.) */
+  function axisTickIndexes(count, plotWidth, minGap) {
+    if (!Number.isFinite(count) || count <= 0) return [];
+    if (count === 1) return [0];
+    const gap = minGap == null ? 74 : minGap;
+    const fit = Number.isFinite(plotWidth) && gap > 0 ? Math.floor(plotWidth / gap) + 1 : 2;
+    const ticks = Math.max(2, Math.min(7, fit, count));
+    const seen = new Set();
+    const indexes = [];
+    for (let i = 0; i < ticks; i += 1) {
+      const index = Math.round(i * (count - 1) / (ticks - 1));
+      if (seen.has(index)) continue;
+      seen.add(index);
+      indexes.push(index);
+    }
+    return indexes;
+  }
+
   /* 툴팁 배치(캔버스 CSS 픽셀 좌표계): 기본은 포인트 우측 위.
      우측 공간이 없으면 좌측으로, 위 공간이 없으면 아래로 뒤집고
      차트 경계 안쪽(edge=4px)으로 클램프한다. */
@@ -76,6 +96,7 @@
 
   const SpacChartTooltip = {
     nearestIndex,
+    axisTickIndexes,
     tooltipPosition,
     ratioTooltipContent,
     belowTooltipContent

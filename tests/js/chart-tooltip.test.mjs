@@ -109,3 +109,45 @@ test('belowTooltipContent: 0개는 0개, 누락은 -', () => {
     rows: [['공모가 미만', '-'], ['전체', '-'], ['비중', '-']]
   });
 });
+
+test('axisTickIndexes: 빈/단일 포인트', () => {
+  assert.deepEqual(tt.axisTickIndexes(0, 300), []);
+  assert.deepEqual(tt.axisTickIndexes(-3, 300), []);
+  assert.deepEqual(tt.axisTickIndexes(1, 300), [0]);
+});
+
+test('axisTickIndexes: 첫·마지막 인덱스는 항상 포함', () => {
+  [2, 5, 30, 155, 400].forEach(count => {
+    [40, 120, 350, 900].forEach(width => {
+      const ticks = tt.axisTickIndexes(count, width);
+      assert.equal(ticks[0], 0, `count=${count} width=${width}`);
+      assert.equal(ticks[ticks.length - 1], count - 1, `count=${count} width=${width}`);
+    });
+  });
+});
+
+test('axisTickIndexes: 오름차순·중복 없음·개수는 2~7', () => {
+  [2, 3, 8, 155].forEach(count => {
+    [50, 300, 1200, 5000].forEach(width => {
+      const ticks = tt.axisTickIndexes(count, width);
+      assert.ok(ticks.length >= 2 && ticks.length <= 7, `len=${ticks.length}`);
+      assert.equal(new Set(ticks).size, ticks.length, '중복 없음');
+      ticks.forEach((value, i) => {
+        if (i) assert.ok(value > ticks[i - 1], '오름차순');
+        assert.ok(value >= 0 && value < count, '범위 내');
+      });
+    });
+  });
+});
+
+test('axisTickIndexes: 폭이 넓을수록 눈금이 늘고 좁으면 양 끝만', () => {
+  assert.deepEqual(tt.axisTickIndexes(101, 40), [0, 100]);
+  assert.deepEqual(tt.axisTickIndexes(101, 160, 74), [0, 50, 100]);
+  assert.equal(tt.axisTickIndexes(101, 1000, 74).length, 7);
+  assert.ok(tt.axisTickIndexes(101, 400).length > tt.axisTickIndexes(101, 150).length);
+});
+
+test('axisTickIndexes: 포인트가 적으면 포인트 수를 넘지 않는다', () => {
+  assert.deepEqual(tt.axisTickIndexes(2, 900), [0, 1]);
+  assert.deepEqual(tt.axisTickIndexes(3, 900), [0, 1, 2]);
+});

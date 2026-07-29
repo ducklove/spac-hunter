@@ -11,17 +11,67 @@
   const FONT_LABEL = '11px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
   const FONT_EMPTY = '13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
 
-  /* dpr 스케일을 적용해 캔버스를 초기화하고 CSS 픽셀 기준 컨텍스트를 돌려준다. */
+  /* dpr 스케일을 적용해 캔버스를 초기화하고 CSS 픽셀 기준 컨텍스트를 돌려준다.
+     레이아웃 전(폭·높이 0)이면 그리지 않고 null — 그 상태로 그리면 좌표계가 통째로 깨진다. */
   function setupCanvas(canvas) {
     if (!canvas || typeof canvas.getContext !== 'function') return null;
     const rect = canvas.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1) return null;
     const dpr = window.devicePixelRatio || 1;
     canvas.width = Math.max(1, Math.floor(rect.width * dpr));
     canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+    /* 호버 좌표는 이 크기를 기준으로 계산되므로 렌더 시점 크기를 기록해 둔다. */
+    canvas.__spacRenderedWidth = rect.width;
+    canvas.__spacRenderedHeight = rect.height;
     const ctx = canvas.getContext('2d');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, rect.width, rect.height);
     return { ctx, width: rect.width, height: rect.height };
+  }
+
+  /* ---------- 크기 변화 추적 ----------
+     캔버스는 CSS로 100% 늘어나므로, 그린 뒤 레이아웃이 바뀌면 그림은 확대·축소되어
+     따라가지만 호버 모델의 좌표는 옛 폭 기준으로 남는다(마우스 위치 → 엉뚱한 날짜).
+     마지막 렌더 명령을 붙여 두고 실제 크기가 바뀌면 같은 인자로 다시 그린다. */
+
+  let sizeObserver = null;
+
+  function ensureSizeObserver() {
+    if (sizeObserver || typeof ResizeObserver !== 'function') return sizeObserver;
+    sizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        const canvas = entry.target;
+        if (typeof canvas.__spacRender !== 'function') return;
+        const rect = canvas.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return;
+        if (Math.abs(rect.width - (canvas.__spacRenderedWidth || 0)) < 0.5
+          && Math.abs(rect.height - (canvas.__spacRenderedHeight || 0)) < 0.5) return;
+        canvas.__spacRender();
+      });
+    });
+    return sizeObserver;
+  }
+
+  /* 마지막 렌더 명령을 기억하고(크기 변화 시 재실행) 캔버스를 관찰 대상에 등록한다. */
+  function trackRender(canvas, render) {
+    if (!canvas) return;
+    canvas.__spacRender = render;
+    if (canvas.__spacSizeObserved) return;
+    const observer = ensureSizeObserver();
+    if (!observer) return;
+    canvas.__spacSizeObserved = true;
+    observer.observe(canvas);
+  }
+
+  /* 크기가 어긋난 채로 호버가 들어오면(ResizeObserver 콜백보다 빠른 경우) 즉시 다시 그린다. */
+  function syncRenderSize(canvas) {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1) return false;
+    if (Math.abs(rect.width - (canvas.__spacRenderedWidth || 0)) < 0.5
+      && Math.abs(rect.height - (canvas.__spacRenderedHeight || 0)) < 0.5) return true;
+    if (typeof canvas.__spacRender !== 'function') return false;
+    canvas.__spacRender();
+    return true;
   }
 
   function drawEmptyMessage(ctx, message, x, y) {
@@ -92,11 +142,30 @@
     ctx.fill();
   }
 
-  /* 차트 하단 좌/우 날짜 라벨(우측은 우측 정렬). */
-  function drawEdgeDateLabels(ctx, leftText, rightText, leftX, rightEdgeX, y) {
+  /* 차트 하단 날짜 축: 폭에 맞춰 눈금을 고르고 MM-DD 라벨을 찍는다.
+     양 끝은 플롯 경계에 붙이고 중간은 해당 포인트 x 중앙 정렬 —
+     x는 거래일 등간격이라, 중간 라벨이 있어야 실제 시간 흐름을 읽을 수 있다. */
+  function drawDateAxisLabels(ctx, points, xs, x0, x1, y) {
     ctx.fillStyle = getCss('--muted');
-    ctx.fillText(leftText, leftX, y);
-    ctx.fillText(rightText, rightEdgeX - ctx.measureText(rightText).width, y);
+    ctx.font = FONT_LABEL;
+    const indexes = T.axisTickIndexes(points.length, x1 - x0, 74);
+    const labels = indexes.map((index, order) => {
+      const text = String(points[index].date || '').slice(5);
+      const width = ctx.measureText(text).width;
+      let left;
+      if (order === 0) left = x0;
+      else if (order === indexes.length - 1) left = x1 - width;
+      else left = xs[index] - width / 2;
+      return { text, width, left: Math.min(Math.max(left, x0), Math.max(x0, x1 - width)) };
+    });
+    /* 마지막(최신) 라벨이 우선 — 뒤에서부터 훑어 겹치는 앞 라벨을 버린다. */
+    let nextLeft = Infinity;
+    for (let i = labels.length - 1; i >= 0; i -= 1) {
+      const label = labels[i];
+      if (label.left + label.width + 8 > nextLeft) continue;
+      ctx.fillText(label.text, label.left, y);
+      nextLeft = label.left;
+    }
   }
 
   /* ---------- 호버 크로스헤어 + 값 툴팁 (메인 차트 2종 전용) ---------- */
@@ -134,6 +203,8 @@
   /* clientX/clientY 기준으로 가장 가까운 데이터 포인트를 찾아
      크로스헤어·포인트·툴팁을 배치한다. 플롯 영역 밖이면 숨긴다. */
   function moveHover(canvas, clientX, clientY) {
+    /* 좌표계가 낡았으면 먼저 다시 그린다(모델이 교체되므로 이후에 읽어야 한다). */
+    syncRenderSize(canvas);
     const model = canvas.__spacHoverModel;
     const hover = canvas.__spacHover;
     if (!model || !hover) return;
@@ -233,6 +304,7 @@
 
   /* 상세 패널 메인 차트: 현재가/공모가 비율 라인 + 1.00x 점선 + 영역 채우기. */
   function drawRatioChart(canvas, item, chartDays) {
+    trackRender(canvas, () => drawRatioChart(canvas, item, chartDays));
     const env = setupCanvas(canvas);
     if (!env) return;
     const ctx = env.ctx;
@@ -267,16 +339,10 @@
     drawAreaFill(ctx, pts, pad.top, pad.top + h, lineColor);
     drawLine(ctx, pts, lineColor, 2.4);
     drawEndDot(ctx, pts[pts.length - 1].x, pts[pts.length - 1].y, lineColor);
-    drawEdgeDateLabels(
-      ctx,
-      String(points[0].date).slice(5),
-      String(points[points.length - 1].date).slice(5),
-      pad.left,
-      env.width - pad.right,
-      env.height - 8
-    );
+    const xs = pts.map(pt => pt.x);
+    drawDateAxisLabels(ctx, points, xs, pad.left, pad.left + w, env.height - 8);
     setHoverModel(canvas, {
-      xs: pts.map(pt => pt.x),
+      xs,
       pts,
       plot: { x0: pad.left, x1: pad.left + w, y0: pad.top, y1: pad.top + h },
       lineColor,
@@ -286,6 +352,7 @@
 
   /* 시장 통계: 공모가 미만 종목수 추이 라인 차트. */
   function drawBelowTrendChart(canvas, points) {
+    trackRender(canvas, () => drawBelowTrendChart(canvas, points));
     const env = setupCanvas(canvas);
     if (!env) return;
     const ctx = env.ctx;
@@ -315,16 +382,10 @@
     const lineColor = getCss('--red');
     drawLine(ctx, pts, lineColor, 2.4);
     drawEndDot(ctx, pts[pts.length - 1].x, pts[pts.length - 1].y, lineColor);
-    drawEdgeDateLabels(
-      ctx,
-      String(points[0].date).slice(5),
-      String(points[points.length - 1].date).slice(5),
-      pad.left,
-      env.width - pad.right,
-      env.height - 7
-    );
+    const xs = pts.map(pt => pt.x);
+    drawDateAxisLabels(ctx, points, xs, pad.left, pad.left + w, env.height - 7);
     setHoverModel(canvas, {
-      xs: pts.map(pt => pt.x),
+      xs,
       pts,
       plot: { x0: pad.left, x1: pad.left + w, y0: pad.top, y1: pad.top + h },
       lineColor,
@@ -370,7 +431,7 @@
     drawLine,
     drawAreaFill,
     drawEndDot,
-    drawEdgeDateLabels,
+    drawDateAxisLabels,
     validRatioPoints,
     recentPoints,
     sparklinePoints,
