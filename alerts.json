@@ -1,6 +1,65 @@
 {
-  "generatedAt": "2026-07-30T18:15:22.309818+09:00",
+  "generatedAt": "2026-07-31T18:25:16.314973+09:00",
   "alerts": [
+    {
+      "id": "2026-07-31|below_ipo_enter|0041L0",
+      "date": "2026-07-31",
+      "type": "below_ipo_enter",
+      "code": "0041L0",
+      "name": "하나35호스팩",
+      "title": "하나35호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9965 (현재가 1,993)",
+      "url": "https://finance.naver.com/item/main.naver?code=0041L0"
+    },
+    {
+      "id": "2026-07-31|below_ipo_enter|466690",
+      "date": "2026-07-31",
+      "type": "below_ipo_enter",
+      "code": "466690",
+      "name": "키움히어로제1호스팩",
+      "title": "키움히어로제1호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9975 (현재가 1,995)",
+      "url": "https://finance.naver.com/item/main.naver?code=466690"
+    },
+    {
+      "id": "2026-07-31|below_ipo_enter|492220",
+      "date": "2026-07-31",
+      "type": "below_ipo_enter",
+      "code": "492220",
+      "name": "KB제31호스팩",
+      "title": "KB제31호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9975 (현재가 1,995)",
+      "url": "https://finance.naver.com/item/main.naver?code=492220"
+    },
+    {
+      "id": "2026-07-31|delisted|469880",
+      "date": "2026-07-31",
+      "type": "delisted",
+      "code": "469880",
+      "name": "하나30호스팩",
+      "title": "하나30호스팩 유니버스 제외(상폐 추정)",
+      "detail": "사유 미확인, 최종 가격 2,115"
+    },
+    {
+      "id": "2026-07-31|merger_applied|465320",
+      "date": "2026-07-31",
+      "type": "merger_applied",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 신청 공시",
+      "detail": "[기재정정]주요사항보고서(회사합병결정), 공시일 기준가 2,335, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731000285"
+    },
+    {
+      "id": "2026-07-31|merger_canceled|465320",
+      "date": "2026-07-31",
+      "type": "merger_canceled",
+      "code": "465320",
+      "name": "교보15호스팩",
+      "title": "교보15호스팩 합병 철회 공시",
+      "detail": "주권매매거래정지해제 (합병결정 철회), 공시일 기준가 2,335, 공모가 대비 1.1675배",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900610"
+    },
     {
       "id": "2026-07-30|below_ipo_enter|0004Y0",
       "date": "2026-07-30",

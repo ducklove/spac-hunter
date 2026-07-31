@@ -1,7 +1,24 @@
 {
-  "updatedAt": "2026-07-28T18:18:36.845606+09:00",
-  "count": 2,
+  "updatedAt": "2026-07-31T18:25:16.314973+09:00",
+  "count": 3,
   "spacs": [
+    {
+      "code": "469880",
+      "name": "하나30호스팩",
+      "sponsor": "하나",
+      "listingDate": "2023-12-22",
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2115,
+      "finalRatio": 1.0575,
+      "badges": [
+        "청산 6개월 이내"
+      ],
+      "lastSeen": "2026-07-30 18:15:22 KST",
+      "archivedAt": "2026-07-31T18:25:16.314973+09:00",
+      "delistReasonGuess": "사유 미확인"
+    },
     {
       "code": "467930",
       "name": "IBKS제23호스팩",
