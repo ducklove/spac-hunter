@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-08-02T17:56:02.532833+09:00",
+  "generatedAt": "2026-08-03T19:24:38.016975+09:00",
   "alerts": [
+    {
+      "id": "2026-08-03|below_ipo_exit|492220",
+      "date": "2026-08-03",
+      "type": "below_ipo_exit",
+      "code": "492220",
+      "name": "KB제31호스팩",
+      "title": "KB제31호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9975 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=492220"
+    },
+    {
+      "id": "2026-08-03|below_ipo_exit|496070",
+      "date": "2026-08-03",
+      "type": "below_ipo_exit",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9920 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
     {
       "id": "2026-07-31|below_ipo_enter|0041L0",
       "date": "2026-07-31",
