@@ -1,6 +1,36 @@
 {
-  "generatedAt": "2026-08-04T18:21:29.631178+09:00",
+  "generatedAt": "2026-08-05T18:19:41.454831+09:00",
   "alerts": [
+    {
+      "id": "2026-08-05|below_ipo_enter|496070",
+      "date": "2026-08-05",
+      "type": "below_ipo_enter",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9990 (현재가 1,998)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
+    {
+      "id": "2026-08-05|below_ipo_exit|0004Y0",
+      "date": "2026-08-05",
+      "type": "below_ipo_exit",
+      "code": "0004Y0",
+      "name": "디비금융제14호스팩",
+      "title": "디비금융제14호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9975 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0004Y0"
+    },
+    {
+      "id": "2026-08-05|near_liquidation|469480",
+      "date": "2026-08-05",
+      "type": "near_liquidation",
+      "code": "469480",
+      "name": "IBKS제24호스팩",
+      "title": "IBKS제24호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2027-02-01 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=469480"
+    },
     {
       "id": "2026-08-03|below_ipo_exit|492220",
       "date": "2026-08-03",
