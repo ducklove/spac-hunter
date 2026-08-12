@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-08-11T16:46:56.115824+09:00",
+  "generatedAt": "2026-08-12T17:00:21.639940+09:00",
   "alerts": [
+    {
+      "id": "2026-08-12|below_ipo_exit|466690",
+      "date": "2026-08-12",
+      "type": "below_ipo_exit",
+      "code": "466690",
+      "name": "키움히어로제1호스팩",
+      "title": "키움히어로제1호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9985 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=466690"
+    },
     {
       "id": "2026-08-11|below_ipo_enter|466690",
       "date": "2026-08-11",
