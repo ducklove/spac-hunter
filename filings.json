@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T16:21:23.845141+09:00",
+  "updatedAt": "2026-08-20T16:24:16.899031+09:00",
   "filings": {
     "477760": {
       "receiptNo": "20240530001411",
@@ -68,7 +68,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "467930": {
       "receiptNo": "20231211000138",
@@ -146,7 +146,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0099X0": {
       "receiptNo": "20251208000119",
@@ -163,7 +163,7 @@
       "paymentDate": "2025-12-09",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "478390": {
       "receiptNo": "20240610000163",
@@ -204,7 +204,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "486630": {
       "receiptNo": "20240909000034",
@@ -235,7 +235,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "492220": {
       "receiptNo": "20241129000608",
@@ -266,7 +266,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0037T0": {
       "receiptNo": "20250623000080",
@@ -283,7 +283,7 @@
       "paymentDate": "2025-06-24",
       "extractedAt": "2026-06-11T07:46:48.876662+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00",
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00",
       "escrowRateChanges": [
         {
           "receiptNo": "20260630901522",
@@ -314,7 +314,7 @@
       "parseWarnings": [
         "escrowAgent: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "465320": {
       "receiptNo": "20231122000325",
@@ -353,7 +353,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "482520": {
       "receiptNo": "20240731000498",
@@ -392,7 +392,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "489210": {
       "receiptNo": "20241106000142",
@@ -421,7 +421,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0041B0": {
       "receiptNo": "20250731000309",
@@ -438,7 +438,7 @@
       "paymentDate": "2025-08-05",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00",
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00",
       "escrowRateChanges": [
         {
           "receiptNo": "20260812900150",
@@ -467,7 +467,7 @@
       "paymentDate": "2025-12-02",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0132G0": {
       "receiptNo": "20260319000821",
@@ -484,7 +484,7 @@
       "paymentDate": "2026-03-23",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "471050": {
       "receiptNo": "20240112000195",
@@ -525,7 +525,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "482690": {
       "receiptNo": "20241107000228",
@@ -556,7 +556,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0134X0": {
       "receiptNo": "20260521000518",
@@ -575,7 +575,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "489730": {
       "receiptNo": "20241115000128",
@@ -604,7 +604,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0004Y0": {
       "receiptNo": "20250709000268",
@@ -621,7 +621,7 @@
       "paymentDate": "2025-07-10",
       "extractedAt": "2026-06-11T21:54:20.936069+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00",
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00",
       "escrowRateChanges": [
         {
           "receiptNo": "20260720900290",
@@ -652,7 +652,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0097F0": {
       "receiptNo": "20251211000330",
@@ -669,7 +669,7 @@
       "paymentDate": "2025-12-12",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0099W0": {
       "receiptNo": "20251209000372",
@@ -686,7 +686,7 @@
       "paymentDate": "2025-12-10",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "477380": {
       "receiptNo": "20240517000260",
@@ -725,7 +725,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "477470": {
       "receiptNo": "20240607000402",
@@ -764,7 +764,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "478440": {
       "receiptNo": "20240611000366",
@@ -803,7 +803,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "482680": {
       "receiptNo": "20240829001549",
@@ -832,7 +832,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0093G0": {
       "receiptNo": "20251114003075",
@@ -849,7 +849,7 @@
       "paymentDate": "2025-11-17",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0096D0": {
       "receiptNo": "20251118000265",
@@ -866,7 +866,7 @@
       "paymentDate": "2025-11-19",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0068Y0": {
       "receiptNo": "20251110000259",
@@ -883,7 +883,7 @@
       "paymentDate": "2025-11-11",
       "extractedAt": "2026-06-12T21:29:19.952774+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0044K0": {
       "receiptNo": "20250807000053",
@@ -903,7 +903,7 @@
         "escrowAmount: 패턴 미발견",
         "escrowAgent: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00",
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00",
       "escrowRateChanges": [
         {
           "receiptNo": "20260819900363",
@@ -934,7 +934,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0096B0": {
       "receiptNo": "20251117000034",
@@ -953,7 +953,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0115H0": {
       "receiptNo": "20260109000087",
@@ -972,7 +972,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "472220": {
       "receiptNo": "20240124000304",
@@ -1031,7 +1031,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0091W0": {
       "receiptNo": "20251112000416",
@@ -1048,7 +1048,7 @@
       "paymentDate": "2025-11-13",
       "extractedAt": "2026-06-13T20:24:13.393014+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "474660": {
       "receiptNo": "20240401001215",
@@ -1087,7 +1087,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "474930": {
       "receiptNo": "20240408004008",
@@ -1126,7 +1126,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "487360": {
       "receiptNo": "20241210000275",
@@ -1155,7 +1155,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "487830": {
       "receiptNo": "20241104000200",
@@ -1184,7 +1184,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "496070": {
       "receiptNo": "20250515000864",
@@ -1213,7 +1213,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0130D0": {
       "receiptNo": "20260318000201",
@@ -1230,7 +1230,7 @@
       "paymentDate": "2026-03-19",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0129K0": {
       "receiptNo": "20260417000093",
@@ -1247,7 +1247,7 @@
       "paymentDate": "2026-04-20",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "472230": {
       "receiptNo": "20240219001008",
@@ -1286,7 +1286,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "473000": {
       "receiptNo": "20240422000014",
@@ -1325,7 +1325,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "473950": {
       "receiptNo": "20240712000044",
@@ -1374,7 +1374,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "477340": {
       "receiptNo": "20240607000179",
@@ -1415,7 +1415,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "481890": {
       "receiptNo": "20240715000198",
@@ -1464,7 +1464,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0054V0": {
       "receiptNo": "20251121000115",
@@ -1481,7 +1481,7 @@
       "paymentDate": "2025-11-24",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0130H0": {
       "receiptNo": "20260316000201",
@@ -1498,7 +1498,7 @@
       "paymentDate": "2026-03-17",
       "extractedAt": "2026-06-14T20:36:44.203718+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0041J0": {
       "receiptNo": "20250707000042",
@@ -1515,7 +1515,7 @@
       "paymentDate": "2025-07-08",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00",
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00",
       "escrowRateChanges": [
         {
           "receiptNo": "20260715900147",
@@ -1566,7 +1566,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "474490": {
       "receiptNo": "20240419000364",
@@ -1605,7 +1605,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "493790": {
       "receiptNo": "20250110000560",
@@ -1634,7 +1634,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "468760": {
       "receiptNo": "20240216000272",
@@ -1673,7 +1673,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "488060": {
       "receiptNo": "20241021000312",
@@ -1702,7 +1702,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0105P0": {
       "receiptNo": "20251201000430",
@@ -1719,7 +1719,7 @@
       "paymentDate": "2025-12-02",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "478110": {
       "receiptNo": "20240701000551",
@@ -1758,7 +1758,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "487720": {
       "receiptNo": "20241210000541",
@@ -1775,7 +1775,7 @@
       "paymentDate": "2024-12-16",
       "extractedAt": "2026-06-15T23:19:15.265855+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "489480": {
       "receiptNo": "20241128000624",
@@ -1804,7 +1804,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "466690": {
       "receiptNo": "20251128002140",
@@ -1821,7 +1821,7 @@
       "paymentDate": "2025-12-01",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0131D0": {
       "receiptNo": "20260413001537",
@@ -1838,7 +1838,7 @@
       "paymentDate": "2026-04-14",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "469880": {
       "receiptNo": "20231212000202",
@@ -1916,7 +1916,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "475240": {
       "receiptNo": "20240315000448",
@@ -1955,7 +1955,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "475250": {
       "receiptNo": "20240412003503",
@@ -1994,7 +1994,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "484130": {
       "receiptNo": "20241106000097",
@@ -2023,7 +2023,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0041L0": {
       "receiptNo": "20250724000463",
@@ -2040,7 +2040,7 @@
       "paymentDate": "2025-07-25",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00",
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00",
       "escrowRateChanges": [
         {
           "receiptNo": "20260731900656",
@@ -2069,7 +2069,7 @@
       "paymentDate": "2025-12-11",
       "extractedAt": "2026-06-17T20:22:13.035973+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "464440": {
       "receiptNo": "20231030000103",
@@ -2114,7 +2114,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "498390": {
       "receiptNo": "20250310000156",
@@ -2143,7 +2143,7 @@
           "parseWarnings": []
         }
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0165X0": {
       "receiptNo": "20260608000232",
@@ -2162,7 +2162,7 @@
       "parseWarnings": [
         "escrowAmount: 패턴 미발견"
       ],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     },
     "0164H0": {
       "receiptNo": "20260619000193",
@@ -2179,7 +2179,7 @@
       "paymentDate": "2026-06-22",
       "extractedAt": "2026-07-01T19:30:52.211026+09:00",
       "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-08-19T16:21:23.845141+09:00"
+      "trustRateChangeScannedAt": "2026-08-20T16:24:16.899031+09:00"
     }
   },
   "calendarDocs": {
