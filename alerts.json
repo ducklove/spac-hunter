@@ -1,6 +1,36 @@
 {
-  "generatedAt": "2026-08-24T16:38:57.553576+09:00",
+  "generatedAt": "2026-08-25T16:26:07.590957+09:00",
   "alerts": [
+    {
+      "id": "2026-08-25|below_ipo_exit|0054V0",
+      "date": "2026-08-25",
+      "type": "below_ipo_exit",
+      "code": "0054V0",
+      "name": "엔에이치스팩32호",
+      "title": "엔에이치스팩32호 공모가 회복",
+      "detail": "공모가 대비 0.9980 → 1.0050 (현재가 2,010)",
+      "url": "https://finance.naver.com/item/main.naver?code=0054V0"
+    },
+    {
+      "id": "2026-08-25|below_ipo_exit|0098T0",
+      "date": "2026-08-25",
+      "type": "below_ipo_exit",
+      "code": "0098T0",
+      "name": "교보19호스팩",
+      "title": "교보19호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9995 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0098T0"
+    },
+    {
+      "id": "2026-08-25|below_ipo_exit|0105P0",
+      "date": "2026-08-25",
+      "type": "below_ipo_exit",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 회복",
+      "detail": "공모가 대비 0.9955 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
     {
       "id": "2026-08-24|below_ipo_exit|496070",
       "date": "2026-08-24",
