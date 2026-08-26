@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-08-25T16:26:07.590957+09:00",
+  "generatedAt": "2026-08-26T16:26:32.043232+09:00",
   "alerts": [
+    {
+      "id": "2026-08-26|below_ipo_exit|0041L0",
+      "date": "2026-08-26",
+      "type": "below_ipo_exit",
+      "code": "0041L0",
+      "name": "하나35호스팩",
+      "title": "하나35호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9995 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0041L0"
+    },
     {
       "id": "2026-08-25|below_ipo_exit|0054V0",
       "date": "2026-08-25",
