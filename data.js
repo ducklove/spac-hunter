@@ -1,8 +1,8 @@
 window.SPAC_DATA = {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-08-29 03:56:49 KST",
-  "generatedAt": "2026-08-29T03:56:49.797847+09:00",
+  "lastUpdated": "2026-08-29 21:48:09 KST",
+  "generatedAt": "2026-08-29T21:48:09.038870+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -1873,16 +1873,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-08-03",
       "nextPrice": 2100,
       "nextReturnPct": -10.06,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2026-08-27",
       "highPrice": 2135,
       "highReturnPct": -8.57,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 18,
+      "observedTradingDays": 19,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -1902,16 +1902,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-08-03",
       "nextPrice": 2100,
       "nextReturnPct": -10.06,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2026-08-27",
       "highPrice": 2135,
       "highReturnPct": -8.57,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 18,
+      "observedTradingDays": 19,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -1960,7 +1960,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-07-28",
       "nextPrice": 2035,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2035,
       "latestReturnPct": 0.0,
       "highDate": "2026-07-28",
@@ -1969,7 +1969,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-28",
       "lowPrice": 2035,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 22,
+      "observedTradingDays": 23,
       "code": "498390",
       "name": "한화플러스제5호스팩",
       "status": "합병 신청",
@@ -2018,16 +2018,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-07-15",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2026-07-15",
       "highPrice": 2335,
       "highReturnPct": 0.0,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 30,
+      "observedTradingDays": 31,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -2076,7 +2076,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-07-03",
       "nextPrice": 2080,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2080,
       "latestReturnPct": 0.0,
       "highDate": "2026-07-03",
@@ -2085,7 +2085,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-03",
       "lowPrice": 2080,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 38,
+      "observedTradingDays": 39,
       "code": "468760",
       "name": "유진스팩10호",
       "status": "합병 신청",
@@ -2134,7 +2134,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-07-02",
       "nextPrice": 2080,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2080,
       "latestReturnPct": 0.0,
       "highDate": "2026-07-02",
@@ -2143,7 +2143,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-02",
       "lowPrice": 2080,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 39,
+      "observedTradingDays": 40,
       "code": "468760",
       "name": "유진스팩10호",
       "status": "합병 신청",
@@ -2163,7 +2163,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-07-01",
       "nextPrice": 2080,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2080,
       "latestReturnPct": 0.0,
       "highDate": "2026-07-01",
@@ -2172,7 +2172,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-01",
       "lowPrice": 2080,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 40,
+      "observedTradingDays": 41,
       "code": "468760",
       "name": "유진스팩10호",
       "status": "합병 신청",
@@ -2221,7 +2221,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-07-01",
       "nextPrice": 2180,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2180,
       "latestReturnPct": 0.0,
       "highDate": "2026-07-01",
@@ -2230,7 +2230,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-01",
       "lowPrice": 2180,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 40,
+      "observedTradingDays": 41,
       "code": "0099X0",
       "name": "IBKS제25호스팩",
       "status": "합병 신청",
@@ -2279,7 +2279,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-06-22",
       "nextPrice": 2130,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2130,
       "latestReturnPct": 0.0,
       "highDate": "2026-06-22",
@@ -2288,7 +2288,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-06-22",
       "lowPrice": 2130,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 47,
+      "observedTradingDays": 48,
       "code": "469480",
       "name": "IBKS제24호스팩",
       "status": "합병 신청",
@@ -2366,16 +2366,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-27",
       "nextPrice": 2030,
       "nextReturnPct": -8.97,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2085,
-      "latestReturnPct": -6.5,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2080,
+      "latestReturnPct": -6.73,
       "highDate": "2026-08-27",
       "highPrice": 2085,
       "highReturnPct": -6.5,
       "lowDate": "2026-05-27",
       "lowPrice": 2030,
       "lowReturnPct": -8.97,
-      "observedTradingDays": 64,
+      "observedTradingDays": 65,
       "code": "477760",
       "name": "DB금융스팩12호",
       "status": "과거 공시",
@@ -2395,16 +2395,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-27",
       "nextPrice": 2030,
       "nextReturnPct": -8.97,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2085,
-      "latestReturnPct": -6.5,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2080,
+      "latestReturnPct": -6.73,
       "highDate": "2026-08-27",
       "highPrice": 2085,
       "highReturnPct": -6.5,
       "lowDate": "2026-05-27",
       "lowPrice": 2030,
       "lowReturnPct": -8.97,
-      "observedTradingDays": 64,
+      "observedTradingDays": 65,
       "code": "477760",
       "name": "DB금융스팩12호",
       "status": "과거 공시",
@@ -2424,7 +2424,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-14",
       "nextPrice": 2055,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2055,
       "latestReturnPct": 0.0,
       "highDate": "2026-05-14",
@@ -2433,7 +2433,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-14",
       "lowPrice": 2055,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 72,
+      "observedTradingDays": 73,
       "code": "482680",
       "name": "미래에셋비전스팩7호",
       "status": "합병 신청",
@@ -2482,7 +2482,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-13",
       "nextPrice": 2055,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2055,
       "latestReturnPct": 0.0,
       "highDate": "2026-05-13",
@@ -2491,7 +2491,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-13",
       "lowPrice": 2055,
       "lowReturnPct": 0.0,
-      "observedTradingDays": 73,
+      "observedTradingDays": 74,
       "code": "482680",
       "name": "미래에셋비전스팩7호",
       "status": "합병 신청",
@@ -2540,7 +2540,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-12",
       "nextPrice": 2040,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2055,
       "latestReturnPct": 0.74,
       "highDate": "2026-08-24",
@@ -2549,7 +2549,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-02",
       "lowPrice": 2015,
       "lowReturnPct": -1.23,
-      "observedTradingDays": 74,
+      "observedTradingDays": 75,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -2598,16 +2598,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-05-12",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2026-05-12",
       "highPrice": 2335,
       "highReturnPct": 0.0,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 74,
+      "observedTradingDays": 75,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -2685,7 +2685,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-04-23",
       "nextPrice": 2050,
       "nextReturnPct": -2.15,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2055,
       "latestReturnPct": -1.91,
       "highDate": "2026-08-24",
@@ -2694,7 +2694,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-02",
       "lowPrice": 2015,
       "lowReturnPct": -3.82,
-      "observedTradingDays": 85,
+      "observedTradingDays": 86,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -2714,7 +2714,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-04-23",
       "nextPrice": 2050,
       "nextReturnPct": -2.15,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2055,
       "latestReturnPct": -1.91,
       "highDate": "2026-08-24",
@@ -2723,7 +2723,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-02",
       "lowPrice": 2015,
       "lowReturnPct": -3.82,
-      "observedTradingDays": 85,
+      "observedTradingDays": 86,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -2772,16 +2772,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-03-27",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2026-03-27",
       "highPrice": 2335,
       "highReturnPct": 0.0,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 104,
+      "observedTradingDays": 105,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -2830,7 +2830,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-03-18",
       "nextPrice": 2065,
       "nextReturnPct": -1.67,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2100,
       "latestReturnPct": 0.0,
       "highDate": "2026-08-27",
@@ -2839,7 +2839,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-15",
       "lowPrice": 2040,
       "lowReturnPct": -2.86,
-      "observedTradingDays": 111,
+      "observedTradingDays": 112,
       "code": "474660",
       "name": "신한제12호스팩",
       "status": "과거 공시",
@@ -2859,7 +2859,7 @@ window.SPAC_DATA = {
       "nextDate": "2026-03-18",
       "nextPrice": 2065,
       "nextReturnPct": -1.67,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2100,
       "latestReturnPct": 0.0,
       "highDate": "2026-08-27",
@@ -2868,7 +2868,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-15",
       "lowPrice": 2040,
       "lowReturnPct": -2.86,
-      "observedTradingDays": 111,
+      "observedTradingDays": 112,
       "code": "474660",
       "name": "신한제12호스팩",
       "status": "과거 공시",
@@ -2888,16 +2888,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-02-19",
       "nextPrice": 2230,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2085,
-      "latestReturnPct": -6.5,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2080,
+      "latestReturnPct": -6.73,
       "highDate": "2026-02-19",
       "highPrice": 2230,
       "highReturnPct": 0.0,
       "lowDate": "2026-05-27",
       "lowPrice": 2030,
       "lowReturnPct": -8.97,
-      "observedTradingDays": 129,
+      "observedTradingDays": 130,
       "code": "477760",
       "name": "DB금융스팩12호",
       "status": "과거 공시",
@@ -2946,16 +2946,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-02-13",
       "nextPrice": 2230,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2085,
-      "latestReturnPct": -6.5,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2080,
+      "latestReturnPct": -6.73,
       "highDate": "2026-02-13",
       "highPrice": 2230,
       "highReturnPct": 0.0,
       "lowDate": "2026-05-27",
       "lowPrice": 2030,
       "lowReturnPct": -8.97,
-      "observedTradingDays": 130,
+      "observedTradingDays": 131,
       "code": "477760",
       "name": "DB금융스팩12호",
       "status": "과거 공시",
@@ -3004,16 +3004,16 @@ window.SPAC_DATA = {
       "nextDate": "2026-02-12",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2026-02-12",
       "highPrice": 2335,
       "highReturnPct": 0.0,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 131,
+      "observedTradingDays": 132,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -3062,7 +3062,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-12-01",
       "nextPrice": 2095,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2055,
       "latestReturnPct": -1.91,
       "highDate": "2025-12-01",
@@ -3071,7 +3071,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-07-02",
       "lowPrice": 2015,
       "lowReturnPct": -3.82,
-      "observedTradingDays": 181,
+      "observedTradingDays": 182,
       "code": "482520",
       "name": "교보16호스팩",
       "status": "합병 신청",
@@ -3120,7 +3120,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-11-27",
       "nextPrice": 2100,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2100,
       "latestReturnPct": 0.0,
       "highDate": "2025-11-27",
@@ -3129,7 +3129,7 @@ window.SPAC_DATA = {
       "lowDate": "2026-05-15",
       "lowPrice": 2040,
       "lowReturnPct": -2.86,
-      "observedTradingDays": 183,
+      "observedTradingDays": 184,
       "code": "474660",
       "name": "신한제12호스팩",
       "status": "과거 공시",
@@ -3149,16 +3149,16 @@ window.SPAC_DATA = {
       "nextDate": "2025-10-02",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2025-10-02",
       "highPrice": 2335,
       "highReturnPct": 0.0,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 218,
+      "observedTradingDays": 219,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -3207,16 +3207,16 @@ window.SPAC_DATA = {
       "nextDate": "2025-09-12",
       "nextPrice": 2335,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
-      "latestPrice": 2135,
-      "latestReturnPct": -8.57,
+      "latestDate": "2026-08-28",
+      "latestPrice": 2130,
+      "latestReturnPct": -8.78,
       "highDate": "2025-09-12",
       "highPrice": 2335,
       "highReturnPct": 0.0,
       "lowDate": "2026-08-03",
       "lowPrice": 2100,
       "lowReturnPct": -10.06,
-      "observedTradingDays": 232,
+      "observedTradingDays": 233,
       "code": "465320",
       "name": "교보15호스팩",
       "status": "과거 공시",
@@ -3265,7 +3265,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-07-18",
       "nextPrice": 2015,
       "nextReturnPct": 0.75,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -3274,7 +3274,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 271,
+      "observedTradingDays": 272,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -3294,7 +3294,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-07-18",
       "nextPrice": 2015,
       "nextReturnPct": 0.75,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -3303,7 +3303,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 271,
+      "observedTradingDays": 272,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -3352,7 +3352,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-04-21",
       "nextPrice": 2000,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -3361,7 +3361,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 330,
+      "observedTradingDays": 331,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -3410,7 +3410,7 @@ window.SPAC_DATA = {
       "nextDate": "2025-04-18",
       "nextPrice": 2000,
       "nextReturnPct": 0.0,
-      "latestDate": "2026-08-27",
+      "latestDate": "2026-08-28",
       "latestPrice": 2020,
       "latestReturnPct": 1.0,
       "highDate": "2026-03-12",
@@ -3419,7 +3419,7 @@ window.SPAC_DATA = {
       "lowDate": "2025-12-16",
       "lowPrice": 1990,
       "lowReturnPct": -0.5,
-      "observedTradingDays": 331,
+      "observedTradingDays": 332,
       "code": "492220",
       "name": "KB제31호스팩",
       "status": "과거 공시",
@@ -3870,7 +3870,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260608000232)"
     },
@@ -4234,7 +4234,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-06-22",
         "extractedAt": "2026-07-01T19:30:52.211026+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260619000193)"
     },
@@ -4958,7 +4958,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-03-19",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260318000201)"
     },
@@ -5586,7 +5586,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-04-14",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260413001537)"
     },
@@ -6802,7 +6802,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-17",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251114003075)"
     },
@@ -8128,7 +8128,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000310)"
     },
@@ -9236,7 +9236,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-12",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251211000330)"
     },
@@ -10350,7 +10350,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-11",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000220)"
     },
@@ -10818,7 +10818,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260521000518)"
     },
@@ -12022,7 +12022,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-19",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251118000265)"
     },
@@ -13234,7 +13234,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251117000034)"
     },
@@ -14474,7 +14474,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-11",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251110000259)"
     },
@@ -15072,7 +15072,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-04-20",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260417000093)"
     },
@@ -16398,7 +16398,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000264)"
     },
@@ -17732,7 +17732,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-07-10",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00",
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260720900290",
@@ -19078,7 +19078,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-07-08",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00",
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260715900147",
@@ -20424,7 +20424,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-06-24",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00",
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260630901522",
@@ -21550,7 +21550,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-10",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000372)"
     },
@@ -22268,7 +22268,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-03-23",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260319000821)"
     },
@@ -23605,7 +23605,7 @@ window.SPAC_DATA = {
           "escrowAmount: 패턴 미발견",
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00",
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260819900363",
@@ -24951,7 +24951,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-07-25",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00",
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260731900656",
@@ -25705,7 +25705,7 @@ window.SPAC_DATA = {
         "paymentDate": "2026-03-17",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260316000201)"
     },
@@ -26855,7 +26855,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000394)"
     },
@@ -28011,7 +28011,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000430)"
     },
@@ -29013,7 +29013,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20260109000087)"
     },
@@ -30347,7 +30347,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-08-05",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00",
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260812900150",
@@ -31705,7 +31705,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20250515000864)"
     },
@@ -32885,7 +32885,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-24",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251121000115)"
     },
@@ -34119,7 +34119,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-11-13",
         "extractedAt": "2026-06-13T20:24:13.393014+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251112000416)"
     },
@@ -35465,7 +35465,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20250110000560)"
     },
@@ -35523,83 +35523,83 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2025-04-18 14:04",
-        "title": "회사합병 결정(SPAC 소멸합병)",
+        "date": "2025-07-17",
+        "title": "[기재정정]주요사항보고서(회사합병결정)",
         "company": "KB제31호스팩",
-        "submitter": "케이비제31호기업인수목적",
-        "receiptNo": "20250418000599",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599"
+        "submitter": "KB제31호스팩",
+        "receiptNo": "20250717000343",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2025-07-17 17:01",
-        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+        "date": "2025-07-17",
+        "title": "주권매매거래정지해제 (합병결정 철회)",
         "company": "KB제31호스팩",
-        "submitter": "케이비제31호기업인수목적",
-        "receiptNo": "20250717000481",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20250717900478",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900478"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-04-17 16:59",
-          "title": "회사합병 결정(SPAC 소멸합병)",
-          "company": "KB제31호스팩",
-          "submitter": "케이비제31호기업인수목적",
-          "receiptNo": "20250417000783",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250417000783",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2025-04-17 16:59",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2025-04-17",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "KB제31호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20250417000791",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250417000791",
+          "receiptNo": "20250417900791",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250417900791",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-04-18 14:04",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2025-04-17",
+          "title": "주요사항보고서(회사합병결정)",
           "company": "KB제31호스팩",
-          "submitter": "케이비제31호기업인수목적",
-          "receiptNo": "20250418000599",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599",
+          "submitter": "KB제31호스팩",
+          "receiptNo": "20250417000456",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250417000456",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-07-17 17:00",
-          "title": "회사합병 결정(SPAC소멸합병-철회)",
+          "date": "2025-04-18",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "KB제31호스팩",
-          "submitter": "케이비제31호기업인수목적",
-          "receiptNo": "20250717000432",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000432",
-          "mergerSignal": "canceled"
+          "submitter": "KB제31호스팩",
+          "receiptNo": "20250418000255",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250418000255",
+          "mergerSignal": "applied"
         },
         {
-          "date": "2025-07-17 17:01",
-          "title": "주권매매거래정지해제(합병결정 철회)",
+          "date": "2025-07-17",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "KB제31호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20250717000478",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000478",
-          "mergerSignal": "canceled"
+          "submitter": "KB제31호스팩",
+          "receiptNo": "20250717000343",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343",
+          "mergerSignal": "applied"
         },
         {
-          "date": "2025-07-17 17:01",
+          "date": "2025-07-17",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "KB제31호스팩",
-          "submitter": "케이비제31호기업인수목적",
-          "receiptNo": "20250717000481",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481",
+          "submitter": "KB제31호스팩",
+          "receiptNo": "20250717900481",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900481",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2025-07-17",
+          "title": "주권매매거래정지해제 (합병결정 철회)",
+          "company": "KB제31호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20250717900478",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900478",
           "mergerSignal": "canceled"
         }
       ],
@@ -35641,7 +35641,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-04-18",
           "nextPrice": 2000,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -35650,7 +35650,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 331
+          "observedTradingDays": 332
         },
         {
           "date": "2025-04-18",
@@ -35689,7 +35689,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-04-21",
           "nextPrice": 2000,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -35698,7 +35698,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 330
+          "observedTradingDays": 331
         },
         {
           "date": "2025-07-17",
@@ -35737,7 +35737,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-07-18",
           "nextPrice": 2015,
           "nextReturnPct": 0.75,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -35746,7 +35746,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 271
+          "observedTradingDays": 272
         },
         {
           "date": "2025-07-17",
@@ -35761,7 +35761,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-07-18",
           "nextPrice": 2015,
           "nextReturnPct": 0.75,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2020,
           "latestReturnPct": 1.0,
           "highDate": "2026-03-12",
@@ -35770,7 +35770,7 @@ window.SPAC_DATA = {
           "lowDate": "2025-12-16",
           "lowPrice": 1990,
           "lowReturnPct": -0.5,
-          "observedTradingDays": 271
+          "observedTradingDays": 272
         }
       ],
       "kind": {
@@ -38300,20 +38300,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-12-12"
         },
         {
-          "date": "2025-04-18 14:04",
+          "date": "2025-07-17",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC 소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250418000599"
+          "detail": "[기재정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717000343"
         },
         {
-          "date": "2025-07-17 17:01",
+          "date": "2025-07-17",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250717000481"
+          "detail": "주권매매거래정지해제 (합병결정 철회)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250717900478"
         },
         {
           "date": "2027-12-12",
@@ -38353,7 +38353,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241129000608)"
     },
@@ -39503,7 +39503,7 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-01",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251128002140)"
     },
@@ -40849,7 +40849,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000097)"
     },
@@ -42195,7 +42195,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000275)"
     },
@@ -43519,7 +43519,7 @@ window.SPAC_DATA = {
         "paymentDate": "2024-12-16",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000541)"
     },
@@ -44865,7 +44865,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241115000128)"
     },
@@ -46211,7 +46211,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241021000312)"
     },
@@ -46270,35 +46270,35 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-07-27 16:36",
-        "title": "회사합병 결정(SPAC소멸합병)",
+        "date": "2026-07-27",
+        "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
         "company": "한화플러스제5호스팩",
-        "submitter": "한화플러스제5호기업인수목적",
-        "receiptNo": "20260727000586",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260727000586"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260727900597",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727900597"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2026-07-27 16:36",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2026-07-27",
+          "title": "주요사항보고서(회사합병결정)",
           "company": "한화플러스제5호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260727000597",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260727000597",
+          "submitter": "한화플러스제5호스팩",
+          "receiptNo": "20260727000299",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727000299",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-07-27 16:36",
-          "title": "회사합병 결정(SPAC소멸합병)",
+          "date": "2026-07-27",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "한화플러스제5호스팩",
-          "submitter": "한화플러스제5호기업인수목적",
-          "receiptNo": "20260727000586",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260727000586",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260727900597",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727900597",
           "mergerSignal": "applied"
         }
       ],
@@ -46316,7 +46316,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-07-28",
           "nextPrice": 2035,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2035,
           "latestReturnPct": 0.0,
           "highDate": "2026-07-28",
@@ -46325,7 +46325,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-28",
           "lowPrice": 2035,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 22
+          "observedTradingDays": 23
         },
         {
           "date": "2026-07-27",
@@ -48507,12 +48507,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2025-03-20"
         },
         {
-          "date": "2026-07-27 16:36",
+          "date": "2026-07-27",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260727000586"
+          "detail": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727900597"
         },
         {
           "date": "2028-03-20",
@@ -48550,7 +48550,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20250310000156)"
     },
@@ -49896,7 +49896,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000142)"
     },
@@ -51244,7 +51244,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240909000034)"
     },
@@ -52590,7 +52590,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241104000200)"
     },
@@ -53942,7 +53942,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240712000044)"
     },
@@ -54011,83 +54011,83 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-05-11 15:04",
-        "title": "회사합병 결정",
+        "date": "2026-05-11",
+        "title": "[기재정정]주요사항보고서(회사합병결정)",
         "company": "교보16호스팩",
-        "submitter": "교보16호기업인수목적",
-        "receiptNo": "20260511000408",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408"
+        "submitter": "교보16호스팩",
+        "receiptNo": "20260511000351",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-04-22 17:34",
-        "title": "주권매매거래정지해제(합병결정 철회)",
+        "date": "2026-04-22",
+        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
         "company": "교보16호스팩",
-        "submitter": "코스닥시장본부",
-        "receiptNo": "20260422000663",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663"
+        "submitter": "교보16호스팩",
+        "receiptNo": "20260422900708",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900708"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-11-28 16:52",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2025-11-28",
+          "title": "주요사항보고서(회사합병결정)",
+          "company": "교보16호스팩",
+          "submitter": "교보16호스팩",
+          "receiptNo": "20251128001988",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128001988",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-11-28",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "교보16호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20251128001153",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251128001153",
+          "receiptNo": "20251128901153",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128901153",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-11-28 16:52",
-          "title": "회사합병 결정",
+          "date": "2026-04-22",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "교보16호스팩",
-          "submitter": "교보16호기업인수목적",
-          "receiptNo": "20251128001144",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251128001144",
+          "submitter": "교보16호스팩",
+          "receiptNo": "20260422000676",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422000676",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-04-22 17:33",
+          "date": "2026-04-22",
+          "title": "주권매매거래정지해제 (합병결정 철회)",
+          "company": "교보16호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260422900663",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900663",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-04-22",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "교보16호스팩",
-          "submitter": "교보16호기업인수목적",
-          "receiptNo": "20260422000708",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000708",
+          "submitter": "교보16호스팩",
+          "receiptNo": "20260422900708",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900708",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2026-04-22 17:34",
-          "title": "주권매매거래정지해제(합병결정 철회)",
+          "date": "2026-05-11",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "교보16호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260422000663",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663",
-          "mergerSignal": "canceled"
-        },
-        {
-          "date": "2026-04-22 18:01",
-          "title": "회사합병 결정",
-          "company": "교보16호스팩",
-          "submitter": "교보16호기업인수목적",
-          "receiptNo": "20260422000787",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000787",
-          "mergerSignal": "applied"
-        },
-        {
-          "date": "2026-05-11 15:04",
-          "title": "회사합병 결정",
-          "company": "교보16호스팩",
-          "submitter": "교보16호기업인수목적",
-          "receiptNo": "20260511000408",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408",
+          "submitter": "교보16호스팩",
+          "receiptNo": "20260511000351",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351",
           "mergerSignal": "applied"
         }
       ],
@@ -54129,7 +54129,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-12-01",
           "nextPrice": 2095,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2055,
           "latestReturnPct": -1.91,
           "highDate": "2025-12-01",
@@ -54138,7 +54138,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-02",
           "lowPrice": 2015,
           "lowReturnPct": -3.82,
-          "observedTradingDays": 181
+          "observedTradingDays": 182
         },
         {
           "date": "2026-04-22",
@@ -54201,7 +54201,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-04-23",
           "nextPrice": 2050,
           "nextReturnPct": -2.15,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2055,
           "latestReturnPct": -1.91,
           "highDate": "2026-08-24",
@@ -54210,7 +54210,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-02",
           "lowPrice": 2015,
           "lowReturnPct": -3.82,
-          "observedTradingDays": 85
+          "observedTradingDays": 86
         },
         {
           "date": "2026-04-22",
@@ -54225,7 +54225,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-04-23",
           "nextPrice": 2050,
           "nextReturnPct": -2.15,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2055,
           "latestReturnPct": -1.91,
           "highDate": "2026-08-24",
@@ -54234,7 +54234,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-02",
           "lowPrice": 2015,
           "lowReturnPct": -3.82,
-          "observedTradingDays": 85
+          "observedTradingDays": 86
         },
         {
           "date": "2026-05-11",
@@ -54273,7 +54273,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-12",
           "nextPrice": 2040,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2055,
           "latestReturnPct": 0.74,
           "highDate": "2026-08-24",
@@ -54282,7 +54282,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-02",
           "lowPrice": 2015,
           "lowReturnPct": -1.23,
-          "observedTradingDays": 74
+          "observedTradingDays": 75
         }
       ],
       "kind": {
@@ -57292,20 +57292,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-08-13"
         },
         {
-          "date": "2026-04-22 17:34",
+          "date": "2026-04-22",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "주권매매거래정지해제(합병결정 철회)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260422000663"
+          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422900708"
         },
         {
-          "date": "2026-05-11 15:04",
+          "date": "2026-05-11",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000408"
+          "detail": "[기재정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000351"
         },
         {
           "date": "2027-08-13",
@@ -57353,7 +57353,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240731000498)"
     },
@@ -57412,35 +57412,45 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-05-12 17:25",
-        "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+        "date": "2026-05-13",
+        "title": "[첨부정정]주요사항보고서(회사합병결정)",
         "company": "미래에셋비전스팩7호",
-        "submitter": "코스닥시장본부",
-        "receiptNo": "20260512000907",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907"
+        "submitter": "미래에셋비전스팩7호",
+        "receiptNo": "20260513000590",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2026-05-12 17:25",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-05-12",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "미래에셋비전스팩7호",
-          "submitter": "미래에셋비전기업인수목적7호",
-          "receiptNo": "20260512000891",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000891",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260512900907",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260512900907",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-05-12 17:25",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2026-05-12",
+          "title": "주요사항보고서(회사합병결정)",
           "company": "미래에셋비전스팩7호",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260512000907",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907",
+          "submitter": "미래에셋비전스팩7호",
+          "receiptNo": "20260512000669",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260512000669",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-13",
+          "title": "[첨부정정]주요사항보고서(회사합병결정)",
+          "company": "미래에셋비전스팩7호",
+          "submitter": "미래에셋비전스팩7호",
+          "receiptNo": "20260513000590",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590",
           "mergerSignal": "applied"
         }
       ],
@@ -57482,7 +57492,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-13",
           "nextPrice": 2055,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2055,
           "latestReturnPct": 0.0,
           "highDate": "2026-05-13",
@@ -57491,7 +57501,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-13",
           "lowPrice": 2055,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 73
+          "observedTradingDays": 74
         },
         {
           "date": "2026-05-13",
@@ -57506,7 +57516,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-14",
           "nextPrice": 2055,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2055,
           "latestReturnPct": 0.0,
           "highDate": "2026-05-14",
@@ -57515,7 +57525,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-14",
           "lowPrice": 2055,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 72
+          "observedTradingDays": 73
         }
       ],
       "kind": {
@@ -60405,12 +60415,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-09-11"
         },
         {
-          "date": "2026-05-12 17:25",
+          "date": "2026-05-13",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260512000907"
+          "detail": "[첨부정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000590"
         },
         {
           "date": "2027-09-11",
@@ -60448,7 +60458,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240829001549)"
     },
@@ -61816,7 +61826,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000179)"
     },
@@ -63182,7 +63192,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240701000551)"
     },
@@ -64530,7 +64540,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241107000228)"
     },
@@ -65896,7 +65906,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240611000366)"
     },
@@ -67242,7 +67252,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240613000091)"
     },
@@ -68584,7 +68594,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240422000014)"
     },
@@ -69970,7 +69980,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240715000198)"
     },
@@ -71336,7 +71346,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240419000364)"
     },
@@ -71434,73 +71444,93 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2026-02-12 17:19",
-        "title": "회사합병 결정",
+        "date": "2026-05-26",
+        "title": "[기재정정]주요사항보고서(회사합병결정)",
         "company": "디비금융스팩12호",
-        "submitter": "디비금융제12호기업인수목적",
-        "receiptNo": "20260212001290",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290"
+        "submitter": "디비금융스팩12호",
+        "receiptNo": "20260526000375",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-05-26 17:11",
-        "title": "주권매매거래정지해제(합병결정 철회)",
+        "date": "2026-05-26",
+        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
         "company": "디비금융스팩12호",
-        "submitter": "코스닥시장본부",
-        "receiptNo": "20260526000733",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733"
+        "submitter": "디비금융스팩12호",
+        "receiptNo": "20260526900703",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900703"
       },
       "mergerDisclosures": [
         {
-          "date": "2026-02-12 17:19",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2026-02-12",
+          "title": "[첨부정정]주요사항보고서(회사합병결정)",
+          "company": "디비금융스팩12호",
+          "submitter": "디비금융스팩12호",
+          "receiptNo": "20260212001736",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212001736",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-02-12",
+          "title": "주요사항보고서(회사합병결정)",
+          "company": "디비금융스팩12호",
+          "submitter": "디비금융스팩12호",
+          "receiptNo": "20260212001579",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212001579",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-02-12",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "디비금융스팩12호",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20260212001316",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001316",
+          "receiptNo": "20260212901316",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260212901316",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-02-12 17:19",
-          "title": "회사합병 결정",
+          "date": "2026-02-13",
+          "title": "[첨부정정]주요사항보고서(회사합병결정)",
           "company": "디비금융스팩12호",
-          "submitter": "디비금융제12호기업인수목적",
-          "receiptNo": "20260212001290",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290",
+          "submitter": "디비금융스팩12호",
+          "receiptNo": "20260213001582",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260213001582",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-05-26 17:07",
-          "title": "회사합병 결정(SPAC 합병-철회)",
+          "date": "2026-05-26",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "디비금융스팩12호",
-          "submitter": "디비금융제12호기업인수목적",
-          "receiptNo": "20260526000578",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000578",
+          "submitter": "디비금융스팩12호",
+          "receiptNo": "20260526000375",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-05-26",
+          "title": "주권매매거래정지해제 (합병결정 철회)",
+          "company": "디비금융스팩12호",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260526900733",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900733",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2026-05-26 17:08",
+          "date": "2026-05-26",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "디비금융스팩12호",
-          "submitter": "디비금융제12호기업인수목적",
-          "receiptNo": "20260526000703",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000703",
-          "mergerSignal": "canceled"
-        },
-        {
-          "date": "2026-05-26 17:11",
-          "title": "주권매매거래정지해제(합병결정 철회)",
-          "company": "디비금융스팩12호",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260526000733",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733",
+          "submitter": "디비금융스팩12호",
+          "receiptNo": "20260526900703",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900703",
           "mergerSignal": "canceled"
         }
       ],
@@ -71542,16 +71572,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-02-13",
           "nextPrice": 2230,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2085,
-          "latestReturnPct": -6.5,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2080,
+          "latestReturnPct": -6.73,
           "highDate": "2026-02-13",
           "highPrice": 2230,
           "highReturnPct": 0.0,
           "lowDate": "2026-05-27",
           "lowPrice": 2030,
           "lowReturnPct": -8.97,
-          "observedTradingDays": 130
+          "observedTradingDays": 131
         },
         {
           "date": "2026-02-13",
@@ -71566,16 +71596,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-02-19",
           "nextPrice": 2230,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2085,
-          "latestReturnPct": -6.5,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2080,
+          "latestReturnPct": -6.73,
           "highDate": "2026-02-19",
           "highPrice": 2230,
           "highReturnPct": 0.0,
           "lowDate": "2026-05-27",
           "lowPrice": 2030,
           "lowReturnPct": -8.97,
-          "observedTradingDays": 129
+          "observedTradingDays": 130
         },
         {
           "date": "2026-05-26",
@@ -71614,16 +71644,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-27",
           "nextPrice": 2030,
           "nextReturnPct": -8.97,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2085,
-          "latestReturnPct": -6.5,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2080,
+          "latestReturnPct": -6.73,
           "highDate": "2026-08-27",
           "highPrice": 2085,
           "highReturnPct": -6.5,
           "lowDate": "2026-05-27",
           "lowPrice": 2030,
           "lowReturnPct": -8.97,
-          "observedTradingDays": 64
+          "observedTradingDays": 65
         },
         {
           "date": "2026-05-26",
@@ -71638,16 +71668,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-27",
           "nextPrice": 2030,
           "nextReturnPct": -8.97,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2085,
-          "latestReturnPct": -6.5,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2080,
+          "latestReturnPct": -6.73,
           "highDate": "2026-08-27",
           "highPrice": 2085,
           "highReturnPct": -6.5,
           "lowDate": "2026-05-27",
           "lowPrice": 2030,
           "lowReturnPct": -8.97,
-          "observedTradingDays": 64
+          "observedTradingDays": 65
         }
       ],
       "kind": {},
@@ -74880,20 +74910,20 @@ window.SPAC_DATA = {
       ],
       "events": [
         {
-          "date": "2026-02-12 17:19",
+          "date": "2026-05-26",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260212001290"
+          "detail": "[기재정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000375"
         },
         {
-          "date": "2026-05-26 17:11",
+          "date": "2026-05-26",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "주권매매거래정지해제(합병결정 철회)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260526000733"
+          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900703"
         }
       ],
       "disclosureUrl": "https://dart.fss.or.kr/dsab007/main.do?option=corp&textCrpNm=DB금융스팩12호",
@@ -74965,7 +74995,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240530001411)"
     },
@@ -76333,7 +76363,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240610000163)"
     },
@@ -77699,7 +77729,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000402)"
     },
@@ -77769,45 +77799,55 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-07-02 14:29",
-        "title": "회사합병 결정(SPAC소멸합병)",
+        "date": "2026-07-02",
+        "title": "[기재정정]주요사항보고서(회사합병결정)",
         "company": "유진스팩10호",
-        "submitter": "유진기업인수목적10호",
-        "receiptNo": "20260702000384",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260702000384"
+        "submitter": "유진스팩10호",
+        "receiptNo": "20260702000277",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260702000277"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2026-06-30 17:59",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2026-06-30",
+          "title": "주요사항보고서(회사합병결정)",
+          "company": "유진스팩10호",
+          "submitter": "유진스팩10호",
+          "receiptNo": "20260630001109",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630001109",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-06-30",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "유진스팩10호",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20260630001539",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260630001539",
+          "receiptNo": "20260630901539",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901539",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-06-30 17:59",
-          "title": "회사합병 결정",
+          "date": "2026-07-01",
+          "title": "[첨부정정]주요사항보고서(회사합병결정)",
           "company": "유진스팩10호",
-          "submitter": "유진기업인수목적10호",
-          "receiptNo": "20260630001531",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260630001531",
+          "submitter": "유진스팩10호",
+          "receiptNo": "20260701000046",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000046",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-07-02 14:29",
-          "title": "회사합병 결정(SPAC소멸합병)",
+          "date": "2026-07-02",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "유진스팩10호",
-          "submitter": "유진기업인수목적10호",
-          "receiptNo": "20260702000384",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260702000384",
+          "submitter": "유진스팩10호",
+          "receiptNo": "20260702000277",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260702000277",
           "mergerSignal": "applied"
         }
       ],
@@ -77825,7 +77865,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-07-01",
           "nextPrice": 2080,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2080,
           "latestReturnPct": 0.0,
           "highDate": "2026-07-01",
@@ -77834,7 +77874,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-01",
           "lowPrice": 2080,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 40
+          "observedTradingDays": 41
         },
         {
           "date": "2026-06-30",
@@ -77873,7 +77913,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-07-02",
           "nextPrice": 2080,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2080,
           "latestReturnPct": 0.0,
           "highDate": "2026-07-02",
@@ -77882,7 +77922,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-02",
           "lowPrice": 2080,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 39
+          "observedTradingDays": 40
         },
         {
           "date": "2026-07-02",
@@ -77897,7 +77937,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-07-03",
           "nextPrice": 2080,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2080,
           "latestReturnPct": 0.0,
           "highDate": "2026-07-03",
@@ -77906,7 +77946,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-03",
           "lowPrice": 2080,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 38
+          "observedTradingDays": 39
         },
         {
           "date": "2026-07-02",
@@ -81612,12 +81652,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-02-29"
         },
         {
-          "date": "2026-07-02 14:29",
+          "date": "2026-07-02",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260702000384"
+          "detail": "[기재정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260702000277"
         },
         {
           "date": "2027-02-28",
@@ -81665,7 +81705,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240216000272)"
     },
@@ -83031,7 +83071,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240412003503)"
     },
@@ -84177,7 +84217,7 @@ window.SPAC_DATA = {
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251202000413)"
     },
@@ -85543,7 +85583,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240517000260)"
     },
@@ -86909,7 +86949,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240408004008)"
     },
@@ -88275,7 +88315,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240221001641)"
     },
@@ -88343,73 +88383,73 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2025-11-26 16:04",
-        "title": "회사합병 결정(SPAC 소멸합병)",
+        "date": "2026-03-17",
+        "title": "[기재정정]주요사항보고서(회사합병결정)",
         "company": "신한제12호스팩",
-        "submitter": "신한제12호기업인수목적",
-        "receiptNo": "20251126000467",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467"
+        "submitter": "신한제12호스팩",
+        "receiptNo": "20260317000835",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-03-17 17:58",
-        "title": "주권매매거래정지해제(합병결정 철회)",
+        "date": "2026-03-17",
+        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
         "company": "신한제12호스팩",
-        "submitter": "코스닥시장본부",
-        "receiptNo": "20260317001238",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238"
+        "submitter": "신한제12호스팩",
+        "receiptNo": "20260317901192",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901192"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-11-26 16:04",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2025-11-26",
+          "title": "주요사항보고서(회사합병결정)",
+          "company": "신한제12호스팩",
+          "submitter": "신한제12호스팩",
+          "receiptNo": "20251126000474",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251126000474",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-11-26",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "신한제12호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20251126000478",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000478",
+          "receiptNo": "20251126900478",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251126900478",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-11-26 16:04",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-03-17",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "신한제12호스팩",
-          "submitter": "신한제12호기업인수목적",
-          "receiptNo": "20251126000467",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467",
+          "submitter": "신한제12호스팩",
+          "receiptNo": "20260317000835",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-03-17 17:56",
-          "title": "회사합병 결정(SPAC소멸합병-철회)",
+          "date": "2026-03-17",
+          "title": "주권매매거래정지해제 (합병결정 철회)",
           "company": "신한제12호스팩",
-          "submitter": "신한제12호기업인수목적",
-          "receiptNo": "20260317001186",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001186",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260317901238",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901238",
           "mergerSignal": "canceled"
         },
         {
-          "date": "2026-03-17 17:56",
+          "date": "2026-03-17",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "신한제12호스팩",
-          "submitter": "신한제12호기업인수목적",
-          "receiptNo": "20260317001192",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001192",
-          "mergerSignal": "canceled"
-        },
-        {
-          "date": "2026-03-17 17:58",
-          "title": "주권매매거래정지해제(합병결정 철회)",
-          "company": "신한제12호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260317001238",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238",
+          "submitter": "신한제12호스팩",
+          "receiptNo": "20260317901192",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901192",
           "mergerSignal": "canceled"
         }
       ],
@@ -88451,7 +88491,7 @@ window.SPAC_DATA = {
           "nextDate": "2025-11-27",
           "nextPrice": 2100,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2100,
           "latestReturnPct": 0.0,
           "highDate": "2025-11-27",
@@ -88460,7 +88500,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-15",
           "lowPrice": 2040,
           "lowReturnPct": -2.86,
-          "observedTradingDays": 183
+          "observedTradingDays": 184
         },
         {
           "date": "2026-03-17",
@@ -88499,7 +88539,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-03-18",
           "nextPrice": 2065,
           "nextReturnPct": -1.67,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2100,
           "latestReturnPct": 0.0,
           "highDate": "2026-08-27",
@@ -88508,7 +88548,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-15",
           "lowPrice": 2040,
           "lowReturnPct": -2.86,
-          "observedTradingDays": 111
+          "observedTradingDays": 112
         },
         {
           "date": "2026-03-17",
@@ -88523,7 +88563,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-03-18",
           "nextPrice": 2065,
           "nextReturnPct": -1.67,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2100,
           "latestReturnPct": 0.0,
           "highDate": "2026-08-27",
@@ -88532,7 +88572,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-05-15",
           "lowPrice": 2040,
           "lowReturnPct": -2.86,
-          "observedTradingDays": 111
+          "observedTradingDays": 112
         }
       ],
       "kind": {
@@ -92034,20 +92074,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-04-15"
         },
         {
-          "date": "2025-11-26 16:04",
+          "date": "2026-03-17",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC 소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20251126000467"
+          "detail": "[기재정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000835"
         },
         {
-          "date": "2026-03-17 17:58",
+          "date": "2026-03-17",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "주권매매거래정지해제(합병결정 철회)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260317001238"
+          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317901192"
         },
         {
           "date": "2027-04-15",
@@ -92095,7 +92135,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240401001215)"
     },
@@ -93437,7 +93477,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219001008)"
     },
@@ -94803,7 +94843,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219000516)"
     },
@@ -96169,7 +96209,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240315000448)"
     },
@@ -97575,7 +97615,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240124000304)"
     },
@@ -98943,7 +98983,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240112000195)"
     },
@@ -100289,7 +100329,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20241128000624)"
     },
@@ -100359,35 +100399,35 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-06-19 17:47",
-        "title": "회사합병 결정(SPAC 소멸합병)",
+        "date": "2026-06-19",
+        "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
         "company": "IBKS제24호스팩",
-        "submitter": "아이비케이에스제24호기업인수목적",
-        "receiptNo": "20260619000999",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260619000999"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260619901008",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619901008"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2026-06-19 17:47",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2026-06-19",
+          "title": "주요사항보고서(회사합병결정)",
           "company": "IBKS제24호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260619001008",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260619001008",
+          "submitter": "IBKS제24호스팩",
+          "receiptNo": "20260619000664",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619000664",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-06-19 17:47",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-06-19",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "IBKS제24호스팩",
-          "submitter": "아이비케이에스제24호기업인수목적",
-          "receiptNo": "20260619000999",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260619000999",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260619901008",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619901008",
           "mergerSignal": "applied"
         }
       ],
@@ -100405,7 +100445,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-06-22",
           "nextPrice": 2130,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2130,
           "latestReturnPct": 0.0,
           "highDate": "2026-06-22",
@@ -100414,7 +100454,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-06-22",
           "lowPrice": 2130,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 47
+          "observedTradingDays": 48
         },
         {
           "date": "2026-06-19",
@@ -104228,12 +104268,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2024-02-01"
         },
         {
-          "date": "2026-06-19 17:47",
+          "date": "2026-06-19",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC 소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260619000999"
+          "detail": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619901008"
         },
         {
           "date": "2027-02-01",
@@ -104281,7 +104321,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20240119000323)"
     },
@@ -104349,113 +104389,123 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": {
-        "date": "2026-07-14 15:00",
-        "title": "회사합병 결정(SPAC 소멸합병)",
+        "date": "2026-07-31",
+        "title": "[기재정정]주요사항보고서(회사합병결정)",
         "company": "교보15호스팩",
-        "submitter": "교보15호기업인수목적",
-        "receiptNo": "20260714000437",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260714000437"
+        "submitter": "교보15호스팩",
+        "receiptNo": "20260731000285",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731000285"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": {
-        "date": "2026-07-31 14:26",
-        "title": "주권매매거래정지해제(합병결정 철회)",
+        "date": "2026-07-31",
+        "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
         "company": "교보15호스팩",
-        "submitter": "코스닥시장본부",
-        "receiptNo": "20260731000610",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260731000610"
+        "submitter": "교보15호스팩",
+        "receiptNo": "20260731900453",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900453"
       },
       "mergerDisclosures": [
         {
-          "date": "2025-09-11 16:06",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2025-09-11",
+          "title": "주요사항보고서(회사합병결정)",
+          "company": "교보15호스팩",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20250911000380",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250911000380",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2025-09-11",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "교보15호스팩",
           "submitter": "코스닥시장본부",
-          "receiptNo": "20250911000329",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250911000329",
+          "receiptNo": "20250911900329",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250911900329",
           "mergerSignal": "applied"
         },
         {
-          "date": "2025-09-11 16:06",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2025-10-01",
+          "title": "[첨부정정]주요사항보고서(회사합병결정)",
           "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20250911000306",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20250911000306",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20251001000577",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251001000577",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-02-11 14:17",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-02-11",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20260211000572",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260211000572",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20260211000522",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000522",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-03-26 16:19",
-          "title": "회사합병 결정",
+          "date": "2026-03-26",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20260326001865",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260326001865",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20260326000895",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326000895",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-05-11 15:26",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-05-11",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20260511000479",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260511000479",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20260511000433",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260511000433",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-07-14 15:00",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-07-14",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
           "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20260714000437",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260714000437",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20260714000267",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260714000267",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-07-31 13:17",
+          "date": "2026-07-31",
+          "title": "[기재정정]주요사항보고서(회사합병결정)",
+          "company": "교보15호스팩",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20260731000285",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731000285",
+          "mergerSignal": "applied"
+        },
+        {
+          "date": "2026-07-31",
+          "title": "주권매매거래정지해제 (합병결정 철회)",
+          "company": "교보15호스팩",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260731900610",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900610",
+          "mergerSignal": "canceled"
+        },
+        {
+          "date": "2026-07-31",
           "title": "기업인수목적회사관련합병취소ㆍ부인사실발생",
           "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20260731000453",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260731000453",
-          "mergerSignal": "canceled"
-        },
-        {
-          "date": "2026-07-31 13:29",
-          "title": "회사합병 결정(SPAC소멸합병-철회)",
-          "company": "교보15호스팩",
-          "submitter": "교보15호기업인수목적",
-          "receiptNo": "20260731000490",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260731000490",
-          "mergerSignal": "canceled"
-        },
-        {
-          "date": "2026-07-31 14:26",
-          "title": "주권매매거래정지해제(합병결정 철회)",
-          "company": "교보15호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260731000610",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260731000610",
+          "submitter": "교보15호스팩",
+          "receiptNo": "20260731900453",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900453",
           "mergerSignal": "canceled"
         }
       ],
@@ -104497,16 +104547,16 @@ window.SPAC_DATA = {
           "nextDate": "2025-09-12",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2025-09-12",
           "highPrice": 2335,
           "highReturnPct": 0.0,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 232
+          "observedTradingDays": 233
         },
         {
           "date": "2025-10-01",
@@ -104521,16 +104571,16 @@ window.SPAC_DATA = {
           "nextDate": "2025-10-02",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2025-10-02",
           "highPrice": 2335,
           "highReturnPct": 0.0,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 218
+          "observedTradingDays": 219
         },
         {
           "date": "2026-02-11",
@@ -104569,16 +104619,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-02-12",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2026-02-12",
           "highPrice": 2335,
           "highReturnPct": 0.0,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 131
+          "observedTradingDays": 132
         },
         {
           "date": "2026-03-26",
@@ -104617,16 +104667,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-03-27",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2026-03-27",
           "highPrice": 2335,
           "highReturnPct": 0.0,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 104
+          "observedTradingDays": 105
         },
         {
           "date": "2026-05-11",
@@ -104665,16 +104715,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-05-12",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2026-05-12",
           "highPrice": 2335,
           "highReturnPct": 0.0,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 74
+          "observedTradingDays": 75
         },
         {
           "date": "2026-07-14",
@@ -104689,16 +104739,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-07-15",
           "nextPrice": 2335,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2026-07-15",
           "highPrice": 2335,
           "highReturnPct": 0.0,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 30
+          "observedTradingDays": 31
         },
         {
           "date": "2026-07-14",
@@ -104737,16 +104787,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-08-03",
           "nextPrice": 2100,
           "nextReturnPct": -10.06,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2026-08-27",
           "highPrice": 2135,
           "highReturnPct": -8.57,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 18
+          "observedTradingDays": 19
         },
         {
           "date": "2026-07-31",
@@ -104761,16 +104811,16 @@ window.SPAC_DATA = {
           "nextDate": "2026-08-03",
           "nextPrice": 2100,
           "nextReturnPct": -10.06,
-          "latestDate": "2026-08-27",
-          "latestPrice": 2135,
-          "latestReturnPct": -8.57,
+          "latestDate": "2026-08-28",
+          "latestPrice": 2130,
+          "latestReturnPct": -8.78,
           "highDate": "2026-08-27",
           "highPrice": 2135,
           "highReturnPct": -8.57,
           "lowDate": "2026-08-03",
           "lowPrice": 2100,
           "lowReturnPct": -10.06,
-          "observedTradingDays": 18
+          "observedTradingDays": 19
         },
         {
           "date": "2026-07-31",
@@ -108818,20 +108868,20 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2023-12-05"
         },
         {
-          "date": "2026-07-14 15:00",
+          "date": "2026-07-31",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC 소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260714000437"
+          "detail": "[기재정정]주요사항보고서(회사합병결정)",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731000285"
         },
         {
-          "date": "2026-07-31 14:26",
+          "date": "2026-07-31",
           "type": "merger_canceled",
           "label": "합병 철회",
-          "detail": "주권매매거래정지해제(합병결정 철회)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260731000610"
+          "detail": "기업인수목적회사관련합병취소ㆍ부인사실발생",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900453"
         },
         {
           "date": "2026-12-05",
@@ -108879,7 +108929,7 @@ window.SPAC_DATA = {
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20231122000325)"
     },
@@ -108928,35 +108978,35 @@ window.SPAC_DATA = {
       ],
       "mergerStatus": "합병 신청",
       "mergerApplicationDisclosure": {
-        "date": "2026-06-30 15:27",
-        "title": "회사합병 결정(SPAC 소멸합병)",
+        "date": "2026-06-30",
+        "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
         "company": "IBKS제25호스팩",
-        "submitter": "아이비케이에스제25호기업인수목적",
-        "receiptNo": "20260630000700",
-        "source": "KIND 공시검색",
-        "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260630000700"
+        "submitter": "코스닥시장본부",
+        "receiptNo": "20260630900710",
+        "source": "OpenDART 공시검색",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630900710"
       },
       "mergerConfirmationDisclosure": null,
       "mergerCancellationDisclosure": null,
       "mergerDisclosures": [
         {
-          "date": "2026-06-30 15:27",
-          "title": "주권매매거래정지(SPAC 합병(예비심사청구대상))",
+          "date": "2026-06-30",
+          "title": "주요사항보고서(회사합병결정)",
           "company": "IBKS제25호스팩",
-          "submitter": "코스닥시장본부",
-          "receiptNo": "20260630000710",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260630000710",
+          "submitter": "IBKS제25호스팩",
+          "receiptNo": "20260630000618",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630000618",
           "mergerSignal": "applied"
         },
         {
-          "date": "2026-06-30 15:27",
-          "title": "회사합병 결정(SPAC 소멸합병)",
+          "date": "2026-06-30",
+          "title": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
           "company": "IBKS제25호스팩",
-          "submitter": "아이비케이에스제25호기업인수목적",
-          "receiptNo": "20260630000700",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260630000700",
+          "submitter": "코스닥시장본부",
+          "receiptNo": "20260630900710",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630900710",
           "mergerSignal": "applied"
         }
       ],
@@ -108974,7 +109024,7 @@ window.SPAC_DATA = {
           "nextDate": "2026-07-01",
           "nextPrice": 2180,
           "nextReturnPct": 0.0,
-          "latestDate": "2026-08-27",
+          "latestDate": "2026-08-28",
           "latestPrice": 2180,
           "latestReturnPct": 0.0,
           "highDate": "2026-07-01",
@@ -108983,7 +109033,7 @@ window.SPAC_DATA = {
           "lowDate": "2026-07-01",
           "lowPrice": 2180,
           "lowReturnPct": 0.0,
-          "observedTradingDays": 40
+          "observedTradingDays": 41
         },
         {
           "date": "2026-06-30",
@@ -110055,12 +110105,12 @@ window.SPAC_DATA = {
           "detail": "KIND 상장일 2025-12-19"
         },
         {
-          "date": "2026-06-30 15:27",
+          "date": "2026-06-30",
           "type": "merger_application",
           "label": "합병 신청",
-          "detail": "회사합병 결정(SPAC 소멸합병)",
-          "source": "KIND 공시검색",
-          "url": "https://kind.krx.co.kr/common/disclsviewer.do?method=search&acptno=20260630000700"
+          "detail": "주권매매거래정지 (SPAC 합병(예비심사청구대상))",
+          "source": "OpenDART 공시검색",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630900710"
         },
         {
           "date": "2028-12-19",
@@ -110086,17 +110136,16 @@ window.SPAC_DATA = {
         "paymentDate": "2025-12-09",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-08-29T03:56:49.797847+09:00"
+        "trustRateChangeScannedAt": "2026-08-29T21:48:09.038870+09:00"
       },
       "ipoPriceSource": "증권신고서(20251208000119)"
     }
   ],
   "errors": {
+    "kindCorpList": "403 Client Error: Forbidden for url: https://kind.krx.co.kr/corpgeneral/corpList.do",
     "filings": {
-      "corpCode": "File is not a zip file",
       "trustRateChanges": {
-        "corpCode": "File is not a zip file",
-        "468760": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Max retries exceeded with url: /dsab007/main.do (Caused by ReadTimeoutError(\"HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out. (read timeout=15)\"))"
+        "474490": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Max retries exceeded with url: /dsab007/main.do (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"
       }
     },
     "quote": {},
@@ -110106,7 +110155,7 @@ window.SPAC_DATA = {
     "universe": 71,
     "quotesOk": 71,
     "quotesFailed": 0,
-    "disclosuresOk": 15,
+    "disclosuresOk": 11,
     "disclosuresFailed": 0,
     "historiesOk": 71
   },
