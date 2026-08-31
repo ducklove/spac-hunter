@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-08-30T21:09:11.749096+09:00",
+  "generatedAt": "2026-08-31T23:19:02.917218+09:00",
   "alerts": [
+    {
+      "id": "2026-08-31|below_ipo_exit|0130H0",
+      "date": "2026-08-31",
+      "type": "below_ipo_exit",
+      "code": "0130H0",
+      "name": "엔에이치스팩33호",
+      "title": "엔에이치스팩33호 공모가 회복",
+      "detail": "공모가 대비 0.9980 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=0130H0"
+    },
     {
       "id": "2026-08-29|below_ipo_enter|0004Y0",
       "date": "2026-08-29",
