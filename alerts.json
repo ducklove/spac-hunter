@@ -1,6 +1,45 @@
 {
-  "generatedAt": "2026-08-31T23:19:02.917218+09:00",
+  "generatedAt": "2026-09-01T20:56:21.175032+09:00",
   "alerts": [
+    {
+      "id": "2026-09-01|below_ipo_exit|0105P0",
+      "date": "2026-09-01",
+      "type": "below_ipo_exit",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 회복",
+      "detail": "공모가 대비 0.9990 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-09-01|delisted|471050",
+      "date": "2026-09-01",
+      "type": "delisted",
+      "code": "471050",
+      "name": "대신밸런스제17호스팩",
+      "title": "대신밸런스제17호스팩 유니버스 제외(상폐 추정)",
+      "detail": "사유 미확인, 최종 가격 2,120"
+    },
+    {
+      "id": "2026-09-01|near_liquidation|468760",
+      "date": "2026-09-01",
+      "type": "near_liquidation",
+      "code": "468760",
+      "name": "유진스팩10호",
+      "title": "유진스팩10호 청산 6개월 이내 진입",
+      "detail": "청산예정일 2027-02-28 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=468760"
+    },
+    {
+      "id": "2026-09-01|near_liquidation|473050",
+      "date": "2026-09-01",
+      "type": "near_liquidation",
+      "code": "473050",
+      "name": "유안타제15호스팩",
+      "title": "유안타제15호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2027-02-28 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=473050"
+    },
     {
       "id": "2026-08-31|below_ipo_exit|0130H0",
       "date": "2026-08-31",
