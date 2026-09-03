@@ -1,6 +1,36 @@
 {
-  "generatedAt": "2026-09-02T20:36:50.499590+09:00",
+  "generatedAt": "2026-09-03T20:35:08.765285+09:00",
   "alerts": [
+    {
+      "id": "2026-09-03|below_ipo_enter|0115H0",
+      "date": "2026-09-03",
+      "type": "below_ipo_enter",
+      "code": "0115H0",
+      "name": "삼성스팩13호",
+      "title": "삼성스팩13호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9975 (현재가 1,995)",
+      "url": "https://finance.naver.com/item/main.naver?code=0115H0"
+    },
+    {
+      "id": "2026-09-03|below_ipo_enter|0130H0",
+      "date": "2026-09-03",
+      "type": "below_ipo_enter",
+      "code": "0130H0",
+      "name": "엔에이치스팩33호",
+      "title": "엔에이치스팩33호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9975 (현재가 1,995)",
+      "url": "https://finance.naver.com/item/main.naver?code=0130H0"
+    },
+    {
+      "id": "2026-09-03|below_ipo_exit|0004Y0",
+      "date": "2026-09-03",
+      "type": "below_ipo_exit",
+      "code": "0004Y0",
+      "name": "디비금융제14호스팩",
+      "title": "디비금융제14호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9995 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0004Y0"
+    },
     {
       "id": "2026-09-01|below_ipo_exit|0105P0",
       "date": "2026-09-01",
