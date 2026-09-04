@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-09-03T20:35:08.765285+09:00",
+  "generatedAt": "2026-09-04T20:36:21.670744+09:00",
   "alerts": [
+    {
+      "id": "2026-09-04|below_ipo_enter|0004Y0",
+      "date": "2026-09-04",
+      "type": "below_ipo_enter",
+      "code": "0004Y0",
+      "name": "디비금융제14호스팩",
+      "title": "디비금융제14호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9985 (현재가 1,997)",
+      "url": "https://finance.naver.com/item/main.naver?code=0004Y0"
+    },
     {
       "id": "2026-09-03|below_ipo_enter|0115H0",
       "date": "2026-09-03",
