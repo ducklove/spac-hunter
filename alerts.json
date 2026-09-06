@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-09-05T19:51:39.182505+09:00",
+  "generatedAt": "2026-09-06T20:16:01.365133+09:00",
   "alerts": [
+    {
+      "id": "2026-09-06|near_liquidation|469900",
+      "date": "2026-09-06",
+      "type": "near_liquidation",
+      "code": "469900",
+      "name": "하나31호스팩",
+      "title": "하나31호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2027-03-05 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=469900"
+    },
     {
       "id": "2026-09-04|below_ipo_enter|0004Y0",
       "date": "2026-09-04",
