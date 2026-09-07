@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-09-06T20:16:01.365133+09:00",
+  "generatedAt": "2026-09-07T21:56:50.355537+09:00",
   "alerts": [
+    {
+      "id": "2026-09-07|below_ipo_enter|0105P0",
+      "date": "2026-09-07",
+      "type": "below_ipo_enter",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9925 (현재가 1,985)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-09-07|below_ipo_exit|0115H0",
+      "date": "2026-09-07",
+      "type": "below_ipo_exit",
+      "code": "0115H0",
+      "name": "삼성스팩13호",
+      "title": "삼성스팩13호 공모가 회복",
+      "detail": "공모가 대비 0.9950 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=0115H0"
+    },
     {
       "id": "2026-09-06|near_liquidation|469900",
       "date": "2026-09-06",
