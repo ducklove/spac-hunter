@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-09-08T20:38:44.418578+09:00",
+  "generatedAt": "2026-09-09T20:44:50.553301+09:00",
   "alerts": [
+    {
+      "id": "2026-09-09|below_ipo_enter|496070",
+      "date": "2026-09-09",
+      "type": "below_ipo_enter",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0050 → 0.9990 (현재가 1,998)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
     {
       "id": "2026-09-08|below_ipo_enter|0115H0",
       "date": "2026-09-08",
