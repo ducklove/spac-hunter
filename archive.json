@@ -1,7 +1,24 @@
 {
-  "updatedAt": "2026-09-01T20:56:21.175032+09:00",
-  "count": 4,
+  "updatedAt": "2026-09-11T20:42:52.915333+09:00",
+  "count": 5,
   "spacs": [
+    {
+      "code": "472220",
+      "name": "신영스팩10호",
+      "sponsor": "신영",
+      "listingDate": "2024-02-06",
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2105,
+      "finalRatio": 1.0525,
+      "badges": [
+        "청산 6개월 이내"
+      ],
+      "lastSeen": "2026-09-10 20:42:55 KST",
+      "archivedAt": "2026-09-11T20:42:52.915333+09:00",
+      "delistReasonGuess": "사유 미확인"
+    },
     {
       "code": "471050",
       "name": "대신밸런스제17호스팩",

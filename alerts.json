@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-09-10T20:42:55.783075+09:00",
+  "generatedAt": "2026-09-11T20:42:52.915333+09:00",
   "alerts": [
+    {
+      "id": "2026-09-11|below_ipo_enter|0197V0",
+      "date": "2026-09-11",
+      "type": "below_ipo_enter",
+      "code": "0197V0",
+      "name": "엔에이치스팩34호",
+      "title": "엔에이치스팩34호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0375 → 0.9655 (현재가 1,931)",
+      "url": "https://finance.naver.com/item/main.naver?code=0197V0"
+    },
+    {
+      "id": "2026-09-11|delisted|472220",
+      "date": "2026-09-11",
+      "type": "delisted",
+      "code": "472220",
+      "name": "신영스팩10호",
+      "title": "신영스팩10호 유니버스 제외(상폐 추정)",
+      "detail": "사유 미확인, 최종 가격 2,105"
+    },
     {
       "id": "2026-09-10|merger_applied|489480",
       "date": "2026-09-10",
