@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-09-16T20:57:16.499752+09:00",
+  "generatedAt": "2026-09-17T20:59:06.949838+09:00",
   "alerts": [
+    {
+      "id": "2026-09-17|below_ipo_enter|0101C0",
+      "date": "2026-09-17",
+      "type": "below_ipo_enter",
+      "code": "0101C0",
+      "name": "하나36호스팩",
+      "title": "하나36호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0075 → 0.9990 (현재가 1,998)",
+      "url": "https://finance.naver.com/item/main.naver?code=0101C0"
+    },
+    {
+      "id": "2026-09-17|below_ipo_exit|0054V0",
+      "date": "2026-09-17",
+      "type": "below_ipo_exit",
+      "code": "0054V0",
+      "name": "엔에이치스팩32호",
+      "title": "엔에이치스팩32호 공모가 회복",
+      "detail": "공모가 대비 0.9960 → 1.0050 (현재가 2,010)",
+      "url": "https://finance.naver.com/item/main.naver?code=0054V0"
+    },
     {
       "id": "2026-09-16|below_ipo_enter|0054V0",
       "date": "2026-09-16",
