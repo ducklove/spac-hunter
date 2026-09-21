@@ -32,6 +32,33 @@
     sourceLinks: {}
   };
   let data = window.SPAC_DATA || fallbackData;
+  const livePrices = window.SpacLivePrices.createController({
+    getData: () => data,
+    onData: payload => {
+      const list = document.getElementById('spacList');
+      const scrollTop = list?.scrollTop || 0;
+      data = payload;
+      window.SPAC_DATA = payload;
+      renderSnapshot();
+      renderCards();
+      renderTable();
+      renderSelected();
+      renderMergerCases();
+      renderSchedule();
+      if (list) list.scrollTop = scrollTop;
+    },
+    onStatus: status => {
+      const button = document.getElementById('refreshViewBtn');
+      button.disabled = status.busy;
+      button.textContent = status.busy ? '시세 조회 중…' : '시세 새로고침';
+      const label = document.getElementById('livePriceStatus');
+      const checked = status.lastSuccess ? new Date(status.lastSuccess).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) : null;
+      label.textContent = status.busy ? '최신 시세 조회 중…' :
+        status.applied === status.total && status.total > 0
+          ? `시세 확인 ${checked} KST · ${status.applied}종목 · 5분 자동 갱신`
+          : `시세 ${status.applied || 0}/${status.total || 0}종목 갱신 · 미갱신 종목은 이전 가격 유지${checked ? ` · 최근 성공 ${checked} KST` : ''}`;
+    }
+  });
 
   const VALID_FILTERS = ['all', 'below', 'near', 'due', 'merger', 'recent', 'watch'];
   const VALID_SORTS = ['price', 'listing', 'yield'];
@@ -303,7 +330,7 @@
     if (Number.isFinite(generated)) {
       const hours = Math.floor((Date.now() - generated) / 3600000);
       if (hours >= STALE_HOURS) {
-        parts.push(`<div class="alert-line">데이터가 ${number(hours)}시간 전 기준입니다. 자동 갱신이 지연되고 있을 수 있습니다.</div>`);
+        parts.push(`<div class="alert-line">공시·일별 데이터가 ${number(hours)}시간 전 기준입니다. 시세는 별도로 조회합니다.</div>`);
       }
     }
 
@@ -798,7 +825,10 @@
     selectedCode = item.code;
     document.getElementById('selectedName').textContent = item.name;
     document.getElementById('selectedMeta').textContent =
-      `${item.code} · ${item.market || 'KOSDAQ'} · 상장일 ${dateText(item.listingDate)}`;
+      `${item.code} · ${item.market || 'KOSDAQ'} · 상장일 ${dateText(item.listingDate)} · ` +
+      (item.quote?.checkedAt
+        ? `시세 확인 ${new Date(item.quote.checkedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })} KST`
+        : `저장 시세 ${item.quote?.tradedAt || data.lastUpdated || '-'}`);
     document.getElementById('selectedPrice').textContent = money(item.currentPrice);
     document.getElementById('selectedChange').className = `selected-change ${directionClass(item.changePct)}`;
     document.getElementById('selectedChange').textContent =
@@ -873,7 +903,7 @@
             <div class="record-value ${directionClass(record.nextReturnPct)}">${priceWithReturn(record.nextPrice, record.nextReturnPct)}</div>
           </div>
           <div class="record-metric">
-            <div class="record-label">최신/현재</div>
+            <div class="record-label">일별 최신 종가</div>
             <div class="record-value ${directionClass(record.latestReturnPct)}">${priceWithReturn(record.latestPrice, record.latestReturnPct)}</div>
           </div>
           <div class="record-metric">
@@ -1605,16 +1635,15 @@
       .then(payload => {
         applyPayload(payload);
         renderAll();
+        livePrices.start();
       })
       .catch(renderLoadError);
   }
 
-  /* fetch 성공 + 검증 성공 시 데이터 교체, 그 외(file://, 오프라인 등)에는 조용히 재렌더만 수행. */
+  /* 수동 갱신도 정적 파일 대신 시세 원천을 조회한다. */
   function refreshData() {
-    SpacDataLoader.fetchPayload(`data.json?ts=${Date.now()}`, { init: { cache: 'no-store' } })
-      .then(payload => applyPayload(payload))
-      .catch(() => { /* 조용한 폴백 */ })
-      .then(() => renderAll());
+    if (!getSpacs().length) return loadInitialData();
+    return livePrices.refresh();
   }
 
   /* ---------- 테마 등 캔버스 일괄 재렌더 ---------- */
@@ -1759,7 +1788,7 @@
   /* ---------- 전체 렌더 / 초기화 ---------- */
 
   function renderAll() {
-    document.getElementById('updated').textContent = `최종 업데이트: ${data.lastUpdated || '-'}`;
+    document.getElementById('updated').textContent = `공시·일별 데이터: ${data.lastUpdated || '-'}`;
     renderFreshness();
     renderSnapshot();
     renderMarketStats();
@@ -1787,6 +1816,7 @@
     /* 임베더 등이 data.js를 직접 로드해 둔 경우(구 계약) — 즉시 렌더. */
     data = window.SPAC_DATA;
     renderAll();
+    livePrices.start();
   } else {
     loadInitialData();
   }

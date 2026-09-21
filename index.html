@@ -49,13 +49,14 @@ html[data-embed] .container { padding-top: 14px !important; }
     </div>
     <div class="header-actions">
       <a class="hub-link" href="https://ducklove.duckdns.org:3691" rel="noopener">Value Compass ↗</a>
-      <button type="button" class="button" id="refreshViewBtn">화면 갱신</button>
+      <button type="button" class="button" id="refreshViewBtn">시세 새로고침</button>
       <button type="button" class="button" id="themeBtn" aria-label="테마 전환">테마 전환</button>
     </div>
   </div>
 </header>
 
 <main class="container">
+  <div class="updated" id="livePriceStatus" role="status" aria-live="polite">시세 조회 대기 · 5분 자동 갱신</div>
   <section class="alert-banner" id="freshnessBanner" role="status" hidden></section>
 
   <section class="snapshot" id="snapshot">
@@ -295,7 +296,7 @@ html[data-embed] .container { padding-top: 14px !important; }
             <th>이벤트</th>
             <th class="numeric">기준가</th>
             <th class="numeric">다음 거래일</th>
-            <th class="numeric">최신/현재</th>
+            <th class="numeric">일별 최신 종가</th>
             <th class="numeric">이후 고점</th>
             <th class="numeric">이후 저점</th>
           </tr>
@@ -312,6 +313,7 @@ html[data-embed] .container { padding-top: 14px !important; }
 <script src="assets/chart-tooltip.js?v=20260729-chart-axis"></script>
 <script src="assets/charts.js?v=20260729-chart-axis"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
-<script src="assets/app.js?v=20260729-chart-axis"></script>
+<script src="assets/live-prices.js?v=20260921-live"></script>
+<script src="assets/app.js?v=20260921-live"></script>
 </body>
 </html>
