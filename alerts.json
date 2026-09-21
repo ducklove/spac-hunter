@@ -1,6 +1,46 @@
 {
-  "generatedAt": "2026-09-20T20:44:02.706990+09:00",
+  "generatedAt": "2026-09-21T22:12:25.788548+09:00",
   "alerts": [
+    {
+      "id": "2026-09-21|below_ipo_enter|0054V0",
+      "date": "2026-09-21",
+      "type": "below_ipo_enter",
+      "code": "0054V0",
+      "name": "엔에이치스팩32호",
+      "title": "엔에이치스팩32호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9995 (현재가 1,999)",
+      "url": "https://finance.naver.com/item/main.naver?code=0054V0"
+    },
+    {
+      "id": "2026-09-21|below_ipo_enter|0068Y0",
+      "date": "2026-09-21",
+      "type": "below_ipo_enter",
+      "code": "0068Y0",
+      "name": "비엔케이제3호스팩",
+      "title": "비엔케이제3호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0075 → 0.9890 (현재가 1,978)",
+      "url": "https://finance.naver.com/item/main.naver?code=0068Y0"
+    },
+    {
+      "id": "2026-09-21|below_ipo_enter|0096B0",
+      "date": "2026-09-21",
+      "type": "below_ipo_enter",
+      "code": "0096B0",
+      "name": "삼성스팩12호",
+      "title": "삼성스팩12호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9930 (현재가 1,986)",
+      "url": "https://finance.naver.com/item/main.naver?code=0096B0"
+    },
+    {
+      "id": "2026-09-21|below_ipo_exit|466690",
+      "date": "2026-09-21",
+      "type": "below_ipo_exit",
+      "code": "466690",
+      "name": "키움히어로제1호스팩",
+      "title": "키움히어로제1호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9755 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=466690"
+    },
     {
       "id": "2026-09-18|below_ipo_enter|466690",
       "date": "2026-09-18",
