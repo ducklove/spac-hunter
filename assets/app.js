@@ -32,6 +32,11 @@
     sourceLinks: {}
   };
   let data = window.SPAC_DATA || fallbackData;
+  const eventNews = window.SpacEventNews;
+  const newsTracker = eventNews.createTracker();
+  let newsRequest = null;
+  let newsLastFetch = 0;
+  let newsFeedFailed = false;
   const livePrices = window.SpacLivePrices.createController({
     getData: () => data,
     onData: payload => {
@@ -57,6 +62,7 @@
         status.applied === status.total && status.total > 0
           ? `시세 확인 ${checked} KST · ${status.applied}종목 · 5분 자동 갱신`
           : `시세 ${status.applied || 0}/${status.total || 0}종목 갱신 · 미갱신 종목은 이전 가격 유지${checked ? ` · 최근 성공 ${checked} KST` : ''}`;
+      if (!status.busy) refreshEventNews();
     }
   });
 
@@ -137,6 +143,70 @@
 
   function getSpacs() {
     return Array.isArray(data.spacs) ? data.spacs : [];
+  }
+
+  /* 방문 시각과 확인한 이벤트 ID를 함께 저장해 당일 추가 공시도 잡는다. */
+  function newBadge(show) {
+    return show ? '<span class="new-badge" aria-label="새 이벤트">NEW</span>' : '';
+  }
+
+  function renderEventNews() {
+    const state = newsTracker.snapshot();
+    const events = state.events;
+    document.getElementById('eventNewsCount').textContent = `${events.length}건`;
+    document.getElementById('eventNewsPanel').classList.toggle('has-news', events.length > 0);
+    const lastVisit = state.previousVisit
+      ? new Date(state.previousVisit).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) : null;
+    const hints = [lastVisit ? `지난 방문 ${lastVisit} KST · 이후 추가된 이벤트와 미확인 소식` : '첫 방문 · 최근 7일 이벤트'];
+    hints.push('확인 전까지 NEW 유지 · 공시·일별 데이터 수집 기준');
+    if (!state.storageAvailable) hints.push('방문 기록을 저장할 수 없어 이번 화면에서만 확인 상태가 유지됩니다');
+    if (newsFeedFailed) hints.push('알림 조회 지연 · 저장 데이터의 이벤트를 표시합니다');
+    document.getElementById('eventNewsHint').textContent = hints.join(' · ');
+    document.getElementById('readAllNewsBtn').hidden = !events.length;
+    const list = document.getElementById('eventNewsList');
+    const scrollTop = list.scrollTop;
+    list.innerHTML = events.length ? events.map(event => `
+      <li class="event-news-item">
+        <div class="event-news-content">
+          <div class="event-news-title">${newBadge(true)} <span class="badge ${badgeClass(event.label)}">${escapeHtml(event.label)}</span>
+            <strong>${escapeHtml(event.name)}</strong> <time datetime="${escapeHtml(event.date)}">${escapeHtml(event.date)}</time></div>
+          <div class="event-news-detail">${escapeHtml(event.detail)}</div>
+        </div>
+        <div class="event-news-actions">
+          ${findSpacByCode(event.code) ? `<button type="button" class="button small" data-news-code="${escapeHtml(event.code)}" aria-label="${escapeHtml(event.name)} 종목 보기">종목 보기</button>` : ''}
+          ${event.url ? `<a class="button small" href="${escapeHtml(event.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(event.name)} ${escapeHtml(event.label)} 원문">원문 ↗</a>` : ''}
+          <button type="button" class="button small" data-news-read="${escapeHtml(event.id)}" aria-label="${escapeHtml(event.name)} ${escapeHtml(event.label)} 확인">확인</button>
+        </div>
+      </li>`).join('') : '<li class="event-news-empty">새로 확인할 이벤트가 없습니다.</li>';
+    list.scrollTop = scrollTop;
+  }
+
+  function renderNewsSurfaces() {
+    const list = document.getElementById('spacList');
+    const scrollTop = list?.scrollTop || 0;
+    renderEventNews();
+    renderCards();
+    renderTable();
+    renderSelected();
+    renderSchedule();
+    if (list) list.scrollTop = scrollTop;
+  }
+
+  function refreshEventNews() {
+    if (!getSpacs().length || newsRequest || Date.now() - newsLastFetch < 60000) return newsRequest;
+    newsLastFetch = Date.now();
+    newsRequest = eventNews.fetchAlerts().then(alerts => {
+      newsFeedFailed = false;
+      newsTracker.ingest(eventNews.collectEvents(data, alerts));
+    }).catch(() => {
+      newsFeedFailed = true;
+      // 알림 로드 실패로 방문 기준을 앞당겨 미확인 이벤트를 잃지 않는다.
+      newsTracker.ingest(eventNews.collectEvents(data), { persistVisit: false });
+    }).finally(() => {
+      newsRequest = null;
+      renderNewsSurfaces();
+    });
+    return newsRequest;
   }
 
   function normalizeCode(value) {
@@ -788,7 +858,7 @@
           <div class="spac-card-id">
             ${watchButtonHtml(item)}
             <div class="spac-card-id-text">
-              <div class="spac-name">${escapeHtml(item.name)}</div>
+              <div class="spac-name">${escapeHtml(item.name)} ${newBadge(newsTracker.hasCode(item.code))}</div>
               <div class="code">${escapeHtml(item.code)} · ${escapeHtml(item.sponsor || '주관사 미확인')}</div>
             </div>
           </div>
@@ -823,7 +893,7 @@
       return;
     }
     selectedCode = item.code;
-    document.getElementById('selectedName').textContent = item.name;
+    document.getElementById('selectedName').innerHTML = `${escapeHtml(item.name)} ${newBadge(newsTracker.hasCode(item.code))}`;
     document.getElementById('selectedMeta').textContent =
       `${item.code} · ${item.market || 'KOSDAQ'} · 상장일 ${dateText(item.listingDate)} · ` +
       (item.quote?.checkedAt
@@ -1105,7 +1175,7 @@
       <div class="timeline-item">
         <div class="timeline-date">${dateText(event.date)}</div>
         <div>
-          <div class="timeline-title">${escapeHtml(event.label || event.type)}</div>
+          <div class="timeline-title">${escapeHtml(event.label || event.type)} ${newBadge(newsTracker.hasEvent(item.code, event.type, event.date))}</div>
           <div class="timeline-detail">${escapeHtml(event.detail || '')}</div>
         </div>
       </div>
@@ -1252,7 +1322,7 @@
           <div class="table-name-cell">
             ${watchButtonHtml(item)}
             <div>
-              <strong>${escapeHtml(item.name)}</strong>
+              <strong>${escapeHtml(item.name)}</strong> ${newBadge(newsTracker.hasCode(item.code))}
               <div class="code">${escapeHtml(item.code)}</div>
             </div>
           </div>
@@ -1358,11 +1428,11 @@
   }
 
   /* 공통 행 마크업. subHtml/valueHtml은 호출부에서 escape를 마친 HTML 조각을 받는다. */
-  function scheduleRowHtml(code, name, subHtml, priceHtml, valueHtml) {
+  function scheduleRowHtml(code, name, subHtml, priceHtml, valueHtml, isNew = false) {
     return `
       <div class="schedule-row" data-code="${escapeHtml(code)}" role="button" tabindex="0">
         <div class="schedule-row-main">
-          <div class="schedule-row-name">${watchMarkHtml(code)}${escapeHtml(name || '-')} <span class="code">${escapeHtml(code)}</span></div>
+          <div class="schedule-row-name">${watchMarkHtml(code)}${escapeHtml(name || '-')} ${newBadge(isNew)} <span class="code">${escapeHtml(code)}</span></div>
           <div class="schedule-row-sub">${subHtml}</div>
         </div>
         <div class="schedule-row-price">${priceHtml || '-'}</div>
@@ -1446,7 +1516,8 @@
         entry.item.name,
         `<span class="badge ${badgeClass(String(label))}">${escapeHtml(label)}</span>`,
         scheduleCurrentPriceHtml(entry.item),
-        escapeHtml(dateText(entry.record.date))
+        escapeHtml(dateText(entry.record.date)),
+        newsTracker.hasEvent(entry.item.code, entry.record.signal, entry.record.date)
       );
     }).join('');
     setScheduleColumn('scheduleMergerList', 'scheduleMergerCount', mergerHtml, mergerTop.length, mergerRows.length, '건');
@@ -1464,7 +1535,8 @@
       entry.item.name,
       escapeHtml(ratio(entry.item.ratio)),
       scheduleCurrentPriceHtml(entry.item),
-      escapeHtml(dateText(entry.item.listingDate))
+      escapeHtml(dateText(entry.item.listingDate)),
+      newsTracker.hasEvent(entry.item.code, 'new_listing', entry.item.listingDate)
     )).join('');
     setScheduleColumn('scheduleListingList', 'scheduleListingCount', listingHtml, listingTop.length, listingRows.length, '개');
 
@@ -1635,6 +1707,7 @@
       .then(payload => {
         applyPayload(payload);
         renderAll();
+        refreshEventNews();
         livePrices.start();
       })
       .catch(renderLoadError);
@@ -1657,6 +1730,27 @@
   /* ---------- 이벤트 바인딩 ---------- */
 
   function bindEvents() {
+    document.getElementById('readAllNewsBtn').addEventListener('click', () => {
+      newsTracker.acknowledgeAll();
+      renderNewsSurfaces();
+      document.getElementById('eventNewsTitle').focus();
+    });
+    document.getElementById('eventNewsList').addEventListener('click', event => {
+      const readButton = event.target.closest('[data-news-read]');
+      if (readButton) {
+        newsTracker.acknowledge(readButton.dataset.newsRead);
+        renderNewsSurfaces();
+        document.getElementById('eventNewsTitle').focus();
+        return;
+      }
+      const viewButton = event.target.closest('[data-news-code]');
+      if (viewButton) {
+        selectSpac(viewButton.dataset.newsCode);
+        const heading = document.getElementById('selectedName');
+        heading.focus({ preventScroll: true });
+        heading.scrollIntoView({ block: 'start' });
+      }
+    });
     document.getElementById('themeBtn').addEventListener('click', () => {
       const root = document.documentElement;
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -1790,6 +1884,7 @@
   function renderAll() {
     document.getElementById('updated').textContent = `공시·일별 데이터: ${data.lastUpdated || '-'}`;
     renderFreshness();
+    renderEventNews();
     renderSnapshot();
     renderMarketStats();
     renderSponsorPanel();
@@ -1816,6 +1911,7 @@
     /* 임베더 등이 data.js를 직접 로드해 둔 경우(구 계약) — 즉시 렌더. */
     data = window.SPAC_DATA;
     renderAll();
+    refreshEventNews();
     livePrices.start();
   } else {
     loadInitialData();

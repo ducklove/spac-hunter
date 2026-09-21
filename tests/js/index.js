@@ -7,3 +7,4 @@ import('./chart-tooltip.test.mjs');
 import('./data-loader.test.mjs');
 import('./accessibility-structure.test.mjs');
 import('./live-prices.test.mjs');
+import('./event-news.test.mjs');
