@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-09-21T22:12:25.788548+09:00",
+  "generatedAt": "2026-09-22T20:58:48.712765+09:00",
   "alerts": [
+    {
+      "id": "2026-09-22|new_listing|0200G0",
+      "date": "2026-09-22",
+      "type": "new_listing",
+      "code": "0200G0",
+      "name": "한국제17호스팩",
+      "title": "한국제17호스팩 신규 상장",
+      "detail": "상장일 2026-09-22, 현재가 1,937",
+      "url": "https://finance.naver.com/item/main.naver?code=0200G0"
+    },
+    {
+      "id": "2026-09-22|new_listing|0209J0",
+      "date": "2026-09-22",
+      "type": "new_listing",
+      "code": "0209J0",
+      "name": "KB제34호스팩",
+      "title": "KB제34호스팩 신규 상장",
+      "detail": "상장일 2026-09-22, 현재가 1,905",
+      "url": "https://finance.naver.com/item/main.naver?code=0209J0"
+    },
     {
       "id": "2026-09-21|below_ipo_enter|0054V0",
       "date": "2026-09-21",
