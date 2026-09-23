@@ -94,12 +94,24 @@
     };
   }
 
+  function returnTooltipContent(point) {
+    const p = point || {};
+    return {
+      date: F.dateText(p.date),
+      rows: [
+        ['평균 기대수익률 (연환산)', F.pct(p.averageAnnualizedReturn)],
+        ['집계 종목', countText(p.totalCount)]
+      ]
+    };
+  }
+
   const SpacChartTooltip = {
     nearestIndex,
     axisTickIndexes,
     tooltipPosition,
     ratioTooltipContent,
-    belowTooltipContent
+    belowTooltipContent,
+    returnTooltipContent
   };
 
   /* UMD-lite: 브라우저에선 window 전역, Node(node --test)에선 CommonJS export. */

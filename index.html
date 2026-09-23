@@ -38,7 +38,7 @@ html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260921-news">
+<link rel="stylesheet" href="assets/style.css?v=20260923-return-trend">
 </head>
 <body>
 <header class="app-header">
@@ -97,6 +97,26 @@ html[data-embed] .container { padding-top: 14px !important; }
   </section>
 
   <section class="market-stats" aria-label="스팩 시장 통계">
+    <article class="stats-panel return-trend-panel">
+      <div class="panel-header">
+        <div>
+          <h2 class="panel-title">평균 기대수익률 추이</h2>
+          <div class="panel-sub" id="returnTrendHint" aria-live="polite"></div>
+        </div>
+        <div class="periods" id="returnTrendPeriods" role="group" aria-label="평균 기대수익률 조회 기간">
+          <button type="button" class="period-btn" data-days="30" aria-pressed="false">1M</button>
+          <button type="button" class="period-btn active" data-days="90" aria-pressed="true">3M</button>
+          <button type="button" class="period-btn" data-days="180" aria-pressed="false">6M</button>
+          <button type="button" class="period-btn" data-days="0" aria-pressed="false">전체</button>
+        </div>
+      </div>
+      <div class="stats-panel-body">
+        <div class="stats-chart">
+          <canvas id="returnTrendChart" role="img" aria-label="평균 연환산 기대수익률 추이 차트" aria-describedby="returnTrendHint returnTrendNote"></canvas>
+        </div>
+        <div class="stats-note" id="returnTrendNote">일별 종가와 당시 청산 잔여일수 기준 연환산 수익률의 동일 비중 평균입니다. 현재 상장 종목과 최신 청산분배금 추정치로 재계산하며, 계산 가능한 종목의 70% 이상에 유효 이력이 있는 날짜만 표시합니다. 날짜별 표본 수는 다를 수 있습니다.</div>
+      </div>
+    </article>
     <div class="stats-panels" id="statsPanels">
       <article class="stats-panel">
         <div class="panel-header">
@@ -319,11 +339,12 @@ html[data-embed] .container { padding-top: 14px !important; }
 <!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
      (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
 <script src="assets/format.js?v=20260729-chart-axis"></script>
-<script src="assets/chart-tooltip.js?v=20260729-chart-axis"></script>
-<script src="assets/charts.js?v=20260729-chart-axis"></script>
+<script src="assets/chart-tooltip.js?v=20260923-return-trend"></script>
+<script src="assets/charts.js?v=20260923-return-trend"></script>
+<script src="assets/return-trend.js?v=20260923-return-trend"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260921-live"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260921-news"></script>
+<script src="assets/app.js?v=20260923-return-trend"></script>
 </body>
 </html>

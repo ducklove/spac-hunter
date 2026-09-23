@@ -168,7 +168,7 @@
     }
   }
 
-  /* ---------- 호버 크로스헤어 + 값 툴팁 (메인 차트 2종 전용) ---------- */
+  /* ---------- 호버 크로스헤어 + 값 툴팁 ---------- */
 
   /* 캔버스 부모에 크로스헤어/포인트/툴팁 DOM을 1회 생성해 캔버스별로 재사용한다. */
   function ensureHoverElements(canvas) {
@@ -393,6 +393,56 @@
     });
   }
 
+  /* 시장 평균 연환산 기대수익률: 음수·동일 값·단일 날짜도 표시한다. */
+  function drawReturnTrendChart(canvas, points) {
+    trackRender(canvas, () => drawReturnTrendChart(canvas, points));
+    const env = setupCanvas(canvas);
+    if (!env) return;
+    const ctx = env.ctx;
+    const rows = (points || []).filter(point => point && point.date
+      && Number.isFinite(point.averageAnnualizedReturn));
+    if (!rows.length) {
+      setHoverModel(canvas, null);
+      drawEmptyMessage(ctx, '추이를 그릴 데이터가 부족합니다.', 16, 34);
+      return;
+    }
+
+    const values = rows.map(point => point.averageAnnualizedReturn);
+    const low = Math.min(0, ...values);
+    const high = Math.max(0, ...values);
+    const margin = Math.max((high - low) * 0.12, 0.2);
+    const min = low - margin;
+    const max = high + margin;
+    const ticks = Array.from({ length: 5 }, (_, i) => min + (max - min) * i / 4);
+    const label = value => `${value.toFixed(1)}%`;
+    ctx.font = FONT_LABEL;
+    const pad = {
+      left: Math.max(52, ...ticks.map(value => ctx.measureText(label(value)).width + 14)),
+      right: 18, top: 18, bottom: 28
+    };
+    const w = env.width - pad.left - pad.right;
+    const h = env.height - pad.top - pad.bottom;
+    const yFor = value => pad.top + (max - value) / (max - min) * h;
+    const pts = rows.map((point, index) => ({
+      x: pad.left + (rows.length === 1 ? 0.5 : index / (rows.length - 1)) * w,
+      y: yFor(point.averageAnnualizedReturn)
+    }));
+    drawGridLines(ctx, ticks.map(value => ({ y: yFor(value), label: label(value) })), pad.left, pad.left + w, 4);
+    drawDashedLine(ctx, pad.left, pad.left + w, yFor(0), getCss('--ipo-line'), [5, 5]);
+    const lineColor = getCss('--ratio-line');
+    drawLine(ctx, pts, lineColor, 2.4);
+    const last = pts[pts.length - 1];
+    drawEndDot(ctx, last.x, last.y, lineColor);
+    const xs = pts.map(point => point.x);
+    drawDateAxisLabels(ctx, rows, xs, pad.left, pad.left + w, env.height - 7);
+    setHoverModel(canvas, {
+      xs, pts,
+      plot: { x0: pad.left, x1: pad.left + w, y0: pad.top, y1: pad.top + h },
+      lineColor,
+      content: index => T.returnTooltipContent(rows[index])
+    });
+  }
+
   /* 종목 비교 테이블 스파크라인: 최근 90일 ratio 라인 + 1.00x 기준 점선.
      points는 sparklinePoints()로 미리 거른 배열을 받는다. */
   function drawSparkline(canvas, points) {
@@ -437,6 +487,7 @@
     sparklinePoints,
     drawRatioChart,
     drawBelowTrendChart,
+    drawReturnTrendChart,
     drawSparkline
   };
 })();

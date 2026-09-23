@@ -307,6 +307,14 @@ button {
   display: block;
 }
 
+.return-trend-panel .panel-header {
+  flex-wrap: wrap;
+}
+
+.return-trend-panel .stats-chart {
+  height: 220px;
+}
+
 .bar-list {
   display: grid;
   gap: 9px;

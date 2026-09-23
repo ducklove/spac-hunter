@@ -1,5 +1,5 @@
 /* 스팩 헌터 대시보드 앱 (일반 스크립트, file:// 호환).
-   로드 순서: format.js -> chart-tooltip.js -> charts.js -> data-loader.js -> app.js
+   로드 순서: format.js -> chart-tooltip.js -> charts.js -> return-trend.js -> data-loader.js -> app.js
    데이터는 SpacDataLoader가 data.json을 비동기 fetch 한다(실패 시 data.js
    <script> 주입 폴백 — file:// 호환). 도착 전에는 index.html의 스켈레톤이 보인다. */
 (function() {
@@ -81,6 +81,8 @@
   let filterMode = 'all';
   let sortMode = 'price';
   let chartDays = 90;
+  let returnTrendDays = 90;
+  let returnTrend = [];
   let tableSort = { key: 'currentPrice', direction: 'asc' };
   let searchTimer = 0;
   let simulationCode = null;
@@ -435,6 +437,7 @@
     document.getElementById('belowTrendHint').textContent = belowTrend.length
       ? `${dateText(belowTrend[0].date)} - ${dateText(belowTrend[belowTrend.length - 1].date)}`
       : '집계 가능한 히스토리 없음';
+    returnTrend = window.SpacReturnTrend.buildExpectedReturnTrend(getSpacs());
     drawTrendChart();
     renderTrendMixBars(stats.listingTrend || [], stats.mergerTrend || []);
     renderFunnelStats(funnel, priceStats, stats.note);
@@ -445,6 +448,19 @@
       document.getElementById('belowTrendChart'),
       (data.statistics || {}).belowIpoTrend || []
     );
+    drawReturnTrendChart();
+  }
+
+  function drawReturnTrendChart() {
+    const points = SpacCharts.recentPoints(returnTrend, returnTrendDays);
+    const latest = points[points.length - 1];
+    const hint = latest
+      ? `${dateText(points[0].date)} - ${dateText(latest.date)} · 최근 ${pct(latest.averageAnnualizedReturn)} · ${number(latest.totalCount)}종목 · 연환산 / 일별 종가 기준`
+      : '집계 가능한 히스토리 없음';
+    document.getElementById('returnTrendHint').textContent = hint;
+    const canvas = document.getElementById('returnTrendChart');
+    canvas.setAttribute('aria-label', `평균 기대수익률 추이. ${hint}`);
+    SpacCharts.drawReturnTrendChart(canvas, points);
   }
 
   function renderTrendMixBars(listingTrend, mergerTrend) {
@@ -1730,6 +1746,17 @@
   /* ---------- 이벤트 바인딩 ---------- */
 
   function bindEvents() {
+    document.getElementById('returnTrendPeriods').addEventListener('click', event => {
+      const button = event.target.closest('[data-days]');
+      if (!button) return;
+      returnTrendDays = Number(button.dataset.days);
+      document.querySelectorAll('#returnTrendPeriods .period-btn').forEach(item => {
+        const active = Number(item.dataset.days) === returnTrendDays;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      drawReturnTrendChart();
+    });
     document.getElementById('readAllNewsBtn').addEventListener('click', () => {
       newsTracker.acknowledgeAll();
       renderNewsSurfaces();
@@ -1817,10 +1844,10 @@
       });
     });
 
-    document.querySelectorAll('.period-btn').forEach(button => {
+    document.querySelectorAll('#periodButtons .period-btn').forEach(button => {
       button.addEventListener('click', () => {
         chartDays = Number(button.dataset.days);
-        document.querySelectorAll('.period-btn').forEach(btn => {
+        document.querySelectorAll('#periodButtons .period-btn').forEach(btn => {
           const active = btn === button;
           btn.classList.toggle('active', active);
           btn.setAttribute('aria-pressed', String(active));
