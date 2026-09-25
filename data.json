@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-09-25 20:11:03 KST",
-  "generatedAt": "2026-09-25T20:11:03.273021+09:00",
+  "lastUpdated": "2026-09-25 21:06:02 KST",
+  "generatedAt": "2026-09-25T21:06:02.249162+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -3258,7 +3258,7 @@
         "paymentDate": "2026-09-10",
         "extractedAt": "2026-09-23T21:00:00.914146+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260908000183)"
     },
@@ -3393,7 +3393,7 @@
         "paymentDate": "2026-09-10",
         "extractedAt": "2026-09-23T21:00:00.914146+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260909000285)"
     },
@@ -3576,7 +3576,7 @@
         "paymentDate": "2026-09-01",
         "extractedAt": "2026-09-11T20:42:52.915333+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260828000900)"
     },
@@ -4103,7 +4103,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260608000232)"
     },
@@ -4946,7 +4946,7 @@
         "paymentDate": "2026-03-19",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260318000201)"
     },
@@ -6179,7 +6179,7 @@
         "paymentDate": "2025-12-10",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000372)"
     },
@@ -6662,7 +6662,7 @@
         "paymentDate": "2026-06-22",
         "extractedAt": "2026-07-01T19:30:52.211026+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260619000193)"
     },
@@ -7997,7 +7997,7 @@
         "paymentDate": "2025-11-17",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251114003075)"
     },
@@ -9458,7 +9458,7 @@
         "paymentDate": "2025-06-24",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260630901522",
@@ -10700,7 +10700,7 @@
         "paymentDate": "2025-12-12",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251211000330)"
     },
@@ -12163,7 +12163,7 @@
         "parseWarnings": [
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260923900438",
@@ -13411,7 +13411,7 @@
         "paymentDate": "2025-12-11",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000220)"
     },
@@ -14770,7 +14770,7 @@
         "paymentDate": "2025-11-11",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251110000259)"
     },
@@ -15487,7 +15487,7 @@
         "paymentDate": "2026-04-20",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260417000093)"
     },
@@ -16074,7 +16074,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260521000518)"
     },
@@ -17397,7 +17397,7 @@
         "paymentDate": "2025-11-19",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251118000265)"
     },
@@ -18144,7 +18144,7 @@
         "paymentDate": "2026-04-14",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260413001537)"
     },
@@ -19475,7 +19475,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251117000034)"
     },
@@ -20936,7 +20936,7 @@
         "paymentDate": "2025-07-08",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260715900147",
@@ -22412,7 +22412,7 @@
         "paymentDate": "2025-07-25",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260731900656",
@@ -23548,7 +23548,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260109000087)"
     },
@@ -24817,7 +24817,7 @@
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000394)"
     },
@@ -26293,7 +26293,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20250515000864)"
     },
@@ -27130,7 +27130,7 @@
         "paymentDate": "2026-03-23",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260319000821)"
     },
@@ -28405,7 +28405,7 @@
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000430)"
     },
@@ -29266,7 +29266,7 @@
         "paymentDate": "2026-03-17",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20260316000201)"
     },
@@ -30711,7 +30711,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000264)"
     },
@@ -32172,7 +32172,7 @@
         "paymentDate": "2025-07-10",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260720900290",
@@ -33651,7 +33651,7 @@
           "escrowAmount: 패턴 미발견",
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260819900363",
@@ -35127,7 +35127,7 @@
         "paymentDate": "2025-08-05",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260812900150",
@@ -36411,7 +36411,7 @@
         "paymentDate": "2025-12-01",
         "extractedAt": "2026-06-17T20:22:13.035973+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251128002140)"
     },
@@ -37879,7 +37879,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20250110000560)"
     },
@@ -39355,7 +39355,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000097)"
     },
@@ -40831,7 +40831,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000275)"
     },
@@ -42130,7 +42130,7 @@
         "paymentDate": "2025-11-24",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251121000115)"
     },
@@ -45148,7 +45148,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241129000608)"
     },
@@ -46624,7 +46624,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241115000128)"
     },
@@ -48100,7 +48100,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000142)"
     },
@@ -49453,7 +49453,7 @@
         "paymentDate": "2025-11-13",
         "extractedAt": "2026-06-13T20:24:13.393014+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251112000416)"
     },
@@ -50896,7 +50896,7 @@
         "paymentDate": "2024-12-16",
         "extractedAt": "2026-06-15T23:19:15.265855+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000541)"
     },
@@ -53365,7 +53365,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20250310000156)"
     },
@@ -54841,7 +54841,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241021000312)"
     },
@@ -56342,7 +56342,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240909000034)"
     },
@@ -57607,7 +57607,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251202000413)"
     },
@@ -59095,7 +59095,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240712000044)"
     },
@@ -62354,7 +62354,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240829001549)"
     },
@@ -63855,7 +63855,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000179)"
     },
@@ -65354,7 +65354,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240701000551)"
     },
@@ -69145,7 +69145,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240530001411)"
     },
@@ -72734,7 +72734,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240731000498)"
     },
@@ -74212,7 +74212,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241107000228)"
     },
@@ -75711,7 +75711,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240517000260)"
     },
@@ -77210,7 +77210,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000402)"
     },
@@ -78709,7 +78709,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240611000366)"
     },
@@ -80185,7 +80185,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240613000091)"
     },
@@ -81686,7 +81686,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240610000163)"
     },
@@ -83208,7 +83208,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240715000198)"
     },
@@ -84684,7 +84684,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241104000200)"
     },
@@ -86159,7 +86159,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240422000014)"
     },
@@ -87658,7 +87658,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240419000364)"
     },
@@ -91611,7 +91611,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240401001215)"
     },
@@ -95720,7 +95720,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240216000272)"
     },
@@ -97219,7 +97219,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240412003503)"
     },
@@ -98718,7 +98718,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240408004008)"
     },
@@ -100217,7 +100217,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240315000448)"
     },
@@ -101692,7 +101692,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219001008)"
     },
@@ -103191,7 +103191,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219000516)"
     },
@@ -104690,7 +104690,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240221001641)"
     },
@@ -108815,7 +108815,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20240119000323)"
     },
@@ -110141,7 +110141,7 @@
         "paymentDate": "2025-12-09",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20251208000119)"
     },
@@ -112964,7 +112964,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T20:11:03.273021+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
       },
       "ipoPriceSource": "증권신고서(20241128000624)"
     }
@@ -112972,7 +112972,7 @@
   "errors": {
     "filings": {
       "trustRateChanges": {
-        "0037T0": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out."
+        "478390": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out."
       }
     },
     "quote": {},
