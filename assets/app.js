@@ -1079,6 +1079,26 @@
     `;
   }
 
+  /* 현재 예치 계약 만기가 청산금 수령 예정일보다 늦으면 만기 전 해지(중도해지이율) 위험을 알린다.
+     추정치는 약정 이율 그대로이고, 이 경고는 실제 분배금이 더 적을 수 있다는 표시다. */
+  function escrowWarningHtml(item) {
+    const contract = item && item.escrowContract;
+    const risk = contract && contract.earlyTerminationRisk;
+    if (!risk || !item.payoutDate) return '';
+    const maturity = dateText(contract.maturityDate);
+    const payout = dateText(item.payoutDate);
+    const days = number(contract.daysAfterPayout);
+    const lead = risk === 'confirmed'
+      ? `현재 예치 계약 만기(${maturity}, 공시)가 청산금 수령 예정일(${payout})보다 ${days}일 늦습니다.`
+      : `현재 예치 계약(${dateText(contract.startDate)} 시작)의 만기가 공시되지 않았습니다. 1년 계약이면 만기(${maturity})가 수령 예정일(${payout})보다 ${days}일 늦습니다.`;
+    return `
+      <div class="escrow-warning escrow-warning-${risk}" role="note">
+        <strong>${risk === 'confirmed' ? '중도해지 위험' : '중도해지 가능성'}</strong>
+        ${escapeHtml(lead)} 신탁계약 특약상 만기 전에 인출하면 예치일부터 전체 기간에 은행 중도해지이율이 적용돼 실제 분배금이 추정치(약정 이율 기준)보다 적을 수 있습니다. 만기까지 기다린 뒤 분배하면 수령이 늦어집니다.
+      </div>
+    `;
+  }
+
   function renderFilingBlock(item) {
     const existing = document.getElementById('filingBlock');
     if (existing) existing.remove();
@@ -1125,7 +1145,19 @@
       rows.push(['최근 공시 예치금', `${escapeHtml(money(anchor.amount))} (주당 ${escapeHtml(Number(anchor.valuePerShare).toFixed(2))}원)${link}`]);
     }
     if (basis) {
-      rows.push(['이자 차감', escapeHtml(`신탁보수 연 ${Number(basis.trustFeePct)}%p · 원천징수 ${Number(basis.interestTaxPct)}%`)]);
+      const feeSource = basis.trustFeeSource ? `<span class="filing-source">보수 근거: ${escapeHtml(basis.trustFeeSource)}</span>` : '';
+      rows.push(['이자 차감', `${escapeHtml(`신탁보수 연 ${Number(basis.trustFeePct)}%p · 원천징수 ${Number(basis.interestTaxPct)}%`)}${feeSource}`]);
+    }
+    const contract = item && item.escrowContract;
+    if (contract && contract.maturityDate) {
+      const rate = Number(contract.ratePct);
+      const parts = [`${dateText(contract.startDate)} 시작`];
+      if (contract.ratePct != null && Number.isFinite(rate)) parts.push(`연 ${rate.toFixed(2)}%`);
+      parts.push(`만기 ${dateText(contract.maturityDate)}`);
+      const source = contract.url
+        ? `<a class="filing-source" href="${escapeHtml(contract.url)}" target="_blank" rel="noopener">${escapeHtml(contract.maturitySource)}</a>`
+        : `<span class="filing-source">${escapeHtml(contract.maturitySource)}</span>`;
+      rows.push(['현재 예치 계약', `${escapeHtml(parts.join(' · '))}${source}`]);
     }
     if (item && item.payoutDate) {
       const delisting = item.expectedDelistingDate ? ` (상장폐지 ${dateText(item.expectedDelistingDate)} 예상)` : '';
@@ -1145,6 +1177,7 @@
         <h2 class="panel-title">공모 정보</h2>
         ${filing && filing.filingDate ? `<div class="panel-sub">${escapeHtml(dateText(filing.filingDate))} 제출</div>` : ''}
       </div>
+      ${escrowWarningHtml(item)}
       ${rows.length ? `<dl class="filing-kv">${rows.map(([label, valueHtml]) => `
         <dt>${escapeHtml(label)}</dt>
         <dd>${valueHtml}</dd>

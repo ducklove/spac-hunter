@@ -1716,6 +1716,27 @@ td.spark-cell {
   overflow-wrap: anywhere;
 }
 
+.escrow-warning {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--amber) 45%, var(--border));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--amber) 10%, var(--surface));
+  color: var(--text);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.escrow-warning strong {
+  color: var(--amber);
+  margin-right: 4px;
+}
+
+.escrow-warning-possible {
+  border-style: dashed;
+  background: color-mix(in srgb, var(--amber) 5%, var(--surface));
+}
+
 .filing-source {
   display: block;
   margin-top: 2px;

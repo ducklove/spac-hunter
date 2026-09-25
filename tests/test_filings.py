@@ -16,6 +16,7 @@ import pytest
 from spac_hunter import filings
 from spac_hunter.constants import KST
 from spac_hunter.domain.enrich import enrich_spac
+from spac_hunter.domain.escrow import payment_date
 from spac_hunter.filings import (
     backfill_filings,
     backfill_trust_rate_changes,
@@ -391,6 +392,32 @@ class TestExtractTrustRateChangeFields:
         ) == expected
         assert fields["parseWarnings"] == []
 
+    @pytest.mark.parametrize(
+        ("text", "maturity", "term"),
+        [
+            # 교보15호: 계약 체결일·만기일 명시
+            ("변경 전 : 3.30% 변경 후 : 2.88% 3. 변경 일자 2025-12-01 4. 기타 투자판단에 참고할 사항 "
+             "- 계약 체결일 : 2025-12-01 - 계약 만기일 : 2026-11-29", "2026-11-29", None),
+            # 신한제10호: 슬래시 표기
+            ("변경 후 : 3.45% 3. 변경 일자 2024-11-08 계약체결일 : 2024/11/08 계약만기일 : 2025/02/08",
+             "2025-02-08", None),
+            # 엔에이치26호: 만기 상품 날짜
+            ("변경 후 : 3.30% 3. 변경 일자 2024-11-27 - 본 예치는 2025년 9월30일 만기 상품으로 "
+             "계약기간 전 인출 시 예치이자율은 변동 될 수 있습니다.", "2025-09-30", None),
+            # 엔에이치24호: 연도 생략 -> 시작일 이후 첫 8월 31일
+            ("변경 후 : 3.30% 3. 변경 일자 2024-11-27 - 본 예치는 8월31일 만기 상품으로", "2025-08-31", None),
+            # 삼성7호: 만기 변경 전/후 (변경 전 설명의 '만기는 6개월'은 무시)
+            ("3. 만기 - 변경 전 : 6개월 - 변경 후 : 3개월 3. 변경 일자 2025-04-25 - 본 계약은 3개월 만기 상품"
+             "(변경 전 특정금전신탁 만기는 6개월)으로", None, 3),
+            ("변경 후 : 4.00% 3. 변경 일자 2023-12-15 - 본 예치는 1년 만기(6개월 연동) 상품으로", None, 12),
+            ("2. 변경 사유 기존 예치계약 만기 도래에 따른 공모자금 재예치 3. 변경 일자 2024-06-28",
+             None, None),
+        ],
+    )
+    def test_new_contract_maturity_and_term(self, text, maturity, term):
+        fields = extract_trust_rate_change_fields(text)
+        assert (fields["maturityDate"], fields["termMonths"]) == (maturity, term)
+
     def test_implausible_amount_jump_is_dropped(self):
         fields = extract_trust_rate_change_fields(
             "변경 전 : 3.00% 변경 후 : 2.80% 예치금액 변경 전 : 7,000,000,000원 변경 후 : 70,000,000,000원"
@@ -694,6 +721,8 @@ class TestBackfillTrustRateChanges:
                 "rateBeforePct": 3.5,
                 "amountBefore": None,
                 "amountAfter": None,
+                "maturityDate": None,
+                "termMonths": None,
                 "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
                 "parseWarnings": [],
             }
@@ -823,6 +852,8 @@ class TestBackfillTrustRateChanges:
                 "rateBeforePct": 3.2,
                 "amountBefore": None,
                 "amountAfter": None,
+                "maturityDate": None,
+                "termMonths": None,
                 "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
                 "parseWarnings": [],
             }
@@ -1083,8 +1114,10 @@ class TestEnrichWithFiling:
         assert spac["valuationBasis"] == {
             "trustStartDate": "2023-12-21",
             "trustFeePct": 0.1,
+            "trustFeeSource": "기본 가정",
             "interestTaxPct": 15.4,
             "rolloverMonths": 12,
+            "escrowAmountsGross": False,
             "anchor": None,
         }
         assert spac["escrowRatePeriods"] == [
@@ -1163,7 +1196,10 @@ class TestEnrichWithFiling:
             ],
         }
 
-        spac = enrich(filing=filing, override={"trustFeePct": 0})
+        # 보수 0%p는 공시 예치금에서 역산된다(예금형 한국제13호). overrides 없이도 같은 값.
+        spac = enrich(filing=filing)
+        assert spac["valuationBasis"]["trustFeePct"] == 0.0
+        assert spac["valuationBasis"]["trustFeeSource"] == "공시 예치금 역산(1건)"
 
         anchor_value = 8_470_977_763 / 4_000_000
         # 실제 한국제13호: 납입 2023-11-06, 2026-06-18 상장폐지, 2026-09-30 분배 예정.
@@ -1174,6 +1210,9 @@ class TestEnrichWithFiling:
         assert spac["trustValuePerShare"] == round(expected, 2)
         assert spac["liquidationValueSource"].startswith("공시 예치금(2025-11-07)+예상 이자")
         assert "신탁보수 0%p" in spac["liquidationValueSource"]
+        assert enrich(filing=filing, override={"trustFeePct": 0.2})["valuationBasis"]["trustFeeSource"] == (
+            "overrides.json"
+        )
         assert spac["valuationBasis"]["anchor"] == {
             "date": "2025-11-07",
             "valuePerShare": round(anchor_value, 4),
@@ -1300,9 +1339,7 @@ class TestPaymentDate:
         ],
     )
     def test_payment_date(self, filing, expected):
-        from spac_hunter.domain.enrich import _payment_date
-
-        assert _payment_date(filing) == expected
+        assert payment_date(filing) == expected
 
     def test_override_price_beats_filing_and_omits_source(self):
         spac = enrich(filing=FILING_ENTRY, override={"ipoPrice": 3000})

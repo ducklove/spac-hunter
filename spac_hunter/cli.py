@@ -27,7 +27,9 @@ from .constants import (
     KST,
 )
 from .domain.enrich import enrich_spac
+from .domain.escrow import build_trust_fee_hints
 from .domain.merger import classify_merger_disclosures
+from .domain.valuation import derive_sponsor
 from .output import (
     existing_kind_companies,
     load_existing_last_updated,
@@ -224,8 +226,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
         type=float,
         default=DEFAULT_TRUST_FEE_PCT,
         help=(
-            "Annual trust fee (%%p) deducted from the disclosed escrow rate. "
-            "Per-SPAC overrides.json trustFeePct wins (e.g. 0 for plain bank deposits)."
+            "Fallback annual trust fee (%%p) when neither the SPAC's own re-deposit disclosures nor "
+            "same-sponsor SPACs reveal it. overrides.json trustFeePct wins."
         ),
     )
     parser.add_argument(
@@ -404,6 +406,17 @@ def _run_live(args) -> None:
             )
         logger.info("Naver histories: %d ok", sum(1 for h in histories.values() if h))
 
+        # 재예치 공시가 아직 없는 스팩은 같은 증권사 스팩들의 공시 예치금 역산 보수를 따른다.
+        trust_fee_hints = build_trust_fee_hints(
+            (
+                (
+                    overrides.get(item["code"], {}).get("sponsor") or derive_sponsor(item["name"]),
+                    filing_entries.get(item["code"]),
+                )
+                for item in krx_spacs
+            ),
+            args.interest_tax_pct,
+        )
         spacs = []
         for item in krx_spacs:
             code = item["code"]
@@ -421,6 +434,7 @@ def _run_live(args) -> None:
                     merger_disclosures.get(code, []),
                     existing_spacs.get(code, {}),
                     filing=filing_entries.get(code),
+                    trust_fee_hints=trust_fee_hints,
                 )
             )
         errors["quote"] = quote_errors

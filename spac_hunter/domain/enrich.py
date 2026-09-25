@@ -24,6 +24,16 @@ from ..constants import (
 from ..filings import OFFERING_SHARES_MIN, is_valid_escrow_rate_pct, is_valid_ipo_price
 from ..output import merge_history_points
 from ..parsing import add_months, parse_date, parse_float, parse_int
+from .escrow import (
+    change_start,
+    current_contract,
+    first_term_start,
+    gross_reported,
+    implied_fee_pct,
+    implied_trust_fee,
+    rate_changes,
+)
+from .escrow import payment_date as escrow_payment_date
 from .merger import (
     build_merger_price_records,
     classify_merger_disclosures,
@@ -65,46 +75,7 @@ def _source_label_from_report(report_name):
     return report_name or "공시"
 
 
-def _change_start(change):
-    return parse_date(change.get("startDate") or change.get("filingDate"))
-
-
-def _earliest_rate_change(filing):
-    changes = [
-        change
-        for change in filing.get("escrowRateChanges") or []
-        if isinstance(change, dict) and _change_start(change)
-    ]
-    return min(
-        changes,
-        key=lambda change: (_change_start(change), str(change.get("receiptNo") or "")),
-        default=None,
-    )
-
-
-def _business_days_after(day, count):
-    while count > 0:
-        day += timedelta(days=1)
-        if day.weekday() < 5:
-            count -= 1
-    return day
-
-
-def _payment_date(filing):
-    """공모 주금 납입일(예치 시작일).
-
-    신고서 추출값이 청약기간 안에 있으면(예: 납입기일 대신 청약개시일을 읽은 경우) 청약 종료
-    2영업일 뒤로 본다. 한국13·교보13·14·15호 모두 청약 종료 2영업일 뒤 납입이었다.
-    """
-    filing = filing or {}
-    payment = parse_date(filing.get("paymentDate"))
-    subscription_end = parse_date(filing.get("subscriptionEnd") or filing.get("subscriptionStart"))
-    if subscription_end and (payment is None or payment <= subscription_end):
-        return _business_days_after(subscription_end, 2)
-    return payment
-
-
-def _normalize_escrow_rate_periods(filing, payment_date, listing_date, end_date):
+def _normalize_escrow_rate_periods(filing, payment_date, listing_date, end_date, interest_tax_pct):
     """Return display periods and calculator periods from filing disclosures."""
     if not filing:
         return [], []
@@ -124,12 +95,21 @@ def _normalize_escrow_rate_periods(filing, payment_date, listing_date, end_date)
             "url": filing.get("url"),
         }
     # 첫 재예치 공시의 '변경 전' 이율이 실제 최초 예치이율이다. 신고서 본문 추출값보다 우선한다
-    # (예: 신고서 3.0% 추출 vs 실제 3.75% 예치).
-    earliest = _earliest_rate_change(filing)
+    # (예: 신고서 3.0% 추출 vs 실제 3.75% 예치). 단, 같은 공시의 예치금액과 맞지 않으면(역산 보수가
+    # 범위 밖) 이율 추출 오류로 보고 쓰지 않는다(SK증권13호 정정공시: 변경 전 2.42% vs 금액상 약 3.3%).
+    changes = rate_changes(filing)
+    earliest = changes[0] if changes else None
     rate_before_pct = parse_float((earliest or {}).get("rateBeforePct"))
-    earliest_start = _change_start(earliest) if earliest else None
+    earliest_start = change_start(earliest) if earliest else None
+    consistent = True
+    if earliest and payment_date and earliest_start and payment_date < earliest_start:
+        has_amounts = earliest.get("amountBefore") and earliest.get("amountAfter")
+        consistent = not has_amounts or implied_fee_pct(
+            earliest, first_term_start(payment_date, earliest_start), interest_tax_pct
+        ) is not None
     if (
         is_valid_escrow_rate_pct(rate_before_pct)
+        and consistent
         and initial_start
         and earliest_start
         and initial_start < earliest_start
@@ -218,22 +198,20 @@ def _escrow_balance_anchor(filing, ipo_price, today):
     신탁계약내용변경 공시의 '변경 후 예치금액'은 실제 보수·세금이 반영된 원리금이라, 이후
     이자만 추정하면 과거 구간의 이율 추출 오차·세금 처리 차이가 누적되지 않는다.
     """
-    if not filing or not ipo_price:
+    if not filing or not ipo_price or gross_reported(filing):
         return None
     shares = _public_share_count(filing, ipo_price)
     if not shares:
         return None
-    earliest = _earliest_rate_change(filing)
-    first_before = parse_int((earliest or {}).get("amountBefore"))
+    changes = rate_changes(filing)
+    first_before = parse_int(changes[0].get("amountBefore")) if changes else None
     # 최초 예치금이 공모금액과 크게 다르면 주식수 추출을 믿을 수 없다.
     if first_before and not 0.95 <= first_before / (shares * ipo_price) <= 1.3:
         return None
     anchor = None
-    for change in filing.get("escrowRateChanges") or []:
-        if not isinstance(change, dict):
-            continue
+    for change in changes:
         amount_after = parse_int(change.get("amountAfter"))
-        start = _change_start(change)
+        start = change_start(change)
         if not amount_after or not start or start > today:
             continue
         per_share = amount_after / shares
@@ -261,6 +239,30 @@ def _pct_setting(override, key, args, arg_name, default):
     return max(0.0, float(value))
 
 
+def _resolve_trust_fee(override, args, filing, sponsor, trust_fee_hints, interest_tax_pct):
+    """신탁보수: overrides > 이 스팩의 공시 예치금 역산 > 같은 증권사 스팩 역산 > 기본 가정.
+
+    첫 예치 계약만으로 역산한 값은 시작일 며칠 오차로 0.05%p 흔들리므로, 같은 증권사 값과
+    0.05%p 안이면 증권사 값을 쓴다(유안타17호: 첫 계약 0.13 -> 유안타 0.1).
+    """
+    value = parse_float(override.get("trustFeePct"))
+    if value is not None:
+        return max(0.0, value), "overrides.json"
+    implied = implied_trust_fee(filing, interest_tax_pct) if filing else None
+    hint = (trust_fee_hints or {}).get(sponsor) if sponsor else None
+    hint_source = f"같은 증권사 스팩 역산({sponsor} {hint['count']}종목)" if hint else None
+    if implied:
+        own_source = f"공시 예치금 역산({implied['observations']}건)"
+        gap = abs(implied["pct"] - hint["pct"]) if hint else None
+        if not implied["exact"] and gap is not None and 1e-9 < gap <= 0.05 + 1e-9:
+            return hint["pct"], f"{hint_source[:-1]}, 첫 계약 역산 {implied['pct']:g}%p 보정)"
+        return implied["pct"], own_source
+    if hint:
+        return hint["pct"], hint_source
+    default = getattr(args, "trust_fee_pct", None)
+    return max(0.0, DEFAULT_TRUST_FEE_PCT if default is None else float(default)), "기본 가정"
+
+
 def _build_liquidation_metrics(
     override,
     args,
@@ -272,16 +274,20 @@ def _build_liquidation_metrics(
     current_price,
     today,
     filing=None,
+    sponsor=None,
+    trust_fee_hints=None,
 ):
     """청산가치: 청산금 수령 예정일 기준 1주당 분배금과 기대수익률."""
     override_trust_value = parse_float(override.get("trustValuePerShare"))
     override_liquidation_value = parse_float(override.get("liquidationValuePerShare"))
-    trust_fee_pct = _pct_setting(override, "trustFeePct", args, "trust_fee_pct", DEFAULT_TRUST_FEE_PCT)
     interest_tax_pct = _pct_setting(
         override, "interestTaxPct", args, "interest_tax_pct", DEFAULT_INTEREST_TAX_PCT
     )
+    trust_fee_pct, trust_fee_source = _resolve_trust_fee(
+        override, args, filing, sponsor, trust_fee_hints, interest_tax_pct
+    )
     escrow_rate_periods, calculator_periods = _normalize_escrow_rate_periods(
-        filing, payment_date, listing_date, payout_date
+        filing, payment_date, listing_date, payout_date, interest_tax_pct
     )
     trust_start = (
         payment_date
@@ -310,8 +316,11 @@ def _build_liquidation_metrics(
         valuation_basis = {
             "trustStartDate": trust_start.isoformat() if trust_start else None,
             "trustFeePct": trust_fee_pct,
+            "trustFeeSource": trust_fee_source,
             "interestTaxPct": interest_tax_pct,
             "rolloverMonths": TRUST_ROLLOVER_MONTHS,
+            # 세전 표기 스팩은 공시 잔액 대신 이율 구간으로 계산했다는 표시.
+            "escrowAmountsGross": bool(filing and gross_reported(filing)),
             "anchor": (
                 {
                     "date": anchor["date"].isoformat(),
@@ -356,6 +365,30 @@ def _build_liquidation_metrics(
         "valuationBasis": (
             valuation_basis if not override_liquidation_value and not override_trust_value else None
         ),
+    }
+
+
+def _escrow_contract(filing, payout_date, today):
+    """현재 예치 계약과 만기 전 해지(중도해지이율) 위험.
+
+    신탁계약 특약상 예금 만기 전에 인출하면 예금일부터 전체 기간에 은행 게시 중도해지이율이 적용된다
+    (교보14·NH25·BNK1·신영10호 투자설명서). 만기가 청산금 수령 예정일보다 늦으면 실제 분배금이
+    추정치보다 적을 수 있어 표시만 한다(추정치는 계약 이율 그대로).
+    """
+    contract = current_contract(filing, today) if filing else None
+    if not contract:
+        return None
+    days_after_payout = (contract["maturityDate"] - payout_date).days if payout_date else None
+    risk = None
+    # 만기가 이미 지났으면 다음 재예치 조건을 모르므로 판정하지 않는다.
+    if days_after_payout is not None and days_after_payout > 0 and contract["maturityDate"] > today:
+        risk = "confirmed" if contract["maturityDisclosed"] else "possible"
+    return {
+        **contract,
+        "startDate": contract["startDate"].isoformat(),
+        "maturityDate": contract["maturityDate"].isoformat(),
+        "daysAfterPayout": days_after_payout,
+        "earlyTerminationRisk": risk,
     }
 
 
@@ -533,6 +566,7 @@ def enrich_spac(
     disclosures=None,
     existing=None,
     filing=None,
+    trust_fee_hints=None,
 ):
     code = item["code"]
     existing = existing or {}
@@ -559,7 +593,8 @@ def enrich_spac(
     # 상장폐지(해산) 뒤 채권신고·청산재산 보고 절차를 거쳐 잔여재산이 분배된다.
     merger = _build_merger_state(disclosures, override)
     merger_status = merger["status"]
-    payment_date = _payment_date(filing)
+    payment_date = escrow_payment_date(filing)
+    sponsor = override.get("sponsor") or derive_sponsor(item["name"])
     delisting_date, payout_date, payout_date_source = _estimate_payout(
         override, args, payment_date, listing_date, liquidation_date, merger
     )
@@ -581,6 +616,8 @@ def enrich_spac(
         current_price,
         today,
         filing=filing,
+        sponsor=sponsor,
+        trust_fee_hints=trust_fee_hints,
     )
 
     history_points = []
@@ -622,7 +659,7 @@ def enrich_spac(
         "name": item["name"],
         "market": item.get("market"),
         "isin": item.get("isin"),
-        "sponsor": override.get("sponsor") or derive_sponsor(item["name"]),
+        "sponsor": sponsor,
         "ipoPrice": ipo_price,
         "currentPrice": current_price,
         "change": quote.get("change"),
@@ -648,6 +685,7 @@ def enrich_spac(
         "annualizedReturn": round(annualized_return * 100, 2) if annualized_return is not None else None,
         "escrowRatePeriods": escrow_rate_periods,
         "valuationBasis": valuation["valuationBasis"],
+        "escrowContract": _escrow_contract(filing, payout_date, today),
         "status": badges[0],
         "badges": badges,
         "mergerStatus": merger_status,

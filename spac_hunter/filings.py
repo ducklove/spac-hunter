@@ -45,7 +45,8 @@ CALENDAR_DOC_BUDGET_MAX = 5
 CALENDAR_DOC_MAX_AGE_DAYS = 60
 TRUST_RATE_CHANGE_LOOKBACK_YEARS = 4
 # v3: 변경 전 이율과 변경 전/후 예치금액도 추출한다(기존 v2 항목은 예산 내에서 재추출).
-TRUST_RATE_CHANGE_PARSER_VERSION = 3
+# v4: 새 예치 계약의 만기일·계약기간도 추출한다(만기 전 해지 = 중도해지이율 위험 표시용).
+TRUST_RATE_CHANGE_PARSER_VERSION = 4
 # 재예치 한 번에 원리금이 늘어날 수 있는 상한(연 8% 상한 이율의 여러 해 누적도 포함).
 TRUST_CHANGE_MAX_GROWTH = 1.25
 
@@ -121,6 +122,20 @@ _TRUST_AMOUNT = r"(\d{1,3}(?:,\d{3})+|\d{9,})"
 _TRUST_AMOUNT_BEFORE_RE = re.compile(r"변경\s*전" + _TRUST_CHANGE_LABEL + _TRUST_AMOUNT + r"\s*원?")
 _TRUST_AMOUNT_AFTER_RE = re.compile(r"변경\s*후" + _TRUST_CHANGE_LABEL + _TRUST_AMOUNT + r"\s*원?")
 _TRUST_AMOUNT_ANY_RE = re.compile(_TRUST_AMOUNT + r"\s*원?")
+# 새 예치 계약의 만기. "계약 만기일 : 2026-11-29", "계약만기일 : 2025/02/08",
+# "본 예치는 2025년 9월30일 만기 상품", "본 예치는 8월31일 만기 상품"(연도 생략).
+_TRUST_MATURITY_LABEL_RE = re.compile(
+    r"만기\s*일\s*[:：]?\s*(\d{4})\s*[-./년]\s*(\d{1,2})\s*[-./월]\s*(\d{1,2})"
+)
+_TRUST_MATURITY_PRODUCT_RE = re.compile(r"(?:(\d{4})\s*년\s*)?(\d{1,2})\s*월\s*(\d{1,2})\s*일\s*만기")
+# 계약기간. "3. 만기 - 변경 전 : 6개월 - 변경 후 : 3개월"(변경 후 우선), "3개월 만기 상품",
+# "1년 만기(6개월 연동) 상품". "만기 도래"·"만기는 6개월"(변경 전 설명)은 계약기간이 아니다.
+_TRUST_TERM_CHANGE_RE = re.compile(
+    r"만기\s*[:：]?\s*-?\s*변경\s*전\s*[:：]?\s*\d{1,2}\s*(?:개월|년)\s*-?\s*"
+    r"변경\s*후\s*[:：]?\s*(\d{1,2})\s*(개월|년)"
+)
+_TRUST_TERM_RE = re.compile(r"(\d{1,2})\s*(개월|년)\s*만기")
+TRUST_TERM_MAX_MONTHS = 36
 
 
 def is_valid_ipo_price(value):
@@ -386,18 +401,64 @@ def _extract_trust_change_amounts(text, warnings):
     return amount_before, amount_after
 
 
+def _term_months(count, unit):
+    months = int(count) * (12 if unit == "년" else 1)
+    return months if 0 < months <= TRUST_TERM_MAX_MONTHS else None
+
+
+def _extract_trust_change_maturity(text, start_date):
+    """새 예치 계약의 (만기일, 계약기간 개월). 공시에 없으면 None."""
+    start = date.fromisoformat(start_date) if start_date else None
+
+    def plausible(day):
+        return day if day and (start is None or start < day <= start + timedelta(days=366 * 3)) else None
+
+    maturity = None
+    label = _TRUST_MATURITY_LABEL_RE.search(text)
+    if label:
+        maturity = plausible(_date_or_none(*label.groups()))
+    if maturity is None:
+        product = _TRUST_MATURITY_PRODUCT_RE.search(text)
+        if product:
+            year, month, day = product.groups()
+            if year:
+                maturity = plausible(_date_or_none(year, month, day))
+            elif start:
+                # 연도 생략("8월31일 만기")은 계약 시작일 이후 처음 오는 그 날짜다.
+                for candidate_year in (start.year, start.year + 1):
+                    candidate = plausible(_date_or_none(candidate_year, month, day))
+                    if candidate:
+                        maturity = candidate
+                        break
+    change = _TRUST_TERM_CHANGE_RE.search(text)
+    term = change or _TRUST_TERM_RE.search(text)
+    term_months = _term_months(*term.groups()) if term else None
+    return (maturity.isoformat() if maturity else None), term_months
+
+
+def _date_or_none(year, month, day):
+    try:
+        return date(int(year), int(month), int(day))
+    except (TypeError, ValueError):
+        return None
+
+
 def extract_trust_rate_change_fields(text, filing_date=None):
-    """Extract rates, escrow amounts and the effective date from a trust-contract change."""
+    """Extract rates, escrow amounts, the new contract's maturity and the effective date."""
     text = re.sub(r"\s+", " ", str(text or ""))
     warnings = []
     rate_pct = _extract_trust_change_rate(text, warnings)
     amount_before, amount_after = _extract_trust_change_amounts(text, warnings)
+    start_date = _extract_trust_change_start_date(text, filing_date, warnings)
+    maturity_date, term_months = _extract_trust_change_maturity(text, start_date)
     fields = {
         "ratePct": rate_pct,
         "rateBeforePct": _extract_trust_change_rate_before(text, rate_pct),
         "amountBefore": amount_before,
         "amountAfter": amount_after,
-        "startDate": _extract_trust_change_start_date(text, filing_date, warnings),
+        "maturityDate": maturity_date,
+        "termMonths": term_months,
+        "startDate": start_date,
     }
     fields["parseWarnings"] = warnings
     return fields
@@ -527,6 +588,8 @@ def _trust_rate_change_entry(row, fields):
         "rateBeforePct": fields.get("rateBeforePct"),
         "amountBefore": fields.get("amountBefore"),
         "amountAfter": fields.get("amountAfter"),
+        "maturityDate": fields.get("maturityDate"),
+        "termMonths": fields.get("termMonths"),
         "parserVersion": TRUST_RATE_CHANGE_PARSER_VERSION,
         "parseWarnings": list(fields.get("parseWarnings") or []),
     }
