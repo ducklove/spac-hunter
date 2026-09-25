@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-09-25 21:06:02 KST",
-  "generatedAt": "2026-09-25T21:06:02.249162+09:00",
+  "lastUpdated": "2026-09-25 22:09:15 KST",
+  "generatedAt": "2026-09-25T22:09:15.999379+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -12,7 +12,7 @@
     "ipoPrice": "overrides.json 우선, 없으면 증권신고서 공시 공모가, 둘 다 없으면 기본 2,000원",
     "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
     "payoutDate": "overrides.json 우선. 없으면 예상 상장폐지일(합병 미신청: 납입+31개월 상장폐지 사유, 합병 진행: 납입+36개월 합병기한, 해산 공시가 있으면 그 날짜)+잔여재산 분배 소요일 추정. 연환산 기대수익률은 이 수령 예정일까지의 보유일수로 계산",
-    "liquidationValue": "최근 신탁계약내용변경 공시의 변경 후 예치금액(없으면 공모예치금)에 수령 예정일까지의 예상 이자를 더한 1주당 금액. 이자는 공시 예치이율에서 신탁보수를 빼고 이자 원천징수세를 차감한 단리로 계산하고 재예치(공시 변경일, 그 외 12개월) 때 원금에 합산. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
+    "liquidationValue": "최근 신탁계약내용변경 공시의 변경 후 예치금액(없으면 공모예치금)에 수령 예정일까지의 예상 이자를 더한 1주당 금액. 이자는 공시 예치이율에서 신탁보수를 빼고 이자 원천징수세를 차감한 단리로 계산하고 재예치(공시 변경일, 그 외 12개월) 때 원금에 합산. 신탁보수는 종목별 재예치 공시 예치금으로 역산(없으면 같은 증권사 스팩 역산값, 그것도 없으면 기본 가정). 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
     "trustRate": "개별 기대수익률은 증권신고서·신탁계약내용변경 공시의 예치이율 기간으로 계산하며, 공시 금리가 없으면 표시하지 않습니다. KOFR/수동 금리는 시뮬레이션 기본값에만 사용합니다.",
     "expectedReturn": "추정 청산분배금/현재가 - 1"
   },
@@ -50,7 +50,7 @@
     "mergerEventCount": 42,
     "recentListingCount": 6,
     "averageRatio": 1.0122,
-    "averageAnnualizedReturn": 4.38,
+    "averageAnnualizedReturn": 4.43,
     "cheapest": {
       "code": "0209J0",
       "name": "KB제34호스팩",
@@ -3152,11 +3152,11 @@
       "payoutDate": "2029-08-08",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-04-15) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 1048,
-      "trustValuePerShare": 2113.92,
-      "liquidationValuePerShare": 2113.92,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 11.38,
-      "annualizedReturn": 3.82,
+      "trustValuePerShare": 2119.01,
+      "liquidationValuePerShare": 2119.01,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 11.64,
+      "annualizedReturn": 3.91,
       "escrowRatePeriods": [
         {
           "startDate": "2026-09-15",
@@ -3171,11 +3171,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2026-09-15",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(KB 5종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3258,7 +3261,7 @@
         "paymentDate": "2026-09-10",
         "extractedAt": "2026-09-23T21:00:00.914146+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260908000183)"
     },
@@ -3287,11 +3290,11 @@
       "payoutDate": "2029-08-08",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-04-15) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 1048,
-      "trustValuePerShare": 2145.62,
-      "liquidationValuePerShare": 2145.62,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 12.93,
-      "annualizedReturn": 4.33,
+      "trustValuePerShare": 2150.77,
+      "liquidationValuePerShare": 2150.77,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 13.2,
+      "annualizedReturn": 4.41,
       "escrowRatePeriods": [
         {
           "startDate": "2026-09-15",
@@ -3306,11 +3309,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2026-09-15",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(한국 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3442,10 +3448,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-09-04",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(엔에이치 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3625,10 +3634,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-06-12",
         "trustFeePct": 0.1,
+        "trustFeeSource": "기본 가정",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -4103,7 +4115,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260608000232)"
     },
@@ -4152,10 +4164,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-03-24",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(신한 5종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -4946,7 +4961,7 @@
         "paymentDate": "2026-03-19",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260318000201)"
     },
@@ -4975,11 +4990,11 @@
       "payoutDate": "2028-11-07",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-15) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 774,
-      "trustValuePerShare": 2107.31,
-      "liquidationValuePerShare": 2107.31,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 7.79,
-      "annualizedReturn": 3.6,
+      "trustValuePerShare": 2112.39,
+      "liquidationValuePerShare": 2112.39,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 8.05,
+      "annualizedReturn": 3.72,
       "escrowRatePeriods": [
         {
           "startDate": "2025-12-15",
@@ -4994,11 +5009,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-12-15",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(미래에셋비전 4종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -6179,7 +6197,7 @@
         "paymentDate": "2025-12-10",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000372)"
     },
@@ -6208,11 +6226,11 @@
       "payoutDate": "2029-05-20",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-01-25) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 968,
-      "trustValuePerShare": 2145.91,
-      "liquidationValuePerShare": 2145.91,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 9.65,
-      "annualizedReturn": 3.54,
+      "trustValuePerShare": 2151.06,
+      "liquidationValuePerShare": 2151.06,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 9.92,
+      "annualizedReturn": 3.63,
       "escrowRatePeriods": [
         {
           "startDate": "2026-06-25",
@@ -6227,11 +6245,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2026-06-25",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(한국 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -6691,11 +6712,11 @@
       "payoutDate": "2028-10-13",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-20) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 749,
-      "trustValuePerShare": 2107.31,
-      "liquidationValuePerShare": 2107.31,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 7.52,
-      "annualizedReturn": 3.59,
+      "trustValuePerShare": 2112.39,
+      "liquidationValuePerShare": 2112.39,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.78,
+      "annualizedReturn": 3.72,
       "escrowRatePeriods": [
         {
           "startDate": "2025-11-20",
@@ -6710,11 +6731,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-11-20",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(미래에셋비전 4종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -7997,7 +8021,7 @@
         "paymentDate": "2025-11-17",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251114003075)"
     },
@@ -8026,11 +8050,11 @@
       "payoutDate": "2028-05-21",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-01-27) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 604,
-      "trustValuePerShare": 2134.81,
-      "liquidationValuePerShare": 2134.81,
-      "liquidationValueSource": "공시 예치금(2026-06-30)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 8.81,
-      "annualizedReturn": 5.23,
+      "trustValuePerShare": 2138.16,
+      "liquidationValuePerShare": 2138.16,
+      "liquidationValueSource": "공시 예치금(2026-06-30)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 8.98,
+      "annualizedReturn": 5.33,
       "escrowRatePeriods": [
         {
           "startDate": "2025-06-27",
@@ -8055,9 +8079,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-06-27",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-06-30",
           "valuePerShare": 2040.608,
@@ -8067,6 +8093,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901522"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-06-30",
+        "ratePct": 2.95,
+        "maturityDate": "2027-06-30",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20260630901522",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901522",
+        "daysAfterPayout": -326,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 이하",
       "badges": [
@@ -9458,7 +9495,7 @@
         "paymentDate": "2025-06-24",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260630901522",
@@ -9470,7 +9507,9 @@
             "rateBeforePct": 2.4,
             "amountBefore": 12000000000,
             "amountAfter": 12243648000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ]
@@ -9502,11 +9541,11 @@
       "payoutDate": "2028-11-09",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-17) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 776,
-      "trustValuePerShare": 2107.31,
-      "liquidationValuePerShare": 2107.31,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 7.41,
-      "annualizedReturn": 3.42,
+      "trustValuePerShare": 2112.39,
+      "liquidationValuePerShare": 2112.39,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.67,
+      "annualizedReturn": 3.53,
       "escrowRatePeriods": [
         {
           "startDate": "2025-12-17",
@@ -9521,11 +9560,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-12-17",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(미래에셋비전 4종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -10700,7 +10742,7 @@
         "paymentDate": "2025-12-12",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251211000330)"
     },
@@ -10729,11 +10771,11 @@
       "payoutDate": "2028-08-18",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-04-25) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 693,
-      "trustValuePerShare": 2145.83,
-      "liquidationValuePerShare": 2145.83,
-      "liquidationValueSource": "공시 예치금(2026-09-23)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 9.31,
-      "annualizedReturn": 4.8,
+      "trustValuePerShare": 2149.2,
+      "liquidationValuePerShare": 2149.2,
+      "liquidationValueSource": "공시 예치금(2026-09-23)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 9.49,
+      "annualizedReturn": 4.89,
       "escrowRatePeriods": [
         {
           "startDate": "2025-09-25",
@@ -10758,9 +10800,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-09-25",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-09-23",
           "valuePerShare": 2037.7571,
@@ -10770,6 +10814,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260923900438"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-09-23",
+        "ratePct": 3.35,
+        "maturityDate": "2027-09-23",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20260923900438",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260923900438",
+        "daysAfterPayout": -330,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 이하",
       "badges": [
@@ -12163,7 +12218,7 @@
         "parseWarnings": [
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260923900438",
@@ -12175,7 +12230,9 @@
             "rateBeforePct": 2.25,
             "amountBefore": 15000000000,
             "amountAfter": 15283178227,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ]
@@ -12207,11 +12264,11 @@
       "payoutDate": "2028-11-08",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-16) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 775,
-      "trustValuePerShare": 2114.93,
-      "liquidationValuePerShare": 2114.93,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 7.69,
-      "annualizedReturn": 3.55,
+      "trustValuePerShare": 2120.03,
+      "liquidationValuePerShare": 2120.03,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.94,
+      "annualizedReturn": 3.67,
       "escrowRatePeriods": [
         {
           "startDate": "2025-12-16",
@@ -12226,11 +12283,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-12-16",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(하나 5종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -13460,10 +13520,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-11-14",
         "trustFeePct": 0.1,
+        "trustFeeSource": "기본 가정",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -14770,7 +14833,7 @@
         "paymentDate": "2025-11-11",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251110000259)"
     },
@@ -14819,10 +14882,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-04-23",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(신한 5종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -15487,7 +15553,7 @@
         "paymentDate": "2026-04-20",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260417000093)"
     },
@@ -15536,10 +15602,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-05-28",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(대신밸런스 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -16074,7 +16143,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260521000518)"
     },
@@ -16103,11 +16172,11 @@
       "payoutDate": "2028-10-17",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-24) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 753,
-      "trustValuePerShare": 2107.31,
-      "liquidationValuePerShare": 2107.31,
-      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 6.92,
-      "annualizedReturn": 3.29,
+      "trustValuePerShare": 2112.39,
+      "liquidationValuePerShare": 2112.39,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.17,
+      "annualizedReturn": 3.42,
       "escrowRatePeriods": [
         {
           "startDate": "2025-11-24",
@@ -16122,11 +16191,14 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-11-24",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "같은 증권사 스팩 역산(미래에셋비전 4종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -17397,7 +17469,7 @@
         "paymentDate": "2025-11-19",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251118000265)"
     },
@@ -17446,10 +17518,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-04-17",
         "trustFeePct": 0.1,
+        "trustFeeSource": "기본 가정",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -18193,10 +18268,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-11-24",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(삼성 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -19475,7 +19553,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251117000034)"
     },
@@ -19534,8 +19612,10 @@
       "valuationBasis": {
         "trustStartDate": "2025-07-11",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-07-14",
           "valuePerShare": 2038.8925,
@@ -19545,6 +19625,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260715900147"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-07-14",
+        "ratePct": 3.22,
+        "maturityDate": "2027-07-14",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260715900147",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260715900147",
+        "daysAfterPayout": -327,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 이하",
       "badges": [
@@ -20980,11 +21071,11 @@
       "payoutDate": "2028-06-23",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-02-29) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 637,
-      "trustValuePerShare": 2132.43,
-      "liquidationValuePerShare": 2132.43,
-      "liquidationValueSource": "공시 예치금(2026-07-31)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 7.86,
-      "annualizedReturn": 4.43,
+      "trustValuePerShare": 2135.78,
+      "liquidationValuePerShare": 2135.78,
+      "liquidationValueSource": "공시 예치금(2026-07-31)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 8.03,
+      "annualizedReturn": 4.53,
       "escrowRatePeriods": [
         {
           "startDate": "2025-07-30",
@@ -21009,9 +21100,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2025-07-30",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-07-31",
           "valuePerShare": 2038.07,
@@ -21021,6 +21114,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900656"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-07-31",
+        "ratePct": 2.95,
+        "maturityDate": "2027-07-31",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260731900656",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900656",
+        "daysAfterPayout": -328,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 이하",
       "badges": [
@@ -22476,10 +22580,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-01-15",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(삼성 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -23548,7 +23655,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260109000087)"
     },
@@ -23597,10 +23704,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-12-05",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(교보 3종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -24817,7 +24927,7 @@
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000394)"
     },
@@ -24876,8 +24986,10 @@
       "valuationBasis": {
         "trustStartDate": "2025-05-22",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-05-26",
           "valuePerShare": 2041.802,
@@ -24887,6 +24999,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-05-26",
+        "ratePct": 3.07,
+        "maturityDate": "2027-05-26",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20260616900454",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454",
+        "daysAfterPayout": -325,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 이하",
       "badges": [
@@ -26289,11 +26412,13 @@
             "rateBeforePct": 2.56,
             "amountBefore": 10000000000,
             "amountAfter": 10209010000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20250515000864)"
     },
@@ -26342,10 +26467,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-03-26",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(교보 3종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -27130,7 +27258,7 @@
         "paymentDate": "2026-03-23",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20260319000821)"
     },
@@ -27179,10 +27307,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-12-05",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(유진 2종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -28454,10 +28585,13 @@
       "valuationBasis": {
         "trustStartDate": "2026-03-20",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(엔에이치 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -29315,10 +29449,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-09-24",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(삼성 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -30711,7 +30848,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000264)"
     },
@@ -30770,8 +30907,10 @@
       "valuationBasis": {
         "trustStartDate": "2025-07-15",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-07-16",
           "valuePerShare": 2038.9,
@@ -30781,6 +30920,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260720900290"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-07-16",
+        "ratePct": 3.22,
+        "maturityDate": "2027-07-16",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260720900290",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260720900290",
+        "daysAfterPayout": -329,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 이하",
       "badges": [
@@ -32172,7 +32322,7 @@
         "paymentDate": "2025-07-10",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260720900290",
@@ -32184,7 +32334,9 @@
             "rateBeforePct": 2.42,
             "amountBefore": 10000000000,
             "amountAfter": 10194500000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ]
@@ -32246,8 +32398,10 @@
       "valuationBasis": {
         "trustStartDate": "2025-08-14",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-08-18",
           "valuePerShare": 2039.0543,
@@ -32257,6 +32411,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819900363"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-08-18",
+        "ratePct": 3.22,
+        "maturityDate": "2027-08-18",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260819900363",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819900363",
+        "daysAfterPayout": -324,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 근접",
       "badges": [
@@ -33651,7 +33816,7 @@
           "escrowAmount: 패턴 미발견",
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260819900363",
@@ -33663,7 +33828,9 @@
             "rateBeforePct": 2.42,
             "amountBefore": 14000000000,
             "amountAfter": 14273380000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ]
@@ -33725,8 +33892,10 @@
       "valuationBasis": {
         "trustStartDate": "2025-08-08",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-08-11",
           "valuePerShare": 2039.0222,
@@ -33736,6 +33905,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260812900150"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-08-11",
+        "ratePct": 3.22,
+        "maturityDate": "2027-08-11",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260812900150",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260812900150",
+        "daysAfterPayout": -325,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 근접",
       "badges": [
@@ -35127,7 +35307,7 @@
         "paymentDate": "2025-08-05",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260812900150",
@@ -35139,7 +35319,9 @@
             "rateBeforePct": 2.42,
             "amountBefore": 9000000000,
             "amountAfter": 9175600000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ]
@@ -35191,10 +35373,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-12-04",
         "trustFeePct": 0.1,
+        "trustFeeSource": "기본 가정",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -36470,9 +36655,22 @@
       "valuationBasis": {
         "trustStartDate": "2025-01-16",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(유안타 3종목, 첫 계약 역산 0.15%p 보정)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
+      },
+      "escrowContract": {
+        "startDate": "2026-01-16",
+        "ratePct": 2.8,
+        "maturityDate": "2027-01-16",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260119900496",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119900496",
+        "daysAfterPayout": -327,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 근접",
       "badges": [
@@ -37908,11 +38106,11 @@
       "payoutDate": "2027-10-05",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-06-12) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 375,
-      "trustValuePerShare": 2123.73,
-      "liquidationValuePerShare": 2123.73,
-      "liquidationValueSource": "공시 예치금(2025-11-13)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 5.14,
-      "annualizedReturn": 5.0,
+      "trustValuePerShare": 2127.08,
+      "liquidationValuePerShare": 2127.08,
+      "liquidationValueSource": "공시 예치금(2025-11-13)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.3,
+      "annualizedReturn": 5.16,
       "escrowRatePeriods": [
         {
           "startDate": "2024-11-12",
@@ -37937,9 +38135,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-11-12",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-11-13",
           "valuePerShare": 2052.452,
@@ -37949,6 +38149,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251113901070"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-11-13",
+        "ratePct": 2.25,
+        "maturityDate": "2026-11-13",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20251113901070",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251113901070",
+        "daysAfterPayout": -326,
+        "earlyTerminationRisk": null
       },
       "status": "공모가 근접",
       "badges": [
@@ -39414,8 +39625,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-12-16",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-12-17",
           "valuePerShare": 2052.386,
@@ -39425,6 +39638,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-12-17",
+        "ratePct": 2.92,
+        "maturityDate": "2026-12-17",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20251218900249",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249",
+        "daysAfterPayout": -326,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -40827,11 +41051,13 @@
             "rateBeforePct": 3.2,
             "amountBefore": 10000000000,
             "amountAfter": 10261930000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000275)"
     },
@@ -40880,10 +41106,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-11-27",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(엔에이치 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "일반",
       "badges": [
         "일반"
@@ -42159,11 +42388,11 @@
       "payoutDate": "2027-10-28",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-07-05) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 398,
-      "trustValuePerShare": 2133.84,
-      "liquidationValuePerShare": 2133.84,
-      "liquidationValueSource": "공시 예치금(2025-12-08)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 5.12,
-      "annualizedReturn": 4.68,
+      "trustValuePerShare": 2137.18,
+      "liquidationValuePerShare": 2137.18,
+      "liquidationValueSource": "공시 예치금(2025-12-08)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.28,
+      "annualizedReturn": 4.83,
       "escrowRatePeriods": [
         {
           "startDate": "2024-12-05",
@@ -42188,9 +42417,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-12-05",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-12-08",
           "valuePerShare": 2052.7394,
@@ -42200,6 +42431,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-12-08",
+        "ratePct": 2.55,
+        "maturityDate": "2026-12-08",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20251208900186",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186",
+        "daysAfterPayout": -324,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -45144,11 +45386,13 @@
             "rateBeforePct": 3.1,
             "amountBefore": 12000000000,
             "amountAfter": 12316436466,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20241129000608)"
     },
@@ -45207,8 +45451,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-11-21",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-11-21",
           "valuePerShare": 2053.8,
@@ -45218,6 +45464,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-11-21",
+        "ratePct": 2.82,
+        "maturityDate": "2026-11-21",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20251124900682",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682",
+        "daysAfterPayout": -327,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -46620,11 +46877,13 @@
             "rateBeforePct": 3.3,
             "amountBefore": 12000000000,
             "amountAfter": 12322800000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20241115000128)"
     },
@@ -46683,8 +46942,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-11-14",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-11-17",
           "valuePerShare": 2054.236,
@@ -46694,6 +46955,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900155"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-11-17",
+        "ratePct": 2.82,
+        "maturityDate": "2026-11-17",
+        "maturitySource": "공시 만기일",
+        "maturityDisclosed": true,
+        "receiptNo": "20251118900155",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900155",
+        "daysAfterPayout": -324,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -48096,11 +48368,13 @@
             "rateBeforePct": 3.3,
             "amountBefore": 10000000000,
             "amountAfter": 10271180000,
-            "parserVersion": 3,
+            "maturityDate": "2026-11-17",
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000142)"
     },
@@ -48149,10 +48423,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-11-18",
         "trustFeePct": 0.1,
+        "trustFeeSource": "기본 가정",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "일반",
       "badges": [
         "일반"
@@ -49453,7 +49730,7 @@
         "paymentDate": "2025-11-13",
         "extractedAt": "2026-06-13T20:24:13.393014+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251112000416)"
     },
@@ -49502,10 +49779,13 @@
       "valuationBasis": {
         "trustStartDate": "2024-12-16",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(키움 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "일반",
       "badges": [
         "일반"
@@ -50955,8 +51235,10 @@
       "valuationBasis": {
         "trustStartDate": "2025-03-14",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-03-17",
           "valuePerShare": 2046.1263,
@@ -50966,6 +51248,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318900583"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-03-17",
+        "ratePct": 2.93,
+        "maturityDate": "2027-03-17",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260318900583",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318900583",
+        "daysAfterPayout": -478,
+        "earlyTerminationRisk": null
       },
       "status": "합병 신청",
       "badges": [
@@ -53424,8 +53717,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-10-25",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-10-28",
           "valuePerShare": 2053.8444,
@@ -53435,6 +53730,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251029900091"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-10-28",
+        "ratePct": 2.57,
+        "maturityDate": "2026-10-28",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20251029900091",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251029900091",
+        "daysAfterPayout": -324,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -54870,11 +55176,11 @@
       "payoutDate": "2027-08-06",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-04-13) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 315,
-      "trustValuePerShare": 2143.91,
-      "liquidationValuePerShare": 2143.91,
-      "liquidationValueSource": "공시 예치금(2026-09-18)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 4.58,
-      "annualizedReturn": 5.33,
+      "trustValuePerShare": 2145.47,
+      "liquidationValuePerShare": 2145.47,
+      "liquidationValueSource": "공시 예치금(2026-09-18)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.66,
+      "annualizedReturn": 5.42,
       "escrowRatePeriods": [
         {
           "startDate": "2024-09-13",
@@ -54909,9 +55215,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-09-13",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-09-18",
           "valuePerShare": 2093.1375,
@@ -54921,6 +55229,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918900352"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-09-18",
+        "ratePct": 3.35,
+        "maturityDate": "2027-09-18",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20260918900352",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918900352",
+        "daysAfterPayout": 43,
+        "earlyTerminationRisk": "confirmed"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -56325,7 +56644,9 @@
             "rateBeforePct": 3.2,
             "amountBefore": 10000000000,
             "amountAfter": 10270720000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -56338,11 +56659,13 @@
             "rateBeforePct": 2.25,
             "amountBefore": 10270720000,
             "amountAfter": 10465687533,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240909000034)"
     },
@@ -56391,10 +56714,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-12-09",
         "trustFeePct": 0.1,
+        "trustFeeSource": "기본 가정",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "일반",
       "badges": [
         "일반"
@@ -57607,7 +57933,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251202000413)"
     },
@@ -57645,12 +57971,12 @@
         {
           "startDate": "2024-07-18",
           "endDate": "2025-07-17",
-          "ratePct": 2.42,
-          "source": "신탁계약내용변경(변경 전 이율)",
-          "receiptNo": "20250721900213",
-          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
-          "filingDate": "2025-07-21",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250721900213"
+          "ratePct": 3.0,
+          "source": "증권신고서",
+          "receiptNo": "20240712000044",
+          "reportName": "[기재정정]투자설명서",
+          "filingDate": "2024-07-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240712000044"
         },
         {
           "startDate": "2025-07-18",
@@ -57676,8 +58002,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-07-18",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-07-20",
           "valuePerShare": 2095.425,
@@ -57687,6 +58015,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260721900433"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-07-20",
+        "ratePct": 3.19,
+        "maturityDate": "2027-07-20",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260721900433",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260721900433",
+        "daysAfterPayout": 37,
+        "earlyTerminationRisk": "possible"
       },
       "status": "일반",
       "badges": [
@@ -59124,11 +59463,11 @@
       "payoutDate": "2027-12-29",
       "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2027-09-05) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 460,
-      "trustValuePerShare": 2169.26,
-      "liquidationValuePerShare": 2169.26,
-      "liquidationValueSource": "공시 예치금(2026-09-08)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 5.56,
-      "annualizedReturn": 4.39,
+      "trustValuePerShare": 2171.6,
+      "liquidationValuePerShare": 2171.6,
+      "liquidationValueSource": "공시 예치금(2026-09-08)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.67,
+      "annualizedReturn": 4.48,
       "escrowRatePeriods": [
         {
           "startDate": "2024-09-05",
@@ -59163,9 +59502,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-09-05",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-09-08",
           "valuePerShare": 2093.547,
@@ -59175,6 +59516,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260908900528"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-09-08",
+        "ratePct": 3.35,
+        "maturityDate": "2027-09-08",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260908900528",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260908900528",
+        "daysAfterPayout": -112,
+        "earlyTerminationRisk": null
       },
       "status": "합병 신청",
       "badges": [
@@ -62337,7 +62689,9 @@
             "rateBeforePct": 3.2,
             "amountBefore": 15900000000,
             "amountAfter": 16332803405,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -62350,11 +62704,13 @@
             "rateBeforePct": 2.25,
             "amountBefore": 16332803405,
             "amountAfter": 16643698321,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240829001549)"
     },
@@ -62423,8 +62779,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-06-14",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-06-17",
           "valuePerShare": 2097.8657,
@@ -62434,6 +62792,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260618900218"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-06-17",
+        "ratePct": 3.15,
+        "maturityDate": "2027-06-17",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260618900218",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260618900218",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -63924,8 +64293,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-07-05",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-07-08",
           "valuePerShare": 2094.985,
@@ -63935,6 +64306,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260709900133"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-07-08",
+        "ratePct": 3.22,
+        "maturityDate": "2027-07-08",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260709900133",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260709900133",
+        "daysAfterPayout": 38,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -65453,8 +65835,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-06-11",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(4건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-06-12",
           "valuePerShare": 2101.66,
@@ -65464,6 +65848,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260615900762"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-06-12",
+        "ratePct": 2.83,
+        "maturityDate": "2026-09-12",
+        "maturitySource": "계약기간 미공시(직전 계약 3개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260615900762",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260615900762",
+        "daysAfterPayout": -236,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -69089,7 +69484,9 @@
             "rateBeforePct": 3.45,
             "amountBefore": 10000000000,
             "amountAfter": 10282900000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -69102,7 +69499,9 @@
             "rateBeforePct": 2.49,
             "amountBefore": 10282900000,
             "amountAfter": 10335400000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -69115,7 +69514,9 @@
             "rateBeforePct": 2.47,
             "amountBefore": 10335400000,
             "amountAfter": 10387200000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -69128,7 +69529,9 @@
             "rateBeforePct": 2.82,
             "amountBefore": 10387200000,
             "amountAfter": 10447000000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -69141,11 +69544,13 @@
             "rateBeforePct": 2.85,
             "amountBefore": 10447080947,
             "amountAfter": 10508300000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240530001411)"
     },
@@ -69214,8 +69619,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-08-06",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-08-07",
           "valuePerShare": 2094.4176,
@@ -69225,6 +69632,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260810900258"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-08-07",
+        "ratePct": 3.22,
+        "maturityDate": "2027-08-07",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260810900258",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260810900258",
+        "daysAfterPayout": -114,
+        "earlyTerminationRisk": null
       },
       "status": "합병 신청",
       "badges": [
@@ -72717,7 +73135,9 @@
             "rateBeforePct": 3.3,
             "amountBefore": 11600000000,
             "amountAfter": 11912583336,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -72730,11 +73150,13 @@
             "rateBeforePct": 2.43,
             "amountBefore": 11912583336,
             "amountAfter": 12147622022,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240731000498)"
     },
@@ -72793,8 +73215,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-11-14",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-11-17",
           "valuePerShare": 2054.2364,
@@ -72804,6 +73228,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-11-17",
+        "ratePct": 2.82,
+        "maturityDate": "2026-11-17",
+        "maturitySource": "공시 만기일",
+        "maturityDisclosed": true,
+        "receiptNo": "20251118900050",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050",
+        "daysAfterPayout": -324,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -74208,11 +74643,13 @@
             "rateBeforePct": 3.3,
             "amountBefore": 11000000000,
             "amountAfter": 11298300000,
-            "parserVersion": 3,
+            "maturityDate": "2026-11-17",
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20241107000228)"
     },
@@ -74241,11 +74678,11 @@
       "payoutDate": "2027-04-17",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-12-23) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 204,
-      "trustValuePerShare": 2137.08,
-      "liquidationValuePerShare": 2137.08,
-      "liquidationValueSource": "공시 예치금(2026-05-26)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 3.49,
-      "annualizedReturn": 6.33,
+      "trustValuePerShare": 2138.67,
+      "liquidationValuePerShare": 2138.67,
+      "liquidationValueSource": "공시 예치금(2026-05-26)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.57,
+      "annualizedReturn": 6.47,
       "escrowRatePeriods": [
         {
           "startDate": "2024-05-23",
@@ -74280,9 +74717,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-05-23",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-05-26",
           "valuePerShare": 2098.237,
@@ -74292,6 +74731,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900406"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-05-26",
+        "ratePct": 2.55,
+        "maturityDate": "2027-05-26",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260526900406",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900406",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -75694,7 +76144,9 @@
             "rateBeforePct": 3.32,
             "amountBefore": 13300000000,
             "amountAfter": 13675606666,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -75707,11 +76159,13 @@
             "rateBeforePct": 2.4,
             "amountBefore": 13675606666,
             "amountAfter": 13953276195,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240517000260)"
     },
@@ -75740,11 +76194,11 @@
       "payoutDate": "2027-05-08",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-13) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 225,
-      "trustValuePerShare": 2137.08,
-      "liquidationValuePerShare": 2137.08,
-      "liquidationValueSource": "공시 예치금(2026-06-16)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 3.49,
-      "annualizedReturn": 5.72,
+      "trustValuePerShare": 2138.67,
+      "liquidationValuePerShare": 2138.67,
+      "liquidationValueSource": "공시 예치금(2026-06-16)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.57,
+      "annualizedReturn": 5.85,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-13",
@@ -75779,9 +76233,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-06-13",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-06-16",
           "valuePerShare": 2098.237,
@@ -75791,6 +76247,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900397"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-06-16",
+        "ratePct": 2.55,
+        "maturityDate": "2027-06-16",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260616900397",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900397",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -77193,7 +77660,9 @@
             "rateBeforePct": 3.32,
             "amountBefore": 9500000000,
             "amountAfter": 9768290479,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -77206,11 +77675,13 @@
             "rateBeforePct": 2.4,
             "amountBefore": 9768290479,
             "amountAfter": 9966625860,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000402)"
     },
@@ -77239,11 +77710,11 @@
       "payoutDate": "2027-05-13",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-18) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 230,
-      "trustValuePerShare": 2137.0,
-      "liquidationValuePerShare": 2137.0,
-      "liquidationValueSource": "공시 예치금(2026-06-19)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 3.49,
-      "annualizedReturn": 5.59,
+      "trustValuePerShare": 2138.59,
+      "liquidationValuePerShare": 2138.59,
+      "liquidationValueSource": "공시 예치금(2026-06-19)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.56,
+      "annualizedReturn": 5.71,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-18",
@@ -77278,9 +77749,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-06-18",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-06-19",
           "valuePerShare": 2097.923,
@@ -77290,6 +77763,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260622900351"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-06-19",
+        "ratePct": 2.55,
+        "maturityDate": "2027-06-19",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260622900351",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260622900351",
+        "daysAfterPayout": 37,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -78692,7 +79176,9 @@
             "rateBeforePct": 3.32,
             "amountBefore": 12900000000,
             "amountAfter": 13262324880,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -78705,11 +79191,13 @@
             "rateBeforePct": 2.4,
             "amountBefore": 13262324880,
             "amountAfter": 13531603127,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240611000366)"
     },
@@ -78738,11 +79226,11 @@
       "payoutDate": "2027-05-15",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-20) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 232,
-      "trustValuePerShare": 2132.93,
-      "liquidationValuePerShare": 2132.93,
-      "liquidationValueSource": "공시 예치금(2025-06-23)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 3.29,
-      "annualizedReturn": 5.22,
+      "trustValuePerShare": 2136.29,
+      "liquidationValuePerShare": 2136.29,
+      "liquidationValueSource": "공시 예치금(2025-06-23)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.45,
+      "annualizedReturn": 5.48,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-20",
@@ -78767,9 +79255,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-06-20",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-06-23",
           "valuePerShare": 2056.4822,
@@ -78779,6 +79269,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250623900137"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-06-23",
+        "ratePct": 2.4,
+        "maturityDate": "2026-06-23",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20250623900137",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250623900137",
+        "daysAfterPayout": -326,
+        "earlyTerminationRisk": null
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -80214,11 +80715,11 @@
       "payoutDate": "2027-05-09",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-14) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 226,
-      "trustValuePerShare": 2136.76,
-      "liquidationValuePerShare": 2136.76,
-      "liquidationValueSource": "공시 예치금(2026-06-17)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 3.23,
-      "annualizedReturn": 5.26,
+      "trustValuePerShare": 2138.35,
+      "liquidationValuePerShare": 2138.35,
+      "liquidationValueSource": "공시 예치금(2026-06-17)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.3,
+      "annualizedReturn": 5.39,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-14",
@@ -80253,9 +80754,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-06-14",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-06-17",
           "valuePerShare": 2097.923,
@@ -80265,6 +80768,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260617900410"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-06-17",
+        "ratePct": 2.55,
+        "maturityDate": "2027-06-17",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20260617900410",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260617900410",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "confirmed"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -81669,7 +82183,9 @@
             "rateBeforePct": 3.32,
             "amountBefore": 12000000000,
             "amountAfter": 12337046400,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -81682,11 +82198,13 @@
             "rateBeforePct": 2.4,
             "amountBefore": 12337046400,
             "amountAfter": 12587537803,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240610000163)"
     },
@@ -81765,8 +82283,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-07-19",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-07-22",
           "valuePerShare": 2094.35,
@@ -81776,6 +82296,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260723900348"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-07-24",
+        "ratePct": 3.08,
+        "maturityDate": "2026-08-24",
+        "maturitySource": "계약기간 미공시(직전 계약 1개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260727900300",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727900300",
+        "daysAfterPayout": -294,
+        "earlyTerminationRisk": null
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -83267,8 +83798,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-11-08",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-11-11",
           "valuePerShare": 2053.9103,
@@ -83278,6 +83811,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-11-11",
+        "ratePct": 2.72,
+        "maturityDate": "2026-11-11",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20251112900534",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534",
+        "daysAfterPayout": -324,
+        "earlyTerminationRisk": null
       },
       "status": "일반",
       "badges": [
@@ -84680,11 +85224,13 @@
             "rateBeforePct": 3.3,
             "amountBefore": 7800000000,
             "amountAfter": 8010250000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20241104000200)"
     },
@@ -84753,8 +85299,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-04-26",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-04-29",
           "valuePerShare": 2099.9333,
@@ -84764,6 +85312,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260430901495"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-04-29",
+        "ratePct": 2.99,
+        "maturityDate": "2027-04-29",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260430901495",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260430901495",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "일반",
       "badges": [
@@ -86142,7 +86701,9 @@
             "rateBeforePct": 3.45,
             "amountBefore": 6000000000,
             "amountAfter": 6169100000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -86159,7 +86720,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240422000014)"
     },
@@ -86228,8 +86789,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-04-25",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-04-28",
           "valuePerShare": 2100.2481,
@@ -86239,6 +86802,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429900289"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-04-28",
+        "ratePct": 2.93,
+        "maturityDate": "2027-04-28",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260429900289",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429900289",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -87727,8 +88301,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-04-05",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-10-10",
           "valuePerShare": 2079.732,
@@ -87738,6 +88314,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251013900260"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-10-10",
+        "ratePct": 2.49,
+        "maturityDate": "2026-10-10",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20251013900260",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251013900260",
+        "daysAfterPayout": -141,
+        "earlyTerminationRisk": null
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -91594,7 +92181,9 @@
             "rateBeforePct": 3.45,
             "amountBefore": 10000000000,
             "amountAfter": 10281340000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -91607,11 +92196,13 @@
             "rateBeforePct": 2.75,
             "amountBefore": 10281340000,
             "amountAfter": 10398660000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240401001215)"
     },
@@ -91680,8 +92271,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-02-22",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-02-20",
           "valuePerShare": 2108.4,
@@ -91691,6 +92284,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260223900383"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-02-20",
+        "ratePct": 2.91,
+        "maturityDate": "2027-02-20",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260223900383",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260223900383",
+        "daysAfterPayout": -117,
+        "earlyTerminationRisk": null
       },
       "status": "합병 신청",
       "badges": [
@@ -95749,11 +96353,11 @@
       "payoutDate": "2027-03-13",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-11-18) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 169,
-      "trustValuePerShare": 2140.62,
-      "liquidationValuePerShare": 2140.62,
-      "liquidationValueSource": "공시 예치금(2026-04-21)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 2.67,
-      "annualizedReturn": 5.85,
+      "trustValuePerShare": 2142.21,
+      "liquidationValuePerShare": 2142.21,
+      "liquidationValueSource": "공시 예치금(2026-04-21)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.74,
+      "annualizedReturn": 6.02,
       "escrowRatePeriods": [
         {
           "startDate": "2024-04-18",
@@ -95788,9 +96392,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-04-18",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-04-21",
           "valuePerShare": 2101.7166,
@@ -95800,6 +96406,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260421900365"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-04-21",
+        "ratePct": 2.55,
+        "maturityDate": "2027-04-21",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260421900365",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260421900365",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -97288,8 +97905,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-04-16",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-04-16",
           "valuePerShare": 2100.7533,
@@ -97299,6 +97918,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900447"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-04-16",
+        "ratePct": 3.01,
+        "maturityDate": "2027-04-16",
+        "maturitySource": "공시 계약기간 12개월",
+        "maturityDisclosed": true,
+        "receiptNo": "20260616900447",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900447",
+        "daysAfterPayout": 36,
+        "earlyTerminationRisk": "confirmed"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -98701,7 +99331,9 @@
             "rateBeforePct": 3.45,
             "amountBefore": 6000000000,
             "amountAfter": 6168920000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -98714,11 +99346,13 @@
             "rateBeforePct": 2.65,
             "amountBefore": 6168920000,
             "amountAfter": 6302260000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240408004008)"
     },
@@ -98747,11 +99381,11 @@
       "payoutDate": "2027-02-13",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-10-21) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 141,
-      "trustValuePerShare": 2140.62,
-      "liquidationValuePerShare": 2140.62,
-      "liquidationValueSource": "공시 예치금(2026-03-24)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 2.42,
-      "annualizedReturn": 6.39,
+      "trustValuePerShare": 2142.21,
+      "liquidationValuePerShare": 2142.21,
+      "liquidationValueSource": "공시 예치금(2026-03-24)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.5,
+      "annualizedReturn": 6.6,
       "escrowRatePeriods": [
         {
           "startDate": "2024-03-21",
@@ -98786,9 +99420,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-03-21",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-03-24",
           "valuePerShare": 2101.7166,
@@ -98798,6 +99434,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324900482"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-03-24",
+        "ratePct": 2.55,
+        "maturityDate": "2027-03-24",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260324900482",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324900482",
+        "daysAfterPayout": 39,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 1년 이내",
       "badges": [
@@ -100286,8 +100933,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-02-23",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-02-26",
           "valuePerShare": 2108.9,
@@ -100297,6 +100946,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901631"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-02-26",
+        "ratePct": 2.91,
+        "maturityDate": "2027-02-26",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260227901631",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901631",
+        "daysAfterPayout": 41,
+        "earlyTerminationRisk": "possible"
       },
       "status": "일반",
       "badges": [
@@ -101675,7 +102335,9 @@
             "rateBeforePct": 3.6,
             "amountBefore": 8000000000,
             "amountAfter": 8236800000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -101688,11 +102350,13 @@
             "rateBeforePct": 2.95,
             "amountBefore": 8236800000,
             "amountAfter": 8435600000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219001008)"
     },
@@ -101761,8 +102425,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-02-23",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-02-26",
           "valuePerShare": 2108.8923,
@@ -101772,6 +102438,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227900560"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-02-26",
+        "ratePct": 2.91,
+        "maturityDate": "2027-02-26",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260227900560",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227900560",
+        "daysAfterPayout": 41,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 6개월 이내",
       "badges": [
@@ -103220,11 +103897,11 @@
       "payoutDate": "2027-01-20",
       "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-09-27) → 상장폐지 13일·분배 102일 추정",
       "daysToPayout": 117,
-      "trustValuePerShare": 2142.22,
-      "liquidationValuePerShare": 2142.22,
-      "liquidationValueSource": "공시 예치금(2026-02-27)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
-      "expectedReturn": 2.01,
-      "annualizedReturn": 6.41,
+      "trustValuePerShare": 2143.82,
+      "liquidationValuePerShare": 2143.82,
+      "liquidationValueSource": "공시 예치금(2026-02-27)+예상 이자(공시 예치이율, 신탁보수 0%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.09,
+      "annualizedReturn": 6.65,
       "escrowRatePeriods": [
         {
           "startDate": "2024-02-27",
@@ -103259,9 +103936,11 @@
       ],
       "valuationBasis": {
         "trustStartDate": "2024-02-27",
-        "trustFeePct": 0.1,
+        "trustFeePct": 0.0,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-02-27",
           "valuePerShare": 2103.1703,
@@ -103271,6 +103950,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901960"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-02-27",
+        "ratePct": 2.55,
+        "maturityDate": "2027-02-27",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260227901960",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901960",
+        "daysAfterPayout": 38,
+        "earlyTerminationRisk": "possible"
       },
       "status": "청산 6개월 이내",
       "badges": [
@@ -104759,8 +105449,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-01-26",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2026-01-26",
           "valuePerShare": 2109.1,
@@ -104770,6 +105462,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127900232"
         }
+      },
+      "escrowContract": {
+        "startDate": "2026-01-26",
+        "ratePct": 2.85,
+        "maturityDate": "2027-01-26",
+        "maturitySource": "계약기간 미공시(직전 계약 12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20260127900232",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127900232",
+        "daysAfterPayout": -115,
+        "earlyTerminationRisk": null
       },
       "status": "합병 신청",
       "badges": [
@@ -108798,7 +109501,9 @@
             "rateBeforePct": 3.6,
             "amountBefore": 8000000000,
             "amountAfter": 8232900000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": 12,
+            "parserVersion": 4,
             "parseWarnings": []
           },
           {
@@ -108811,11 +109516,13 @@
             "rateBeforePct": 3.0,
             "amountBefore": 8232900000,
             "amountAfter": 8436400000,
-            "parserVersion": 3,
+            "maturityDate": null,
+            "termMonths": null,
+            "parserVersion": 4,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20240119000323)"
     },
@@ -108864,10 +109571,13 @@
       "valuationBasis": {
         "trustStartDate": "2025-12-12",
         "trustFeePct": 0.1,
+        "trustFeeSource": "같은 증권사 스팩 역산(IBKS 1종목)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": null
       },
+      "escrowContract": null,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -110141,7 +110851,7 @@
         "paymentDate": "2025-12-09",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-25T21:06:02.249162+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T22:09:15.999379+09:00"
       },
       "ipoPriceSource": "증권신고서(20251208000119)"
     },
@@ -110200,8 +110910,10 @@
       "valuationBasis": {
         "trustStartDate": "2024-12-05",
         "trustFeePct": 0.1,
+        "trustFeeSource": "공시 예치금 역산(1건)",
         "interestTaxPct": 15.4,
         "rolloverMonths": 12,
+        "escrowAmountsGross": false,
         "anchor": {
           "date": "2025-12-05",
           "valuePerShare": 2052.18,
@@ -110211,6 +110923,17 @@
           "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900525"
         }
+      },
+      "escrowContract": {
+        "startDate": "2025-12-05",
+        "ratePct": 2.88,
+        "maturityDate": "2026-12-05",
+        "maturitySource": "계약기간 미공시(12개월 가정)",
+        "maturityDisclosed": false,
+        "receiptNo": "20251208900525",
+        "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900525",
+        "daysAfterPayout": -480,
+        "earlyTerminationRisk": null
       },
       "status": "합병 신청",
       "badges": [
@@ -112972,7 +113695,7 @@
   "errors": {
     "filings": {
       "trustRateChanges": {
-        "478390": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out."
+        "0209J0": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Max retries exceeded with url: /dsab007/main.do (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"
       }
     },
     "quote": {},
