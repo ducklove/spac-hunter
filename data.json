@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "source": "KRX/KIND/DART/Naver",
-  "lastUpdated": "2026-09-24 21:05:40 KST",
-  "generatedAt": "2026-09-24T21:05:40.997242+09:00",
+  "lastUpdated": "2026-09-25 20:07:49 KST",
+  "generatedAt": "2026-09-25T20:07:49.972518+09:00",
   "methodology": {
     "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
     "listingInfo": "KIND 상장법인목록 이름 매칭",
@@ -11,7 +11,8 @@
     "mergerPriceRecords": "합병 공시일 직전/이후 네이버 일별 종가로 이벤트별 가격 반응과 이후 고저점을 계산",
     "ipoPrice": "overrides.json 우선, 없으면 증권신고서 공시 공모가, 둘 다 없으면 기본 2,000원",
     "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
-    "liquidationValue": "공모예치금 + 청산기한까지의 예상 예치이자(공시 예치이율 기간별 적용). 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
+    "payoutDate": "overrides.json 우선. 없으면 예상 상장폐지일(합병 미신청: 납입+31개월 상장폐지 사유, 합병 진행: 납입+36개월 합병기한, 해산 공시가 있으면 그 날짜)+잔여재산 분배 소요일 추정. 연환산 기대수익률은 이 수령 예정일까지의 보유일수로 계산",
+    "liquidationValue": "최근 신탁계약내용변경 공시의 변경 후 예치금액(없으면 공모예치금)에 수령 예정일까지의 예상 이자를 더한 1주당 금액. 이자는 공시 예치이율에서 신탁보수를 빼고 이자 원천징수세를 차감한 단리로 계산하고 재예치(공시 변경일, 그 외 12개월) 때 원금에 합산. 일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정",
     "trustRate": "개별 기대수익률은 증권신고서·신탁계약내용변경 공시의 예치이율 기간으로 계산하며, 공시 금리가 없으면 표시하지 않습니다. KOFR/수동 금리는 시뮬레이션 기본값에만 사용합니다.",
     "expectedReturn": "추정 청산분배금/현재가 - 1"
   },
@@ -32,19 +33,24 @@
       "lastModified": "2026.09.23 10:50:16"
     }
   },
+  "valuationAssumptions": {
+    "trustFeePct": 0.1,
+    "interestTaxPct": 15.4,
+    "payoutLagDays": 102
+  },
   "summary": {
     "totalCount": 71,
     "belowIpoCount": 28,
     "nearIpoCount": 33,
     "dueSoonCount": 4,
-    "dueWithinOneYearCount": 19,
+    "dueWithinOneYearCount": 20,
     "mergerCount": 7,
     "mergerAppliedCount": 7,
     "mergerConfirmedCount": 0,
     "mergerEventCount": 42,
     "recentListingCount": 6,
     "averageRatio": 1.0122,
-    "averageAnnualizedReturn": 5.31,
+    "averageAnnualizedReturn": 4.34,
     "cheapest": {
       "code": "0209J0",
       "name": "KB제34호스팩",
@@ -52,10 +58,10 @@
       "currentPrice": 1898
     },
     "bestYield": {
-      "code": "468760",
-      "name": "유진스팩10호",
-      "annualizedReturn": 12.04,
-      "currentPrice": 2080
+      "code": "472230",
+      "name": "에스케이증권제11호스팩",
+      "annualizedReturn": 8.45,
+      "currentPrice": 2100
     }
   },
   "statistics": {
@@ -3141,16 +3147,20 @@
       "listingDate": "2026-09-22",
       "liquidationDate": "2029-09-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1094,
-      "trustValuePerShare": 2148.02,
-      "liquidationValuePerShare": 2148.02,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 13.17,
-      "annualizedReturn": 4.22,
+      "daysToLiquidation": 1093,
+      "expectedDelistingDate": "2029-04-28",
+      "payoutDate": "2029-08-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-04-15) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 1048,
+      "trustValuePerShare": 2113.92,
+      "liquidationValuePerShare": 2113.92,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 11.38,
+      "annualizedReturn": 3.82,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-09-10",
-          "endDate": "2029-09-22",
+          "startDate": "2026-09-15",
+          "endDate": "2029-08-08",
           "ratePct": 2.38,
           "source": "증권신고서",
           "receiptNo": "20260908000183",
@@ -3159,6 +3169,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260908000183"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-09-15",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3241,7 +3258,7 @@
         "paymentDate": "2026-09-10",
         "extractedAt": "2026-09-23T21:00:00.914146+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260908000183)"
     },
@@ -3265,16 +3282,20 @@
       "listingDate": "2026-09-22",
       "liquidationDate": "2029-09-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1094,
-      "trustValuePerShare": 2187.76,
-      "liquidationValuePerShare": 2187.76,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 15.15,
-      "annualizedReturn": 4.82,
+      "daysToLiquidation": 1093,
+      "expectedDelistingDate": "2029-04-28",
+      "payoutDate": "2029-08-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-04-15) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 1048,
+      "trustValuePerShare": 2145.62,
+      "liquidationValuePerShare": 2145.62,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 12.93,
+      "annualizedReturn": 4.33,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-09-10",
-          "endDate": "2029-09-22",
+          "startDate": "2026-09-15",
+          "endDate": "2029-08-08",
           "ratePct": 3.0,
           "source": "증권신고서",
           "receiptNo": "20260909000285",
@@ -3283,6 +3304,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260909000285"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-09-15",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3389,16 +3417,20 @@
       "listingDate": "2026-09-10",
       "liquidationDate": "2029-09-10",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1082,
-      "trustValuePerShare": 2123.57,
-      "liquidationValuePerShare": 2123.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 11.24,
-      "annualizedReturn": 3.66,
+      "daysToLiquidation": 1081,
+      "expectedDelistingDate": "2029-04-17",
+      "payoutDate": "2029-07-28",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-04-04) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 1037,
+      "trustValuePerShare": 2094.64,
+      "liquidationValuePerShare": 2094.64,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 9.72,
+      "annualizedReturn": 3.32,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-09-01",
-          "endDate": "2029-09-10",
+          "startDate": "2026-09-04",
+          "endDate": "2029-07-28",
           "ratePct": 2.0,
           "source": "증권신고서",
           "receiptNo": "20260828000900",
@@ -3407,6 +3439,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260828000900"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-09-04",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -3561,16 +3600,20 @@
       "listingDate": "2026-06-19",
       "liquidationDate": "2029-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 999,
-      "trustValuePerShare": 2186.23,
-      "liquidationValuePerShare": 2186.23,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 12.75,
-      "annualizedReturn": 4.48,
+      "daysToLiquidation": 998,
+      "expectedDelistingDate": "2029-01-25",
+      "payoutDate": "2029-05-07",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-01-12) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 955,
+      "trustValuePerShare": 2145.39,
+      "liquidationValuePerShare": 2145.39,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 10.64,
+      "annualizedReturn": 3.94,
       "escrowRatePeriods": [
         {
           "startDate": "2026-06-12",
-          "endDate": "2029-06-19",
+          "endDate": "2029-05-07",
           "ratePct": 2.99,
           "source": "증권신고서",
           "receiptNo": "20260608000232",
@@ -3579,6 +3622,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608000232"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-06-12",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -4053,7 +4103,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260608000232)"
     },
@@ -4077,16 +4127,20 @@
       "listingDate": "2026-04-01",
       "liquidationDate": "2029-04-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 920,
-      "trustValuePerShare": 2155.82,
-      "liquidationValuePerShare": 2155.82,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 10.39,
-      "annualizedReturn": 4.0,
+      "daysToLiquidation": 919,
+      "expectedDelistingDate": "2028-11-06",
+      "payoutDate": "2029-02-16",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-10-24) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 875,
+      "trustValuePerShare": 2120.26,
+      "liquidationValuePerShare": 2120.26,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 8.56,
+      "annualizedReturn": 3.49,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-03-19",
-          "endDate": "2029-04-01",
+          "startDate": "2026-03-24",
+          "endDate": "2029-02-16",
           "ratePct": 2.5,
           "source": "증권신고서",
           "receiptNo": "20260318000201",
@@ -4095,6 +4149,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000201"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-03-24",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -4885,7 +4946,7 @@
         "paymentDate": "2026-03-19",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260318000201)"
     },
@@ -4909,16 +4970,20 @@
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 820,
-      "trustValuePerShare": 2139.76,
-      "liquidationValuePerShare": 2139.76,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.45,
-      "annualizedReturn": 4.1,
+      "daysToLiquidation": 819,
+      "expectedDelistingDate": "2028-07-28",
+      "payoutDate": "2028-11-07",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-15) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 774,
+      "trustValuePerShare": 2107.31,
+      "liquidationValuePerShare": 2107.31,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.79,
+      "annualizedReturn": 3.6,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-10",
-          "endDate": "2028-12-22",
+          "startDate": "2025-12-15",
+          "endDate": "2028-11-07",
           "ratePct": 2.25,
           "source": "증권신고서",
           "receiptNo": "20251209000372",
@@ -4927,6 +4992,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251209000372"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-15",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -6107,7 +6179,7 @@
         "paymentDate": "2025-12-10",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251209000372)"
     },
@@ -6131,16 +6203,20 @@
       "listingDate": "2026-06-30",
       "liquidationDate": "2029-06-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 1010,
-      "trustValuePerShare": 2187.05,
-      "liquidationValuePerShare": 2187.05,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 11.76,
-      "annualizedReturn": 4.1,
+      "daysToLiquidation": 1009,
+      "expectedDelistingDate": "2029-02-07",
+      "payoutDate": "2029-05-20",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2029-01-25) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 968,
+      "trustValuePerShare": 2145.91,
+      "liquidationValuePerShare": 2145.91,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 9.65,
+      "annualizedReturn": 3.54,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-06-22",
-          "endDate": "2029-06-30",
+          "startDate": "2026-06-25",
+          "endDate": "2029-05-20",
           "ratePct": 3.0,
           "source": "증권신고서",
           "receiptNo": "20260619000193",
@@ -6149,6 +6225,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619000193"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-06-25",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -6603,16 +6686,20 @@
       "listingDate": "2025-11-27",
       "liquidationDate": "2028-11-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 795,
-      "trustValuePerShare": 2139.49,
-      "liquidationValuePerShare": 2139.49,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.16,
-      "annualizedReturn": 4.11,
+      "daysToLiquidation": 794,
+      "expectedDelistingDate": "2028-07-03",
+      "payoutDate": "2028-10-13",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-20) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 749,
+      "trustValuePerShare": 2107.31,
+      "liquidationValuePerShare": 2107.31,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.52,
+      "annualizedReturn": 3.59,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-11-17",
-          "endDate": "2028-11-27",
+          "startDate": "2025-11-20",
+          "endDate": "2028-10-13",
           "ratePct": 2.25,
           "source": "증권신고서",
           "receiptNo": "20251114003075",
@@ -6621,6 +6708,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251114003075"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-11-20",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -7903,7 +7997,7 @@
         "paymentDate": "2025-11-17",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251114003075)"
     },
@@ -7927,26 +8021,30 @@
       "listingDate": "2025-07-04",
       "liquidationDate": "2028-07-04",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 649,
-      "trustValuePerShare": 2196.05,
-      "liquidationValuePerShare": 2196.05,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 11.93,
-      "annualizedReturn": 6.54,
+      "daysToLiquidation": 648,
+      "expectedDelistingDate": "2028-02-09",
+      "payoutDate": "2028-05-21",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-01-27) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 604,
+      "trustValuePerShare": 2134.81,
+      "liquidationValuePerShare": 2134.81,
+      "liquidationValueSource": "공시 예치금(2026-06-30)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 8.81,
+      "annualizedReturn": 5.23,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-06-24",
+          "startDate": "2025-06-27",
           "endDate": "2026-06-29",
-          "ratePct": 3.5,
-          "source": "증권신고서",
-          "receiptNo": "20250623000080",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2025-06-23",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250623000080"
+          "ratePct": 2.4,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20260630901522",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-30",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901522"
         },
         {
           "startDate": "2026-06-30",
-          "endDate": "2028-07-04",
+          "endDate": "2028-05-21",
           "ratePct": 2.95,
           "source": "신탁계약내용변경",
           "receiptNo": "20260630901522",
@@ -7955,6 +8053,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901522"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-06-27",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-06-30",
+          "valuePerShare": 2040.608,
+          "amount": 12243648000,
+          "shares": 6000000,
+          "receiptNo": "20260630901522",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901522"
+        }
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -9345,7 +9458,7 @@
         "paymentDate": "2025-06-24",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260630901522",
@@ -9354,7 +9467,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630901522",
             "startDate": "2026-06-30",
             "ratePct": 2.95,
-            "parserVersion": 2,
+            "rateBeforePct": 2.4,
+            "amountBefore": 12000000000,
+            "amountAfter": 12243648000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ]
@@ -9381,16 +9497,20 @@
       "listingDate": "2025-12-23",
       "liquidationDate": "2028-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 821,
-      "trustValuePerShare": 2139.62,
-      "liquidationValuePerShare": 2139.62,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.05,
-      "annualizedReturn": 3.93,
+      "daysToLiquidation": 820,
+      "expectedDelistingDate": "2028-07-30",
+      "payoutDate": "2028-11-09",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-17) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 776,
+      "trustValuePerShare": 2107.31,
+      "liquidationValuePerShare": 2107.31,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.41,
+      "annualizedReturn": 3.42,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-12",
-          "endDate": "2028-12-23",
+          "startDate": "2025-12-17",
+          "endDate": "2028-11-09",
           "ratePct": 2.25,
           "source": "증권신고서",
           "receiptNo": "20251211000330",
@@ -9399,6 +9519,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251211000330"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-17",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -10573,7 +10700,7 @@
         "paymentDate": "2025-12-12",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251211000330)"
     },
@@ -10597,26 +10724,30 @@
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 737,
-      "trustValuePerShare": 2182.38,
-      "liquidationValuePerShare": 2182.38,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 11.18,
-      "annualizedReturn": 5.39,
+      "daysToLiquidation": 736,
+      "expectedDelistingDate": "2028-05-08",
+      "payoutDate": "2028-08-18",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-04-25) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 693,
+      "trustValuePerShare": 2145.83,
+      "liquidationValuePerShare": 2145.83,
+      "liquidationValueSource": "공시 예치금(2026-09-23)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 9.31,
+      "annualizedReturn": 4.8,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-09-22",
+          "startDate": "2025-09-25",
           "endDate": "2026-09-22",
-          "ratePct": 2.08,
-          "source": "증권신고서",
-          "receiptNo": "20250918000310",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2025-09-18",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250918000310"
+          "ratePct": 2.25,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20260923900438",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-09-23",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260923900438"
         },
         {
           "startDate": "2026-09-23",
-          "endDate": "2028-09-30",
+          "endDate": "2028-08-18",
           "ratePct": 3.35,
           "source": "신탁계약내용변경",
           "receiptNo": "20260923900438",
@@ -10625,6 +10756,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260923900438"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-09-25",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-09-23",
+          "valuePerShare": 2037.7571,
+          "amount": 15283178227,
+          "shares": 7500000,
+          "receiptNo": "20260923900438",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260923900438"
+        }
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -12017,7 +12163,7 @@
         "parseWarnings": [
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260923900438",
@@ -12026,7 +12172,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260923900438",
             "startDate": "2026-09-23",
             "ratePct": 3.35,
-            "parserVersion": 2,
+            "rateBeforePct": 2.25,
+            "amountBefore": 15000000000,
+            "amountAfter": 15283178227,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ]
@@ -12053,16 +12202,20 @@
       "listingDate": "2025-12-22",
       "liquidationDate": "2028-12-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 820,
-      "trustValuePerShare": 2149.16,
-      "liquidationValuePerShare": 2149.16,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.43,
-      "annualizedReturn": 4.09,
+      "daysToLiquidation": 819,
+      "expectedDelistingDate": "2028-07-29",
+      "payoutDate": "2028-11-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-16) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 775,
+      "trustValuePerShare": 2114.93,
+      "liquidationValuePerShare": 2114.93,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.69,
+      "annualizedReturn": 3.55,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-11",
-          "endDate": "2028-12-22",
+          "startDate": "2025-12-16",
+          "endDate": "2028-11-08",
           "ratePct": 2.4,
           "source": "증권신고서",
           "receiptNo": "20251209000220",
@@ -12071,6 +12224,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251209000220"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-16",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -13275,16 +13435,20 @@
       "listingDate": "2025-11-21",
       "liquidationDate": "2028-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 789,
-      "trustValuePerShare": 2123.68,
-      "liquidationValuePerShare": 2123.68,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.91,
-      "annualizedReturn": 3.58,
+      "daysToLiquidation": 788,
+      "expectedDelistingDate": "2028-06-27",
+      "payoutDate": "2028-10-07",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 743,
+      "trustValuePerShare": 2094.64,
+      "liquidationValuePerShare": 2094.64,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.43,
+      "annualizedReturn": 3.11,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-11-11",
-          "endDate": "2028-11-21",
+          "startDate": "2025-11-14",
+          "endDate": "2028-10-07",
           "ratePct": 2.0,
           "source": "증권신고서",
           "receiptNo": "20251110000259",
@@ -13293,6 +13457,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251110000259"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-11-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -14599,7 +14770,7 @@
         "paymentDate": "2025-11-11",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251110000259)"
     },
@@ -14623,16 +14794,20 @@
       "listingDate": "2026-04-30",
       "liquidationDate": "2029-04-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 949,
-      "trustValuePerShare": 2155.38,
-      "liquidationValuePerShare": 2155.38,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.47,
-      "annualizedReturn": 3.54,
+      "daysToLiquidation": 948,
+      "expectedDelistingDate": "2028-12-06",
+      "payoutDate": "2029-03-18",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-11-23) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 905,
+      "trustValuePerShare": 2120.26,
+      "liquidationValuePerShare": 2120.26,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.68,
+      "annualizedReturn": 3.03,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-04-20",
-          "endDate": "2029-04-30",
+          "startDate": "2026-04-23",
+          "endDate": "2029-03-18",
           "ratePct": 2.5,
           "source": "증권신고서",
           "receiptNo": "20260417000093",
@@ -14641,6 +14816,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260417000093"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-04-23",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -15305,7 +15487,7 @@
         "paymentDate": "2026-04-20",
         "extractedAt": "2026-06-14T20:36:44.203718+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260417000093)"
     },
@@ -15329,16 +15511,20 @@
       "listingDate": "2026-06-05",
       "liquidationDate": "2029-06-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 985,
-      "trustValuePerShare": 2127.31,
-      "liquidationValuePerShare": 2127.31,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.99,
-      "annualizedReturn": 2.89,
+      "daysToLiquidation": 984,
+      "expectedDelistingDate": "2029-01-10",
+      "payoutDate": "2029-04-22",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-12-28) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 940,
+      "trustValuePerShare": 2097.35,
+      "liquidationValuePerShare": 2097.35,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.46,
+      "annualizedReturn": 2.46,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-05-22",
-          "endDate": "2029-06-05",
+          "startDate": "2026-05-28",
+          "endDate": "2029-04-22",
           "ratePct": 2.05,
           "source": "증권신고서",
           "receiptNo": "20260521000518",
@@ -15347,6 +15533,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260521000518"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-05-28",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -15881,7 +16074,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260521000518)"
     },
@@ -15905,16 +16098,20 @@
       "listingDate": "2025-12-01",
       "liquidationDate": "2028-12-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 799,
-      "trustValuePerShare": 2139.76,
-      "liquidationValuePerShare": 2139.76,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 8.56,
-      "annualizedReturn": 3.82,
+      "daysToLiquidation": 798,
+      "expectedDelistingDate": "2028-07-07",
+      "payoutDate": "2028-10-17",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-24) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 753,
+      "trustValuePerShare": 2107.31,
+      "liquidationValuePerShare": 2107.31,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.92,
+      "annualizedReturn": 3.29,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-11-19",
-          "endDate": "2028-12-01",
+          "startDate": "2025-11-24",
+          "endDate": "2028-10-17",
           "ratePct": 2.25,
           "source": "증권신고서",
           "receiptNo": "20251118000265",
@@ -15923,6 +16120,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118000265"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-11-24",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -17193,7 +17397,7 @@
         "paymentDate": "2025-11-19",
         "extractedAt": "2026-06-12T21:29:19.952774+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251118000265)"
     },
@@ -17217,16 +17421,20 @@
       "listingDate": "2026-04-23",
       "liquidationDate": "2029-04-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 942,
-      "trustValuePerShare": 2136.2,
-      "liquidationValuePerShare": 2136.2,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 8.22,
-      "annualizedReturn": 3.11,
+      "daysToLiquidation": 941,
+      "expectedDelistingDate": "2028-11-30",
+      "payoutDate": "2029-03-12",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-11-17) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 899,
+      "trustValuePerShare": 2104.97,
+      "liquidationValuePerShare": 2104.97,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.63,
+      "annualizedReturn": 2.64,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-04-14",
-          "endDate": "2029-04-23",
+          "startDate": "2026-04-17",
+          "endDate": "2029-03-12",
           "ratePct": 2.2,
           "source": "증권신고서",
           "receiptNo": "20260413001537",
@@ -17235,6 +17443,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260413001537"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-04-17",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -17953,16 +18168,20 @@
       "listingDate": "2025-11-28",
       "liquidationDate": "2028-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 796,
-      "trustValuePerShare": 2126.72,
-      "liquidationValuePerShare": 2126.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.68,
-      "annualizedReturn": 3.45,
+      "daysToLiquidation": 795,
+      "expectedDelistingDate": "2028-07-07",
+      "payoutDate": "2028-10-17",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-24) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 753,
+      "trustValuePerShare": 2097.17,
+      "liquidationValuePerShare": 2097.17,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.19,
+      "annualizedReturn": 2.95,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-11-19",
-          "endDate": "2028-11-28",
+          "startDate": "2025-11-24",
+          "endDate": "2028-10-17",
           "ratePct": 2.05,
           "source": "증권신고서",
           "receiptNo": "20251117000034",
@@ -17971,6 +18190,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251117000034"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-11-24",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -19249,7 +19475,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251117000034)"
     },
@@ -19273,15 +19499,19 @@
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 667,
-      "trustValuePerShare": 2186.09,
-      "liquidationValuePerShare": 2186.09,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 10.63,
-      "annualizedReturn": 5.68,
+      "daysToLiquidation": 666,
+      "expectedDelistingDate": "2028-02-24",
+      "payoutDate": "2028-06-05",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-02-11) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 619,
+      "trustValuePerShare": 2143.82,
+      "liquidationValuePerShare": 2143.82,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 8.49,
+      "annualizedReturn": 4.92,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-07-08",
+          "startDate": "2025-07-11",
           "endDate": "2026-07-13",
           "ratePct": 2.47,
           "source": "증권신고서",
@@ -19292,7 +19522,7 @@
         },
         {
           "startDate": "2026-07-14",
-          "endDate": "2028-07-22",
+          "endDate": "2028-06-05",
           "ratePct": 3.22,
           "source": "신탁계약내용변경",
           "receiptNo": "20260715900147",
@@ -19301,6 +19531,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260715900147"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-07-11",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -20727,15 +20964,19 @@
       "listingDate": "2025-08-06",
       "liquidationDate": "2028-08-06",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 682,
-      "trustValuePerShare": 2172.67,
-      "liquidationValuePerShare": 2172.67,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.9,
-      "annualizedReturn": 5.18,
+      "daysToLiquidation": 681,
+      "expectedDelistingDate": "2028-03-13",
+      "payoutDate": "2028-06-23",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-02-29) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 637,
+      "trustValuePerShare": 2133.43,
+      "liquidationValuePerShare": 2133.43,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.91,
+      "annualizedReturn": 4.46,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-07-25",
+          "startDate": "2025-07-30",
           "endDate": "2026-07-30",
           "ratePct": 2.4,
           "source": "증권신고서",
@@ -20746,7 +20987,7 @@
         },
         {
           "startDate": "2026-07-31",
-          "endDate": "2028-08-06",
+          "endDate": "2028-06-23",
           "ratePct": 2.95,
           "source": "신탁계약내용변경",
           "receiptNo": "20260731900656",
@@ -20755,6 +20996,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731900656"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-07-30",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -22181,16 +22429,20 @@
       "listingDate": "2026-01-21",
       "liquidationDate": "2029-01-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 850,
-      "trustValuePerShare": 2126.72,
-      "liquidationValuePerShare": 2126.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.52,
-      "annualizedReturn": 3.16,
+      "daysToLiquidation": 849,
+      "expectedDelistingDate": "2028-08-28",
+      "payoutDate": "2028-12-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-08-15) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 805,
+      "trustValuePerShare": 2097.17,
+      "liquidationValuePerShare": 2097.17,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.02,
+      "annualizedReturn": 2.69,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-01-12",
-          "endDate": "2029-01-21",
+          "startDate": "2026-01-15",
+          "endDate": "2028-12-08",
           "ratePct": 2.05,
           "source": "증권신고서",
           "receiptNo": "20260109000087",
@@ -22199,6 +22451,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260109000087"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-01-15",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -23267,7 +23526,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260109000087)"
     },
@@ -23291,16 +23550,20 @@
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 810,
-      "trustValuePerShare": 2165.6,
-      "liquidationValuePerShare": 2165.6,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.21,
-      "annualizedReturn": 4.05,
+      "daysToLiquidation": 809,
+      "expectedDelistingDate": "2028-07-18",
+      "payoutDate": "2028-10-28",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 764,
+      "trustValuePerShare": 2128.2,
+      "liquidationValuePerShare": 2128.2,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.32,
+      "annualizedReturn": 3.43,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-02",
-          "endDate": "2028-12-12",
+          "startDate": "2025-12-05",
+          "endDate": "2028-10-28",
           "ratePct": 2.66,
           "source": "증권신고서",
           "receiptNo": "20251201000394",
@@ -23309,6 +23572,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251201000394"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -24525,7 +24795,7 @@
         "paymentDate": "2025-12-02",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251201000394)"
     },
@@ -24549,26 +24819,30 @@
       "listingDate": "2025-05-29",
       "liquidationDate": "2028-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 613,
-      "trustValuePerShare": 2195.81,
-      "liquidationValuePerShare": 2195.81,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 10.68,
-      "annualizedReturn": 6.23,
+      "daysToLiquidation": 612,
+      "expectedDelistingDate": "2028-01-04",
+      "payoutDate": "2028-04-15",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-12-22) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 568,
+      "trustValuePerShare": 2139.93,
+      "liquidationValuePerShare": 2139.93,
+      "liquidationValueSource": "공시 예치금(2026-05-26)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.86,
+      "annualizedReturn": 4.98,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-05-19",
+          "startDate": "2025-05-22",
           "endDate": "2026-05-25",
-          "ratePct": 3.25,
-          "source": "증권신고서",
-          "receiptNo": "20250515000864",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2025-05-15",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250515000864"
+          "ratePct": 2.56,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20260616900454",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-06-16",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454"
         },
         {
           "startDate": "2026-05-26",
-          "endDate": "2028-05-29",
+          "endDate": "2028-04-15",
           "ratePct": 3.07,
           "source": "신탁계약내용변경",
           "receiptNo": "20260616900454",
@@ -24577,6 +24851,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-05-22",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-05-26",
+          "valuePerShare": 2041.802,
+          "amount": 10209010000,
+          "shares": 5000000,
+          "receiptNo": "20260616900454",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454"
+        }
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -25975,11 +26264,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900454",
             "startDate": "2026-05-26",
             "ratePct": 3.07,
-            "parserVersion": 2,
+            "rateBeforePct": 2.56,
+            "amountBefore": 10000000000,
+            "amountAfter": 10209010000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20250515000864)"
     },
@@ -26003,16 +26295,20 @@
       "listingDate": "2026-04-02",
       "liquidationDate": "2029-04-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 921,
-      "trustValuePerShare": 2181.62,
-      "liquidationValuePerShare": 2181.62,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.63,
-      "annualizedReturn": 3.71,
+      "daysToLiquidation": 920,
+      "expectedDelistingDate": "2028-11-08",
+      "payoutDate": "2029-02-18",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-10-26) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 877,
+      "trustValuePerShare": 2141.27,
+      "liquidationValuePerShare": 2141.27,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.6,
+      "annualizedReturn": 3.1,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-03-23",
-          "endDate": "2029-04-02",
+          "startDate": "2026-03-26",
+          "endDate": "2029-02-18",
           "ratePct": 2.91,
           "source": "증권신고서",
           "receiptNo": "20260319000821",
@@ -26021,6 +26317,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260319000821"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-03-26",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -26805,7 +27108,7 @@
         "paymentDate": "2026-03-23",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20260319000821)"
     },
@@ -26829,16 +27132,20 @@
       "listingDate": "2025-12-11",
       "liquidationDate": "2028-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 809,
-      "trustValuePerShare": 2187.22,
-      "liquidationValuePerShare": 2187.22,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.91,
-      "annualizedReturn": 4.36,
+      "daysToLiquidation": 808,
+      "expectedDelistingDate": "2028-07-18",
+      "payoutDate": "2028-10-28",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 764,
+      "trustValuePerShare": 2145.62,
+      "liquidationValuePerShare": 2145.62,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.82,
+      "annualizedReturn": 3.66,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-02",
-          "endDate": "2028-12-11",
+          "startDate": "2025-12-05",
+          "endDate": "2028-10-28",
           "ratePct": 3.0,
           "source": "증권신고서",
           "receiptNo": "20251201000430",
@@ -26847,6 +27154,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251201000430"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -28093,16 +28407,20 @@
       "listingDate": "2026-03-27",
       "liquidationDate": "2029-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 915,
-      "trustValuePerShare": 2123.68,
-      "liquidationValuePerShare": 2123.68,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.66,
-      "annualizedReturn": 2.61,
+      "daysToLiquidation": 914,
+      "expectedDelistingDate": "2028-11-02",
+      "payoutDate": "2029-02-12",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-10-20) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 871,
+      "trustValuePerShare": 2094.82,
+      "liquidationValuePerShare": 2094.82,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.21,
+      "annualizedReturn": 2.15,
       "escrowRatePeriods": [
         {
-          "startDate": "2026-03-17",
-          "endDate": "2029-03-27",
+          "startDate": "2026-03-20",
+          "endDate": "2029-02-12",
           "ratePct": 2.0,
           "source": "증권신고서",
           "receiptNo": "20260316000201",
@@ -28111,6 +28429,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316000201"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2026-03-20",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -28943,16 +29268,20 @@
       "listingDate": "2025-09-30",
       "liquidationDate": "2028-09-30",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 737,
-      "trustValuePerShare": 2126.96,
-      "liquidationValuePerShare": 2126.96,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.61,
-      "annualizedReturn": 3.22,
+      "daysToLiquidation": 736,
+      "expectedDelistingDate": "2028-05-07",
+      "payoutDate": "2028-08-17",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-04-24) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 692,
+      "trustValuePerShare": 2097.17,
+      "liquidationValuePerShare": 2097.17,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.12,
+      "annualizedReturn": 2.67,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-09-19",
-          "endDate": "2028-09-30",
+          "startDate": "2025-09-24",
+          "endDate": "2028-08-17",
           "ratePct": 2.05,
           "source": "증권신고서",
           "receiptNo": "20250918000264",
@@ -28961,6 +29290,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250918000264"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-09-24",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -30353,7 +30689,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20250918000264)"
     },
@@ -30377,26 +30713,30 @@
       "listingDate": "2025-07-22",
       "liquidationDate": "2028-07-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 667,
-      "trustValuePerShare": 2197.2,
-      "liquidationValuePerShare": 2197.2,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.92,
-      "annualizedReturn": 5.31,
+      "daysToLiquidation": 666,
+      "expectedDelistingDate": "2028-02-28",
+      "payoutDate": "2028-06-09",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-02-15) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 623,
+      "trustValuePerShare": 2142.51,
+      "liquidationValuePerShare": 2142.51,
+      "liquidationValueSource": "공시 예치금(2026-07-16)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.18,
+      "annualizedReturn": 4.15,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-07-10",
+          "startDate": "2025-07-15",
           "endDate": "2026-07-15",
-          "ratePct": 3.0,
-          "source": "증권신고서",
-          "receiptNo": "20250709000268",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2025-07-09",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250709000268"
+          "ratePct": 2.42,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20260720900290",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-07-20",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260720900290"
         },
         {
           "startDate": "2026-07-16",
-          "endDate": "2028-07-22",
+          "endDate": "2028-06-09",
           "ratePct": 3.22,
           "source": "신탁계약내용변경",
           "receiptNo": "20260720900290",
@@ -30405,6 +30745,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260720900290"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-07-15",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-07-16",
+          "valuePerShare": 2038.9,
+          "amount": 10194500000,
+          "shares": 5000000,
+          "receiptNo": "20260720900290",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260720900290"
+        }
+      },
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -31795,7 +32150,7 @@
         "paymentDate": "2025-07-10",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260720900290",
@@ -31804,7 +32159,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260720900290",
             "startDate": "2026-07-16",
             "ratePct": 3.22,
-            "parserVersion": 2,
+            "rateBeforePct": 2.42,
+            "amountBefore": 10000000000,
+            "amountAfter": 10194500000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ]
@@ -31831,26 +32189,30 @@
       "listingDate": "2025-08-21",
       "liquidationDate": "2028-08-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 697,
-      "trustValuePerShare": 2185.29,
-      "liquidationValuePerShare": 2185.29,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.26,
-      "annualizedReturn": 4.75,
+      "daysToLiquidation": 696,
+      "expectedDelistingDate": "2028-03-27",
+      "payoutDate": "2028-07-07",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-03-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 651,
+      "trustValuePerShare": 2141.91,
+      "liquidationValuePerShare": 2141.91,
+      "liquidationValueSource": "공시 예치금(2026-08-18)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 7.1,
+      "annualizedReturn": 3.92,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-08-11",
+          "startDate": "2025-08-14",
           "endDate": "2026-08-17",
-          "ratePct": 2.47,
-          "source": "증권신고서",
-          "receiptNo": "20250807000053",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2025-08-07",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250807000053"
+          "ratePct": 2.42,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20260819900363",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-08-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819900363"
         },
         {
           "startDate": "2026-08-18",
-          "endDate": "2028-08-21",
+          "endDate": "2028-07-07",
           "ratePct": 3.22,
           "source": "신탁계약내용변경",
           "receiptNo": "20260819900363",
@@ -31859,6 +32221,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819900363"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-08-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-08-18",
+          "valuePerShare": 2039.0543,
+          "amount": 14273380000,
+          "shares": 7000000,
+          "receiptNo": "20260819900363",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819900363"
+        }
+      },
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -33252,7 +33629,7 @@
           "escrowAmount: 패턴 미발견",
           "escrowAgent: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260819900363",
@@ -33261,7 +33638,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260819900363",
             "startDate": "2026-08-18",
             "ratePct": 3.22,
-            "parserVersion": 2,
+            "rateBeforePct": 2.42,
+            "amountBefore": 14000000000,
+            "amountAfter": 14273380000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ]
@@ -33288,26 +33668,30 @@
       "listingDate": "2025-08-14",
       "liquidationDate": "2028-08-14",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 690,
-      "trustValuePerShare": 2185.36,
-      "liquidationValuePerShare": 2185.36,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.0,
-      "annualizedReturn": 4.66,
+      "daysToLiquidation": 689,
+      "expectedDelistingDate": "2028-03-21",
+      "payoutDate": "2028-07-01",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-03-08) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 645,
+      "trustValuePerShare": 2142.03,
+      "liquidationValuePerShare": 2142.03,
+      "liquidationValueSource": "공시 예치금(2026-08-11)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.83,
+      "annualizedReturn": 3.81,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-08-05",
+          "startDate": "2025-08-08",
           "endDate": "2026-08-10",
-          "ratePct": 2.48,
-          "source": "증권신고서",
-          "receiptNo": "20250731000309",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2025-07-31",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250731000309"
+          "ratePct": 2.42,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20260812900150",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2026-08-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260812900150"
         },
         {
           "startDate": "2026-08-11",
-          "endDate": "2028-08-14",
+          "endDate": "2028-07-01",
           "ratePct": 3.22,
           "source": "신탁계약내용변경",
           "receiptNo": "20260812900150",
@@ -33316,6 +33700,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260812900150"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-08-08",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-08-11",
+          "valuePerShare": 2039.0222,
+          "amount": 9175600000,
+          "shares": 4500000,
+          "receiptNo": "20260812900150",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260812900150"
+        }
+      },
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -34706,7 +35105,7 @@
         "paymentDate": "2025-08-05",
         "extractedAt": "2026-06-11T21:54:20.936069+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00",
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00",
         "escrowRateChanges": [
           {
             "receiptNo": "20260812900150",
@@ -34715,7 +35114,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260812900150",
             "startDate": "2026-08-11",
             "ratePct": 3.22,
-            "parserVersion": 2,
+            "rateBeforePct": 2.42,
+            "amountBefore": 9000000000,
+            "amountAfter": 9175600000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ]
@@ -34742,16 +35144,20 @@
       "listingDate": "2025-12-12",
       "liquidationDate": "2028-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 810,
-      "trustValuePerShare": 2142.8,
-      "liquidationValuePerShare": 2142.8,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.61,
-      "annualizedReturn": 2.92,
+      "daysToLiquidation": 809,
+      "expectedDelistingDate": "2028-07-17",
+      "payoutDate": "2028-10-27",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-04) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 763,
+      "trustValuePerShare": 2109.85,
+      "liquidationValuePerShare": 2109.85,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.97,
+      "annualizedReturn": 2.35,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-01",
-          "endDate": "2028-12-12",
+          "startDate": "2025-12-04",
+          "endDate": "2028-10-27",
           "ratePct": 2.3,
           "source": "증권신고서",
           "receiptNo": "20251128002140",
@@ -34760,6 +35166,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251128002140"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-04",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -36000,15 +36413,19 @@
       "listingDate": "2025-01-23",
       "liquidationDate": "2028-01-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 486,
-      "trustValuePerShare": 2189.32,
-      "liquidationValuePerShare": 2189.32,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 8.65,
-      "annualizedReturn": 6.43,
+      "daysToLiquidation": 485,
+      "expectedDelistingDate": "2027-08-29",
+      "payoutDate": "2027-12-09",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-08-16) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 440,
+      "trustValuePerShare": 2147.59,
+      "liquidationValuePerShare": 2147.59,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.58,
+      "annualizedReturn": 5.43,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-01-13",
+          "startDate": "2025-01-16",
           "endDate": "2026-01-15",
           "ratePct": 3.5,
           "source": "증권신고서",
@@ -36019,7 +36436,7 @@
         },
         {
           "startDate": "2026-01-16",
-          "endDate": "2028-01-23",
+          "endDate": "2027-12-09",
           "ratePct": 2.8,
           "source": "신탁계약내용변경",
           "receiptNo": "20260119900496",
@@ -36028,6 +36445,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119900496"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-01-16",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -37454,15 +37878,19 @@
       "listingDate": "2024-11-19",
       "liquidationDate": "2027-11-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 421,
-      "trustValuePerShare": 2156.22,
-      "liquidationValuePerShare": 2156.22,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.74,
-      "annualizedReturn": 5.82,
+      "daysToLiquidation": 420,
+      "expectedDelistingDate": "2027-06-25",
+      "payoutDate": "2027-10-05",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-06-12) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 375,
+      "trustValuePerShare": 2120.9,
+      "liquidationValuePerShare": 2120.9,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.0,
+      "annualizedReturn": 4.86,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-11-07",
+          "startDate": "2024-11-12",
           "endDate": "2025-11-12",
           "ratePct": 3.03,
           "source": "증권신고서",
@@ -37473,7 +37901,7 @@
         },
         {
           "startDate": "2025-11-13",
-          "endDate": "2027-11-19",
+          "endDate": "2027-10-05",
           "ratePct": 2.25,
           "source": "신탁계약내용변경",
           "receiptNo": "20251113901070",
@@ -37482,6 +37910,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251113901070"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-11-12",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -38908,26 +39343,30 @@
       "listingDate": "2024-12-23",
       "liquidationDate": "2027-12-23",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 455,
-      "trustValuePerShare": 2189.54,
-      "liquidationValuePerShare": 2189.54,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 8.13,
-      "annualizedReturn": 6.47,
+      "daysToLiquidation": 454,
+      "expectedDelistingDate": "2027-07-29",
+      "payoutDate": "2027-11-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-07-16) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 409,
+      "trustValuePerShare": 2146.13,
+      "liquidationValuePerShare": 2146.13,
+      "liquidationValueSource": "공시 예치금(2025-12-17)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.98,
+      "annualizedReturn": 5.32,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-12-11",
+          "startDate": "2024-12-16",
           "endDate": "2025-12-16",
-          "ratePct": 3.25,
-          "source": "증권신고서",
-          "receiptNo": "20241210000275",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-12-10",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241210000275"
+          "ratePct": 3.2,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20251218900249",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249"
         },
         {
           "startDate": "2025-12-17",
-          "endDate": "2027-12-23",
+          "endDate": "2027-11-08",
           "ratePct": 2.92,
           "source": "신탁계약내용변경",
           "receiptNo": "20251218900249",
@@ -38936,6 +39375,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-12-16",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-12-17",
+          "valuePerShare": 2052.386,
+          "amount": 10261930000,
+          "shares": 5000000,
+          "receiptNo": "20251218900249",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -40334,11 +40788,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249",
             "startDate": "2025-12-17",
             "ratePct": 2.92,
-            "parserVersion": 2,
+            "rateBeforePct": 3.2,
+            "amountBefore": 10000000000,
+            "amountAfter": 10261930000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20241210000275)"
     },
@@ -40362,16 +40819,20 @@
       "listingDate": "2025-12-05",
       "liquidationDate": "2028-12-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 803,
-      "trustValuePerShare": 2187.58,
-      "liquidationValuePerShare": 2187.58,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 8.03,
-      "annualizedReturn": 3.57,
+      "daysToLiquidation": 802,
+      "expectedDelistingDate": "2028-07-10",
+      "payoutDate": "2028-10-20",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-27) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 756,
+      "trustValuePerShare": 2145.62,
+      "liquidationValuePerShare": 2145.62,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.96,
+      "annualizedReturn": 2.83,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-11-24",
-          "endDate": "2028-12-05",
+          "startDate": "2025-11-27",
+          "endDate": "2028-10-20",
           "ratePct": 3.0,
           "source": "증권신고서",
           "receiptNo": "20251121000115",
@@ -40380,6 +40841,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251121000115"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-11-27",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -41650,26 +42118,30 @@
       "listingDate": "2024-12-12",
       "liquidationDate": "2027-12-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 444,
-      "trustValuePerShare": 2168.69,
-      "liquidationValuePerShare": 2168.69,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.83,
-      "annualizedReturn": 5.58,
+      "daysToLiquidation": 443,
+      "expectedDelistingDate": "2027-07-18",
+      "payoutDate": "2027-10-28",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-07-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 398,
+      "trustValuePerShare": 2133.84,
+      "liquidationValuePerShare": 2133.84,
+      "liquidationValueSource": "공시 예치금(2025-12-08)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.12,
+      "annualizedReturn": 4.68,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-12-02",
+          "startDate": "2024-12-05",
           "endDate": "2025-12-07",
-          "ratePct": 3.03,
-          "source": "증권신고서",
-          "receiptNo": "20241129000608",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-11-29",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241129000608"
+          "ratePct": 3.1,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20251208900186",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-12-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186"
         },
         {
           "startDate": "2025-12-08",
-          "endDate": "2027-12-12",
+          "endDate": "2027-10-28",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20251208900186",
@@ -41678,6 +42150,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-12-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-12-08",
+          "valuePerShare": 2052.7394,
+          "amount": 12316436466,
+          "shares": 6000000,
+          "receiptNo": "20251208900186",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -44618,11 +45105,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900186",
             "startDate": "2025-12-08",
             "ratePct": 2.55,
-            "parserVersion": 2,
+            "rateBeforePct": 3.1,
+            "amountBefore": 12000000000,
+            "amountAfter": 12316436466,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20241129000608)"
     },
@@ -44646,26 +45136,30 @@
       "listingDate": "2024-11-28",
       "liquidationDate": "2027-11-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 430,
-      "trustValuePerShare": 2190.39,
-      "liquidationValuePerShare": 2190.39,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.9,
-      "annualizedReturn": 6.67,
+      "daysToLiquidation": 429,
+      "expectedDelistingDate": "2027-07-04",
+      "payoutDate": "2027-10-14",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-06-21) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 384,
+      "trustValuePerShare": 2144.37,
+      "liquidationValuePerShare": 2144.37,
+      "liquidationValueSource": "공시 예치금(2025-11-21)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.63,
+      "annualizedReturn": 5.35,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-11-18",
+          "startDate": "2024-11-21",
           "endDate": "2025-11-20",
-          "ratePct": 3.51,
-          "source": "증권신고서",
-          "receiptNo": "20241115000128",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-11-15",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241115000128"
+          "ratePct": 3.3,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20251124900682",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-24",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682"
         },
         {
           "startDate": "2025-11-21",
-          "endDate": "2027-11-28",
+          "endDate": "2027-10-14",
           "ratePct": 2.82,
           "source": "신탁계약내용변경",
           "receiptNo": "20251124900682",
@@ -44674,6 +45168,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-11-21",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-11-21",
+          "valuePerShare": 2053.8,
+          "amount": 12322800000,
+          "shares": 6000000,
+          "receiptNo": "20251124900682",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -46072,11 +46581,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251124900682",
             "startDate": "2025-11-21",
             "ratePct": 2.82,
-            "parserVersion": 2,
+            "rateBeforePct": 3.3,
+            "amountBefore": 12000000000,
+            "amountAfter": 12322800000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20241115000128)"
     },
@@ -46100,15 +46612,19 @@
       "listingDate": "2024-11-21",
       "liquidationDate": "2027-11-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 423,
-      "trustValuePerShare": 2186.0,
-      "liquidationValuePerShare": 2186.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.42,
-      "annualizedReturn": 6.37,
+      "daysToLiquidation": 422,
+      "expectedDelistingDate": "2027-06-27",
+      "payoutDate": "2027-10-07",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-06-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 377,
+      "trustValuePerShare": 2144.43,
+      "liquidationValuePerShare": 2144.43,
+      "liquidationValueSource": "공시 예치금(2025-11-17)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.38,
+      "annualizedReturn": 5.2,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-11-11",
+          "startDate": "2024-11-14",
           "endDate": "2025-11-16",
           "ratePct": 3.3,
           "source": "증권신고서",
@@ -46119,7 +46635,7 @@
         },
         {
           "startDate": "2025-11-17",
-          "endDate": "2027-11-21",
+          "endDate": "2027-10-07",
           "ratePct": 2.82,
           "source": "신탁계약내용변경",
           "receiptNo": "20251118900155",
@@ -46128,6 +46644,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900155"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-11-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-11-17",
+          "valuePerShare": 2054.236,
+          "amount": 10271180000,
+          "shares": 5000000,
+          "receiptNo": "20251118900155",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900155"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -47526,11 +48057,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900155",
             "startDate": "2025-11-17",
             "ratePct": 2.82,
-            "parserVersion": 2,
+            "rateBeforePct": 3.3,
+            "amountBefore": 10000000000,
+            "amountAfter": 10271180000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20241106000142)"
     },
@@ -47554,16 +48088,20 @@
       "listingDate": "2025-11-24",
       "liquidationDate": "2028-11-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 792,
-      "trustValuePerShare": 2154.26,
-      "liquidationValuePerShare": 2154.26,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.86,
-      "annualizedReturn": 2.66,
+      "daysToLiquidation": 791,
+      "expectedDelistingDate": "2028-07-01",
+      "payoutDate": "2028-10-11",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-06-18) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 747,
+      "trustValuePerShare": 2119.01,
+      "liquidationValuePerShare": 2119.01,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.13,
+      "annualizedReturn": 2.0,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-11-13",
-          "endDate": "2028-11-24",
+          "startDate": "2025-11-18",
+          "endDate": "2028-10-11",
           "ratePct": 2.48,
           "source": "증권신고서",
           "receiptNo": "20251112000416",
@@ -47572,6 +48110,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112000416"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-11-18",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -48872,7 +49417,7 @@
         "paymentDate": "2025-11-13",
         "extractedAt": "2026-06-13T20:24:13.393014+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251112000416)"
     },
@@ -48896,16 +49441,20 @@
       "listingDate": "2024-12-20",
       "liquidationDate": "2027-12-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 452,
-      "trustValuePerShare": 2218.27,
-      "liquidationValuePerShare": 2218.27,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 9.01,
-      "annualizedReturn": 7.21,
+      "daysToLiquidation": 451,
+      "expectedDelistingDate": "2027-07-29",
+      "payoutDate": "2027-11-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-07-16) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 409,
+      "trustValuePerShare": 2171.26,
+      "liquidationValuePerShare": 2171.26,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.7,
+      "annualizedReturn": 5.95,
       "escrowRatePeriods": [
         {
           "startDate": "2024-12-16",
-          "endDate": "2027-12-20",
+          "endDate": "2027-11-08",
           "ratePct": 3.5,
           "source": "증권신고서",
           "receiptNo": "20241210000541",
@@ -48914,6 +49463,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241210000541"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-12-16",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -50328,15 +50884,19 @@
       "listingDate": "2025-03-20",
       "liquidationDate": "2028-03-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 543,
-      "trustValuePerShare": 2195.01,
-      "liquidationValuePerShare": 2195.01,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 7.86,
-      "annualizedReturn": 5.22,
+      "daysToLiquidation": 542,
+      "expectedDelistingDate": "2028-03-27",
+      "payoutDate": "2028-07-07",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2028-03-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 651,
+      "trustValuePerShare": 2173.73,
+      "liquidationValuePerShare": 2173.73,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 6.82,
+      "annualizedReturn": 3.77,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-03-11",
+          "startDate": "2025-03-14",
           "endDate": "2026-03-16",
           "ratePct": 3.5,
           "source": "증권신고서",
@@ -50347,7 +50907,7 @@
         },
         {
           "startDate": "2026-03-17",
-          "endDate": "2028-03-20",
+          "endDate": "2028-07-07",
           "ratePct": 2.93,
           "source": "신탁계약내용변경",
           "receiptNo": "20260318900583",
@@ -50356,6 +50916,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318900583"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-03-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -52775,15 +53342,19 @@
       "listingDate": "2024-10-31",
       "liquidationDate": "2027-10-31",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 402,
-      "trustValuePerShare": 2168.75,
-      "liquidationValuePerShare": 2168.75,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.31,
-      "annualizedReturn": 5.71,
+      "daysToLiquidation": 401,
+      "expectedDelistingDate": "2027-06-07",
+      "payoutDate": "2027-09-17",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-05-25) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 357,
+      "trustValuePerShare": 2131.12,
+      "liquidationValuePerShare": 2131.12,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.47,
+      "annualizedReturn": 4.57,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-10-22",
+          "startDate": "2024-10-25",
           "endDate": "2025-10-27",
           "ratePct": 3.0,
           "source": "증권신고서",
@@ -52794,7 +53365,7 @@
         },
         {
           "startDate": "2025-10-28",
-          "endDate": "2027-10-31",
+          "endDate": "2027-09-17",
           "ratePct": 2.57,
           "source": "신탁계약내용변경",
           "receiptNo": "20251029900091",
@@ -52803,6 +53374,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251029900091"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-10-25",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -54229,22 +54807,26 @@
       "listingDate": "2024-09-25",
       "liquidationDate": "2027-09-25",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 366,
-      "trustValuePerShare": 2180.39,
-      "liquidationValuePerShare": 2180.39,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.36,
-      "annualizedReturn": 6.34,
+      "daysToLiquidation": 365,
+      "expectedDelistingDate": "2027-04-26",
+      "payoutDate": "2027-08-06",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-04-13) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 315,
+      "trustValuePerShare": 2143.91,
+      "liquidationValuePerShare": 2143.91,
+      "liquidationValueSource": "공시 예치금(2026-09-18)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.58,
+      "annualizedReturn": 5.33,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-09-10",
+          "startDate": "2024-09-13",
           "endDate": "2025-09-18",
-          "ratePct": 3.03,
-          "source": "증권신고서",
-          "receiptNo": "20240909000034",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-09-09",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240909000034"
+          "ratePct": 3.2,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250919900627",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-09-19",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250919900627"
         },
         {
           "startDate": "2025-09-19",
@@ -54258,7 +54840,7 @@
         },
         {
           "startDate": "2026-09-18",
-          "endDate": "2027-09-25",
+          "endDate": "2027-08-06",
           "ratePct": 3.35,
           "source": "신탁계약내용변경",
           "receiptNo": "20260918900352",
@@ -54267,9 +54849,24 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918900352"
         }
       ],
-      "status": "일반",
+      "valuationBasis": {
+        "trustStartDate": "2024-09-13",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-09-18",
+          "valuePerShare": 2093.1375,
+          "amount": 10465687533,
+          "shares": 5000000,
+          "receiptNo": "20260918900352",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918900352"
+        }
+      },
+      "status": "청산 1년 이내",
       "badges": [
-        "일반"
+        "청산 1년 이내"
       ],
       "mergerStatus": null,
       "mergerApplicationDisclosure": null,
@@ -55667,7 +56264,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250919900627",
             "startDate": "2025-09-19",
             "ratePct": 2.25,
-            "parserVersion": 2,
+            "rateBeforePct": 3.2,
+            "amountBefore": 10000000000,
+            "amountAfter": 10270720000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -55677,11 +56277,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918900352",
             "startDate": "2026-09-18",
             "ratePct": 3.35,
-            "parserVersion": 2,
+            "rateBeforePct": 2.25,
+            "amountBefore": 10270720000,
+            "amountAfter": 10465687533,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240909000034)"
     },
@@ -55705,16 +56308,20 @@
       "listingDate": "2025-12-15",
       "liquidationDate": "2028-12-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 813,
-      "trustValuePerShare": 2160.0,
-      "liquidationValuePerShare": 2160.0,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.37,
-      "annualizedReturn": 2.37,
+      "daysToLiquidation": 812,
+      "expectedDelistingDate": "2028-07-22",
+      "payoutDate": "2028-11-01",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2028-07-09) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 768,
+      "trustValuePerShare": 2123.6,
+      "liquidationValuePerShare": 2123.6,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.59,
+      "annualizedReturn": 1.69,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-04",
-          "endDate": "2028-12-15",
+          "startDate": "2025-12-09",
+          "endDate": "2028-11-01",
           "ratePct": 2.57,
           "source": "증권신고서",
           "receiptNo": "20251202000413",
@@ -55723,6 +56330,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251202000413"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-09",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -56935,7 +57549,7 @@
         "parseWarnings": [
           "escrowAmount: 패턴 미발견"
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251202000413)"
     },
@@ -56960,14 +57574,18 @@
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2122.66,
-      "liquidationValuePerShare": 2122.66,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 3.54,
-      "annualizedReturn": null,
+      "expectedDelistingDate": "2027-03-03",
+      "payoutDate": "2027-06-13",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-02-18) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 261,
+      "trustValuePerShare": 2138.6,
+      "liquidationValuePerShare": 2138.6,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.32,
+      "annualizedReturn": 6.1,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-07-15",
+          "startDate": "2024-07-18",
           "endDate": "2025-07-17",
           "ratePct": 3.0,
           "source": "증권신고서",
@@ -56988,7 +57606,7 @@
         },
         {
           "startDate": "2026-07-20",
-          "endDate": null,
+          "endDate": "2027-06-13",
           "ratePct": 3.19,
           "source": "신탁계약내용변경",
           "receiptNo": "20260721900433",
@@ -56997,6 +57615,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260721900433"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-07-18",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -58419,22 +59044,26 @@
       "listingDate": "2024-09-11",
       "liquidationDate": "2027-09-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 352,
-      "trustValuePerShare": 2185.44,
-      "liquidationValuePerShare": 2185.44,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.35,
-      "annualizedReturn": 6.59,
+      "daysToLiquidation": 351,
+      "expectedDelistingDate": "2027-09-18",
+      "payoutDate": "2027-12-29",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2027-09-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 460,
+      "trustValuePerShare": 2169.26,
+      "liquidationValuePerShare": 2169.26,
+      "liquidationValueSource": "공시 예치금(2026-09-08)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 5.56,
+      "annualizedReturn": 4.39,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-09-02",
+          "startDate": "2024-09-05",
           "endDate": "2025-09-07",
-          "ratePct": 3.32,
-          "source": "증권신고서",
-          "receiptNo": "20240829001549",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-08-29",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240829001549"
+          "ratePct": 3.2,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250909900066",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-09-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250909900066"
         },
         {
           "startDate": "2025-09-08",
@@ -58448,7 +59077,7 @@
         },
         {
           "startDate": "2026-09-08",
-          "endDate": "2027-09-11",
+          "endDate": "2027-12-29",
           "ratePct": 3.35,
           "source": "신탁계약내용변경",
           "receiptNo": "20260908900528",
@@ -58457,6 +59086,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260908900528"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-09-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-09-08",
+          "valuePerShare": 2093.547,
+          "amount": 16643698321,
+          "shares": 7950000,
+          "receiptNo": "20260908900528",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260908900528"
+        }
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -61615,7 +62259,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250909900066",
             "startDate": "2025-09-08",
             "ratePct": 2.25,
-            "parserVersion": 2,
+            "rateBeforePct": 3.2,
+            "amountBefore": 15900000000,
+            "amountAfter": 16332803405,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -61625,11 +62272,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260908900528",
             "startDate": "2026-09-08",
             "ratePct": 3.35,
-            "parserVersion": 2,
+            "rateBeforePct": 2.25,
+            "amountBefore": 16332803405,
+            "amountAfter": 16643698321,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240829001549)"
     },
@@ -61653,12 +62303,16 @@
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 273,
-      "trustValuePerShare": 2195.2,
-      "liquidationValuePerShare": 2195.2,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.56,
-      "annualizedReturn": 8.87,
+      "daysToLiquidation": 272,
+      "expectedDelistingDate": "2027-01-27",
+      "payoutDate": "2027-05-09",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 226,
+      "trustValuePerShare": 2152.11,
+      "liquidationValuePerShare": 2152.11,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.47,
+      "annualizedReturn": 7.32,
       "escrowRatePeriods": [
         {
           "startDate": "2024-06-14",
@@ -61682,7 +62336,7 @@
         },
         {
           "startDate": "2026-06-17",
-          "endDate": "2027-06-24",
+          "endDate": "2027-05-09",
           "ratePct": 3.15,
           "source": "신탁계약내용변경",
           "receiptNo": "20260618900218",
@@ -61691,6 +62345,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260618900218"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-06-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -63129,12 +63790,16 @@
       "listingDate": "2024-07-12",
       "liquidationDate": "2027-07-12",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 291,
-      "trustValuePerShare": 2188.67,
-      "liquidationValuePerShare": 2188.67,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.25,
-      "annualizedReturn": 7.9,
+      "daysToLiquidation": 290,
+      "expectedDelistingDate": "2027-02-18",
+      "payoutDate": "2027-05-31",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-02-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 248,
+      "trustValuePerShare": 2147.14,
+      "liquidationValuePerShare": 2147.14,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.23,
+      "annualizedReturn": 6.29,
       "escrowRatePeriods": [
         {
           "startDate": "2024-07-05",
@@ -63158,7 +63823,7 @@
         },
         {
           "startDate": "2026-07-08",
-          "endDate": "2027-07-12",
+          "endDate": "2027-05-31",
           "ratePct": 3.22,
           "source": "신탁계약내용변경",
           "receiptNo": "20260709900133",
@@ -63167,6 +63832,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260709900133"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-07-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -64604,21 +65276,25 @@
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2145.49,
-      "liquidationValuePerShare": 2145.49,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 3.9,
-      "annualizedReturn": null,
+      "expectedDelistingDate": "2027-01-24",
+      "payoutDate": "2027-05-06",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-11) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 223,
+      "trustValuePerShare": 2145.28,
+      "liquidationValuePerShare": 2145.28,
+      "liquidationValueSource": "공시 예치금(2026-06-12)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.89,
+      "annualizedReturn": 6.44,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-06-05",
+          "startDate": "2024-06-11",
           "endDate": "2025-06-11",
-          "ratePct": 3.6,
-          "source": "증권신고서",
-          "receiptNo": "20240530001411",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-05-30",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240530001411"
+          "ratePct": 3.45,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250613900290",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-13",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250613900290"
         },
         {
           "startDate": "2025-06-12",
@@ -64662,7 +65338,7 @@
         },
         {
           "startDate": "2026-06-12",
-          "endDate": null,
+          "endDate": "2027-05-06",
           "ratePct": 2.83,
           "source": "신탁계약내용변경",
           "receiptNo": "20260615900762",
@@ -64671,6 +65347,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260615900762"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-06-11",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-06-12",
+          "valuePerShare": 2101.66,
+          "amount": 10508300000,
+          "shares": 5000000,
+          "receiptNo": "20260615900762",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260615900762"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -68292,7 +68983,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250613900290",
             "startDate": "2025-06-12",
             "ratePct": 2.49,
-            "parserVersion": 2,
+            "rateBeforePct": 3.45,
+            "amountBefore": 10000000000,
+            "amountAfter": 10282900000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -68302,7 +68996,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250915900125",
             "startDate": "2025-09-12",
             "ratePct": 2.47,
-            "parserVersion": 2,
+            "rateBeforePct": 2.49,
+            "amountBefore": 10282900000,
+            "amountAfter": 10335400000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -68312,7 +69009,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251215901226",
             "startDate": "2025-12-12",
             "ratePct": 2.82,
-            "parserVersion": 2,
+            "rateBeforePct": 2.47,
+            "amountBefore": 10335400000,
+            "amountAfter": 10387200000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -68322,7 +69022,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313901011",
             "startDate": "2026-03-12",
             "ratePct": 2.85,
-            "parserVersion": 2,
+            "rateBeforePct": 2.82,
+            "amountBefore": 10387200000,
+            "amountAfter": 10447000000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -68332,11 +69035,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260615900762",
             "startDate": "2026-06-12",
             "ratePct": 2.83,
-            "parserVersion": 2,
+            "rateBeforePct": 2.85,
+            "amountBefore": 10447080947,
+            "amountAfter": 10508300000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240530001411)"
     },
@@ -68360,22 +69066,26 @@
       "listingDate": "2024-08-13",
       "liquidationDate": "2027-08-13",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 323,
-      "trustValuePerShare": 2192.03,
-      "liquidationValuePerShare": 2192.03,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 6.15,
-      "annualizedReturn": 6.98,
+      "daysToLiquidation": 322,
+      "expectedDelistingDate": "2027-08-19",
+      "payoutDate": "2027-11-29",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2027-08-06) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 430,
+      "trustValuePerShare": 2167.42,
+      "liquidationValuePerShare": 2167.42,
+      "liquidationValueSource": "공시 예치금(2026-08-07)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.96,
+      "annualizedReturn": 4.19,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-08-01",
+          "startDate": "2024-08-06",
           "endDate": "2025-08-06",
-          "ratePct": 3.55,
-          "source": "증권신고서",
-          "receiptNo": "20240731000498",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-07-31",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240731000498"
+          "ratePct": 3.3,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250808900104",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-08-08",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250808900104"
         },
         {
           "startDate": "2025-08-07",
@@ -68389,7 +69099,7 @@
         },
         {
           "startDate": "2026-08-07",
-          "endDate": "2027-08-13",
+          "endDate": "2027-11-29",
           "ratePct": 3.22,
           "source": "신탁계약내용변경",
           "receiptNo": "20260810900258",
@@ -68398,6 +69108,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260810900258"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-08-06",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-08-07",
+          "valuePerShare": 2094.4176,
+          "amount": 12147622022,
+          "shares": 5800000,
+          "receiptNo": "20260810900258",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260810900258"
+        }
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -71886,7 +72611,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250808900104",
             "startDate": "2025-08-07",
             "ratePct": 2.43,
-            "parserVersion": 2,
+            "rateBeforePct": 3.3,
+            "amountBefore": 11600000000,
+            "amountAfter": 11912583336,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -71896,11 +72624,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260810900258",
             "startDate": "2026-08-07",
             "ratePct": 3.22,
-            "parserVersion": 2,
+            "rateBeforePct": 2.43,
+            "amountBefore": 11912583336,
+            "amountAfter": 12147622022,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240731000498)"
     },
@@ -71924,26 +72655,30 @@
       "listingDate": "2024-11-20",
       "liquidationDate": "2027-11-20",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 422,
-      "trustValuePerShare": 2179.38,
-      "liquidationValuePerShare": 2179.38,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.54,
-      "annualizedReturn": 4.77,
+      "daysToLiquidation": 421,
+      "expectedDelistingDate": "2027-06-27",
+      "payoutDate": "2027-10-07",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-06-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 377,
+      "trustValuePerShare": 2144.43,
+      "liquidationValuePerShare": 2144.43,
+      "liquidationValueSource": "공시 예치금(2025-11-17)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.85,
+      "annualizedReturn": 3.72,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-11-11",
+          "startDate": "2024-11-14",
           "endDate": "2025-11-16",
-          "ratePct": 3.0,
-          "source": "증권신고서",
-          "receiptNo": "20241107000228",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-11-07",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241107000228"
+          "ratePct": 3.3,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20251118900050",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-18",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050"
         },
         {
           "startDate": "2025-11-17",
-          "endDate": "2027-11-20",
+          "endDate": "2027-10-07",
           "ratePct": 2.82,
           "source": "신탁계약내용변경",
           "receiptNo": "20251118900050",
@@ -71952,6 +72687,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-11-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-11-17",
+          "valuePerShare": 2054.2364,
+          "amount": 11298300000,
+          "shares": 5500000,
+          "receiptNo": "20251118900050",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -73352,11 +74102,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251118900050",
             "startDate": "2025-11-17",
             "ratePct": 2.82,
-            "parserVersion": 2,
+            "rateBeforePct": 3.3,
+            "amountBefore": 11000000000,
+            "amountAfter": 11298300000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20241107000228)"
     },
@@ -73380,15 +74133,19 @@
       "listingDate": "2024-05-29",
       "liquidationDate": "2027-05-29",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 247,
-      "trustValuePerShare": 2171.57,
-      "liquidationValuePerShare": 2171.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.16,
-      "annualizedReturn": 7.72,
+      "daysToLiquidation": 246,
+      "expectedDelistingDate": "2027-01-05",
+      "payoutDate": "2027-04-17",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-12-23) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 204,
+      "trustValuePerShare": 2137.08,
+      "liquidationValuePerShare": 2137.08,
+      "liquidationValueSource": "공시 예치금(2026-05-26)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.49,
+      "annualizedReturn": 6.33,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-05-20",
+          "startDate": "2024-05-23",
           "endDate": "2025-05-25",
           "ratePct": 3.32,
           "source": "증권신고서",
@@ -73409,7 +74166,7 @@
         },
         {
           "startDate": "2026-05-26",
-          "endDate": "2027-05-29",
+          "endDate": "2027-04-17",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260526900406",
@@ -73418,6 +74175,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900406"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-05-23",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-05-26",
+          "valuePerShare": 2098.237,
+          "amount": 13953276195,
+          "shares": 6650000,
+          "receiptNo": "20260526900406",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900406"
+        }
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -74816,7 +75588,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250530900482",
             "startDate": "2025-05-26",
             "ratePct": 2.4,
-            "parserVersion": 2,
+            "rateBeforePct": 3.32,
+            "amountBefore": 13300000000,
+            "amountAfter": 13675606666,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -74826,11 +75601,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526900406",
             "startDate": "2026-05-26",
             "ratePct": 2.55,
-            "parserVersion": 2,
+            "rateBeforePct": 2.4,
+            "amountBefore": 13675606666,
+            "amountAfter": 13953276195,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240517000260)"
     },
@@ -74854,15 +75632,19 @@
       "listingDate": "2024-06-19",
       "liquidationDate": "2027-06-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 268,
-      "trustValuePerShare": 2171.57,
-      "liquidationValuePerShare": 2171.57,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.16,
-      "annualizedReturn": 7.09,
+      "daysToLiquidation": 267,
+      "expectedDelistingDate": "2027-01-26",
+      "payoutDate": "2027-05-08",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-13) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 225,
+      "trustValuePerShare": 2137.08,
+      "liquidationValuePerShare": 2137.08,
+      "liquidationValueSource": "공시 예치금(2026-06-16)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.49,
+      "annualizedReturn": 5.72,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-06-10",
+          "startDate": "2024-06-13",
           "endDate": "2025-06-15",
           "ratePct": 3.32,
           "source": "증권신고서",
@@ -74883,7 +75665,7 @@
         },
         {
           "startDate": "2026-06-16",
-          "endDate": "2027-06-19",
+          "endDate": "2027-05-08",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260616900397",
@@ -74892,6 +75674,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900397"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-06-13",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-06-16",
+          "valuePerShare": 2098.237,
+          "amount": 9966625860,
+          "shares": 4750000,
+          "receiptNo": "20260616900397",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900397"
+        }
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -76290,7 +77087,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250617900111",
             "startDate": "2025-06-16",
             "ratePct": 2.4,
-            "parserVersion": 2,
+            "rateBeforePct": 3.32,
+            "amountBefore": 9500000000,
+            "amountAfter": 9768290479,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -76300,11 +77100,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900397",
             "startDate": "2026-06-16",
             "ratePct": 2.55,
-            "parserVersion": 2,
+            "rateBeforePct": 2.4,
+            "amountBefore": 9768290479,
+            "amountAfter": 9966625860,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240607000402)"
     },
@@ -76328,15 +77131,19 @@
       "listingDate": "2024-06-24",
       "liquidationDate": "2027-06-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 273,
-      "trustValuePerShare": 2171.87,
-      "liquidationValuePerShare": 2171.87,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.18,
-      "annualizedReturn": 6.98,
+      "daysToLiquidation": 272,
+      "expectedDelistingDate": "2027-01-31",
+      "payoutDate": "2027-05-13",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-18) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 230,
+      "trustValuePerShare": 2137.0,
+      "liquidationValuePerShare": 2137.0,
+      "liquidationValueSource": "공시 예치금(2026-06-19)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.49,
+      "annualizedReturn": 5.59,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-06-13",
+          "startDate": "2024-06-18",
           "endDate": "2025-06-18",
           "ratePct": 3.32,
           "source": "증권신고서",
@@ -76357,7 +77164,7 @@
         },
         {
           "startDate": "2026-06-19",
-          "endDate": "2027-06-24",
+          "endDate": "2027-05-13",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260622900351",
@@ -76366,6 +77173,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260622900351"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-06-18",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-06-19",
+          "valuePerShare": 2097.923,
+          "amount": 13531603127,
+          "shares": 6450000,
+          "receiptNo": "20260622900351",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260622900351"
+        }
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -77764,7 +78586,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250620900245",
             "startDate": "2025-06-19",
             "ratePct": 2.4,
-            "parserVersion": 2,
+            "rateBeforePct": 3.32,
+            "amountBefore": 12900000000,
+            "amountAfter": 13262324880,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -77774,11 +78599,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260622900351",
             "startDate": "2026-06-19",
             "ratePct": 2.55,
-            "parserVersion": 2,
+            "rateBeforePct": 2.4,
+            "amountBefore": 13262324880,
+            "amountAfter": 13531603127,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240611000366)"
     },
@@ -77802,15 +78630,19 @@
       "listingDate": "2024-06-26",
       "liquidationDate": "2027-06-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 275,
-      "trustValuePerShare": 2161.54,
-      "liquidationValuePerShare": 2161.54,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.67,
-      "annualizedReturn": 6.25,
+      "daysToLiquidation": 274,
+      "expectedDelistingDate": "2027-02-02",
+      "payoutDate": "2027-05-15",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-20) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 232,
+      "trustValuePerShare": 2125.67,
+      "liquidationValuePerShare": 2125.67,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.94,
+      "annualizedReturn": 4.66,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-06-17",
+          "startDate": "2024-06-20",
           "endDate": "2025-06-22",
           "ratePct": 3.0,
           "source": "증권신고서",
@@ -77821,7 +78653,7 @@
         },
         {
           "startDate": "2025-06-23",
-          "endDate": "2027-06-26",
+          "endDate": "2027-05-15",
           "ratePct": 2.4,
           "source": "신탁계약내용변경",
           "receiptNo": "20250623900137",
@@ -77830,6 +78662,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250623900137"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-06-20",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -79256,22 +80095,26 @@
       "listingDate": "2024-06-21",
       "liquidationDate": "2027-06-21",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 270,
-      "trustValuePerShare": 2168.08,
-      "liquidationValuePerShare": 2168.08,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.74,
-      "annualizedReturn": 6.46,
+      "daysToLiquidation": 269,
+      "expectedDelistingDate": "2027-01-27",
+      "payoutDate": "2027-05-09",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-01-14) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 226,
+      "trustValuePerShare": 2136.76,
+      "liquidationValuePerShare": 2136.76,
+      "liquidationValueSource": "공시 예치금(2026-06-17)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.23,
+      "annualizedReturn": 5.26,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-06-11",
+          "startDate": "2024-06-14",
           "endDate": "2025-06-16",
-          "ratePct": 3.15,
-          "source": "증권신고서",
-          "receiptNo": "20240610000163",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-06-10",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240610000163"
+          "ratePct": 3.32,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250707900458",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-07-07",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250707900458"
         },
         {
           "startDate": "2025-06-17",
@@ -79285,7 +80128,7 @@
         },
         {
           "startDate": "2026-06-17",
-          "endDate": "2027-06-21",
+          "endDate": "2027-05-09",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260617900410",
@@ -79294,6 +80137,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260617900410"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-06-14",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-06-17",
+          "valuePerShare": 2097.923,
+          "amount": 12587537803,
+          "shares": 6000000,
+          "receiptNo": "20260617900410",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260617900410"
+        }
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -80694,7 +81552,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250707900458",
             "startDate": "2025-06-17",
             "ratePct": 2.4,
-            "parserVersion": 2,
+            "rateBeforePct": 3.32,
+            "amountBefore": 12000000000,
+            "amountAfter": 12337046400,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -80704,11 +81565,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260617900410",
             "startDate": "2026-06-17",
             "ratePct": 2.55,
-            "parserVersion": 2,
+            "rateBeforePct": 2.4,
+            "amountBefore": 12337046400,
+            "amountAfter": 12587537803,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240610000163)"
     },
@@ -80732,15 +81596,19 @@
       "listingDate": "2024-07-26",
       "liquidationDate": "2027-07-26",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 305,
-      "trustValuePerShare": 2176.84,
-      "liquidationValuePerShare": 2176.84,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.16,
-      "annualizedReturn": 6.21,
+      "daysToLiquidation": 304,
+      "expectedDelistingDate": "2027-03-04",
+      "payoutDate": "2027-06-14",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-02-19) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 262,
+      "trustValuePerShare": 2137.1,
+      "liquidationValuePerShare": 2137.1,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.24,
+      "annualizedReturn": 4.54,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-07-16",
+          "startDate": "2024-07-19",
           "endDate": "2025-07-21",
           "ratePct": 3.0,
           "source": "증권신고서",
@@ -80771,7 +81639,7 @@
         },
         {
           "startDate": "2026-07-24",
-          "endDate": "2027-07-26",
+          "endDate": "2027-06-14",
           "ratePct": 3.08,
           "source": "신탁계약내용변경",
           "receiptNo": "20260727900300",
@@ -80780,6 +81648,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727900300"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-07-19",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -82226,26 +83101,30 @@
       "listingDate": "2024-11-15",
       "liquidationDate": "2027-11-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 417,
-      "trustValuePerShare": 2175.28,
-      "liquidationValuePerShare": 2175.28,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.83,
-      "annualizedReturn": 4.22,
+      "daysToLiquidation": 416,
+      "expectedDelistingDate": "2027-06-21",
+      "payoutDate": "2027-10-01",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2027-06-08) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 371,
+      "trustValuePerShare": 2140.74,
+      "liquidationValuePerShare": 2140.74,
+      "liquidationValueSource": "공시 예치금(2025-11-11)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.17,
+      "annualizedReturn": 3.12,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-11-05",
+          "startDate": "2024-11-08",
           "endDate": "2025-11-10",
-          "ratePct": 3.0,
-          "source": "증권신고서",
-          "receiptNo": "20241104000200",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-11-04",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241104000200"
+          "ratePct": 3.3,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20251112900534",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-11-12",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534"
         },
         {
           "startDate": "2025-11-11",
-          "endDate": "2027-11-15",
+          "endDate": "2027-10-01",
           "ratePct": 2.72,
           "source": "신탁계약내용변경",
           "receiptNo": "20251112900534",
@@ -82254,6 +83133,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-11-08",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-11-11",
+          "valuePerShare": 2053.9103,
+          "amount": 8010250000,
+          "shares": 3900000,
+          "receiptNo": "20251112900534",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -83652,11 +84546,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251112900534",
             "startDate": "2025-11-11",
             "ratePct": 2.72,
-            "parserVersion": 2,
+            "rateBeforePct": 3.3,
+            "amountBefore": 7800000000,
+            "amountAfter": 8010250000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20241104000200)"
     },
@@ -83681,21 +84578,25 @@
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2143.17,
-      "liquidationValuePerShare": 2143.17,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 3.29,
-      "annualizedReturn": null,
+      "expectedDelistingDate": "2026-12-09",
+      "payoutDate": "2027-03-21",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-11-26) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 177,
+      "trustValuePerShare": 2145.71,
+      "liquidationValuePerShare": 2145.71,
+      "liquidationValueSource": "공시 예치금(2025-04-29)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.41,
+      "annualizedReturn": 7.15,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-04-23",
+          "startDate": "2024-04-26",
           "endDate": "2025-04-28",
-          "ratePct": 3.15,
-          "source": "증권신고서",
-          "receiptNo": "20240422000014",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-04-22",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240422000014"
+          "ratePct": 3.45,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250430900860",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-04-30",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430900860"
         },
         {
           "startDate": "2025-04-29",
@@ -83709,7 +84610,7 @@
         },
         {
           "startDate": "2026-04-29",
-          "endDate": null,
+          "endDate": "2027-03-21",
           "ratePct": 2.99,
           "source": "신탁계약내용변경",
           "receiptNo": "20260430901495",
@@ -83718,6 +84619,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260430901495"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-04-26",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-04-29",
+          "valuePerShare": 2056.3667,
+          "amount": 6169100000,
+          "shares": 3000000,
+          "receiptNo": "20250430900860",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430900860"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -85092,7 +86008,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430900860",
             "startDate": "2025-04-29",
             "ratePct": 2.6,
-            "parserVersion": 2,
+            "rateBeforePct": 3.45,
+            "amountBefore": 6000000000,
+            "amountAfter": 6169100000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -85106,7 +86025,7 @@
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240422000014)"
     },
@@ -85130,15 +86049,19 @@
       "listingDate": "2024-05-02",
       "liquidationDate": "2027-05-02",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 220,
-      "trustValuePerShare": 2183.68,
-      "liquidationValuePerShare": 2183.68,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.24,
-      "annualizedReturn": 8.84,
+      "daysToLiquidation": 219,
+      "expectedDelistingDate": "2026-12-08",
+      "payoutDate": "2027-03-20",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-11-25) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 176,
+      "trustValuePerShare": 2142.92,
+      "liquidationValuePerShare": 2142.92,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 3.27,
+      "annualizedReturn": 6.91,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-04-22",
+          "startDate": "2024-04-25",
           "endDate": "2025-04-27",
           "ratePct": 3.3,
           "source": "증권신고서",
@@ -85159,7 +86082,7 @@
         },
         {
           "startDate": "2026-04-28",
-          "endDate": "2027-05-02",
+          "endDate": "2027-03-20",
           "ratePct": 2.93,
           "source": "신탁계약내용변경",
           "receiptNo": "20260429900289",
@@ -85168,6 +86091,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429900289"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-04-25",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -86604,22 +87534,26 @@
       "listingDate": "2024-04-15",
       "liquidationDate": "2027-04-15",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 203,
-      "trustValuePerShare": 2168.72,
-      "liquidationValuePerShare": 2168.72,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.27,
-      "annualizedReturn": 7.8,
+      "daysToLiquidation": 202,
+      "expectedDelistingDate": "2026-11-18",
+      "payoutDate": "2027-02-28",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-11-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 156,
+      "trustValuePerShare": 2138.36,
+      "liquidationValuePerShare": 2138.36,
+      "liquidationValueSource": "공시 예치금(2025-10-10)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.81,
+      "annualizedReturn": 6.69,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-04-02",
+          "startDate": "2024-04-05",
           "endDate": "2025-04-07",
-          "ratePct": 3.0,
-          "source": "증권신고서",
-          "receiptNo": "20240401001215",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-04-01",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240401001215"
+          "ratePct": 3.45,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250409900157",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-04-09",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250409900157"
         },
         {
           "startDate": "2025-04-08",
@@ -86633,7 +87567,7 @@
         },
         {
           "startDate": "2025-10-10",
-          "endDate": "2027-04-15",
+          "endDate": "2027-02-28",
           "ratePct": 2.49,
           "source": "신탁계약내용변경",
           "receiptNo": "20251013900260",
@@ -86642,6 +87576,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251013900260"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-04-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2025-10-10",
+          "valuePerShare": 2079.732,
+          "amount": 10398660000,
+          "shares": 5000000,
+          "receiptNo": "20251013900260",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251013900260"
+        }
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -90494,7 +91443,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250409900157",
             "startDate": "2025-04-08",
             "ratePct": 2.75,
-            "parserVersion": 2,
+            "rateBeforePct": 3.45,
+            "amountBefore": 10000000000,
+            "amountAfter": 10281340000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -90504,11 +91456,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251013900260",
             "startDate": "2025-10-10",
             "ratePct": 2.49,
-            "parserVersion": 2,
+            "rateBeforePct": 2.75,
+            "amountBefore": 10281340000,
+            "amountAfter": 10398660000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240401001215)"
     },
@@ -90532,15 +91487,19 @@
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 157,
-      "trustValuePerShare": 2184.21,
-      "liquidationValuePerShare": 2184.21,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 5.01,
-      "annualizedReturn": 12.04,
+      "daysToLiquidation": 156,
+      "expectedDelistingDate": "2027-03-07",
+      "payoutDate": "2027-06-17",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2027-02-22) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 265,
+      "trustValuePerShare": 2164.59,
+      "liquidationValuePerShare": 2164.59,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 4.07,
+      "annualizedReturn": 5.64,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-02-19",
+          "startDate": "2024-02-22",
           "endDate": "2025-02-20",
           "ratePct": 3.0,
           "source": "증권신고서",
@@ -90561,7 +91520,7 @@
         },
         {
           "startDate": "2026-02-20",
-          "endDate": "2027-02-28",
+          "endDate": "2027-06-17",
           "ratePct": 2.91,
           "source": "신탁계약내용변경",
           "receiptNo": "20260223900383",
@@ -90570,6 +91529,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260223900383"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-02-22",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -94616,15 +95582,19 @@
       "listingDate": "2024-04-24",
       "liquidationDate": "2027-04-24",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 212,
-      "trustValuePerShare": 2175.81,
-      "liquidationValuePerShare": 2175.81,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.36,
-      "annualizedReturn": 7.62,
+      "daysToLiquidation": 211,
+      "expectedDelistingDate": "2026-12-01",
+      "payoutDate": "2027-03-13",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-11-18) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 169,
+      "trustValuePerShare": 2137.25,
+      "liquidationValuePerShare": 2137.25,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.51,
+      "annualizedReturn": 5.49,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-04-15",
+          "startDate": "2024-04-18",
           "endDate": "2025-04-20",
           "ratePct": 3.32,
           "source": "증권신고서",
@@ -94645,7 +95615,7 @@
         },
         {
           "startDate": "2026-04-21",
-          "endDate": "2027-04-24",
+          "endDate": "2027-03-13",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260421900365",
@@ -94654,6 +95624,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260421900365"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-04-18",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -96090,22 +97067,26 @@
       "listingDate": "2024-04-22",
       "liquidationDate": "2027-04-22",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 210,
-      "trustValuePerShare": 2180.18,
-      "liquidationValuePerShare": 2180.18,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.32,
-      "annualizedReturn": 7.62,
+      "daysToLiquidation": 209,
+      "expectedDelistingDate": "2026-11-29",
+      "payoutDate": "2027-03-11",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-11-16) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 167,
+      "trustValuePerShare": 2147.37,
+      "liquidationValuePerShare": 2147.37,
+      "liquidationValueSource": "공시 예치금(2026-04-16)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.74,
+      "annualizedReturn": 6.1,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-04-11",
+          "startDate": "2024-04-16",
           "endDate": "2025-04-15",
-          "ratePct": 3.0,
-          "source": "증권신고서",
-          "receiptNo": "20240408004008",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-04-08",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240408004008"
+          "ratePct": 3.45,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250611900659",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-06-11",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611900659"
         },
         {
           "startDate": "2025-04-16",
@@ -96119,7 +97100,7 @@
         },
         {
           "startDate": "2026-04-16",
-          "endDate": "2027-04-22",
+          "endDate": "2027-03-11",
           "ratePct": 3.01,
           "source": "신탁계약내용변경",
           "receiptNo": "20260616900447",
@@ -96128,6 +97109,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900447"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-04-16",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-04-16",
+          "valuePerShare": 2100.7533,
+          "amount": 6302260000,
+          "shares": 3000000,
+          "receiptNo": "20260616900447",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900447"
+        }
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -97526,7 +98522,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611900659",
             "startDate": "2025-04-16",
             "ratePct": 2.65,
-            "parserVersion": 2,
+            "rateBeforePct": 3.45,
+            "amountBefore": 6000000000,
+            "amountAfter": 6168920000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -97536,11 +98535,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260616900447",
             "startDate": "2026-04-16",
             "ratePct": 3.01,
-            "parserVersion": 2,
+            "rateBeforePct": 2.65,
+            "amountBefore": 6168920000,
+            "amountAfter": 6302260000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240408004008)"
     },
@@ -97564,15 +98566,19 @@
       "listingDate": "2024-03-27",
       "liquidationDate": "2027-03-27",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 184,
-      "trustValuePerShare": 2175.81,
-      "liquidationValuePerShare": 2175.81,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.11,
-      "annualizedReturn": 8.31,
+      "daysToLiquidation": 183,
+      "expectedDelistingDate": "2026-11-03",
+      "payoutDate": "2027-02-13",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-10-21) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 141,
+      "trustValuePerShare": 2137.25,
+      "liquidationValuePerShare": 2137.25,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.26,
+      "annualizedReturn": 5.96,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-03-18",
+          "startDate": "2024-03-21",
           "endDate": "2025-03-23",
           "ratePct": 3.32,
           "source": "증권신고서",
@@ -97593,7 +98599,7 @@
         },
         {
           "startDate": "2026-03-24",
-          "endDate": "2027-03-27",
+          "endDate": "2027-02-13",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260324900482",
@@ -97602,6 +98608,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260324900482"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-03-21",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -99039,21 +100052,25 @@
       "liquidationDate": null,
       "liquidationDateSource": null,
       "daysToLiquidation": null,
-      "trustValuePerShare": 2160.49,
-      "liquidationValuePerShare": 2160.49,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 2.88,
-      "annualizedReturn": null,
+      "expectedDelistingDate": "2026-10-06",
+      "payoutDate": "2027-01-16",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-09-23) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 113,
+      "trustValuePerShare": 2153.4,
+      "liquidationValuePerShare": 2153.4,
+      "liquidationValueSource": "공시 예치금(2026-02-26)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.54,
+      "annualizedReturn": 8.45,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-02-20",
+          "startDate": "2024-02-23",
           "endDate": "2025-02-25",
-          "ratePct": 3.15,
-          "source": "증권신고서",
-          "receiptNo": "20240219001008",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-02-19",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240219001008"
+          "ratePct": 3.6,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250227900272",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-02-27",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250227900272"
         },
         {
           "startDate": "2025-02-26",
@@ -99067,7 +100084,7 @@
         },
         {
           "startDate": "2026-02-26",
-          "endDate": null,
+          "endDate": "2027-01-16",
           "ratePct": 2.91,
           "source": "신탁계약내용변경",
           "receiptNo": "20260227901631",
@@ -99076,6 +100093,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901631"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-02-23",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-02-26",
+          "valuePerShare": 2108.9,
+          "amount": 8435600000,
+          "shares": 4000000,
+          "receiptNo": "20260227901631",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901631"
+        }
+      },
       "status": "일반",
       "badges": [
         "일반"
@@ -100450,7 +101482,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250227900272",
             "startDate": "2025-02-26",
             "ratePct": 2.95,
-            "parserVersion": 2,
+            "rateBeforePct": 3.6,
+            "amountBefore": 8000000000,
+            "amountAfter": 8236800000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -100460,11 +101495,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901631",
             "startDate": "2026-02-26",
             "ratePct": 2.91,
-            "parserVersion": 2,
+            "rateBeforePct": 2.95,
+            "amountBefore": 8236800000,
+            "amountAfter": 8435600000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240219001008)"
     },
@@ -100488,15 +101526,19 @@
       "listingDate": "2024-02-29",
       "liquidationDate": "2027-02-28",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 157,
-      "trustValuePerShare": 2194.87,
-      "liquidationValuePerShare": 2194.87,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 4.52,
-      "annualizedReturn": 10.82,
+      "daysToLiquidation": 156,
+      "expectedDelistingDate": "2026-10-06",
+      "payoutDate": "2027-01-16",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-09-23) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 113,
+      "trustValuePerShare": 2152.28,
+      "liquidationValuePerShare": 2152.28,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.49,
+      "annualizedReturn": 8.27,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-02-20",
+          "startDate": "2024-02-23",
           "endDate": "2025-02-25",
           "ratePct": 3.5,
           "source": "증권신고서",
@@ -100517,7 +101559,7 @@
         },
         {
           "startDate": "2026-02-26",
-          "endDate": "2027-02-28",
+          "endDate": "2027-01-16",
           "ratePct": 2.91,
           "source": "신탁계약내용변경",
           "receiptNo": "20260227900560",
@@ -100526,6 +101568,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227900560"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-02-23",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -101962,15 +103011,19 @@
       "listingDate": "2024-03-05",
       "liquidationDate": "2027-03-05",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 162,
-      "trustValuePerShare": 2171.54,
-      "liquidationValuePerShare": 2171.54,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 3.41,
-      "annualizedReturn": 7.84,
+      "daysToLiquidation": 161,
+      "expectedDelistingDate": "2026-10-10",
+      "payoutDate": "2027-01-20",
+      "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-09-27) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 117,
+      "trustValuePerShare": 2133.18,
+      "liquidationValuePerShare": 2133.18,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 1.58,
+      "annualizedReturn": 5.01,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-02-22",
+          "startDate": "2024-02-27",
           "endDate": "2025-02-27",
           "ratePct": 3.0,
           "source": "증권신고서",
@@ -101991,7 +103044,7 @@
         },
         {
           "startDate": "2026-02-27",
-          "endDate": "2027-03-05",
+          "endDate": "2027-01-20",
           "ratePct": 2.55,
           "source": "신탁계약내용변경",
           "receiptNo": "20260227901960",
@@ -102000,6 +103053,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227901960"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-02-27",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -103436,22 +104496,26 @@
       "listingDate": "2024-02-01",
       "liquidationDate": "2027-02-01",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 130,
-      "trustValuePerShare": 2173.33,
-      "liquidationValuePerShare": 2173.33,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": 2.03,
-      "annualizedReturn": 5.82,
+      "daysToLiquidation": 129,
+      "expectedDelistingDate": "2027-02-08",
+      "payoutDate": "2027-05-21",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2027-01-26) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 238,
+      "trustValuePerShare": 2173.99,
+      "liquidationValuePerShare": 2173.99,
+      "liquidationValueSource": "공시 예치금(2026-01-26)+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": 2.07,
+      "annualizedReturn": 3.18,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-01-23",
+          "startDate": "2024-01-26",
           "endDate": "2025-01-23",
-          "ratePct": 2.5,
-          "source": "증권신고서",
-          "receiptNo": "20240119000323",
-          "reportName": "[기재정정]투자설명서",
-          "filingDate": "2024-01-19",
-          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240119000323"
+          "ratePct": 3.6,
+          "source": "신탁계약내용변경(변경 전 이율)",
+          "receiptNo": "20250304900884",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "filingDate": "2025-03-04",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250304900884"
         },
         {
           "startDate": "2025-01-24",
@@ -103465,7 +104529,7 @@
         },
         {
           "startDate": "2026-01-26",
-          "endDate": "2027-02-01",
+          "endDate": "2027-05-21",
           "ratePct": 2.85,
           "source": "신탁계약내용변경",
           "receiptNo": "20260127900232",
@@ -103474,6 +104538,21 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127900232"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-01-26",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": {
+          "date": "2026-01-26",
+          "valuePerShare": 2109.1,
+          "amount": 8436400000,
+          "shares": 4000000,
+          "receiptNo": "20260127900232",
+          "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+          "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127900232"
+        }
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -107498,7 +108577,10 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250304900884",
             "startDate": "2025-01-24",
             "ratePct": 3.0,
-            "parserVersion": 2,
+            "rateBeforePct": 3.6,
+            "amountBefore": 8000000000,
+            "amountAfter": 8232900000,
+            "parserVersion": 3,
             "parseWarnings": []
           },
           {
@@ -107508,11 +108590,14 @@
             "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260127900232",
             "startDate": "2026-01-26",
             "ratePct": 2.85,
-            "parserVersion": 2,
+            "rateBeforePct": 3.0,
+            "amountBefore": 8232900000,
+            "amountAfter": 8436400000,
+            "parserVersion": 3,
             "parseWarnings": []
           }
         ],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20240119000323)"
     },
@@ -107536,16 +108621,20 @@
       "listingDate": "2025-12-19",
       "liquidationDate": "2028-12-19",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 817,
-      "trustValuePerShare": 2126.84,
-      "liquidationValuePerShare": 2126.84,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": -2.44,
-      "annualizedReturn": -1.1,
+      "daysToLiquidation": 816,
+      "expectedDelistingDate": "2028-12-25",
+      "payoutDate": "2029-04-06",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2028-12-12) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 924,
+      "trustValuePerShare": 2111.64,
+      "liquidationValuePerShare": 2111.64,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": -3.14,
+      "annualizedReturn": -1.25,
       "escrowRatePeriods": [
         {
-          "startDate": "2025-12-09",
-          "endDate": "2028-12-19",
+          "startDate": "2025-12-12",
+          "endDate": "2029-04-06",
           "ratePct": 2.05,
           "source": "증권신고서",
           "receiptNo": "20251208000119",
@@ -107554,6 +108643,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208000119"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2025-12-12",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -108827,7 +109923,7 @@
         "paymentDate": "2025-12-09",
         "extractedAt": "2026-06-11T07:46:48.876662+09:00",
         "parseWarnings": [],
-        "trustRateChangeScannedAt": "2026-09-24T21:05:40.997242+09:00"
+        "trustRateChangeScannedAt": "2026-09-25T20:07:49.972518+09:00"
       },
       "ipoPriceSource": "증권신고서(20251208000119)"
     },
@@ -108851,15 +109947,19 @@
       "listingDate": "2024-12-11",
       "liquidationDate": "2027-12-11",
       "liquidationDateSource": "상장일+36개월 추정",
-      "daysToLiquidation": 443,
-      "trustValuePerShare": 2192.59,
-      "liquidationValuePerShare": 2192.59,
-      "liquidationValueSource": "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)",
-      "expectedReturn": -0.34,
-      "annualizedReturn": -0.28,
+      "daysToLiquidation": 442,
+      "expectedDelistingDate": "2027-12-18",
+      "payoutDate": "2028-03-29",
+      "payoutDateSource": "합병 진행 중: 합병기한(납입+36개월) 상장폐지 사유(2027-12-05) → 상장폐지 13일·분배 102일 추정",
+      "daysToPayout": 551,
+      "trustValuePerShare": 2171.42,
+      "liquidationValuePerShare": 2171.42,
+      "liquidationValueSource": "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)",
+      "expectedReturn": -1.3,
+      "annualizedReturn": -0.86,
       "escrowRatePeriods": [
         {
-          "startDate": "2024-12-02",
+          "startDate": "2024-12-05",
           "endDate": "2025-12-04",
           "ratePct": 3.5,
           "source": "증권신고서",
@@ -108870,7 +109970,7 @@
         },
         {
           "startDate": "2025-12-05",
-          "endDate": "2027-12-11",
+          "endDate": "2028-03-29",
           "ratePct": 2.88,
           "source": "신탁계약내용변경",
           "receiptNo": "20251208900525",
@@ -108879,6 +109979,13 @@
           "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251208900525"
         }
       ],
+      "valuationBasis": {
+        "trustStartDate": "2024-12-05",
+        "trustFeePct": 0.1,
+        "interestTaxPct": 15.4,
+        "rolloverMonths": 12,
+        "anchor": null
+      },
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -111636,7 +112743,7 @@
   "errors": {
     "filings": {
       "trustRateChanges": {
-        "0037T0": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Read timed out. (read timeout=15)"
+        "0099X0": "DART 신탁계약 변경 검색 실패: HTTPSConnectionPool(host='dart.fss.or.kr', port=443): Max retries exceeded with url: /dsab007/main.do (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"
       }
     },
     "quote": {},
