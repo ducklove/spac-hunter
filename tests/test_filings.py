@@ -348,6 +348,56 @@ class TestExtractTrustRateChangeFields:
         assert fields["ratePct"] == 2.65
         assert fields["startDate"] == "2025-06-10"
 
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            (
+                # 한국제13호스팩 2024-11-07
+                "기업인수목적회사의 예치ㆍ신탁계약 내용 변경 1. 변경 내용 - 예치이자율 변경 "
+                "(변경전: 3.75%, 변경후: 3.10%) - 예치금액 변경 (변경전: 8,000,000,000원, "
+                "변경후: 8,254,495,357원) 2. 변경 사유 기존 예치계약 만기 도래에 따른 공모자금 재예치 "
+                "3. 변경 일자 2024-11-07",
+                (3.1, 3.75, 8_000_000_000, 8_254_495_357, "2024-11-07"),
+            ),
+            (
+                # 교보13호스팩 2023-10-31
+                "1. 변경 내용 1. 표면금리 : - 변경 전 : 4.50% - 변경 후 : 4.10% 2. 예치금액 - "
+                "변경전: 7,600,000,000원 - 변경후: 7,883,200,000원 2. 변경 사유 예치계약 만기 도래에 "
+                "따른 공모자금 재예치의 건 3. 변경 일자 2023-10-30",
+                (4.1, 4.5, 7_600_000_000, 7_883_200_000, "2023-10-30"),
+            ),
+            (
+                # 한국제13호스팩 2025-11-07 (괄호형 금액, '원' 생략)
+                "- 예치이자율 변경 (변경전: 3.10%, 변경후: 2.25%) -예치금액 (변경전: 8,254,495,357) "
+                "(변경후: 8,470,977,763) 3. 변경 일자 2025-11-07",
+                (2.25, 3.1, 8_254_495_357, 8_470_977_763, "2025-11-07"),
+            ),
+            (
+                "구분 변경전 변경후 예치이율 3.75% 3.10% 예치금액 8,000,000,000원 8,254,495,357원 "
+                "변경일자 2024년 11월 07일",
+                (3.1, 3.75, 8_000_000_000, 8_254_495_357, "2024-11-07"),
+            ),
+        ],
+    )
+    def test_before_rate_and_escrow_amounts(self, text, expected):
+        fields = extract_trust_rate_change_fields(text, filing_date="2025-12-31")
+
+        assert (
+            fields["ratePct"],
+            fields["rateBeforePct"],
+            fields["amountBefore"],
+            fields["amountAfter"],
+            fields["startDate"],
+        ) == expected
+        assert fields["parseWarnings"] == []
+
+    def test_implausible_amount_jump_is_dropped(self):
+        fields = extract_trust_rate_change_fields(
+            "변경 전 : 3.00% 변경 후 : 2.80% 예치금액 변경 전 : 7,000,000,000원 변경 후 : 70,000,000,000원"
+        )
+        assert (fields["amountBefore"], fields["amountAfter"]) == (None, None)
+        assert any("amount" in warning for warning in fields["parseWarnings"])
+
     def test_body_date_beats_filing_date_when_label_is_missing(self):
         text = "기업인수목적회사의예치ㆍ신탁계약내용변경 (2025.12.18) 변경 후 2.92% 3. 2025-12-17"
         fields = extract_trust_rate_change_fields(text, filing_date="2025-12-18")
@@ -641,6 +691,9 @@ class TestBackfillTrustRateChanges:
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250611000002",
                 "startDate": "2025-06-11",
                 "ratePct": 2.75,
+                "rateBeforePct": 3.5,
+                "amountBefore": None,
+                "amountAfter": None,
                 "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
                 "parseWarnings": [],
             }
@@ -767,6 +820,9 @@ class TestBackfillTrustRateChanges:
                 "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251218900249",
                 "startDate": "2025-12-17",
                 "ratePct": 2.92,
+                "rateBeforePct": 3.2,
+                "amountBefore": None,
+                "amountAfter": None,
                 "parserVersion": filings.TRUST_RATE_CHANGE_PARSER_VERSION,
                 "parseWarnings": [],
             }
@@ -1004,14 +1060,37 @@ class TestEnrichWithFiling:
         assert spac["ipoPriceSource"] == "증권신고서(20240105000123)"
         assert spac["ratio"] == round(2000 / 2100, 4)
         assert spac["filing"] == FILING_ENTRY
-        assert spac["liquidationValueSource"] == "공모예치금+예상 예치이자(공시 예치이율 기간별 적용)"
-        trust_days = (date(2027, 1, 2) - date(2023, 12, 21)).days
-        expected_trust = round(2100 * (1 + 0.0285) ** (trust_days / 365), 2)
-        assert spac["trustValuePerShare"] == expected_trust
+        assert spac["liquidationValueSource"] == (
+            "공모예치금+예상 이자(공시 예치이율, 신탁보수 0.1%p·원천징수 15.4% 차감, 수령 예정일까지)"
+        )
+        # 합병 미신청: 납입(2023-12-21)+31개월 = 2026-07-21 상장폐지 사유 -> 13일 뒤 상장폐지
+        # -> 102일 뒤 잔여재산 분배. 청산기한(상장일+36개월)은 그대로 둔다.
+        assert spac["liquidationDate"] == "2027-01-02"
+        assert spac["expectedDelistingDate"] == "2026-08-03"
+        assert spac["payoutDate"] == "2026-11-13"
+        assert spac["payoutDateSource"].startswith(
+            "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-07-21)"
+        )
+        assert spac["daysToPayout"] == (date(2026, 11, 13) - TODAY).days
+        net = (0.0285 - 0.001) * (1 - 0.154)
+        expected_trust = 2100
+        for days in (366, 365, 327):  # 12개월마다 재예치, 2025-12-21 ~ 2026-11-13
+            expected_trust *= 1 + net * days / 365
+        assert spac["trustValuePerShare"] == round(expected_trust, 2)
+        assert spac["annualizedReturn"] == round(
+            ((expected_trust / 2000) ** (365 / spac["daysToPayout"]) - 1) * 100, 2
+        )
+        assert spac["valuationBasis"] == {
+            "trustStartDate": "2023-12-21",
+            "trustFeePct": 0.1,
+            "interestTaxPct": 15.4,
+            "rolloverMonths": 12,
+            "anchor": None,
+        }
         assert spac["escrowRatePeriods"] == [
             {
                 "startDate": "2023-12-21",
-                "endDate": "2027-01-02",
+                "endDate": "2026-11-13",
                 "ratePct": 2.85,
                 "source": "증권신고서",
                 "receiptNo": "20240105000123",
@@ -1039,16 +1118,191 @@ class TestEnrichWithFiling:
 
         spac = enrich(filing=filing)
 
-        first_days = (date(2025, 6, 11) - date(2023, 12, 21)).days
-        second_days = (date(2027, 1, 2) - date(2025, 6, 11)).days
-        expected_trust = round(
-            2100 * (1 + 0.0285) ** (first_days / 365) * (1 + 0.0275) ** (second_days / 365),
-            2,
-        )
-        assert spac["trustValuePerShare"] == expected_trust
+        first = 1 + (0.0285 - 0.001) * 0.846 * 366 / 365  # 2023-12-21 ~ 2024-12-21 (재예치)
+        first *= 1 + (0.0285 - 0.001) * 0.846 * 172 / 365  # ~ 2025-06-11 (변경 공시)
+        second = 1
+        for days in (365, 155):  # 2025-06-11 이후 12개월 재예치(2026-06-11) ~ 2026-11-13 수령
+            second *= 1 + (0.0275 - 0.001) * 0.846 * days / 365
+        assert spac["trustValuePerShare"] == round(2100 * first * second, 2)
         assert [period["ratePct"] for period in spac["escrowRatePeriods"]] == [2.85, 2.75]
         assert spac["escrowRatePeriods"][0]["endDate"] == "2025-06-10"
-        assert spac["escrowRatePeriods"][1]["endDate"] == "2027-01-02"
+        assert spac["escrowRatePeriods"][1]["endDate"] == "2026-11-13"
+
+    def test_disclosed_escrow_balance_anchors_the_estimate(self):
+        filing = {
+            **FILING_ENTRY,
+            "ipoPrice": 2000,
+            "offeringShares": 4_000_000,
+            "escrowRatePct": 3.0,  # 신고서 본문 추출 오류(실제 최초 예치이율 3.75%)
+            "subscriptionStart": "2023-11-01",
+            "subscriptionEnd": "2023-11-02",
+            "paymentDate": "2023-11-01",  # 추출 오류(청약개시일) -> 청약 종료 2영업일 뒤 2023-11-06
+            "escrowRateChanges": [
+                {
+                    "receiptNo": "20241107900553",
+                    "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+                    "filingDate": "2024-11-07",
+                    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20241107900553",
+                    "startDate": "2024-11-07",
+                    "ratePct": 3.1,
+                    "rateBeforePct": 3.75,
+                    "amountBefore": 8_000_000_000,
+                    "amountAfter": 8_254_495_357,
+                },
+                {
+                    "receiptNo": "20251107900178",
+                    "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+                    "filingDate": "2025-11-07",
+                    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251107900178",
+                    "startDate": "2025-11-07",
+                    "ratePct": 2.25,
+                    "rateBeforePct": 3.1,
+                    "amountBefore": 8_254_495_357,
+                    "amountAfter": 8_470_977_763,
+                },
+            ],
+        }
+
+        spac = enrich(filing=filing, override={"trustFeePct": 0})
+
+        anchor_value = 8_470_977_763 / 4_000_000
+        # 실제 한국제13호: 납입 2023-11-06, 2026-06-18 상장폐지, 2026-09-30 분배 예정.
+        assert spac["expectedDelistingDate"] == "2026-06-19"
+        assert spac["payoutDate"] == "2026-09-29"
+        # 2025-11-07 공시 잔액 -> 2026-09-29 수령(같은 예치 계약 안, 326일 단리)
+        expected = anchor_value * (1 + 0.0225 * 0.846 * 326 / 365)
+        assert spac["trustValuePerShare"] == round(expected, 2)
+        assert spac["liquidationValueSource"].startswith("공시 예치금(2025-11-07)+예상 이자")
+        assert "신탁보수 0%p" in spac["liquidationValueSource"]
+        assert spac["valuationBasis"]["anchor"] == {
+            "date": "2025-11-07",
+            "valuePerShare": round(anchor_value, 4),
+            "amount": 8_470_977_763,
+            "shares": 4_000_000,
+            "receiptNo": "20251107900178",
+            "reportName": "기업인수목적회사의예치ㆍ신탁계약내용변경",
+            "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251107900178",
+        }
+        # 최초 구간 이율은 첫 재예치 공시의 '변경 전' 이율로 보정한다.
+        first = spac["escrowRatePeriods"][0]
+        assert (first["startDate"], first["ratePct"], first["source"], first["receiptNo"]) == (
+            "2023-11-06",
+            3.75,
+            "신탁계약내용변경(변경 전 이율)",
+            "20241107900553",
+        )
+
+    def test_anchor_is_skipped_when_share_count_disagrees_with_escrow(self):
+        filing = {
+            **FILING_ENTRY,
+            "offeringShares": 400_000,  # 추출 오류: 공모금액과 10배 차이
+            "escrowRateChanges": [
+                {
+                    "receiptNo": "20241107900553",
+                    "startDate": "2024-11-07",
+                    "ratePct": 3.1,
+                    "amountBefore": 12_000_000_000,
+                    "amountAfter": 12_300_000_000,
+                }
+            ],
+        }
+        spac = enrich(filing=filing)
+        assert spac["valuationBasis"]["anchor"] is None
+        assert spac["liquidationValueSource"].startswith("공모예치금+예상 이자")
+
+    def test_payout_overrides_and_lag_argument(self):
+        spac = enrich(filing=FILING_ENTRY, override={"payoutDate": "2027-02-01"})
+        assert spac["payoutDate"] == "2027-02-01"
+        assert spac["payoutDateSource"] == "overrides.json"
+        assert spac["daysToPayout"] == (date(2027, 2, 1) - TODAY).days
+
+        args = make_args()
+        args.payout_lag_days = 0
+        spac = enrich_spac(
+            {"code": "000001", "name": "테스트1호스팩", "market": "KOSDAQ", "isin": None},
+            {"listingDate": "2024-01-02"},
+            {"price": 2000},
+            [],
+            {},
+            args,
+            TODAY,
+            [],
+            {},
+            filing=FILING_ENTRY,
+        )
+        assert spac["payoutDate"] == spac["expectedDelistingDate"] == "2026-08-03"
+
+    def test_pending_merger_waits_for_the_36_month_deadline(self):
+        spac = enrich(filing=FILING_ENTRY, override={"mergerStatus": "합병 신청"})
+        # 납입 2023-12-21 + 36개월 = 2026-12-21 사유 -> +13일 상장폐지 -> +102일 분배
+        assert spac["expectedDelistingDate"] == "2027-01-03"
+        assert spac["payoutDate"] == "2027-04-15"
+        assert spac["payoutDateSource"].startswith("합병 진행 중: 합병기한(납입+36개월)")
+
+    def test_late_merger_withdrawal_and_dissolution_move_the_payout(self):
+        def build(disclosures):
+            return enrich_spac(
+                {"code": "000001", "name": "테스트1호스팩", "market": "KOSDAQ", "isin": None},
+                {"listingDate": "2024-01-02"},
+                {"price": 2000},
+                [],
+                {},
+                make_args(),
+                TODAY,
+                disclosures,
+                {},
+                filing=FILING_ENTRY,
+            )
+
+        withdrawn = build([
+            {"date": "2025-10-01", "title": "주요사항보고서(회사합병결정)"},
+            {"date": "2026-08-10", "title": "기업인수목적회사관련합병취소ㆍ부인사실발생"},
+        ])
+        # 30개월(2026-07-21) 뒤 철회 -> 철회 1개월 뒤 사유(교보15호: 7/31 철회 -> 9/2 사유)
+        assert withdrawn["mergerStatus"] is None
+        assert withdrawn["expectedDelistingDate"] == "2026-09-23"
+        assert withdrawn["payoutDateSource"].startswith("합병 철회 1개월 뒤 상장폐지 사유(2026-09-10)")
+
+        dissolved = build([{"date": "2026-06-05", "title": "주요사항보고서(해산사유발생)"}])
+        assert dissolved["expectedDelistingDate"] == "2026-06-05"
+        assert dissolved["payoutDate"] == "2026-09-15"
+
+
+class TestPaymentDate:
+    @pytest.mark.parametrize(
+        ("filing", "expected"),
+        [
+            # 신고서 추출값이 청약개시일(추출 오류) -> 청약 종료 2영업일 뒤(한국제13호 실제 납입 2023-11-06)
+            (
+                {
+                    "subscriptionStart": "2023-11-01",
+                    "subscriptionEnd": "2023-11-02",
+                    "paymentDate": "2023-11-01",
+                },
+                date(2023, 11, 6),
+            ),
+            # 금요일 청약 종료 -> 화요일 납입(교보15호)
+            (
+                {"subscriptionStart": "2023-11-23", "subscriptionEnd": "2023-11-24", "paymentDate": None},
+                date(2023, 11, 28),
+            ),
+            (
+                {
+                    "subscriptionStart": "2023-12-18",
+                    "subscriptionEnd": "2023-12-19",
+                    "paymentDate": "2023-12-21",
+                },
+                date(2023, 12, 21),
+            ),
+            ({"paymentDate": "2023-12-21"}, date(2023, 12, 21)),
+            ({}, None),
+            (None, None),
+        ],
+    )
+    def test_payment_date(self, filing, expected):
+        from spac_hunter.domain.enrich import _payment_date
+
+        assert _payment_date(filing) == expected
 
     def test_override_price_beats_filing_and_omits_source(self):
         spac = enrich(filing=FILING_ENTRY, override={"ipoPrice": 3000})
@@ -1084,6 +1338,9 @@ class TestEnrichWithFiling:
         spac = enrich(filing=FILING_ENTRY, override={"liquidationValuePerShare": 2120})
         assert spac["liquidationValuePerShare"] == 2120
         assert spac["liquidationValueSource"] == "overrides.json 청산분배금"
+        assert spac["valuationBasis"] is None
+        # 확정 분배금도 청산기한이 아니라 수령 예정일까지의 기간으로 연환산한다.
+        assert spac["annualizedReturn"] == round(((2120 / 2000) ** (365 / spac["daysToPayout"]) - 1) * 100, 2)
 
     def test_null_extraction_entry_is_embedded_without_effects(self):
         filing = {

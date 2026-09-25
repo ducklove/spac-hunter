@@ -145,6 +145,7 @@ def write_outputs(
     data_json_path=None,
     archive=None,
     ipo_calendar=None,
+    valuation_assumptions=None,
 ):
     """Write data.js / data.json / current.json.
 
@@ -186,8 +187,15 @@ def write_outputs(
             ),
             "ipoPrice": "overrides.json 우선, 없으면 증권신고서 공시 공모가, 둘 다 없으면 기본 2,000원",
             "liquidationDate": "overrides.json 우선, 없으면 상장일+36개월 추정",
+            "payoutDate": (
+                "overrides.json 우선. 없으면 예상 상장폐지일(합병 미신청: 납입+31개월 상장폐지 사유, "
+                "합병 진행: 납입+36개월 합병기한, 해산 공시가 있으면 그 날짜)+잔여재산 분배 소요일 추정. "
+                "연환산 기대수익률은 이 수령 예정일까지의 보유일수로 계산"
+            ),
             "liquidationValue": (
-                "공모예치금 + 청산기한까지의 예상 예치이자(공시 예치이율 기간별 적용). "
+                "최근 신탁계약내용변경 공시의 변경 후 예치금액(없으면 공모예치금)에 수령 예정일까지의 "
+                "예상 이자를 더한 1주당 금액. 이자는 공시 예치이율에서 신탁보수를 빼고 이자 원천징수세를 "
+                "차감한 단리로 계산하고 재예치(공시 변경일, 그 외 12개월) 때 원금에 합산. "
                 "일반 운영/합병 비용은 공모예치금에서 차감하지 않는 것으로 기본 추정"
             ),
             "trustRate": (
@@ -202,6 +210,7 @@ def write_outputs(
             "source": trust_rate_source,
             "kofr": rate_info,
         },
+        "valuationAssumptions": valuation_assumptions,
         "summary": build_summary(spacs, generated_at),
         "statistics": build_statistics(spacs, generated_at, archive=archive),
         "mergerCases": build_merger_cases(spacs),

@@ -1,5 +1,6 @@
 /* 일별 종가를 현재 청산분배금 추정치로 평가한 연환산 기대수익률 추이.
-   과거 시점의 예치금·금리 추정치를 복원하는 시계열은 아니다. */
+   과거 시점의 예치금·금리 추정치를 복원하는 시계열은 아니다.
+   잔여일수는 청산금 수령 예정일(payoutDate, 없으면 청산기한)까지로 센다. */
 (function() {
   'use strict';
 
@@ -16,17 +17,22 @@
     return Number.isFinite(number) && number > 0 ? number : null;
   }
 
+  function payoutMillis(item) {
+    const payout = dateMillis(item.payoutDate);
+    return Number.isFinite(payout) ? payout : dateMillis(item.liquidationDate);
+  }
+
   function buildExpectedReturnTrend(spacs) {
     const eligible = (spacs || []).filter(item => item
       && positiveNumber(item.currentPrice)
       && positiveNumber(item.liquidationValuePerShare)
-      && Number.isFinite(dateMillis(item.liquidationDate)));
+      && Number.isFinite(payoutMillis(item)));
     // 소수 종목만 긴 이력이 있는 과거 구간이 시장 평균처럼 보이지 않도록 제한한다.
     const minCount = Math.max(1, Math.ceil(eligible.length * 0.7));
     const byDate = new Map();
     eligible.forEach(item => {
       const target = Number(item.liquidationValuePerShare);
-      const end = dateMillis(item.liquidationDate);
+      const end = payoutMillis(item);
       const listing = dateMillis(item.listingDate);
       const values = new Map();
       (item.history || []).forEach(point => {

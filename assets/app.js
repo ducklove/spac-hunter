@@ -926,8 +926,10 @@
     document.getElementById('statGrid').innerHTML = [
       ['공모가', money(item.ipoPrice)],
       ['현재가 / 공모가', ratio(item.ratio)],
-      ['청산 예정', dateText(item.liquidationDate)],
-      ['청산까지', daysText(item.daysToLiquidation)]
+      ['청산 기한', dateText(item.liquidationDate)],
+      item.payoutDate
+        ? ['청산금 수령까지', daysText(item.daysToPayout)]
+        : ['청산까지', daysText(item.daysToLiquidation)]
     ].map(([label, value]) => `
       <div class="mini-stat">
         <div class="mini-label">${label}</div>
@@ -941,7 +943,7 @@
     document.getElementById('analysisStrip').innerHTML = [
       ['추정 청산분배금', liquidationValueText, item.liquidationValueSource || '공시 예치이율 확인 필요'],
       ['단순 기대수익률', pct(item.expectedReturn), '청산분배금 / 현재가 - 1'],
-      ['연환산 기대수익률', pct(item.annualizedReturn), '청산 예정일까지 보유 가정']
+      ['연환산 기대수익률', pct(item.annualizedReturn), payoutNote(item)]
     ].map(([label, value, note], idx) => `
       <div class="analysis-box">
         <div class="analysis-label">${label}</div>
@@ -954,6 +956,12 @@
     renderMergerRecords(item);
     renderLinks(item);
     drawSelectedChart();
+  }
+
+  /* 연환산 기준일: 청산기한이 아니라 잔여재산 분배(청산금 수령) 예정일. */
+  function payoutNote(item) {
+    if (!item || !item.payoutDate) return '청산 예정일까지 보유 가정';
+    return `청산금 수령 예정 ${dateText(item.payoutDate)}까지 보유 가정`;
   }
 
   function priceWithReturn(priceValue, returnValue) {
@@ -1101,7 +1109,29 @@
     }
     const subscription = filing ? filingSubscriptionText(filing) : '';
     if (subscription) rows.push(['청약기간', escapeHtml(subscription)]);
-    if (filing && filing.paymentDate) rows.push(['납입일', escapeHtml(dateText(filing.paymentDate))]);
+    const basis = item && item.valuationBasis;
+    const paymentDate = (basis && basis.trustStartDate) || (filing && filing.paymentDate);
+    if (paymentDate) {
+      const corrected = filing && filing.paymentDate && filing.paymentDate !== paymentDate
+        ? '<span class="filing-source">청약 종료 2영업일 뒤로 보정</span>'
+        : '';
+      rows.push(['납입일', `${escapeHtml(dateText(paymentDate))}${corrected}`]);
+    }
+    const anchor = basis && basis.anchor;
+    if (anchor && Number(anchor.amount) > 0) {
+      const link = anchor.url
+        ? ` <a class="filing-source" href="${escapeHtml(anchor.url)}" target="_blank" rel="noopener">${escapeHtml(dateText(anchor.date))} 공시</a>`
+        : `<span class="filing-source">${escapeHtml(dateText(anchor.date))}</span>`;
+      rows.push(['최근 공시 예치금', `${escapeHtml(money(anchor.amount))} (주당 ${escapeHtml(Number(anchor.valuePerShare).toFixed(2))}원)${link}`]);
+    }
+    if (basis) {
+      rows.push(['이자 차감', escapeHtml(`신탁보수 연 ${Number(basis.trustFeePct)}%p · 원천징수 ${Number(basis.interestTaxPct)}%`)]);
+    }
+    if (item && item.payoutDate) {
+      const delisting = item.expectedDelistingDate ? ` (상장폐지 ${dateText(item.expectedDelistingDate)} 예상)` : '';
+      const source = item.payoutDateSource ? `<span class="filing-source">${escapeHtml(item.payoutDateSource)}</span>` : '';
+      rows.push(['청산금 수령(추정)', `${escapeHtml(`${dateText(item.payoutDate)}${delisting}`)}${source}`]);
+    }
 
     const reportUrl = filing ? filingReportUrl(filing) : '';
     /* 표시할 행도 원문 링크도 없으면(전 필드 null) 빈 블록을 만들지 않는다. */
@@ -1272,26 +1302,42 @@
 
     const item = selectedSpac();
     const ipoPrice = item ? Number(item.ipoPrice) : NaN;
-    const listing = item && item.listingDate ? Date.parse(item.listingDate) : NaN;
-    const liquidation = item && item.liquidationDate ? Date.parse(item.liquidationDate) : NaN;
-    const trustDays = Number.isFinite(listing) && Number.isFinite(liquidation)
-      ? Math.round((liquidation - listing) / 86400000)
+    const endDate = item ? (item.payoutDate || item.liquidationDate) : null;
+    const basis = (item && item.valuationBasis) || {};
+    const assumptions = data?.valuationAssumptions || {};
+    const trustFeePct = Number(basis.trustFeePct ?? assumptions.trustFeePct ?? 0);
+    const interestTaxPct = Number(basis.interestTaxPct ?? assumptions.interestTaxPct ?? 0);
+    const startDate = basis.trustStartDate || (item && item.listingDate) || null;
+    const disclosed = item && Array.isArray(item.escrowRatePeriods) ? item.escrowRatePeriods : [];
+    const periods = disclosed.length ? disclosed : (startDate ? [{ startDate, ratePct }] : []);
+    const today = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+
+    const simValue = item && endDate && Number.isFinite(ipoPrice) && ipoPrice > 0
+      ? SpacValuation.estimateTrustValue({
+        ipoPrice,
+        startDate,
+        endDate,
+        periods,
+        trustFeePct,
+        interestTaxPct,
+        rolloverMonths: Number(basis.rolloverMonths) || 12,
+        anchor: basis.anchor || null,
+        // 이미 지난 기간의 이자는 공시대로 두고, 오늘 이후 이율만 시나리오로 바꾼다.
+        scenario: { startDate: today, ratePct }
+      })
       : null;
 
-    if (!item || !Number.isFinite(ipoPrice) || ipoPrice <= 0 || trustDays == null || trustDays <= 0) {
+    if (!Number.isFinite(simValue)) {
       target.innerHTML = '<div class="empty">상장일·청산 예정일 정보가 없어 시뮬레이션할 수 없습니다.</div>';
       note.textContent = '';
       return;
     }
 
-    const simValue = ipoPrice * Math.pow(1 + ratePct / 100, trustDays / 365);
     const currentPrice = Number(item.currentPrice);
     const hasPrice = Number.isFinite(currentPrice) && currentPrice > 0;
     const simpleReturn = hasPrice ? (simValue / currentPrice - 1) * 100 : null;
-    const days = Number(item.daysToLiquidation);
-    const annualReturn = hasPrice && Number.isFinite(days) && days > 0
-      ? (Math.pow(simValue / currentPrice, 365 / days) - 1) * 100
-      : null;
+    const days = Number(item.daysToPayout ?? item.daysToLiquidation);
+    const annualReturn = hasPrice ? SpacValuation.annualizedReturnPct(simValue, currentPrice, days) : null;
 
     target.innerHTML = [
       ['추정 청산분배금', money(Math.round(simValue)), ''],
@@ -1304,7 +1350,12 @@
       </div>
     `).join('');
 
-    const notes = [`상장일~청산예정일 ${number(trustDays)}일 · 연 ${ratePct.toFixed(2)}% 복리 가정`];
+    const notes = [
+      `오늘 이후 연 ${ratePct.toFixed(2)}% 가정`,
+      `신탁보수 ${trustFeePct}%p·원천징수 ${interestTaxPct}% 차감`,
+      `${dateText(endDate)} 수령까지 ${number(days)}일`
+    ];
+    if (basis.anchor) notes.unshift(`${dateText(basis.anchor.date)} 공시 예치금 기준`);
     if (isManualLiquidationValue(item)) {
       notes.push('공시/수동 보정값 대신 수식 추정을 사용한 시뮬레이션입니다');
     }
@@ -1656,7 +1707,7 @@
 
   function exportCsv() {
     const items = tableItems();
-    const header = ['종목명', '코드', '현재가', '공모가괴리%', '연환산%', '청산까지일', '거래대금', '상태'];
+    const header = ['종목명', '코드', '현재가', '공모가괴리%', '연환산%', '청산까지일', '청산금수령예정일', '추정청산분배금', '거래대금', '상태'];
     const rows = items.map(item => [
       item.name ?? '',
       item.code ?? '',
@@ -1664,6 +1715,8 @@
       item.premiumPct ?? '',
       item.annualizedReturn ?? '',
       item.daysToLiquidation ?? '',
+      item.payoutDate ?? '',
+      item.liquidationValuePerShare ?? '',
       item.tradingValue ?? '',
       item.status ?? ''
     ]);

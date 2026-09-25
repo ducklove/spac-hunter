@@ -3,6 +3,9 @@
 import re
 from datetime import timedelta
 
+from ..constants import TRUST_ROLLOVER_MONTHS
+from ..parsing import add_months
+
 
 def derive_sponsor(name):
     patterns = [
@@ -64,21 +67,51 @@ def estimate_trust_value_per_share(ipo_price, listing_date, liquidation_date, tr
     return ipo_price * ((1 + trust_rate) ** (trust_days / 365))
 
 
-def _trust_end_date(start_date, liquidation_date, today):
-    if liquidation_date:
-        return liquidation_date
+def _trust_end_date(start_date, end_date, today):
+    if end_date:
+        return end_date
     if start_date:
         elapsed = max(0, min((today - start_date).days, 365 * 3))
         return start_date + timedelta(days=elapsed)
     return today
 
 
-def estimate_trust_value_from_periods(ipo_price, start_date, liquidation_date, rate_periods, today):
-    """Compound the public escrow value through dated annual-rate periods.
+def net_annual_rate(rate, trust_fee_rate=0.0, interest_tax_rate=0.0):
+    """Annual escrow yield left for shareholders after the trust fee and interest withholding."""
+    return max(0.0, rate - trust_fee_rate) * (1 - interest_tax_rate)
 
-    ``rate_periods`` are start-date inclusive. The last known rate continues
-    through the liquidation date, matching the disclosure-based estimate shown
-    in the UI.
+
+def _accrue_deposit_terms(value, start, end, net_rate, rollover_months):
+    """Simple interest inside each deposit term; interest joins principal when the term rolls over."""
+    term_start = start
+    while term_start < end:
+        term_end = min(add_months(term_start, rollover_months), end)
+        value *= 1 + net_rate * (term_end - term_start).days / 365
+        term_start = term_end
+    return value
+
+
+def estimate_trust_value_from_periods(
+    ipo_price,
+    start_date,
+    end_date,
+    rate_periods,
+    today,
+    *,
+    trust_fee_rate=0.0,
+    interest_tax_rate=0.0,
+    rollover_months=TRUST_ROLLOVER_MONTHS,
+    anchor=None,
+):
+    """Project the public escrow value per share through dated annual-rate periods.
+
+    ``rate_periods`` are start-date inclusive; every period start is a re-deposit
+    (신탁계약내용변경) where accrued interest joins principal, and longer spans roll
+    over every ``rollover_months``. Interest is simple within a term and reduced by
+    the trust fee and withholding tax, matching the escrow amounts disclosed at
+    each re-deposit. The last known rate continues through ``end_date`` (the
+    expected payout date). ``anchor`` ({"date", "value"}) restarts the projection
+    from a disclosed per-share escrow balance instead of the IPO price.
     """
     if not ipo_price:
         return None
@@ -92,11 +125,15 @@ def estimate_trust_value_from_periods(ipo_price, start_date, liquidation_date, r
         return None
 
     start = start_date or periods[0]["startDate"]
-    end = _trust_end_date(start, liquidation_date, today)
+    end = _trust_end_date(start, end_date, today)
     if not start or not end:
         return None
+    value = float(ipo_price)
+    if anchor and anchor.get("date") and anchor.get("value") and start <= anchor["date"] <= end:
+        start = anchor["date"]
+        value = float(anchor["value"])
     if end <= start:
-        return float(ipo_price)
+        return value
 
     boundaries = [start]
     for period in periods:
@@ -105,7 +142,6 @@ def estimate_trust_value_from_periods(ipo_price, start_date, liquidation_date, r
             boundaries.append(period_start)
     boundaries.append(end)
 
-    value = float(ipo_price)
     active_rate = None
     idx = 0
     for segment_start, segment_end in zip(boundaries, boundaries[1:]):
@@ -114,8 +150,8 @@ def estimate_trust_value_from_periods(ipo_price, start_date, liquidation_date, r
             idx += 1
         if active_rate is None:
             active_rate = periods[0]["rate"]
-        days = max(0, (segment_end - segment_start).days)
-        value *= (1 + active_rate) ** (days / 365)
+        net_rate = net_annual_rate(active_rate, trust_fee_rate, interest_tax_rate)
+        value = _accrue_deposit_terms(value, segment_start, segment_end, net_rate, rollover_months)
     return value
 
 

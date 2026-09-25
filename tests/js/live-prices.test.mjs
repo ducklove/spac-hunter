@@ -55,6 +55,18 @@ test('이전 응답 역전 방지 및 만기 경과 연환산 제외', () => {
   assert.equal(live.mergeQuote(spac, { ...q, code: '000000' }, NOW), spac);
   assert.equal(live.mergeQuote({ ...spac, liquidationDate: '2026-09-20' }, q, NOW).annualizedReturn, null);
 });
+test('연환산은 청산기한이 아니라 청산금 수령 예정일까지로 계산하고 배지는 청산기한 기준', () => {
+  const q = live.normalizeQuote(item(), NOW);
+  const s = live.mergeQuote({ ...spac, payoutDate: '2028-01-01' }, q, NOW);
+  assert.equal(s.daysToLiquidation, 365);
+  assert.equal(s.daysToPayout, 467);
+  assert.equal(s.annualizedReturn, Number((((2200 / 1900) ** (365 / 467) - 1) * 100).toFixed(2)));
+  assert.ok(s.badges.includes('청산 1년 이내'));
+  // 청산기한이 지나도 분배 전이면 수령일까지로 연환산한다.
+  const late = live.mergeQuote({ ...spac, liquidationDate: '2026-09-20', payoutDate: '2026-12-31' }, q, NOW);
+  assert.equal(late.daysToPayout, 101);
+  assert.ok(late.annualizedReturn > 0);
+});
 test('영문 코드는 개별 조회, 일괄 누락은 재조회, 실패 종목 유지', async () => {
   const calls = [];
   const result = await live.fetchQuotes(['477340', '475240', '0165X0', '477340'], {

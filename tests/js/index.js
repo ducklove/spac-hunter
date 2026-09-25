@@ -5,6 +5,7 @@
 import('./format.test.mjs');
 import('./chart-tooltip.test.mjs');
 import('./return-trend.test.mjs');
+import('./valuation.test.mjs');
 import('./data-loader.test.mjs');
 import('./accessibility-structure.test.mjs');
 import('./live-prices.test.mjs');

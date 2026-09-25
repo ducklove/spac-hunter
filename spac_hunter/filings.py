@@ -44,7 +44,10 @@ CALENDAR_LOOKBACK_DAYS = 30
 CALENDAR_DOC_BUDGET_MAX = 5
 CALENDAR_DOC_MAX_AGE_DAYS = 60
 TRUST_RATE_CHANGE_LOOKBACK_YEARS = 4
-TRUST_RATE_CHANGE_PARSER_VERSION = 2
+# v3: 변경 전 이율과 변경 전/후 예치금액도 추출한다(기존 v2 항목은 예산 내에서 재추출).
+TRUST_RATE_CHANGE_PARSER_VERSION = 3
+# 재예치 한 번에 원리금이 늘어날 수 있는 상한(연 8% 상한 이율의 여러 해 누적도 포함).
+TRUST_CHANGE_MAX_GROWTH = 1.25
 
 FIELD_KEYS = (
     "ipoPrice",
@@ -108,6 +111,16 @@ _TRUST_CHANGE_DATE_LABELS = (
     "효력발생일",
 )
 _PERCENT_RE = re.compile(r"([0-9]+(?:\.[0-9]+)?)\s*%")
+# 변경 전/후 뒤의 짧은 한글 라벨("이자율 연", "예치금액")과 구분자(:, -)를 건너뛴다. 숫자는 넘지 않는다.
+_TRUST_CHANGE_LABEL = r"\s*[가-힣()\s]{0,12}?[:：]?\s*-?\s*(?:연\s*)?"
+# "변경전: 3.75%", "변경 전 : - 4.50%", "변경 전 이자율 연 3.50%" 형태. 금액과 구분하려고 % 까지 요구한다.
+_TRUST_RATE_BEFORE_RE = re.compile(r"변경\s*전" + _TRUST_CHANGE_LABEL + r"([0-9]+(?:\.[0-9]+)?)\s*%")
+# "변경전: 8,000,000,000원", "(변경후: 8,470,977,763)" 형태.
+# 날짜·이율과 겹치지 않게 천 단위 쉼표 또는 9자리 이상 숫자만 금액으로 본다.
+_TRUST_AMOUNT = r"(\d{1,3}(?:,\d{3})+|\d{9,})"
+_TRUST_AMOUNT_BEFORE_RE = re.compile(r"변경\s*전" + _TRUST_CHANGE_LABEL + _TRUST_AMOUNT + r"\s*원?")
+_TRUST_AMOUNT_AFTER_RE = re.compile(r"변경\s*후" + _TRUST_CHANGE_LABEL + _TRUST_AMOUNT + r"\s*원?")
+_TRUST_AMOUNT_ANY_RE = re.compile(_TRUST_AMOUNT + r"\s*원?")
 
 
 def is_valid_ipo_price(value):
@@ -333,12 +346,57 @@ def _extract_trust_change_start_date(text, fallback_date, warnings):
     return None
 
 
+def _extract_trust_change_rate_before(text, rate_after):
+    match = _TRUST_RATE_BEFORE_RE.search(text)
+    if match:
+        value = parse_float(match.group(1))
+        return value if is_valid_escrow_rate_pct(value) else None
+    # 표 형식(구분/변경전/변경후)은 이율이 정확히 두 개일 때만 앞의 값을 변경 전으로 본다.
+    values = [
+        value for value in map(parse_float, _PERCENT_RE.findall(text)) if is_valid_escrow_rate_pct(value)
+    ]
+    if len(values) == 2 and values[1] == rate_after:
+        return values[0]
+    return None
+
+
+def _extract_trust_change_amounts(text, warnings):
+    """변경 전/후 예치금액(원리금). 재예치 시 원금에 더해진 세후 이자를 그대로 보여준다."""
+    before = _TRUST_AMOUNT_BEFORE_RE.search(text)
+    after = _TRUST_AMOUNT_AFTER_RE.search(text)
+    if before and after:
+        amount_before, amount_after = parse_int(before.group(1)), parse_int(after.group(1))
+    else:
+        amounts = [
+            value
+            for value in (parse_int(raw) for raw in _TRUST_AMOUNT_ANY_RE.findall(text))
+            if value is not None and value >= ESCROW_AMOUNT_MIN
+        ]
+        if len(amounts) != 2:
+            return None, None
+        amount_before, amount_after = amounts
+    if (
+        not amount_before
+        or not amount_after
+        or amount_before < ESCROW_AMOUNT_MIN
+        or not amount_before * 0.99 <= amount_after <= amount_before * TRUST_CHANGE_MAX_GROWTH
+    ):
+        warnings.append(f"trustRateChange.amount: 검증 탈락 {amount_before}->{amount_after}")
+        return None, None
+    return amount_before, amount_after
+
+
 def extract_trust_rate_change_fields(text, filing_date=None):
-    """Extract the changed annual escrow rate and effective date from a trust-contract change."""
+    """Extract rates, escrow amounts and the effective date from a trust-contract change."""
     text = re.sub(r"\s+", " ", str(text or ""))
     warnings = []
+    rate_pct = _extract_trust_change_rate(text, warnings)
+    amount_before, amount_after = _extract_trust_change_amounts(text, warnings)
     fields = {
-        "ratePct": _extract_trust_change_rate(text, warnings),
+        "ratePct": rate_pct,
+        "rateBeforePct": _extract_trust_change_rate_before(text, rate_pct),
+        "amountBefore": amount_before,
+        "amountAfter": amount_after,
         "startDate": _extract_trust_change_start_date(text, filing_date, warnings),
     }
     fields["parseWarnings"] = warnings
@@ -466,6 +524,9 @@ def _trust_rate_change_entry(row, fields):
         "url": url or (f"https://dart.fss.or.kr/dsaf001/main.do?rcpNo={receipt_no}" if receipt_no else None),
         "startDate": fields.get("startDate") or filing_date,
         "ratePct": fields.get("ratePct"),
+        "rateBeforePct": fields.get("rateBeforePct"),
+        "amountBefore": fields.get("amountBefore"),
+        "amountAfter": fields.get("amountAfter"),
         "parserVersion": TRUST_RATE_CHANGE_PARSER_VERSION,
         "parseWarnings": list(fields.get("parseWarnings") or []),
     }

@@ -25,6 +25,23 @@ USER_AGENT = (
 DEFAULT_IPO_PRICE = 2000
 DEFAULT_TRUST_RATE = 0.0
 DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE = 0
+# 예치금 이자 차감 가정. 신탁계약내용변경 공시의 변경 전/후 예치금액으로 검증한 값:
+# 특정금전신탁은 (공시 이율 - 신탁보수 0.1%p)에 법인 이자소득 원천징수 15.4%(법인세 14% +
+# 지방소득세 1.4%)를 뺀 단리 이자가 만기마다 원금에 더해진다(교보13·14·15호 등).
+DEFAULT_TRUST_FEE_PCT = 0.1
+DEFAULT_INTEREST_TAX_PCT = 15.4
+# 예치 계약 만기(재예치) 주기. 공시된 변경일 사이 구간은 이 주기로 단리→복리 전환한다.
+TRUST_ROLLOVER_MONTHS = 12
+# 상장폐지(해산)일 -> 잔여재산 분배일. 2025-2026 해산 스팩 9곳의 해산 공시 일정 중앙값
+# (94-114일): 교보13·14·15, 한국13, 한화플러스4, IBKS23, 하나30, 대신밸런스17, 신영10호.
+DEFAULT_PAYOUT_LAG_DAYS = 102
+# 상장폐지 사유 발생 -> 상장폐지(정리매매 후 해산). 위 사례 6곳 11-14일의 중앙값.
+DELISTING_LAG_DAYS = 13
+# 코스닥 스팩 퇴출 규정: 공모 주금 납입일+30개월 내 합병 예비심사를 청구하지 않으면 관리종목,
+# 그 뒤 1개월 내 해소하지 못하면 상장폐지 사유(= 납입+31개월). 합병등기 기한은 납입+36개월.
+# 한국13·IBKS23·하나30·대신밸런스17·신영10호의 상장폐지 사유일이 납입+31개월과 0-2일 차이.
+NO_MERGER_DELISTING_MONTHS = 31
+MERGER_DEADLINE_MONTHS = 36
 
 KOFR_API_URL = "https://www.kofr.kr/websquare/engine/proworks/callServletService.jsp"
 KOFR_MAIN_URL = "https://www.kofr.kr/main.jsp"

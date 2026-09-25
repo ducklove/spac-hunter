@@ -19,7 +19,10 @@ from .constants import (
     ARCHIVE_JSON_PATH,
     CURRENT_JSON_PATH,
     DATA_JS_PATH,
+    DEFAULT_INTEREST_TAX_PCT,
     DEFAULT_LIQUIDATION_HAIRCUT_PER_SHARE,
+    DEFAULT_PAYOUT_LAG_DAYS,
+    DEFAULT_TRUST_FEE_PCT,
     DEFAULT_TRUST_RATE,
     KST,
 )
@@ -217,6 +220,27 @@ def build_arg_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument(
+        "--trust-fee-pct",
+        type=float,
+        default=DEFAULT_TRUST_FEE_PCT,
+        help=(
+            "Annual trust fee (%%p) deducted from the disclosed escrow rate. "
+            "Per-SPAC overrides.json trustFeePct wins (e.g. 0 for plain bank deposits)."
+        ),
+    )
+    parser.add_argument(
+        "--interest-tax-pct",
+        type=float,
+        default=DEFAULT_INTEREST_TAX_PCT,
+        help="Withholding tax (%%) on escrow interest (법인세 14%% + 지방소득세 1.4%%).",
+    )
+    parser.add_argument(
+        "--payout-lag-days",
+        type=int,
+        default=DEFAULT_PAYOUT_LAG_DAYS,
+        help="Days from delisting (dissolution) to the residual-asset payout (annualized-return horizon).",
+    )
+    parser.add_argument(
         "--skip-disclosures",
         action="store_true",
         help="Skip KIND merger-disclosure lookup and use overrides only.",
@@ -249,6 +273,15 @@ def build_arg_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def valuation_assumptions(args):
+    """Payload block the dashboard reuses for client-side re-estimation (live quotes, rate slider)."""
+    return {
+        "trustFeePct": getattr(args, "trust_fee_pct", DEFAULT_TRUST_FEE_PCT),
+        "interestTaxPct": getattr(args, "interest_tax_pct", DEFAULT_INTEREST_TAX_PCT),
+        "payoutLagDays": getattr(args, "payout_lag_days", DEFAULT_PAYOUT_LAG_DAYS),
+    }
+
+
 def _build_collection_summary(spacs):
     """Collection summary for sample mode, derived from the built SPAC dicts."""
     return {
@@ -273,6 +306,7 @@ def _run_sample(args) -> None:
         trust_rate_source="샘플 데이터 0.000%",
         collection=_build_collection_summary(spacs),
         force=args.force,
+        valuation_assumptions=valuation_assumptions(args),
     )
     logger.info("sample data written: %d SPACs", len(spacs))
 
@@ -446,6 +480,7 @@ def _run_live(args) -> None:
         force=args.force,
         archive=archive_spacs,
         ipo_calendar=ipo_calendar,
+        valuation_assumptions=valuation_assumptions(args),
     )
     logger.info("written %s, %s: %d SPACs", DATA_JS_PATH.name, CURRENT_JSON_PATH.name, len(spacs))
 

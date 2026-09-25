@@ -39,7 +39,10 @@
     if (!quote || quote.code !== spac.code || quote.checkedAt < previousTime) return spac;
     const ratio = spac.ipoPrice > 0 ? quote.price / spac.ipoPrice : null;
     const today = new Date(now + 9 * 3600000).toISOString().slice(0, 10);
-    const days = spac.liquidationDate ? Math.round((Date.parse(spac.liquidationDate) - Date.parse(today)) / 86400000) : null;
+    const daysUntil = date => date ? Math.round((Date.parse(date) - Date.parse(today)) / 86400000) : null;
+    const days = daysUntil(spac.liquidationDate);
+    // 분배금은 청산기한이 아니라 잔여재산 분배일(payoutDate)에 들어오므로 그날까지로 연환산한다.
+    const payoutDays = spac.payoutDate ? daysUntil(spac.payoutDate) : days;
     const target = spac.liquidationValuePerShare;
     const badges = [];
     if (ratio != null && ratio < 1) badges.push('공모가 이하');
@@ -54,9 +57,10 @@
       ...spac, currentPrice: quote.price, change: quote.change, changePct: quote.changePct,
       volume: quote.volume, tradingValue: quote.tradingValue, marketCap: quote.marketCap,
       ratio: round(ratio, 4), premiumPct: ratio == null ? null : round((ratio - 1) * 100),
-      daysToLiquidation: days,
+      daysToLiquidation: days, daysToPayout: payoutDays,
       expectedReturn: target > 0 ? round((target / quote.price - 1) * 100) : null,
-      annualizedReturn: target > 0 && days > 0 ? round(((target / quote.price) ** (365 / days) - 1) * 100) : null,
+      annualizedReturn: target > 0 && payoutDays > 0
+        ? round(((target / quote.price) ** (365 / payoutDays) - 1) * 100) : null,
       badges, status: badges[0], quote: { ...spac.quote, ...quote }
     };
   }

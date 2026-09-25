@@ -27,6 +27,14 @@ test('일별 종가와 각 날짜의 잔여일수로 연환산하고 종목별 �
   assert.deepEqual(changingDays.map(row => row.date), ['2024-06-01', '2025-06-01']);
 });
 
+test('잔여일수는 청산금 수령 예정일(payoutDate)까지, 없거나 잘못되면 청산기한까지로 센다', () => {
+  const rows = buildExpectedReturnTrend([
+    stock({ liquidationDate: '2026-02-26', payoutDate: '2026-06-01' }),
+    stock({ payoutDate: 'invalid' })
+  ]);
+  assert.deepEqual(rows, [{ date: '2025-06-01', averageAnnualizedReturn: 10, totalCount: 2 }]);
+});
+
 test('청산 당일·이후, 상장 전, 잘못된 날짜·가격·분배금은 평균에서 제외한다', () => {
   const rows = buildExpectedReturnTrend([
     stock({ history: [

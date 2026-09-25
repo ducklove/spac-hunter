@@ -114,7 +114,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         <div class="stats-chart">
           <canvas id="returnTrendChart" role="img" aria-label="평균 연환산 기대수익률 추이 차트" aria-describedby="returnTrendHint returnTrendNote"></canvas>
         </div>
-        <div class="stats-note" id="returnTrendNote">일별 종가와 당시 청산 잔여일수 기준 연환산 수익률의 동일 비중 평균입니다. 현재 상장 종목과 최신 청산분배금 추정치로 재계산하며, 계산 가능한 종목의 70% 이상에 유효 이력이 있는 날짜만 표시합니다. 날짜별 표본 수는 다를 수 있습니다.</div>
+        <div class="stats-note" id="returnTrendNote">일별 종가와 당시부터 청산금 수령 예정일(예상 상장폐지일+분배 소요일)까지의 잔여일수 기준 연환산 수익률의 동일 비중 평균입니다. 현재 상장 종목과 최신 청산분배금 추정치로 재계산하며, 계산 가능한 종목의 70% 이상에 유효 이력이 있는 날짜만 표시합니다. 날짜별 표본 수는 다를 수 있습니다.</div>
       </div>
     </article>
     <div class="stats-panels" id="statsPanels">
@@ -217,7 +217,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         <div class="sim-head">
           <div>
             <h2 class="panel-title">금리 시나리오 (시뮬레이션)</h2>
-            <div class="panel-sub">예치금 이자율 가정을 바꿔 기대수익률을 재계산합니다</div>
+            <div class="panel-sub">오늘 이후 예치 이자율 가정을 바꿔 기대수익률을 재계산합니다 (신탁보수·이자 원천징수 차감)</div>
           </div>
           <button type="button" class="button small" id="simResetBtn">기본 금리로 초기화</button>
         </div>
@@ -341,10 +341,11 @@ html[data-embed] .container { padding-top: 14px !important; }
 <script src="assets/format.js?v=20260729-chart-axis"></script>
 <script src="assets/chart-tooltip.js?v=20260923-return-trend"></script>
 <script src="assets/charts.js?v=20260923-return-trend"></script>
-<script src="assets/return-trend.js?v=20260923-return-trend"></script>
+<script src="assets/return-trend.js?v=20260925-payout"></script>
+<script src="assets/valuation.js?v=20260925-payout"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
-<script src="assets/live-prices.js?v=20260921-live"></script>
+<script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260923-return-trend"></script>
+<script src="assets/app.js?v=20260925-payout"></script>
 </body>
 </html>
