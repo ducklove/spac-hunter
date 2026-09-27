@@ -69,14 +69,13 @@
     return text === '-' ? '-' : `${text}원`;
   }
 
-  /* ratio 차트(현재가/해당 시점 청산가) 툴팁 내용. */
-  function ratioTooltipContent(point) {
+  /* 가격 차트(현재가·해당 시점 청산가) 툴팁 내용. */
+  function priceTooltipContent(point) {
     const p = point || {};
     return {
       date: F.dateText(p.date),
       rows: [
-        ['현재가 / 청산가', F.ratio(p.ratio)],
-        ['종가', wonText(p.close)],
+        ['현재가(종가)', wonText(p.close)],
         ['해당일 청산가(추정)', wonText(p.liquidationValue == null ? null : Math.round(p.liquidationValue))]
       ]
     };
@@ -110,7 +109,7 @@
     nearestIndex,
     axisTickIndexes,
     tooltipPosition,
-    ratioTooltipContent,
+    priceTooltipContent,
     belowTooltipContent,
     returnTooltipContent
   };

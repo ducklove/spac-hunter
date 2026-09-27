@@ -69,24 +69,23 @@ test('tooltipPosition: gap 인자 지정 시 반영', () => {
   assert.deepEqual(pos, { left: 120, top: 40 });
 });
 
-test('ratioTooltipContent: 날짜·청산가 비율·종가·해당일 청산가 포맷', () => {
-  const content = tt.ratioTooltipContent({ date: '2026-06-19', close: 1970, ratio: 0.985, liquidationValue: 2000 });
+test('priceTooltipContent: 날짜·현재가·해당일 청산가 원화 포맷', () => {
+  const content = tt.priceTooltipContent({ date: '2026-06-19', close: 1970, ratio: 0.985, liquidationValue: 2000 });
   assert.equal(content.date, '2026-06-19');
   assert.deepEqual(content.rows, [
-    ['현재가 / 청산가', '0.985x'],
-    ['종가', '1,970원'],
+    ['현재가(종가)', '1,970원'],
     ['해당일 청산가(추정)', '2,000원']
   ]);
 });
 
-test('ratioTooltipContent: 누락 필드·null 포인트는 -', () => {
-  assert.deepEqual(tt.ratioTooltipContent({ date: '2026-06-19', ratio: 1.001 }), {
+test('priceTooltipContent: 누락 필드·null 포인트는 -', () => {
+  assert.deepEqual(tt.priceTooltipContent({ date: '2026-06-19', ratio: 1.001 }), {
     date: '2026-06-19',
-    rows: [['현재가 / 청산가', '1.001x'], ['종가', '-'], ['해당일 청산가(추정)', '-']]
+    rows: [['현재가(종가)', '-'], ['해당일 청산가(추정)', '-']]
   });
-  assert.deepEqual(tt.ratioTooltipContent(null), {
+  assert.deepEqual(tt.priceTooltipContent(null), {
     date: '-',
-    rows: [['현재가 / 청산가', '-'], ['종가', '-'], ['해당일 청산가(추정)', '-']]
+    rows: [['현재가(종가)', '-'], ['해당일 청산가(추정)', '-']]
   });
 });
 

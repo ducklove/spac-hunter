@@ -302,51 +302,60 @@
     return recentPoints(validRatioPoints(history), days == null ? 90 : days);
   }
 
-  /* 상세 패널: 일별 종가/해당 날짜의 추정 청산가 + 1.00x 기준선. */
-  function drawRatioChart(canvas, history, chartDays) {
-    trackRender(canvas, () => drawRatioChart(canvas, history, chartDays));
+  /* 상세 패널: 현재가(일별 종가)와 해당 날짜의 추정 청산가, 공통 원화 축. */
+  function drawPriceChart(canvas, history, chartDays) {
+    trackRender(canvas, () => drawPriceChart(canvas, history, chartDays));
     const env = setupCanvas(canvas);
     if (!env) return;
     const ctx = env.ctx;
-    const points = recentPoints(validRatioPoints(history), chartDays);
+    const points = recentPoints((history || []).filter(point => point && point.date
+      && Number.isFinite(Number(point.close)) && Number(point.close) > 0
+      && Number.isFinite(Number(point.liquidationValue)) && Number(point.liquidationValue) > 0), chartDays);
 
-    if (points.length < 2) {
+    if (!points.length) {
       setHoverModel(canvas, null);
       drawEmptyMessage(ctx, '청산가 계산에 필요한 이율·시세 이력이 부족합니다.', 18, 36);
       return;
     }
 
-    const pad = { left: 48, right: 18, top: 18, bottom: 30 };
+    const values = points.flatMap(point => [Number(point.close), Number(point.liquidationValue)]);
+    const low = Math.min(...values);
+    const high = Math.max(...values);
+    const margin = Math.max((high - low) * 0.12, high * 0.005, 1);
+    const min = Math.max(0, low - margin);
+    const max = high + margin;
+    const ticks = Array.from({ length: 5 }, (_, i) => min + (max - min) * i / 4);
+    const label = value => `${Math.round(value).toLocaleString('ko-KR')}원`;
+    ctx.font = FONT_LABEL;
+    const pad = {
+      left: Math.max(58, ...ticks.map(value => ctx.measureText(label(value)).width + 14)),
+      right: 18, top: 18, bottom: 30
+    };
     const w = env.width - pad.left - pad.right;
     const h = env.height - pad.top - pad.bottom;
-    const values = points.map(point => Number(point.ratio));
-    const min = Math.min(0.985, ...values, 1) - 0.004;
-    const max = Math.max(1.035, ...values, 1) + 0.004;
     const yFor = value => pad.top + (max - value) / (max - min) * h;
-    const xFor = index => pad.left + index / (points.length - 1) * w;
-    const pts = points.map((point, index) => ({ x: xFor(index), y: yFor(Number(point.ratio)) }));
+    const xFor = index => pad.left + (points.length === 1 ? 0.5 : index / (points.length - 1)) * w;
+    const pts = points.map((point, index) => ({ x: xFor(index), y: yFor(Number(point.close)) }));
+    const liquidationPts = points.map((point, index) => ({ x: xFor(index), y: yFor(Number(point.liquidationValue)) }));
 
-    drawGridLines(
-      ctx,
-      [min, 1, max].map(value => ({ y: yFor(value), label: value.toFixed(3) })),
-      pad.left,
-      pad.left + w,
-      4
-    );
-    drawDashedLine(ctx, pad.left, pad.left + w, yFor(1), getCss('--ipo-line'), [5, 5]);
-
+    drawGridLines(ctx, ticks.map(value => ({ y: yFor(value), label: label(value) })), pad.left, pad.left + w, 4);
     const lineColor = getCss('--ratio-line');
-    drawAreaFill(ctx, pts, pad.top, pad.top + h, lineColor);
+    const liquidationColor = getCss('--ipo-line');
+    ctx.setLineDash([5, 4]);
+    drawLine(ctx, liquidationPts, liquidationColor, 2.2);
+    ctx.setLineDash([]);
     drawLine(ctx, pts, lineColor, 2.4);
-    drawEndDot(ctx, pts[pts.length - 1].x, pts[pts.length - 1].y, lineColor);
+    for (const [series, color] of [[pts, lineColor], [liquidationPts, liquidationColor]]) {
+      const last = series[series.length - 1];
+      drawEndDot(ctx, last.x, last.y, color);
+    }
     const xs = pts.map(pt => pt.x);
     drawDateAxisLabels(ctx, points, xs, pad.left, pad.left + w, env.height - 8);
     setHoverModel(canvas, {
-      xs,
-      pts,
+      xs, pts,
       plot: { x0: pad.left, x1: pad.left + w, y0: pad.top, y1: pad.top + h },
       lineColor,
-      content: index => T.ratioTooltipContent(points[index])
+      content: index => T.priceTooltipContent(points[index])
     });
   }
 
@@ -485,7 +494,7 @@
     validRatioPoints,
     recentPoints,
     sparklinePoints,
-    drawRatioChart,
+    drawPriceChart,
     drawBelowTrendChart,
     drawReturnTrendChart,
     drawSparkline

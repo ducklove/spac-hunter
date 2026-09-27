@@ -1302,10 +1302,10 @@
     /* role="img" 캔버스의 요약 라벨을 선택 종목에 맞춰 갱신한다. */
     if (canvas) {
       canvas.setAttribute('aria-label', item
-        ? `${item.name} 현재가/해당 날짜의 추정 청산가 비율 추이 차트`
-        : '현재가/해당 날짜의 추정 청산가 비율 추이 차트');
+        ? `${item.name} 현재가와 해당 날짜의 추정 청산가 가격 추이 차트`
+        : '현재가와 해당 날짜의 추정 청산가 가격 추이 차트');
     }
-    SpacCharts.drawRatioChart(canvas, liquidationHistory(item), chartDays);
+    SpacCharts.drawPriceChart(canvas, liquidationHistory(item), chartDays);
   }
 
   function liquidationHistory(item) {

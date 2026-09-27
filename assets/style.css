@@ -758,7 +758,7 @@ button {
 }
 
 .legend-line.ipo {
-  background: var(--ipo-line);
+  background: repeating-linear-gradient(to right, var(--ipo-line) 0 5px, transparent 5px 9px);
 }
 
 .analysis-strip {

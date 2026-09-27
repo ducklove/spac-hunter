@@ -38,7 +38,7 @@ html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260925-escrow-maturity">
+<link rel="stylesheet" href="assets/style.css?v=20260927-price-lines">
 <script defer src="./assets/analytics.js" data-project="spac-hunter"></script>
 </head>
 <body>
@@ -194,8 +194,8 @@ html[data-embed] .container { padding-top: 14px !important; }
 
       <div class="chart-toolbar">
         <div>
-          <h2 class="panel-title">현재가 / 청산가</h2>
-          <div class="panel-sub">1.00x 아래는 해당 날짜의 추정 청산가보다 낮은 구간입니다</div>
+          <h2 class="panel-title">현재가 · 청산가 추이</h2>
+          <div class="panel-sub">현재가(일별 종가)와 해당 날짜의 추정 청산가를 원 단위로 비교합니다</div>
         </div>
         <div class="periods" id="periodButtons">
           <button type="button" class="period-btn" data-days="30" aria-pressed="false">1M</button>
@@ -205,11 +205,11 @@ html[data-embed] .container { padding-top: 14px !important; }
         </div>
       </div>
       <div class="chart-wrap">
-        <canvas id="ratioChart" role="img" aria-label="현재가/해당 날짜의 추정 청산가 비율 추이 차트" aria-describedby="liquidationRatioNote"></canvas>
+        <canvas id="ratioChart" role="img" aria-label="현재가와 해당 날짜의 추정 청산가 가격 추이 차트" aria-describedby="liquidationRatioNote"></canvas>
       </div>
       <div class="legend">
-        <span class="legend-item"><span class="legend-line"></span>종가 / 해당일 청산가</span>
-        <span class="legend-item"><span class="legend-line ipo"></span>청산가 1.00x</span>
+        <span class="legend-item"><span class="legend-line"></span>현재가(종가)</span>
+        <span class="legend-item"><span class="legend-line ipo"></span>해당일 청산가(추정)</span>
       </div>
       <div class="stats-panel-body" id="liquidationRatioNote">
         <div class="panel-sub" id="liquidationRatioValue"></div>
@@ -344,13 +344,13 @@ html[data-embed] .container { padding-top: 14px !important; }
 <!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
      (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
 <script src="assets/format.js?v=20260729-chart-axis"></script>
-<script src="assets/chart-tooltip.js?v=20260927-liquidation-ratio"></script>
-<script src="assets/charts.js?v=20260927-liquidation-ratio"></script>
+<script src="assets/chart-tooltip.js?v=20260927-price-lines"></script>
+<script src="assets/charts.js?v=20260927-price-lines"></script>
 <script src="assets/return-trend.js?v=20260925-payout"></script>
-<script src="assets/valuation.js?v=20260927-liquidation-ratio"></script>
+<script src="assets/valuation.js?v=20260927-price-lines"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260927-liquidation-ratio"></script>
+<script src="assets/app.js?v=20260927-price-lines"></script>
 </body>
 </html>
