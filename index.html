@@ -101,10 +101,10 @@ html[data-embed] .container { padding-top: 14px !important; }
     <article class="stats-panel return-trend-panel">
       <div class="panel-header">
         <div>
-          <h2 class="panel-title">평균 기대수익률 추이</h2>
+          <h2 class="panel-title">평균 청산괴리율 추이</h2>
           <div class="panel-sub" id="returnTrendHint" aria-live="polite"></div>
         </div>
-        <div class="periods" id="returnTrendPeriods" role="group" aria-label="평균 기대수익률 조회 기간">
+        <div class="periods" id="returnTrendPeriods" role="group" aria-label="평균 청산괴리율 조회 기간">
           <button type="button" class="period-btn" data-days="30" aria-pressed="false">1M</button>
           <button type="button" class="period-btn active" data-days="90" aria-pressed="true">3M</button>
           <button type="button" class="period-btn" data-days="180" aria-pressed="false">6M</button>
@@ -113,9 +113,9 @@ html[data-embed] .container { padding-top: 14px !important; }
       </div>
       <div class="stats-panel-body">
         <div class="stats-chart">
-          <canvas id="returnTrendChart" role="img" aria-label="평균 연환산 기대수익률 추이 차트" aria-describedby="returnTrendHint returnTrendNote"></canvas>
+          <canvas id="returnTrendChart" role="img" aria-label="평균 청산괴리율 추이 차트" aria-describedby="returnTrendHint returnTrendNote"></canvas>
         </div>
-        <div class="stats-note" id="returnTrendNote">일별 종가와 당시부터 청산금 수령 예정일(예상 상장폐지일+분배 소요일)까지의 잔여일수 기준 연환산 수익률의 동일 비중 평균입니다. 현재 상장 종목과 최신 청산분배금 추정치로 재계산하며, 계산 가능한 종목의 70% 이상에 유효 이력이 있는 날짜만 표시합니다. 날짜별 표본 수는 다를 수 있습니다.</div>
+        <div class="stats-note" id="returnTrendNote">각 날짜의 (추정 청산가 − 종가) / 추정 청산가 × 100을 종목별 동일 비중으로 평균합니다. 양수는 청산가보다 저렴한 상태입니다. 현재 상장 종목의 70% 이상에서 가격·청산가를 계산할 수 있는 날짜만 표시하며, 날짜별 표본 수는 다를 수 있습니다.</div>
       </div>
     </article>
     <div class="stats-panels" id="statsPanels">
@@ -344,13 +344,13 @@ html[data-embed] .container { padding-top: 14px !important; }
 <!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
      (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
 <script src="assets/format.js?v=20260729-chart-axis"></script>
-<script src="assets/chart-tooltip.js?v=20260927-price-lines"></script>
-<script src="assets/charts.js?v=20260927-price-lines"></script>
-<script src="assets/return-trend.js?v=20260925-payout"></script>
+<script src="assets/chart-tooltip.js?v=20260927-discount-trend"></script>
+<script src="assets/charts.js?v=20260927-discount-trend"></script>
 <script src="assets/valuation.js?v=20260927-price-lines"></script>
+<script src="assets/return-trend.js?v=20260927-discount-trend"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260927-full-history"></script>
+<script src="assets/app.js?v=20260927-discount-trend"></script>
 </body>
 </html>

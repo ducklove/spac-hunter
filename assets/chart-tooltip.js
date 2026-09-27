@@ -99,7 +99,7 @@
     return {
       date: F.dateText(p.date),
       rows: [
-        ['평균 기대수익률 (연환산)', F.pct(p.averageAnnualizedReturn)],
+        ['평균 청산괴리율', F.pct(p.averageLiquidationDiscount)],
         ['집계 종목', countText(p.totalCount)]
       ]
     };

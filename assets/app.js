@@ -446,7 +446,7 @@
     document.getElementById('belowTrendHint').textContent = belowTrend.length
       ? `${dateText(belowTrend[0].date)} - ${dateText(belowTrend[belowTrend.length - 1].date)}`
       : '집계 가능한 히스토리 없음';
-    returnTrend = window.SpacReturnTrend.buildExpectedReturnTrend(getSpacs());
+    returnTrend = window.SpacDiscountTrend.buildLiquidationDiscountTrend(getSpacs(), data.valuationAssumptions);
     drawTrendChart();
     renderTrendMixBars(stats.listingTrend || [], stats.mergerTrend || []);
     renderFunnelStats(funnel, priceStats, stats.note);
@@ -464,11 +464,11 @@
     const points = SpacCharts.recentPoints(returnTrend, returnTrendDays);
     const latest = points[points.length - 1];
     const hint = latest
-      ? `${dateText(points[0].date)} - ${dateText(latest.date)} · 최근 ${pct(latest.averageAnnualizedReturn)} · ${number(latest.totalCount)}종목 · 연환산 / 일별 종가 기준`
+      ? `${dateText(points[0].date)} - ${dateText(latest.date)} · 최근 ${pct(latest.averageLiquidationDiscount)} · ${number(latest.totalCount)}종목 · 일별 청산가 대비`
       : '집계 가능한 히스토리 없음';
     document.getElementById('returnTrendHint').textContent = hint;
     const canvas = document.getElementById('returnTrendChart');
-    canvas.setAttribute('aria-label', `평균 기대수익률 추이. ${hint}`);
+    canvas.setAttribute('aria-label', `평균 청산괴리율 추이. ${hint}`);
     SpacCharts.drawReturnTrendChart(canvas, points);
   }
 

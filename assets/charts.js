@@ -402,21 +402,21 @@
     });
   }
 
-  /* 시장 평균 연환산 기대수익률: 음수·동일 값·단일 날짜도 표시한다. */
+  /* 시장 평균 청산괴리율: 음수·동일 값·단일 날짜도 표시한다. */
   function drawReturnTrendChart(canvas, points) {
     trackRender(canvas, () => drawReturnTrendChart(canvas, points));
     const env = setupCanvas(canvas);
     if (!env) return;
     const ctx = env.ctx;
     const rows = (points || []).filter(point => point && point.date
-      && Number.isFinite(point.averageAnnualizedReturn));
+      && Number.isFinite(point.averageLiquidationDiscount));
     if (!rows.length) {
       setHoverModel(canvas, null);
       drawEmptyMessage(ctx, '추이를 그릴 데이터가 부족합니다.', 16, 34);
       return;
     }
 
-    const values = rows.map(point => point.averageAnnualizedReturn);
+    const values = rows.map(point => point.averageLiquidationDiscount);
     const low = Math.min(0, ...values);
     const high = Math.max(0, ...values);
     const margin = Math.max((high - low) * 0.12, 0.2);
@@ -434,7 +434,7 @@
     const yFor = value => pad.top + (max - value) / (max - min) * h;
     const pts = rows.map((point, index) => ({
       x: pad.left + (rows.length === 1 ? 0.5 : index / (rows.length - 1)) * w,
-      y: yFor(point.averageAnnualizedReturn)
+      y: yFor(point.averageLiquidationDiscount)
     }));
     drawGridLines(ctx, ticks.map(value => ({ y: yFor(value), label: label(value) })), pad.left, pad.left + w, 4);
     drawDashedLine(ctx, pad.left, pad.left + w, yFor(0), getCss('--ipo-line'), [5, 5]);
