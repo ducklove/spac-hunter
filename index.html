@@ -195,13 +195,13 @@ html[data-embed] .container { padding-top: 14px !important; }
       <div class="chart-toolbar">
         <div>
           <h2 class="panel-title">현재가 · 청산가 추이</h2>
-          <div class="panel-sub">현재가(일별 종가)와 해당 날짜의 추정 청산가를 원 단위로 비교합니다</div>
+          <div class="panel-sub" id="priceChartRange">현재가(일별 종가)와 해당 날짜의 추정 청산가를 원 단위로 비교합니다</div>
         </div>
         <div class="periods" id="periodButtons">
           <button type="button" class="period-btn" data-days="30" aria-pressed="false">1M</button>
           <button type="button" class="period-btn active" data-days="90" aria-pressed="true">3M</button>
           <button type="button" class="period-btn" data-days="180" aria-pressed="false">6M</button>
-          <button type="button" class="period-btn" data-days="0" aria-pressed="false">전체</button>
+          <button type="button" class="period-btn" data-days="0" aria-pressed="false" title="상장일부터 전체 거래 이력">전체</button>
         </div>
       </div>
       <div class="chart-wrap">
@@ -351,6 +351,6 @@ html[data-embed] .container { padding-top: 14px !important; }
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260927-price-lines"></script>
+<script src="assets/app.js?v=20260927-full-history"></script>
 </body>
 </html>

@@ -1305,7 +1305,13 @@
         ? `${item.name} 현재가와 해당 날짜의 추정 청산가 가격 추이 차트`
         : '현재가와 해당 날짜의 추정 청산가 가격 추이 차트');
     }
-    SpacCharts.drawPriceChart(canvas, liquidationHistory(item), chartDays);
+    const history = liquidationHistory(item);
+    const points = SpacCharts.recentPoints(history, chartDays);
+    const range = document.getElementById('priceChartRange');
+    if (range) range.textContent = points.length
+      ? `${points[0].date} ~ ${points[points.length - 1].date} · 현재가(종가) / 추정 청산가 · 단위: 원`
+      : '표시할 가격 이력이 없습니다';
+    SpacCharts.drawPriceChart(canvas, history, chartDays);
   }
 
   function liquidationHistory(item) {

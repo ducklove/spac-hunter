@@ -1,4 +1,4 @@
-"""merge_history_points (dedup + 3-year cap) and merge_merger_price_records."""
+"""Full history preservation, optional age cap, and merger history merging."""
 
 from datetime import date, timedelta
 
@@ -35,7 +35,7 @@ class TestMergeHistoryPoints:
         )
         assert merged == []
 
-    def test_three_year_cap_drops_old_points(self):
+    def test_full_lifetime_is_preserved_with_optional_explicit_age_cap(self):
         cutoff = TODAY - timedelta(days=1095)
         too_old = (cutoff - timedelta(days=1)).isoformat()
         boundary = cutoff.isoformat()
@@ -48,7 +48,9 @@ class TestMergeHistoryPoints:
             [{"date": recent, "close": 1000, "volume": 1}],
             today=TODAY,
         )
-        assert [point["date"] for point in merged] == [boundary, recent]
+        assert [point["date"] for point in merged] == [too_old, boundary, recent]
+        limited = merge_history_points(merged, [], today=TODAY, max_age_days=1095)
+        assert [point["date"] for point in limited] == [boundary, recent]
 
     def test_empty_inputs(self):
         assert merge_history_points(None, None, today=TODAY) == []

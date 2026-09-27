@@ -10,7 +10,6 @@ from .constants import (
     CURRENT_JSON_PATH,
     DART_MAIN_URL,
     DATA_JS_PATH,
-    HISTORY_MAX_AGE_DAYS,
     KIND_CORP_LIST_PAGE_URL,
     KIND_DISCLOSURE_PAGE_URL,
     KOFR_MAIN_URL,
@@ -80,17 +79,17 @@ def existing_kind_companies(existing_spacs):
     return companies
 
 
-def merge_history_points(existing, fetched, today=None, max_age_days=HISTORY_MAX_AGE_DAYS):
-    """Merge history points by date, dropping points older than the 3-year cap."""
+def merge_history_points(existing, fetched, today=None, max_age_days=None):
+    """Preserve all collected history unless an age limit is explicitly requested."""
     today = today or today_kst()
-    cutoff = (today - timedelta(days=max_age_days)).isoformat()
+    cutoff = (today - timedelta(days=max_age_days)).isoformat() if max_age_days is not None else None
     merged = {}
     for point in list(existing or []) + list(fetched or []):
         date_value = point.get("date")
         close = parse_int(point.get("close"))
         if not date_value or close is None:
             continue
-        if str(date_value) < cutoff:
+        if cutoff and str(date_value) < cutoff:
             continue
         merged[date_value] = {
             "date": date_value,

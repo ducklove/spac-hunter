@@ -1,6 +1,7 @@
 """Naver Finance quote/history clients with a pykrx history fallback."""
 
 import time
+import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import timedelta
 from io import StringIO
@@ -10,6 +11,56 @@ import pandas as pd
 from ..constants import NAVER_HISTORY_URL, NAVER_STOCK_API_URL
 from ..http import http_json, http_text
 from ..parsing import parse_float, parse_int, today_kst
+
+
+def fetch_full_naver_history(code):
+    """Naver chart feed: one request covers a SPAC's complete listed lifetime."""
+    url = f"https://fchart.stock.naver.com/sise.nhn?symbol={code}&timeframe=day&count=10000&requestType=0"
+    root = ET.fromstring(http_text(url, encoding="euc-kr"))
+    points = {}
+    for item in root.iter("item"):
+        parts = (item.get("data") or "").split("|")
+        if len(parts) != 6:
+            continue
+        try:
+            day = pd.to_datetime(parts[0], format="%Y%m%d", errors="raise").date().isoformat()
+        except (ValueError, TypeError):
+            continue
+        close = parse_int(parts[4])
+        if close is not None and close > 0:
+            points[day] = {"date": day, "close": close, "volume": parse_int(parts[5])}
+    return [points[day] for day in sorted(points)]
+
+
+def needs_history_backfill(spac):
+    """Only request the full feed until the saved history reaches listing/payment."""
+    spac = spac or {}
+    dates = [p.get("date") for p in spac.get("history", []) if p.get("date") and p.get("close")]
+    if not dates:
+        return True
+    start = spac.get("listingDate")
+    if start:
+        return min(dates) > start
+    start = (spac.get("valuationBasis") or {}).get("trustStartDate")
+    if not start:
+        return True
+    # Payment precedes trading; this tolerance only controls redundant fetching.
+    return pd.Timestamp(min(dates)) > pd.Timestamp(start) + pd.Timedelta(days=14)
+
+
+def fetch_history_backfills(codes, existing_spacs, max_workers=6):
+    needed = [code for code in codes if needs_history_backfill(existing_spacs.get(code))]
+    histories = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        tasks = {executor.submit(fetch_full_naver_history, code): code for code in needed}
+        for future in as_completed(tasks):
+            try:
+                points = future.result()
+                if points:
+                    histories[tasks[future]] = points
+            except Exception:  # noqa: BLE001 — preserve saved/daily histories on source failure
+                continue
+    return histories
 
 
 def fetch_naver_quote(code):

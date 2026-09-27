@@ -266,6 +266,7 @@ class TestCliArchiveWiring:
         monkeypatch.setattr(cli, "fetch_kind_listed_companies", lambda: {})
         monkeypatch.setattr(cli, "fetch_quotes", lambda codes, max_workers: ({"100001": {"price": 2000}}, {}))
         monkeypatch.setattr(cli, "fetch_histories", lambda codes, pages, max_workers=2: {})
+        monkeypatch.setattr(cli, "fetch_history_backfills", lambda codes, existing: {})
 
     def test_live_mode_archives_departure_and_emits_delisted_alert(
         self, tmp_path, monkeypatch, spac_factory

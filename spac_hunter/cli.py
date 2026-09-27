@@ -35,6 +35,7 @@ from .output import (
     load_existing_last_updated,
     load_existing_spacs,
     load_overrides,
+    merge_history_points,
     write_outputs,
 )
 from .parsing import normalize_name, parse_date, today_kst
@@ -44,7 +45,7 @@ from .sources.dart import fetch_dart_disclosures
 from .sources.kind import fetch_kind_disclosures, fetch_kind_listed_companies
 from .sources.kofr import fetch_kofr_rate
 from .sources.krx import fetch_krx_spac_universe
-from .sources.naver import fetch_histories, fetch_quotes
+from .sources.naver import fetch_histories, fetch_history_backfills, fetch_quotes
 
 logger = logging.getLogger(__name__)
 
@@ -405,6 +406,10 @@ def _run_live(args) -> None:
                 args.merger_history_pages,
             )
         logger.info("Naver histories: %d ok", sum(1 for h in histories.values() if h))
+        backfills = fetch_history_backfills(codes, existing_spacs) if args.history_pages > 0 else {}
+        for code, points in backfills.items():
+            histories[code] = merge_history_points(points, histories.get(code, []))
+        logger.info("Naver full-history backfills: %d", len(backfills))
 
         # 재예치 공시가 아직 없는 스팩은 같은 증권사 스팩들의 공시 예치금 역산 보수를 따른다.
         trust_fee_hints = build_trust_fee_hints(

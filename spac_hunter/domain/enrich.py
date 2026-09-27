@@ -622,6 +622,8 @@ def enrich_spac(
 
     history_points = []
     for point in merge_history_points(existing.get("history") or [], history, today=today):
+        if listing_date and point["date"] < listing_date.isoformat():
+            continue
         close = point.get("close")
         point_ratio = close / ipo_price if close and ipo_price else None
         history_points.append(
