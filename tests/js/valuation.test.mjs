@@ -59,3 +59,82 @@ test('월말 재예치와 연환산 가드', () => {
   assert.equal(V.annualizedReturnPct(2100, 2000, 0), null);
   assert.equal(V.annualizedReturnPct(null, 2000, 30), null);
 });
+
+const historicalStock = {
+  ipoPrice: 2000,
+  listingDate: '2024-01-10',
+  // 미래 예상 분배금은 날짜별 청산가의 분모로 사용하지 않는다.
+  liquidationValuePerShare: 9999,
+  valuationBasis: { trustStartDate: '2024-01-01', trustFeePct: 0.1, interestTaxPct: 15.4 },
+  escrowRatePeriods: [
+    { startDate: '2024-01-01', ratePct: 3.1 },
+    { startDate: '2025-01-01', ratePct: 2.1 }
+  ]
+};
+
+test('청산가는 납입일에 공모가이고 각 날짜까지의 세후 이자만 누적한다', () => {
+  assert.equal(V.liquidationValueAtDate(historicalStock, '2024-01-01'), 2000);
+  assert.equal(V.liquidationValueAtDate(historicalStock, '2023-12-31'), null);
+  const halfYear = 2000 * (1 + 0.03 * 0.846 * 182 / 365);
+  assert.ok(Math.abs(V.liquidationValueAtDate(historicalStock, '2024-07-01') - halfYear) < 1e-9);
+  const rolled = 2000 * (1 + 0.03 * 0.846 * 366 / 365) * (1 + 0.02 * 0.846 * 181 / 365);
+  assert.ok(Math.abs(V.liquidationValueAtDate(historicalStock, '2025-07-01') - rolled) < 1e-9);
+});
+
+test('공시 잔액은 그 날짜부터 반영하며 그보다 앞선 청산가에 소급하지 않는다', () => {
+  const stock = { ...historicalStock, valuationBasis: { ...historicalStock.valuationBasis,
+    anchor: { date: '2025-01-01', valuePerShare: 2060 }
+  } };
+  assert.equal(V.liquidationValueAtDate(stock, '2024-01-01'), 2000);
+  assert.equal(V.liquidationValueAtDate(stock, '2024-07-01'), V.liquidationValueAtDate(historicalStock, '2024-07-01'));
+  assert.equal(V.liquidationValueAtDate(stock, '2025-01-01'), 2060);
+  assert.ok(Math.abs(V.liquidationValueAtDate(stock, '2025-07-01') - 2060 * (1 + 0.02 * 0.846 * 181 / 365)) < 1e-9);
+});
+
+test('이율 누락과 미래 구간만 있는 경우 청산가를 임의 생성하지 않고 0% 이율은 허용한다', () => {
+  assert.equal(V.liquidationValueAtDate({ ...historicalStock, escrowRatePeriods: [] }, '2024-07-01'), null);
+  for (const ratePct of [null, undefined, NaN, -1]) {
+    assert.equal(V.liquidationValueAtDate({ ...historicalStock,
+      escrowRatePeriods: [{ startDate: '2024-01-01', ratePct }]
+    }, '2024-07-01'), null);
+  }
+  assert.equal(V.liquidationValueAtDate({ ...historicalStock,
+    escrowRatePeriods: [{ startDate: '2025-01-01', ratePct: 9 }]
+  }, '2024-07-01'), null);
+  assert.equal(V.liquidationValueAtDate({ ...historicalStock,
+    escrowRatePeriods: [{ startDate: '2024-01-01', ratePct: 0 }]
+  }, '2024-07-01'), 2000);
+  assert.equal(V.liquidationValueAtDate(historicalStock, '2024-02-30'), null);
+  assert.equal(V.liquidationValueAtDate({ ...historicalStock,
+    valuationBasis: { ...historicalStock.valuationBasis, rolloverMonths: 0 }
+  }, '2024-07-01'), null);
+});
+
+test('날짜별 청산가 비율은 원본 공모가 비율을 보존하면서 종가를 각 시점의 청산가로 나눈다', () => {
+  const stock = { ...historicalStock, history: [
+    { date: '2024-07-01', close: 2000, ratio: 1 },
+    { date: '2024-01-01', close: 2000, ratio: 1 },
+    { date: '2024-01-01', close: 2000, ratio: 1 },
+    { date: '2024-05-01', close: null },
+    { date: 'bad', close: 2000 }
+  ] };
+  const original = structuredClone(stock);
+  const points = V.liquidationRatioHistory(stock);
+  assert.deepEqual(points.map(point => point.date), ['2024-01-01', '2024-07-01']);
+  assert.equal(points[0].liquidationValue, 2000);
+  assert.equal(points[0].ratio, 1);
+  assert.ok(Math.abs(points[1].ratio - 1 / (1 + 0.03 * 0.846 * 182 / 365)) < 1e-9);
+  assert.deepEqual(stock, original);
+  assert.deepEqual(V.liquidationRatioHistory(null), []);
+});
+
+test('청산가 괴리는 청산가를 분모로 사용하고 저평가는 양수, 고평가는 음수다', () => {
+  assert.equal(V.liquidationDiscountPct(2000, 1900), 5);
+  assert.equal(V.liquidationDiscountPct(2000, 2100), -5);
+  assert.equal(V.liquidationDiscountPct(2000, 2000), 0);
+  assert.equal(V.liquidationDiscountPct(2500, 2000), 20);
+  for (const invalid of [null, undefined, NaN, Infinity, 0, -1]) {
+    assert.equal(V.liquidationDiscountPct(invalid, 2000), null);
+    assert.equal(V.liquidationDiscountPct(2000, invalid), null);
+  }
+});

@@ -103,7 +103,68 @@
     return Number.isFinite(result) ? result : null;
   }
 
-  const SpacValuation = { addMonths, annualizedReturnPct, estimateTrustValue, isoTime, netAnnualRate };
+  /* 미래 수령 예정일의 분배금과 구분되는, 지정 날짜까지 쌓인 주당 청산가.
+     미래의 이율/공시 잔액은 해당 날짜 이전으로 당겨 적용하지 않는다. */
+  function liquidationValueAtDate(item, date, assumptions = {}) {
+    if (!item) return null;
+    const ipoPrice = Number(item.ipoPrice);
+    const end = isoTime(date);
+    const basis = item.valuationBasis || {};
+    const periods = (item.escrowRatePeriods || []).filter(period => period
+      && period.ratePct != null && Number.isFinite(Number(period.ratePct))
+      && Number(period.ratePct) >= 0 && Number.isFinite(isoTime(period.startDate)))
+      .sort((a, b) => a.startDate.localeCompare(b.startDate));
+    const startDate = basis.trustStartDate || periods[0]?.startDate || item.listingDate;
+    const start = isoTime(startDate);
+    if (!Number.isFinite(ipoPrice) || ipoPrice <= 0 || !Number.isFinite(end)
+      || !Number.isFinite(start) || end < start) return null;
+    if (end === start) return ipoPrice;
+
+    const anchor = basis.anchor;
+    const anchorTime = isoTime(anchor?.date);
+    const useAnchor = Number.isFinite(anchorTime) && anchorTime >= start && anchorTime <= end
+      && Number.isFinite(Number(anchor.valuePerShare)) && Number(anchor.valuePerShare) > 0;
+    const projectionStart = useAnchor ? anchorTime : start;
+    const knownPeriods = periods.filter(period => isoTime(period.startDate) <= end);
+    if (!knownPeriods.some(period => isoTime(period.startDate) <= projectionStart)) return null;
+
+    const trustFeePct = Number(basis.trustFeePct ?? assumptions.trustFeePct ?? 0.1);
+    const interestTaxPct = Number(basis.interestTaxPct ?? assumptions.interestTaxPct ?? 15.4);
+    const rolloverMonths = Number(basis.rolloverMonths ?? 12);
+    if (!Number.isFinite(trustFeePct) || trustFeePct < 0 || !Number.isFinite(interestTaxPct)
+      || interestTaxPct < 0 || interestTaxPct > 100
+      || !Number.isInteger(rolloverMonths) || rolloverMonths < 1) return null;
+    const value = estimateTrustValue({
+      ipoPrice, startDate, endDate: date, periods: knownPeriods,
+      trustFeePct, interestTaxPct, rolloverMonths, anchor: useAnchor ? anchor : null
+    });
+    return Number.isFinite(value) && value > 0 ? value : null;
+  }
+
+  function liquidationRatioHistory(item, assumptions = {}) {
+    const points = new Map();
+    for (const point of item?.history || []) {
+      if (!point) continue;
+      const close = Number(point.close);
+      if (!Number.isFinite(close) || close <= 0) continue;
+      const liquidationValue = liquidationValueAtDate(item, point.date, assumptions);
+      if (liquidationValue == null) continue;
+      points.set(point.date, { ...point, liquidationValue, ratio: close / liquidationValue });
+    }
+    return Array.from(points.values()).sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  function liquidationDiscountPct(liquidationValue, currentPrice) {
+    const value = Number(liquidationValue);
+    const price = Number(currentPrice);
+    if (!Number.isFinite(value) || value <= 0 || !Number.isFinite(price) || price <= 0) return null;
+    return (value - price) / value * 100;
+  }
+
+  const SpacValuation = {
+    addMonths, annualizedReturnPct, estimateTrustValue, isoTime, netAnnualRate,
+    liquidationValueAtDate, liquidationRatioHistory, liquidationDiscountPct
+  };
   if (typeof window !== 'undefined') window.SpacValuation = SpacValuation;
   if (typeof module !== 'undefined' && module.exports) module.exports = SpacValuation;
 })();

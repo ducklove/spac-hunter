@@ -337,7 +337,16 @@
 
   /* 종목 비교 테이블(및 CSV)에 쓰는 정렬 결과 */
   function tableItems() {
-    return visibleSpacs().slice().sort((a, b) => {
+    const valuationDate = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+    return visibleSpacs().map(item => {
+      const currentLiquidationValue = SpacValuation.liquidationValueAtDate(item, valuationDate, data.valuationAssumptions);
+      return {
+        ...item,
+        liquidationValuationDate: valuationDate,
+        currentLiquidationValue,
+        liquidationDiscountPct: SpacValuation.liquidationDiscountPct(currentLiquidationValue, item.currentPrice)
+      };
+    }).sort((a, b) => {
       if (tableSort.key === 'name') {
         const result = String(a.name || '').localeCompare(String(b.name || ''), 'ko');
         return tableSort.direction === 'asc' ? result : -result;
@@ -923,9 +932,14 @@
       `<span class="badge ${badgeClass(label)}">${escapeHtml(label)}</span>`
     ).join('');
 
+    const valuationDate = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+    const currentLiquidationValue = SpacValuation.liquidationValueAtDate(item, valuationDate, data.valuationAssumptions);
+    const currentPrice = Number(item.currentPrice);
+    const liquidationRatio = currentLiquidationValue && Number.isFinite(currentPrice) && currentPrice > 0
+      ? currentPrice / currentLiquidationValue : null;
     document.getElementById('statGrid').innerHTML = [
       ['공모가', money(item.ipoPrice)],
-      ['현재가 / 공모가', ratio(item.ratio)],
+      ['현재가 / 청산가', ratio(liquidationRatio)],
       ['청산 기한', dateText(item.liquidationDate)],
       item.payoutDate
         ? ['청산금 수령까지', daysText(item.daysToPayout)]
@@ -936,6 +950,10 @@
         <div class="mini-value">${value}</div>
       </div>
     `).join('');
+
+    document.getElementById('liquidationRatioValue').textContent = currentLiquidationValue == null
+      ? '현재 청산가 계산에 필요한 공시 이율을 확인할 수 없습니다.'
+      : `${valuationDate} 기준 주당 청산가(추정) ${money(Math.round(currentLiquidationValue))}원`;
 
     const liquidationValueText = item.liquidationValuePerShare == null || Number.isNaN(Number(item.liquidationValuePerShare))
       ? '-'
@@ -1284,10 +1302,14 @@
     /* role="img" 캔버스의 요약 라벨을 선택 종목에 맞춰 갱신한다. */
     if (canvas) {
       canvas.setAttribute('aria-label', item
-        ? `${item.name} 현재가/공모가 비율 추이 차트`
-        : '현재가/공모가 비율 추이 차트');
+        ? `${item.name} 현재가/해당 날짜의 추정 청산가 비율 추이 차트`
+        : '현재가/해당 날짜의 추정 청산가 비율 추이 차트');
     }
-    SpacCharts.drawRatioChart(canvas, item, chartDays);
+    SpacCharts.drawRatioChart(canvas, liquidationHistory(item), chartDays);
+  }
+
+  function liquidationHistory(item) {
+    return SpacValuation.liquidationRatioHistory(item, data.valuationAssumptions);
   }
 
   /* ---------- 금리 시나리오 시뮬레이션 ---------- */
@@ -1411,7 +1433,7 @@
     document.getElementById('tableCount').textContent = `${items.length}개`;
     const body = document.getElementById('tableBody');
     body.innerHTML = items.map(item => {
-      const sparkPoints = SpacCharts.sparklinePoints(item.history, SPARK_DAYS);
+      const sparkPoints = SpacCharts.sparklinePoints(liquidationHistory(item), SPARK_DAYS);
       /* 행의 수치 컬럼이 정보를 담고 있어 스파크라인은 장식 취급(aria-hidden) */
       const sparkCell = sparkPoints.length >= 2
         ? `<canvas class="spark" width="110" height="26" data-spark="${escapeHtml(item.code)}" aria-hidden="true"></canvas>`
@@ -1428,7 +1450,8 @@
           </div>
         </td>
         <td class="numeric">${money(item.currentPrice)}</td>
-        <td class="numeric ${directionClass(item.premiumPct, true)}">${signedPct(item.premiumPct)}</td>
+        <td class="numeric ${item.liquidationDiscountPct > 0 ? 'good' : item.liquidationDiscountPct < 0 ? 'danger' : ''}"
+          title="${item.currentLiquidationValue == null ? '청산가 계산에 필요한 공시 이율 없음' : escapeHtml(`${item.liquidationValuationDate} 기준 추정 청산가 ${money(Math.round(item.currentLiquidationValue))}원`)}">${signedPct(item.liquidationDiscountPct)}</td>
         <td class="numeric ${Number(item.annualizedReturn) > 0 ? 'good' : 'danger'}">${pct(item.annualizedReturn)}</td>
         <td class="numeric">${daysText(item.daysToLiquidation)}</td>
         <td class="numeric">${formatTradingValue(item.tradingValue)}</td>
@@ -1449,7 +1472,7 @@
     canvases.forEach(canvas => {
       const item = byCode.get(normalizeCode(canvas.dataset.spark));
       if (item) {
-        SpacCharts.drawSparkline(canvas, SpacCharts.sparklinePoints(item.history, SPARK_DAYS));
+        SpacCharts.drawSparkline(canvas, SpacCharts.sparklinePoints(liquidationHistory(item), SPARK_DAYS));
       }
     });
   }
@@ -1740,12 +1763,14 @@
 
   function exportCsv() {
     const items = tableItems();
-    const header = ['종목명', '코드', '현재가', '공모가괴리%', '연환산%', '청산까지일', '청산금수령예정일', '추정청산분배금', '거래대금', '상태'];
+    const header = ['종목명', '코드', '현재가', '청산가괴리%', '현재청산가', '청산가기준일', '연환산%', '청산까지일', '청산금수령예정일', '추정청산분배금', '거래대금', '상태'];
     const rows = items.map(item => [
       item.name ?? '',
       item.code ?? '',
       item.currentPrice ?? '',
-      item.premiumPct ?? '',
+      item.liquidationDiscountPct == null ? '' : item.liquidationDiscountPct.toFixed(4),
+      item.currentLiquidationValue == null ? '' : item.currentLiquidationValue.toFixed(4),
+      item.liquidationValuationDate,
       item.annualizedReturn ?? '',
       item.daysToLiquidation ?? '',
       item.payoutDate ?? '',
@@ -1948,7 +1973,7 @@
         tableSort.direction = tableSort.direction === 'asc' ? 'desc' : 'asc';
       } else {
         tableSort.key = key;
-        tableSort.direction = ['annualizedReturn', 'tradingValue', 'currentPrice'].includes(key) ? 'desc' : 'asc';
+        tableSort.direction = ['annualizedReturn', 'tradingValue', 'currentPrice', 'liquidationDiscountPct'].includes(key) ? 'desc' : 'asc';
       }
       renderTable();
     };

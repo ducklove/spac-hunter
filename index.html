@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>스팩 헌터</title>
-<meta name="description" content="국내 스팩(SPAC) 전 종목의 현재가·공모가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
+<meta name="description" content="국내 스팩(SPAC) 전 종목의 현재가·청산가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
 <meta property="og:title" content="스팩 헌터">
-<meta property="og:description" content="국내 스팩(SPAC) 전 종목의 현재가·공모가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
+<meta property="og:description" content="국내 스팩(SPAC) 전 종목의 현재가·청산가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
 <script>
@@ -193,8 +193,8 @@ html[data-embed] .container { padding-top: 14px !important; }
 
       <div class="chart-toolbar">
         <div>
-          <h2 class="panel-title">현재가 / 공모가</h2>
-          <div class="panel-sub">1.00x 아래는 공모가 이하 구간입니다</div>
+          <h2 class="panel-title">현재가 / 청산가</h2>
+          <div class="panel-sub">1.00x 아래는 해당 날짜의 추정 청산가보다 낮은 구간입니다</div>
         </div>
         <div class="periods" id="periodButtons">
           <button type="button" class="period-btn" data-days="30" aria-pressed="false">1M</button>
@@ -204,11 +204,15 @@ html[data-embed] .container { padding-top: 14px !important; }
         </div>
       </div>
       <div class="chart-wrap">
-        <canvas id="ratioChart" role="img" aria-label="현재가/공모가 비율 추이 차트"></canvas>
+        <canvas id="ratioChart" role="img" aria-label="현재가/해당 날짜의 추정 청산가 비율 추이 차트" aria-describedby="liquidationRatioNote"></canvas>
       </div>
       <div class="legend">
-        <span class="legend-item"><span class="legend-line"></span>가격 비율</span>
-        <span class="legend-item"><span class="legend-line ipo"></span>공모가 1.00x</span>
+        <span class="legend-item"><span class="legend-line"></span>종가 / 해당일 청산가</span>
+        <span class="legend-item"><span class="legend-line ipo"></span>청산가 1.00x</span>
+      </div>
+      <div class="stats-panel-body" id="liquidationRatioNote">
+        <div class="panel-sub" id="liquidationRatioValue"></div>
+        <div class="stats-note">공모 납입일의 청산가는 공모가이며, 이후 해당 날짜까지의 예치이자에서 신탁보수·이자세금을 차감한 주당 금액으로 추정합니다. 약정 이율 기준으로, 중도해지이율은 반영하지 않습니다.</div>
       </div>
 
       <div class="analysis-strip" id="analysisStrip"></div>
@@ -299,12 +303,12 @@ html[data-embed] .container { padding-top: 14px !important; }
           <tr>
             <th class="sortable" data-key="name" tabindex="0" aria-sort="none">종목</th>
             <th class="numeric sortable" data-key="currentPrice" tabindex="0" aria-sort="none">현재가</th>
-            <th class="numeric sortable" data-key="premiumPct" tabindex="0" aria-sort="none">공모가 괴리</th>
+            <th class="numeric sortable" data-key="liquidationDiscountPct" tabindex="0" aria-sort="none" title="(현재 시점의 추정 청산가 - 현재가) / 추정 청산가 × 100. 양수일수록 청산가보다 저렴합니다.">청산가 괴리</th>
             <th class="numeric sortable" data-key="annualizedReturn" tabindex="0" aria-sort="none">연환산</th>
             <th class="numeric sortable" data-key="daysToLiquidation" tabindex="0" aria-sort="none">청산까지</th>
             <th class="numeric sortable" data-key="tradingValue" tabindex="0" aria-sort="none">거래대금</th>
             <th>상태</th>
-            <th>90일</th>
+            <th title="종가 / 해당 날짜의 추정 청산가">90일 청산가 대비</th>
           </tr>
         </thead>
         <tbody id="tableBody"></tbody>
@@ -339,13 +343,13 @@ html[data-embed] .container { padding-top: 14px !important; }
 <!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
      (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
 <script src="assets/format.js?v=20260729-chart-axis"></script>
-<script src="assets/chart-tooltip.js?v=20260923-return-trend"></script>
-<script src="assets/charts.js?v=20260923-return-trend"></script>
+<script src="assets/chart-tooltip.js?v=20260927-liquidation-ratio"></script>
+<script src="assets/charts.js?v=20260927-liquidation-ratio"></script>
 <script src="assets/return-trend.js?v=20260925-payout"></script>
-<script src="assets/valuation.js?v=20260925-payout"></script>
+<script src="assets/valuation.js?v=20260927-liquidation-ratio"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260925-escrow-maturity"></script>
+<script src="assets/app.js?v=20260927-liquidation-ratio"></script>
 </body>
 </html>

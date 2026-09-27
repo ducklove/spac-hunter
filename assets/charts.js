@@ -302,17 +302,17 @@
     return recentPoints(validRatioPoints(history), days == null ? 90 : days);
   }
 
-  /* 상세 패널 메인 차트: 현재가/공모가 비율 라인 + 1.00x 점선 + 영역 채우기. */
-  function drawRatioChart(canvas, item, chartDays) {
-    trackRender(canvas, () => drawRatioChart(canvas, item, chartDays));
+  /* 상세 패널: 일별 종가/해당 날짜의 추정 청산가 + 1.00x 기준선. */
+  function drawRatioChart(canvas, history, chartDays) {
+    trackRender(canvas, () => drawRatioChart(canvas, history, chartDays));
     const env = setupCanvas(canvas);
     if (!env) return;
     const ctx = env.ctx;
-    const points = recentPoints(validRatioPoints(item && item.history), chartDays);
+    const points = recentPoints(validRatioPoints(history), chartDays);
 
     if (points.length < 2) {
       setHoverModel(canvas, null);
-      drawEmptyMessage(ctx, '차트를 그릴 히스토리가 부족합니다.', 18, 36);
+      drawEmptyMessage(ctx, '청산가 계산에 필요한 이율·시세 이력이 부족합니다.', 18, 36);
       return;
     }
 

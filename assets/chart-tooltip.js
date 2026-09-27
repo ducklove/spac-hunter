@@ -69,14 +69,15 @@
     return text === '-' ? '-' : `${text}원`;
   }
 
-  /* ratio 차트(현재가/공모가) 툴팁 내용: { date, rows: [[라벨, 값]] } */
+  /* ratio 차트(현재가/해당 시점 청산가) 툴팁 내용. */
   function ratioTooltipContent(point) {
     const p = point || {};
     return {
       date: F.dateText(p.date),
       rows: [
-        ['가격 비율', F.ratio(p.ratio)],
-        ['종가', wonText(p.close)]
+        ['현재가 / 청산가', F.ratio(p.ratio)],
+        ['종가', wonText(p.close)],
+        ['해당일 청산가(추정)', wonText(p.liquidationValue == null ? null : Math.round(p.liquidationValue))]
       ]
     };
   }
