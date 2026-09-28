@@ -883,7 +883,7 @@
           <div class="spac-card-id">
             ${watchButtonHtml(item)}
             <div class="spac-card-id-text">
-              <div class="spac-name">${escapeHtml(item.name)} ${newBadge(newsTracker.hasCode(item.code))}</div>
+              <div class="spac-name"><span data-portfolio-code="${escapeHtml(item.code)}">${escapeHtml(item.name)}</span> ${newBadge(newsTracker.hasCode(item.code))}</div>
               <div class="code">${escapeHtml(item.code)} · ${escapeHtml(item.sponsor || '주관사 미확인')}</div>
             </div>
           </div>
@@ -918,7 +918,7 @@
       return;
     }
     selectedCode = item.code;
-    document.getElementById('selectedName').innerHTML = `${escapeHtml(item.name)} ${newBadge(newsTracker.hasCode(item.code))}`;
+    document.getElementById('selectedName').innerHTML = `<span data-portfolio-code="${escapeHtml(item.code)}">${escapeHtml(item.name)}</span> ${newBadge(newsTracker.hasCode(item.code))}`;
     document.getElementById('selectedMeta').textContent =
       `${item.code} · ${item.market || 'KOSDAQ'} · 상장일 ${dateText(item.listingDate)} · ` +
       (item.quote?.checkedAt
@@ -1450,7 +1450,7 @@
           <div class="table-name-cell">
             ${watchButtonHtml(item)}
             <div>
-              <strong>${escapeHtml(item.name)}</strong> ${newBadge(newsTracker.hasCode(item.code))}
+              <strong><span data-portfolio-code="${escapeHtml(item.code)}">${escapeHtml(item.name)}</span></strong> ${newBadge(newsTracker.hasCode(item.code))}
               <div class="code">${escapeHtml(item.code)}</div>
             </div>
           </div>
