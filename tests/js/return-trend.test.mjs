@@ -61,3 +61,44 @@ test('신탁보수·세금 공통 가정을 전달하고 빈 데이터는 빈 �
     assert.deepEqual(build(input), []);
   }
 });
+
+test('실시간 시세 갱신은 개별 차트와 같은 오늘 청산가로 평균을 갱신하고 중복 날짜를 만들지 않는다', () => {
+  const live = require('../../assets/live-prices.js');
+  const V = require('../../assets/valuation.js');
+  const now = Date.parse('2026-09-29T09:30:00+09:00');
+  const spacs = ['477340', '475240'].map(code => stock({ code,
+    escrowRatePeriods: [{ startDate: '2025-01-01', ratePct: 3 }],
+    history: [{ date: '2026-09-28', close: 2000 }, { date: '2026-09-29', close: 2100 }] }));
+  const quotes = new Map(spacs.map((s, i) => [s.code, live.normalizeQuote({
+    symbol: s.code, summary: { current_price: 1900 + i * 200 }, meta: { polled_at: now + i * 1000 }
+  }, now)]));
+  const refreshed = live.applyQuotes({ spacs }, quotes, now).data;
+  const rows = build(refreshed.spacs, {}, now);
+  const today = rows.at(-1);
+  assert.equal(today.date, '2026-09-29');
+  assert.equal(today.totalCount, 2);
+  assert.equal(today.liveCount, 2);
+  assert.equal(today.checkedAt, now);
+  assert.equal(rows.length, 2);
+  const prices = refreshed.spacs.map(s => V.liquidationRatioHistory(s, {}, now).at(-1));
+  assert.deepEqual(prices.map(p => p.close), [1900, 2100]);
+  const expected = prices.reduce((sum, p) => sum + (p.liquidationValue - p.close) / p.liquidationValue * 100, 0) / 2;
+  assert.ok(Math.abs(today.averageLiquidationDiscount - expected) < 1e-9);
+  assert.deepEqual(rows[0], build(spacs, {}, now)[0]);
+  assert.equal(refreshed.spacs[0].history, spacs[0].history);
+});
+
+test('오늘 조회에 성공한 종목만 오늘 표본에 추가하고 70% 표본 기준을 지킨다', () => {
+  const now = Date.parse('2026-09-29T00:01:00+09:00');
+  const spacs = Array.from({ length: 10 }, (_, i) => stock({
+    quote: i < 7 ? { price: 1900, checkedAt: now - i * 1000 } : { price: 1500, checkedAt: now - 86400000 }
+  }));
+  const today = build(spacs, {}, now).at(-1);
+  assert.equal(today.date, '2026-09-29');
+  assert.equal(today.averageLiquidationDiscount, 5);
+  assert.equal(today.totalCount, 7);
+  assert.equal(today.liveCount, 7);
+  assert.equal(today.checkedAt, now - 6000);
+  spacs[6].quote = null;
+  assert.equal(build(spacs, {}, now).at(-1).date, '2025-06-01');
+});

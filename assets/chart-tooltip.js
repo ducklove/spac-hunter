@@ -75,8 +75,9 @@
     return {
       date: F.dateText(p.date),
       rows: [
-        ['현재가(종가)', wonText(p.close)],
-        ['해당일 청산가(추정)', wonText(p.liquidationValue == null ? null : Math.round(p.liquidationValue))]
+        [p.isLive ? '현재가(조회 시세)' : '현재가(종가)', wonText(p.close)],
+        ['해당일 청산가(추정)', wonText(p.liquidationValue == null ? null : Math.round(p.liquidationValue))],
+        ...(p.isLive ? [['시세 확인', quoteTimeText(p.checkedAt)]] : [])
       ]
     };
   }
@@ -100,9 +101,18 @@
       date: F.dateText(p.date),
       rows: [
         ['평균 청산괴리율', F.pct(p.averageLiquidationDiscount)],
-        ['집계 종목', countText(p.totalCount)]
+        ['집계 종목', countText(p.totalCount)],
+        ...(p.liveCount ? [
+          ['당일 조회 반영', countText(p.liveCount)],
+          ['시세 확인(가장 이른 조회)', quoteTimeText(p.checkedAt)]
+        ] : [])
       ]
     };
+  }
+
+  function quoteTimeText(checkedAt) {
+    if (!Number.isFinite(checkedAt) || checkedAt <= 0) return '-';
+    return `${new Date(checkedAt + 9 * 3600000).toISOString().slice(11, 19)} KST`;
   }
 
   const SpacChartTooltip = {
@@ -111,7 +121,8 @@
     tooltipPosition,
     priceTooltipContent,
     belowTooltipContent,
-    returnTooltipContent
+    returnTooltipContent,
+    quoteTimeText
   };
 
   /* UMD-lite: 브라우저에선 window 전역, Node(node --test)에선 CommonJS export. */

@@ -11,7 +11,7 @@
     return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value ? time : NaN;
   }
 
-  function buildLiquidationDiscountTrend(spacs, assumptions = {}) {
+  function buildLiquidationDiscountTrend(spacs, assumptions = {}, now = Date.now()) {
     const eligible = (spacs || []).filter(item => item
       && Number.isFinite(Number(item.currentPrice)) && Number(item.currentPrice) > 0);
     const minCount = Math.max(1, Math.ceil(eligible.length * 0.7));
@@ -19,13 +19,11 @@
     eligible.forEach(item => {
       const listing = dateMillis(item.listingDate);
       const values = new Map();
-      (item.history || []).forEach(point => {
-        if (!point) return;
+      V.liquidationRatioHistory(item, assumptions, now).forEach(point => {
         const time = dateMillis(point.date);
         if (!Number.isFinite(time) || time < listing) return;
-        const liquidation = V.liquidationValueAtDate(item, point.date, assumptions);
-        const value = V.liquidationDiscountPct(liquidation, point.close);
-        if (value != null) values.set(point.date, value);
+        const value = V.liquidationDiscountPct(point.liquidationValue, point.close);
+        if (value != null) values.set(point.date, { value, isLive: point.isLive, checkedAt: point.checkedAt });
       });
       values.forEach((value, date) => {
         if (!byDate.has(date)) byDate.set(date, []);
@@ -35,11 +33,15 @@
     return Array.from(byDate.entries())
       .filter(([, values]) => values.length >= minCount)
       .sort(([a], [b]) => a.localeCompare(b))
-      .map(([date, values]) => ({
-        date,
-        averageLiquidationDiscount: values.reduce((sum, value) => sum + value, 0) / values.length,
-        totalCount: values.length
-      }))
+      .map(([date, values]) => {
+        const live = values.filter(point => point.isLive);
+        return {
+          date,
+          averageLiquidationDiscount: values.reduce((sum, point) => sum + point.value, 0) / values.length,
+          totalCount: values.length,
+          ...(live.length ? { liveCount: live.length, checkedAt: Math.min(...live.map(point => point.checkedAt)) } : {})
+        };
+      })
       .filter(point => Number.isFinite(point.averageLiquidationDiscount));
   }
 

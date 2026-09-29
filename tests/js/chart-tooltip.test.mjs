@@ -89,6 +89,20 @@ test('priceTooltipContent: 누락 필드·null 포인트는 -', () => {
   });
 });
 
+test('당일 시세 툴팁은 종가와 구분하고 한국 시각의 실제 조회 시각과 표본 수를 표시한다', () => {
+  const checkedAt = Date.parse('2026-09-28T15:01:02Z');
+  const price = tt.priceTooltipContent({ date: '2026-09-29', close: 1900, liquidationValue: 2000, isLive: true, checkedAt });
+  assert.deepEqual(price.rows, [
+    ['현재가(조회 시세)', '1,900원'], ['해당일 청산가(추정)', '2,000원'], ['시세 확인', '00:01:02 KST']
+  ]);
+  const average = tt.returnTooltipContent({ date: '2026-09-29', averageLiquidationDiscount: 5,
+    totalCount: 71, liveCount: 70, checkedAt });
+  assert.deepEqual(average.rows, [
+    ['평균 청산괴리율', '5.00%'], ['집계 종목', '71개'],
+    ['당일 조회 반영', '70개'], ['시세 확인(가장 이른 조회)', '00:01:02 KST']
+  ]);
+});
+
 test('belowTooltipContent: 종목수·전체·비중 포맷', () => {
   const content = tt.belowTooltipContent({
     date: '2025-11-21', totalCount: 51, belowCount: 9, nearCount: 16, belowPct: 17.65

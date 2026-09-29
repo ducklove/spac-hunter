@@ -63,6 +63,12 @@
           ? `시세 확인 ${checked} KST · ${status.applied}종목 · 5분 자동 갱신`
           : `시세 ${status.applied || 0}/${status.total || 0}종목 갱신 · 미갱신 종목은 이전 가격 유지${checked ? ` · 최근 성공 ${checked} KST` : ''}`;
       if (!status.busy) refreshEventNews();
+      // 성공·부분 실패 모두 마지막으로 확인된 당일 시세를 다시 투영한다.
+      // 자정 이후 조회 실패 시 전날 장중 값을 오늘 점으로 유지하지 않는다.
+      if (!status.busy) {
+        refreshReturnTrend();
+        drawSelectedChart();
+      }
     }
   });
 
@@ -464,12 +470,17 @@
     const points = SpacCharts.recentPoints(returnTrend, returnTrendDays);
     const latest = points[points.length - 1];
     const hint = latest
-      ? `${dateText(points[0].date)} - ${dateText(latest.date)} · 최근 ${pct(latest.averageLiquidationDiscount)} · ${number(latest.totalCount)}종목 · 일별 청산가 대비`
+      ? `${dateText(points[0].date)} - ${dateText(latest.date)} · 최근 ${pct(latest.averageLiquidationDiscount)} · ${number(latest.totalCount)}종목 · 일별 청산가 대비${latest.liveCount ? ` · 당일 조회 ${number(latest.liveCount)}종목 (${window.SpacChartTooltip.quoteTimeText(latest.checkedAt)}부터)` : ''}`
       : '집계 가능한 히스토리 없음';
     document.getElementById('returnTrendHint').textContent = hint;
     const canvas = document.getElementById('returnTrendChart');
     canvas.setAttribute('aria-label', `평균 청산괴리율 추이. ${hint}`);
     SpacCharts.drawReturnTrendChart(canvas, points);
+  }
+
+  function refreshReturnTrend() {
+    returnTrend = window.SpacDiscountTrend.buildLiquidationDiscountTrend(getSpacs(), data.valuationAssumptions);
+    drawReturnTrendChart();
   }
 
   function renderTrendMixBars(listingTrend, mergerTrend) {
@@ -1307,9 +1318,10 @@
     }
     const history = liquidationHistory(item);
     const points = SpacCharts.recentPoints(history, chartDays);
+    const latest = points[points.length - 1];
     const range = document.getElementById('priceChartRange');
     if (range) range.textContent = points.length
-      ? `${points[0].date} ~ ${points[points.length - 1].date} · 현재가(종가) / 추정 청산가 · 단위: 원`
+      ? `${points[0].date} ~ ${latest.date} · 현재가 / 추정 청산가 · 단위: 원${latest.isLive ? ` · 당일 조회 시세 ${window.SpacChartTooltip.quoteTimeText(latest.checkedAt)}` : ' · 종가 기준'}`
       : '표시할 가격 이력이 없습니다';
     SpacCharts.drawPriceChart(canvas, history, chartDays);
   }

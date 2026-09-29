@@ -138,3 +138,62 @@ test('청산가 괴리는 청산가를 분모로 사용하고 저평가는 양�
     assert.equal(V.liquidationDiscountPct(2000, invalid), null);
   }
 });
+
+const liveNow = Date.parse('2026-09-29T09:30:00+09:00');
+const liveStock = {
+  ...historicalStock,
+  history: [{ date: '2026-09-28', close: 2000 }],
+  quote: { price: 1900, checkedAt: liveNow, tradedAt: '2026-09-28T15:30:00+09:00' }
+};
+
+test('오늘 조회한 시세와 오늘까지 쌓인 청산가를 추가하고 과거 종가는 보존한다', () => {
+  const original = structuredClone(liveStock);
+  const points = V.liquidationRatioHistory(liveStock, {}, liveNow);
+  assert.deepEqual(points.map(p => p.date), ['2026-09-28', '2026-09-29']);
+  const latest = points.at(-1);
+  assert.equal(latest.close, 1900);
+  assert.equal(latest.isLive, true);
+  assert.equal(latest.checkedAt, liveNow);
+  // 휴장·장외 시에도 조회일 기준 점이지만 실제 체결일을 바꾸지는 않는다.
+  assert.equal(latest.tradedAt, liveStock.quote.tradedAt);
+  assert.equal(latest.liquidationValue, V.liquidationValueAtDate(liveStock, '2026-09-29'));
+  assert.ok(latest.liquidationValue > points[0].liquidationValue);
+  assert.equal(latest.ratio, 1900 / latest.liquidationValue);
+  assert.deepEqual(liveStock, original);
+});
+
+test('오늘 저장된 종가 또는 반복 조회와 날짜가 겹쳐도 최신 시세 한 점만 표시한다', () => {
+  const stock = { ...liveStock, history: [...liveStock.history, { date: '2026-09-29', close: 1950 }] };
+  const first = V.liquidationRatioHistory(stock, {}, liveNow);
+  const refreshed = { ...stock, quote: { price: 1850, checkedAt: liveNow + 300000 } };
+  const second = V.liquidationRatioHistory(refreshed, {}, liveNow + 300000);
+  assert.equal(first.length, 2);
+  assert.equal(first.at(-1).close, 1900);
+  assert.equal(second.length, 2);
+  assert.equal(second.at(-1).close, 1850);
+  assert.equal(second.at(-1).checkedAt, liveNow + 300000);
+  assert.equal(stock.history.at(-1).close, 1950);
+});
+
+test('한국 날짜 경계를 사용하며 전날 장중 시세를 종가나 오늘 시세로 이월하지 않는다', () => {
+  const midnight = Date.parse('2026-09-29T00:01:00+09:00');
+  const stock = { ...liveStock, quote: { price: 1900, checkedAt: midnight } };
+  assert.equal(V.liquidationRatioHistory(stock, {}, midnight).at(-1).date, '2026-09-29');
+  const nextDay = Date.parse('2026-09-30T00:01:00+09:00');
+  assert.deepEqual(V.liquidationRatioHistory(stock, {}, nextDay).map(p => p.date), ['2026-09-28']);
+  const nextQuote = { ...stock, quote: { price: 1800, checkedAt: nextDay } };
+  assert.deepEqual(V.liquidationRatioHistory(nextQuote, {}, nextDay).map(p => p.date), ['2026-09-28', '2026-09-30']);
+});
+
+test('미조회·지난 날짜·미래·비정상 가격을 오늘 시세로 만들지 않고 당일 마지막 조회 시각을 유지한다', () => {
+  for (const quote of [null, { price: 1900 },
+    { price: 1900, checkedAt: liveNow - 86400000 },
+    { price: 1900, checkedAt: liveNow + 61000 },
+    { price: 0, checkedAt: liveNow }, { price: Infinity, checkedAt: liveNow }]) {
+    assert.equal(V.liquidationRatioHistory({ ...liveStock, quote }, {}, liveNow).length, 1);
+  }
+  const retained = V.liquidationRatioHistory(liveStock, {}, liveNow + 600000).at(-1);
+  assert.equal(retained.checkedAt, liveNow);
+  assert.equal(retained.close, 1900);
+  assert.equal(V.liquidationRatioHistory({ ...liveStock, listingDate: '2026-09-30' }, {}, liveNow).length, 1);
+});

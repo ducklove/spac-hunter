@@ -141,9 +141,23 @@
     return Number.isFinite(value) && value > 0 ? value : null;
   }
 
-  function liquidationRatioHistory(item, assumptions = {}) {
+  function liquidationRatioHistory(item, assumptions = {}, now = Date.now()) {
+    const history = [...(item?.history || [])];
+    const quote = item?.quote;
+    const checkedAt = Number(quote?.checkedAt);
+    const quotePrice = Number(quote?.price);
+    const today = new Date(now + 9 * 3600000).toISOString().slice(0, 10);
+    // 오늘 실제 조회한 가격만 오늘 점으로 겹쳐 그린다. 원본 종가 이력은 보존하므로
+    // 날짜가 넘어가도 어제 장중 조회값이 확정 종가로 남거나 오늘 값으로 이월되지 않는다.
+    if (Number.isFinite(checkedAt) && checkedAt > 0 && checkedAt <= now + 60000
+      && new Date(checkedAt + 9 * 3600000).toISOString().slice(0, 10) === today
+      && Number.isFinite(quotePrice) && quotePrice > 0
+      && !(isoTime(item?.listingDate) > isoTime(today))) {
+      history.push({ date: today, close: quotePrice, isLive: true, checkedAt,
+        tradedAt: quote.tradedAt || null });
+    }
     const points = new Map();
-    for (const point of item?.history || []) {
+    for (const point of history) {
       if (!point) continue;
       const close = Number(point.close);
       if (!Number.isFinite(close) || close <= 0) continue;

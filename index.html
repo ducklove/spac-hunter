@@ -116,7 +116,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         <div class="stats-chart">
           <canvas id="returnTrendChart" role="img" aria-label="평균 청산괴리율 추이 차트" aria-describedby="returnTrendHint returnTrendNote"></canvas>
         </div>
-        <div class="stats-note" id="returnTrendNote">각 날짜의 (추정 청산가 − 종가) / 추정 청산가 × 100을 종목별 동일 비중으로 평균합니다. 양수는 청산가보다 저렴한 상태입니다. 현재 상장 종목의 70% 이상에서 가격·청산가를 계산할 수 있는 날짜만 표시하며, 날짜별 표본 수는 다를 수 있습니다.</div>
+        <div class="stats-note" id="returnTrendNote">각 날짜의 (추정 청산가 − 가격) / 추정 청산가 × 100을 종목별 동일 비중으로 평균합니다. 과거는 종가, 오늘은 조회한 현재가와 오늘 기준 추정 청산가를 사용하며 시세는 5분마다 갱신합니다. 장외·휴장 중에는 최근 거래 가격이 반영됩니다. 양수는 청산가보다 저렴한 상태입니다. 현재 상장 종목의 70% 이상에서 가격·청산가를 계산할 수 있는 날짜만 표시하며, 날짜별 표본 수는 다를 수 있습니다.</div>
       </div>
     </article>
     <div class="stats-panels" id="statsPanels">
@@ -209,7 +209,7 @@ html[data-embed] .container { padding-top: 14px !important; }
         <canvas id="ratioChart" role="img" aria-label="현재가와 해당 날짜의 추정 청산가 가격 추이 차트" aria-describedby="liquidationRatioNote"></canvas>
       </div>
       <div class="legend">
-        <span class="legend-item"><span class="legend-line"></span>현재가(종가)</span>
+        <span class="legend-item"><span class="legend-line"></span>현재가(과거 종가 · 오늘 조회 시세)</span>
         <span class="legend-item"><span class="legend-line ipo"></span>해당일 청산가(추정)</span>
       </div>
       <div class="stats-panel-body" id="liquidationRatioNote">
@@ -345,13 +345,13 @@ html[data-embed] .container { padding-top: 14px !important; }
 <!-- data.js 동기 로드 제거: app.js가 SpacDataLoader로 data.json을 비동기 fetch 한다
      (실패 시 data.js <script> 주입 폴백 — file:// 호환). -->
 <script src="assets/format.js?v=20260729-chart-axis"></script>
-<script src="assets/chart-tooltip.js?v=20260927-discount-trend"></script>
+<script src="assets/chart-tooltip.js?v=20260929-live-charts"></script>
 <script src="assets/charts.js?v=20260927-discount-trend"></script>
-<script src="assets/valuation.js?v=20260927-price-lines"></script>
-<script src="assets/return-trend.js?v=20260927-discount-trend"></script>
+<script src="assets/valuation.js?v=20260929-live-charts"></script>
+<script src="assets/return-trend.js?v=20260929-live-charts"></script>
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260928-tooltip"></script>
+<script src="assets/app.js?v=20260929-live-charts"></script>
 </body>
 </html>
