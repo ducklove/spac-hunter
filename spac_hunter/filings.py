@@ -489,13 +489,32 @@ def load_filings(path=None):
 
 
 def save_filings(store, generated_at, path=None):
+    """Write filings.json; a run that extracted nothing new leaves the file untouched.
+
+    ``updatedAt`` only moves when ``filings``/``calendarDocs`` changed, so the daily
+    refresh does not commit a timestamp-only diff.
+    """
     path = Path(path) if path else FILINGS_JSON_PATH
-    payload = {
-        "updatedAt": generated_at.isoformat(),
-        "filings": store.get("filings") or {},
-        "calendarDocs": store.get("calendarDocs") or {},
-    }
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    filings = store.get("filings") or {}
+    calendar_docs = store.get("calendarDocs") or {}
+    updated_at = generated_at.isoformat()
+    try:
+        previous_text = path.read_text(encoding="utf-8") if path.exists() else None
+        previous = json.loads(previous_text) if previous_text else None
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        previous_text = previous = None
+    if (
+        isinstance(previous, dict)
+        and previous.get("updatedAt")
+        and previous.get("filings") == filings
+        and previous.get("calendarDocs") == calendar_docs
+    ):
+        updated_at = previous["updatedAt"]
+    payload = {"updatedAt": updated_at, "filings": filings, "calendarDocs": calendar_docs}
+    text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    if previous_text == text:
+        return path
+    path.write_text(text, encoding="utf-8")
     return path
 
 

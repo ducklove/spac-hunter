@@ -2,10 +2,10 @@ name: Quality
 
 on:
   pull_request:
-    paths-ignore: ["data.js", "data.json", "current.json", "docs/**"]
+    paths-ignore: ["data.js", "data.json", "current.json", "summary.json", "version.json", "docs/**"]
   push:
     branches: [main, "claude/**"]
-    paths-ignore: ["data.js", "data.json", "current.json", "docs/**"]
+    paths-ignore: ["data.js", "data.json", "current.json", "summary.json", "version.json", "docs/**"]
 
 jobs:
   quality:

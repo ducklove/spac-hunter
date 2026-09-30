@@ -13,6 +13,9 @@ python fetch_data.py --history-pages 3
 - `data.json`: 대시보드가 `fetch()`로 비동기 로드하는 전체 데이터
 - `data.js`: 같은 페이로드의 `window.SPAC_DATA = …;` 래핑본 — `file://` 등 fetch가 막힌 환경용 폴백
 - `current.json`: 현재가 중심의 가벼운 스냅샷
+- `summary.json` / `version.json`: Value Compass 허브용 요약(공통 envelope v1, 아래 "Value Compass 생태계" 참고)
+
+`data.json`/`data.js`는 들여쓰기 없는 compact JSON으로 씁니다(대시보드·검증기·허브는 파싱만 하므로 약 3.8 MB → 2.0 MB).
 
 그 다음 `index.html`을 브라우저에서 열면 됩니다.
 
@@ -35,9 +38,11 @@ spac_hunter/             # 수집 파이프라인 패키지
   cli.py http.py constants.py parsing.py alerts.py archive.py filings.py
   sources/               # krx, kind, dart, opendart, naver, kofr
   domain/                # merger, valuation, enrich
-  stats.py sample.py output.py
+  stats.py sample.py output.py publish.py
+  vc_publish.py          # value-invest에서 벤더링한 envelope 헬퍼 — 직접 수정 금지
 index.html               # 대시보드 진입점 (빌드 없음)
 assets/                  # style.css, format.js, chart-tooltip.js, charts.js, data-loader.js, app.js
+                         # vc-shell.js, vc-tokens.css: value-invest에서 벤더링(직접 수정 금지)
 tests/                   # pytest 테스트 (tests/js/는 node --test 프론트엔드 테스트)
 pyproject.toml           # ruff 설정 (line-length 110, py311)
 requirements.txt         # 런타임 의존성 (버전 고정)
@@ -46,7 +51,8 @@ requirements-dev.txt     # ruff, pytest
 data.js / data.json / current.json  # 생성 산출물 (CI가 매일 갱신)
 alerts.json / alerts.xml # 알림 누적 기록과 RSS 피드 (라이브 갱신 시 생성)
 archive.json             # 상폐(유니버스 이탈) 스팩 아카이브 (라이브 갱신 시 생성)
-filings.json             # 증권신고서 자동 추출값 캐시 (OpenDART 키 설정 시 점진 축적)
+filings.json             # 증권신고서 자동 추출값 캐시 (OpenDART 키 설정 시 점진 축적, 내용이 같으면 updatedAt 유지)
+summary.json / version.json  # Value Compass 허브용 요약 (spac_hunter/publish.py, 내용이 바뀔 때만 다시 씀)
 overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에도 적용)
 ```
 
@@ -56,10 +62,19 @@ overrides.json           # 수동 보정 레이어 (저장소에 커밋, CI에�
 pip install -r requirements.txt -r requirements-dev.txt
 ruff check spac_hunter tests fetch_data.py validate_data.py
 pytest -q
-node --test tests/js
+node --test 'tests/js/*.test.mjs'   # 또는 node --test tests/js (index.js 셤이 모든 *.test.mjs를 import)
+python -m spac_hunter.publish        # 커밋된 data.json으로 summary.json/version.json 오프라인 재생성
 ```
 
 로컬 프리뷰는 `python -m http.server`를 띄워 접속하거나, `index.html`을 브라우저에서 직접 열면 됩니다(별도 빌드 없음). 대시보드는 `data.json`을 `fetch()`로 비동기 로드하며, fetch가 막히는 `file://` 환경에서는 자동으로 `data.js` `<script>` 폴백을 사용합니다.
+
+## Value Compass 생태계
+
+- **에코시스템 바**: `<body>` 맨 위의 `<vc-shell tool="spac-hunter">`(`assets/vc-shell.js`)가 허브·다른 대시보드로 가는 공용 바를 그립니다. 스크립트가 막히면 안에 든 `Value Compass ↗` 링크가 그대로 보이고, `?embed`·iframe·`?vc-shell=0`에서는 숨겨집니다. 상세에서 종목을 고르면 `VCShell.setStock(code, name)`으로 "허브에서 분석 ↗" 칩이 붙습니다.
+- **테마**: head의 `<!-- vc:theme-boot -->` 블록이 `?theme`(저장 안 함) → 공용 `theme` 키 → OS 설정 순으로 첫 페인트 전에 테마를 정하고, 구 키 `spac-hunter-theme`을 옮깁니다. `테마 전환` 버튼은 `VCShell.setTheme()`을 쓰고, 차트는 `vc:themechange` 이벤트에 다시 그립니다.
+- **색·폰트**: `assets/vc-tokens.css`를 `style.css`보다 먼저 로드하고 `--red`/`--blue`(상승=빨강, 하락=파랑)와 본문 폰트만 `--vc-up`/`--vc-down`/`--vc-font-sans`에 alias 합니다.
+- **허브용 요약**: `write_outputs()`가 `summary.json`(`schemaVersion 1`, `tool: spac-hunter`)과 `version.json`을 저장소 루트(= Pages 루트)에 씁니다. 스팩별 공모가·현재가·예치 이율 구간·`valuationBasis`와 함께, 허브가 직접 계산하던 기준일(`valuationDate` = 최신 종가일) 누적 청산가 `currentLiquidationValue`와 청산가 괴리 `liquidationDiscountPct`를 담습니다. `asOf`는 실행 시각이 아니라 최신 종가일이고, 수집 시각만 바뀐 재실행은 파일을 다시 쓰지 않습니다.
+- 벤더링 파일(`assets/vc-shell.js`, `assets/vc-tokens.css`, `spac_hunter/vc_publish.py`, theme-boot 블록)은 value-invest에서 `node scripts/sync-ecosystem.mjs --write --only spac-hunter`로만 갱신합니다.
 
 ## 화면 시세 자동 갱신
 
@@ -176,7 +191,7 @@ python fetch_data.py --trust-rate 0.025 --history-pages 3
 - 공모 정보 블록: 증권신고서 추출값(공모가·예치금·예치이율 등)을 종목 상세에 표시
 - 상폐·아카이브 패널: 누적 아카이브와 최근 이탈 종목 (아카이브 데이터가 있을 때 표시)
 - 합병 후 주가 흐름 패널: 합병 신상장 종목의 현재가, 스팩 최종가·공모가 대비 수익률, 스팩 최종가를 1.00x로 놓은 스파크라인 (추적 데이터가 있을 때 표시)
-- 다크 테마
+- 다크 테마 (생태계 공용 `theme` 키, 저장값이 없으면 OS 설정)
 - iframe 임베드: `?embed`, `?theme`
 - 딥링크: `?code`, `?filter`, `?sort`
 - 금리 시나리오 슬라이더: 오늘 이후 예치이자 가정을 바꿔 기대수익률 재계산(지난 기간 이자는 공시대로, 보수·원천징수 차감)

@@ -3,7 +3,7 @@
 import json
 from datetime import datetime
 
-from spac_hunter import alerts, archive, cli, output
+from spac_hunter import alerts, archive, cli, filings, output
 from spac_hunter.constants import KST
 from spac_hunter.output import load_existing_last_updated, write_outputs
 
@@ -231,6 +231,10 @@ class TestCliArchiveWiring:
         monkeypatch.setattr(archive, "ARCHIVE_JSON_PATH", tmp_path / "archive.json")
         monkeypatch.setattr(alerts, "ALERTS_JSON_PATH", tmp_path / "alerts.json")
         monkeypatch.setattr(alerts, "ALERTS_XML_PATH", tmp_path / "alerts.xml")
+        # 라이브 모드(collect_filings → save_filings)와 overrides 로드가 저장소의 추적 파일을
+        # 건드리지 않게 한다 — pytest 실행 후 git status가 깨끗해야 한다.
+        monkeypatch.setattr(filings, "FILINGS_JSON_PATH", tmp_path / "filings.json")
+        monkeypatch.setattr(output, "OVERRIDES_PATH", tmp_path / "overrides.json")
         monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
         monkeypatch.delenv("TELEGRAM_CHAT_ID", raising=False)
 
