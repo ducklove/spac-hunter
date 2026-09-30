@@ -132,6 +132,17 @@ class TestWriteOutputs:
         assert not text.startswith("window.SPAC_DATA")  # 프리픽스 없는 순수 JSON
         assert json.loads(text) == read_payload(tmp_path / "data.js")
 
+    def test_data_files_are_compact(self, tmp_path, spac_factory):
+        """data.js/data.json은 들여쓰기 없이 한 줄로 쓴다(허브·대시보드는 파싱만 한다)."""
+        write(tmp_path, [spac_factory(code="100001", name="가나스팩1호")])
+
+        data_json = (tmp_path / "data.json").read_text(encoding="utf-8")
+        data_js = (tmp_path / "data.js").read_text(encoding="utf-8")
+        assert data_json.count("\n") == 1 and data_json.endswith("}\n")
+        assert data_js.startswith('window.SPAC_DATA = {"schemaVersion":2,') and data_js.endswith("};\n")
+        assert ": " not in data_json.split('"methodology"')[0]  # separators=(",", ":")
+        assert load_existing_spacs(tmp_path / "data.js")["100001"]["name"] == "가나스팩1호"
+
     def test_load_existing_spacs_round_trip(self, tmp_path, spac_factory):
         spacs = [spac_factory(code="100001", name="가나스팩1호"), spac_factory(code="100002")]
         write(tmp_path, spacs)

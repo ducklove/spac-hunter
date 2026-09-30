@@ -9,40 +9,44 @@
 <meta property="og:description" content="국내 스팩(SPAC) 전 종목의 현재가·청산가 괴리·연환산 기대수익률·청산 일정과 합병 공시 이벤트를 한눈에 보는 대시보드.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="icon.svg?v=1">
-<script>
-// iframe embed + theme: ?theme=dark|light overrides stored theme; ?embed hides chrome.
-(function() {
+<!-- vc:theme-boot --><script>
+/* vc-theme-boot v1 (value-invest static/ecosystem/vc-theme-boot.js) — pre-paint theme; inlined by sync-ecosystem, do not edit copies. */
+(function () {
+  var d = document.documentElement, p = null, s = null, t, v, i;
+  var legacy = ['bondmate.theme', 'eiayn:theme:v1', 'spac-hunter-theme', 'preferred-theme', 'nps-theme'];
+  try { p = new URLSearchParams(location.search); } catch (e) { p = null; }
   try {
-    var params = new URLSearchParams(location.search);
-    var urlTheme = params.get('theme');
-    var stored = localStorage.getItem('theme');
-    if (!stored) {
-      // 구 키('spac-hunter-theme') → 공통 키('theme') 마이그레이션
-      stored = localStorage.getItem('spac-hunter-theme');
-      if (stored) localStorage.setItem('theme', stored);
+    s = localStorage.getItem('theme');
+    if (s === null) {
+      for (i = 0; i < legacy.length && s === null; i++) {
+        v = localStorage.getItem(legacy[i]);
+        if (v && v.charAt(0) === '"') { try { v = JSON.parse(v); } catch (e) { v = null; } }
+        if (v === 'light' || v === 'dark') { s = v; localStorage.setItem('theme', v); }
+      }
     }
-    var theme = (urlTheme === 'dark' || urlTheme === 'light') ? urlTheme : (stored || 'light');
-    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
-    var embed = params.get('embed');
-    if (embed !== null && embed !== '0' && embed !== 'false') {
-      document.documentElement.dataset.embed = '1';
-    }
-  } catch (error) {
-    document.documentElement.dataset.theme = 'light';
-  }
+  } catch (e) { s = null; }
+  t = p && p.get('theme');
+  if (t !== 'light' && t !== 'dark') t = s === 'light' || s === 'dark' ? s : null;
+  if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.setAttribute('data-theme', t);
+  v = p && p.get('embed');
+  if ((v !== null && v !== undefined && v !== '0' && v !== 'false') || (p && p.get('headless') === '1')) d.setAttribute('data-embed', v || '');
 })();
-</script>
+</script><!-- /vc:theme-boot -->
 <style>
 /* iframe embed mode: hide standalone chrome so the dashboard fits a host frame */
 html[data-embed] .app-header,
 html[data-embed] footer { display: none !important; }
 html[data-embed] .container { padding-top: 14px !important; }
 </style>
-<link rel="stylesheet" href="assets/style.css?v=20260927-price-lines">
+<link rel="stylesheet" href="./assets/vc-tokens.css?v=1.1.0">
+<link rel="stylesheet" href="assets/style.css?v=20260930-vc">
+<script defer src="./assets/vc-shell.js?v=1.1.0"></script>
 <script defer src="./assets/analytics.js" data-project="spac-hunter"></script>
-<script defer src="https://ducklove.duckdns.org:3691/js/portfolio-held-badges.js?v=20260928-tooltip"></script>
+<script defer src="https://ducklove.duckdns.org:3691/js/portfolio-held-badges.js?v=20260930-vc"></script>
 </head>
 <body>
+<vc-shell tool="spac-hunter"><a class="hub-link" href="https://ducklove.duckdns.org:3691" rel="noopener">Value Compass ↗</a></vc-shell>
 <header class="app-header">
   <div class="header-inner">
     <div class="brand-block">
@@ -50,7 +54,6 @@ html[data-embed] .container { padding-top: 14px !important; }
       <div class="updated" id="updated">데이터를 불러오는 중입니다</div>
     </div>
     <div class="header-actions">
-      <a class="hub-link" href="https://ducklove.duckdns.org:3691" rel="noopener">Value Compass ↗</a>
       <button type="button" class="button" id="refreshViewBtn">시세 새로고침</button>
       <button type="button" class="button" id="themeBtn" aria-label="테마 전환">테마 전환</button>
     </div>
@@ -352,6 +355,6 @@ html[data-embed] .container { padding-top: 14px !important; }
 <script src="assets/data-loader.js?v=20260729-chart-axis"></script>
 <script src="assets/live-prices.js?v=20260925-payout"></script>
 <script src="assets/event-news.js?v=20260921-news"></script>
-<script src="assets/app.js?v=20260929-live-charts"></script>
+<script src="assets/app.js?v=20260930-vc"></script>
 </body>
 </html>

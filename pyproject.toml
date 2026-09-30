@@ -1,6 +1,8 @@
 [tool.ruff]
 line-length = 110
 target-version = "py311"
+# value-invest에서 벤더링한 파일(scripts/sync-ecosystem.mjs가 덮어씀) — 이 저장소에서 수정하지 않는다.
+extend-exclude = ["spac_hunter/vc_publish.py"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I"]

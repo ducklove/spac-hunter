@@ -449,6 +449,31 @@ class TestFilingsStore:
         assert raw["updatedAt"] == NOW.isoformat()
         assert list(raw.keys()) == ["updatedAt", "filings", "calendarDocs"]
 
+    def test_unchanged_content_keeps_updated_at_and_file(self, tmp_path):
+        """추출값이 그대로인 재실행은 updatedAt만 바뀐 커밋을 만들지 않는다."""
+        path = tmp_path / "filings.json"
+        store = {"filings": {"000001": {"receiptNo": "20240105000123", "ipoPrice": 2000}}, "calendarDocs": {}}
+        save_filings(store, NOW, path=path)
+        before = path.read_bytes()
+        mtime = path.stat().st_mtime_ns
+
+        save_filings(load_filings(path=path), NOW + timedelta(days=1), path=path)
+
+        assert path.read_bytes() == before
+        assert path.stat().st_mtime_ns == mtime
+        assert json.loads(before)["updatedAt"] == NOW.isoformat()
+
+    def test_changed_content_moves_updated_at(self, tmp_path):
+        path = tmp_path / "filings.json"
+        save_filings({"filings": {}, "calendarDocs": {}}, NOW, path=path)
+        later = NOW + timedelta(days=1)
+
+        save_filings({"filings": {"000001": {"ipoPrice": 2000}}, "calendarDocs": {}}, later, path=path)
+
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        assert raw["updatedAt"] == later.isoformat()
+        assert raw["filings"] == {"000001": {"ipoPrice": 2000}}
+
     def test_missing_file_returns_empty_store(self, tmp_path):
         assert load_filings(path=tmp_path / "missing.json") == {"filings": {}, "calendarDocs": {}}
 

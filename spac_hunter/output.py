@@ -17,6 +17,7 @@ from .constants import (
     SCHEMA_VERSION,
 )
 from .parsing import normalize_name, parse_int, today_kst
+from .publish import SUMMARY_FILENAME, publish_summary
 from .stats import build_merger_cases, build_statistics, build_summary
 
 logger = logging.getLogger(__name__)
@@ -145,18 +146,25 @@ def write_outputs(
     archive=None,
     ipo_calendar=None,
     valuation_assumptions=None,
+    summary_json_path=None,
 ):
-    """Write data.js / data.json / current.json.
+    """Write data.js / data.json / current.json (+ the hub's summary.json/version.json).
 
     ``data.json`` carries the exact same payload as ``data.js`` (single
     serialization, no prefix) so the dashboard can fetch it asynchronously;
     ``data.js`` is kept for the ``file://`` script-tag fallback.
     When ``data_json_path`` is omitted it is derived from ``data_js_path``
-    (``data.js`` -> ``data.json``) so tests and custom paths stay isolated.
+    (``data.js`` -> ``data.json``) so tests and custom paths stay isolated;
+    ``summary_json_path`` likewise defaults to ``summary.json`` next to data.js
+    (``version.json`` sits beside it). data.js/data.json are serialized compactly
+    (no indentation): the dashboard, validate_data.py and the hub only parse them.
     """
     data_js_path = Path(data_js_path) if data_js_path else DATA_JS_PATH
     current_json_path = Path(current_json_path) if current_json_path else CURRENT_JSON_PATH
     data_json_path = Path(data_json_path) if data_json_path else data_js_path.with_suffix(".json")
+    summary_json_path = (
+        Path(summary_json_path) if summary_json_path else data_js_path.with_name(SUMMARY_FILENAME)
+    )
 
     spacs = sorted(
         spacs,
@@ -229,7 +237,7 @@ def write_outputs(
             "kofr": KOFR_MAIN_URL,
         },
     }
-    payload_json = json.dumps(payload, ensure_ascii=False, indent=2)
+    payload_json = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     data_js_path.write_text(
         DATA_JS_PREFIX + payload_json + ";\n",
         encoding="utf-8",
@@ -262,4 +270,5 @@ def write_outputs(
         ),
         encoding="utf-8",
     )
+    publish_summary(payload, summary_json_path, generated_at=generated_at.replace(microsecond=0))
     return data_js_path, current_json_path

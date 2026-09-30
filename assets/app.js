@@ -917,8 +917,23 @@
 
   /* ---------- 선택 종목 상세 ---------- */
 
+  /* 생태계 바(<vc-shell>)에 선택 종목을 알려 '허브에서 분석 ↗' 칩을 띄운다. 같은 종목이면
+     다시 설정하지 않는다(5분 시세 갱신마다 셸이 다시 그려져 열린 메뉴가 닫히지 않게). */
+  let shellStockKey = null;
+  function syncShellStock(item) {
+    const shell = window.VCShell;
+    if (!shell || typeof shell.setStock !== 'function') return;
+    const code = item ? normalizeCode(item.code) : null;
+    const name = item && code ? item.name || '' : '';
+    const key = code ? `${code}|${name}` : '';
+    if (key === shellStockKey) return;
+    shellStockKey = key;
+    shell.setStock(code || null, name || null);
+  }
+
   function renderSelected() {
     const item = selectedSpac();
+    syncShellStock(item);
     syncSimulationDefault(item);
     renderSimulation();
     renderDisclosures(item);
@@ -1910,6 +1925,11 @@
     document.getElementById('themeBtn').addEventListener('click', () => {
       const root = document.documentElement;
       const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      /* 생태계 셸이 있으면 공용 키 저장·?theme 정리·vc:themechange 발행까지 맡긴다(재그리기는 아래 구독). */
+      if (window.VCShell && typeof window.VCShell.setTheme === 'function') {
+        window.VCShell.setTheme(next);
+        return;
+      }
       root.dataset.theme = next;
       try {
         localStorage.setItem('theme', next);
@@ -1918,6 +1938,11 @@
       }
       redrawCanvases();
     });
+    /* 셸 토글·다른 탭(storage)·OS 테마 변경·허브 iframe 메시지 모두 이 이벤트로 온다.
+       캔버스 차트는 CSS 변수를 그릴 때 읽으므로 다시 그려야 색이 바뀐다. */
+    document.addEventListener('vc:themechange', () => redrawCanvases());
+    /* vc-shell.js는 defer라 첫 렌더 뒤에 로드될 수 있다 — 로드 후 선택 종목을 다시 알린다. */
+    document.addEventListener('DOMContentLoaded', () => syncShellStock(selectedSpac()));
 
     document.getElementById('refreshViewBtn').addEventListener('click', refreshData);
 

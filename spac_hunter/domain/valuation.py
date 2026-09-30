@@ -1,10 +1,11 @@
 """Valuation helpers: trust value, returns, badges, and sponsor derivation."""
 
+import math
 import re
 from datetime import timedelta
 
-from ..constants import TRUST_ROLLOVER_MONTHS
-from ..parsing import add_months
+from ..constants import DEFAULT_INTEREST_TAX_PCT, DEFAULT_TRUST_FEE_PCT, TRUST_ROLLOVER_MONTHS
+from ..parsing import add_months, parse_date
 
 
 def derive_sponsor(name):
@@ -153,6 +154,97 @@ def estimate_trust_value_from_periods(
         net_rate = net_annual_rate(active_rate, trust_fee_rate, interest_tax_rate)
         value = _accrue_deposit_terms(value, segment_start, segment_end, net_rate, rollover_months)
     return value
+
+
+def _finite(value):
+    if value is None or isinstance(value, bool):
+        return None
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    return number if math.isfinite(number) else None
+
+
+def liquidation_value_at_date(item, day, assumptions=None):
+    """Accrued liquidation value per share on ``day`` (assets/valuation.js liquidationValueAtDate).
+
+    Unlike ``liquidationValuePerShare`` (the expected payout at the payout date),
+    this is what the escrow is worth *on that date*: rates and disclosed balances
+    dated after ``day`` are never pulled forward. Returns None when the escrow
+    history cannot support an estimate (no rate period on or before the start).
+    """
+    if not item or day is None:
+        return None
+    assumptions = assumptions or {}
+    ipo_price = _finite(item.get("ipoPrice"))
+    basis = item.get("valuationBasis") or {}
+    periods = []
+    for period in item.get("escrowRatePeriods") or []:
+        if not isinstance(period, dict):
+            continue
+        start_day = parse_date(period.get("startDate"))
+        rate = _finite(period.get("ratePct"))
+        if start_day is not None and rate is not None and rate >= 0:
+            periods.append((start_day, rate))
+    periods.sort(key=lambda period: period[0])
+    start = parse_date(basis.get("trustStartDate")) or (periods[0][0] if periods else None)
+    if start is None:
+        start = parse_date(item.get("listingDate"))
+    if ipo_price is None or ipo_price <= 0 or start is None or day < start:
+        return None
+    if day == start:
+        return ipo_price
+
+    anchor = basis.get("anchor") or {}
+    anchor_day = parse_date(anchor.get("date"))
+    anchor_value = _finite(anchor.get("valuePerShare"))
+    use_anchor = anchor_day is not None and start <= anchor_day <= day and anchor_value and anchor_value > 0
+    projection_start = anchor_day if use_anchor else start
+    known = [period for period in periods if period[0] <= day]
+    if not any(period_start <= projection_start for period_start, _ in known):
+        return None
+
+    def setting(key, default):
+        value = basis.get(key)
+        if value is None:
+            value = assumptions.get(key)
+        return _finite(default if value is None else value)
+
+    trust_fee_pct = setting("trustFeePct", DEFAULT_TRUST_FEE_PCT)
+    interest_tax_pct = setting("interestTaxPct", DEFAULT_INTEREST_TAX_PCT)
+    rollover = _finite(basis.get("rolloverMonths", TRUST_ROLLOVER_MONTHS))
+    if (
+        trust_fee_pct is None
+        or trust_fee_pct < 0
+        or interest_tax_pct is None
+        or not 0 <= interest_tax_pct <= 100
+        or rollover is None
+        or rollover < 1
+        or not rollover.is_integer()
+    ):
+        return None
+    value = estimate_trust_value_from_periods(
+        ipo_price,
+        start,
+        day,
+        [{"startDate": period_start, "rate": rate / 100} for period_start, rate in known],
+        day,
+        trust_fee_rate=trust_fee_pct / 100,
+        interest_tax_rate=interest_tax_pct / 100,
+        rollover_months=int(rollover),
+        anchor={"date": anchor_day, "value": anchor_value} if use_anchor else None,
+    )
+    return value if value is not None and math.isfinite(value) and value > 0 else None
+
+
+def liquidation_discount_pct(liquidation_value, current_price):
+    """(청산가 - 현재가) / 청산가 × 100 — the list's 청산가 괴리 (valuation.js liquidationDiscountPct)."""
+    value = _finite(liquidation_value)
+    price = _finite(current_price)
+    if value is None or value <= 0 or price is None or price <= 0:
+        return None
+    return (value - price) / value * 100
 
 
 def pct_change(base, value):
