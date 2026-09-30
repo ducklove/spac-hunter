@@ -68,13 +68,37 @@ python -m spac_hunter.publish        # 커밋된 data.json으로 summary.json/ve
 
 로컬 프리뷰는 `python -m http.server`를 띄워 접속하거나, `index.html`을 브라우저에서 직접 열면 됩니다(별도 빌드 없음). 대시보드는 `data.json`을 `fetch()`로 비동기 로드하며, fetch가 막히는 `file://` 환경에서는 자동으로 `data.js` `<script>` 폴백을 사용합니다.
 
-## Value Compass 생태계
+## Value Compass 생태계 연동
 
-- **에코시스템 바**: `<body>` 맨 위의 `<vc-shell tool="spac-hunter">`(`assets/vc-shell.js`)가 허브·다른 대시보드로 가는 공용 바를 그립니다. 스크립트가 막히면 안에 든 `Value Compass ↗` 링크가 그대로 보이고, `?embed`·iframe·`?vc-shell=0`에서는 숨겨집니다. 상세에서 종목을 고르면 `VCShell.setStock(code, name)`으로 "허브에서 분석 ↗" 칩이 붙습니다.
-- **테마**: head의 `<!-- vc:theme-boot -->` 블록이 `?theme`(저장 안 함) → 공용 `theme` 키 → OS 설정 순으로 첫 페인트 전에 테마를 정하고, 구 키 `spac-hunter-theme`을 옮깁니다. `테마 전환` 버튼은 `VCShell.setTheme()`을 쓰고, 차트는 `vc:themechange` 이벤트에 다시 그립니다.
-- **색·폰트**: `assets/vc-tokens.css`를 `style.css`보다 먼저 로드하고 `--red`/`--blue`(상승=빨강, 하락=파랑)와 본문 폰트만 `--vc-up`/`--vc-down`/`--vc-font-sans`에 alias 합니다.
-- **허브용 요약**: `write_outputs()`가 `summary.json`(`schemaVersion 1`, `tool: spac-hunter`)과 `version.json`을 저장소 루트(= Pages 루트)에 씁니다. 스팩별 공모가·현재가·예치 이율 구간·`valuationBasis`와 함께, 허브가 직접 계산하던 기준일(`valuationDate` = 최신 종가일) 누적 청산가 `currentLiquidationValue`와 청산가 괴리 `liquidationDiscountPct`를 담습니다. `asOf`는 실행 시각이 아니라 최신 종가일이고, 수집 시각만 바뀐 재실행은 파일을 다시 쓰지 않습니다.
-- 벤더링 파일(`assets/vc-shell.js`, `assets/vc-tokens.css`, `spac_hunter/vc_publish.py`, theme-boot 블록)은 value-invest에서 `node scripts/sync-ecosystem.mjs --write --only spac-hunter`로만 갱신합니다.
+허브 레지스트리(value-invest `config/ecosystem.json`)의 도구 id는 **`spac-hunter`**(integrationKey `spacHunter`,
+handoff·보유 배지 대상)입니다.
+
+- **벤더링 (직접 수정 금지)**: `assets/vc-shell.js`·`assets/vc-tokens.css`, `index.html`의 `<!-- vc:theme-boot -->`
+  블록, 허브 보유 배지 `?v=` 태그, `spac_hunter/vc_publish.py`는 허브가 정본입니다. 허브에서 고친 뒤 이 저장소
+  루트에서 `node ../value-invest/scripts/sync-ecosystem.mjs --write --only spac-hunter`로 다시 복사합니다
+  (`--write` 없이 실행하면 검증만).
+- **에코시스템 바·테마**: `<body>` 맨 위 `<vc-shell tool="spac-hunter">`(스크립트가 막히면 안의 `Value Compass ↗`
+  링크가 보임). 상세에서 종목을 고르면 `VCShell.setStock(code, name)`으로 "허브에서 분석 ↗" 칩이 붙습니다.
+  `테마 전환` 버튼은 `VCShell.setTheme()`, 차트는 `vc:themechange`에 다시 그립니다(구 키 `spac-hunter-theme`은
+  boot 블록이 공용 `theme` 키로 옮김). `--red`/`--blue`와 본문 폰트만 `--vc-up`/`--vc-down`/`--vc-font-sans`에 alias.
+- **인바운드 딥링크** (`assets/app.js` `readUrlState`, 뒤로가기에도 반영)
+  - `?code=<스팩 코드>` — 상세 선택(대소문자 무시). `?filter=all|below|near|due|merger|recent|watch`,
+    `?sort=price|listing|yield`(`cheap`·`ratio`·`liquidation` 별칭) — 허용 목록 밖의 값은 무시합니다.
+  - `?theme=dark|light` — 첫 페인트 전 적용, 저장하지 않음(없으면 공용 `theme` 키 → OS 설정).
+  - `?embed`(`0`/`false` 제외)·`?headless=1`·`?vc-shell=0`·iframe — 에코시스템 바 숨김(`html[data-embed]`).
+  - `#vc-held=코드:수량,…` — 허브 `/go/spac-hunter` handoff의 보유 스냅샷(배지 스크립트가 읽고 지움).
+- **발행 요약**: `fetch_data.py`의 `write_outputs()`가 저장소 루트(= Pages 루트)에 `summary.json`·`version.json`을
+  쓰고, `pages.yml`이 `python -m spac_hunter.vc_publish validate summary.json`으로 검증한 뒤 함께 커밋합니다.
+  스팩별 공모가·현재가·예치 이율 구간·`valuationBasis`와 기준일(`valuationDate` = 최신 종가일) 누적 청산가
+  `currentLiquidationValue`·청산가 괴리 `liquidationDiscountPct`를 담습니다. `asOf`는 최신 종가일이라 수집 시각만
+  바뀐 재실행은 파일을 다시 쓰지 않습니다. 오프라인 재생성: `python -m spac_hunter.publish`. 허브는
+  `https://ducklove.github.io/spac-hunter/summary.json`을 먼저 읽고 실패하면 `current.json`·`data.json`으로 폴백합니다.
+  계약: [data-contract.md](https://github.com/ducklove/value-invest/blob/master/docs/ecosystem/data-contract.md) §6.3.
+- **사용하는 허브 서비스**
+  - 보유 배지: 허브 `/js/portfolio-held-badges.js`가 `data-portfolio-code`/`data-portfolio-price` 라벨에 **보유** 배지.
+  - kis-proxy: 화면 시세 갱신(`assets/live-prices.js`)이 HTTPS `:3298`의 `/v1/naverfinance/stocks/…`를 호출합니다
+    (아래 "화면 시세 자동 갱신").
+  - `/api/internal/notify`·`/api/asset-quotes`·finance-pi는 쓰지 않습니다(알림은 자체 Telegram·`alerts.json`).
 
 ## 화면 시세 자동 갱신
 
