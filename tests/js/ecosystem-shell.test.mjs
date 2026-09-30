@@ -12,6 +12,9 @@ const html = read('index.html');
 const app = read('assets/app.js');
 const css = read('assets/style.css');
 const HELD_BADGES_VERSION = '20260930-vc'; // value-invest config/ecosystem.json heldBadges.version
+// vc-shell.js / vc-tokens.css 의 ?v= 라벨은 벤더링된 VCShell.version 이다(허브 sync-ecosystem.mjs 가 검사).
+const SHELL_VERSION = read('assets/vc-shell.js').match(/var VERSION = '([^']+)'/)[1];
+const SHELL_LABEL = SHELL_VERSION.replace(/\./g, '\\.');
 
 test('벤더링된 셸·토큰·발행 헬퍼가 있고 직접 수정 금지 헤더를 유지한다', () => {
   const shell = read('assets/vc-shell.js');
@@ -34,10 +37,10 @@ test('head: theme-boot 마커가 한 번, 모든 스타일시트보다 먼저 �
 });
 
 test('head: vc-tokens.css가 style.css보다 먼저, vc-shell.js는 defer로 로드된다', () => {
-  const tokens = html.indexOf('href="./assets/vc-tokens.css?v=');
+  const tokens = html.indexOf(`href="./assets/vc-tokens.css?v=${SHELL_VERSION}"`);
   const own = html.indexOf('href="assets/style.css?v=');
   assert.ok(tokens > 0 && own > tokens, 'vc-tokens.css before style.css');
-  assert.match(html, /<script defer src="\.\/assets\/vc-shell\.js\?v=[\w-]+"><\/script>/);
+  assert.match(html, new RegExp(`<script defer src="\\./assets/vc-shell\\.js\\?v=${SHELL_LABEL}"></script>`));
   assert.match(
     html,
     new RegExp(`portfolio-held-badges\\.js\\?v=${HELD_BADGES_VERSION}"`),
