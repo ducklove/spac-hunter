@@ -202,7 +202,9 @@ def publish_summary(payload, summary_path, version_path=None, *, generated_at=No
         )
         changed = vc_publish.write_if_changed(summary_path, envelope)
         vc_publish.write_version(version_path, {summary_path.name: envelope}, generated_at=generated_at)
-    except (vc_publish.EnvelopeError, OSError, TypeError, ValueError) as exc:
+    # 잘못된 모양의 필드(예: dict가 아닌 valuationBasis)는 AttributeError/KeyError로 나온다 —
+    # 요약은 부가 산출물이므로 data.js/data.json 갱신(write_outputs)을 깨뜨리지 않는다.
+    except (vc_publish.EnvelopeError, OSError, TypeError, ValueError, AttributeError, KeyError) as exc:
         logger.warning("%s 발행 실패(기존 파일 유지): %s", summary_path.name, exc)
         return False
     return changed

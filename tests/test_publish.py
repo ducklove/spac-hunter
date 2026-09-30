@@ -207,6 +207,17 @@ class TestPublishSummary:
         assert publish.publish_summary({"spacs": []}, summary, generated_at=GENERATED_AT) is False
         assert summary.read_bytes() == before
 
+    def test_malformed_field_keeps_previous_file_without_raising(self, tmp_path, spac_factory):
+        """요약은 부가 산출물 — 모양이 깨진 필드가 write_outputs(일일 갱신)를 중단시키면 안 된다."""
+        summary = tmp_path / "summary.json"
+        publish.publish_summary(_payload(spac_factory), summary, generated_at=GENERATED_AT)
+        before = summary.read_bytes()
+
+        broken = _payload(spac_factory)
+        broken["spacs"][0]["valuationBasis"] = "not-a-dict"
+        assert publish.publish_summary(broken, summary, generated_at=GENERATED_AT) is False
+        assert summary.read_bytes() == before
+
     def test_write_outputs_publishes_next_to_data_js(self, tmp_path, spac_factory):
         spacs = [spac_factory(code="100001", name="가나스팩1호", price=2100)]
         write_outputs(
