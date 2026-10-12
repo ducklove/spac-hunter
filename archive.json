@@ -1,7 +1,41 @@
 {
-  "updatedAt": "2026-09-15T21:00:15.343075+09:00",
-  "count": 6,
+  "updatedAt": "2026-10-13T00:56:20.249877+09:00",
+  "count": 8,
   "spacs": [
+    {
+      "code": "472230",
+      "name": "에스케이증권제11호스팩",
+      "sponsor": "에스케이증권",
+      "listingDate": null,
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2105,
+      "finalRatio": 1.0525,
+      "badges": [
+        "일반"
+      ],
+      "lastSeen": "2026-10-11 22:19:44 KST",
+      "archivedAt": "2026-10-13T00:56:20.249877+09:00",
+      "delistReasonGuess": "사유 미확인"
+    },
+    {
+      "code": "473050",
+      "name": "유안타제15호스팩",
+      "sponsor": "유안타",
+      "listingDate": "2024-02-29",
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2105,
+      "finalRatio": 1.0525,
+      "badges": [
+        "청산 6개월 이내"
+      ],
+      "lastSeen": "2026-10-11 22:19:44 KST",
+      "archivedAt": "2026-10-13T00:56:20.249877+09:00",
+      "delistReasonGuess": "사유 미확인"
+    },
     {
       "code": "465320",
       "name": "교보15호스팩",
