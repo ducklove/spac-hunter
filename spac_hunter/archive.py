@@ -12,11 +12,39 @@ import logging
 from pathlib import Path
 
 from .constants import ARCHIVE_JSON_PATH
+from .parsing import add_months, parse_date
 
 logger = logging.getLogger(__name__)
 
 DELIST_REASON_MERGER = "합병 신상장 추정"
+DELIST_REASON_LIQUIDATION = "만기 청산"
 DELIST_REASON_UNKNOWN = "사유 미확인"
+
+
+def _delist_reason(spac, archived_at):
+    if spac.get("mergerStatus") == "합병 확정":
+        return DELIST_REASON_MERGER
+
+    departed_on = parse_date(str(archived_at or "")[:10])
+    if departed_on is None:
+        return DELIST_REASON_UNKNOWN
+    liquidation_date = parse_date(spac.get("liquidationDate"))
+    listing_date = parse_date(spac.get("listingDate"))
+    if liquidation_date is None and listing_date:
+        liquidation_date = add_months(listing_date, 36)
+    if liquidation_date and departed_on >= liquidation_date:
+        return DELIST_REASON_LIQUIDATION
+
+    # 합병 미신청/철회는 36개월 전에 상폐될 수 있다. 단순히 3년차라는
+    # 이유만으로 분류하지 않고, 기한에 따른 상폐 추정일에 도달했는지 확인한다.
+    expected_delisting = parse_date(spac.get("expectedDelistingDate"))
+    payout_source = str(spac.get("payoutDateSource") or "")
+    deadline_based = payout_source.startswith((
+        "합병 미신청:", "합병 철회 1개월 뒤", "합병 진행 중: 합병기한",
+    ))
+    if deadline_based and expected_delisting and departed_on >= expected_delisting:
+        return DELIST_REASON_LIQUIDATION
+    return DELIST_REASON_UNKNOWN
 
 
 def _archive_entry(spac, existing_last_updated, archived_at):
@@ -35,9 +63,7 @@ def _archive_entry(spac, existing_last_updated, archived_at):
         "badges": spac.get("badges") or [],
         "lastSeen": existing_last_updated,
         "archivedAt": archived_at,
-        "delistReasonGuess": (
-            DELIST_REASON_MERGER if merger_status == "합병 확정" else DELIST_REASON_UNKNOWN
-        ),
+        "delistReasonGuess": _delist_reason(spac, archived_at),
     }
 
 

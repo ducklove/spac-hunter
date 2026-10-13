@@ -8,14 +8,25 @@
     Number.isFinite(Number(String(value).replace(/,/g, ''))) ? Number(String(value).replace(/,/g, '')) : null;
   const round = (value, digits = 2) => Number.isFinite(value) ? Number(value.toFixed(digits)) : null;
 
+  function isRegularSession(time) {
+    const kst = new Date(time + 9 * 3600000);
+    const seconds = kst.getUTCHours() * 3600 + kst.getUTCMinutes() * 60 + kst.getUTCSeconds();
+    return kst.getUTCDay() >= 1 && kst.getUTCDay() <= 5 && seconds >= 9 * 3600 && seconds <= 15.5 * 3600;
+  }
+
   function normalizeQuote(item, now = Date.now()) {
-    const s = item?.summary || {};
     const r = item?.raw || {};
     const code = item?.symbol;
     const checkedAt = numeric(item?.meta?.polled_at);
-    const price = numeric(s.current_price ?? r.nv);
+    // 프록시의 SERVICE_ITEM 원본 정규장 필드만 사용한다. summary나
+    // nxtOverMarketPriceInfo 등 시간외·통합 시세로 현재가를 대체하지 않는다.
+    const price = numeric(r.nv);
+    const marketStatus = r.ms;
     if (!/^[0-9A-Z]{6}$/.test(code || '') || !(price > 0) || !checkedAt ||
         now - checkedAt > MAX_AGE_MS || checkedAt - now > MAX_AGE_MS) return null;
+    if ((r.cd && r.cd !== code) || !['OPEN', 'CLOSE'].includes(marketStatus) ||
+        (marketStatus === 'OPEN' && (!isRegularSession(now) || !isRegularSession(checkedAt))) ||
+        (r.marketSessionType && r.marketSessionType !== 'regularMarket')) return null;
     const sign = String(r.rf || '');
     const signed = value => {
       const n = numeric(value);
@@ -25,12 +36,13 @@
     const shares = numeric(r.countOfListedStock);
     return {
       code, price, checkedAt,
-      change: signed(s.change ?? r.cv), changePct: signed(s.change_pct ?? r.cr),
-      volume: numeric(s.volume ?? r.aq), tradingValue: numeric(s.trading_value ?? r.aa),
+      change: signed(r.cv), changePct: signed(r.cr),
+      volume: numeric(r.aq), tradingValue: numeric(r.aa),
       marketCap: shares > 0 ? shares * price : null,
-      marketStatus: s.market_state ?? r.ms ?? null,
+      marketStatus, priceSession: 'regular',
       // 조회 시각을 체결 시각으로 가장하지 않는다.
-      tradedAt: r.localTradedAt || null, source: '네이버 증권 실시간 조회'
+      tradedAt: isRegularSession(Date.parse(r.localTradedAt || '')) ? r.localTradedAt : null,
+      source: marketStatus === 'CLOSE' ? '네이버 증권 정규장 종가' : '네이버 증권 정규장 조회'
     };
   }
 

@@ -6,7 +6,8 @@ const live = require('../../assets/live-prices.js');
 const NOW = Date.parse('2026-09-21T09:30:00+09:00');
 const item = (code = '477340', price = 1900) => ({ symbol: code,
   summary: { current_price: price, change: 5, change_pct: 0.26, volume: 0, trading_value: 0 },
-  raw: { rf: '5', countOfListedStock: 1000000 }, meta: { polled_at: NOW } });
+  raw: { cd: code, nv: price, cv: 5, cr: 0.26, aq: 0, aa: 0, ms: 'OPEN',
+    rf: '5', countOfListedStock: 1000000 }, meta: { polled_at: NOW } });
 const spac = { code: '477340', name: '검증스팩', currentPrice: 2100, ipoPrice: 2000,
   liquidationValuePerShare: 2200, liquidationDate: '2027-09-21',
   quote: { tradedAt: '2026-09-18T15:30:00+09:00', tradeStop: true },
@@ -28,6 +29,48 @@ test('가격 누락·0·오래된 응답·미래 응답·잘못된 코드 거부
     { ...item(), meta: { polled_at: NOW + 61000 } }]) {
     assert.equal(live.normalizeQuote(bad, NOW), null);
   }
+});
+test('시간외·통합 요약값 대신 원본 정규장 시세만 반영한다', () => {
+  const response = item();
+  response.summary = { current_price: 2400, change: 400, change_pct: 20, volume: 999, trading_value: 9999 };
+  response.raw.nxtOverMarketPriceInfo = { closePrice: 2500 };
+  const q = live.normalizeQuote(response, NOW);
+  assert.equal(q.price, 1900);
+  assert.equal(q.change, -5);
+  assert.equal(q.volume, 0);
+  assert.equal(q.tradingValue, 0);
+  assert.equal(q.priceSession, 'regular');
+  delete response.raw.nv;
+  assert.equal(live.normalizeQuote(response, NOW), null);
+});
+test('정규장 밖 OPEN·시간외 세션·알 수 없는 시장 상태는 현재가를 덮어쓰지 않는다', () => {
+  for (const date of ['2026-09-21T08:59:59+09:00', '2026-09-21T15:30:01+09:00',
+    '2026-09-21T18:00:00+09:00', '2026-09-20T10:00:00+09:00']) {
+    const now = Date.parse(date);
+    const response = { ...item(), meta: { polled_at: now } };
+    assert.equal(live.normalizeQuote(response, now), null);
+  }
+  for (const raw of [{ ms: 'AFTER' }, { ms: undefined }, { marketSessionType: 'afterMarket' }, { cd: '000000' }]) {
+    const response = item();
+    Object.assign(response.raw, raw);
+    assert.equal(live.normalizeQuote(response, NOW), null);
+  }
+});
+test('정규장 시작·마감 가격과 장 종료 뒤 정규장 종가는 허용한다', () => {
+  for (const date of ['2026-09-21T09:00:00+09:00', '2026-09-21T15:30:00+09:00']) {
+    const now = Date.parse(date);
+    assert.equal(live.normalizeQuote({ ...item(), meta: { polled_at: now } }, now).price, 1900);
+  }
+  const now = Date.parse('2026-09-21T18:00:00+09:00');
+  const response = item();
+  response.raw.ms = 'CLOSE';
+  response.raw.localTradedAt = '2026-09-21T18:00:00+09:00';
+  response.summary.current_price = 2400;
+  response.meta.polled_at = now;
+  const q = live.normalizeQuote(response, now);
+  assert.equal(q.price, 1900);
+  assert.equal(q.source, '네이버 증권 정규장 종가');
+  assert.equal(q.tradedAt, null);
 });
 test('시세 변경 시 파생 수익률·배지·요약·합병 현재가를 일관되게 갱신', () => {
   const q = live.normalizeQuote(item(), NOW);

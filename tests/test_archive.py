@@ -3,6 +3,8 @@
 import json
 from datetime import datetime
 
+import pytest
+
 from spac_hunter import alerts, archive, cli, filings, output
 from spac_hunter.constants import KST
 from spac_hunter.output import load_existing_last_updated, write_outputs
@@ -99,6 +101,49 @@ class TestBuildArchiveUpdates:
         }
         _, newly = archive.build_archive_updates(existing, LAST_UPDATED, set(), [], GENERATED_AT)
         assert {entry["delistReasonGuess"] for entry in newly} == {"사유 미확인"}
+
+    @pytest.mark.parametrize("dates", [
+        {"liquidationDate": "2026-06-10"},
+        {"listingDate": "2023-06-10"},
+        {"listingDate": "2023-06-01"},
+        {
+            "listingDate": "2023-11-01",
+            "expectedDelistingDate": "2026-06-10",
+            "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤 상장폐지 사유(2026-05-28)",
+        },
+        {
+            "expectedDelistingDate": "2026-06-09",
+            "payoutDateSource": "합병 철회 1개월 뒤 상장폐지 사유(2026-05-27)",
+        },
+    ])
+    def test_maturity_departure_is_labeled_in_archive_and_alert(self, spac_factory, dates):
+        departed = spac_factory(code="100002", **dates)
+        _, newly = archive.build_archive_updates(
+            {"100002": departed}, LAST_UPDATED, set(), [], GENERATED_AT
+        )
+        assert newly[0]["delistReasonGuess"] == "만기 청산"
+        result = alerts.build_alerts({}, [], GENERATED_AT, newly_archived=newly)
+        assert result[0]["detail"] == "만기 청산, 최종 가격 2,000"
+
+    @pytest.mark.parametrize("dates", [
+        {"listingDate": "2023-06-11"},
+        {"listingDate": "2023-11-01", "badges": ["청산 6개월 이내"]},
+        {"listingDate": "잘못된 날짜", "liquidationDate": "잘못된 날짜"},
+        {
+            "expectedDelistingDate": "2026-06-11",
+            "payoutDateSource": "합병 미신청: 납입+30개월 관리종목·1개월 뒤",
+        },
+        {
+            "expectedDelistingDate": "2026-06-10",
+            "payoutDateSource": "해산사유 발생(2026-06-10) 후 분배 102일 추정",
+        },
+        {"expectedDelistingDate": "2026-06-10"},
+    ])
+    def test_uncertain_departure_keeps_unknown_reason(self, spac_factory, dates):
+        _, newly = archive.build_archive_updates(
+            {"100002": spac_factory(code="100002", **dates)}, LAST_UPDATED, set(), [], GENERATED_AT
+        )
+        assert newly[0]["delistReasonGuess"] == "사유 미확인"
 
     def test_surviving_codes_are_not_archived(self, spac_factory):
         existing = {"100001": spac_factory(code="100001")}

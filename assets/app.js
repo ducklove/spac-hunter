@@ -58,10 +58,10 @@
       button.textContent = status.busy ? '시세 조회 중…' : '시세 새로고침';
       const label = document.getElementById('livePriceStatus');
       const checked = status.lastSuccess ? new Date(status.lastSuccess).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) : null;
-      label.textContent = status.busy ? '최신 시세 조회 중…' :
+      label.textContent = status.busy ? '정규장 시세 조회 중…' :
         status.applied === status.total && status.total > 0
-          ? `시세 확인 ${checked} KST · ${status.applied}종목 · 5분 자동 갱신`
-          : `시세 ${status.applied || 0}/${status.total || 0}종목 갱신 · 미갱신 종목은 이전 가격 유지${checked ? ` · 최근 성공 ${checked} KST` : ''}`;
+          ? `정규장 시세 확인 ${checked} KST · ${status.applied}종목 · 5분 자동 갱신`
+          : `정규장 시세 ${status.applied || 0}/${status.total || 0}종목 갱신 · 미갱신 종목은 이전 가격 유지${checked ? ` · 최근 성공 ${checked} KST` : ''}`;
       if (!status.busy) refreshEventNews();
       // 성공·부분 실패 모두 마지막으로 확인된 당일 시세를 다시 투영한다.
       // 자정 이후 조회 실패 시 전날 장중 값을 오늘 점으로 유지하지 않는다.

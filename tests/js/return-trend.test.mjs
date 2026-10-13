@@ -70,7 +70,7 @@ test('실시간 시세 갱신은 개별 차트와 같은 오늘 청산가로 평
     escrowRatePeriods: [{ startDate: '2025-01-01', ratePct: 3 }],
     history: [{ date: '2026-09-28', close: 2000 }, { date: '2026-09-29', close: 2100 }] }));
   const quotes = new Map(spacs.map((s, i) => [s.code, live.normalizeQuote({
-    symbol: s.code, summary: { current_price: 1900 + i * 200 }, meta: { polled_at: now + i * 1000 }
+    symbol: s.code, raw: { nv: 1900 + i * 200, ms: 'OPEN' }, meta: { polled_at: now + i * 1000 }
   }, now)]));
   const refreshed = live.applyQuotes({ spacs }, quotes, now).data;
   const rows = build(refreshed.spacs, {}, now);

@@ -17,7 +17,7 @@
       ],
       "lastSeen": "2026-10-13 00:56:20 KST",
       "archivedAt": "2026-10-13T23:29:34.134879+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "472230",
@@ -34,7 +34,7 @@
       ],
       "lastSeen": "2026-10-11 22:19:44 KST",
       "archivedAt": "2026-10-13T00:56:20.249877+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "473050",
@@ -51,7 +51,7 @@
       ],
       "lastSeen": "2026-10-11 22:19:44 KST",
       "archivedAt": "2026-10-13T00:56:20.249877+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "465320",
@@ -405,7 +405,7 @@
       ],
       "lastSeen": "2026-09-14 22:13:22 KST",
       "archivedAt": "2026-09-15T21:00:15.343075+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "472220",
@@ -422,7 +422,7 @@
       ],
       "lastSeen": "2026-09-10 20:42:55 KST",
       "archivedAt": "2026-09-11T20:42:52.915333+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "471050",
@@ -439,7 +439,7 @@
       ],
       "lastSeen": "2026-08-31 23:19:02 KST",
       "archivedAt": "2026-09-01T20:56:21.175032+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "469880",
@@ -456,7 +456,7 @@
       ],
       "lastSeen": "2026-07-30 18:15:22 KST",
       "archivedAt": "2026-07-31T18:25:16.314973+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "467930",
@@ -473,7 +473,7 @@
       ],
       "lastSeen": "2026-07-27 19:27:04 KST",
       "archivedAt": "2026-07-28T18:18:36.845606+09:00",
-      "delistReasonGuess": "사유 미확인"
+      "delistReasonGuess": "만기 청산"
     },
     {
       "code": "464440",
@@ -489,7 +489,7 @@
       ],
       "lastSeen": "2026-06-17 20:22:13 KST",
       "archivedAt": "2026-06-18T05:47:46.702296+09:00",
-      "delistReasonGuess": "만기청산"
+      "delistReasonGuess": "만기 청산"
     }
   ]
 }
