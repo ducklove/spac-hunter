@@ -149,7 +149,7 @@
     const today = new Date(now + 9 * 3600000).toISOString().slice(0, 10);
     // 오늘 실제 조회한 가격만 오늘 점으로 겹쳐 그린다. 원본 종가 이력은 보존하므로
     // 날짜가 넘어가도 어제 장중 조회값이 확정 종가로 남거나 오늘 값으로 이월되지 않는다.
-    if (Number.isFinite(checkedAt) && checkedAt > 0 && checkedAt <= now + 60000
+    if (quote?.marketStatus !== 'CLOSE' && Number.isFinite(checkedAt) && checkedAt > 0 && checkedAt <= now + 60000
       && new Date(checkedAt + 9 * 3600000).toISOString().slice(0, 10) === today
       && Number.isFinite(quotePrice) && quotePrice > 0
       && !(isoTime(item?.listingDate) > isoTime(today))) {

@@ -178,7 +178,7 @@ def write_outputs(
 
     payload = {
         "schemaVersion": SCHEMA_VERSION,
-        "source": "KRX/KIND/DART/Naver",
+        "source": "KRX/KIND/DART/KIS/Naver",
         "lastUpdated": generated_at.strftime("%Y-%m-%d %H:%M:%S KST"),
         "generatedAt": generated_at.isoformat(),
         "methodology": {
@@ -188,7 +188,7 @@ def write_outputs(
                 "KIND 공시검색과 DART fallback에서 회사합병 결정/SPAC 합병 예비심사청구대상은 "
                 "합병 신청, 상장예비심사결과 통지(승인) 등은 합병 확정으로 분류"
             ),
-            "price": "네이버 증권 실시간/최근가",
+            "price": "한국투자증권 KRX(J) 정규장 시세 / 확정 일별 종가",
             "mergerPriceRecords": (
                 "합병 공시일 직전/이후 네이버 일별 종가로 이벤트별 가격 반응과 이후 고저점을 계산"
             ),

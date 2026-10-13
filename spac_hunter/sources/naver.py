@@ -1,6 +1,5 @@
 """Naver Finance quote/history clients with a pykrx history fallback."""
 
-import json
 import time
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -9,9 +8,9 @@ from io import StringIO
 
 import pandas as pd
 
-from ..constants import NAVER_HISTORY_URL, NAVER_STOCK_API_URL
+from ..constants import NAVER_HISTORY_URL
 from ..http import http_text
-from ..parsing import parse_float, parse_int, today_kst
+from ..parsing import parse_int, today_kst
 
 
 def fetch_full_naver_history(code):
@@ -62,65 +61,6 @@ def fetch_history_backfills(codes, existing_spacs, max_workers=6):
             except Exception:  # noqa: BLE001 — preserve saved/daily histories on source failure
                 continue
     return histories
-
-
-def fetch_naver_quote(code):
-    # SERVICE_ITEM의 nv는 KRX 정규장 가격/종가다. 통합 시세나 NXT·시간외
-    # 시세 필드는 사용하지 않는다. 이 구 API의 응답 문자셋은 EUC-KR이다.
-    payload = json.loads(http_text(NAVER_STOCK_API_URL.format(code=code), encoding="euc-kr"))
-    rows = [
-        row for area in (payload.get("result") or {}).get("areas") or []
-        if area.get("name") == "SERVICE_ITEM"
-        for row in area.get("datas") or []
-    ]
-    data = next((row for row in rows if row.get("cd") == code), {})
-    price = parse_int(data.get("nv"))
-    if not price or price <= 0 or data.get("ms") not in ("OPEN", "CLOSE"):
-        raise ValueError(f"{code}: 정규장 시세 확인 불가")
-
-    def signed(value):
-        if value is None:
-            return None
-        sign = str(data.get("rf") or "")
-        if sign in ("4", "5"):
-            return -abs(value)
-        if sign in ("1", "2"):
-            return abs(value)
-        return 0 if sign == "3" else value
-
-    shares = parse_int(data.get("countOfListedStock"))
-    return {
-        "code": code,
-        "name": data.get("nm") or None,
-        "price": price,
-        "change": signed(parse_int(data.get("cv"))),
-        "changePct": signed(parse_float(data.get("cr"))),
-        "volume": parse_int(data.get("aq")),
-        "tradingValue": parse_int(data.get("aa")),
-        "marketCap": shares * price if shares and shares > 0 else None,
-        "marketStatus": data.get("ms"),
-        "tradeStop": data.get("tyn") == "Y",
-        "tradeStopText": "거래정지" if data.get("tyn") == "Y" else None,
-        "tradedAt": None,
-        "priceSession": "regular",
-        "source": "네이버 증권 정규장 종가" if data.get("ms") == "CLOSE" else "네이버 증권 정규장",
-    }
-
-
-def fetch_quotes(codes, max_workers=8):
-    quotes = {}
-    errors = {}
-    if not codes:
-        return quotes, errors
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        tasks = {executor.submit(fetch_naver_quote, code): code for code in codes}
-        for future in as_completed(tasks):
-            code = tasks[future]
-            try:
-                quotes[code] = future.result()
-            except Exception as exc:  # noqa: BLE001
-                errors[code] = str(exc)
-    return quotes, errors
 
 
 def fetch_naver_history(code, pages=3, pause=0.05):

@@ -57,7 +57,7 @@ KIND_CORP_LIST_URL = "https://kind.krx.co.kr/corpgeneral/corpList.do"
 KIND_CORP_LIST_PAGE_URL = f"{KIND_CORP_LIST_URL}?method=loadInitPage"
 KIND_DISCLOSURE_URL = "https://kind.krx.co.kr/disclosure/searchdisclosurebycorp.do"
 KIND_DISCLOSURE_PAGE_URL = f"{KIND_DISCLOSURE_URL}?method=searchDisclosureByCorpMain"
-NAVER_STOCK_API_URL = "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:{code}"
+KIS_PROXY_URL = "https://ducklove.duckdns.org:3298"
 NAVER_HISTORY_URL = "https://finance.naver.com/item/sise_day.naver?code={code}&page={page}"
 
 MERGER_APPLICATION_TOKENS = (

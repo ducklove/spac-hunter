@@ -43,9 +43,10 @@ from .sample import build_sample_data
 from .sources import opendart
 from .sources.dart import fetch_dart_disclosures
 from .sources.kind import fetch_kind_disclosures, fetch_kind_listed_companies
+from .sources.kis import fetch_quotes
 from .sources.kofr import fetch_kofr_rate
 from .sources.krx import fetch_krx_spac_universe
-from .sources.naver import fetch_histories, fetch_history_backfills, fetch_quotes
+from .sources.naver import fetch_histories, fetch_history_backfills
 
 logger = logging.getLogger(__name__)
 
@@ -386,7 +387,7 @@ def _run_live(args) -> None:
 
         codes = [item["code"] for item in krx_spacs]
         quotes, quote_errors = fetch_quotes(codes, args.max_workers)
-        logger.info("Naver quotes: %d ok, %d errors", len(quotes), len(quote_errors))
+        logger.info("KIS KRX quotes: %d ok, %d errors", len(quotes), len(quote_errors))
         histories = fetch_histories(codes, args.history_pages, max_workers=max(2, min(args.max_workers, 8)))
         merger_codes = [
             code
@@ -427,12 +428,14 @@ def _run_live(args) -> None:
             code = item["code"]
             kind_info = kind_companies.get(normalize_name(item["name"]), {})
             quote = quotes.get(code, {})
+            regular_history = quote.pop("_regularHistory", [])
+            history = merge_history_points(histories.get(code, []), regular_history)
             spacs.append(
                 enrich_spac(
                     item,
                     kind_info,
                     quote,
-                    histories.get(code, []),
+                    history,
                     overrides,
                     args,
                     generated_at.date(),

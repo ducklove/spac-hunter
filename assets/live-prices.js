@@ -18,31 +18,30 @@
     const r = item?.raw || {};
     const code = item?.symbol;
     const checkedAt = numeric(item?.meta?.polled_at);
-    // 프록시의 SERVICE_ITEM 원본 정규장 필드만 사용한다. summary나
-    // nxtOverMarketPriceInfo 등 시간외·통합 시세로 현재가를 대체하지 않는다.
-    const price = numeric(r.nv);
-    const marketStatus = r.ms;
+    // market=J로 요청한 KIS 원본만 허용한다. 네이버 nv는 장외 가격도 포함한다.
+    const price = numeric(r.stck_prpr);
+    const hasTrading = numeric(r.stck_oprc) > 0;
+    const marketStatus = isRegularSession(now) && hasTrading ? 'OPEN' : 'CLOSE';
     if (!/^[0-9A-Z]{6}$/.test(code || '') || !(price > 0) || !checkedAt ||
         now - checkedAt > MAX_AGE_MS || checkedAt - now > MAX_AGE_MS) return null;
-    if ((r.cd && r.cd !== code) || !['OPEN', 'CLOSE'].includes(marketStatus) ||
-        (marketStatus === 'OPEN' && (!isRegularSession(now) || !isRegularSession(checkedAt))) ||
-        (r.marketSessionType && r.marketSessionType !== 'regularMarket')) return null;
-    const sign = String(r.rf || '');
+    if (item.market !== 'J' || r.stck_shrn_iscd !== code) return null;
+    const sign = String(r.prdy_vrss_sign || '');
     const signed = value => {
       const n = numeric(value);
       return n == null ? null : ['4', '5'].includes(sign) ? -Math.abs(n) :
         ['1', '2'].includes(sign) ? Math.abs(n) : sign === '3' ? 0 : n;
     };
-    const shares = numeric(r.countOfListedStock);
+    const shares = numeric(r.lstn_stcn);
     return {
       code, price, checkedAt,
-      change: signed(r.cv), changePct: signed(r.cr),
-      volume: numeric(r.aq), tradingValue: numeric(r.aa),
+      change: hasTrading ? signed(r.prdy_vrss) : null, changePct: hasTrading ? signed(r.prdy_ctrt) : null,
+      volume: hasTrading ? numeric(r.acml_vol) : null, tradingValue: hasTrading ? numeric(r.acml_tr_pbmn) : null,
       marketCap: shares > 0 ? shares * price : null,
-      marketStatus, priceSession: 'regular',
+      marketStatus, market: 'J', priceSession: 'regular', tradeStop: r.temp_stop_yn === 'Y',
+      ...(marketStatus === 'OPEN' ? { priceDate: new Date(now + 9 * 3600000).toISOString().slice(0, 10) } : {}),
       // 조회 시각을 체결 시각으로 가장하지 않는다.
-      tradedAt: isRegularSession(Date.parse(r.localTradedAt || '')) ? r.localTradedAt : null,
-      source: marketStatus === 'CLOSE' ? '네이버 증권 정규장 종가' : '네이버 증권 정규장 조회'
+      tradedAt: null,
+      source: marketStatus === 'CLOSE' ? '한국투자증권 KRX 정규장 종가' : '한국투자증권 KRX 정규장 조회'
     };
   }
 
@@ -63,17 +62,22 @@
     if (spac.dissolutionDisclosure) badges.push('해산사유 발생');
     if (days != null && days <= 180) badges.push('청산 6개월 이내');
     else if (days != null && days <= 365) badges.push('청산 1년 이내');
-    if (spac.quote?.tradeStop) badges.push('거래정지');
+    if (quote.tradeStop ?? spac.quote?.tradeStop) badges.push('거래정지');
     if (!badges.length) badges.push('일반');
     return {
-      ...spac, currentPrice: quote.price, change: quote.change, changePct: quote.changePct,
-      volume: quote.volume, tradingValue: quote.tradingValue, marketCap: quote.marketCap,
+      ...spac, currentPrice: quote.price,
+      change: quote.change ?? (spac.currentPrice === quote.price ? spac.change : null),
+      changePct: quote.changePct ?? (spac.currentPrice === quote.price ? spac.changePct : null),
+      volume: quote.volume ?? (spac.currentPrice === quote.price ? spac.volume : null),
+      tradingValue: quote.tradingValue ?? (spac.currentPrice === quote.price ? spac.tradingValue : null),
+      marketCap: quote.marketCap,
       ratio: round(ratio, 4), premiumPct: ratio == null ? null : round((ratio - 1) * 100),
       daysToLiquidation: days, daysToPayout: payoutDays,
       expectedReturn: target > 0 ? round((target / quote.price - 1) * 100) : null,
       annualizedReturn: target > 0 && payoutDays > 0
         ? round(((target / quote.price) ** (365 / payoutDays) - 1) * 100) : null,
-      badges, status: badges[0], quote: { ...spac.quote, ...quote }
+      badges, status: badges[0], quote: { ...spac.quote, ...quote,
+        priceDate: quote.priceDate || (spac.currentPrice === quote.price ? spac.quote?.priceDate : null) }
     };
   }
 
@@ -107,12 +111,19 @@
     return { data: { ...data, spacs, summary, mergerCases }, applied };
   }
 
-  async function fetchQuotes(codes, { fetchImpl = fetch, now = Date.now, timeoutMs = 8000 } = {}) {
+  async function fetchQuotes(codes, { fetchImpl = fetch, now = Date.now, timeoutMs = 8000, requestGapMs = 250 } = {}) {
     const quotes = new Map();
     const unique = [...new Set(codes)].filter(code => /^[0-9A-Z]{6}$/.test(code));
     let limited = false;
     const deadline = now() + 25000;
+    let requestQueue = Promise.resolve();
     async function request(path) {
+      const previous = requestQueue;
+      let release;
+      requestQueue = new Promise(resolve => { release = resolve; });
+      await previous;
+      if (requestGapMs > 0) await new Promise(resolve => setTimeout(resolve, requestGapMs));
+      release();
       if (limited || now() >= deadline) return null;
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), Math.min(timeoutMs, deadline - now()));
@@ -121,7 +132,8 @@
           { cache: 'no-store', signal: controller.signal });
         if (response.status === 429) limited = true;
         if (!response.ok) return null;
-        return await response.json();
+        const item = await response.json();
+        return { ...item, market: 'J', meta: { polled_at: now() } };
       } catch (_) {
         return null;
       } finally {
@@ -132,18 +144,11 @@
       const quote = normalizeQuote(item, now());
       if (quote && unique.includes(quote.code)) quotes.set(quote.code, quote);
     }
-    // 현 프록시 일괄 API는 숫자 코드만 허용한다. 영문 코드는 개별 API로 조회한다.
-    const numericCodes = unique.filter(code => /^\d{6}$/.test(code));
-    for (let i = 0; i < numericCodes.length && !limited && now() < deadline; i += 20) {
-      const result = await request(`/v1/naverfinance/stocks/quotes?symbols=${numericCodes.slice(i, i + 20).join(',')}`);
-      if (Array.isArray(result?.items)) result.items.forEach(accept);
-    }
-    const missing = unique.filter(code => !quotes.has(code));
     let index = 0;
-    await Promise.all(Array.from({ length: Math.min(4, missing.length) }, async () => {
-      while (index < missing.length && !limited && now() < deadline) {
-        const code = missing[index++];
-        accept(await request(`/v1/naverfinance/stocks/${encodeURIComponent(code)}/quote`));
+    await Promise.all(Array.from({ length: Math.min(2, unique.length) }, async () => {
+      while (index < unique.length && !limited && now() < deadline) {
+        const code = unique[index++];
+        accept(await request(`/v1/stocks/${encodeURIComponent(code)}/quote?market=J`));
       }
     }));
     return quotes;

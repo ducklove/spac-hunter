@@ -947,7 +947,9 @@
     document.getElementById('selectedName').innerHTML = `<span data-portfolio-code="${escapeHtml(item.code)}" data-portfolio-price="${escapeHtml(item.currentPrice ?? '')}">${escapeHtml(item.name)}</span> ${newBadge(newsTracker.hasCode(item.code))}`;
     document.getElementById('selectedMeta').textContent =
       `${item.code} · ${item.market || 'KOSDAQ'} · 상장일 ${dateText(item.listingDate)} · ` +
-      (item.quote?.checkedAt
+      (item.quote?.marketStatus === 'CLOSE' && item.quote?.priceDate
+        ? `정규장 종가 ${dateText(item.quote.priceDate)}`
+        : item.quote?.checkedAt
         ? `시세 확인 ${new Date(item.quote.checkedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })} KST`
         : `저장 시세 ${item.quote?.tradedAt || data.lastUpdated || '-'}`);
     document.getElementById('selectedPrice').textContent = money(item.currentPrice);
