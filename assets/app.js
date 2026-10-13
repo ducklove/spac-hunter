@@ -1865,7 +1865,12 @@
       banner.hidden = true;
       banner.innerHTML = '';
     }
-    SpacDataLoader.loadPayload()
+    const cacheKey = Date.now();
+    SpacDataLoader.loadPayload({
+      jsonUrl: `data.json?_ts=${cacheKey}`,
+      scriptUrl: `data.js?_ts=${cacheKey}`,
+      init: { cache: 'no-store' }
+    })
       .then(payload => {
         applyPayload(payload);
         renderAll();
