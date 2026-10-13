@@ -1,7 +1,24 @@
 {
-  "updatedAt": "2026-10-13T00:56:20.249877+09:00",
-  "count": 8,
+  "updatedAt": "2026-10-13T23:29:34.134879+09:00",
+  "count": 9,
   "spacs": [
+    {
+      "code": "469900",
+      "name": "하나31호스팩",
+      "sponsor": "하나",
+      "listingDate": null,
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2100,
+      "finalRatio": 1.05,
+      "badges": [
+        "일반"
+      ],
+      "lastSeen": "2026-10-13 00:56:20 KST",
+      "archivedAt": "2026-10-13T23:29:34.134879+09:00",
+      "delistReasonGuess": "사유 미확인"
+    },
     {
       "code": "472230",
       "name": "에스케이증권제11호스팩",
