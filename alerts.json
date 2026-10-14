@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-10-13T23:29:34.134879+09:00",
+  "generatedAt": "2026-10-14T21:15:47.153674+09:00",
   "alerts": [
+    {
+      "id": "2026-10-14|below_ipo_exit|0105P0",
+      "date": "2026-10-14",
+      "type": "below_ipo_exit",
+      "code": "0105P0",
+      "name": "유진스팩12호",
+      "title": "유진스팩12호 공모가 회복",
+      "detail": "공모가 대비 0.9995 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=0105P0"
+    },
+    {
+      "id": "2026-10-14|below_ipo_exit|496070",
+      "date": "2026-10-14",
+      "type": "below_ipo_exit",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9995 → 1.0025 (현재가 2,005)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
     {
       "id": "2026-10-13|below_ipo_enter|0041L0",
       "date": "2026-10-13",
