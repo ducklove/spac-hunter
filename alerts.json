@@ -1,6 +1,56 @@
 {
-  "generatedAt": "2026-10-20T20:57:56.817130+09:00",
+  "generatedAt": "2026-10-21T21:13:31.331892+09:00",
   "alerts": [
+    {
+      "id": "2026-10-21|below_ipo_enter|0068Y0",
+      "date": "2026-10-21",
+      "type": "below_ipo_enter",
+      "code": "0068Y0",
+      "name": "비엔케이제3호스팩",
+      "title": "비엔케이제3호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0075 → 0.9965 (현재가 1,993)",
+      "url": "https://finance.naver.com/item/main.naver?code=0068Y0"
+    },
+    {
+      "id": "2026-10-21|below_ipo_exit|0004Y0",
+      "date": "2026-10-21",
+      "type": "below_ipo_exit",
+      "code": "0004Y0",
+      "name": "디비금융제14호스팩",
+      "title": "디비금융제14호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9935 → 1.0050 (현재가 2,010)",
+      "url": "https://finance.naver.com/item/main.naver?code=0004Y0"
+    },
+    {
+      "id": "2026-10-21|below_ipo_exit|0054V0",
+      "date": "2026-10-21",
+      "type": "below_ipo_exit",
+      "code": "0054V0",
+      "name": "엔에이치스팩32호",
+      "title": "엔에이치스팩32호 공모가 회복",
+      "detail": "공모가 대비 0.9980 → 1.0100 (현재가 2,020)",
+      "url": "https://finance.naver.com/item/main.naver?code=0054V0"
+    },
+    {
+      "id": "2026-10-21|below_ipo_exit|0098T0",
+      "date": "2026-10-21",
+      "type": "below_ipo_exit",
+      "code": "0098T0",
+      "name": "교보19호스팩",
+      "title": "교보19호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9955 → 1.0000 (현재가 2,000)",
+      "url": "https://finance.naver.com/item/main.naver?code=0098T0"
+    },
+    {
+      "id": "2026-10-21|below_ipo_exit|496070",
+      "date": "2026-10-21",
+      "type": "below_ipo_exit",
+      "code": "496070",
+      "name": "신한제16호스팩",
+      "title": "신한제16호스팩 공모가 회복",
+      "detail": "공모가 대비 0.9990 → 1.0075 (현재가 2,015)",
+      "url": "https://finance.naver.com/item/main.naver?code=496070"
+    },
     {
       "id": "2026-10-20|below_ipo_enter|0004Y0",
       "date": "2026-10-20",
