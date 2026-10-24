@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-10-23T20:57:26.811227+09:00",
+  "generatedAt": "2026-10-24T20:27:02.041365+09:00",
   "alerts": [
+    {
+      "id": "2026-10-24|near_liquidation|474930",
+      "date": "2026-10-24",
+      "type": "near_liquidation",
+      "code": "474930",
+      "name": "신한제13호스팩",
+      "title": "신한제13호스팩 청산 6개월 이내 진입",
+      "detail": "청산예정일 2027-04-22 (D-180)",
+      "url": "https://finance.naver.com/item/main.naver?code=474930"
+    },
     {
       "id": "2026-10-23|below_ipo_exit|0041B0",
       "date": "2026-10-23",
