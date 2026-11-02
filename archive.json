@@ -1,7 +1,24 @@
 {
-  "updatedAt": "2026-10-13T23:29:34.134879+09:00",
-  "count": 9,
+  "updatedAt": "2026-11-03T01:28:17.800803+09:00",
+  "count": 10,
   "spacs": [
+    {
+      "code": "475240",
+      "name": "하나32호스팩",
+      "sponsor": "하나",
+      "listingDate": "2024-03-27",
+      "ipoPrice": 2000,
+      "mergerStatus": null,
+      "mergerPriceRecords": [],
+      "finalPrice": 2095,
+      "finalRatio": 1.0475,
+      "badges": [
+        "청산 6개월 이내"
+      ],
+      "lastSeen": "2026-11-01 22:42:27 KST",
+      "archivedAt": "2026-11-03T01:28:17.800803+09:00",
+      "delistReasonGuess": "만기 청산"
+    },
     {
       "code": "469900",
       "name": "하나31호스팩",
