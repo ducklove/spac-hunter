@@ -1,6 +1,36 @@
 {
-  "generatedAt": "2026-11-13T00:31:12.688727+09:00",
+  "generatedAt": "2026-11-13T23:49:48.811316+09:00",
   "alerts": [
+    {
+      "id": "2026-11-13|below_ipo_enter|0037T0",
+      "date": "2026-11-13",
+      "type": "below_ipo_enter",
+      "code": "0037T0",
+      "name": "KB제32호스팩",
+      "title": "KB제32호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0000 → 0.9980 (현재가 1,996)",
+      "url": "https://finance.naver.com/item/main.naver?code=0037T0"
+    },
+    {
+      "id": "2026-11-13|below_ipo_enter|0054V0",
+      "date": "2026-11-13",
+      "type": "below_ipo_enter",
+      "code": "0054V0",
+      "name": "엔에이치스팩32호",
+      "title": "엔에이치스팩32호 공모가 이하 진입",
+      "detail": "공모가 대비 1.0025 → 0.9930 (현재가 1,986)",
+      "url": "https://finance.naver.com/item/main.naver?code=0054V0"
+    },
+    {
+      "id": "2026-11-13|below_ipo_enter|0098T0",
+      "date": "2026-11-13",
+      "type": "below_ipo_enter",
+      "code": "0098T0",
+      "name": "교보19호스팩",
+      "title": "교보19호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0050 → 0.9955 (현재가 1,991)",
+      "url": "https://finance.naver.com/item/main.naver?code=0098T0"
+    },
     {
       "id": "2026-11-13|below_ipo_enter|496070",
       "date": "2026-11-13",
