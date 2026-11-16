@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-11-15T23:14:28.202848+09:00",
+  "generatedAt": "2026-11-17T01:18:02.051327+09:00",
   "alerts": [
+    {
+      "id": "2026-11-17|below_ipo_enter|0099X0",
+      "date": "2026-11-17",
+      "type": "below_ipo_enter",
+      "code": "0099X0",
+      "name": "IBKS제25호스팩",
+      "title": "IBKS제25호스팩 공모가 이하 진입",
+      "detail": "공모가 대비 1.0125 → 0.9735 (현재가 1,947)",
+      "url": "https://finance.naver.com/item/main.naver?code=0099X0"
+    },
     {
       "id": "2026-11-13|below_ipo_enter|0037T0",
       "date": "2026-11-13",
