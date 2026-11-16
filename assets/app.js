@@ -1485,6 +1485,7 @@
           </div>
         </td>
         <td class="numeric">${money(item.currentPrice)}</td>
+        <td class="numeric ${directionClass(item.changePct)}">${signedPct(item.changePct)}</td>
         <td class="numeric ${item.liquidationDiscountPct > 0 ? 'good' : item.liquidationDiscountPct < 0 ? 'danger' : ''}"
           title="${item.currentLiquidationValue == null ? '청산가 계산에 필요한 공시 이율 없음' : escapeHtml(`${item.liquidationValuationDate} 기준 추정 청산가 ${money(Math.round(item.currentLiquidationValue))}원`)}">${signedPct(item.liquidationDiscountPct)}</td>
         <td class="numeric ${Number(item.annualizedReturn) > 0 ? 'good' : 'danger'}">${pct(item.annualizedReturn)}</td>
@@ -1798,11 +1799,12 @@
 
   function exportCsv() {
     const items = tableItems();
-    const header = ['종목명', '코드', '현재가', '청산가괴리%', '현재청산가', '청산가기준일', '연환산%', '청산까지일', '청산금수령예정일', '추정청산분배금', '거래대금', '상태'];
+    const header = ['종목명', '코드', '현재가', '등락%', '청산가괴리%', '현재청산가', '청산가기준일', '연환산%', '청산까지일', '청산금수령예정일', '추정청산분배금', '거래대금', '상태'];
     const rows = items.map(item => [
       item.name ?? '',
       item.code ?? '',
       item.currentPrice ?? '',
+      item.changePct ?? '',
       item.liquidationDiscountPct == null ? '' : item.liquidationDiscountPct.toFixed(4),
       item.currentLiquidationValue == null ? '' : item.currentLiquidationValue.toFixed(4),
       item.liquidationValuationDate,
@@ -2023,7 +2025,7 @@
         tableSort.direction = tableSort.direction === 'asc' ? 'desc' : 'asc';
       } else {
         tableSort.key = key;
-        tableSort.direction = ['annualizedReturn', 'tradingValue', 'currentPrice', 'liquidationDiscountPct'].includes(key) ? 'desc' : 'asc';
+        tableSort.direction = ['annualizedReturn', 'tradingValue', 'currentPrice', 'changePct', 'liquidationDiscountPct'].includes(key) ? 'desc' : 'asc';
       }
       renderTable();
     };
