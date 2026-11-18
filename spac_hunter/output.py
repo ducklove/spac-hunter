@@ -182,7 +182,7 @@ def write_outputs(
         "lastUpdated": generated_at.strftime("%Y-%m-%d %H:%M:%S KST"),
         "generatedAt": generated_at.isoformat(),
         "methodology": {
-            "universe": "KRX KOSDAQ 상장종목 중 종목명에 스팩/SPAC 포함",
+            "universe": "한국투자증권 코스닥 종목 마스터에서 기업인수목적회사여부가 Y인 종목",
             "listingInfo": "KIND 상장법인목록 이름 매칭",
             "mergerStatus": (
                 "KIND 공시검색과 DART fallback에서 회사합병 결정/SPAC 합병 예비심사청구대상은 "

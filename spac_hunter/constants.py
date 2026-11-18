@@ -17,6 +17,9 @@ FILINGS_JSON_PATH = ROOT / "filings.json"
 CACHE_DIR = ROOT / ".cache"
 OPENDART_CORPCODE_CACHE_PATH = CACHE_DIR / "opendart_corpcode.zip"
 
+# Legacy records created when the post-merger company name matched the old name filter.
+MISCLASSIFIED_SPAC_IDENTITIES = {("206400", "아인스팩씨엔에스")}
+
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36"

@@ -10,7 +10,7 @@ from ..parsing import add_months, parse_date
 
 def derive_sponsor(name):
     patterns = [
-        r"^(.*?)제?\d+호스팩$",
+        r"^(.*?)제?\d+호(?:스팩|기업인수목적(?:회사)?)$",
         r"^(.*?)스팩\d+호$",
         r"^(.*?)스팩$",
     ]

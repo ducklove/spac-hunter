@@ -43,9 +43,8 @@ from .sample import build_sample_data
 from .sources import opendart
 from .sources.dart import fetch_dart_disclosures
 from .sources.kind import fetch_kind_disclosures, fetch_kind_listed_companies
-from .sources.kis import fetch_quotes
+from .sources.kis import fetch_kis_spac_universe, fetch_quotes
 from .sources.kofr import fetch_kofr_rate
-from .sources.krx import fetch_krx_spac_universe
 from .sources.naver import fetch_histories, fetch_history_backfills
 
 logger = logging.getLogger(__name__)
@@ -346,10 +345,10 @@ def _run_live(args) -> None:
         # Captured before write_outputs rewrites data.js: archived SPACs carry
         # the previous payload's lastUpdated as their lastSeen timestamp.
         existing_last_updated = load_existing_last_updated()
-        krx_spacs = fetch_krx_spac_universe(existing_spacs)
+        krx_spacs = fetch_kis_spac_universe()
         if args.limit > 0:
             krx_spacs = krx_spacs[: args.limit]
-        logger.info("KRX SPAC universe: %d", len(krx_spacs))
+        logger.info("KIS KOSDAQ SPAC universe: %d", len(krx_spacs))
         try:
             kind_companies = fetch_kind_listed_companies()
             logger.info("KIND listed companies: %d", len(kind_companies))

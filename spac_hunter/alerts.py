@@ -16,7 +16,7 @@ from xml.sax.saxutils import escape
 
 from fin_commons import notify as fin_notify
 
-from .constants import ALERTS_FEED_LINK, ALERTS_JSON_PATH, ALERTS_XML_PATH
+from .constants import ALERTS_FEED_LINK, ALERTS_JSON_PATH, ALERTS_XML_PATH, MISCLASSIFIED_SPAC_IDENTITIES
 
 logger = logging.getLogger(__name__)
 
@@ -307,7 +307,11 @@ def write_alert_outputs(new_alerts, generated_at, json_path=None, xml_path=None)
     """Merge into alerts.json/alerts.xml and return only this run's fresh alerts."""
     json_path = Path(json_path) if json_path else ALERTS_JSON_PATH
     xml_path = Path(xml_path) if xml_path else ALERTS_XML_PATH
-    existing = load_existing_alerts(json_path)
+    existing = [
+        alert
+        for alert in load_existing_alerts(json_path)
+        if (alert.get("code"), alert.get("name")) not in MISCLASSIFIED_SPAC_IDENTITIES
+    ]
     known_ids = {alert["id"] for alert in existing}
     fresh = [alert for alert in new_alerts or [] if alert.get("id") not in known_ids]
     merged = _sort_alerts(existing + fresh)[:MAX_STORED_ALERTS]

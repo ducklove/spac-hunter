@@ -11,7 +11,7 @@ import json
 import logging
 from pathlib import Path
 
-from .constants import ARCHIVE_JSON_PATH
+from .constants import ARCHIVE_JSON_PATH, MISCLASSIFIED_SPAC_IDENTITIES
 from .parsing import add_months, parse_date
 
 logger = logging.getLogger(__name__)
@@ -90,6 +90,8 @@ def build_archive_updates(existing_spacs, existing_last_updated, new_codes, prev
     kept_codes = set()
     for entry in previous_archive or []:
         code = entry.get("code")
+        if (code, entry.get("name")) in MISCLASSIFIED_SPAC_IDENTITIES:
+            continue
         if not code or code in new_codes or code in kept_codes:
             continue
         kept.append(entry)
@@ -97,6 +99,8 @@ def build_archive_updates(existing_spacs, existing_last_updated, new_codes, prev
 
     newly_archived = []
     for code, spac in (existing_spacs or {}).items():
+        if (code, spac.get("name")) in MISCLASSIFIED_SPAC_IDENTITIES:
+            continue
         if not code or code in new_codes or code in kept_codes:
             continue
         newly_archived.append(_archive_entry(spac, existing_last_updated, archived_at))

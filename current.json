@@ -1,6 +1,6 @@
 {
   "source": "KRX/KIND/DART/KIS/Naver",
-  "lastUpdated": "2026-11-18 01:22:51 KST",
+  "lastUpdated": "2026-11-18 09:24:41 KST",
   "rateAssumption": {
     "annualRate": 0.03074,
     "annualRatePct": 3.074,
@@ -22,20 +22,20 @@
     "totalCount": 70,
     "belowIpoCount": 32,
     "nearIpoCount": 35,
-    "dueSoonCount": 6,
-    "dueWithinOneYearCount": 19,
+    "dueSoonCount": 5,
+    "dueWithinOneYearCount": 18,
     "mergerCount": 8,
     "mergerAppliedCount": 5,
     "mergerConfirmedCount": 3,
-    "mergerEventCount": 76,
-    "recentListingCount": 5,
-    "averageRatio": 1.0075,
+    "mergerEventCount": 71,
+    "recentListingCount": 6,
+    "averageRatio": 1.0132,
     "averageAnnualizedReturn": 4.16,
     "cheapest": {
-      "code": "206400",
-      "name": "아인스팩씨엔에스",
-      "ratio": 0.5425,
-      "currentPrice": 1085
+      "code": "0222E0",
+      "name": "아이엠스팩1호",
+      "ratio": 0.9365,
+      "currentPrice": 1873
     },
     "bestYield": {
       "code": "473000",
@@ -45,20 +45,6 @@
     }
   },
   "prices": {
-    "206400": {
-      "name": "아인스팩씨엔에스",
-      "currentPrice": 1085,
-      "ipoPrice": 2000,
-      "ratio": 0.5425,
-      "premiumPct": -45.75,
-      "annualizedReturn": null,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하",
-        "청산 6개월 이내"
-      ],
-      "mergerStatus": null
-    },
     "0222E0": {
       "name": "아이엠스팩1호",
       "currentPrice": 1873,
@@ -85,6 +71,19 @@
         "합병 확정"
       ],
       "mergerStatus": "합병 확정"
+    },
+    "0205H0": {
+      "name": "에스케이증권제14호기업인수목적",
+      "currentPrice": 1879,
+      "ipoPrice": 2000,
+      "ratio": 0.9395,
+      "premiumPct": -6.05,
+      "annualizedReturn": null,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
     },
     "0127E0": {
       "name": "한화플러스제6호스팩",

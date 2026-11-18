@@ -309,8 +309,8 @@ class TestCliArchiveWiring:
         )
         monkeypatch.setattr(
             cli,
-            "fetch_krx_spac_universe",
-            lambda existing: [{"code": "100001", "name": "남는스팩", "market": "KOSDAQ", "isin": None}],
+            "fetch_kis_spac_universe",
+            lambda: [{"code": "100001", "name": "남는스팩", "market": "KOSDAQ", "isin": None}],
         )
         monkeypatch.setattr(cli, "fetch_kind_listed_companies", lambda: {})
         monkeypatch.setattr(cli, "fetch_quotes", lambda codes, max_workers: ({"100001": {"price": 2000}}, {}))
@@ -326,8 +326,17 @@ class TestCliArchiveWiring:
             [
                 spac_factory(code="100001", name="남는스팩"),
                 spac_factory(code="100002", name="떠난스팩", mergerStatus="합병 확정"),
+                spac_factory(code="206400", name="아인스팩씨엔에스"),
             ],
             generated_at=datetime(2026, 6, 9, 18, 10, 0, tzinfo=KST),
+        )
+        (tmp_path / "alerts.json").write_text(
+            json.dumps({"alerts": [{
+                "id": "2026-06-09|new_listing|206400",
+                "code": "206400",
+                "name": "아인스팩씨엔에스",
+            }]}),
+            encoding="utf-8",
         )
         self._patch_live_sources(monkeypatch)
 
@@ -346,9 +355,25 @@ class TestCliArchiveWiring:
         assert statistics["mergerFunnel"]["archivedSpacCount"] == 1
 
         stored = json.loads((tmp_path / "alerts.json").read_text(encoding="utf-8"))["alerts"]
+        assert "206400" not in {alert["code"] for alert in stored}
         delisted = [alert for alert in stored if alert["type"] == "delisted"]
         assert [alert["code"] for alert in delisted] == ["100002"]
         assert delisted[0]["title"] == "떠난스팩 유니버스 제외(상폐 추정)"
+
+    def test_live_mode_preserves_outputs_on_master_failure(self, tmp_path, monkeypatch, spac_factory):
+        self._patch_paths(tmp_path, monkeypatch)
+        write_seed(tmp_path, [spac_factory(code="100001")])
+        files_before = {path: path.read_bytes() for path in tmp_path.iterdir()}
+
+        def broken_master():
+            raise ValueError("코스닥 종목 마스터 형식 오류")
+
+        monkeypatch.setattr(cli, "fetch_kis_spac_universe", broken_master)
+        with pytest.raises(SystemExit) as exc_info:
+            cli.main(["--trust-rate", "0", "--force"])
+
+        assert exc_info.value.code == 1
+        assert {path: path.read_bytes() for path in tmp_path.iterdir()} == files_before
 
     def test_live_mode_rerun_does_not_rewrite_unchanged_archive(
         self, tmp_path, monkeypatch, spac_factory

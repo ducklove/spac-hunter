@@ -1,18 +1,68 @@
-"""KRX regular-session quotes and completed daily closes from the KIS proxy."""
+"""KOSDAQ stock master and KRX regular-session quotes from KIS."""
 
+import re
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
+from io import BytesIO
+from zipfile import ZipFile
 
 from requests.exceptions import RetryError
 
 from ..constants import KIS_PROXY_URL, KST
-from ..http import http_json
+from ..http import http_json, shared_session
 from ..parsing import parse_date, parse_float, parse_int
+
+KOSDAQ_MASTER_URL = "https://new.real.download.dws.co.kr/common/master/kosdaq_code.mst.zip"
+# KIS 공식 코스닥 마스터 형식: 줄바꿈 제외 고정폭 221자, 기업인수목적회사여부 오프셋 24.
+_MASTER_TRAILER_WIDTH = 221
+_SPAC_FLAG_OFFSET = 24
 
 _request_lock = threading.Lock()
 _last_request = 0.0
+
+
+def _parse_kosdaq_spac_master(content):
+    with ZipFile(BytesIO(content)) as archive:
+        rows = archive.read("kosdaq_code.mst").decode("cp949").splitlines()
+
+    spacs = {}
+    for row in rows:
+        identity, fields = row[:-_MASTER_TRAILER_WIDTH], row[-_MASTER_TRAILER_WIDTH:]
+        if len(identity) <= 21 or fields[_SPAC_FLAG_OFFSET] not in {"Y", "N"}:
+            raise ValueError("코스닥 종목 마스터 형식 오류")
+        if fields[_SPAC_FLAG_OFFSET] != "Y":
+            continue
+
+        code = identity[:9].strip()
+        isin = identity[9:21].strip()
+        name = identity[21:].strip()
+        if (
+            fields[:2] != "ST"
+            or not re.fullmatch(r"[0-9A-Z]{6}", code)
+            or not re.fullmatch(r"KR[0-9A-Z]{10}", isin)
+            or not name
+            or code in spacs
+        ):
+            raise ValueError(f"코스닥 종목 마스터 스팩 정보 오류: {code}")
+        spacs[code] = {
+            "code": code,
+            "name": name,
+            "market": "KOSDAQ",
+            "isin": isin,
+            "source": "한국투자증권 코스닥 종목 마스터",
+        }
+
+    if not spacs:
+        raise ValueError("코스닥 종목 마스터 스팩 0건")
+    return sorted(spacs.values(), key=lambda item: (item["name"], item["code"]))
+
+
+def fetch_kis_spac_universe():
+    response = shared_session().get(KOSDAQ_MASTER_URL, timeout=15)
+    response.raise_for_status()
+    return _parse_kosdaq_spac_master(response.content)
 
 
 def _request(path):

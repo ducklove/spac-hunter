@@ -36,7 +36,7 @@ fetch_data.py            # 수집 CLI 진입점
 validate_data.py         # data.js/data.json 구조·일치 검증 (표준 라이브러리만 사용)
 spac_hunter/             # 수집 파이프라인 패키지
   cli.py http.py constants.py parsing.py alerts.py archive.py filings.py
-  sources/               # krx, kind, dart, opendart, naver, kofr
+  sources/               # kis, kind, dart, opendart, naver, kofr
   domain/                # merger, valuation, enrich
   stats.py sample.py output.py publish.py
   vc_publish.py          # value-invest에서 벤더링한 envelope 헬퍼 — 직접 수정 금지
@@ -120,7 +120,7 @@ handoff·보유 배지 대상)입니다.
 
 ## 데이터 소스
 
-- KRX 상장종목검색: KOSDAQ 종목명에 `스팩` 또는 `SPAC`이 포함된 종목을 universe로 사용
+- [한국투자증권 코스닥 종목 마스터](https://apiportal.koreainvestment.com/apiservice-category): `기업인수목적회사여부`가 `Y`인 종목을 수집합니다. 마스터 조회나 형식 검증이 실패하면 기존 발행 데이터를 유지합니다.
 - KIND 상장법인목록: 상장일, 업종, 주요제품 보강
 - 합병 공시: OpenDART API(키 설정 시 최우선) → KIND 공시검색 → DART 화면 스크래핑 폴백 체인. `회사합병 결정`/`SPAC 합병(예비심사청구대상)`은 `합병 신청`, `상장예비심사결과 통지(승인)` 등은 `합병 확정` 상태로 분류하고, `해산사유 발생` 공시는 해산 배지·이벤트로 표시
 - 한국투자증권 KRX: 정규장 현재가·확정 일별 종가

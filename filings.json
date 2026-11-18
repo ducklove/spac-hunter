@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T01:22:51.751653+09:00",
+  "updatedAt": "2026-11-18T09:24:41.906327+09:00",
   "filings": {
     "477760": {
       "receiptNo": "20240530001411",
@@ -2715,22 +2715,23 @@
       "parseWarnings": [],
       "trustRateChangeScannedAt": "2026-11-18T01:22:51.751653+09:00"
     },
-    "206400": {
-      "receiptNo": "20141128000552",
+    "0205H0": {
+      "receiptNo": "20261014000202",
       "reportName": "[기재정정]투자설명서",
-      "filingDate": "2014-11-28",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20141128000552",
+      "filingDate": "2026-10-14",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261014000202",
       "ipoPrice": 2000,
-      "offeringShares": 5000000,
-      "escrowAmount": 10000000000,
-      "escrowRatePct": 2.5,
-      "escrowAgent": "한국증권금융",
-      "subscriptionStart": "2014-12-01",
-      "subscriptionEnd": "2014-12-01",
-      "paymentDate": "2014-12-01",
-      "extractedAt": "2026-11-18T01:22:51.751653+09:00",
-      "parseWarnings": [],
-      "trustRateChangeScannedAt": "2026-11-18T01:22:51.751653+09:00"
+      "offeringShares": 6500000,
+      "escrowAmount": 13000000000,
+      "escrowRatePct": null,
+      "escrowAgent": "국민은행",
+      "subscriptionStart": "2026-10-15",
+      "subscriptionEnd": "2026-10-16",
+      "paymentDate": "2026-10-20",
+      "extractedAt": "2026-11-18T09:24:41.906327+09:00",
+      "parseWarnings": [
+        "escrowRatePct: 계약 이율 미확인"
+      ]
     }
   },
   "calendarDocs": {
