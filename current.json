@@ -1,27 +1,27 @@
 {
   "source": "KRX/KIND/DART/KIS/Naver",
-  "lastUpdated": "2026-11-22 23:48:45 KST",
+  "lastUpdated": "2026-11-24 03:39:23 KST",
   "rateAssumption": {
-    "annualRate": 0.03064,
-    "annualRatePct": 3.064,
-    "source": "KOFR 최신 공시금리 3.064%(2026.11.20)",
+    "annualRate": 0.0309,
+    "annualRatePct": 3.09,
+    "source": "KOFR 최신 공시금리 3.090%(2026.11.23)",
     "kofr": {
       "source": "KOFR",
       "sourceUrl": "https://www.kofr.kr/main.jsp",
-      "publishedDate": "2026.11.20",
-      "standardDate": "2026.11.19",
-      "latestRatePct": 3.064,
-      "rate": 0.03064,
-      "d30AvgPct": 3.04903,
-      "d90AvgPct": 3.03257,
-      "d180AvgPct": 2.83743,
-      "lastModified": "2026.11.20 10:50:00"
+      "publishedDate": "2026.11.23",
+      "standardDate": "2026.11.20",
+      "latestRatePct": 3.09,
+      "rate": 0.030899999999999997,
+      "d30AvgPct": 3.05322,
+      "d90AvgPct": 3.04461,
+      "d180AvgPct": 2.84684,
+      "lastModified": "2026.11.23 10:50:01"
     }
   },
   "summary": {
     "totalCount": 69,
     "belowIpoCount": 35,
-    "nearIpoCount": 37,
+    "nearIpoCount": 38,
     "dueSoonCount": 5,
     "dueWithinOneYearCount": 21,
     "mergerCount": 8,
@@ -29,29 +29,29 @@
     "mergerConfirmedCount": 3,
     "mergerEventCount": 66,
     "recentListingCount": 6,
-    "averageRatio": 1.0062,
-    "averageAnnualizedReturn": 4.8,
+    "averageRatio": 1.0037,
+    "averageAnnualizedReturn": 5.05,
     "cheapest": {
       "code": "0099X0",
       "name": "IBKS제25호스팩",
-      "ratio": 0.821,
-      "currentPrice": 1642
+      "ratio": 0.7355,
+      "currentPrice": 1471
     },
     "bestYield": {
       "code": "0099X0",
       "name": "IBKS제25호스팩",
-      "annualizedReturn": 11.18,
-      "currentPrice": 1642
+      "annualizedReturn": 16.5,
+      "currentPrice": 1471
     }
   },
   "prices": {
     "0099X0": {
       "name": "IBKS제25호스팩",
-      "currentPrice": 1642,
+      "currentPrice": 1471,
       "ipoPrice": 2000,
-      "ratio": 0.821,
-      "premiumPct": -17.9,
-      "annualizedReturn": 11.18,
+      "ratio": 0.7355,
+      "premiumPct": -26.45,
+      "annualizedReturn": 16.5,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하",
@@ -61,10 +61,10 @@
     },
     "0205H0": {
       "name": "에스케이증권제14호기업인수목적",
-      "currentPrice": 1876,
+      "currentPrice": 1867,
       "ipoPrice": 2000,
-      "ratio": 0.938,
-      "premiumPct": -6.2,
+      "ratio": 0.9335,
+      "premiumPct": -6.65,
       "annualizedReturn": null,
       "status": "공모가 이하",
       "badges": [
@@ -74,24 +74,11 @@
     },
     "0222E0": {
       "name": "아이엠스팩1호",
-      "currentPrice": 1880,
+      "currentPrice": 1870,
       "ipoPrice": 2000,
-      "ratio": 0.94,
-      "premiumPct": -6.0,
-      "annualizedReturn": 4.78,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0127E0": {
-      "name": "한화플러스제6호스팩",
-      "currentPrice": 1885,
-      "ipoPrice": 2000,
-      "ratio": 0.9425,
-      "premiumPct": -5.75,
-      "annualizedReturn": 5.15,
+      "ratio": 0.935,
+      "premiumPct": -6.5,
+      "annualizedReturn": 4.98,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -100,38 +87,24 @@
     },
     "0209J0": {
       "name": "KB제34호스팩",
-      "currentPrice": 1887,
+      "currentPrice": 1884,
       "ipoPrice": 2000,
-      "ratio": 0.9435,
-      "premiumPct": -5.65,
-      "annualizedReturn": 4.37,
+      "ratio": 0.942,
+      "premiumPct": -5.8,
+      "annualizedReturn": 4.44,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
       "mergerStatus": null
     },
-    "498390": {
-      "name": "한화플러스제5호스팩",
-      "currentPrice": 1892,
+    "0127E0": {
+      "name": "한화플러스제6호스팩",
+      "currentPrice": 1887,
       "ipoPrice": 2000,
-      "ratio": 0.946,
-      "premiumPct": -5.4,
-      "annualizedReturn": 8.53,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하",
-        "합병 확정"
-      ],
-      "mergerStatus": "합병 확정"
-    },
-    "0197V0": {
-      "name": "엔에이치스팩34호",
-      "currentPrice": 1899,
-      "ipoPrice": 2000,
-      "ratio": 0.9495,
-      "premiumPct": -5.05,
-      "annualizedReturn": 3.72,
+      "ratio": 0.9435,
+      "premiumPct": -5.65,
+      "annualizedReturn": 5.12,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -140,24 +113,51 @@
     },
     "0200G0": {
       "name": "한국제17호스팩",
-      "currentPrice": 1899,
+      "currentPrice": 1898,
       "ipoPrice": 2000,
-      "ratio": 0.9495,
-      "premiumPct": -5.05,
-      "annualizedReturn": 4.7,
+      "ratio": 0.949,
+      "premiumPct": -5.1,
+      "annualizedReturn": 4.73,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
       "mergerStatus": null
     },
+    "0197V0": {
+      "name": "엔에이치스팩34호",
+      "currentPrice": 1906,
+      "ipoPrice": 2000,
+      "ratio": 0.953,
+      "premiumPct": -4.7,
+      "annualizedReturn": 3.59,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "498390": {
+      "name": "한화플러스제5호스팩",
+      "currentPrice": 1918,
+      "ipoPrice": 2000,
+      "ratio": 0.959,
+      "premiumPct": -4.1,
+      "annualizedReturn": 7.65,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하",
+        "합병 확정"
+      ],
+      "mergerStatus": "합병 확정"
+    },
     "0165X0": {
       "name": "메리츠제2호스팩",
-      "currentPrice": 1926,
+      "currentPrice": 1925,
       "ipoPrice": 2000,
-      "ratio": 0.963,
-      "premiumPct": -3.7,
-      "annualizedReturn": 4.49,
+      "ratio": 0.9625,
+      "premiumPct": -3.75,
+      "annualizedReturn": 4.52,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -166,11 +166,11 @@
     },
     "0164H0": {
       "name": "한국제16호스팩",
-      "currentPrice": 1941,
+      "currentPrice": 1939,
       "ipoPrice": 2000,
-      "ratio": 0.9705,
-      "premiumPct": -2.95,
-      "annualizedReturn": 4.21,
+      "ratio": 0.9695,
+      "premiumPct": -3.05,
+      "annualizedReturn": 4.26,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -179,11 +179,24 @@
     },
     "0130D0": {
       "name": "신한제17호스팩",
-      "currentPrice": 1962,
+      "currentPrice": 1941,
       "ipoPrice": 2000,
-      "ratio": 0.981,
-      "premiumPct": -1.9,
-      "annualizedReturn": 3.53,
+      "ratio": 0.9705,
+      "premiumPct": -2.95,
+      "annualizedReturn": 4.04,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0129K0": {
+      "name": "신한제18호스팩",
+      "currentPrice": 1956,
+      "ipoPrice": 2000,
+      "ratio": 0.978,
+      "premiumPct": -2.2,
+      "annualizedReturn": 3.54,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -192,11 +205,11 @@
     },
     "0130H0": {
       "name": "엔에이치스팩33호",
-      "currentPrice": 1963,
+      "currentPrice": 1957,
       "ipoPrice": 2000,
-      "ratio": 0.9815,
-      "premiumPct": -1.85,
-      "annualizedReturn": 2.96,
+      "ratio": 0.9785,
+      "premiumPct": -2.15,
+      "annualizedReturn": 3.11,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -209,33 +222,7 @@
       "ipoPrice": 2000,
       "ratio": 0.982,
       "premiumPct": -1.8,
-      "annualizedReturn": 3.97,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0097F0": {
-      "name": "미래에셋비전스팩10호",
-      "currentPrice": 1969,
-      "ipoPrice": 2000,
-      "ratio": 0.9845,
-      "premiumPct": -1.55,
-      "annualizedReturn": 3.64,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0004Y0": {
-      "name": "디비금융제14호스팩",
-      "currentPrice": 1970,
-      "ipoPrice": 2000,
-      "ratio": 0.985,
-      "premiumPct": -1.5,
-      "annualizedReturn": 5.57,
+      "annualizedReturn": 3.98,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -244,63 +231,24 @@
     },
     "0099W0": {
       "name": "미래에셋비전스팩11호",
-      "currentPrice": 1970,
+      "currentPrice": 1966,
       "ipoPrice": 2000,
-      "ratio": 0.985,
-      "premiumPct": -1.5,
-      "annualizedReturn": 3.62,
+      "ratio": 0.983,
+      "premiumPct": -1.7,
+      "annualizedReturn": 3.74,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
       "mergerStatus": null
     },
-    "0093G0": {
-      "name": "미래에셋비전스팩8호",
-      "currentPrice": 1970,
+    "0097F0": {
+      "name": "미래에셋비전스팩10호",
+      "currentPrice": 1967,
       "ipoPrice": 2000,
-      "ratio": 0.985,
-      "premiumPct": -1.5,
-      "annualizedReturn": 5.57,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "496070": {
-      "name": "신한제16호스팩",
-      "currentPrice": 1970,
-      "ipoPrice": 2000,
-      "ratio": 0.985,
-      "premiumPct": -1.5,
-      "annualizedReturn": 6.1,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0131D0": {
-      "name": "키움히어로제2호스팩",
-      "currentPrice": 1972,
-      "ipoPrice": 2000,
-      "ratio": 0.986,
-      "premiumPct": -1.4,
-      "annualizedReturn": 2.87,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0072Z0": {
-      "name": "KB제33호스팩",
-      "currentPrice": 1974,
-      "ipoPrice": 2000,
-      "ratio": 0.987,
-      "premiumPct": -1.3,
-      "annualizedReturn": 5.01,
+      "ratio": 0.9835,
+      "premiumPct": -1.65,
+      "annualizedReturn": 3.7,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -309,24 +257,37 @@
     },
     "0132G0": {
       "name": "교보20호스팩",
-      "currentPrice": 1974,
+      "currentPrice": 1973,
       "ipoPrice": 2000,
-      "ratio": 0.987,
-      "premiumPct": -1.3,
-      "annualizedReturn": 3.69,
+      "ratio": 0.9865,
+      "premiumPct": -1.35,
+      "annualizedReturn": 3.72,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
       "mergerStatus": null
     },
-    "0044K0": {
-      "name": "삼성스팩10호",
-      "currentPrice": 1978,
+    "0093G0": {
+      "name": "미래에셋비전스팩8호",
+      "currentPrice": 1974,
       "ipoPrice": 2000,
-      "ratio": 0.989,
-      "premiumPct": -1.1,
-      "annualizedReturn": 5.02,
+      "ratio": 0.987,
+      "premiumPct": -1.3,
+      "annualizedReturn": 5.47,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0072Z0": {
+      "name": "KB제33호스팩",
+      "currentPrice": 1975,
+      "ipoPrice": 2000,
+      "ratio": 0.9875,
+      "premiumPct": -1.25,
+      "annualizedReturn": 4.99,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -335,24 +296,37 @@
     },
     "0096D0": {
       "name": "미래에셋비전스팩9호",
-      "currentPrice": 1979,
+      "currentPrice": 1976,
       "ipoPrice": 2000,
-      "ratio": 0.9895,
-      "premiumPct": -1.05,
-      "annualizedReturn": 3.49,
+      "ratio": 0.988,
+      "premiumPct": -1.2,
+      "annualizedReturn": 3.58,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
       "mergerStatus": null
     },
-    "0129K0": {
-      "name": "신한제18호스팩",
-      "currentPrice": 1979,
+    "0044K0": {
+      "name": "삼성스팩10호",
+      "currentPrice": 1977,
       "ipoPrice": 2000,
-      "ratio": 0.9895,
-      "premiumPct": -1.05,
-      "annualizedReturn": 3.02,
+      "ratio": 0.9885,
+      "premiumPct": -1.15,
+      "annualizedReturn": 5.07,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0131D0": {
+      "name": "키움히어로제2호스팩",
+      "currentPrice": 1977,
+      "ipoPrice": 2000,
+      "ratio": 0.9885,
+      "premiumPct": -1.15,
+      "annualizedReturn": 2.77,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -361,11 +335,11 @@
     },
     "0098T0": {
       "name": "교보19호스팩",
-      "currentPrice": 1980,
+      "currentPrice": 1979,
       "ipoPrice": 2000,
-      "ratio": 0.99,
-      "premiumPct": -1.0,
-      "annualizedReturn": 3.8,
+      "ratio": 0.9895,
+      "premiumPct": -1.05,
+      "annualizedReturn": 3.84,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -374,37 +348,11 @@
     },
     "0115H0": {
       "name": "삼성스팩13호",
-      "currentPrice": 1980,
+      "currentPrice": 1982,
       "ipoPrice": 2000,
-      "ratio": 0.99,
-      "premiumPct": -1.0,
-      "annualizedReturn": 2.85,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0134X0": {
-      "name": "대신밸런스제20호스팩",
-      "currentPrice": 1984,
-      "ipoPrice": 2000,
-      "ratio": 0.992,
-      "premiumPct": -0.8,
-      "annualizedReturn": 2.33,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0037T0": {
-      "name": "KB제32호스팩",
-      "currentPrice": 1985,
-      "ipoPrice": 2000,
-      "ratio": 0.9925,
-      "premiumPct": -0.75,
-      "annualizedReturn": 5.09,
+      "ratio": 0.991,
+      "premiumPct": -0.9,
+      "annualizedReturn": 2.81,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -413,24 +361,24 @@
     },
     "0096B0": {
       "name": "삼성스팩12호",
-      "currentPrice": 1986,
+      "currentPrice": 1983,
       "ipoPrice": 2000,
-      "ratio": 0.993,
-      "premiumPct": -0.7,
-      "annualizedReturn": 2.9,
+      "ratio": 0.9915,
+      "premiumPct": -0.85,
+      "annualizedReturn": 2.99,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
       ],
       "mergerStatus": null
     },
-    "0105P0": {
-      "name": "유진스팩12호",
+    "0037T0": {
+      "name": "KB제32호스팩",
       "currentPrice": 1989,
       "ipoPrice": 2000,
       "ratio": 0.9945,
       "premiumPct": -0.55,
-      "annualizedReturn": 4.0,
+      "annualizedReturn": 4.97,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -439,11 +387,50 @@
     },
     "0071M0": {
       "name": "삼성스팩11호",
+      "currentPrice": 1990,
+      "ipoPrice": 2000,
+      "ratio": 0.995,
+      "premiumPct": -0.5,
+      "annualizedReturn": 5.27,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "496070": {
+      "name": "신한제16호스팩",
+      "currentPrice": 1990,
+      "ipoPrice": 2000,
+      "ratio": 0.995,
+      "premiumPct": -0.5,
+      "annualizedReturn": 5.36,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0105P0": {
+      "name": "유진스팩12호",
       "currentPrice": 1991,
       "ipoPrice": 2000,
       "ratio": 0.9955,
       "premiumPct": -0.45,
-      "annualizedReturn": 5.22,
+      "annualizedReturn": 3.95,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0134X0": {
+      "name": "대신밸런스제20호스팩",
+      "currentPrice": 1992,
+      "ipoPrice": 2000,
+      "ratio": 0.996,
+      "premiumPct": -0.4,
+      "annualizedReturn": 2.16,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -452,24 +439,11 @@
     },
     "0041J0": {
       "name": "엘에스스팩1호",
-      "currentPrice": 1992,
+      "currentPrice": 1993,
       "ipoPrice": 2000,
-      "ratio": 0.996,
-      "premiumPct": -0.4,
-      "annualizedReturn": 4.84,
-      "status": "공모가 이하",
-      "badges": [
-        "공모가 이하"
-      ],
-      "mergerStatus": null
-    },
-    "0041L0": {
-      "name": "하나35호스팩",
-      "currentPrice": 1994,
-      "ipoPrice": 2000,
-      "ratio": 0.997,
-      "premiumPct": -0.3,
-      "annualizedReturn": 4.43,
+      "ratio": 0.9965,
+      "premiumPct": -0.35,
+      "annualizedReturn": 4.83,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -478,11 +452,24 @@
     },
     "0068Y0": {
       "name": "비엔케이제3호스팩",
-      "currentPrice": 1995,
+      "currentPrice": 1994,
       "ipoPrice": 2000,
-      "ratio": 0.9975,
-      "premiumPct": -0.25,
-      "annualizedReturn": 4.37,
+      "ratio": 0.997,
+      "premiumPct": -0.3,
+      "annualizedReturn": 4.41,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0004Y0": {
+      "name": "디비금융제14호스팩",
+      "currentPrice": 1996,
+      "ipoPrice": 2000,
+      "ratio": 0.998,
+      "premiumPct": -0.2,
+      "annualizedReturn": 4.7,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -491,11 +478,24 @@
     },
     "0054V0": {
       "name": "엔에이치스팩32호",
-      "currentPrice": 1995,
+      "currentPrice": 1997,
       "ipoPrice": 2000,
-      "ratio": 0.9975,
-      "premiumPct": -0.25,
-      "annualizedReturn": 3.88,
+      "ratio": 0.9985,
+      "premiumPct": -0.15,
+      "annualizedReturn": 3.84,
+      "status": "공모가 이하",
+      "badges": [
+        "공모가 이하"
+      ],
+      "mergerStatus": null
+    },
+    "0041L0": {
+      "name": "하나35호스팩",
+      "currentPrice": 1998,
+      "ipoPrice": 2000,
+      "ratio": 0.999,
+      "premiumPct": -0.1,
+      "annualizedReturn": 4.31,
       "status": "공모가 이하",
       "badges": [
         "공모가 이하"
@@ -508,7 +508,33 @@
       "ipoPrice": 2000,
       "ratio": 1.0,
       "premiumPct": 0.0,
-      "annualizedReturn": 4.36,
+      "annualizedReturn": 4.37,
+      "status": "공모가 근접",
+      "badges": [
+        "공모가 근접"
+      ],
+      "mergerStatus": null
+    },
+    "466690": {
+      "name": "키움히어로제1호스팩",
+      "currentPrice": 2010,
+      "ipoPrice": 2000,
+      "ratio": 1.005,
+      "premiumPct": 0.5,
+      "annualizedReturn": 2.55,
+      "status": "공모가 근접",
+      "badges": [
+        "공모가 근접"
+      ],
+      "mergerStatus": null
+    },
+    "487360": {
+      "name": "신한제14호스팩",
+      "currentPrice": 2015,
+      "ipoPrice": 2000,
+      "ratio": 1.0075,
+      "premiumPct": 0.75,
+      "annualizedReturn": 6.82,
       "status": "공모가 근접",
       "badges": [
         "공모가 근접"
@@ -517,50 +543,11 @@
     },
     "493790": {
       "name": "유안타제17호스팩",
-      "currentPrice": 2020,
+      "currentPrice": 2025,
       "ipoPrice": 2000,
-      "ratio": 1.01,
-      "premiumPct": 1.0,
-      "annualizedReturn": 5.56,
-      "status": "공모가 근접",
-      "badges": [
-        "공모가 근접"
-      ],
-      "mergerStatus": null
-    },
-    "0088D0": {
-      "name": "메리츠제1호스팩",
-      "currentPrice": 2030,
-      "ipoPrice": 2000,
-      "ratio": 1.015,
-      "premiumPct": 1.5,
-      "annualizedReturn": 2.34,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "mergerStatus": null
-    },
-    "487360": {
-      "name": "신한제14호스팩",
-      "currentPrice": 2030,
-      "ipoPrice": 2000,
-      "ratio": 1.015,
-      "premiumPct": 1.5,
-      "annualizedReturn": 5.96,
-      "status": "일반",
-      "badges": [
-        "일반"
-      ],
-      "mergerStatus": null
-    },
-    "466690": {
-      "name": "키움히어로제1호스팩",
-      "currentPrice": 2030,
-      "ipoPrice": 2000,
-      "ratio": 1.015,
-      "premiumPct": 1.5,
-      "annualizedReturn": 2.02,
+      "ratio": 1.0125,
+      "premiumPct": 1.25,
+      "annualizedReturn": 5.34,
       "status": "일반",
       "badges": [
         "일반"
@@ -569,24 +556,11 @@
     },
     "484130": {
       "name": "하나34호스팩",
-      "currentPrice": 2037,
+      "currentPrice": 2025,
       "ipoPrice": 2000,
-      "ratio": 1.0185,
-      "premiumPct": 1.85,
-      "annualizedReturn": 6.28,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "mergerStatus": null
-    },
-    "487830": {
-      "name": "신한제15호스팩",
-      "currentPrice": 2040,
-      "ipoPrice": 2000,
-      "ratio": 1.02,
-      "premiumPct": 2.0,
-      "annualizedReturn": 6.58,
+      "ratio": 1.0125,
+      "premiumPct": 1.25,
+      "annualizedReturn": 7.05,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -595,11 +569,11 @@
     },
     "492220": {
       "name": "KB제31호스팩",
-      "currentPrice": 2045,
+      "currentPrice": 2035,
       "ipoPrice": 2000,
-      "ratio": 1.0225,
-      "premiumPct": 2.25,
-      "annualizedReturn": 4.85,
+      "ratio": 1.0175,
+      "premiumPct": 1.75,
+      "annualizedReturn": 5.43,
       "status": "일반",
       "badges": [
         "일반"
@@ -608,14 +582,40 @@
     },
     "489730": {
       "name": "디비금융제13호스팩",
+      "currentPrice": 2040,
+      "ipoPrice": 2000,
+      "ratio": 1.02,
+      "premiumPct": 2.0,
+      "annualizedReturn": 5.78,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null
+    },
+    "0088D0": {
+      "name": "메리츠제1호스팩",
+      "currentPrice": 2040,
+      "ipoPrice": 2000,
+      "ratio": 1.02,
+      "premiumPct": 2.0,
+      "annualizedReturn": 2.09,
+      "status": "일반",
+      "badges": [
+        "일반"
+      ],
+      "mergerStatus": null
+    },
+    "486630": {
+      "name": "KB제30호스팩",
       "currentPrice": 2045,
       "ipoPrice": 2000,
       "ratio": 1.0225,
       "premiumPct": 2.25,
-      "annualizedReturn": 5.46,
-      "status": "일반",
+      "annualizedReturn": 7.11,
+      "status": "청산 1년 이내",
       "badges": [
-        "일반"
+        "청산 1년 이내"
       ],
       "mergerStatus": null
     },
@@ -625,10 +625,23 @@
       "ipoPrice": 2000,
       "ratio": 1.0225,
       "premiumPct": 2.25,
-      "annualizedReturn": 3.36,
+      "annualizedReturn": 3.37,
       "status": "일반",
       "badges": [
         "일반"
+      ],
+      "mergerStatus": null
+    },
+    "487830": {
+      "name": "신한제15호스팩",
+      "currentPrice": 2045,
+      "ipoPrice": 2000,
+      "ratio": 1.0225,
+      "premiumPct": 2.25,
+      "annualizedReturn": 6.31,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
       ],
       "mergerStatus": null
     },
@@ -638,20 +651,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0225,
       "premiumPct": 2.25,
-      "annualizedReturn": 6.41,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "mergerStatus": null
-    },
-    "486630": {
-      "name": "KB제30호스팩",
-      "currentPrice": 2050,
-      "ipoPrice": 2000,
-      "ratio": 1.025,
-      "premiumPct": 2.5,
-      "annualizedReturn": 6.68,
+      "annualizedReturn": 6.45,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -664,7 +664,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0275,
       "premiumPct": 2.75,
-      "annualizedReturn": 5.14,
+      "annualizedReturn": 5.17,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -672,26 +672,26 @@
       ],
       "mergerStatus": "합병 신청"
     },
-    "477340": {
-      "name": "에이치엠씨제7호스팩",
-      "currentPrice": 2055,
-      "ipoPrice": 2000,
-      "ratio": 1.0275,
-      "premiumPct": 2.75,
-      "annualizedReturn": 9.89,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "mergerStatus": null
-    },
     "489210": {
       "name": "교보17호스팩",
       "currentPrice": 2060,
       "ipoPrice": 2000,
       "ratio": 1.03,
       "premiumPct": 3.0,
-      "annualizedReturn": 5.3,
+      "annualizedReturn": 5.33,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null
+    },
+    "478440": {
+      "name": "미래에셋비전스팩6호",
+      "currentPrice": 2060,
+      "ipoPrice": 2000,
+      "ratio": 1.03,
+      "premiumPct": 3.0,
+      "annualizedReturn": 8.37,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -704,23 +704,10 @@
       "ipoPrice": 2000,
       "ratio": 1.03,
       "premiumPct": 3.0,
-      "annualizedReturn": 7.51,
+      "annualizedReturn": 7.59,
       "status": "일반",
       "badges": [
         "일반"
-      ],
-      "mergerStatus": null
-    },
-    "478110": {
-      "name": "이베스트스팩6호",
-      "currentPrice": 2060,
-      "ipoPrice": 2000,
-      "ratio": 1.03,
-      "premiumPct": 3.0,
-      "annualizedReturn": 8.03,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
       ],
       "mergerStatus": null
     },
@@ -730,7 +717,7 @@
       "ipoPrice": 2000,
       "ratio": 1.0325,
       "premiumPct": 3.25,
-      "annualizedReturn": 4.86,
+      "annualizedReturn": 4.89,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -738,13 +725,39 @@
       ],
       "mergerStatus": "합병 신청"
     },
-    "478440": {
-      "name": "미래에셋비전스팩6호",
+    "481890": {
+      "name": "엔에이치스팩31호",
       "currentPrice": 2065,
       "ipoPrice": 2000,
       "ratio": 1.0325,
       "premiumPct": 3.25,
-      "annualizedReturn": 7.71,
+      "annualizedReturn": 6.81,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null
+    },
+    "478110": {
+      "name": "이베스트스팩6호",
+      "currentPrice": 2065,
+      "ipoPrice": 2000,
+      "ratio": 1.0325,
+      "premiumPct": 3.25,
+      "annualizedReturn": 7.61,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null
+    },
+    "479880": {
+      "name": "한국제15호스팩",
+      "currentPrice": 2065,
+      "ipoPrice": 2000,
+      "ratio": 1.0325,
+      "premiumPct": 3.25,
+      "annualizedReturn": 7.47,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -757,20 +770,7 @@
       "ipoPrice": 2000,
       "ratio": 1.035,
       "premiumPct": 3.5,
-      "annualizedReturn": 7.31,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
-      ],
-      "mergerStatus": null
-    },
-    "479880": {
-      "name": "한국제15호스팩",
-      "currentPrice": 2070,
-      "ipoPrice": 2000,
-      "ratio": 1.035,
-      "premiumPct": 3.5,
-      "annualizedReturn": 6.84,
+      "annualizedReturn": 7.4,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -783,20 +783,33 @@
       "ipoPrice": 2000,
       "ratio": 1.0375,
       "premiumPct": 3.75,
-      "annualizedReturn": 3.84,
+      "annualizedReturn": 3.86,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
       ],
       "mergerStatus": null
     },
-    "481890": {
-      "name": "엔에이치스팩31호",
+    "477380": {
+      "name": "미래에셋비전스팩4호",
       "currentPrice": 2075,
       "ipoPrice": 2000,
       "ratio": 1.0375,
       "premiumPct": 3.75,
-      "annualizedReturn": 5.82,
+      "annualizedReturn": 7.96,
+      "status": "청산 1년 이내",
+      "badges": [
+        "청산 1년 이내"
+      ],
+      "mergerStatus": null
+    },
+    "477340": {
+      "name": "에이치엠씨제7호스팩",
+      "currentPrice": 2075,
+      "ipoPrice": 2000,
+      "ratio": 1.0375,
+      "premiumPct": 3.75,
+      "annualizedReturn": 7.7,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -809,23 +822,10 @@
       "ipoPrice": 2000,
       "ratio": 1.04,
       "premiumPct": 4.0,
-      "annualizedReturn": 7.07,
+      "annualizedReturn": 7.16,
       "status": "일반",
       "badges": [
         "일반"
-      ],
-      "mergerStatus": null
-    },
-    "477380": {
-      "name": "미래에셋비전스팩4호",
-      "currentPrice": 2080,
-      "ipoPrice": 2000,
-      "ratio": 1.04,
-      "premiumPct": 4.0,
-      "annualizedReturn": 7.2,
-      "status": "청산 1년 이내",
-      "badges": [
-        "청산 1년 이내"
       ],
       "mergerStatus": null
     },
@@ -835,7 +835,7 @@
       "ipoPrice": 2000,
       "ratio": 1.04,
       "premiumPct": 4.0,
-      "annualizedReturn": 6.27,
+      "annualizedReturn": 6.35,
       "status": "청산 1년 이내",
       "badges": [
         "청산 1년 이내"
@@ -848,7 +848,7 @@
       "ipoPrice": 2000,
       "ratio": 1.04,
       "premiumPct": 4.0,
-      "annualizedReturn": 8.19,
+      "annualizedReturn": 8.27,
       "status": "합병 신청",
       "badges": [
         "합병 신청",
@@ -858,11 +858,11 @@
     },
     "473000": {
       "name": "에스케이증권제12호스팩",
-      "currentPrice": 2085,
+      "currentPrice": 2087,
       "ipoPrice": 2000,
-      "ratio": 1.0425,
-      "premiumPct": 4.25,
-      "annualizedReturn": 9.21,
+      "ratio": 1.0435,
+      "premiumPct": 4.35,
+      "annualizedReturn": 9.05,
       "status": "일반",
       "badges": [
         "일반"
@@ -871,11 +871,11 @@
     },
     "474490": {
       "name": "유안타제16호스팩",
-      "currentPrice": 2087,
+      "currentPrice": 2090,
       "ipoPrice": 2000,
-      "ratio": 1.0435,
-      "premiumPct": 4.35,
-      "annualizedReturn": 8.87,
+      "ratio": 1.045,
+      "premiumPct": 4.5,
+      "annualizedReturn": 8.54,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -884,11 +884,11 @@
     },
     "474930": {
       "name": "신한제13호스팩",
-      "currentPrice": 2090,
+      "currentPrice": 2095,
       "ipoPrice": 2000,
-      "ratio": 1.045,
-      "premiumPct": 4.5,
-      "annualizedReturn": 9.49,
+      "ratio": 1.0475,
+      "premiumPct": 4.75,
+      "annualizedReturn": 8.79,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -897,11 +897,11 @@
     },
     "475250": {
       "name": "하나33호스팩",
-      "currentPrice": 2090,
+      "currentPrice": 2095,
       "ipoPrice": 2000,
-      "ratio": 1.045,
-      "premiumPct": 4.5,
-      "annualizedReturn": 8.45,
+      "ratio": 1.0475,
+      "premiumPct": 4.75,
+      "annualizedReturn": 7.75,
       "status": "청산 6개월 이내",
       "badges": [
         "청산 6개월 이내"
@@ -927,7 +927,7 @@
       "ipoPrice": 2000,
       "ratio": 1.1,
       "premiumPct": 10.0,
-      "annualizedReturn": -1.15,
+      "annualizedReturn": -1.16,
       "status": "합병 신청",
       "badges": [
         "합병 신청"
@@ -936,11 +936,11 @@
     },
     "469480": {
       "name": "IBKS제24호스팩",
-      "currentPrice": 2465,
+      "currentPrice": 2305,
       "ipoPrice": 2000,
-      "ratio": 1.2325,
-      "premiumPct": 23.25,
-      "annualizedReturn": -22.49,
+      "ratio": 1.1525,
+      "premiumPct": 15.25,
+      "annualizedReturn": -11.31,
       "status": "합병 확정",
       "badges": [
         "합병 확정",
